@@ -2754,7 +2754,7 @@ sys.stdout = _old_stdout
             const apiKey = localStorage.getItem('gemini_api_key') || "";
             if (!apiKey) return "API_KEY_MISSING";
 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             let delay = 1000;
             for (let i = 0; i < maxRetries; i++) {
                 try {
