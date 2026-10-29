@@ -1440,15 +1440,21 @@
         function initGoogleVietnameseVoice() {
             if (!synth) return;
             const voices = synth.getVoices();
+            
+            // Ưu tiên 1: Giọng đọc AI Online chất lượng cao của Microsoft Edge hoặc Google Chrome
             googleVietnameseVoice = voices.find(v => 
                 (v.lang === 'vi-VN' || v.lang === 'vi_VN' || v.lang.startsWith('vi')) && 
-                (v.name.toLowerCase().includes('google') || v.name.toLowerCase().includes('ban mai') || v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('online'))
+                (v.name.includes('Online') || v.name.includes('Natural') || v.name.includes('HoaiMy') || v.name.includes('Google'))
             );
+            
+            // Ưu tiên 2: Các giọng Tiếng Việt khác nếu không có giọng AI
             if (!googleVietnameseVoice) {
                 googleVietnameseVoice = voices.find(v => 
-                    (v.lang === 'vi-VN' || v.lang === 'vi') && !v.name.includes('Desktop') && !v.name.includes('Microsoft An')
+                    (v.lang === 'vi-VN' || v.lang === 'vi') && !v.name.includes('Desktop')
                 );
             }
+            
+            // Ưu tiên 3: Bất kỳ giọng Tiếng Việt nào tìm thấy
             if (!googleVietnameseVoice) {
                 googleVietnameseVoice = voices.find(v => v.lang.startsWith('vi'));
             }
@@ -1504,8 +1510,9 @@
             }
 
             currentUtterance.lang = 'vi-VN';
-            currentUtterance.rate = 0.93;
-            currentUtterance.pitch = 1.05;
+            // Tinh chỉnh lại tốc độ và cao độ để giọng mượt hơn, bớt giống robot
+            currentUtterance.rate = 0.95; 
+            currentUtterance.pitch = 1.0;
 
             currentUtterance.onstart = function() { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
             currentUtterance.onend = function() { isRobotSpeaking = false; updateRobotSpeakingUi(false); };
@@ -1855,6 +1862,11 @@
                 if (getRes.ok) {
                     const fileData = await getRes.json();
                     currentSha = fileData.sha;
+                } else if (getRes.status === 401 || getRes.status === 403) {
+                    if (!silent) showToast("Token GitHub không hợp lệ hoặc thiếu quyền 'repo'.", "error");
+                    return false;
+                } else if (getRes.status !== 404) {
+                    console.warn("GitHub API Check Error:", await getRes.text());
                 }
 
                 // 2. Prepare Payload encoded to Base64 (UTF-8 safe)
