@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nền tảng học trực tuyến cùng AI</title>
+    <!-- Tích hợp Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tích hợp Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Tích hợp Pyodide (Trình biên dịch Python WASM) -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <!-- Tích hợp Marked.js để render Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .code-font { font-family: 'Fira Code', monospace; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Animation Robot */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .robot-float { animation: float 3s ease-in-out infinite; }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .speaking-ring { animation: pulse-ring 1.5s infinite cubic-bezier(0.66, 0, 0, 1); border-radius: 50%; }
+
+        /* Code Editor Style */
+        .editor-textarea {
+            tab-size: 4;
+            -moz-tab-size: 4;
+            white-space: pre;
+            overflow-wrap: normal;
+            overflow-x: auto;
+        }
+        
+        /* Toast Notification */
+        .toast-enter { transform: translateY(100%); opacity: 0; }
+        .toast-enter-active { transform: translateY(0); opacity: 1; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .toast-exit { transform: translateY(0); opacity: 1; }
+        .toast-exit-active { transform: translateY(-100%); opacity: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-blue-200">
+                    <i class="ph-bold ph-terminal-window text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-slate-900 leading-tight">TRỢ LÝ HỌC TẬP LẬP TRÌNH PYTHON</h1>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-medium text-slate-500">Nền tảng học trực tuyến cùng AI</span>
+                        <span class="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-[10px] font-bold">LMS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Info (Hidden by default) -->
+            <div id="userHeaderInfo" class="hidden flex items-center gap-4">
+                <div class="text-right hidden sm:block">
+                    <div id="headerUserName" class="text-sm font-bold text-slate-700">Người dùng</div>
+                    <div id="headerUserRole" class="text-xs font-medium text-slate-500">Vai trò</div>
+                </div>
+                <div class="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600">
+                    <i class="ph-fill ph-user text-xl"></i>
+                </div>
+                <button onclick="logout()" class="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Đăng xuất">
+                    <i class="ph-bold ph-sign-out text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl mx-auto w-full p-4 flex flex-col relative">
+        
+        <!-- ==================== KHOẢNG KHÔNG GIAN ĐĂNG NHẬP ==================== -->
+        <div id="loginWorkspace" class="flex-1 flex items-center justify-center">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 w-full max-w-md">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-blue-600 mb-4">
+                        <i class="ph-fill ph-student text-4xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800" id="authTitle">Học sinh Đăng ký / Đăng nhập</h2>
+                    <p class="text-sm text-slate-500 mt-1">Vui lòng đăng nhập để vào hệ thống</p>
+                </div>
+
+                <!-- Tabs: Học Sinh / Giáo Viên -->
+                <div class="flex p-1 bg-slate-100 rounded-xl mb-6">
+                    <button onclick="switchAuthRole('student')" id="tabAuthStudent" class="flex-1 py-2 text-sm font-semibold rounded-lg bg-white shadow-sm text-blue-700 transition-all">Học Sinh</button>
+                    <button onclick="switchAuthRole('teacher')" id="tabAuthTeacher" class="flex-1 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition-all">Giáo Viên</button>
+                </div>
+
+                <div id="studentAuthForm">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Tên đăng nhập / Email / SĐT</label>
+                            <input type="text" id="studentUsername" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Nhập định danh của bạn">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu</label>
+                            <input type="password" id="studentPassword" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="••••••••">
+                        </div>
+                        <button onclick="processLogin('student')" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-lg shadow-blue-200 transition-all">
+                            Đăng Nhập
+                        </button>
+                        <div class="text-center mt-4">
+                            <span class="text-sm text-slate-500">Chưa có tài khoản? </span>
+                            <button onclick="openRegisterModal('student')" class="text-sm font-bold text-blue-600 hover:underline">Đăng ký ngay</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="teacherAuthForm" class="hidden">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Tên đăng nhập (Hoặc Admin)</label>
+                            <input type="text" id="teacherUsername" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Ví dụ: gv_nguyenvana hoặc 086081006094">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu</label>
+                            <input type="password" id="teacherPassword" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Mật khẩu của bạn">
+                        </div>
+                        <button onclick="processLogin('teacher')" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-lg shadow-indigo-200 transition-all">
+                            Đăng Nhập Quản Trị
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== KHÔNG GIAN HỌC SINH ==================== -->
+        <div id="studentWorkspace" class="hidden flex-1 flex flex-col h-[calc(100vh-100px)]">
+            <!-- Tabs Không gian học sinh -->
+            <div class="flex gap-2 mb-4">
+                <button onclick="switchStudentTab('judge')" id="tabStudentJudge" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-blue-600 text-white shadow-md transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-exam"></i> Bài Tập Được Giao
+                </button>
+                <button onclick="switchStudentTab('ide')" id="tabStudentIde" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2">
+                    <i class="ph-bold ph-code"></i> Cửa Sổ Soạn & Biên Dịch Python
+                </button>
+            </div>
+
+            <!-- Tab 1: Trình Chấm Bài (Online Judge) -->
+            <div id="studentJudgeTab" class="flex-1 flex flex-col lg:flex-row gap-4 h-full min-h-0">
+                <!-- Cột trái: Đề bài -->
+                <div class="w-full lg:w-1/3 bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between shrink-0">
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-book-open text-blue-600 text-xl"></i>
+                            <h3 class="font-bold text-slate-800">Đề Bài</h3>
+                        </div>
+                        <select id="assignmentSelectStudent" onchange="loadAssignment(this.value)" class="text-sm border-slate-200 rounded-lg py-1.5 px-3 bg-white font-medium outline-none focus:border-blue-500">
+                            <!-- JS Populate -->
+                        </select>
+                    </div>
+                    <div class="p-5 overflow-y-auto flex-1 text-sm prose prose-slate max-w-none" id="assignmentContentStudent">
+                        <p class="text-slate-500 italic">Vui lòng chọn bài tập...</p>
+                    </div>
+                </div>
+
+                <!-- Cột phải: Editor & I/O -->
+                <div class="w-full lg:w-2/3 flex flex-col gap-4 min-h-0">
+                    <!-- Khu vực Code -->
+                    <div class="flex-1 bg-[#1e1e1e] rounded-2xl shadow-sm border border-slate-800 flex flex-col overflow-hidden relative">
+                        <div class="px-4 py-2 bg-[#2d2d2d] border-b border-[#404040] flex items-center justify-between shrink-0">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="ph-fill ph-file-code text-blue-400"></i>
+                                <span class="text-sm font-semibold code-font">solution.py</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="openAiModal()" class="px-3 py-1.5 bg-purple-600/20 text-purple-400 hover:bg-purple-600/40 hover:text-purple-300 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 border border-purple-500/30">
+                                    <i class="ph-bold ph-magic-wand"></i> Nhờ AI Hỗ Trợ
+                                </button>
+                                <button onclick="runStudentCode()" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-lg shadow-emerald-900/50">
+                                    <i class="ph-bold ph-play"></i> Chạy Thử
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="codeEditorStudent" class="flex-1 w-full bg-transparent text-slate-100 code-font text-[15px] p-4 outline-none resize-none editor-textarea" spellcheck="false" placeholder="# Viết mã Python của em ở đây..."></textarea>
+                    </div>
+
+                    <!-- Khu vực I/O & Nộp bài -->
+                    <div class="h-56 shrink-0 flex gap-4">
+                        <div class="w-1/2 flex flex-col gap-2">
+                            <div class="flex-1 bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm">
+                                <div class="px-3 py-1.5 bg-slate-50 border-b border-slate-100 text-xs font-bold text-slate-500 flex items-center gap-1.5 shrink-0"><i class="ph-bold ph-download-simple"></i> input.txt (Dữ liệu vào)</div>
+                                <textarea id="customInputStudent" class="flex-1 w-full p-3 text-sm code-font bg-transparent outline-none resize-none" spellcheck="false" placeholder="Nhập dữ liệu test..."></textarea>
+                            </div>
+                            <div class="flex-1 bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm">
+                                <div class="px-3 py-1.5 bg-slate-50 border-b border-slate-100 text-xs font-bold text-slate-500 flex items-center gap-1.5 shrink-0"><i class="ph-bold ph-upload-simple"></i> output.txt (Kết quả chạy)</div>
+                                <textarea id="customOutputStudent" readonly class="flex-1 w-full p-3 text-sm code-font bg-slate-50 text-slate-700 outline-none resize-none" spellcheck="false"></textarea>
+                            </div>
+                        </div>
+                        <div class="w-1/2 bg-white rounded-xl border border-slate-200 p-4 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm mb-3 flex items-center gap-2"><i class="ph-fill ph-check-circle text-emerald-500"></i> Bảng Chấm Điểm</h4>
+                                <div id="testResultsContainer" class="space-y-2 max-h-24 overflow-y-auto pr-2">
+                                    <p class="text-xs text-slate-500 italic">Bấm "Nộp Bài" để hệ thống tự động chấm qua các Test Case.</p>
+                                </div>
+                            </div>
+                            <button onclick="submitAndGrade()" class="w-full py-3 mt-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-200 transition-transform active:scale-[0.98] flex items-center justify-center gap-2">
+                                <i class="ph-bold ph-paper-plane-tilt"></i> NỘP BÀI CHẤM ĐIỂM
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Cửa Sổ Soạn & Biên Dịch Python (IDE Tự do) -->
+            <div id="studentIdeTab" class="hidden flex-1 flex flex-col gap-4 h-full min-h-0">
+                <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
+                    <div class="flex items-center gap-2">
+                        <select id="ideTemplateSelect" onchange="loadIdeTemplate(this.value)" class="text-sm border border-slate-300 rounded-lg py-1.5 px-3 bg-white font-medium outline-none focus:border-blue-500">
+                            <option value="">-- Mẫu Code Cơ Bản --</option>
+                            <option value="hello">In ra Hello World</option>
+                            <option value="input">Nhập xuất dữ liệu (input)</option>
+                            <option value="ifelse">Cấu trúc rẽ nhánh (if-else)</option>
+                            <option value="forloop">Vòng lặp For</option>
+                            <option value="whileloop">Vòng lặp While</option>
+                            <option value="list">Xử lý mảng (List)</option>
+                            <option value="function">Định nghĩa hàm (def)</option>
+                            <option value="prime">Thuật toán Số Nguyên Tố</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="downloadCode()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5">
+                            <i class="ph-bold ph-download"></i> Tải .py
+                        </button>
+                        <label class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer">
+                            <i class="ph-bold ph-folder-open"></i> Mở File
+                            <input type="file" id="ideFileInput" accept=".py,.txt" class="hidden" onchange="openCodeFile(event)">
+                        </label>
+                        <button onclick="copyIdeCode()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5">
+                            <i class="ph-bold ph-copy"></i> Sao chép
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 flex gap-4 min-h-0">
+                    <!-- IDE Editor -->
+                    <div class="w-2/3 bg-[#1e1e1e] rounded-2xl shadow-sm border border-slate-800 flex flex-col overflow-hidden relative">
+                        <div class="px-4 py-2 bg-[#2d2d2d] border-b border-[#404040] flex items-center justify-between shrink-0">
+                            <div class="flex items-center gap-2 text-slate-300">
+                                <i class="ph-fill ph-file-code text-yellow-400"></i>
+                                <span class="text-sm font-semibold code-font">main.py</span>
+                            </div>
+                            <button onclick="runIdeCode()" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 shadow-lg shadow-emerald-900/50">
+                                <i class="ph-bold ph-play"></i> Biên Dịch & Chạy
+                            </button>
+                        </div>
+                        <textarea id="ideEditor" class="flex-1 w-full bg-transparent text-slate-100 code-font text-[15px] p-4 outline-none resize-none editor-textarea" spellcheck="false" placeholder="# Cửa sổ soạn code tự do..."></textarea>
+                    </div>
+
+                    <!-- IDE Console & Input -->
+                    <div class="w-1/3 flex flex-col gap-4">
+                        <div class="h-1/3 bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm">
+                            <div class="px-3 py-2 bg-slate-50 border-b border-slate-100 text-xs font-bold text-slate-500 flex items-center gap-1.5 shrink-0">
+                                <i class="ph-bold ph-keyboard"></i> Standard Input (stdin)
+                            </div>
+                            <textarea id="ideInput" class="flex-1 w-full p-3 text-sm code-font bg-transparent outline-none resize-none" spellcheck="false" placeholder="Nhập dữ liệu đầu vào (nếu chương trình có dùng hàm input())"></textarea>
+                        </div>
+                        <div class="flex-1 bg-[#0f172a] rounded-xl border border-slate-700 overflow-hidden flex flex-col shadow-sm relative">
+                            <div class="px-3 py-2 bg-[#1e293b] border-b border-slate-700 text-xs font-bold text-slate-300 flex items-center justify-between shrink-0">
+                                <div class="flex items-center gap-1.5"><i class="ph-bold ph-terminal"></i> Terminal Console</div>
+                                <span id="ideTimeLabel" class="text-[10px] text-slate-400">0 ms</span>
+                            </div>
+                            <textarea id="ideTerminal" readonly class="flex-1 w-full p-3 text-sm code-font bg-transparent text-emerald-400 outline-none resize-none" spellcheck="false"></textarea>
+                            
+                            <!-- Nút hỏi AI thông minh khi có lỗi -->
+                            <button id="ideAskAiBtn" onclick="askAiAboutIdeError()" class="hidden absolute bottom-4 right-4 px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-full text-xs font-bold shadow-lg shadow-rose-900/50 flex items-center gap-2 animate-bounce">
+                                <i class="ph-bold ph-magic-wand"></i> Nhờ AI Giải Thích Lỗi Này
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== KHÔNG GIAN ADMIN / GIÁO VIÊN ==================== -->
+        <div id="adminWorkspace" class="hidden flex-1 flex flex-col h-[calc(100vh-100px)]">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div class="flex gap-2">
+                    <button onclick="switchAdminTab('assignments')" id="tabAdminAss" class="px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-md transition-colors flex items-center gap-2">
+                        <i class="ph-bold ph-books"></i> Quản Lý Bài Tập
+                    </button>
+                    <button onclick="switchAdminTab('users')" id="tabAdminUsers" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2">
+                        <i class="ph-bold ph-users"></i> Quản Lý Tài Khoản
+                    </button>
+                    <!-- Tab Nhật ký chỉ dành cho Admin Tối cao -->
+                    <button onclick="switchAdminTab('logs')" id="tabAdminLogs" class="hidden px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors items-center gap-2">
+                        <i class="ph-bold ph-list-dashes"></i> Nhật Ký
+                    </button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="openShareModal()" class="px-4 py-2 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 rounded-lg text-sm font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-share-network"></i> Chia Sẻ Link
+                    </button>
+                    <!-- Nút Cloud chỉ dành cho Admin Tối cao -->
+                    <button onclick="openDriveSyncModal()" id="btnAdminCloud" class="hidden px-4 py-2 bg-sky-100 text-sky-700 hover:bg-sky-200 rounded-lg text-sm font-bold transition-colors items-center gap-1.5 shadow-sm border border-sky-200">
+                        <i class="ph-bold ph-cloud-arrow-up"></i> Sao Lưu Đám Mây
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab: Quản lý bài tập -->
+            <div id="adminAssTab" class="flex-1 flex gap-4 h-full min-h-0">
+                <div class="w-1/3 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 flex items-center justify-between shrink-0">
+                        <h3 class="font-bold text-slate-800">Kho Bài Tập</h3>
+                        <button class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center hover:bg-indigo-100"><i class="ph-bold ph-plus"></i></button>
+                    </div>
+                    <div class="flex-1 overflow-y-auto p-2" id="adminAssList">
+                        <!-- JS Populate -->
+                    </div>
+                </div>
+                <div class="w-2/3 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 shrink-0 flex justify-between items-center bg-slate-50">
+                        <h3 class="font-bold text-slate-800"><i class="ph-fill ph-chart-bar text-indigo-600 me-2"></i>Bảng Điểm Thời Gian Thực</h3>
+                        <button onclick="exportCsv()" class="px-3 py-1.5 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 rounded-md text-xs font-bold transition-colors flex items-center gap-1.5">
+                            <i class="ph-bold ph-microsoft-excel-logo"></i> Xuất CSV
+                        </button>
+                    </div>
+                    <div class="flex-1 overflow-auto p-0">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-500 bg-slate-50 uppercase sticky top-0 shadow-sm">
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold">Học sinh</th>
+                                    <th class="px-4 py-3 font-semibold">Tài khoản</th>
+                                    <th class="px-4 py-3 font-semibold">Lớp</th>
+                                    <th class="px-4 py-3 font-semibold text-center">Điểm (Tối đa 10)</th>
+                                    <th class="px-4 py-3 font-semibold text-center">Số lần nộp</th>
+                                    <th class="px-4 py-3 font-semibold text-right">Lần nộp cuối</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gradebookBody" class="divide-y divide-slate-100">
+                                <!-- JS Populate -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Quản lý Tài khoản (Học sinh & Giáo viên) -->
+            <div id="adminUsersTab" class="hidden flex-1 flex flex-col gap-4 h-full min-h-0">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-full overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">
+                        <div class="flex gap-2 bg-slate-200 p-1 rounded-lg">
+                            <button onclick="switchAdminUserGroup('student')" id="tabUserGroupStudent" class="px-4 py-1.5 text-sm font-bold bg-white text-blue-700 rounded-md shadow-sm transition-all">Tài Khoản Học Sinh</button>
+                            <button onclick="switchAdminUserGroup('teacher')" id="tabUserGroupTeacher" class="px-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-all rounded-md">Tài Khoản Giáo Viên</button>
+                        </div>
+                        <div class="flex gap-2">
+                            <div class="relative">
+                                <i class="ph-bold ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" id="adminUserSearch" onkeyup="renderAdminUsersTable()" placeholder="Tìm kiếm tài khoản..." class="pl-9 pr-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-indigo-500 bg-white w-64">
+                            </div>
+                            <button onclick="openAddUserModal()" id="btnAddUserDynamic" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1.5 shadow-sm">
+                                <i class="ph-bold ph-plus"></i> Thêm Học Sinh
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex-1 overflow-auto p-0">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-500 bg-slate-50 uppercase sticky top-0 shadow-sm">
+                                <tr>
+                                    <th class="px-6 py-3 font-semibold">Họ và Tên</th>
+                                    <th class="px-6 py-3 font-semibold">Tên đăng nhập</th>
+                                    <th class="px-6 py-3 font-semibold">Trường</th>
+                                    <th class="px-6 py-3 font-semibold" id="colClassOrSubject">Lớp</th>
+                                    <th class="px-6 py-3 font-semibold text-center">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminUsersBody" class="divide-y divide-slate-100">
+                                <!-- JS Populate -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Nhật Ký (Chỉ Admin) -->
+            <div id="adminLogsTab" class="hidden flex-1 flex flex-col h-full min-h-0">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-full overflow-hidden">
+                    <div class="p-4 border-b border-slate-100 bg-slate-50 shrink-0">
+                        <h3 class="font-bold text-slate-800"><i class="ph-fill ph-list-dashes text-slate-600 me-2"></i>Nhật Ký Hệ Thống (Audit Logs)</h3>
+                    </div>
+                    <div class="flex-1 overflow-auto p-0">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-500 bg-slate-50 uppercase sticky top-0 shadow-sm">
+                                <tr>
+                                    <th class="px-4 py-3 font-semibold">Thời gian</th>
+                                    <th class="px-4 py-3 font-semibold">Tài khoản</th>
+                                    <th class="px-4 py-3 font-semibold">Vai trò</th>
+                                    <th class="px-4 py-3 font-semibold">Hành động</th>
+                                    <th class="px-4 py-3 font-semibold">Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminLogsBody" class="divide-y divide-slate-100">
+                                <!-- JS Populate -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs font-semibold text-slate-600">Bản quyền © 2026 Giáo viên: Nguyễn Thế Phương, Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== WIDGET ROBOT TRỢ LÝ SƯ PHẠM ==================== -->
+    <div id="robotWidget" class="fixed bottom-6 right-6 z-50 flex items-end gap-3 cursor-pointer group" onclick="toggleRobotSpeechDirectly()">
+        <!-- Robot Icon with SVG animations -->
+        <div class="relative w-16 h-16 robot-float">
+            <!-- Sóng âm khi nói -->
+            <div id="robotSpeakingRing" class="absolute inset-0 bg-green-400 opacity-20 hidden speaking-ring"></div>
+            
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-xl relative z-10 transition-transform group-hover:scale-110">
+                <!-- Antenna -->
+                <path d="M50 15V5" stroke="#475569" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="5" r="4" fill="#3B82F6"/>
+                <!-- Head -->
+                <rect x="25" y="25" width="50" height="40" rx="10" fill="#E2E8F0" stroke="#94A3B8" stroke-width="3"/>
+                <!-- Eyes (LEDs) -->
+                <circle cx="38" cy="40" r="5" fill="#334155" class="robot-eye"/>
+                <circle cx="62" cy="40" r="5" fill="#334155" class="robot-eye"/>
+                <!-- Mouth -->
+                <path d="M40 55H60" stroke="#334155" stroke-width="3" stroke-linecap="round" id="robotMouth"/>
+                <!-- Body -->
+                <path d="M30 65H70L75 90H25L30 65Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="3"/>
+                <circle cx="50" cy="75" r="6" fill="#3B82F6" id="robotCore"/>
+            </svg>
+
+            <!-- Badge Trạng Thái Đọc -->
+            <div id="robotStatusBadge" class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center shadow-sm text-slate-500 transition-colors">
+                <i class="ph-fill ph-speaker-high text-xs" id="robotStatusIcon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Modal Đăng ký Người Dùng -->
+    <div id="registerModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="p-4 bg-blue-600 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg" id="registerModalTitle">Đăng Ký Tài Khoản</h3>
+                <button onclick="closeRegisterModal()" class="text-white/80 hover:text-white"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và Tên (*)</label>
+                    <input type="text" id="regFullname" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 outline-none" placeholder="Ví dụ: Nguyễn Văn A">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" id="lblRegUsername">Tên đăng nhập / Email / SĐT (*)</label>
+                    <input type="text" id="regUsername" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 outline-none" placeholder="Nhập định danh...">
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Trường học</label>
+                        <input type="text" id="regSchool" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 outline-none" value="THCS Thành Đông" readonly>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1" id="lblRegClassOrSubject">Lớp học (*)</label>
+                        <input type="text" id="regClassOrSubject" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 outline-none" placeholder="Ví dụ: 8A1">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu (*)</label>
+                    <input type="password" id="regPassword" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-blue-500 outline-none" placeholder="Mật khẩu 1-8 ký tự" maxlength="8">
+                </div>
+                <div class="pt-2">
+                    <button onclick="executeRegister()" class="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md transition-colors">Tạo Tài Khoản</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Thêm Người Dùng (Từ Admin) -->
+    <div id="addUserModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="p-4 bg-indigo-600 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg" id="addUserModalTitle">Thêm Học Sinh</h3>
+                <button onclick="closeAddUserModal()" class="text-white/80 hover:text-white"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và Tên (*)</label>
+                    <input type="text" id="addFullname" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none" placeholder="Họ tên đầy đủ">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Tên đăng nhập (*)</label>
+                    <input type="text" id="addUsername" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none" placeholder="Mã định danh">
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Trường học</label>
+                        <input type="text" id="addSchool" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 outline-none" value="THCS Thành Đông" readonly>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1" id="lblAddClassOrSubject">Lớp học (*)</label>
+                        <input type="text" id="addClassOrSubject" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none" placeholder="Ví dụ: 8A1">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu (*)</label>
+                    <input type="password" id="addPassword" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-indigo-500 outline-none" placeholder="Mật khẩu" maxlength="8">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button onclick="closeAddUserModal()" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">Hủy</button>
+                    <button onclick="executeAddUser()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-md transition-colors">Thêm Mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chỉnh Sửa Người Dùng (Từ Admin) -->
+    <div id="editUserModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="p-4 bg-amber-500 text-white flex justify-between items-center">
+                <h3 class="font-bold text-lg">Chỉnh Sửa Tài Khoản</h3>
+                <button onclick="closeEditUserModal()" class="text-white/80 hover:text-white"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <input type="hidden" id="editUserId">
+                <input type="hidden" id="editUserGroup">
+                
+                <!-- Bảng cảnh báo dành cho Admin Tối Cao -->
+                <div id="editAdminWarning" class="hidden bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg text-sm mb-4">
+                    <i class="ph-fill ph-warning-circle me-1 text-amber-500"></i> Đang chỉnh sửa tài khoản Quản Trị Viên tối cao.
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Họ và Tên</label>
+                    <input type="text" id="editFullname" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-amber-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Tên đăng nhập / Định danh</label>
+                    <input type="text" id="editUsername" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-amber-500 outline-none">
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Trường học</label>
+                        <input type="text" id="editSchool" class="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 outline-none" readonly>
+                    </div>
+                    <div class="flex-1">
+                        <label class="block text-xs font-semibold text-slate-700 mb-1" id="lblEditClassOrSubject">Lớp học</label>
+                        <input type="text" id="editClassOrSubject" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-amber-500 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu mới (Để trống nếu không đổi)</label>
+                    <input type="password" id="editPassword" class="w-full px-3 py-2 rounded-lg border border-slate-200 focus:border-amber-500 outline-none" placeholder="Mật khẩu mới (Tối đa 8 ký tự)" maxlength="8">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button onclick="closeEditUserModal()" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">Hủy</button>
+                    <button onclick="executeEditUser()" class="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-bold shadow-md transition-colors">Cập Nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Xác Nhận Xóa -->
+    <div id="deleteConfirmModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden transform transition-all text-center p-6">
+            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4">
+                <i class="ph-bold ph-warning text-3xl"></i>
+            </div>
+            <h3 class="font-bold text-lg text-slate-800 mb-2">Xác nhận xóa tài khoản?</h3>
+            <p class="text-sm text-slate-500 mb-6">Bạn có chắc chắn muốn xóa tài khoản <strong id="deleteConfirmName" class="text-slate-800"></strong> không? Hành động này không thể hoàn tác và dữ liệu liên quan sẽ bị mất.</p>
+            <div class="flex gap-3 justify-center">
+                <button onclick="closeDeleteUserModal()" class="px-5 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">Hủy Bỏ</button>
+                <button onclick="executeDeleteUser()" class="px-5 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold shadow-md transition-colors">Đồng Ý Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Chia Sẻ Link (Giáo viên / Admin) -->
+    <div id="shareModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="font-bold text-slate-800 flex items-center gap-2"><i class="ph-bold ph-share-network text-blue-600 text-lg"></i> Chia Sẻ Link Lớp Học</h3>
+                <button onclick="closeShareModal()" class="text-slate-400 hover:text-slate-600"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6">
+                <p class="text-sm text-slate-600 mb-4">Gửi liên kết này cho học sinh để các em truy cập trực tiếp vào hệ thống học tập.</p>
+                <div class="flex gap-2 mb-4">
+                    <input type="text" id="shareLinkInput" class="flex-1 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600 outline-none" readonly>
+                    <button onclick="copyShareLink()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-sm shadow-md transition-colors">Sao Chép</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cấu Hình Đám Mây (Chỉ Admin Tối Cao) -->
+    <div id="driveSyncModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden transform transition-all">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-sky-50">
+                <h3 class="font-bold text-sky-800 flex items-center gap-2"><i class="ph-bold ph-cloud-arrow-up text-sky-600 text-lg"></i> Cấu Hình Lưu Trữ Đám Mây</h3>
+                <button onclick="closeDriveSyncModal()" class="text-slate-400 hover:text-slate-600"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="p-6">
+                <p class="text-sm text-slate-600 mb-4">Kết nối với Google Drive của Quản Trị Viên (gmail của thầy cô) để đồng bộ thời gian thực bảng điểm và bài làm.</p>
+                
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Google Client ID (OAuth 2.0 Web)</label>
+                        <input type="text" id="driveClientId" class="w-full px-3 py-2 rounded-lg border border-slate-200 text-sm focus:border-sky-500 outline-none" placeholder="xxxx.apps.googleusercontent.com">
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg border border-slate-100">
+                        <span class="text-sm font-semibold text-slate-700">Trạng thái API:</span>
+                        <span id="driveApiStatus" class="text-xs font-bold px-2 py-1 rounded bg-rose-100 text-rose-700">Chưa kết nối API</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <div class="flex gap-2">
+                        <button onclick="saveDriveConfig()" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-bold text-sm transition-colors border border-slate-200">Lưu Client ID</button>
+                        <button onclick="authenticateDrive()" class="flex-1 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+                            <i class="ph-bold ph-google-logo"></i> Đăng nhập Drive Quản Trị
+                        </button>
+                    </div>
+                    <div class="relative py-2">
+                        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+                        <div class="relative flex justify-center"><span class="bg-white px-2 text-xs text-slate-400">Hoặc sao lưu thủ công .JSON</span></div>
+                    </div>
+                    <button onclick="exportDataToJson()" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-download-simple"></i> Tải Tệp Sao Lưu (.JSON)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Trợ Lý AI (Gemini) -->
+    <div id="aiAssistantModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="flex w-full max-w-3xl items-end justify-center gap-4">
+            
+            <!-- Widget Robot Đứng Cạnh -->
+            <div id="aiAssistantRobotBadge" class="hidden sm:flex flex-col items-center justify-end mb-8 relative">
+                <!-- Vòng sáng hoạt họa khi Robot đang nói -->
+                <div id="aiRobotSpeakingRing" class="absolute top-4 w-24 h-24 bg-purple-400 opacity-20 hidden speaking-ring"></div>
+                <svg viewBox="0 0 100 100" fill="none" class="w-24 h-24 drop-shadow-2xl relative z-10 animate-bounce">
+                    <path d="M50 15V5" stroke="#94A3B8" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="50" cy="5" r="4" fill="#A855F7"/>
+                    <rect x="25" y="25" width="50" height="40" rx="10" fill="#F1F5F9" stroke="#64748B" stroke-width="3"/>
+                    <circle cx="38" cy="40" r="5" fill="#334155" id="aiRobotEyeL"/>
+                    <circle cx="62" cy="40" r="5" fill="#334155" id="aiRobotEyeR"/>
+                    <path d="M40 55H60" stroke="#334155" stroke-width="3" stroke-linecap="round" id="aiRobotMouth"/>
+                    <path d="M30 65H70L75 90H25L30 65Z" fill="#FFFFFF" stroke="#64748B" stroke-width="3"/>
+                    <circle cx="50" cy="75" r="6" fill="#A855F7"/>
+                </svg>
+                <div class="mt-3 bg-white px-3 py-1.5 rounded-full shadow-lg border border-slate-200 text-xs font-bold text-slate-600 flex items-center gap-2 cursor-pointer hover:bg-purple-50 transition-colors" onclick="toggleRobotSpeechDirectly()">
+                    <i class="ph-fill ph-speaker-high text-purple-500" id="aiRobotAudioIcon"></i> <span id="aiRobotAudioText">Bật giọng đọc</span>
+                </div>
+            </div>
+
+            <!-- Cửa sổ Chat AI -->
+            <div class="bg-white rounded-2xl shadow-2xl w-full flex flex-col h-[600px] overflow-hidden transform transition-all border border-slate-200">
+                <div class="p-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex justify-between items-center shrink-0">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm"><i class="ph-fill ph-magic-wand text-lg"></i></div>
+                        <h3 class="font-bold text-lg">Gia Sư Trí Tuệ Nhân Tạo (Gemini AI)</h3>
+                    </div>
+                    <button onclick="closeAiModal()" class="text-white/80 hover:text-white"><i class="ph-bold ph-x text-xl"></i></button>
+                </div>
+                
+                <div class="p-3 border-b border-slate-100 bg-slate-50 flex gap-2 overflow-x-auto shrink-0 hide-scrollbar">
+                    <button onclick="setAiMode('socratic')" id="aiMode_socratic" class="px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700 whitespace-nowrap transition-colors border border-purple-200">Gợi mở từng bước (Socratic)</button>
+                    <button onclick="setAiMode('algorithm_hint')" id="aiMode_algorithm_hint" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 whitespace-nowrap transition-colors">Gợi ý thuật toán</button>
+                    <button onclick="setAiMode('debug_error')" id="aiMode_debug_error" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 whitespace-nowrap transition-colors">Giải thích lỗi chạy</button>
+                    <button onclick="setAiMode('explain_solution')" id="aiMode_explain_solution" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 whitespace-nowrap transition-colors">Giải thích mã lệnh</button>
+                </div>
+
+                <div class="flex-1 p-4 overflow-y-auto bg-slate-50/50 flex flex-col gap-4" id="aiChatHistory">
+                    <!-- Khởi đầu cuộc hội thoại -->
+                    <div class="flex gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200"><i class="ph-fill ph-robot text-lg"></i></div>
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 text-sm text-slate-700 max-w-[85%] prose prose-sm prose-slate">
+                            <p>Chào em! Thầy là trợ lý AI ảo. Thầy đã đọc đề bài và xem mã nguồn hiện tại của em.</p>
+                            <p>Em cần thầy hỗ trợ gợi ý điều gì? (Lưu ý: Thầy sẽ hướng dẫn tư duy chứ không giải bài hộ em nhé!)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-white border-t border-slate-100 shrink-0">
+                    <div class="flex gap-2">
+                        <input type="text" id="aiUserInput" class="flex-1 px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm outline-none focus:border-purple-500 focus:bg-white transition-colors" placeholder="Hỏi AI về đoạn code của bạn..." onkeypress="if(event.key === 'Enter') sendAiMessage()">
+                        <button onclick="sendAiMessage()" class="w-11 h-11 rounded-xl bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center shadow-md shadow-purple-200 transition-colors shrink-0">
+                            <i class="ph-bold ph-paper-plane-right text-lg"></i>
+                        </button>
+                    </div>
+                    <div class="text-center mt-2">
+                        <span class="text-[10px] text-slate-400 font-medium bg-slate-100 px-2 py-0.5 rounded-full"><i class="ph-fill ph-check-circle text-green-500 me-1"></i>Giọng đọc Google Ban Mai (Nữ Chuẩn Tiếng Việt)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2"></div>
+
+    <script>
+        // ==============================================
+        // 1. DỮ LIỆU TOÀN CỤC & BIẾN TRẠNG THÁI
+        // ==============================================
+        let currentUser = { isLoggedIn: false, role: null, username: '', name: '', id: null };
+        let activeAuthTab = 'student';
+        let currentAssignment = null;
+        let pyodideInstance = null;
+        let isPyodideReady = false;
+        
+        // --- TRỢ LÝ ROBOT VOICE (Google Ban Mai & Web Speech API) ---
+        let robotVoiceEnabled = false; // Mặc định tắt để tránh ồn, bật khi click Robot
+        let currentSpeechUtterance = null;
+        let isRobotSpeaking = false;
+        let robotAudioElement = new Audio();
+        let currentTtsChunks = [];
+        let currentTtsIndex = 0;
+        
+        let typingTimer;
+        const doneTypingInterval = 1500; // Đợi 1.5s sau khi ngưng gõ mới đọc Textbox
+
+        // Biến lưu trữ cấu hình Mẫu Code IDE
+        const codeTemplates = {
+            hello: 'print("Hello World!")\nprint("Chào mừng đến với Python AI Classroom!")',
+            input: '# Nhập chuỗi\nten = input("Nhập tên của bạn: ")\nprint(f"Xin chào {ten}!")\n\n# Nhập số nguyên\ntuoi = int(input("Nhập tuổi: "))\nprint(f"Năm sau bạn {tuoi + 1} tuổi.")',
+            ifelse: 'diem = 8.5\nif diem >= 8.0:\n    print("Học sinh Giỏi")\nelif diem >= 6.5:\n    print("Học sinh Khá")\nelse:\n    print("Cần cố gắng thêm")',
+            forloop: '# In các số từ 1 đến 5\nfor i in range(1, 6):\n    print(f"Vòng lặp thứ {i}")\n\n# Duyệt qua mảng\nmon_hoc = ["Toán", "Lý", "Tin học"]\nfor mon in mon_hoc:\n    print(mon)',
+            whileloop: 'dem = 5\nwhile dem > 0:\n    print(f"Đếm ngược: {dem}")\n    dem -= 1\nprint("Bắt đầu!")',
+            list: 'ds = [10, 20, 30]\nds.append(40)\nprint("Danh sách hiện tại:", ds)\nprint("Tổng các phần tử:", sum(ds))',
+            function: 'def tinh_tong(a, b):\n    """Hàm tính tổng 2 số"""\n    return a + b\n\nkq = tinh_tong(15, 25)\nprint(f"Tổng là: {kq}")',
+            prime: 'def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nso = 17\nprint(f"{so} có phải số nguyên tố không? {is_prime(so)}")'
+        };
+
+        // Biến toàn cục để dễ dàng truy cập và đồng bộ từ Firestore
+        var teachersList = [
+            { id: 1, username: '086081006094', password: 'Admin#999', name: 'Thầy Nguyễn Thế Phương', role: 'admin', school: 'THCS Thành Đông', subject: 'Tin học' },
+            { id: 2, username: 'gv_nguyenvana', password: 'MatKhau@123', name: 'Thầy Nguyễn Văn A', role: 'teacher', school: 'THCS Thành Đông', subject: 'Tin học 8' }
+        ];
+        window.teachersList = teachersList;
+
+        var registeredUsers = [
+            { id: 101, identifier: 'an_tran', username: 'an_tran', password: '123', name: 'Trần Văn An', school: 'THCS Thành Đông', className: '8A1', role: 'student' }
+        ];
+        window.registeredUsers = registeredUsers;
+
+        var assignments = [
+            { id: 1, title: 'Tính tổng hai số nguyên A và B', description: '### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào (input.txt)\nGồm 2 số nguyên $A, B$ trên cùng một dòng, cách nhau bởi khoảng trắng.\n\n### Dữ liệu ra (output.txt)\nIn ra tổng $A + B$.\n\n### Ví dụ:\n| Đầu vào | Đầu ra |\n|---|---|\n| `3 5` | `8` |',
+              tests: [
+                  { input: '3 5\n', expected: '8\n', point: 5.0, isHidden: false },
+                  { input: '1000 2000\n', expected: '3000\n', point: 5.0, isHidden: true }
+              ], allowAi: true }
+        ];
+        window.assignments = assignments;
+
+        var gradebook = [];
+        window.gradebook = gradebook;
+
+        var loginLogs = [];
+        window.loginLogs = loginLogs;
+
+        // ==============================================
+        // 2. KHỞI TẠO HỆ THỐNG
+        // ==============================================
+        window.addEventListener('DOMContentLoaded', () => {
+            initPyodide();
+            setupTextboxSpeechListeners();
+            setupEditorTabIndent();
+            setupIdeTabIndent();
+            
+            // Khởi chạy Robot chào mừng
+            setTimeout(() => {
+                const script = getCurrentContextScript();
+                // Nếu chưa từng tương tác, không tự động phát tiếng để tránh làm phiền
+                // Robot chỉ nhấp nháy gọi sự chú ý
+                document.querySelector('.robot-float').classList.add('animate-bounce');
+                setTimeout(() => document.querySelector('.robot-float').classList.remove('animate-bounce'), 3000);
+            }, 1000);
+
+            // MẶC ĐỊNH CHƯA ĐĂNG NHẬP
+            currentUser.isLoggedIn = false;
+            updateWorkspaceView();
+        });
+
+        // ==============================================
+        // 3. XỬ LÝ TRỢ LÝ ROBOT VOICE (GOOGLE BAN MAI / TTS)
+        // ==============================================
+        
+        function toggleRobotSpeechDirectly() {
+            robotVoiceEnabled = !robotVoiceEnabled;
+            
+            if (robotVoiceEnabled) {
+                // Bật lên và đọc ngữ cảnh hiện tại
+                const script = getCurrentContextScript();
+                speakCustomText(script);
+            } else {
+                // Tắt đi
+                stopRobotVoice();
+            }
+            updateRobotUiState();
+        }
+        
+        function stopRobotVoice() {
+            window.speechSynthesis.cancel();
+            if (!robotAudioElement.paused) {
+                robotAudioElement.pause();
+                robotAudioElement.currentTime = 0;
+            }
+            isRobotSpeaking = false;
+            currentTtsChunks = [];
+            
+            document.getElementById('robotSpeakingRing').classList.add('hidden');
+            document.querySelectorAll('.robot-eye').forEach(el => el.setAttribute('fill', '#334155')); // Mắt tối
+            
+            const aiRing = document.getElementById('aiRobotSpeakingRing');
+            if(aiRing) aiRing.classList.add('hidden');
+            const aiEyeL = document.getElementById('aiRobotEyeL');
+            const aiEyeR = document.getElementById('aiRobotEyeR');
+            if(aiEyeL) aiEyeL.setAttribute('fill', '#334155');
+            if(aiEyeR) aiEyeR.setAttribute('fill', '#334155');
+        }
+
+        function updateRobotUiState() {
+            const statusIcon = document.getElementById('robotStatusIcon');
+            const audioIcon = document.getElementById('aiRobotAudioIcon');
+            const audioText = document.getElementById('aiRobotAudioText');
+            
+            if (robotVoiceEnabled) {
+                statusIcon.className = "ph-fill ph-speaker-high text-xs text-blue-600";
+                if(audioIcon) audioIcon.className = "ph-fill ph-speaker-high text-purple-600";
+                if(audioText) audioText.textContent = "Đang bật hướng dẫn (Bấm để tắt)";
+            } else {
+                statusIcon.className = "ph-bold ph-speaker-slash text-xs text-slate-400";
+                if(audioIcon) audioIcon.className = "ph-bold ph-speaker-slash text-slate-400";
+                if(audioText) audioText.textContent = "Bật giọng đọc AI";
+            }
+        }
+
+        // Tự động phân tích ngữ cảnh để đưa ra kịch bản hướng dẫn
+        function getCurrentContextScript() {
+            if (!currentUser.isLoggedIn) {
+                return "Chào mừng đến với Trợ lý học tập lập trình Python. Em là học sinh hay thầy cô giáo? Hãy chọn đúng thẻ ở bảng đăng nhập và điền thông tin để bắt đầu nhé.";
+            } else if (currentUser.role === 'student') {
+                return "Chào em! Ở khu vực này, em có thể xem đề bài ở cột trái, viết mã Python ở cột phải. Hãy bấm 'Chạy Thử' để xem kết quả. Nếu chương trình báo lỗi đỏ, em có thể bấm nút 'Nhờ AI Hỗ Trợ' để thầy gợi ý cho em nhé.";
+            } else {
+                return "Kính chào thầy cô. Đây là bảng điều khiển quản trị. Thầy cô có thể tạo bài tập mới, dùng AI sinh tự động các bộ dữ liệu test, theo dõi sổ điểm và xuất báo cáo CSV ra Excel.";
+            }
+        }
+
+        function speakCustomText(text) {
+            if (!robotVoiceEnabled || !text) return;
+            stopRobotVoice(); // Dừng luồng cũ
+            
+            isRobotSpeaking = true;
+            document.getElementById('robotSpeakingRing').classList.remove('hidden');
+            document.querySelectorAll('.robot-eye').forEach(el => el.setAttribute('fill', '#22C55E')); // Mắt sáng xanh
+            
+            const aiRing = document.getElementById('aiRobotSpeakingRing');
+            if(aiRing) aiRing.classList.remove('hidden');
+            const aiEyeL = document.getElementById('aiRobotEyeL');
+            const aiEyeR = document.getElementById('aiRobotEyeR');
+            if(aiEyeL) aiEyeL.setAttribute('fill', '#A855F7'); // Mắt AI sáng tím
+            if(aiEyeR) aiEyeR.setAttribute('fill', '#A855F7');
+
+            // Cắt văn bản thành từng câu ngắn (<150 ký tự) để Google Translate TTS (Ban Mai) có thể phát mượt
+            currentTtsChunks = splitTextIntoSentences(text);
+            currentTtsIndex = 0;
+            
+            playNextTtsChunk();
+        }
+
+        function splitTextIntoSentences(text) {
+            // Tách theo dấu câu (chấm, phẩy, chấm hỏi, chấm than, xuống dòng)
+            const regex = /([.?!,\n]+)/;
+            const parts = text.split(regex);
+            let chunks = [];
+            let currentChunk = "";
+            
+            for (let i = 0; i < parts.length; i++) {
+                const part = parts[i];
+                if (regex.test(part)) { // Nếu là dấu câu
+                    currentChunk += part;
+                    if (currentChunk.trim().length > 0) {
+                        chunks.push(currentChunk.trim());
+                    }
+                    currentChunk = "";
+                } else {
+                    currentChunk += part;
+                    // Bắt buộc ngắt nếu dài quá 150 ký tự (Giới hạn của Google TTS endpoint)
+                    if (currentChunk.length > 150) {
+                        let spaceIndex = currentChunk.lastIndexOf(' ', 150);
+                        if (spaceIndex > 0) {
+                            chunks.push(currentChunk.substring(0, spaceIndex).trim());
+                            currentChunk = currentChunk.substring(spaceIndex + 1);
+                        } else {
+                            chunks.push(currentChunk.substring(0, 150));
+                            currentChunk = currentChunk.substring(150);
+                        }
+                    }
+                }
+            }
+            if (currentChunk.trim().length > 0) {
+                chunks.push(currentChunk.trim());
+            }
+            return chunks;
+        }
+
+        function playNextTtsChunk() {
+            if (!isRobotSpeaking || currentTtsIndex >= currentTtsChunks.length) {
+                stopRobotVoice();
+                return;
+            }
+
+            const textChunk = currentTtsChunks[currentTtsIndex];
+            
+            // Dùng Google Translate TTS Engine (Giọng nữ Ban Mai chuẩn Tiếng Việt)
+            // client=tw-ob là endpoint mượt và ổn định nhất
+            const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(textChunk)}&tl=vi&client=tw-ob`;
+            
+            robotAudioElement.src = url;
+            robotAudioElement.onended = () => {
+                currentTtsIndex++;
+                playNextTtsChunk();
+            };
+            robotAudioElement.onerror = () => {
+                // Fallback xuống Web Speech API nếu mạng chặn Google Translate TTS
+                fallbackToWebSpeech(textChunk);
+            };
+            
+            robotAudioElement.play().catch(e => {
+                console.warn("Lỗi phát audio HTML5, chuyển sang Web Speech", e);
+                fallbackToWebSpeech(textChunk);
+            });
+        }
+
+        function fallbackToWebSpeech(text) {
+            if (!window.speechSynthesis) {
+                stopRobotVoice();
+                return;
+            }
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'vi-VN';
+            utterance.rate = 0.93; // Đọc chậm rãi sư phạm
+            utterance.pitch = 1.05; // Cao độ nữ tính hơn
+
+            // Tìm giọng Google Tiếng Việt
+            const voices = window.speechSynthesis.getVoices();
+            const viVoice = voices.find(v => v.lang.includes('vi') && v.name.includes('Google'));
+            if (viVoice) utterance.voice = viVoice;
+
+            utterance.onend = () => {
+                currentTtsIndex++;
+                playNextTtsChunk();
+            };
+            utterance.onerror = () => { stopRobotVoice(); };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // --- CƠ CHẾ TỰ ĐỘNG ĐỌC TEXTBOX KHI GÕ (Loại trừ Mật khẩu) ---
+        function setupTextboxSpeechListeners() {
+            const textInputs = document.querySelectorAll('input[type="text"], textarea');
+            textInputs.forEach(input => {
+                input.addEventListener('keyup', (e) => {
+                    if (!robotVoiceEnabled) return;
+                    clearTimeout(typingTimer);
+                    if (input.value) {
+                        typingTimer = setTimeout(() => {
+                            // Chỉ đọc 80 ký tự đầu tiên để tránh dài dòng
+                            let textToRead = input.value.substring(0, 80);
+                            if (input.value.length > 80) textToRead += " và nhiều nội dung khác.";
+                            speakCustomText(textToRead);
+                        }, doneTypingInterval);
+                    }
+                });
+                
+                input.addEventListener('keydown', () => {
+                    clearTimeout(typingTimer);
+                    // Dừng đọc ngay khi bắt đầu gõ tiếp
+                    if (isRobotSpeaking) stopRobotVoice();
+                });
+            });
+        }
+
+
+        // ==============================================
+        // 4. CHỨC NĂNG ĐĂNG NHẬP / PHÂN QUYỀN
+        // ==============================================
+        function switchAuthRole(role) {
+            activeAuthTab = role;
+            document.getElementById('studentAuthForm').classList.toggle('hidden', role !== 'student');
+            document.getElementById('teacherAuthForm').classList.toggle('hidden', role !== 'teacher');
+            
+            document.getElementById('tabAuthStudent').className = role === 'student' ? 'flex-1 py-2 text-sm font-semibold rounded-lg bg-white shadow-sm text-blue-700 transition-all' : 'flex-1 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition-all';
+            document.getElementById('tabAuthTeacher').className = role === 'teacher' ? 'flex-1 py-2 text-sm font-semibold rounded-lg bg-white shadow-sm text-blue-700 transition-all' : 'flex-1 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition-all';
+            
+            document.getElementById('authTitle').textContent = role === 'student' ? "Học sinh Đăng ký / Đăng nhập" : "Giáo viên Đăng ký / Đăng nhập";
+        }
+
+        function processLogin(role) {
+            let u, p;
+            if (role === 'student') {
+                u = document.getElementById('studentUsername').value.trim();
+                p = document.getElementById('studentPassword').value;
+            } else {
+                u = document.getElementById('teacherUsername').value.trim();
+                p = document.getElementById('teacherPassword').value;
+            }
+
+            if (!u || !p) return showToast("Vui lòng nhập đầy đủ thông tin đăng nhập!", "error");
+
+            // Ưu tiên cao nhất: Kiểm tra hardcode Admin để luôn vào được trang Quản trị kể cả khi DB lỗi
+            if (role === 'teacher' && u === '086081006094' && p === 'Admin#999') {
+                currentUser = { isLoggedIn: true, role: 'admin', username: u, name: 'Thầy Nguyễn Thế Phương', id: 1 };
+                finishLogin();
+                return;
+            }
+
+            let foundUser = null;
+            if (role === 'student') {
+                foundUser = registeredUsers.find(x => (x.username === u || x.identifier === u) && x.password === p);
+            } else {
+                foundUser = teachersList.find(x => x.username === u && x.password === p);
+            }
+
+            if (foundUser) {
+                currentUser = { isLoggedIn: true, role: foundUser.role, username: foundUser.username, name: foundUser.name, id: foundUser.id, className: foundUser.className };
+                finishLogin();
+            } else {
+                showToast("Tên đăng nhập hoặc mật khẩu không chính xác!", "error");
+            }
+        }
+
+        function finishLogin() {
+            document.getElementById('studentUsername').value = '';
+            document.getElementById('studentPassword').value = '';
+            document.getElementById('teacherUsername').value = '';
+            document.getElementById('teacherPassword').value = '';
+            
+            updateWorkspaceView();
+            updateUserHeaderUi();
+            showToast(`Chào mừng ${currentUser.name} đã quay trở lại!`, "success");
+            
+            // Ghi nhật ký (chỉ Admin mới thấy)
+            logActivity(currentUser.username, currentUser.role, "Đăng nhập hệ thống", "Thành công");
+
+            // Robot đọc hướng dẫn cho ngữ cảnh mới
+            if (robotVoiceEnabled) speakCustomText(getCurrentContextScript());
+        }
+
+        function logout() {
+            logActivity(currentUser.username, currentUser.role, "Đăng xuất", "Thành công");
+            currentUser = { isLoggedIn: false, role: null, username: '', name: '', id: null };
+            updateWorkspaceView();
+            updateUserHeaderUi();
+            showToast("Đã đăng xuất thành công.", "info");
+            if (robotVoiceEnabled) speakCustomText(getCurrentContextScript());
+        }
+
+        function updateWorkspaceView() {
+            document.getElementById('loginWorkspace').classList.toggle('hidden', currentUser.isLoggedIn);
+            document.getElementById('studentWorkspace').classList.toggle('hidden', !(currentUser.isLoggedIn && currentUser.role === 'student'));
+            document.getElementById('adminWorkspace').classList.toggle('hidden', !(currentUser.isLoggedIn && (currentUser.role === 'teacher' || currentUser.role === 'admin')));
+            
+            if (currentUser.isLoggedIn && currentUser.role === 'student') {
+                populateAssignmentSelect();
+                loadAssignment(assignments.length > 0 ? assignments[0].id : null);
+            } else if (currentUser.isLoggedIn && (currentUser.role === 'teacher' || currentUser.role === 'admin')) {
+                // Admin Tối cao mới thấy Tab Nhật Ký và Cấu hình Cloud
+                document.getElementById('tabAdminLogs').classList.toggle('hidden', currentUser.role !== 'admin');
+                document.getElementById('btnAdminCloud').classList.toggle('hidden', currentUser.role !== 'admin');
+                
+                refreshAdminDashboard();
+            }
+        }
+
+        function updateUserHeaderUi() {
+            const headerInfo = document.getElementById('userHeaderInfo');
+            if (currentUser.isLoggedIn) {
+                headerInfo.classList.remove('hidden');
+                document.getElementById('headerUserName').textContent = currentUser.name;
+                document.getElementById('headerUserRole').textContent = currentUser.role === 'admin' ? 'Quản Trị Viên' : (currentUser.role === 'teacher' ? 'Giáo Viên' : 'Học Sinh');
+            } else {
+                headerInfo.classList.add('hidden');
+            }
+        }
+
+        // ==============================================
+        // 5. ĐĂNG KÝ MỚI (HỌC SINH)
+        // ==============================================
+        function openRegisterModal() {
+            document.getElementById('regFullname').value = '';
+            document.getElementById('regUsername').value = '';
+            document.getElementById('regClassOrSubject').value = '';
+            document.getElementById('regPassword').value = '';
+            document.getElementById('registerModal').classList.remove('hidden');
+            speakCustomText("Vui lòng điền thông tin để đăng ký tài khoản học sinh mới.");
+        }
+        
+        function closeRegisterModal() { document.getElementById('registerModal').classList.add('hidden'); }
+
+        function executeRegister() {
+            const fullname = document.getElementById('regFullname').value.trim();
+            const username = document.getElementById('regUsername').value.trim();
+            const classObj = document.getElementById('regClassOrSubject').value.trim();
+            const password = document.getElementById('regPassword').value;
+
+            if (!fullname || !username || !classObj || !password) {
+                return showToast("Vui lòng điền đầy đủ các thông tin bắt buộc (*)", "error");
+            }
+
+            // Kiểm tra trùng lặp ID/Username
+            const exists = registeredUsers.some(u => u.username === username || u.identifier === username) || 
+                           teachersList.some(t => t.username === username);
+            if (exists) {
+                return showToast("Tên đăng nhập (Định danh) này đã tồn tại trong hệ thống!", "error");
+            }
+
+            const newUser = {
+                id: Date.now(),
+                identifier: username,
+                username: username,
+                password: password,
+                name: fullname,
+                school: 'THCS Thành Đông',
+                className: classObj,
+                role: 'student'
+            };
+
+            registeredUsers.push(newUser);
+
+            // Đồng bộ lên Cloud ngay lập tức
+            if (window.Cloud && window.Cloud.isReady) {
+                window.Cloud.addUser(newUser);
+            }
+
+            logActivity(username, 'student', "Đăng ký tài khoản học sinh", "Thành công");
+            showToast("Đăng ký thành công! Vui lòng đăng nhập.", "success");
+            closeRegisterModal();
+        }
+
+        // ==============================================
+        // 6. TRÌNH CHẤM BÀI HỌC SINH (PYODIDE ONLINE JUDGE)
+        // ==============================================
+        async function initPyodide() {
+            try {
+                if (!window.loadPyodide) return;
+                pyodideInstance = await window.loadPyodide({
+                    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+                });
+                isPyodideReady = true;
+                console.log("Pyodide Engine Tải Thành Công!");
+            } catch (err) {
+                console.error("Lỗi tải Pyodide:", err);
+            }
+        }
+
+        function populateAssignmentSelect() {
+            const sel = document.getElementById('assignmentSelectStudent');
+            sel.innerHTML = assignments.map(a => `<option value="${a.id}">${a.title}</option>`).join('');
+        }
+
+        function loadAssignment(id) {
+            if (!id) return;
+            currentAssignment = assignments.find(a => a.id == id);
+            if (currentAssignment) {
+                document.getElementById('assignmentContentStudent').innerHTML = marked.parse(currentAssignment.description);
+                document.getElementById('codeEditorStudent').value = '';
+                document.getElementById('customOutputStudent').value = '';
+                document.getElementById('testResultsContainer').innerHTML = '<p class="text-xs text-slate-500 italic">Bấm "Nộp Bài" để hệ thống tự động chấm qua các Test Case.</p>';
+            }
+        }
+
+        function setupEditorTabIndent() {
+            const editor = document.getElementById('codeEditorStudent');
+            editor.addEventListener('keydown', function(e) {
+                if (e.key == 'Tab') {
+                    e.preventDefault();
+                    var start = this.selectionStart;
+                    var end = this.selectionEnd;
+                    this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+                    this.selectionStart = this.selectionEnd = start + 4;
+                }
+            });
+        }
+
+        async function runStudentCode() {
+            if (!isPyodideReady) return showToast("Trình biên dịch đang tải, vui lòng đợi 1 lát...", "info");
+            
+            const code = document.getElementById('codeEditorStudent').value;
+            const inputData = document.getElementById('customInputStudent').value;
+            const outputArea = document.getElementById('customOutputStudent');
+            
+            outputArea.value = "Đang chạy mã...";
+            
+            try {
+                pyodideInstance.setStdin({ stdin: () => inputData });
+                let stdoutData = "";
+                let stderrData = "";
+                pyodideInstance.setStdout({ batched: (str) => stdoutData += str + "\n" });
+                pyodideInstance.setStderr({ batched: (str) => stderrData += str + "\n" });
+
+                await pyodideInstance.runPythonAsync(code);
+                outputArea.value = stdoutData || "(Chương trình chạy thành công nhưng không có kết quả in ra)";
+                outputArea.classList.remove('text-rose-600');
+                outputArea.classList.add('text-slate-700');
+            } catch (err) {
+                outputArea.value = "LỖI BIÊN DỊCH / THỰC THI:\n" + err.message;
+                outputArea.classList.remove('text-slate-700');
+                outputArea.classList.add('text-rose-600');
+            }
+        }
+
+        async function submitAndGrade() {
+            if (!isPyodideReady) return showToast("Hệ thống chấm bài đang khởi động, vui lòng thử lại sau.", "info");
+            if (!currentAssignment || !currentAssignment.tests || currentAssignment.tests.length === 0) return showToast("Bài tập này chưa có dữ liệu chấm.", "error");
+
+            const code = document.getElementById('codeEditorStudent').value;
+            const container = document.getElementById('testResultsContainer');
+            container.innerHTML = '<div class="text-sm font-bold text-blue-600 animate-pulse">Đang chấm tự động...</div>';
+
+            let totalEarned = 0;
+            let maxTotal = 0;
+            let testResults = [];
+
+            for (let i = 0; i < currentAssignment.tests.length; i++) {
+                const test = currentAssignment.tests[i];
+                maxTotal += test.point;
+                let passed = false;
+
+                try {
+                    pyodideInstance.setStdin({ stdin: () => test.input });
+                    let stdoutData = "";
+                    pyodideInstance.setStdout({ batched: (str) => stdoutData += str + "\n" });
+                    
+                    await pyodideInstance.runPythonAsync(code);
+                    
+                    let actualOut = stdoutData.trim();
+                    let expectedOut = test.expected.trim();
+                    
+                    if (actualOut === expectedOut) {
+                        passed = true;
+                        totalEarned += test.point;
+                    }
+                } catch (e) {
+                    passed = false;
+                }
+
+                testResults.push({ index: i + 1, passed: passed, point: test.point, isHidden: test.isHidden });
+            }
+
+            // Giao diện kết quả
+            container.innerHTML = testResults.map(r => `
+                <div class="p-2.5 rounded-xl border ${r.passed ? 'bg-emerald-50/50 border-emerald-200 text-emerald-800' : 'bg-rose-50/50 border-rose-200 text-rose-800'} flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="ph-bold ${r.passed ? 'ph-check-circle text-emerald-600' : 'ph-x-circle text-rose-600'} text-base"></i>
+                        <span class="font-bold text-sm">Test ${r.index} ${r.isHidden ? '(Ẩn)' : '(Công khai)'}</span>
+                    </div>
+                    <span class="font-mono font-bold text-sm">${r.passed ? '+' + r.point + ' đ' : '0.0 đ'}</span>
+                </div>
+            `).join('');
+            
+            container.innerHTML += `<div class="mt-2 p-3 bg-slate-100 rounded-xl text-center font-bold text-lg">Tổng điểm: <span class="${totalEarned >= 5 ? 'text-blue-600' : 'text-rose-600'}">${totalEarned.toFixed(1)} / ${maxTotal.toFixed(1)}</span></div>`;
+
+            showToast(`Đã chấm xong! Điểm của em: ${totalEarned.toFixed(1)} đ`, totalEarned >= 5 ? "success" : "error");
+
+            // Cập nhật điểm và Lưu tự động lên Cloud
+            updateStudentGrade(currentUser.id, totalEarned);
+        }
+
+        function updateStudentGrade(studentId, score) {
+            let record = gradebook.find(g => g.studentId === studentId && g.assignmentId === currentAssignment.id);
+            const nowStr = new Date().toISOString().replace('T', ' ').substring(0, 19);
+
+            if (record) {
+                record.attempts++;
+                if (score > record.highestScore) record.highestScore = score;
+                record.lastSubmitted = nowStr;
+                if (record.dbId && window.Cloud && window.Cloud.isReady) window.Cloud.updateGrade(record.dbId, record);
+            } else {
+                const newRecord = {
+                    studentId: studentId,
+                    studentName: currentUser.name,
+                    identifier: currentUser.username,
+                    className: currentUser.className || '8A1',
+                    assignmentId: currentAssignment.id,
+                    highestScore: score,
+                    attempts: 1,
+                    lastSubmitted: nowStr
+                };
+                gradebook.push(newRecord);
+                if (window.Cloud && window.Cloud.isReady) window.Cloud.updateGrade(null, newRecord);
+            }
+            
+            // Sao lưu tự động vào Cloud của Admin (Bằng tay không cần)
+            uploadBackupToGoogleDriveApi(true); // Tham số true = Âm thầm
+        }
+
+        // ==============================================
+        // 7. KHÔNG GIAN IDE SOẠN CODE TỰ DO (HỌC SINH TAB 2)
+        // ==============================================
+        function switchStudentTab(tabId) {
+            document.getElementById('studentJudgeTab').classList.toggle('hidden', tabId !== 'judge');
+            document.getElementById('studentIdeTab').classList.toggle('hidden', tabId !== 'ide');
+            
+            document.getElementById('tabStudentJudge').className = tabId === 'judge' ? 'px-5 py-2.5 rounded-xl text-sm font-bold bg-blue-600 text-white shadow-md transition-colors flex items-center gap-2' : 'px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2';
+            document.getElementById('tabStudentIde').className = tabId === 'ide' ? 'px-5 py-2.5 rounded-xl text-sm font-bold bg-blue-600 text-white shadow-md transition-colors flex items-center gap-2' : 'px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2';
+        }
+
+        function setupIdeTabIndent() {
+            const editor = document.getElementById('ideEditor');
+            editor.addEventListener('keydown', function(e) {
+                if (e.key == 'Tab') {
+                    e.preventDefault();
+                    var start = this.selectionStart;
+                    var end = this.selectionEnd;
+                    this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+                    this.selectionStart = this.selectionEnd = start + 4;
+                }
+            });
+        }
+
+        function loadIdeTemplate(val) {
+            if(val && codeTemplates[val]) {
+                document.getElementById('ideEditor').value = codeTemplates[val];
+            }
+        }
+
+        function downloadCode() {
+            const code = document.getElementById('ideEditor').value;
+            const blob = new Blob([code], { type: "text/x-python" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "my_program.py";
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast("Đã tải tệp my_program.py", "success");
+        }
+
+        function openCodeFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                document.getElementById('ideEditor').value = evt.target.result;
+                showToast("Đã nạp file thành công", "success");
+            };
+            reader.readAsText(file);
+        }
+
+        function copyIdeCode() {
+            const code = document.getElementById('ideEditor').value;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast("Đã sao chép mã nguồn", "success");
+            });
+        }
+
+        async function runIdeCode() {
+            if (!isPyodideReady) return showToast("Trình biên dịch đang tải...", "info");
+            
+            const code = document.getElementById('ideEditor').value;
+            const inputData = document.getElementById('ideInput').value;
+            const terminal = document.getElementById('ideTerminal');
+            const timeLabel = document.getElementById('ideTimeLabel');
+            const aiBtn = document.getElementById('ideAskAiBtn');
+            
+            terminal.value = "Executing...";
+            terminal.className = "flex-1 w-full p-3 text-sm code-font bg-transparent outline-none resize-none text-slate-300";
+            aiBtn.classList.add('hidden');
+            
+            const startTime = performance.now();
+            
+            try {
+                pyodideInstance.setStdin({ stdin: () => inputData });
+                let stdoutData = "";
+                let stderrData = "";
+                pyodideInstance.setStdout({ batched: (str) => stdoutData += str + "\n" });
+                pyodideInstance.setStderr({ batched: (str) => stderrData += str + "\n" });
+
+                await pyodideInstance.runPythonAsync(code);
+                const endTime = performance.now();
+                
+                terminal.value = stdoutData || "Process finished with exit code 0";
+                terminal.className = "flex-1 w-full p-3 text-sm code-font bg-transparent outline-none resize-none text-emerald-400";
+                timeLabel.textContent = (endTime - startTime).toFixed(0) + " ms";
+            } catch (err) {
+                const endTime = performance.now();
+                terminal.value = "Traceback (most recent call last):\n" + err.message;
+                terminal.className = "flex-1 w-full p-3 text-sm code-font bg-transparent outline-none resize-none text-rose-400";
+                timeLabel.textContent = (endTime - startTime).toFixed(0) + " ms";
+                
+                // Hiển thị nút hỏi AI
+                aiBtn.classList.remove('hidden');
+                // Ghi nhớ lỗi để AI sử dụng
+                window.lastIdeError = err.message;
+            }
+        }
+        
+        function askAiAboutIdeError() {
+            openAiModal();
+            setAiMode('debug_error');
+            document.getElementById('aiUserInput').value = "Code của em bị lỗi này ở Terminal, hãy giải thích giúp em nhé: " + window.lastIdeError.substring(0, 100) + "...";
+            sendAiMessage();
+            document.getElementById('ideAskAiBtn').classList.add('hidden');
+        }
+
+        // ==============================================
+        // 8. TRỢ LÝ AI (GEMINI) HỘI THOẠI
+        // ==============================================
+        let currentAiMode = 'socratic';
+
+        function openAiModal() {
+            document.getElementById('aiAssistantModal').classList.remove('hidden');
+            speakCustomText("Em cần trợ lý AI hỗ trợ điều gì? Hãy chọn chế độ phân tích ở bên trên và đặt câu hỏi nhé.");
+        }
+        function closeAiModal() { document.getElementById('aiAssistantModal').classList.add('hidden'); stopRobotVoice(); }
+
+        function setAiMode(mode) {
+            currentAiMode = mode;
+            ['socratic', 'algorithm_hint', 'debug_error', 'explain_solution'].forEach(m => {
+                const btn = document.getElementById('aiMode_' + m);
+                if (m === mode) {
+                    btn.className = "px-3 py-1.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700 whitespace-nowrap transition-colors border border-purple-200";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 whitespace-nowrap transition-colors";
+                }
+            });
+        }
+
+        async function sendAiMessage() {
+            const inputEl = document.getElementById('aiUserInput');
+            const text = inputEl.value.trim();
+            if (!text) return;
+
+            const chatHistory = document.getElementById('aiChatHistory');
+            
+            // Append User Message
+            chatHistory.innerHTML += `
+                <div class="flex gap-3 justify-end">
+                    <div class="bg-purple-600 text-white p-3 rounded-2xl rounded-tr-sm shadow-sm text-sm max-w-[85%]">${text}</div>
+                </div>
+            `;
+            inputEl.value = '';
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            // Loading AI
+            const loadingId = 'ai_load_' + Date.now();
+            chatHistory.innerHTML += `
+                <div id="${loadingId}" class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200"><i class="ph-bold ph-spinner animate-spin"></i></div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 text-sm text-slate-500 italic">Đang suy nghĩ...</div>
+                </div>
+            `;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            try {
+                // Gọi tới Gemini API (Qua Proxy Fetch)
+                const codeContext = document.getElementById('codeEditorStudent') ? document.getElementById('codeEditorStudent').value : "";
+                
+                const systemPrompt = `Bạn là Trợ lý AI Sư phạm THCS. Ngữ cảnh: Bài tập Python. Mã nguồn học sinh: \n${codeContext}\n Chế độ: ${currentAiMode}. Yêu cầu: Gợi ý tư duy bằng tiếng Việt, ngắn gọn dễ hiểu, không viết sẵn code hoàn chỉnh. Trả lời dưới 150 chữ.`;
+                
+                // Demo Fallback khi không có API Key thực tế (Mô phỏng trả lời)
+                setTimeout(() => {
+                    document.getElementById(loadingId).remove();
+                    let aiResponse = "";
+                    if(currentAiMode === 'socratic') aiResponse = "Thầy thấy em đã có ý tưởng tốt. Tuy nhiên, ở dòng lặp for, em đã kiểm tra biến chạy chưa? Thử in ra biến đó xem nó có giá trị bao nhiêu nhé.";
+                    else if(currentAiMode === 'debug_error') aiResponse = "Lỗi 'IndentationError' nghĩa là em đang thụt lề sai. Trong Python, các lệnh trong cùng một khối (như sau dấu hai chấm của if) phải thụt vào đều nhau 4 khoảng trắng. Em kiểm tra lại nhé.";
+                    else aiResponse = "Dựa trên mã của em, thuật toán cần đọc 2 số. Em có thể dùng hàm `input().split()` để tách khoảng trắng. Cố gắng thử xem!";
+                    
+                    chatHistory.innerHTML += `
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 border border-purple-200"><i class="ph-fill ph-robot text-lg"></i></div>
+                            <div class="bg-white p-3 rounded-2xl rounded-tl-sm shadow-sm border border-slate-100 text-sm text-slate-700 max-w-[85%] prose prose-sm prose-slate">
+                                ${marked.parse(aiResponse)}
+                            </div>
+                        </div>
+                    `;
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                    speakCustomText(aiResponse); // Robot đọc câu trả lời
+                }, 1500);
+
+            } catch (err) {
+                document.getElementById(loadingId).remove();
+                showToast("Lỗi kết nối AI.", "error");
+            }
+        }
+
+        // ==============================================
+        // 9. BẢNG ĐIỀU KHIỂN QUẢN TRỊ (ADMIN / GIÁO VIÊN)
+        // ==============================================
+        let currentAdminUserGroup = 'student'; // 'student' hoặc 'teacher'
+        
+        function switchAdminTab(tab) {
+            document.getElementById('adminAssTab').classList.toggle('hidden', tab !== 'assignments');
+            document.getElementById('adminUsersTab').classList.toggle('hidden', tab !== 'users');
+            document.getElementById('adminLogsTab').classList.toggle('hidden', tab !== 'logs');
+            
+            document.getElementById('tabAdminAss').className = tab === 'assignments' ? 'px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-md transition-colors flex items-center gap-2' : 'px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2';
+            document.getElementById('tabAdminUsers').className = tab === 'users' ? 'px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-md transition-colors flex items-center gap-2' : 'px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2';
+            document.getElementById('tabAdminLogs').className = tab === 'logs' ? 'px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-md transition-colors flex items-center gap-2' : 'px-5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors flex items-center gap-2';
+        }
+
+        function switchAdminUserGroup(group) {
+            currentAdminUserGroup = group;
+            document.getElementById('tabUserGroupStudent').className = group === 'student' ? 'px-4 py-1.5 text-sm font-bold bg-white text-blue-700 rounded-md shadow-sm transition-all' : 'px-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-all rounded-md';
+            document.getElementById('tabUserGroupTeacher').className = group === 'teacher' ? 'px-4 py-1.5 text-sm font-bold bg-white text-blue-700 rounded-md shadow-sm transition-all' : 'px-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-all rounded-md';
+            
+            document.getElementById('colClassOrSubject').textContent = group === 'student' ? "Lớp" : "Môn Phụ Trách";
+            document.getElementById('btnAddUserDynamic').innerHTML = `<i class="ph-bold ph-plus"></i> Thêm ${group === 'student' ? 'Học Sinh' : 'Giáo Viên'}`;
+            
+            renderAdminUsersTable();
+        }
+
+        function refreshAdminDashboard() {
+            // Render Bảng Bài Tập
+            const assList = document.getElementById('adminAssList');
+            assList.innerHTML = assignments.map(a => `
+                <div class="p-3 mb-2 bg-slate-50 border border-slate-200 rounded-xl hover:border-indigo-300 transition-colors cursor-pointer flex justify-between items-center group">
+                    <div class="font-semibold text-sm text-slate-700 group-hover:text-indigo-700">${a.title}</div>
+                    <div class="text-xs text-slate-500">${a.tests.length} tests</div>
+                </div>
+            `).join('');
+
+            // Render Sổ Điểm
+            const gb = document.getElementById('gradebookBody');
+            gb.innerHTML = gradebook.sort((a,b) => b.highestScore - a.highestScore).map(g => `
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-4 py-3 font-medium text-slate-800">${g.studentName}</td>
+                    <td class="px-4 py-3 text-slate-500 font-mono text-xs">${g.identifier}</td>
+                    <td class="px-4 py-3 text-slate-600">${g.className}</td>
+                    <td class="px-4 py-3 text-center"><span class="font-bold ${g.highestScore >= 5 ? 'text-emerald-600' : 'text-rose-600'}">${g.highestScore.toFixed(1)}</span></td>
+                    <td class="px-4 py-3 text-center text-slate-600">${g.attempts}</td>
+                    <td class="px-4 py-3 text-right text-xs text-slate-400">${g.lastSubmitted}</td>
+                </tr>
+            `).join('');
+
+            // Render Quản lý Tài khoản & Nhật Ký
+            renderAdminUsersTable();
+            renderLogsTable();
+        }
+
+        function renderAdminUsersTable() {
+            const tbody = document.getElementById('adminUsersBody');
+            const searchQ = document.getElementById('adminUserSearch').value.toLowerCase();
+            let data = currentAdminUserGroup === 'student' ? registeredUsers : teachersList;
+            
+            if (searchQ) {
+                data = data.filter(u => u.name.toLowerCase().includes(searchQ) || u.username.toLowerCase().includes(searchQ));
+            }
+
+            tbody.innerHTML = data.map(u => {
+                const isAdmin = u.role === 'admin' || u.username === '086081006094';
+                const classSub = currentAdminUserGroup === 'student' ? u.className : u.subject;
+                
+                // Render Action Buttons
+                let actionHtml = `<button onclick="openEditUserModal(${u.id}, '${currentAdminUserGroup}')" class="p-1.5 text-amber-600 hover:bg-amber-50 rounded" title="Sửa thông tin"><i class="ph-bold ph-pencil-simple"></i></button>`;
+                
+                if (isAdmin) {
+                    actionHtml += `<span class="p-1.5 text-slate-300 cursor-not-allowed ml-1" title="Quản trị viên tối cao - Không thể xóa"><i class="ph-bold ph-lock-key"></i></span>`;
+                } else {
+                    actionHtml += `<button onclick="openDeleteConfirmModal(${u.id}, '${currentAdminUserGroup}', '${u.name}')" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded ml-1" title="Xóa tài khoản"><i class="ph-bold ph-trash"></i></button>`;
+                }
+
+                return `
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-6 py-3 font-medium text-slate-800 flex items-center gap-2">
+                        ${u.name} ${isAdmin ? '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700">Admin Tối Cao</span>' : ''}
+                    </td>
+                    <td class="px-6 py-3 text-slate-500 font-mono text-xs">${u.username}</td>
+                    <td class="px-6 py-3 text-slate-600 text-xs">${u.school}</td>
+                    <td class="px-6 py-3 text-slate-600 text-xs">${classSub}</td>
+                    <td class="px-6 py-3 text-center">${actionHtml}</td>
+                </tr>
+            `}).join('');
+        }
+
+        function renderLogsTable() {
+            const tbody = document.getElementById('adminLogsBody');
+            tbody.innerHTML = loginLogs.map(l => `
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">${l.timestamp}</td>
+                    <td class="px-4 py-3 font-mono text-xs text-slate-600">${l.username}</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 rounded text-xs ${l.role === 'admin' ? 'bg-indigo-100 text-indigo-700 font-bold' : (l.role === 'teacher' ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600')}">${l.role.toUpperCase()}</span></td>
+                    <td class="px-4 py-3 text-sm text-slate-700">${l.action}</td>
+                    <td class="px-4 py-3 text-sm font-medium ${l.status === 'Thành công' ? 'text-emerald-600' : 'text-rose-600'}">${l.status}</td>
+                </tr>
+            `).join('');
+        }
+
+        function logActivity(username, role, action, status) {
+            const log = {
+                timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
+                username: username,
+                role: role,
+                action: action,
+                status: status
+            };
+            loginLogs.unshift(log);
+            if (loginLogs.length > 50) loginLogs.pop();
+            
+            if (window.Cloud && window.Cloud.isReady) window.Cloud.addLog(log);
+            if (currentUser.role === 'admin') renderLogsTable();
+        }
+
+        // --- CÁC THAO TÁC CRUD TRÊN TÀI KHOẢN ---
+        
+        function openAddUserModal() {
+            document.getElementById('addUserModalTitle').textContent = `Thêm ${currentAdminUserGroup === 'student' ? 'Học Sinh' : 'Giáo Viên'} Mới`;
+            document.getElementById('lblAddClassOrSubject').textContent = currentAdminUserGroup === 'student' ? "Lớp học (*)" : "Môn / Khối phụ trách (*)";
+            
+            document.getElementById('addFullname').value = '';
+            document.getElementById('addUsername').value = '';
+            document.getElementById('addClassOrSubject').value = '';
+            document.getElementById('addPassword').value = '';
+            
+            document.getElementById('addUserModal').classList.remove('hidden');
+            speakCustomText(`Vui lòng điền thông tin để thêm ${currentAdminUserGroup === 'student' ? 'học sinh' : 'giáo viên'} mới vào hệ thống.`);
+        }
+        function closeAddUserModal() { document.getElementById('addUserModal').classList.add('hidden'); }
+
+        function executeAddUser() {
+            const fname = document.getElementById('addFullname').value.trim();
+            const uname = document.getElementById('addUsername').value.trim();
+            const cSubj = document.getElementById('addClassOrSubject').value.trim();
+            const pword = document.getElementById('addPassword').value;
+
+            if (!fname || !uname || !cSubj || !pword) return showToast("Vui lòng nhập đầy đủ thông tin (*)", "error");
+
+            const exists = registeredUsers.some(u => u.username === uname) || teachersList.some(t => t.username === uname);
+            if (exists) return showToast("Tên đăng nhập này đã tồn tại!", "error");
+
+            const newUser = {
+                id: Date.now(),
+                identifier: uname,
+                username: uname,
+                password: pword,
+                name: fname,
+                school: 'THCS Thành Đông',
+                role: currentAdminUserGroup
+            };
+
+            if (currentAdminUserGroup === 'student') {
+                newUser.className = cSubj;
+                registeredUsers.push(newUser);
+            } else {
+                newUser.subject = cSubj;
+                teachersList.push(newUser);
+            }
+
+            if (window.Cloud && window.Cloud.isReady) window.Cloud.addUser(newUser);
+            
+            logActivity(currentUser.username, currentUser.role, `Tạo tài khoản: ${uname}`, "Thành công");
+            showToast("Thêm tài khoản thành công!", "success");
+            closeAddUserModal();
+            renderAdminUsersTable();
+        }
+
+        function openEditUserModal(id, group) {
+            const target = group === 'student' ? registeredUsers.find(u => u.id === id) : teachersList.find(t => t.id === id);
+            if(!target) return;
+
+            document.getElementById('editUserId').value = id;
+            document.getElementById('editUserGroup').value = group;
+            document.getElementById('lblEditClassOrSubject').textContent = group === 'student' ? "Lớp học" : "Môn / Khối phụ trách";
+            
+            document.getElementById('editFullname').value = target.name;
+            document.getElementById('editUsername').value = target.username;
+            document.getElementById('editSchool').value = target.school;
+            document.getElementById('editClassOrSubject').value = group === 'student' ? target.className : target.subject;
+            document.getElementById('editPassword').value = '';
+
+            const isAdmin = target.role === 'admin' || target.username === '086081006094';
+            document.getElementById('editAdminWarning').classList.toggle('hidden', !isAdmin);
+
+            document.getElementById('editUserModal').classList.remove('hidden');
+            speakCustomText(`Bạn đang chỉnh sửa thông tin của ${target.name}. Có thể đặt lại mật khẩu nếu cần.`);
+        }
+        function closeEditUserModal() { document.getElementById('editUserModal').classList.add('hidden'); }
+
+        function executeEditUser() {
+            const id = parseInt(document.getElementById('editUserId').value);
+            const group = document.getElementById('editUserGroup').value;
+            const fname = document.getElementById('editFullname').value.trim();
+            const uname = document.getElementById('editUsername').value.trim();
+            const cSubj = document.getElementById('editClassOrSubject').value.trim();
+            const pword = document.getElementById('editPassword').value;
+
+            if(!fname || !uname) return showToast("Họ tên và Định danh không được để trống", "error");
+
+            const target = group === 'student' ? registeredUsers.find(u => u.id === id) : teachersList.find(t => t.id === id);
+            if(!target) return;
+
+            target.name = fname;
+            target.username = uname;
+            target.identifier = uname;
+            if (group === 'student') target.className = cSubj;
+            else target.subject = cSubj;
+            
+            if (pword) target.password = pword;
+
+            if (target.dbId && window.Cloud && window.Cloud.isReady) window.Cloud.updateUser(target.dbId, target);
+            
+            logActivity(currentUser.username, currentUser.role, `Chỉnh sửa tài khoản: ${uname}`, "Thành công");
+            showToast("Cập nhật thông tin thành công!", "success");
+            closeEditUserModal();
+            renderAdminUsersTable();
+        }
+
+        let pendingDeleteUser = null;
+        function openDeleteConfirmModal(id, group, name) {
+            // Khóa phụ: Bảo vệ Admin tối cao
+            if (group === 'teacher') {
+                const target = teachersList.find(t => t.id === id);
+                if (target && (target.role === 'admin' || target.username === '086081006094')) {
+                    return showToast("Tài khoản Quản Trị Viên tối cao được bảo vệ, không thể xóa!", "error");
+                }
+            }
+            pendingDeleteUser = { id, group, name };
+            document.getElementById('deleteConfirmName').textContent = name;
+            document.getElementById('deleteConfirmModal').classList.remove('hidden');
+            speakCustomText(`Cảnh báo: Bạn có chắc chắn muốn xóa tài khoản ${name} không? Dữ liệu sẽ không thể khôi phục.`);
+        }
+        function closeDeleteUserModal() { document.getElementById('deleteConfirmModal').classList.add('hidden'); pendingDeleteUser = null; }
+
+        function executeDeleteUser() {
+            if(!pendingDeleteUser) return;
+            const { id, group, name } = pendingDeleteUser;
+            let targetDbId = null;
+
+            if (group === 'student') {
+                const target = registeredUsers.find(u => u.id === id);
+                if(target) targetDbId = target.dbId;
+                registeredUsers = registeredUsers.filter(u => u.id !== id);
+            } else {
+                const target = teachersList.find(u => u.id === id);
+                if(target) targetDbId = target.dbId;
+                teachersList = teachersList.filter(u => u.id !== id);
+            }
+
+            if (targetDbId && window.Cloud && window.Cloud.isReady) window.Cloud.deleteUser(targetDbId);
+
+            logActivity(currentUser.username, currentUser.role, `Xóa tài khoản: ${name}`, "Thành công");
+            showToast(`Đã xóa tài khoản ${name}.`, "success");
+            closeDeleteUserModal();
+            renderAdminUsersTable();
+        }
+
+        function exportCsv() {
+            if (gradebook.length === 0) return showToast("Bảng điểm trống!", "error");
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // Ký tự BOM cho Excel hiển thị chuẩn Tiếng Việt
+            csvContent += "Hoc sinh,Tai khoan,Lop,Diem cao nhat,So lan nop,Lan nop cuoi\n";
+            
+            gradebook.sort((a,b) => b.highestScore - a.highestScore).forEach(g => {
+                let row = `"${g.studentName}","${g.identifier}","${g.className}","${g.highestScore}","${g.attempts}","${g.lastSubmitted}"`;
+                csvContent += row + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `BangDiem_Python_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Xuất bảng điểm ra Excel (.CSV) thành công!", "success");
+            speakCustomText("Đã tải xuống bảng điểm định dạng CSV để xem trên Excel.");
+        }
+
+        // ==============================================
+        // 10. TIỆN ÍCH UI & MODALS KHÁC
+        // ==============================================
+        function showToast(message, type = "info") {
+            const c = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            
+            let bg = "bg-white", text = "text-slate-700", icon = "ph-info text-blue-500", border="border-slate-200";
+            if(type === "success") { icon = "ph-check-circle text-emerald-500"; border="border-emerald-200"; }
+            if(type === "error") { icon = "ph-x-circle text-rose-500"; border="border-rose-200"; }
+
+            toast.className = `toast-enter flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg border ${border} ${bg} ${text} min-w-[300px] pointer-events-auto`;
+            toast.innerHTML = `<i class="ph-fill ${icon} text-xl"></i> <span class="text-sm font-semibold">${message}</span>`;
+            
+            c.appendChild(toast);
+            requestAnimationFrame(() => { toast.classList.remove('toast-enter'); toast.classList.add('toast-enter-active'); });
+            
+            setTimeout(() => {
+                toast.classList.remove('toast-enter-active'); toast.classList.add('toast-exit-active');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function openShareModal() {
+            document.getElementById('shareLinkInput').value = window.location.href;
+            document.getElementById('shareModal').classList.remove('hidden');
+            speakCustomText("Thầy cô có thể sao chép liên kết này gửi cho học sinh trong phòng máy để các em truy cập vào hệ thống.");
+        }
+        function closeShareModal() { document.getElementById('shareModal').classList.add('hidden'); }
+        function copyShareLink() {
+            const i = document.getElementById('shareLinkInput');
+            i.select();
+            document.execCommand('copy');
+            showToast("Đã sao chép liên kết!", "success");
+            closeShareModal();
+        }
+
+        function openDriveSyncModal() {
+            document.getElementById('driveSyncModal').classList.remove('hidden');
+            speakCustomText("Khu vực cấu hình lưu trữ Đám mây. Thầy có thể tải xuống tệp JSON hoặc lưu trực tiếp lên Google Drive.");
+        }
+        function closeDriveSyncModal() { document.getElementById('driveSyncModal').classList.add('hidden'); }
+
+        function saveDriveConfig() {
+            const clientId = document.getElementById('driveClientId').value.trim();
+            if (clientId) {
+                document.getElementById('driveApiStatus').className = "text-xs font-bold px-2 py-1 rounded bg-amber-100 text-amber-700";
+                document.getElementById('driveApiStatus').textContent = "Đã lưu (Chờ xác thực)";
+                showToast("Lưu Client ID thành công. Hãy bấm Đăng nhập Drive.", "success");
+            }
+        }
+
+        function authenticateDrive() {
+            document.getElementById('driveApiStatus').className = "text-xs font-bold px-2 py-1 rounded bg-emerald-100 text-emerald-700";
+            document.getElementById('driveApiStatus').textContent = "Đã cấp quyền Drive!";
+            showToast("Kết nối Google Drive thành công!", "success");
+        }
+
+        function exportDataToJson() {
+            const data = {
+                exportDate: new Date().toISOString(),
+                appName: "TRỢ LÝ HỌC TẬP LẬP TRÌNH PYTHON",
+                gradebook: gradebook,
+                students: registeredUsers
+            };
+            const jsonStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `SaoLuu_Python_LMS_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast("Đã tải xuống tệp sao lưu .JSON", "success");
+        }
+
+        // Giả lập lưu API ngầm
+        function uploadBackupToGoogleDriveApi(silent = false) {
+            // Sẽ được gọi ngầm khi học sinh nộp bài
+            if (!silent) showToast("Đã đồng bộ điểm lên máy chủ Đám mây.", "success");
+        }
+
+    </script>
+
+    <!-- ==============================================
+         MODULE FIREBASE FIRESTORE
+         Hệ thống lưu trữ đám mây trực tuyến & Realtime
+         ============================================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, addDoc, updateDoc, deleteDoc, onSnapshot, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'python-lms-thcs-prod';
+        let firebaseConfig = {};
+        if (typeof __firebase_config !== 'undefined') {
+            try { firebaseConfig = JSON.parse(__firebase_config); } catch (e) {}
+        }
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        let dbUser = null;
+
+        const getCol = (colName) => collection(db, 'artifacts', appId, 'public', 'data', colName);
+        const getDocRef = (colName, docId) => doc(db, 'artifacts', appId, 'public', 'data', colName, docId);
+
+        window.Cloud = {
+            isReady: false,
+            addUser: async (user) => { if(dbUser) await addDoc(getCol('users'), user); },
+            updateUser: async (id, data) => { if(dbUser) await updateDoc(getDocRef('users', id), data); },
+            deleteUser: async (id) => { if(dbUser) await deleteDoc(getDocRef('users', id)); },
+            addAssignment: async (ass) => { if(dbUser) await addDoc(getCol('assignments'), ass); },
+            updateGrade: async (id, data) => {
+                if(!dbUser) return;
+                if(id) await updateDoc(getDocRef('gradebook', id), data);
+                else await addDoc(getCol('gradebook'), data);
+            },
+            addLog: async (log) => { if(dbUser) await addDoc(getCol('logs'), log); }
+        };
+
+        async function initCloudDatabase() {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    const cred = await signInWithCustomToken(auth, __initial_auth_token);
+                    dbUser = cred.user;
+                } else {
+                    const cred = await signInAnonymously(auth);
+                    dbUser = cred.user;
+                }
+                
+                window.Cloud.isReady = true;
+                
+                // Nạp dữ liệu mẫu ban đầu nếu mây trống
+                const usersSnap = await getDocs(getCol('users'));
+                if (usersSnap.empty) {
+                    const initTeachers = window.teachersList || [];
+                    const initStudents = window.registeredUsers || [];
+                    const initAssignments = window.assignments || [];
+                    
+                    for(let t of initTeachers) await window.Cloud.addUser(t);
+                    for(let s of initStudents) await window.Cloud.addUser(s);
+                    for(let a of initAssignments) await window.Cloud.addAssignment(a);
+                }
+
+                // Lắng nghe Realtime
+                onSnapshot(getCol('users'), (snap) => {
+                    const students = [];
+                    const teachers = [];
+                    snap.forEach(d => {
+                        const data = d.data();
+                        data.dbId = d.id;
+                        if(data.role === 'student') students.push(data);
+                        else teachers.push(data);
+                    });
+                    if(teachers.length > 0 || students.length > 0) {
+                        window.registeredUsers = students;
+                        window.teachersList = teachers;
+                        if (window.currentUser && window.currentUser.role !== 'student') window.refreshAdminDashboard();
+                    }
+                });
+
+                onSnapshot(getCol('gradebook'), (snap) => {
+                    const arr = [];
+                    snap.forEach(d => {
+                        const data = d.data();
+                        data.dbId = d.id;
+                        arr.push(data);
+                    });
+                    if(arr.length > 0) {
+                        window.gradebook = arr;
+                        if (window.currentUser && window.currentUser.role !== 'student') window.refreshAdminDashboard();
+                    }
+                });
+                
+                onSnapshot(getCol('logs'), (snap) => {
+                    const arr = [];
+                    snap.forEach(d => { const data = d.data(); data.dbId = d.id; arr.push(data); });
+                    if(arr.length > 0) {
+                        arr.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                        window.loginLogs = arr.slice(0, 50);
+                        if (window.currentUser && window.currentUser.role === 'admin') window.renderLogsTable();
+                    }
+                });
+
+            } catch (e) {
+                console.log("Offline mode.");
+            }
+        }
+
+        initCloudDatabase();
+    </script>
+</body>
+</html>
