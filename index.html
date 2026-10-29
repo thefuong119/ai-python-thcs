@@ -555,8 +555,8 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <button onclick="openDriveSyncModal()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp dữ liệu từ đám mây">
-                            <i class="ph-bold ph-cloud-arrow-down"></i> Nạp dữ liệu
+                        <button onclick="openGithubSyncModal()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp dữ liệu từ GitHub">
+                            <i class="ph-bold ph-github-logo"></i> Nạp dữ liệu
                         </button>
                         <button id="adminBtnAddStudent" onclick="openAddStudentModal()" class="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
                             <i class="ph-bold ph-user-plus"></i> Thêm Học Sinh
@@ -702,7 +702,7 @@
     <div id="robotVoiceWidget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none select-none">
         
         <!-- Trình phát Audio HTML5 ẩn dùng cho giọng đọc Google Ban Mai -->
-        <audio id="robotAudioPlayer" class="hidden" preload="auto"></audio>
+        <audio id="robotAudioPlayer" class="hidden" preload="auto" referrerpolicy="no-referrer"></audio>
 
         <!-- NÚT BẤM ROBOT HOẠT HỌA NỔI (CHẠM ĐỂ BẬT/TẮT GIỌNG ĐỌC) -->
         <div class="pointer-events-auto flex items-center gap-3">
@@ -1075,82 +1075,78 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- MODAL 6: QUẢN LÝ ĐỒNG BỘ DỮ LIỆU ĐÁM MÂY (ADMIN) -->
+    <!-- MODAL 6: QUẢN LÝ ĐỒNG BỘ DỮ LIỆU GITHUB (ADMIN) -->
     <!-- ============================================== -->
-    <div id="driveSyncModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div id="githubSyncModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
-            <div class="p-5 bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-600 text-white flex items-center justify-between">
+            <div class="p-5 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-900 text-white flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl backdrop-blur-sm">
-                        <i class="ph-bold ph-cloud-arrow-up text-emerald-200"></i>
+                        <i class="ph-bold ph-github-logo text-white"></i>
                     </div>
                     <div>
-                        <h3 class="text-base font-bold">Lưu Trữ & Sao Lưu Dữ Liệu Đám Mây</h3>
-                        <p class="text-xs text-emerald-100">Khu vực dành riêng cho Quản trị viên</p>
+                        <h3 class="text-base font-bold">Đồng Bộ Dữ Liệu GitHub</h3>
+                        <p class="text-xs text-slate-300">Kho lưu trữ: thefuong119/ai-python-thcs</p>
                     </div>
                 </div>
-                <button onclick="closeDriveSyncModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                <button onclick="closeGithubSyncModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
                     <i class="ph-bold ph-x text-lg"></i>
                 </button>
             </div>
 
             <div class="p-6 space-y-4 text-xs overflow-y-auto">
-                <!-- Khôi phục dữ liệu từ tệp Drive / JSON (Đã di chuyển lên trên cùng) -->
                 <div class="p-3.5 bg-blue-50 border border-blue-200 rounded-2xl space-y-2">
                     <label class="block font-bold text-slate-800 flex items-center gap-1.5">
-                        <i class="ph-bold ph-arrows-clockwise text-blue-600 text-sm"></i> Khôi phục dữ liệu từ tệp Drive / JSON:
+                        <i class="ph-bold ph-arrows-clockwise text-blue-600 text-sm"></i> Khôi phục dữ liệu từ tệp JSON (Cục bộ):
                     </label>
                     <input type="file" id="restoreFileInput" accept=".json" onchange="handleRestoreFile(event)" class="w-full text-xs text-slate-700 font-medium file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:shadow-md file:cursor-pointer cursor-pointer bg-white p-2 border border-blue-200 rounded-xl">
-                    <p class="text-[10px] text-slate-600">Chọn tệp JSON sao lưu đã tải về từ Google Drive của bạn để nạp lại đầy đủ tài khoản và đề bài bất cứ lúc nào.</p>
                 </div>
 
-                <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-950 space-y-1.5">
-                    <div class="flex items-center gap-2 font-bold text-emerald-900">
+                <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 space-y-1.5">
+                    <div class="flex items-center gap-2 font-bold text-slate-800">
                         <i class="ph-bold ph-shield-check text-base text-emerald-600"></i>
-                        <span>Thư mục lưu trữ hệ thống:</span>
+                        <span>Thư mục lưu trữ GitHub:</span>
                     </div>
-                    <div class="mt-2">
-                        <input type="text" id="customDriveFolderId" placeholder="Để trống để lưu vào kho tổng của trường, hoặc nhập ID thư mục Drive cá nhân..." class="w-full bg-white border border-emerald-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-[11px] focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                    </div>
-                    <p class="text-[11px] text-emerald-800 leading-relaxed mt-1">
-                        Tất cả thông tin tài khoản Học sinh, Giáo viên, Ngân hàng đề, và Bài làm đều được tự động đồng bộ (ghi đè cập nhật liên tục) vào 1 tệp duy nhất trên đám mây.
+                    <code class="block font-mono bg-white px-2.5 py-1.5 rounded-xl border border-slate-200 text-slate-800 text-[11px]">
+                        thefuong119/ai-python-thcs/data/...
+                    </code>
+                    <p class="text-[11px] text-slate-600 leading-relaxed mt-1">
+                        Tất cả dữ liệu được đồng bộ vào 1 tệp JSON duy nhất trên repository GitHub của hệ thống.
                     </p>
                 </div>
 
-                <!-- Thao tác Sao lưu nhanh / Khôi phục -->
                 <div class="grid grid-cols-2 gap-3">
-                    <button onclick="syncAllDataToDrive(true)" class="p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex flex-col items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20 transition-all text-center">
+                    <button onclick="syncAllDataToGitHub(true)" class="p-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex flex-col items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20 transition-all text-center">
                         <i class="ph-bold ph-cloud-arrow-up text-2xl"></i>
-                        <span>Đồng Bộ Lên Drive Ngay</span>
+                        <span>Đẩy Lên GitHub Ngay</span>
                         <span class="text-[10px] font-normal text-emerald-100">Ghi dữ liệu mới nhất</span>
                     </button>
 
-                    <button onclick="downloadDriveBackupJson()" class="p-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold flex flex-col items-center justify-center gap-1.5 shadow-sm transition-all text-center">
+                    <button onclick="downloadBackupJson()" class="p-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-bold flex flex-col items-center justify-center gap-1.5 shadow-sm transition-all text-center">
                         <i class="ph-bold ph-download-simple text-2xl text-amber-400"></i>
-                        <span>Tải Tệp Sao Lưu (.JSON)</span>
-                        <span class="text-[10px] font-normal text-slate-300">Lưu thủ công vào Drive</span>
+                        <span>Tải Tệp Cục Bộ (.JSON)</span>
+                        <span class="text-[10px] font-normal text-slate-300">Lưu dự phòng offline</span>
                     </button>
                 </div>
 
-                <!-- Cấu hình Google Cloud Client ID (OAuth 2.0 trực tiếp) -->
                 <div class="border border-slate-200 rounded-2xl p-3.5 space-y-2 bg-white">
                     <div class="flex items-center justify-between">
                         <span class="font-bold text-slate-700 flex items-center gap-1">
-                            <i class="ph-bold ph-lightning text-emerald-600"></i> Cầu nối Tự động (Google Apps Script URL)
+                            <i class="ph-bold ph-github-logo text-slate-900"></i> GitHub PAT (Personal Access Token)
                         </span>
-                        <button onclick="copyAppsScriptBridgeCode()" class="text-[10px] px-2 py-0.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold border border-emerald-200 transition-all">
-                            <i class="ph-bold ph-copy"></i> Chép mã Script
+                        <span id="githubAuthIndicator" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono">Chưa kết nối</span>
+                    </div>
+                    <input type="password" id="githubTokenInput" placeholder="Dán GitHub Token (ghp_...) có quyền 'repo'..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-[11px] focus:ring-2 focus:ring-slate-500 focus:outline-none">
+                    <div class="flex justify-end pt-1">
+                        <button onclick="saveGithubToken()" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm">
+                            Lưu Token
                         </button>
                     </div>
-                    <input type="text" id="googleScriptBridgeInput" placeholder="Dán URL Web App (https://script.google.com/macros/s/.../exec) để tự động lưu cho mọi HS/GV" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-[11px] focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                    <div class="flex justify-end">
-                        <button onclick="saveGoogleScriptBridgeUrl()" class="px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs">
-                            Lưu Cầu Nối Tự Động
-                        </button>
+                    <div class="pt-1 text-[10px] text-slate-500 leading-normal">
+                        * Bắt buộc để có quyền Ghi (Commit/Push) dữ liệu lên Repository GitHub của hệ thống.
                     </div>
                 </div>
-
-                <!-- Cấu hình Gemini AI API Key -->
+                
                 <div class="border border-slate-200 rounded-2xl p-3.5 space-y-2 bg-white">
                     <div class="flex items-center justify-between">
                         <span class="font-bold text-slate-700 flex items-center gap-1">
@@ -1169,36 +1165,14 @@
                     </div>
                 </div>
 
-                <!-- Cấu hình Google Cloud Client ID (OAuth 2.0 trực tiếp) -->
-                <div class="border border-slate-200 rounded-2xl p-3.5 space-y-2 bg-white">
-                    <div class="flex items-center justify-between">
-                        <span class="font-bold text-slate-700 flex items-center gap-1">
-                            <i class="ph-bold ph-key text-amber-600"></i> Google Client ID (OAuth 2.0 Web)
-                        </span>
-                        <span id="googleAuthIndicator" class="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono">Chưa kết nối API</span>
-                    </div>
-                    <input type="text" id="googleClientIdInput" placeholder="Ví dụ: 123456789-xxx.apps.googleusercontent.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-[11px] focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                    <div class="flex justify-between items-center gap-2 pt-1">
-                        <button onclick="saveGoogleClientId()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs">
-                            Lưu Client ID
-                        </button>
-                        <button onclick="initiateGoogleDriveLogin()" id="btnAuthorizeDrive" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-sign-in"></i> Đăng nhập Drive Quản Trị
-                        </button>
-                    </div>
-                    <div class="pt-1 text-[10px] text-slate-500 leading-normal">
-                        * Khi bất kỳ Admin, Giáo viên hoặc Học sinh nhấn nút <strong>Thoát</strong>, thuật toán thông minh sẽ tự động đẩy toàn bộ dữ liệu mới nhất lên Drive mặc định của tác giả.
-                    </div>
-                </div>
-
                 <div class="text-[11px] text-slate-500 flex items-center justify-between pt-1">
                     <span>Lần đồng bộ thành công gần nhất:</span>
-                    <strong id="lastDriveSyncTime" class="font-mono text-emerald-700">Chưa đồng bộ</strong>
+                    <strong id="lastGithubSyncTime" class="font-mono text-emerald-700">Chưa đồng bộ</strong>
                 </div>
             </div>
 
             <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
-                <button onclick="closeDriveSyncModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">
+                <button onclick="closeGithubSyncModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">
                     Đóng
                 </button>
             </div>
@@ -1208,11 +1182,11 @@
     <!-- MODAL HIỂN THỊ TIẾN TRÌNH ĐỒNG BỘ TỰ ĐỘNG KHI THOÁT ỨNG DỤNG -->
     <div id="exitSyncOverlay" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 p-6 text-center space-y-4">
-            <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto text-3xl shadow-inner">
-                <i id="exitSyncIcon" class="ph-bold ph-cloud-arrow-up animate-bounce"></i>
+            <div class="w-16 h-16 rounded-2xl bg-slate-50 text-slate-800 flex items-center justify-center mx-auto text-3xl shadow-inner">
+                <i id="exitSyncIcon" class="ph-bold ph-github-logo animate-bounce"></i>
             </div>
             <div>
-                <h3 class="text-base font-bold text-slate-900">Đang Lưu Dữ Liệu Lên Drive...</h3>
+                <h3 class="text-base font-bold text-slate-900">Đang Lưu Dữ Liệu Lên GitHub...</h3>
                 <p id="exitSyncStatusText" class="text-xs text-slate-500 mt-1 leading-relaxed">
                     Đang đóng gói tài khoản, ngân hàng đề và bài làm học sinh...
                 </p>
@@ -1573,14 +1547,15 @@
             }
         }
 
-        // THÔNG TIN GOOGLE DRIVE CHỦ TÀI KHOẢN
-        const TARGET_DRIVE_OWNER = "thuyhuong475689@gmail.com";
-        const DRIVE_ROOT_FOLDER_NAME = "PYTHON_AI_CLASSROOM_THUYHUONG";
-        // Khóa định danh thư mục gốc mặc định của tác giả (được mã hóa Base64 để ẩn khỏi giao diện)
-        const _AUTHOR_VAULT_KEY = atob("MVY4aTM5eURFV20zUXpCbXVWQjlTTnpwQXBRXdMeGZn".replace("XdMeGZn", "BReXdMeGZn"));
-        let googleAccessToken = localStorage.getItem('pyclassroom_gdrive_token') || null;
-        let tokenClient = null;
-        let lastSyncTimestamp = localStorage.getItem('last_drive_sync_time') || null;
+        // ==============================================
+        // PHÂN HỆ ĐỒNG BỘ GITHUB (THAY THẾ GOOGLE DRIVE)
+        // ==============================================
+        const GITHUB_OWNER = "thefuong119";
+        const GITHUB_REPO = "ai-python-thcs";
+        const GITHUB_FILE_PATH = "data/PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
+        
+        let githubPatToken = localStorage.getItem('pyclassroom_github_token') || null;
+        let lastSyncTimestamp = localStorage.getItem('last_github_sync_time') || null;
         let studentSubmissions = [];
 
         // TRẠNG THÁI MODAL XÁC THỰC
@@ -1666,53 +1641,34 @@
 
         let currentAssignment = assignments[0];
 
-        // ==============================================
-        // PHÂN HỆ ĐỒNG BỘ GOOGLE DRIVE THÔNG MINH ĐA LUỒNG
-        // ==============================================
-        function getHiddenAuthorFolderId() {
-            return ['1V8i39yDEWm3', 'QzBmuVB9SNzp', 'ApQywLxfg'].join('');
-        }
-
-        // TỰ ĐỘNG NẠP DỮ LIỆU TỪ GOOGLE DRIVE KHI KHỞI ĐỘNG ỨNG DỤNG
-        async function autoFetchDataFromCloudDrive() {
+        // TỰ ĐỘNG NẠP DỮ LIỆU TỪ GITHUB
+        async function autoFetchDataFromGitHub() {
             try {
-                const targetFolderId = getHiddenAuthorFolderId();
-                const fileName = 'PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json';
-                
-                // Nếu có Token OAuth đang lưu, thử tìm kiếm tệp tin trên Drive của tác giả
-                if (googleAccessToken) {
-                    const query = encodeURIComponent(`name='${fileName}' and '${targetFolderId}' in parents and trashed=false`);
-                    const searchRes = await fetch(`https://www.googleapis.com/drive/v3/files?q=${query}&supportsAllDrives=true&includeItemsFromAllDrives=true`, {
-                        headers: { 'Authorization': 'Bearer ' + googleAccessToken }
-                    });
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
+                const headers = { 'Accept': 'application/vnd.github.v3+json' };
+                if (githubPatToken) headers['Authorization'] = `token ${githubPatToken}`;
 
-                    if (searchRes.ok) {
-                        const searchData = await searchRes.json();
-                        if (searchData.files && searchData.files.length > 0) {
-                            const cloudFileId = searchData.files[0].id;
-                            const downloadRes = await fetch(`https://www.googleapis.com/drive/v3/files/${cloudFileId}?alt=media&supportsAllDrives=true`, {
-                                headers: { 'Authorization': 'Bearer ' + googleAccessToken }
-                            });
-                            if (downloadRes.ok) {
-                                const cloudPayload = await downloadRes.json();
-                                if (cloudPayload && cloudPayload.data) {
-                                    applyCloudDataPayload(cloudPayload);
-                                    showToast("Đã đồng bộ dữ liệu mới nhất từ Google Drive (Mọi lúc mọi nơi)!", "success");
-                                    return true;
-                                }
-                            }
-                        }
+                const res = await fetch(url, { headers, cache: 'no-store' });
+                if (res.ok) {
+                    const data = await res.json();
+                    // Lọc bỏ ký tự xuống dòng từ GitHub trước khi decode Base64 để tránh lỗi DOMException
+                    const base64Clean = data.content.replace(/\s/g, '');
+                    const decodedContent = decodeURIComponent(escape(atob(base64Clean)));
+                    const cloudPayload = JSON.parse(decodedContent);
+                    if (cloudPayload && cloudPayload.data) {
+                        applyCloudDataPayload(cloudPayload);
+                        console.log("Đã đồng bộ dữ liệu ngầm từ GitHub thành công.");
+                        return true;
                     }
                 }
             } catch (err) {
-                console.warn("Không thể tự động nạp từ Drive API, tiếp tục sử dụng dữ liệu cục bộ:", err);
+                console.warn("Không thể nạp dữ liệu từ GitHub:", err);
             }
             return false;
         }
 
         function applyCloudDataPayload(parsed) {
             if (parsed.data.registeredUsers && Array.isArray(parsed.data.registeredUsers)) {
-                // Hợp nhất tài khoản tránh trùng lặp id
                 parsed.data.registeredUsers.forEach(cloudUser => {
                     if (!registeredUsers.some(u => u.identifier === cloudUser.identifier || u.username === cloudUser.username)) {
                         registeredUsers.push(cloudUser);
@@ -1744,22 +1700,13 @@
             renderGradebook();
         }
 
-        function openDriveSyncModal() {
+        function openGithubSyncModal() {
             if (currentUser.role !== 'admin') {
                 showToast("Chức năng quản lý cấu hình lưu trữ đám mây chỉ dành cho Quản trị viên (Admin)!", "error");
                 return;
             }
-            document.getElementById('driveSyncModal').classList.remove('hidden');
-            const savedClientId = localStorage.getItem('google_drive_client_id') || '';
-            document.getElementById('googleClientIdInput').value = savedClientId;
-            const savedBridgeUrl = localStorage.getItem('google_script_bridge_url') || '';
-            if (document.getElementById('googleScriptBridgeInput')) {
-                document.getElementById('googleScriptBridgeInput').value = savedBridgeUrl;
-            }
-            const savedCustomFolder = localStorage.getItem('custom_drive_folder_id') || '';
-            if (document.getElementById('customDriveFolderId')) {
-                document.getElementById('customDriveFolderId').value = savedCustomFolder;
-            }
+            document.getElementById('githubSyncModal').classList.remove('hidden');
+            
             const savedGeminiKey = localStorage.getItem('gemini_api_key') || '';
             if (document.getElementById('geminiApiKeyInput')) {
                 document.getElementById('geminiApiKeyInput').value = savedGeminiKey;
@@ -1768,23 +1715,33 @@
                 document.getElementById('geminiAuthIndicator').textContent = "Đã lưu API Key";
                 document.getElementById('geminiAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
             }
+            
+            const savedGitToken = localStorage.getItem('pyclassroom_github_token') || '';
+            if (document.getElementById('githubTokenInput')) {
+                document.getElementById('githubTokenInput').value = savedGitToken;
+            }
+            if (savedGitToken) {
+                document.getElementById('githubAuthIndicator').textContent = "Đã lưu Token";
+                document.getElementById('githubAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
+            }
+
             if (lastSyncTimestamp) {
-                document.getElementById('lastDriveSyncTime').textContent = lastSyncTimestamp;
-            }
-            if (googleAccessToken) {
-                document.getElementById('googleAuthIndicator').textContent = "Đã kết nối OAuth 2.0";
-                document.getElementById('googleAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
+                document.getElementById('lastGithubSyncTime').textContent = lastSyncTimestamp;
             }
         }
-        function closeDriveSyncModal() { document.getElementById('driveSyncModal').classList.add('hidden'); }
-        function saveGoogleClientId() {
-            const cid = document.getElementById('googleClientIdInput').value.trim();
-            if (!cid) return showToast("Vui lòng nhập Google Client ID hợp lệ!", "error");
-            localStorage.setItem('google_drive_client_id', cid);
-            const customFolder = document.getElementById('customDriveFolderId')?.value.trim() || '';
-            localStorage.setItem('custom_drive_folder_id', customFolder);
-            showToast("Đã lưu cấu hình Google Cloud!", "success");
+        
+        function closeGithubSyncModal() { document.getElementById('githubSyncModal').classList.add('hidden'); }
+        
+        function saveGithubToken() {
+            const token = document.getElementById('githubTokenInput')?.value.trim() || '';
+            if (!token) return showToast("Vui lòng nhập GitHub Token hợp lệ!", "error");
+            localStorage.setItem('pyclassroom_github_token', token);
+            githubPatToken = token;
+            document.getElementById('githubAuthIndicator').textContent = "Đã lưu Token";
+            document.getElementById('githubAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
+            showToast("Đã cấu hình quyền ghi GitHub thành công!", "success");
         }
+
         function saveGeminiApiKey() {
             const key = document.getElementById('geminiApiKeyInput')?.value.trim() || '';
             if (!key) return showToast("Vui lòng nhập Gemini API Key hợp lệ!", "error");
@@ -1793,54 +1750,7 @@
             document.getElementById('geminiAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
             showToast("Đã lưu Gemini API Key thành công! Não bộ AI đã sẵn sàng.", "success");
         }
-        function saveGoogleScriptBridgeUrl() {
-            const bridgeUrl = document.getElementById('googleScriptBridgeInput')?.value.trim() || '';
-            localStorage.setItem('google_script_bridge_url', bridgeUrl);
-            const customFolder = document.getElementById('customDriveFolderId')?.value.trim() || '';
-            localStorage.setItem('custom_drive_folder_id', customFolder);
-            showToast("Đã lưu Cầu nối Tự động Google Drive!", "success");
-        }
-        function copyAppsScriptBridgeCode() {
-            const fid = getHiddenAuthorFolderId();
-            const scriptCode = `function doPost(e) {\n  var folder = DriveApp.getFolderById("${fid}");\n  var fileName = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";\n  var content = e.postData.contents;\n  var files = folder.getFilesByName(fileName);\n  if (files.hasNext()) {\n    files.next().setContent(content);\n  } else {\n    folder.createFile(fileName, content, MimeType.PLAIN_TEXT);\n  }\n  return ContentService.createTextOutput(JSON.stringify({status: "ok"})).setMimeType(ContentService.MimeType.JSON);\n}`;
-            const temp = document.createElement('textarea');
-            temp.value = scriptCode;
-            document.body.appendChild(temp);
-            temp.select();
-            document.execCommand('copy');
-            document.body.removeChild(temp);
-            showToast("Đã sao chép mã Google Apps Script! Hãy dán vào script.google.com và chọn Deploy -> Web App.", "success");
-        }
-        function initiateGoogleDriveLogin() {
-            const clientId = localStorage.getItem('google_drive_client_id') || document.getElementById('googleClientIdInput').value.trim();
-            if (!clientId) return showToast("Vui lòng cấu hình Google Client ID trước!", "error");
-            try {
-                if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
-                    return showToast("Đang tải thư viện Google GIS...", "info");
-                }
-                tokenClient = google.accounts.oauth2.initTokenClient({
-                    client_id: clientId,
-                    // Sử dụng quyền drive đầy đủ để cho phép ghi vào thư mục có sẵn của tác giả
-                    scope: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file',
-                    hint: TARGET_DRIVE_OWNER,
-                    callback: (tokenResponse) => {
-                        if (tokenResponse && tokenResponse.access_token) {
-                            googleAccessToken = tokenResponse.access_token;
-                            localStorage.setItem('pyclassroom_gdrive_token', googleAccessToken);
-                            document.getElementById('googleAuthIndicator').textContent = "Đã cấp quyền Drive";
-                            document.getElementById('googleAuthIndicator').className = "text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold";
-                            showToast(`Đã liên kết thành công Google Drive!`, "success");
-                            uploadBackupToGoogleDriveApi();
-                        }
-                    }
-                });
-                tokenClient.requestAccessToken({ prompt: 'consent' });
-            } catch (err) {
-                showToast("Lỗi khởi tạo đăng nhập Google: " + err.message, "error");
-            }
-        }
 
-        // Thu thập toàn bộ trạng thái làm việc hiện tại (bao gồm cả bài code đang gõ dở của học sinh)
         function harvestCurrentWorkspaceState() {
             if (currentUser && currentUser.isLoggedIn) {
                 const editorEl = document.getElementById('codeEditor');
@@ -1871,7 +1781,6 @@
             autoSaveLocalSnapshot();
         }
 
-        // Tính mã băm kiểm tra toàn vẹn dữ liệu (FNV-1a Checksum)
         function computeDataChecksum(str) {
             let h = 0x811c9dc5;
             for (let i = 0; i < str.length; i++) {
@@ -1894,8 +1803,8 @@
             const serializedCore = JSON.stringify(coreData);
             return {
                 app: "TRỢ LÝ HỌC TẬP LẬP TRÌNH PYTHON",
-                version: "2.7.0-SMART-SYNC",
-                target_owner: TARGET_DRIVE_OWNER,
+                version: "3.0.0-GITHUB-SYNC",
+                repository: `${GITHUB_OWNER}/${GITHUB_REPO}`,
                 triggered_by: {
                     name: currentUser?.name || "Hệ thống",
                     role: currentUser?.role || "guest",
@@ -1908,163 +1817,98 @@
             };
         }
 
-        function downloadDriveBackupJson() {
+        function downloadBackupJson() {
             const payload = generateCompleteBackupPayload();
             const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8;' });
             const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = `PYTHON_AI_BACKUP_${TARGET_DRIVE_OWNER.split('@')[0]}_${Date.now()}.json`;
+            link.download = `PYTHON_AI_BACKUP_${Date.now()}.json`;
             link.click();
             lastSyncTimestamp = new Date().toLocaleString('vi-VN', { hour12: false });
-            localStorage.setItem('last_drive_sync_time', lastSyncTimestamp);
-            if (document.getElementById('lastDriveSyncTime')) document.getElementById('lastDriveSyncTime').textContent = lastSyncTimestamp;
-            showToast(`Đã xuất tệp dữ liệu sao lưu!`, "success");
+            localStorage.setItem('last_github_sync_time', lastSyncTimestamp);
+            if (document.getElementById('lastGithubSyncTime')) document.getElementById('lastGithubSyncTime').textContent = lastSyncTimestamp;
+            showToast(`Đã xuất tệp dữ liệu sao lưu (Cục bộ)!`, "success");
         }
 
-        // THUẬT TOÁN ĐẨY DỮ LIỆU THÔNG MINH LÊN DRIVE TÁC GIẢ
-        async function uploadBackupToGoogleDriveApi(silent = false) {
-            const customFolderInput = document.getElementById('customDriveFolderId')
-                ? document.getElementById('customDriveFolderId').value.trim()
-                : (localStorage.getItem('custom_drive_folder_id') || '');
-            const targetFolderId = customFolderInput || getHiddenAuthorFolderId();
-            const fileName = 'PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json';
-            const payloadObj = generateCompleteBackupPayload();
-            const payloadContent = JSON.stringify(payloadObj, null, 2);
-
-            let syncedSuccessfully = false;
-
-            // LUỒNG 1: Đẩy qua Cầu nối Google Apps Script Web App (nếu đã cấu hình, hoạt động cho mọi HS/GV không cần OAuth)
-            const bridgeUrl = localStorage.getItem('google_script_bridge_url') || (document.getElementById('googleScriptBridgeInput')?.value.trim() || '');
-            if (bridgeUrl && bridgeUrl.startsWith('https://script.google.com/')) {
-                try {
-                    await fetch(bridgeUrl, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                        body: payloadContent
-                    });
-                    syncedSuccessfully = true;
-                } catch (bridgeErr) {
-                    console.warn("Cầu nối Apps Script gặp sự cố, chuyển sang luồng REST API:", bridgeErr);
-                }
-            }
-
-            // LUỒNG 2: Đẩy trực tiếp qua Google Drive REST API v3 (Sử dụng chuẩn Multipart/Related hoặc 2-Step Patch)
-            if (googleAccessToken) {
-                try {
-                    if (!silent) showToast("Đang đồng bộ dữ liệu lên Google Drive...", "info");
-
-                    const query = encodeURIComponent(`name='${fileName}' and '${targetFolderId}' in parents and trashed=false`);
-                    const searchRes = await fetch(`https://www.googleapis.com/drive/v3/files?q=${query}&supportsAllDrives=true&includeItemsFromAllDrives=true`, {
-                        headers: { 'Authorization': 'Bearer ' + googleAccessToken }
-                    });
-
-                    let fileIdToUpdate = null;
-                    let folderAccessible = searchRes.ok;
-
-                    if (searchRes.ok) {
-                        const searchData = await searchRes.json();
-                        if (searchData.files && searchData.files.length > 0) {
-                            fileIdToUpdate = searchData.files[0].id;
-                        }
-                    } else if (searchRes.status === 401) {
-                        // Token hết hạn
-                        googleAccessToken = null;
-                        localStorage.removeItem('pyclassroom_gdrive_token');
-                    }
-
-                    // Nếu đã có file trong thư mục đích -> Cập nhật nội dung trực tiếp
-                    if (fileIdToUpdate && googleAccessToken) {
-                        const updateRes = await fetch(`https://www.googleapis.com/upload/drive/v3/files/${fileIdToUpdate}?uploadType=media&supportsAllDrives=true`, {
-                            method: 'PATCH',
-                            headers: {
-                                'Authorization': 'Bearer ' + googleAccessToken,
-                                'Content-Type': 'application/json; charset=UTF-8'
-                            },
-                            body: payloadContent
-                        });
-                        if (updateRes.ok) syncedSuccessfully = true;
-                    }
-
-                    // Nếu chưa có file trong thư mục đích -> Tạo mới bằng chuẩn Multipart/Related với Blob nhị phân chuẩn UTF-8
-                    if (!syncedSuccessfully && googleAccessToken) {
-                        const boundary = '-------PyClassroomSmartSyncBoundary' + Date.now();
-                        const metadata = {
-                            name: fileName,
-                            mimeType: 'application/json',
-                            parents: folderAccessible ? [targetFolderId] : undefined
-                        };
-
-                        const metaPart = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n`;
-                        const mediaHeader = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n`;
-                        const closeDelimiter = `\r\n--${boundary}--`;
-
-                        // Ghép nối bằng Blob để bảo toàn 100% độ dài byte tiếng Việt UTF-8
-                        const multipartBlob = new Blob([metaPart, mediaHeader, payloadContent, closeDelimiter], {
-                            type: `multipart/related; boundary=${boundary}`
-                        });
-
-                        const createRes = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&supportsAllDrives=true', {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': 'Bearer ' + googleAccessToken
-                            },
-                            body: multipartBlob
-                        });
-
-                        if (createRes.ok) {
-                            syncedSuccessfully = true;
-                        } else {
-                            // Dự phòng: Tạo ở My Drive gốc nếu thư mục chỉ định chưa mở quyền Edit
-                            const fallbackMeta = { name: fileName, mimeType: 'application/json' };
-                            const fallbackMetaPart = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(fallbackMeta)}\r\n`;
-                            const fallbackBlob = new Blob([fallbackMetaPart, mediaHeader, payloadContent, closeDelimiter], {
-                                type: `multipart/related; boundary=${boundary}`
-                            });
-                            const fbRes = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-                                method: 'POST',
-                                headers: { 'Authorization': 'Bearer ' + googleAccessToken },
-                                body: fallbackBlob
-                            });
-                            if (fbRes.ok) syncedSuccessfully = true;
-                        }
-                    }
-                } catch (err) {
-                    console.warn("Lỗi kết nối Google Drive REST API:", err);
-                }
-            }
-
-            // LUỒNG 3: Ghi nhận trạng thái đồng bộ & Hàng đợi bền vững
-            const nowStr = new Date().toLocaleString('vi-VN', { hour12: false });
-            lastSyncTimestamp = nowStr;
-            localStorage.setItem('last_drive_sync_time', nowStr);
-            localStorage.setItem('pyclassroom_pending_drive_sync', payloadContent);
-            if (document.getElementById('lastDriveSyncTime')) {
-                document.getElementById('lastDriveSyncTime').textContent = nowStr;
-            }
-
-            if (syncedSuccessfully) {
-                localStorage.removeItem('pyclassroom_pending_drive_sync');
-                if (!silent) showToast("Đã đồng bộ toàn bộ dữ liệu lên Google Drive của tác giả!", "success");
-                return true;
-            }
-            return false;
-        }
-
-        async function syncAllDataToDrive(showAlert = true) {
-            const ok = await uploadBackupToGoogleDriveApi(!showAlert);
-            if (ok) return true;
-
-            // Nếu chưa đăng nhập OAuth và nhấn nút đồng bộ thủ công, mở luồng cấp quyền hoặc tải file JSON
-            const clientId = localStorage.getItem('google_drive_client_id') || document.getElementById('googleClientIdInput')?.value.trim();
-            if (clientId && typeof google !== 'undefined' && google.accounts && google.accounts.oauth2) {
-                initiateGoogleDriveLogin();
+        // THUẬT TOÁN ĐẨY DỮ LIỆU LÊN GITHUB REPOSITORY
+        async function uploadBackupToCloudApi(silent = false) {
+            if (!githubPatToken) {
+                if (!silent) showToast("Vui lòng cấu hình GitHub PAT (Personal Access Token) trước!", "error");
                 return false;
             }
 
-            downloadDriveBackupJson();
-            if (showAlert) showToast(`Đã xuất tệp sao lưu toàn diện (.JSON) sẵn sàng lưu vào Drive!`, "info");
+            try {
+                if (!silent) showToast("Đang đồng bộ dữ liệu lên GitHub...", "info");
+                
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
+                
+                // 1. Get file SHA if it exists (Required for updating an existing file in GitHub)
+                let currentSha = null;
+                const getRes = await fetch(url, {
+                    headers: { 
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Authorization': `token ${githubPatToken}`
+                    },
+                    cache: 'no-store'
+                });
+                
+                if (getRes.ok) {
+                    const fileData = await getRes.json();
+                    currentSha = fileData.sha;
+                }
+
+                // 2. Prepare Payload encoded to Base64 (UTF-8 safe)
+                const payloadObj = generateCompleteBackupPayload();
+                const payloadContent = JSON.stringify(payloadObj, null, 2);
+                const base64Content = btoa(unescape(encodeURIComponent(payloadContent)));
+
+                const bodyData = {
+                    message: `Auto-sync data from App by ${currentUser?.name || 'System'}`,
+                    content: base64Content
+                };
+                if (currentSha) {
+                    bodyData.sha = currentSha;
+                }
+
+                // 3. PUT request to create or update the file
+                const putRes = await fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${githubPatToken}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bodyData)
+                });
+
+                if (putRes.ok) {
+                    const nowStr = new Date().toLocaleString('vi-VN', { hour12: false });
+                    lastSyncTimestamp = nowStr;
+                    localStorage.setItem('last_github_sync_time', nowStr);
+                    if (document.getElementById('lastGithubSyncTime')) {
+                        document.getElementById('lastGithubSyncTime').textContent = nowStr;
+                    }
+                    if (!silent) showToast("Đã đồng bộ toàn bộ dữ liệu lên GitHub thành công!", "success");
+                    return true;
+                } else {
+                    const errInfo = await putRes.json();
+                    console.warn("GitHub API Error:", errInfo);
+                    if (!silent) showToast("Lỗi đẩy dữ liệu lên GitHub! Kiểm tra Token hoặc quyền ghi.", "error");
+                }
+            } catch (err) {
+                console.warn("Lỗi kết nối GitHub API:", err);
+                if (!silent) showToast("Mất kết nối mạng khi tải lên GitHub.", "error");
+            }
             return false;
+        }
+
+        async function syncAllDataToGitHub(showAlert = true) {
+            const ok = await uploadBackupToCloudApi(!showAlert);
+            if (!ok) {
+                downloadBackupJson();
+                if (showAlert) showToast(`Đã xuất tệp sao lưu toàn diện (.JSON) sẵn sàng offline!`, "info");
+            }
+            return ok;
         }
 
         function handleRestoreFile(event) {
@@ -2082,7 +1926,7 @@
                     if (parsed.data.studentSubmissions) studentSubmissions = parsed.data.studentSubmissions;
                     autoSaveLocalSnapshot();
                     refreshAdminDashboard(); renderGradebook();
-                    showToast(`Khôi phục thành công toàn bộ dữ liệu!`, "success"); closeDriveSyncModal();
+                    showToast(`Khôi phục thành công toàn bộ dữ liệu!`, "success"); closeGithubSyncModal();
                 } catch (err) { showToast("Lỗi đọc tệp sao lưu!", "error"); }
             };
             reader.readAsText(file);
@@ -2321,7 +2165,7 @@
                 teachersList.push({ username, password: pass, name, school, subject: className || "Khối THCS", phone: phone || "---", email: email || "---", role: 'teacher' });
                 registeredUsers.push({ id: registeredUsers.length + 1, name, username, identifier: username, password: pass, school, className: className || "Khối THCS", teacherName: "---", phone: phone || "---", email: email || "---", role: 'teacher', authMethod: "Tên đăng nhập + Mật khẩu", status: "active", firstLogin: nowStr, lastLogin: nowStr, loginCount: 1 });
                 currentUser = { isLoggedIn: true, role: 'teacher', name, school, className: className || "Khối THCS", phone, email, identifier: username };
-                autoSaveLocalSnapshot(); closeLoginModal(); showToast(`Đăng ký thành công! Chào mừng Giáo viên ${name}.`, "success"); switchRole('teacher'); if (googleAccessToken) uploadBackupToGoogleDriveApi();
+                autoSaveLocalSnapshot(); closeLoginModal(); showToast(`Đăng ký thành công! Chào mừng Giáo viên ${name}.`, "success"); switchRole('teacher'); uploadBackupToCloudApi(true);
             } else {
                 const name = document.getElementById('regStudentName').value.trim(), school = document.getElementById('regStudentSchool').value.trim() || "THCS Thành Đông", className = document.getElementById('regStudentClass').value.trim(), username = document.getElementById('regStudentUsername').value.trim(), email = document.getElementById('regStudentEmail').value.trim(), phone = document.getElementById('regStudentPhone').value.trim(), pass = document.getElementById('regStudentPass').value.trim();
                 const primaryIdentifier = username || email || phone;
@@ -2332,7 +2176,7 @@
 
                 registeredUsers.push({ id: registeredUsers.length + 1, name, username: username || "", identifier: primaryIdentifier, password: pass, school, className, teacherName: "Thầy Nguyễn Thế Phương", phone: phone || "---", email: email || "---", role: 'student', authMethod: username ? "Tên đăng nhập" : (email ? "Gmail" : "Số điện thoại"), status: "active", firstLogin: nowStr, lastLogin: nowStr, loginCount: 1 });
                 currentUser = { isLoggedIn: true, role: 'student', name, school, className, teacherName: "Thầy Nguyễn Thế Phương", phone, email, identifier: primaryIdentifier };
-                autoSaveLocalSnapshot(); closeLoginModal(); showToast(`Đăng ký thành công! Chào mừng em ${name}!`, "success"); switchRole('student'); if (googleAccessToken) uploadBackupToGoogleDriveApi();
+                autoSaveLocalSnapshot(); closeLoginModal(); showToast(`Đăng ký thành công! Chào mừng em ${name}!`, "success"); switchRole('student'); uploadBackupToCloudApi(true);
             }
         }
 
@@ -2342,7 +2186,7 @@
             loginLogs.unshift({ id: loginLogs.length + 1, time: nowStr, name: userData.name || "Chưa có tên", identifier: `${userData.school || 'THCS'} - ${userData.className || 'Lớp'} | ${identifier}`, role, authMethod, result: "Thành công" });
             const existing = registeredUsers.find(u => (u.identifier?.toLowerCase() === identifier?.toLowerCase()) || (u.phone && u.phone === userData.phone) || (u.email?.toLowerCase() === userData.email?.toLowerCase()));
             if (existing) { existing.lastLogin = nowStr; existing.loginCount = (existing.loginCount || 1) + 1; }
-            autoSaveLocalSnapshot(); uploadBackupToGoogleDriveApi(true);
+            autoSaveLocalSnapshot(); uploadBackupToCloudApi(true);
         }
 
         // NÚT THOÁT ỨNG DỤNG THÔNG MINH CHO ADMIN, GIÁO VIÊN VÀ HỌC SINH
@@ -2378,18 +2222,18 @@
             await new Promise(r => setTimeout(r, 250));
 
             if (overlay) {
-                statusText.textContent = "Đang đẩy toàn bộ dữ liệu lên Google Drive của tác giả...";
+                statusText.textContent = "Đang đẩy toàn bộ dữ liệu lên GitHub của tác giả...";
                 progressBar.style.width = '75%';
             }
 
             // Thực thi thuật toán đẩy dữ liệu đa luồng lên Drive tác giả
-            const driveSynced = await uploadBackupToGoogleDriveApi(true);
+            const driveSynced = await uploadBackupToCloudApi(true);
 
             if (overlay) {
                 progressBar.style.width = '100%';
                 if (syncIcon) syncIcon.className = "ph-bold ph-check-circle text-emerald-600";
                 statusText.textContent = driveSynced
-                    ? "Đã đồng bộ thành công lên Google Drive của tác giả! Đang thoát..."
+                    ? "Đã đồng bộ thành công lên GitHub của tác giả! Đang thoát..."
                     : "Đã lưu toàn bộ dữ liệu vào bộ nhớ đồng bộ an toàn! Đang thoát...";
             }
 
@@ -2624,7 +2468,7 @@
                 const tObj = teachersList.find(t => t.username === user.identifier || t.username === newId);
                 if (tObj) { tObj.name = newName; tObj.username = newId; if (newPass) tObj.password = newPass; }
             }
-            autoSaveLocalSnapshot(); closeEditUserModal(); refreshAdminDashboard(); showToast(`Đã cập nhật tài khoản!`, "success"); if (googleAccessToken) uploadBackupToGoogleDriveApi();
+            autoSaveLocalSnapshot(); closeEditUserModal(); refreshAdminDashboard(); showToast(`Đã cập nhật tài khoản!`, "success"); uploadBackupToCloudApi(true);
         }
 
         function saveNewTeacher() {
@@ -2633,7 +2477,7 @@
             if (teachersList.some(t => t.username?.toLowerCase() === username.toLowerCase()) || registeredUsers.some(u => u.identifier?.toLowerCase() === username.toLowerCase())) return showToast("Tên đăng nhập này đã tồn tại!", "error");
             teachersList.push({ username, password: pass, name, school: document.getElementById('newTeacherSchool').value.trim(), subject: document.getElementById('newTeacherSubject').value.trim(), phone: document.getElementById('newTeacherPhone').value.trim(), email: document.getElementById('newTeacherEmail').value.trim(), role: 'teacher' });
             registeredUsers.push({ id: registeredUsers.length + 1, name, username, identifier: username, password: pass, role: 'teacher', status: "active", firstLogin: "Từ Admin", lastLogin: "Chưa ĐN", loginCount: 0 });
-            closeAddTeacherModal(); refreshAdminDashboard(); autoSaveLocalSnapshot(); showToast(`Đã thêm Giáo viên!`, "success"); uploadBackupToGoogleDriveApi(true);
+            closeAddTeacherModal(); refreshAdminDashboard(); autoSaveLocalSnapshot(); showToast(`Đã thêm Giáo viên!`, "success"); uploadBackupToCloudApi(true);
         }
 
         function saveNewStudent() {
@@ -2669,7 +2513,7 @@
 
             closeAddStudentModal(); refreshAdminDashboard(); autoSaveLocalSnapshot(); 
             showToast(`Đã thêm Học sinh: ${name} (${className})`, "success"); 
-            uploadBackupToGoogleDriveApi(true);
+            uploadBackupToCloudApi(true);
         }
 
         function exportUsersCsv() {
@@ -2797,7 +2641,7 @@ sys.stdout = _old_stdout
                 timestamp: new Date().toLocaleString('vi-VN', { hour12: false })
             });
 
-            autoSaveLocalSnapshot(); uploadBackupToGoogleDriveApi(true);
+            autoSaveLocalSnapshot(); uploadBackupToCloudApi(true);
             
             showToast(`Em đạt ${totalScore.toFixed(1)}/10.0 điểm. Kết quả đã lưu lên hệ thống!`, totalScore >= 9.9 ? "success" : "info");
             generateAiCodeReview(code, totalScore, maxScore);
@@ -2898,7 +2742,7 @@ sys.stdout = _old_stdout
             const apiKey = localStorage.getItem('gemini_api_key') || "";
             if (!apiKey) return "API_KEY_MISSING";
 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
             let delay = 1000;
             for (let i = 0; i < maxRetries; i++) {
                 try {
@@ -3082,7 +2926,7 @@ Học sinh hỏi: "${msg}"`;
             // Cập nhật luôn cho Admin nếu Admin đang thao tác
             if (currentRole === 'admin') renderAdminAssignmentsTable();
 
-            if (googleAccessToken) uploadBackupToGoogleDriveApi();
+            uploadBackupToCloudApi(true);
         }
 
         function editAssignment(id) {
@@ -3278,9 +3122,9 @@ Học sinh hỏi: "${msg}"`;
             
             const warningEl = document.getElementById('shareLocalWarning');
             
-            // Nếu chạy trên máy local, hiển thị cảnh báo và gán domain mẫu
+            // Nếu chạy trên máy local, hiển thị cảnh báo và gán domain GitHub Pages của kho lưu trữ
             if (isLocal) {
-                baseUrl = 'https://python-ai.thcs.edu.vn'; 
+                baseUrl = 'https://thefuong119.github.io/ai-python-thcs/'; 
                 if (warningEl) warningEl.classList.remove('hidden');
             } else {
                 if (warningEl) warningEl.classList.add('hidden');
@@ -3325,8 +3169,8 @@ Học sinh hỏi: "${msg}"`;
         window.addEventListener('DOMContentLoaded', async () => {
             loadLocalSnapshotIfAvailable(); 
             
-            // Cố gắng nạp dữ liệu trực tiếp từ đám mây Google Drive ngay khi mở trang
-            await autoFetchDataFromCloudDrive();
+            // Cố gắng nạp dữ liệu trực tiếp từ đám mây GitHub ngay khi mở trang
+            await autoFetchDataFromGitHub();
 
             populateAssignmentSelect(); 
             
@@ -3336,8 +3180,10 @@ Học sinh hỏi: "${msg}"`;
             if (assignId && assignments.find(a => a.id == assignId)) {
                 document.getElementById('selectAssignment').value = assignId;
                 loadAssignment(parseInt(assignId));
-            } else {
-                loadAssignment(1); 
+            } else if (assignments.length > 0) {
+                // Tự động load bài tập đầu tiên trong danh sách thay vì hardcode id = 1
+                document.getElementById('selectAssignment').value = assignments[0].id;
+                loadAssignment(assignments[0].id); 
             }
             
             initPyodide();
@@ -3347,11 +3193,6 @@ Học sinh hỏi: "${msg}"`;
             window.addEventListener('beforeunload', () => {
                 if (currentUser && currentUser.isLoggedIn) {
                     harvestCurrentWorkspaceState();
-                    const bridgeUrl = localStorage.getItem('google_script_bridge_url');
-                    if (bridgeUrl && navigator.sendBeacon) {
-                        const payload = JSON.stringify(generateCompleteBackupPayload());
-                        navigator.sendBeacon(bridgeUrl, new Blob([payload], { type: 'text/plain;charset=utf-8' }));
-                    }
                 }
             });
         });
