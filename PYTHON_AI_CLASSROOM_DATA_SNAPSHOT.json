@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Nguyễn Phú Lộc",
-    "role": "student",
-    "identifier": "loc"
+    "name": "Thầy Nguyễn Thế Phương",
+    "role": "admin",
+    "identifier": "086081006094"
   },
-  "checksum": "53219513",
-  "exported_at": "2026-10-30T01:26:24.058Z",
-  "exported_at_vn": "08:26:24 30/10/2026",
+  "checksum": "D13FBD67",
+  "exported_at": "2026-10-30T01:26:37.594Z",
+  "exported_at_vn": "08:26:37 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "08:23:11 30/10/2026",
-        "loginCount": 36
+        "lastLogin": "08:26:37 30/10/2026",
+        "loginCount": 37
       },
       {
         "id": 2,
@@ -911,9 +911,30 @@
         "score": null,
         "type": "draft_on_exit",
         "timestamp": "08:26:24 30/10/2026"
+      },
+      {
+        "id": 1793323597593,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "role": "admin",
+        "assignmentId": 2,
+        "assignmentTitle": "Kiểm tra số nguyên tố",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
+        "score": null,
+        "type": "draft_on_exit",
+        "timestamp": "08:26:37 30/10/2026"
       }
     ],
     "loginLogs": [
+      {
+        "id": 26,
+        "time": "08:26:37 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 25,
         "time": "08:26:22 30/10/2026",
