@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "BE5B8A73",
-  "exported_at": "2026-10-30T01:41:50.521Z",
-  "exported_at_vn": "08:41:50 30/10/2026",
+  "checksum": "9BE49F4B",
+  "exported_at": "2026-10-30T01:42:21.254Z",
+  "exported_at_vn": "08:42:21 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -347,7 +347,7 @@
         "slug": "x-t-s--ch-n-l-",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Viết code Python nhập vào số nguyên n. Xuất thông báo Yes nếu là số chẵn, No nếu là số lẻ",
+        "description": "Viết code Python nhập vào số nguyên. Xuất thông báo Yes nếu là số chẵn, No nếu là số lẻ.",
         "templateCode": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "tests": [
           {
@@ -949,7 +949,7 @@
         "timestamp": "08:26:24 30/10/2026"
       },
       {
-        "id": 1793324510518,
+        "id": 1793324541249,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -958,7 +958,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:41:50 30/10/2026"
+        "timestamp": "08:42:21 30/10/2026"
       }
     ],
     "loginLogs": []
