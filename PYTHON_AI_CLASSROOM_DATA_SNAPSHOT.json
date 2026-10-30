@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "E09D1010",
-  "exported_at": "2026-10-30T01:55:28.524Z",
-  "exported_at_vn": "08:55:28 30/10/2026",
+  "checksum": "53B6661B",
+  "exported_at": "2026-10-30T01:59:13.781Z",
+  "exported_at_vn": "08:59:13 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -949,7 +949,7 @@
         "timestamp": "08:23:29 30/10/2026"
       },
       {
-        "id": 1793325328522,
+        "id": 1793325553780,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -958,7 +958,7 @@
         "code": "gf\nFghfg\nFghfg",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:55:28 30/10/2026"
+        "timestamp": "08:59:13 30/10/2026"
       },
       {
         "id": 1793325179222,
@@ -986,6 +986,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 7,
+        "time": "08:59:12 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 6,
         "time": "08:52:58 30/10/2026",
