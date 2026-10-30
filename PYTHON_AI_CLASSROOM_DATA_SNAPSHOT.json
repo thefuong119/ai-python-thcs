@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "88F1296",
-  "exported_at": "2026-10-30T00:50:12.839Z",
-  "exported_at_vn": "07:50:12 30/10/2026",
+  "checksum": "66598B47",
+  "exported_at": "2026-10-30T00:50:27.962Z",
+  "exported_at_vn": "07:50:27 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,7 +434,7 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 7,
+        "attempts": 8,
         "highestScore": 10,
         "lastSubmit": "Hôm nay 07:50"
       },
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793321427221,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 3,
+        "assignmentTitle": "Đếm số lượng số chẵn trong dãy",
+        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
+        "score": 10,
+        "type": "official_submission",
+        "timestamp": "07:50:27 30/10/2026"
+      },
       {
         "id": 1793321412248,
         "student": "Nguyễn Phú Lộc",
@@ -673,7 +685,7 @@
         "timestamp": "05:43:17 30/10/2026"
       },
       {
-        "id": 1793321412837,
+        "id": 1793321427956,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -682,7 +694,7 @@
         "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:50:12 30/10/2026"
+        "timestamp": "07:50:27 30/10/2026"
       },
       {
         "id": 1793321101455,
