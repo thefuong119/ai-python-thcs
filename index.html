@@ -459,7 +459,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-1">
                         <label class="block font-bold text-xs text-slate-700">
-                            Nội dung đề bài (Hỗ trợ Markdown & LaTeX Toán học)
+                            Nội dung đề bài (Hỗ trợ Markdown & LaTeX Toán học dạng $x^2$ hoặc $$\frac{a}{b}$$)
                         </label>
                         <span class="text-[11px] text-blue-600 font-medium">Khung mở rộng 8 dòng</span>
                     </div>
@@ -546,14 +546,9 @@
                         <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                             <i class="ph-bold ph-chalkboard-teacher text-purple-600"></i> Soạn/Sửa Bài Giảng Lý Thuyết (Có Công Thức Toán & Giọng Đọc AI)
                         </h4>
-                        <div class="flex items-center gap-2">
-                            <button type="button" onclick="previewLessonModal()" class="px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs flex items-center gap-1 transition-all">
-                                <i class="ph-bold ph-eye"></i> Xem Trước
-                            </button>
-                            <button type="button" onclick="resetLessonForm()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-1">
-                                <i class="ph-bold ph-plus"></i> Tạo mới
-                            </button>
-                        </div>
+                        <button onclick="resetLessonForm()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-1">
+                            <i class="ph-bold ph-plus"></i> Tạo mới
+                        </button>
                     </div>
                     <input type="hidden" id="editingLessonId" value="">
                     <div>
@@ -568,8 +563,8 @@
                         <textarea id="newLessonContent" rows="8" placeholder="Nhập kiến thức bài học... Dùng $x \ge 0$ để chèn ký hiệu toán học đẹp mắt." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs leading-relaxed focus:ring-2 focus:ring-purple-500 focus:outline-none font-sans"></textarea>
                     </div>
                     <div class="flex justify-end gap-2">
-                        <button type="button" onclick="resetLessonForm()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">Hủy</button>
-                        <button type="button" id="btnSaveLesson" onclick="saveLesson()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-md">Lưu Bài Giảng</button>
+                        <button onclick="resetLessonForm()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">Hủy</button>
+                        <button onclick="saveLesson()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-md">Lưu Bài Giảng</button>
                     </div>
                 </div>
 
@@ -1648,7 +1643,7 @@
 
         let robotScripts = {
             guest: "Kính chào quý Thầy Cô và các em học sinh! Thầy Phương chào mừng các bạn đến với Trợ Lý Học Tập Lập Trình Python. Để bảo mật dữ liệu học đường, hệ thống yêu cầu đăng nhập trước khi sử dụng. Chúc các em và quý Thầy Cô có những trải nghiệm thật hiệu quả!",
-            student: "Thầy Phương chào em! Thầy rất vui được đồng hành cùng em trong buổi học hôm nay. Em hãy đọc kỹ bài giảng lý thuyết trước, nếu muốn thầy giảng thì bấm nút Robot Giảng Bài nhé. Sau đó em chuyển sang Thực Hành để viết code và nộp bài chấm điểm. Cứ tự tin làm bài, có khó khăn gì thầy luôn ở đây hỗ trợ em!",
+            student: "Chào các em học sinh! Thầy Phương chào mừng các em đến với phòng học lập trình Python. Em có thể đọc bài giảng lý thuyết có công thức toán sắc nét, nghe Robot giảng bài, rồi chuyển sang phần Thực hành để làm bài và nộp bài chấm điểm tự động.",
             teacher: "Kính chào quý Thầy Cô và Quản trị viên! Thầy Cô có thể tạo bài giảng lý thuyết, biên soạn bài tập kèm các bộ test case công khai và test ẩn chính xác, đồng thời theo dõi sổ điểm học sinh thời gian thực."
         };
 
@@ -3106,9 +3101,6 @@
         }
 
         function loadAssignment(assignmentId) {
-            // Ngay khi học sinh chọn bài tập khác, Robot lập tức dừng đọc bài cũ
-            stopRobotVoice();
-
             const found = assignments.find(a => a.id == assignmentId); if (!found) return; currentAssignment = found;
             document.getElementById('currentAssignmentTitle').textContent = found.title; document.getElementById('currentTimeLimit').textContent = found.timeLimit + 's';
             const diffBadge = document.getElementById('currentDiffBadge');
@@ -3696,9 +3688,6 @@ sys.stdout = _old_stdout
         }
 
         function loadLessonDetail(lessonId) {
-            // Ngay khi học sinh chọn bài giảng khác, Robot lập tức dừng đọc bài cũ
-            stopRobotVoice();
-
             const found = lessons.find(l => l.id == lessonId);
             if (!found) return;
             currentLesson = found;
@@ -3735,13 +3724,12 @@ sys.stdout = _old_stdout
             if (isRobotSpeaking) {
                 stopRobotVoice();
                 updateLessonReadButtonState(false);
-                showToast("Thầy đã tạm dừng bài giảng", "info");
+                showToast("Đã tạm dừng bài giảng của Robot", "info");
             } else {
                 if (!currentLesson) return;
                 updateLessonReadButtonState(true);
-                showToast("Thầy đang giảng bài cho em nghe...", "info");
-                // Giọng điệu của người Thầy nói chuyện và giảng giải với học trò
-                speakRobotText(`Thầy Phương chào các em. Hôm nay thầy trò mình cùng tìm hiểu nội dung ${currentLesson.title}. ${currentLesson.content}`);
+                showToast("Robot AI đang đọc bài giảng cho học sinh nghe...", "info");
+                speakRobotText(`Bài giảng: ${currentLesson.title}. ${currentLesson.content}`);
             }
         }
 
