@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "B35888DE",
-  "exported_at": "2026-10-30T01:52:59.224Z",
-  "exported_at_vn": "08:52:59 30/10/2026",
+  "checksum": "E09D1010",
+  "exported_at": "2026-10-30T01:55:28.524Z",
+  "exported_at_vn": "08:55:28 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,9 +434,9 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 18,
+        "attempts": 19,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:25"
+        "lastSubmit": "Hôm nay 08:55"
       },
       {
         "id": 8,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793325327432,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 4,
+        "assignmentTitle": "Xét số chẵn lẻ",
+        "code": "gf\nFghfg\nFghfg",
+        "score": 0,
+        "type": "official_submission",
+        "timestamp": "08:55:27 30/10/2026"
+      },
       {
         "id": 1793324918882,
         "student": "Thầy Nguyễn Thế Phương",
@@ -937,16 +949,16 @@
         "timestamp": "08:23:29 30/10/2026"
       },
       {
-        "id": 1793322725539,
+        "id": 1793325328522,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "code": "gf\nFghfg\nFghfg",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:12:05 30/10/2026"
+        "timestamp": "08:55:28 30/10/2026"
       },
       {
         "id": 1793325179222,
