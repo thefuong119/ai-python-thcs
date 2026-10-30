@@ -36,6 +36,10 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Pyodide WebAssembly Python Engine -->
     <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    <!-- KaTeX Math Rendering CDN (Hiển thị công thức Toán học chuẩn Mathtype) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <!-- Google Identity Services (GIS) & GAPI Client -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/api.js" async defer></script>
@@ -168,8 +172,48 @@
         <!-- VIEW 1: KHÔNG GIAN HỌC SINH LÀM BÀI (STUDENT) -->
         <!-- ============================================== -->
         <div id="studentView" class="hidden space-y-6">
-            <!-- Thanh chọn bài tập & Trạng thái -->
-            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+            
+            <!-- Bộ Toggles Chuyển Đổi Lý Thuyết / Thực Hành -->
+            <div class="flex bg-slate-200/50 p-1.5 rounded-2xl text-xs w-full max-w-md mx-auto mb-2 shadow-sm border border-slate-200">
+                <button id="btnStudentTabPractice" onclick="switchStudentTab('practice')" class="flex-1 py-2.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm transition-all flex items-center justify-center gap-1.5">
+                    <i class="ph-bold ph-code"></i> Thực Hành Lập Trình
+                </button>
+                <button id="btnStudentTabTheory" onclick="switchStudentTab('theory')" class="flex-1 py-2.5 rounded-xl font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center gap-1.5">
+                    <i class="ph-bold ph-books"></i> Lý Thuyết & Bài Giảng
+                </button>
+            </div>
+
+            <!-- PHÂN KHU 1.A: LÝ THUYẾT & BÀI GIẢNG -->
+            <div id="studentTheorySection" class="hidden space-y-4">
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">
+                            <i class="ph-bold ph-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Bài giảng lý thuyết</div>
+                            <h2 id="currentLessonTitleDisplay" class="text-base font-bold text-slate-900 leading-tight">Đang tải bài học...</h2>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select id="selectLessonStudent" onchange="loadLessonDetail(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-purple-500 focus:outline-none"></select>
+                        <button onclick="readCurrentLessonAloud()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all">
+                            <i class="ph-bold ph-speaker-high text-base"></i> Robot Giảng Bài
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 lg:p-8 min-h-[50vh]">
+                    <div id="lessonContentContainer" class="text-sm text-slate-800 space-y-3 leading-relaxed max-w-4xl mx-auto font-sans">
+                        <!-- Nội dung render Markdown & KaTeX Toán học -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHÂN KHU 1.B: THỰC HÀNH LẬP TRÌNH -->
+            <div id="studentPracticeSection" class="space-y-6">
+                <!-- Thanh chọn bài tập & Trạng thái -->
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">
                         <i class="ph-bold ph-book-open"></i>
@@ -201,22 +245,26 @@
                             <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                 <i class="ph-bold ph-file-text text-blue-600"></i> Nội Dung Đề Bài
                             </h3>
-                            <button onclick="openAiAssistant('socratic')" class="text-xs text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-lg">
-                                <i class="ph-bold ph-sparkle text-amber-500"></i> Hỏi AI
+                            <!-- Nút Hỏi AI thiết kế Robot hoạt họa thân thiện cho học sinh -->
+                            <button onclick="openCuteRobotAssistant()" class="group relative px-3 py-1.5 rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-sky-400 hover:from-blue-600 hover:to-indigo-600 text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-blue-500/25 transition-all hover:scale-105 active:scale-95" title="Nhờ Robot AI trợ giúp gợi ý hoặc xem code mẫu">
+                                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-amber-300">
+                                    <i class="ph-bold ph-robot text-sm animate-bounce"></i>
+                                </span>
+                                <span>Hỏi Robot AI</span>
                             </button>
                         </div>
                         <div id="assignmentDescription" class="text-xs text-slate-700 space-y-2 leading-relaxed">
-                            <!-- Render mô tả đề bài -->
+                            <!-- Render mô tả đề bài kèm KaTeX -->
                         </div>
                     </div>
 
-                    <!-- Ví dụ mẫu (Sample Tests) -->
+                    <!-- Ví dụ mẫu (Sample Tests) lấy chuẩn từ Test case công khai của GV -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-3">
                         <h4 class="font-bold text-xs text-slate-800 flex items-center gap-1.5">
                             <i class="ph-bold ph-brackets-curly text-indigo-600"></i> Ví dụ minh họa (Test công khai)
                         </h4>
                         <div id="sampleTestContainer" class="space-y-2">
-                            <!-- Danh sách test mẫu -->
+                            <!-- Danh sách test mẫu chuẩn xác từ test của GV -->
                         </div>
                     </div>
                 </div>
@@ -308,15 +356,16 @@
                         <!-- Nhận xét phong cách viết Clean Code từ AI -->
                         <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-3.5 space-y-1.5">
                             <div class="flex items-center gap-1.5 font-bold text-xs text-indigo-950">
-                                <i class="ph-bold ph-sparkle text-indigo-600"></i> Nhận xét phong cách lập trình (Gemini AI):
+                                <i class="ph-bold ph-sparkle text-indigo-600"></i> Nhận xét phong cách lập trình (AI Sư Phạm):
                             </div>
                             <p id="aiReviewText" class="text-xs text-indigo-900 leading-relaxed italic">
-                                Đang chấm và phân tích mã nguồn...
+                                Đang phân tích mã nguồn...
                             </p>
                         </div>
                     </div>
 
                 </div>
+            </div>
             </div>
         </div>
 
@@ -324,12 +373,12 @@
         <!-- VIEW 2: KHÔNG GIAN QUẢN TRỊ GIÁO VIÊN (TEACHER) -->
         <!-- ============================================== -->
         <div id="teacherView" class="hidden space-y-6">
-            <!-- Thẻ thống kê giáo viên -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Thẻ thống kê giáo viên cập nhật số liệu thực tế -->
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
                         <div class="text-xs text-slate-500 font-semibold uppercase">Số bài tập trong hệ thống</div>
-                        <h3 id="teacherCountAssignments" class="text-2xl font-bold text-slate-900 mt-1">3 bài</h3>
+                        <h3 id="teacherCountAssignments" class="text-2xl font-bold text-slate-900 mt-1">0 bài</h3>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold">
                         <i class="ph-bold ph-books"></i>
@@ -338,8 +387,18 @@
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Số bài học lý thuyết</div>
+                        <h3 id="teacherCountLessons" class="text-2xl font-bold text-purple-600 mt-1">0 bài</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="ph-bold ph-chalkboard-teacher"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
                         <div class="text-xs text-slate-500 font-semibold uppercase">Sĩ số lớp theo dõi</div>
-                        <h3 class="text-2xl font-bold text-slate-900 mt-1">35 học sinh</h3>
+                        <h3 id="teacherCountStudents" class="text-2xl font-bold text-slate-900 mt-1">0 học sinh</h3>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
                         <i class="ph-bold ph-users-three"></i>
@@ -365,12 +424,15 @@
                 <button id="tabBtnManage" onclick="switchTeacherTab('manage')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
                     <i class="ph-bold ph-list-dashes"></i> Quản Lý Đề
                 </button>
+                <button id="tabBtnLessons" onclick="switchTeacherTab('lessons')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
+                    <i class="ph-bold ph-chalkboard-teacher"></i> Quản Lý Bài Giảng
+                </button>
                 <button id="tabBtnGrades" onclick="switchTeacherTab('grades')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
                     <i class="ph-bold ph-table"></i> Sổ Điểm Học Sinh
                 </button>
             </div>
 
-            <!-- Tab 1: Soạn/Sửa Đề Mới -->
+            <!-- Tab 1: Soạn/Sửa Đề Mới (Mở rộng hộp nhập liệu và hỗ trợ Math LaTeX) -->
             <div id="teacherTabCreate" class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
                 <input type="hidden" id="editingAssignmentId" value="">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -395,20 +457,30 @@
                 </div>
 
                 <div>
-                    <label class="block font-bold text-xs text-slate-700 mb-1">Nội dung đề bài (Hỗ trợ Markdown)</label>
-                    <textarea id="newDescription" rows="4" placeholder="Nhập yêu cầu bài toán, định dạng input.txt, output.txt..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block font-bold text-xs text-slate-700">
+                            Nội dung đề bài (Hỗ trợ Markdown & LaTeX Toán học)
+                        </label>
+                        <span class="text-[11px] text-blue-600 font-medium">Khung mở rộng 8 dòng</span>
+                    </div>
+                    <textarea id="newDescription" rows="8" placeholder="Nhập yêu cầu bài toán... Sử dụng $x \le 10^9$ để hiển thị công thức toán sắc nét như Mathtype." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs leading-relaxed focus:ring-2 focus:ring-blue-500 focus:outline-none font-sans"></textarea>
                 </div>
 
                 <div>
-                    <label class="block font-bold text-xs text-slate-700 mb-1">Mã nguồn mẫu Python (Để AI phân tích và sinh Test case)</label>
-                    <textarea id="newSolutionCode" rows="4" placeholder="n = int(input())..." class="w-full bg-slate-900 text-slate-100 font-mono text-xs rounded-xl p-3 focus:outline-none"></textarea>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block font-bold text-xs text-slate-700">
+                            Mã nguồn mẫu Python (Bảo mật: Chỉ Giáo viên & Admin có quyền xem)
+                        </label>
+                        <span class="text-[11px] text-slate-400 font-mono">Khung mở rộng 10 dòng</span>
+                    </div>
+                    <textarea id="newSolutionCode" rows="10" placeholder="# Viết code giải mẫu của giáo viên ở đây...&#10;n = int(input())&#10;..." class="w-full bg-slate-900 text-slate-100 font-mono text-xs rounded-xl p-3 leading-relaxed focus:outline-none"></textarea>
                 </div>
 
                 <!-- BỘ QUẢN LÝ TEST CASE (CÔNG KHAI & ẨN) DÀNH CHO GIÁO VIÊN / ADMIN -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
                     <div class="flex items-center justify-between">
                         <label class="block font-bold text-xs text-slate-800 flex items-center gap-1.5">
-                            <i class="ph-bold ph-test-tube text-indigo-600"></i> Bộ Test Case Chấm Điểm (Công Khai & Ẩn):
+                            <i class="ph-bold ph-test-tube text-indigo-600"></i> Bộ Test Case Chấm Điểm (Công Khai & Ẩn do Giáo viên/Admin trực tiếp biên soạn):
                         </label>
                         <button type="button" onclick="addTestCaseRow()" class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 transition-all">
                             <i class="ph-bold ph-plus"></i> Thêm Test Case
@@ -420,8 +492,8 @@
                     </div>
 
                     <div class="text-[11px] text-slate-500 leading-normal bg-white p-2.5 rounded-xl border border-slate-200">
-                        * <strong>Test công khai:</strong> Học sinh có thể xem dữ liệu mẫu để đối chiếu và hiểu đề.<br>
-                        * <strong>Test ẩn:</strong> Giữ bí mật dữ liệu biên để chống gian lận. Khi học sinh làm sai, hệ thống sẽ đưa ra gợi ý sư phạm thay vì làm lộ đề thi.
+                        * <strong>Test công khai:</strong> Hiển thị trực tiếp vào mục "Ví dụ minh họa" để học sinh đối chiếu.<br>
+                        * <strong>Test ẩn:</strong> Dùng để chấm thi thật, không làm lộ đề thi để chống học sinh in sẵn đáp số.
                     </div>
                 </div>
 
@@ -467,11 +539,67 @@
                 </div>
             </div>
 
+            <!-- Tab 1.8: Quản lý Bài giảng (Lý thuyết) cho Giáo viên & Admin -->
+            <div id="teacherTabLessons" class="hidden space-y-4">
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                            <i class="ph-bold ph-chalkboard-teacher text-purple-600"></i> Soạn/Sửa Bài Giảng Lý Thuyết (Có Công Thức Toán & Giọng Đọc AI)
+                        </h4>
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="previewLessonModal()" class="px-3 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs flex items-center gap-1 transition-all">
+                                <i class="ph-bold ph-eye"></i> Xem Trước
+                            </button>
+                            <button type="button" onclick="resetLessonForm()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-plus"></i> Tạo mới
+                            </button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="editingLessonId" value="">
+                    <div>
+                        <label class="block font-bold text-xs text-slate-700 mb-1">Tiêu đề bài học:</label>
+                        <input type="text" id="newLessonTitle" placeholder="Ví dụ: Bài 1: Cấu trúc rẽ nhánh if - else và toán tử so sánh" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block font-bold text-xs text-slate-700">Nội dung bài giảng (Hỗ trợ Markdown & KaTeX Toán học):</label>
+                            <span class="text-[11px] text-purple-600">Robot AI sẽ đọc phần nội dung này cho học sinh nghe</span>
+                        </div>
+                        <textarea id="newLessonContent" rows="8" placeholder="Nhập kiến thức bài học... Dùng $x \ge 0$ để chèn ký hiệu toán học đẹp mắt." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs leading-relaxed focus:ring-2 focus:ring-purple-500 focus:outline-none font-sans"></textarea>
+                    </div>
+                    <div class="flex justify-end gap-2">
+                        <button type="button" onclick="resetLessonForm()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">Hủy</button>
+                        <button type="button" id="btnSaveLesson" onclick="saveLesson()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs shadow-md">Lưu Bài Giảng</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 space-y-3">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <h4 class="font-bold text-sm text-slate-900">Danh Sách Bài Giảng Hiện Có</h4>
+                        <span class="text-xs text-slate-500 font-medium">Chỉ Admin mới có quyền xóa bài giảng. Giáo viên có quyền sửa.</span>
+                    </div>
+                    <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                        <table class="w-full text-xs text-left">
+                            <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3 w-12 text-center">ID</th>
+                                    <th class="p-3">Tiêu Đề Bài Giảng</th>
+                                    <th class="p-3 text-center">Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="manageLessonsTableBody" class="divide-y divide-slate-100">
+                                <!-- Nạp danh sách qua JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- Tab 2: Sổ Điểm Học Sinh -->
             <div id="teacherTabGrades" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="p-5 border-b border-slate-100 flex items-center justify-between">
                     <div>
-                        <h4 class="font-bold text-sm text-slate-900">Bảng Tổng Hợp Điểm Số Lớp 8A1</h4>
+                        <h4 class="font-bold text-sm text-slate-900">Bảng Tổng Hợp Điểm Số</h4>
                         <p class="text-xs text-slate-500">Cập nhật thời gian thực theo lượt nộp bài của học sinh (Tự động sao lưu đám mây Admin)</p>
                     </div>
                     <div class="flex gap-2">
@@ -505,8 +633,8 @@
         <!-- VIEW 3: KHÔNG GIAN QUẢN TRỊ ADMIN (ADMIN VIEW) -->
         <!-- ============================================== -->
         <div id="adminView" class="hidden space-y-6">
-            <!-- Thẻ chỉ số Admin -->
-            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <!-- Thẻ chỉ số Admin cập nhật thực tế -->
+            <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
                         <div class="text-xs text-slate-500 font-semibold uppercase">Tổng người dùng</div>
@@ -529,11 +657,21 @@
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <div class="text-xs text-slate-500 font-semibold uppercase">Học sinh đã đăng ký</div>
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Học sinh đăng ký</div>
                         <h3 id="adminStatStudents" class="text-2xl font-bold text-blue-600 mt-1">0</h3>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold">
                         <i class="ph-bold ph-student"></i>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-500 font-semibold uppercase">Bài học lý thuyết</div>
+                        <h3 id="adminStatLessons" class="text-2xl font-bold text-purple-600 mt-1">0</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl font-bold">
+                        <i class="ph-bold ph-books"></i>
                     </div>
                 </div>
 
@@ -548,7 +686,7 @@
                 </div>
             </div>
 
-            <!-- Tabs Admin: Danh sách Người dùng & Nhật ký đăng nhập -->
+            <!-- Tabs Admin: Danh sách Người dùng, Bài giảng & Quản lý bài nộp -->
             <div class="border-b border-slate-200 flex gap-4 overflow-x-auto scrollbar-hide">
                 <button id="tabAdminUsersBtn" onclick="switchAdminTab('users')" class="pb-3 text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap">
                     <i class="ph-bold ph-users-three"></i> Quản Lý Tài Khoản
@@ -559,8 +697,11 @@
                 <button id="tabAdminAssignmentsBtn" onclick="switchAdminTab('assignments')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
                     <i class="ph-bold ph-books"></i> Ngân Hàng Đề
                 </button>
+                <button id="tabAdminLessonsBtn" onclick="switchAdminTab('lessons')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
+                    <i class="ph-bold ph-chalkboard-teacher"></i> Quản Lý Bài Học
+                </button>
                 <button id="tabAdminSubmissionsBtn" onclick="switchAdminTab('submissions')" class="pb-3 text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap">
-                    <i class="ph-bold ph-file-text"></i> Bài Làm Học Sinh
+                    <i class="ph-bold ph-file-text"></i> Quản Lý Bài Làm Học Sinh
                 </button>
             </div>
 
@@ -689,12 +830,44 @@
                 </div>
             </div>
 
-            <!-- Tab 4: Bài làm học sinh -->
+            <!-- Tab 3.5: Quản lý Bài Học cho Admin (Xem, Sửa và có quyền XÓA) -->
+            <div id="adminTabLessons" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Quản Lý Toàn Bộ Bài Học Lý Thuyết</h4>
+                        <p class="text-xs text-slate-500">Admin có toàn quyền chỉnh sửa và xóa bài học lý thuyết trên hệ thống.</p>
+                    </div>
+                    <button onclick="openCreateLessonFromAdmin()" class="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all">
+                        <i class="ph-bold ph-plus"></i> Soạn Bài Giảng Mới
+                    </button>
+                </div>
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-xs text-left">
+                        <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3 w-12 text-center">ID</th>
+                                <th class="p-3">Tiêu Đề Bài Giảng</th>
+                                <th class="p-3 text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminLessonsTableBody" class="divide-y divide-slate-100">
+                            <!-- Nạp danh sách qua JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 4: Bài làm học sinh (Chỉ Admin mới có nút XÓA lịch sử nộp bài) -->
             <div id="adminTabSubmissions" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                     <div>
                         <h4 class="font-bold text-sm text-slate-900">Quản Lý Bài Làm Học Sinh</h4>
-                        <p class="text-xs text-slate-500">Xem thống kê điểm số và quá trình nộp bài của tất cả học sinh trên hệ thống.</p>
+                        <p class="text-xs text-slate-500">Xem thống kê điểm số và quá trình nộp bài. Chỉ Quản Trị Viên (Admin) mới có quyền xóa lịch sử nộp bài.</p>
+                    </div>
+                    <div>
+                        <button onclick="clearAllStudentSubmissions()" class="px-3.5 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Chỉ Admin có quyền xóa">
+                            <i class="ph-bold ph-trash"></i> Xóa Toàn Bộ Lịch Sử Nộp Bài
+                        </button>
                     </div>
                 </div>
                 <div class="overflow-x-auto border border-slate-200 rounded-2xl">
@@ -707,6 +880,7 @@
                                 <th class="p-3 text-center">Điểm cao nhất</th>
                                 <th class="p-3 text-center">Trạng thái</th>
                                 <th class="p-3 text-right">Lần nộp cuối</th>
+                                <th class="p-3 text-center">Quyền Admin</th>
                             </tr>
                         </thead>
                         <tbody id="adminSubmissionsTableBody" class="divide-y divide-slate-100">
@@ -883,7 +1057,7 @@
                 </div>
 
                 <!-- 3. Form Giáo viên Đăng nhập -->
-                <div id="formTeacherLogin" class="space-y-3">
+                <div id="formTeacherLogin" class="hidden space-y-3">
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">Tên đăng nhập hoặc Số điện thoại:</label>
                         <div class="relative">
@@ -942,44 +1116,93 @@
                     </div>
                 </div>
 
-                <div class="pt-2">
-                    <button id="btnSubmitAuth" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition-all">
+                <!-- NÚT HÀNH ĐỘNG CHÍNH (ĐĂNG NHẬP / ĐĂNG KÝ) VÀ NÚT THOÁT -->
+                <div class="pt-3 space-y-2">
+                    <button id="btnSubmitAuth" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 flex items-center justify-center gap-2 transition-all">
                         <i class="ph-bold ph-sign-in"></i> Đăng Nhập Học Sinh
+                    </button>
+                    <button type="button" onclick="confirmExitApp()" class="w-full py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                        <i class="ph-bold ph-sign-out"></i> Thoát Ứng Dụng
                     </button>
                 </div>
             </div>
 
             <!-- Footer Modal -->
             <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                <button onclick="confirmExitApp()" class="font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1 transition-colors px-2 py-1 rounded-lg hover:bg-rose-50" title="Thoát khỏi ứng dụng">
-                    <i class="ph-bold ph-sign-out text-sm"></i> Thoát
+                <span id="authToggleHintText">Chưa có tài khoản trên hệ thống?</span>
+                <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">
+                    Đăng ký ngay
                 </button>
-                <div class="flex items-center gap-1.5">
-                    <span id="authToggleHintText">Chưa có tài khoản trên hệ thống?</span>
-                    <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">
-                        Đăng ký ngay
-                    </button>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- ============================================== -->
-    <!-- MODAL XÁC NHẬN THOÁT ỨNG DỤNG -->
-    <!-- ============================================== -->
-    <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
-                <i class="ph-bold ph-sign-out"></i>
+    <!-- MODAL XÁC NHẬN THOÁT CHƯƠNG TRÌNH CHO HỌC SINH / GIÁO VIÊN -->
+    <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 p-6 text-center space-y-4">
+            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto text-3xl">
+                <i class="ph-bold ph-warning-circle"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Thoát</h3>
-            <p class="text-sm text-slate-600 mb-6 font-medium">Bạn có muốn thoát chương trình không?</p>
-            <div class="flex gap-3 justify-center">
-                <button onclick="closeConfirmExitAppModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition-all w-full">
-                    Hủy bỏ
+            <div>
+                <h3 class="text-base font-bold text-slate-900">Xác Nhận Thoát</h3>
+                <p class="text-xs text-slate-600 mt-1 font-semibold leading-relaxed">
+                    Bạn có muốn thoát chương trình không?
+                </p>
+            </div>
+            <div class="flex gap-2 pt-2">
+                <button onclick="closeConfirmExitAppModal()" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-all">
+                    Hủy Bỏ
                 </button>
-                <button onclick="executeExitApp()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 transition-all w-full flex items-center justify-center gap-1.5">
-                    <i class="ph-bold ph-check"></i> Xác nhận
+                <button onclick="executeExitApp()" class="flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md shadow-rose-500/20 transition-all">
+                    Đồng Ý Thoát
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL HIỂN THỊ CODE MẪU BẢO MẬT (CHỈ GIÁO VIÊN/ADMIN HOẶC HỌC SINH SAU KHI XÁC NHẬN ROBOT) -->
+    <div id="codeSampleModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[85vh]">
+            <div class="p-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <i class="ph-bold ph-code text-emerald-400 text-xl"></i>
+                    <div>
+                        <h4 class="font-bold text-sm">Mã Nguồn Mẫu (Tham Khảo Thuật Toán)</h4>
+                        <p class="text-[11px] text-slate-400" id="codeSampleModalSubtitle">Bảo mật giáo dục</p>
+                    </div>
+                </div>
+                <button onclick="closeCodeSampleModal()" class="text-slate-400 hover:text-white"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div class="p-4 bg-slate-950 overflow-auto flex-1 font-mono text-xs text-emerald-400 leading-relaxed">
+                <pre id="codeSampleDisplayArea" class="whitespace-pre"># Đang tải mã nguồn mẫu...</pre>
+            </div>
+            <div class="p-3 bg-slate-50 border-t border-slate-200 flex justify-end">
+                <button onclick="closeCodeSampleModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL XÁC NHẬN HỌC SINH MỞ CODE MẪU TỪ ROBOT -->
+    <div id="cuteRobotHelpModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center space-y-4">
+            <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-blue-500 to-indigo-600 text-white flex items-center justify-center mx-auto text-3xl shadow-lg shadow-blue-500/30">
+                <i class="ph-bold ph-robot animate-bounce"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-slate-900">Trợ Lý Robot Đáng Yêu Chào Em!</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Robot khuyến khích em tự suy nghĩ và thử sức viết code trước. Em có muốn nhận <strong>gợi ý tư duy thuật toán</strong> hay muốn <strong>mở mã nguồn mẫu</strong> để học hỏi cách viết?
+                </p>
+            </div>
+            <div class="flex flex-col gap-2 pt-2">
+                <button onclick="robotGiveHintInstead()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm">
+                    <i class="ph-bold ph-lightbulb"></i> Robot Cho Em Gợi Ý Tư Duy Trước
+                </button>
+                <button onclick="revealCodeSampleForStudent()" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5">
+                    <i class="ph-bold ph-eye"></i> Em Muốn Xem Mã Nguồn Mẫu Luôn
+                </button>
+                <button onclick="closeCuteRobotModal()" class="w-full py-2 rounded-xl text-slate-400 hover:text-slate-600 font-semibold text-xs">
+                    Để em tự làm tiếp
                 </button>
             </div>
         </div>
@@ -1263,6 +1486,22 @@
         </div>
     </div>
 
+    <!-- MODAL XÁC NHẬN XÓA BÀI HỌC CHO ADMIN -->
+    <div id="deleteLessonModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="ph-bold ph-trash"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Xác nhận xóa bài học</h3>
+            <p class="text-sm text-slate-500 mb-6">Bạn có chắc chắn muốn xóa bài giảng <strong id="deleteLessonTitleTarget" class="text-slate-800"></strong>? Hành động này không thể hoàn tác.</p>
+            <input type="hidden" id="deleteLessonIdTarget">
+            <div class="flex gap-3 justify-center">
+                <button onclick="closeDeleteLessonModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition-all w-full">Hủy bỏ</button>
+                <button onclick="executeDeleteLesson()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 transition-all w-full">Xóa bài học</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================== -->
     <!-- MODAL THÊM HỌC SINH MỚI (ADMIN) -->
     <!-- ============================================== -->
@@ -1399,21 +1638,89 @@
         // Lịch sử hội thoại nhiều lượt cho AI
         let aiChatConversationHistory = [];
 
-        // ==============================================
-        // PHÂN HỆ ROBOT TRỢ LÝ HƯỚNG DẪN BẰNG GIỌNG ĐỌC GOOGLE BAN MAI TỰ NHIÊN
-        // ==============================================
-        let synth = window.speechSynthesis;
+        // Khai báo phân hệ Robot TTS & Giọng đọc Web Speech API
+        let synth = typeof window !== 'undefined' ? window.speechSynthesis : null;
         let currentUtterance = null;
         let googleVietnameseVoice = null;
         let isRobotSpeaking = false;
         let audioPlaylist = [];
         let currentAudioIndex = 0;
 
-        const robotScripts = {
+        let robotScripts = {
             guest: "Kính chào quý Thầy Cô và các em học sinh! Thầy Phương chào mừng các bạn đến với Trợ Lý Học Tập Lập Trình Python. Để bảo mật dữ liệu học đường, hệ thống yêu cầu đăng nhập trước khi sử dụng. Chúc các em và quý Thầy Cô có những trải nghiệm thật hiệu quả!",
-            student: "Chào các em học sinh! Thầy Phương chào mừng các em đến với phòng thực hành lập trình Python. Bước một: Chọn bài tập. Bước hai: Viết mã nguồn và Chạy Thử. Bước ba: Nếu có lỗi, hãy nhờ Gia sư AI chẩn đoán. Bước bốn: Nộp bài chấm điểm để hệ thống lưu kết quả.",
-            teacher: "Kính chào quý Thầy Cô và Quản trị viên! Thầy Cô có thể tạo đề bài, dùng AI tự động sinh bộ test case, theo dõi trực tiếp sổ điểm học sinh và đồng bộ dữ liệu vào Google Drive một cách an toàn."
+            student: "Thầy Phương chào em! Thầy rất vui được đồng hành cùng em trong buổi học hôm nay. Em hãy đọc kỹ bài giảng lý thuyết trước, nếu muốn thầy giảng thì bấm nút Robot Giảng Bài nhé. Sau đó em chuyển sang Thực Hành để viết code và nộp bài chấm điểm. Cứ tự tin làm bài, có khó khăn gì thầy luôn ở đây hỗ trợ em!",
+            teacher: "Kính chào quý Thầy Cô và Quản trị viên! Thầy Cô có thể tạo bài giảng lý thuyết, biên soạn bài tập kèm các bộ test case công khai và test ẩn chính xác, đồng thời theo dõi sổ điểm học sinh thời gian thực."
         };
+
+        // Danh sách 13 Bài giảng Lý thuyết khởi tạo chuẩn theo Mục lục Tin học THCS
+        let lessons = [
+            {
+                id: 1,
+                title: "Bài 1. Ngôn ngữ lập trình bậc cao và python",
+                content: "### 1. Ngôn ngữ lập trình bậc cao là gì?\nNgôn ngữ lập trình bậc cao là ngôn ngữ gần gũi với ngôn ngữ tự nhiên của con người (tiếng Anh) và có tính độc lập cao, ít phụ thuộc vào phần cứng của máy tính.\n\n### 2. Giới thiệu về Python\nPython là ngôn ngữ lập trình bậc cao thông dịch do Guido van Rossum phát minh năm 1991. Python có cú pháp trong sáng, dễ học, mã nguồn mở và được ứng dụng mạnh mẽ trong phát triển phần mềm, phân tích dữ liệu và Trí tuệ nhân tạo (AI).\n\n### 3. Môi trường lập trình Python\n- Chế độ tương tác (Interactive Mode): Gõ từng lệnh và nhận ngay kết quả.\n- Chế độ soạn thảo (Script Mode): Viết các lệnh vào tệp `.py` để thực thi toàn bộ chương trình."
+            },
+            {
+                id: 2,
+                title: "Bài 2. Biến và lệnh gán và biểu thức số học",
+                content: "### 1. Biến (Variable)\nBiến là vùng nhớ được đặt tên dùng để lưu trữ giá trị trong bộ nhớ. Tên biến không được bắt đầu bằng chữ số, không chứa dấu cách hay ký tự đặc biệt.\n\n### 2. Lệnh gán (Assignment)\nCú pháp: `tên_biến = giá_trị` hoặc `biểu_thức`.\nVí dụ: `x = 10`, `tong = a + b`.\n\n### 3. Biểu thức số học trong Python\n- Phép cộng: `+`, phép trừ: `-`\n- Phép nhân: `*`, phép chia thực: `/`\n- Phép chia lấy phần nguyên: `//`, phép chia lấy phần dư: `%`\n- Lũy thừa: `**` (Ví dụ $2^3$ viết là `2 ** 3`)."
+            },
+            {
+                id: 3,
+                title: "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu trong python",
+                content: "### 1. Xuất dữ liệu (Output)\nSử dụng lệnh `print(giá_trị_1, giá_trị_2, ...)`. Có thể dùng tham số `sep` để phân tách và `end` để chỉ định ký tự kết thúc.\n\n### 2. Nhập dữ liệu (Input)\nLệnh `input()` dừng chương trình để nhận dữ liệu từ bàn phím. Lưu ý: `input()` **luôn trả về kiểu chuỗi (string)**.\n\n### 3. Các kiểu dữ liệu cơ bản\n- `int`: Số nguyên ($..., -2, -1, 0, 1, 2, ...$)\n- `float`: Số thực (ví dụ: $3.14, -0.5$)\n- `str`: Chuỗi ký tự đặt trong dấu ngoặc kép hoặc đơn\n- `bool`: Kiểu logic gồm hai giá trị `True` và `False`\n\n*Để nhập số nguyên từ bàn phím:* `n = int(input())`."
+            },
+            {
+                id: 4,
+                title: "Bài 4. Cấu trúc rẽ nhánh",
+                content: "### 1. Ý nghĩa\nCấu trúc rẽ nhánh cho phép chương trình chọn thực hiện khối lệnh này hay khối lệnh khác tùy thuộc vào điều kiện đúng hay sai.\n\n### 2. Dạng thiếu\n```python\nif điều_kiện:\n    khối_lệnh\n```\n\n### 3. Dạng đủ\n```python\nif điều_kiện:\n    khối_lệnh_1\nelse:\n    khối_lệnh_2\n```\n\n### 4. Dạng nhiều nhánh (if - elif - else)\nSử dụng `elif` để kiểm tra nhiều trường hợp kế tiếp nhau.\n\n*Lưu ý:* Các phép so sánh gồm `==` (bằng), `!=` (khác), `>` (lớn hơn), `<` (bé hơn), `>=` (lớn hơn hoặc bằng $\\ge$), `<=` (bé hơn hoặc bằng $\\le$)."
+            },
+            {
+                id: 5,
+                title: "Bài 5. Cấu trúc lặp",
+                content: "### 1. Vòng lặp với số lần biết trước: for\nCú pháp: `for biến in range(bắt_đầu, kết_thúc, bước_nhảy):`\n- `range(n)` tạo dãy số từ $0$ đến $n - 1$.\n- `range(1, n + 1)` tạo dãy từ $1$ đến $n$.\n\n### 2. Vòng lặp với số lần lặp chưa biết trước: while\nCú pháp:\n```python\nwhile điều_kiện:\n    khối_lệnh\n```\nKhối lệnh sẽ được lặp đi lặp lại chừng nào điều kiện vẫn còn nhận giá trị `True`.\n\n### 3. Các lệnh điều khiển lặp\n- `break`: Thoát ngay lập tức khỏi vòng lặp.\n- `continue`: Bỏ qua các lệnh còn lại của lần lặp hiện tại và chuyển sang lần lặp kế tiếp."
+            },
+            {
+                id: 6,
+                title: "Bài 6. Kiểu dữ liệu danh sách",
+                content: "### 1. Khái niệm Danh sách (List)\nDanh sách là tập hợp các phần tử có thứ tự và có thể thay đổi giá trị. Danh sách được đặt trong cặp ngoặc vuông `[]`.\nVí dụ: `a = [2, 4, 6, 8, 10]`\n\n### 2. Chỉ số phần tử (Index)\nChỉ số phần tử trong Python được đánh số từ `0` đến `len(a) - 1`.\nPhần tử đầu tiên là `a[0]`, phần tử cuối cùng là `a[-1]`.\n\n### 3. Các thao tác phổ biến\n- Thêm phần tử vào cuối: `a.append(giá_trị)`\n- Chèn phần tử: `a.insert(vị_trí, giá_trị)`\n- Xóa phần tử: `a.pop(vị_trí)` hoặc `a.remove(giá_trị)`\n- Độ dài danh sách: `len(a)`\n- Tính tổng, max, min: `sum(a)`, `max(a)`, `min(a)`."
+            },
+            {
+                id: 7,
+                title: "Bài 7. Kiểu dữ liệu xâu",
+                content: "### 1. Khái niệm Xâu (String)\nXâu ký tự là dãy các ký tự trong bảng mã Unicode, được đặt trong dấu nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Truy cập ký tự và lát cắt (Slicing)\n- Ký tự thứ $i$: `s[i]`\n- Cắt xâu: `s[bắt_đầu:kết_thúc]` lấy từ chỉ số bắt đầu đến `kết_thúc - 1`.\n\n### 3. Các hàm và phương thức xử lý xâu\n- Độ dài: `len(s)`\n- Đổi chữ hoa/thường: `s.upper()`, `s.lower()`\n- Tách xâu thành danh sách: `s.split()` (rất quan trọng khi đọc dữ liệu đầu vào)\n- Nối danh sách thành xâu: `\" \".join(danh_sách)`\n- Thay thế ký tự: `s.replace(cũ, mới)`."
+            },
+            {
+                id: 8,
+                title: "Bài 8. Chương trình con và thư viện trong python",
+                content: "### 1. Khái niệm Hàm (Function)\nHàm là khối lệnh có tên, thực hiện một nhiệm vụ cụ thể và có thể tái sử dụng nhiều lần trong chương trình.\n\n### 2. Định nghĩa hàm\nSử dụng từ khóa `def`:\n```python\ndef ten_ham():\n    # các lệnh xử lý\n    return gia_tri\n```\n\n### 3. Thư viện trong Python\nPython có kho thư viện chuẩn phong phú. Để sử dụng, ta dùng lệnh `import`:\n- Thư viện toán học: `import math` (cung cấp hàm `math.sqrt()`, `math.isqrt()`, `math.gcd()`)\n- Thư viện ngẫu nhiên: `import random`."
+            },
+            {
+                id: 9,
+                title: "Bài 9. Tham số của hàm",
+                content: "### 1. Tham số hình thức và đối số thực sự\n- **Tham số (Parameter):** Các biến được khai báo trong định nghĩa hàm.\n- **Đối số (Argument):** Các giá trị thực tế được truyền vào hàm khi gọi hàm.\n\n### 2. Ví dụ minh họa\n```python\ndef tinh_tong(a, b):  # a, b là tham số\n    return a + b\n\nkq = tinh_tong(5, 7)  # 5, 7 là đối số thực tế\nprint(kq)             # In ra 12\n```\n\n### 3. Tham số mặc định (Default Parameters)\nTa có thể gán giá trị mặc định cho tham số: `def chao(ten, loi_chao=\"Xin chào\"):`."
+            },
+            {
+                id: 10,
+                title: "Bài 10. Phạm vi của biến",
+                content: "### 1. Biến cục bộ (Local Variable)\nBiến được khai báo bên trong một hàm chỉ có hiệu lực bên trong hàm đó. Khi hàm kết thúc, biến cục bộ sẽ bị giải phóng khỏi bộ nhớ.\n\n### 2. Biến toàn cục (Global Variable)\nBiến được khai báo bên ngoài các hàm, có hiệu lực trong toàn bộ chương trình.\n\n### 3. Từ khóa global\nKhi muốn thay đổi giá trị của một biến toàn cục ngay bên trong hàm, ta phải dùng từ khóa `global`:\n```python\nx = 5\ndef thay_doi():\n    global x\n    x = 10\n```"
+            },
+            {
+                id: 11,
+                title: "Bài 11. Làm việc với file",
+                content: "### 1. Mở và đóng tệp\nSử dụng hàm `open(tên_tệp, chế_độ)`:\n- Chế độ đọc: `'r'` (read)\n- Chế độ ghi: `'w'` (write, ghi đè)\n- Chế độ ghi nối tiếp: `'a'` (append)\n\n### 2. Khối lệnh with open an toàn\nCách viết chuẩn mực để tự động đóng tệp sau khi làm việc:\n```python\nwith open('input.txt', 'r', encoding='utf-8') as f:\n    data = f.read()\n```\n\n### 3. Đọc và ghi tệp phục vụ chấm thi Online Judge\n- Đọc từng dòng: `f.readline()`\n- Đọc tất cả các dòng: `f.readlines()`\n- Ghi vào tệp: `f.write(chuỗi)`."
+            },
+            {
+                id: 12,
+                title: "Bài 12. Nhận biết lỗi trong chương trình",
+                content: "### 1. Lỗi cú pháp (Syntax Error)\nXuất hiện khi người lập trình viết sai quy tắc ngữ pháp của Python (ví dụ: thiếu dấu `:`, quên đóng ngoặc, sai chính tả từ khóa). Lỗi này được phát hiện ngay khi dịch chương trình.\n\n### 2. Lỗi thực thi (Runtime Error / Exception)\nChương trình đúng cú pháp nhưng xảy ra lỗi khi đang chạy:\n- `ZeroDivisionError`: Phép chia cho số 0.\n- `ValueError`: Ép kiểu dữ liệu thất bại (ví dụ: `int(\"abc\")`).\n- `IndexError`: Truy cập phần tử danh sách vượt quá chỉ số.\n- `NameError`: Gọi tên biến hoặc hàm chưa được định nghĩa.\n\n### 3. Lỗi ngữ nghĩa / Lỗi logic (Logic Error)\nChương trình chạy bình thường không báo lỗi nhưng cho kết quả sai so với yêu cầu đề bài. Đây là loại lỗi khó phát hiện nhất."
+            },
+            {
+                id: 13,
+                title: "Bài 13. Kiểm thử và gỡ lỗi chương trình",
+                content: "### 1. Kiểm thử chương trình (Testing)\nKiểm thử là quá trình chạy chương trình với nhiều bộ dữ liệu thử nghiệm (Test Cases) khác nhau để kiểm tra tính đúng đắn của chương trình.\n\n### 2. Thiết kế bộ kiểm thử (Test Case Design)\n- **Test thông thường:** Các trường hợp số liệu chuẩn theo mô tả.\n- **Test biên:** Các giá trị nhỏ nhất, lớn nhất (ví dụ: $0, 1, -1, 10^9$).\n- **Test đặc biệt:** Danh sách rỗng, xâu không có ký tự, các số bằng nhau.\n\n### 3. Kỹ thuật gỡ lỗi (Debugging)\n- Đặt lệnh `print()` trung gian để theo dõi giá trị của các biến trong quá trình chạy.\n- Kiểm tra từng bước trong vòng lặp.\n- Sử dụng công cụ chẩn đoán lỗi thông minh và gợi mở sư phạm từ Trợ lý AI."
+            }
+        ];
+        let currentLesson = lessons[0];
 
         function splitTextIntoSentences(text, maxLength = 180) {
             const rawSentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
@@ -1435,11 +1742,18 @@
             return chunks;
         }
 
-        // Làm sạch Markdown để Google TTS phát âm tự nhiên, không đọc vấp các ký hiệu đặc biệt
+        // Làm sạch Markdown và chuyển đổi công thức Toán LaTeX thành lời đọc tự nhiên
         function cleanMarkdownForSpeech(text) {
             if (!text) return "";
             return text
                 .replace(/```[\s\S]*?```/g, " đoạn mã chương trình ")
+                .replace(/\$\$([^$]+)\$\$/g, " công thức toán $1 ")
+                .replace(/\$([^$]+)\$/g, " $1 ")
+                .replace(/\\le/g, " bé hơn hoặc bằng ")
+                .replace(/\\ge/g, " lớn hơn hoặc bằng ")
+                .replace(/\\ne/g, " khác ")
+                .replace(/\\dots/g, " vân vân ")
+                .replace(/\\times/g, " nhân ")
                 .replace(/`([^`]+)`/g, "$1")
                 .replace(/\*\*([^*]+)\*\*/g, "$1")
                 .replace(/\*([^*]+)\*/g, "$1")
@@ -1450,10 +1764,11 @@
                 .trim();
         }
 
+        // URL Google TTS mở hỗ trợ extension bypass CORS trên GitHub Pages
         function getGoogleTtsUrls(text) {
             const chunks = splitTextIntoSentences(text);
             return chunks.map(chunk => 
-                `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodeURIComponent(chunk)}`
+                `https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=vi&q=${encodeURIComponent(chunk)}`
             );
         }
 
@@ -1478,12 +1793,14 @@
                 playNextTtsChunk();
             };
 
-            audioPlayer.onerror = (e) => {
-                fallbackWebSpeechGuideForText(decodeURIComponent(audioPlayer.src.split('&q=')[1]));
+            audioPlayer.onerror = () => {
+                const textFailed = decodeURIComponent(audioPlayer.src.split('&q=')[1] || "");
+                fallbackWebSpeechGuideForText(textFailed);
             };
 
-            audioPlayer.play().catch(err => {
-                fallbackWebSpeechGuideForText(decodeURIComponent(audioPlayer.src.split('&q=')[1]));
+            audioPlayer.play().catch(() => {
+                const textFailed = decodeURIComponent(audioPlayer.src.split('&q=')[1] || "");
+                fallbackWebSpeechGuideForText(textFailed);
             });
         }
 
@@ -1491,20 +1808,18 @@
             if (!synth) return;
             const voices = synth.getVoices();
             
-            // Ưu tiên 1: Giọng đọc AI Online chất lượng cao của Microsoft Edge hoặc Google Chrome
+            // Ưu tiên 1: Giọng đọc AI Online tự nhiên Microsoft hoặc Google Chrome
             googleVietnameseVoice = voices.find(v => 
                 (v.lang === 'vi-VN' || v.lang === 'vi_VN' || v.lang.startsWith('vi')) && 
                 (v.name.includes('Online') || v.name.includes('Natural') || v.name.includes('HoaiMy') || v.name.includes('Google'))
             );
             
-            // Ưu tiên 2: Các giọng Tiếng Việt khác nếu không có giọng AI
+            // Ưu tiên 2: Bất kỳ giọng Tiếng Việt nào có sẵn trong trình duyệt
             if (!googleVietnameseVoice) {
                 googleVietnameseVoice = voices.find(v => 
                     (v.lang === 'vi-VN' || v.lang === 'vi') && !v.name.includes('Desktop')
                 );
             }
-            
-            // Ưu tiên 3: Bất kỳ giọng Tiếng Việt nào tìm thấy
             if (!googleVietnameseVoice) {
                 googleVietnameseVoice = voices.find(v => v.lang.startsWith('vi'));
             }
@@ -1518,10 +1833,10 @@
         function toggleRobotSpeechDirectly() {
             if (isRobotSpeaking) {
                 stopRobotVoice();
-                showToast("Đã dừng giọng đọc hướng dẫn của Robot", "info");
+                showToast("Đã dừng giọng đọc của Robot", "info");
             } else {
                 playCurrentRobotGuide();
-                showToast("Robot đang đọc hướng dẫn sử dụng...", "info");
+                showToast("Robot đang đọc hướng dẫn...", "info");
             }
         }
 
@@ -1560,12 +1875,15 @@
             }
 
             currentUtterance.lang = 'vi-VN';
-            // Tinh chỉnh lại tốc độ và cao độ để giọng mượt hơn, bớt giống robot
             currentUtterance.rate = 0.95; 
             currentUtterance.pitch = 1.0;
 
             currentUtterance.onstart = function() { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
-            currentUtterance.onend = function() { isRobotSpeaking = false; updateRobotSpeakingUi(false); };
+            currentUtterance.onend = function() { 
+                isRobotSpeaking = false; 
+                updateRobotSpeakingUi(false); 
+                if (currentAudioIndex < audioPlaylist.length) playNextTtsChunk();
+            };
             currentUtterance.onerror = function() { isRobotSpeaking = false; updateRobotSpeakingUi(false); };
 
             synth.speak(currentUtterance);
@@ -1899,7 +2217,7 @@
             const serializedCore = JSON.stringify(coreData);
             return {
                 app: "TRỢ LÝ HỌC TẬP LẬP TRÌNH PYTHON",
-                version: "3.0.0-GITHUB-SYNC",
+                version: "3.5.0-GITHUB-SYNC",
                 repository: `${GITHUB_OWNER}/${GITHUB_REPO}`,
                 triggered_by: {
                     name: currentUser?.name || "Hệ thống",
@@ -1909,21 +2227,78 @@
                 checksum: computeDataChecksum(serializedCore),
                 exported_at: new Date().toISOString(),
                 exported_at_vn: new Date().toLocaleString('vi-VN', { hour12: false }),
-                data: coreData
+                data: {
+                    ...coreData,
+                    lessons
+                }
             };
         }
+        function applyCloudDataPayload(parsed) {
+            if (parsed.data.registeredUsers && Array.isArray(parsed.data.registeredUsers)) {
+                parsed.data.registeredUsers.forEach(cloudUser => {
+                    const idx = registeredUsers.findIndex(u => 
+                        (u.identifier && cloudUser.identifier && u.identifier.toLowerCase() === cloudUser.identifier.toLowerCase()) || 
+                        (u.username && cloudUser.username && u.username.toLowerCase() === cloudUser.username.toLowerCase())
+                    );
+                    if (idx !== -1) {
+                        registeredUsers[idx] = { ...registeredUsers[idx], ...cloudUser };
+                    } else {
+                        registeredUsers.push(cloudUser);
+                    }
+                });
+            }
+            if (parsed.data.teachersList && Array.isArray(parsed.data.teachersList)) {
+                parsed.data.teachersList.forEach(cloudT => {
+                    const idx = teachersList.findIndex(t => t.username && cloudT.username && t.username.toLowerCase() === cloudT.username.toLowerCase());
+                    if (idx !== -1) {
+                        teachersList[idx] = { ...teachersList[idx], ...cloudT };
+                    } else {
+                        teachersList.push(cloudT);
+                    }
+                });
+            }
+            if (parsed.data.assignments && Array.isArray(parsed.data.assignments)) {
+                assignments = parsed.data.assignments;
+                populateAssignmentSelect();
+            }
+            if (parsed.data.lessons && Array.isArray(parsed.data.lessons)) {
+                lessons = parsed.data.lessons;
+                populateLessonSelect();
+            }
+            if (parsed.data.loginLogs && Array.isArray(parsed.data.loginLogs)) {
+                loginLogs = parsed.data.loginLogs;
+            }
+            if (parsed.data.gradebook && Array.isArray(parsed.data.gradebook)) {
+                gradebook = parsed.data.gradebook;
+            }
+            if (parsed.data.studentSubmissions && Array.isArray(parsed.data.studentSubmissions)) {
+                studentSubmissions = parsed.data.studentSubmissions;
+            }
+            autoSaveLocalSnapshot();
+            refreshAdminDashboard();
+            renderGradebook();
+            updateLiveSystemCounts();
+        }
+        // CẬP NHẬT CHÍNH XÁC SỐ LIỆU HỆ THỐNG THỜI GIAN THỰC (YÊU CẦU 6 & 7)
+        function updateLiveSystemCounts() {
+            const totalAssignments = assignments ? assignments.length : 0;
+            const totalStudents = registeredUsers ? registeredUsers.filter(u => u.role === 'student').length : 0;
+            const totalLessons = lessons ? lessons.length : 0;
 
-        function downloadBackupJson() {
-            const payload = generateCompleteBackupPayload();
-            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8;' });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = `PYTHON_AI_BACKUP_${Date.now()}.json`;
-            link.click();
-            lastSyncTimestamp = new Date().toLocaleString('vi-VN', { hour12: false });
-            localStorage.setItem('last_github_sync_time', lastSyncTimestamp);
-            if (document.getElementById('lastGithubSyncTime')) document.getElementById('lastGithubSyncTime').textContent = lastSyncTimestamp;
-            showToast(`Đã xuất tệp dữ liệu sao lưu (Cục bộ)!`, "success");
+            const tCountAss = document.getElementById('teacherCountAssignments');
+            if (tCountAss) tCountAss.textContent = `${totalAssignments} bài`;
+
+            const tCountStudents = document.getElementById('teacherCountStudents');
+            if (tCountStudents) tCountStudents.textContent = `${totalStudents} học sinh`;
+
+            const tCountLessons = document.getElementById('teacherCountLessons');
+            if (tCountLessons) tCountLessons.textContent = `${totalLessons} bài`;
+
+            const aStatStudents = document.getElementById('adminStatStudents');
+            if (aStatStudents) aStatStudents.textContent = totalStudents;
+
+            const aStatLessons = document.getElementById('adminStatLessons');
+            if (aStatLessons) aStatLessons.textContent = totalLessons;
         }
 
         // THUẬT TOÁN ĐẨY DỮ LIỆU LÊN GITHUB REPOSITORY
@@ -2264,18 +2639,25 @@
 
         async function processUserLogin() {
             const btnSubmit = document.getElementById('btnSubmitAuth');
-            const originalText = btnSubmit.innerHTML;
+            const originalText = btnSubmit ? btnSubmit.innerHTML : "";
             
             // Đối chiếu dữ liệu GitHub mới nhất trước khi kiểm tra tài khoản
-            btnSubmit.disabled = true;
-            btnSubmit.innerHTML = `<i class="ph-bold ph-arrows-clockwise animate-spin"></i> Đang đối chiếu với GitHub...`;
+            if (btnSubmit) {
+                btnSubmit.disabled = true;
+                btnSubmit.innerHTML = `<i class="ph-bold ph-arrows-clockwise animate-spin"></i> Đang đối chiếu với GitHub...`;
+            }
             await autoFetchDataFromGitHub();
-            btnSubmit.disabled = false;
-            btnSubmit.innerHTML = originalText;
+            if (btnSubmit) {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = originalText;
+            }
 
             if (activeAuthTab === 'teacher') {
-                const identifier = document.getElementById('teacherCccdInput').value.trim();
-                const pass = document.getElementById('teacherPassInput').value.trim();
+                const identifierInput = document.getElementById('teacherCccdInput');
+                const passInput = document.getElementById('teacherPassInput');
+                const identifier = identifierInput ? identifierInput.value.trim() : "";
+                const pass = passInput ? passInput.value.trim() : "";
+
                 if (!identifier || !pass) return showToast("Vui lòng nhập Tên đăng nhập và Mật khẩu của giáo viên!", "error");
                 const idLower = identifier.toLowerCase();
 
@@ -2296,8 +2678,11 @@
                     switchRole(teacher.role === 'admin' ? 'admin' : 'teacher');
                 } else showToast("Tên đăng nhập hoặc Mật khẩu giáo viên không chính xác!", "error");
             } else {
-                const identifier = document.getElementById('studentLoginIdentifier').value.trim().toLowerCase();
-                const password = document.getElementById('studentLoginPassword').value.trim();
+                const idInput = document.getElementById('studentLoginIdentifier');
+                const pwInput = document.getElementById('studentLoginPassword');
+                const identifier = idInput ? idInput.value.trim().toLowerCase() : "";
+                const password = pwInput ? pwInput.value.trim() : "";
+
                 if (!identifier || !password) return showToast("Vui lòng nhập Tên đăng nhập và Mật khẩu của học sinh!", "error");
 
                 // Đối chiếu với danh sách học sinh đã được nạp từ GitHub
@@ -2370,26 +2755,20 @@
 
         function executeExitApp() {
             closeConfirmExitAppModal();
-            closeLoginModal();
-            stopRobotVoice();
-
-            // Thử đóng tab / thẻ ứng dụng trong trình duyệt
             try {
-                window.open('', '_self', '');
                 window.close();
             } catch (e) {}
 
-            // Hiển thị giao diện thông báo đã thoát an toàn (khi trình duyệt chặn lệnh tự đóng tab)
             const guestLockView = document.getElementById('guestLockView');
             if (guestLockView) {
                 guestLockView.innerHTML = `
-                    <div class="w-20 h-20 rounded-3xl bg-slate-200 text-slate-600 flex items-center justify-center text-4xl shadow-md mb-6">
-                        <i class="ph-bold ph-check-circle text-emerald-600"></i>
+                    <div class="w-20 h-20 rounded-3xl bg-slate-100 text-slate-500 flex items-center justify-center text-4xl mb-6 shadow-inner mx-auto">
+                        <i class="ph-bold ph-power"></i>
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
                         Đã Thoát Chương Trình
                     </h2>
-                    <p class="text-sm text-slate-500 max-w-md leading-relaxed mb-6">
+                    <p class="text-sm text-slate-500 max-w-md leading-relaxed mb-6 mx-auto">
                         Bạn đã thoát phiên làm việc. Bạn có thể đóng thẻ (tab) này trên trình duyệt hoặc nhấn nút bên dưới để mở lại.
                     </p>
                     <button onclick="location.reload()" class="px-6 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-md flex items-center gap-2 mx-auto">
@@ -2494,22 +2873,6 @@
             if (btnAddStudent) btnAddStudent.classList.toggle('hidden', group !== 'student');
             
             renderAdminUsersTable();
-        }
-
-        function refreshAdminDashboard() {
-            const studentsCount = registeredUsers.filter(u => u.role === 'student').length;
-            const teachersCount = registeredUsers.filter(u => u.role === 'teacher' || u.role === 'admin').length;
-            document.getElementById('adminStatTotalUsers').textContent = registeredUsers.length;
-            document.getElementById('adminStatTeachers').textContent = teachersCount;
-            document.getElementById('adminStatStudents').textContent = studentsCount;
-            document.getElementById('adminStatTotalLogs').textContent = loginLogs.length;
-            if (document.getElementById('adminBadgeStudentCount')) document.getElementById('adminBadgeStudentCount').textContent = studentsCount;
-            if (document.getElementById('adminBadgeTeacherCount')) document.getElementById('adminBadgeTeacherCount').textContent = teachersCount;
-            
-            renderAdminUsersTable(); 
-            renderAdminLogsTable();
-            renderAdminAssignmentsTable();
-            renderAdminSubmissionsTable();
         }
 
         function renderAdminAssignmentsTable() {
@@ -2743,29 +3106,87 @@
         }
 
         function loadAssignment(assignmentId) {
+            // Ngay khi học sinh chọn bài tập khác, Robot lập tức dừng đọc bài cũ
+            stopRobotVoice();
+
             const found = assignments.find(a => a.id == assignmentId); if (!found) return; currentAssignment = found;
             document.getElementById('currentAssignmentTitle').textContent = found.title; document.getElementById('currentTimeLimit').textContent = found.timeLimit + 's';
             const diffBadge = document.getElementById('currentDiffBadge');
             diffBadge.className = `text-xs font-semibold px-2.5 py-0.5 rounded-full ${found.difficulty === 'easy' ? 'bg-emerald-100 text-emerald-700' : (found.difficulty === 'medium' ? 'bg-amber-100 text-amber-700' : 'bg-rose-100 text-rose-700')}`;
             diffBadge.textContent = found.difficulty === 'easy' ? 'Dễ (Lớp 8)' : (found.difficulty === 'medium' ? 'Trung bình' : 'Nâng cao');
-            document.getElementById('assignmentDescription').innerHTML = renderSimpleMarkdown(found.description);
-            document.getElementById('codeEditor').value = found.templateCode; updateLineNumbers();
             
+            // Render nội dung đề bài và tự động format công thức toán học KaTeX
+            const descEl = document.getElementById('assignmentDescription');
+            descEl.innerHTML = renderSimpleMarkdown(found.description);
+            renderMathInElementSafe(descEl);
+
+            // Xóa code mẫu đối với học sinh để học sinh tự suy nghĩ làm bài; chỉ GV/Admin mới nạp sẵn code
+            const editorEl = document.getElementById('codeEditor');
+            if (editorEl) {
+                if (currentUser && (currentUser.role === 'teacher' || currentUser.role === 'admin')) {
+                    editorEl.value = found.templateCode || "";
+                } else {
+                    editorEl.value = `# Viết mã Python của em ở đây...\n`;
+                }
+            }
+            updateLineNumbers();
+            
+            // Render chính xác các test case công khai mà giáo viên đã cung cấp
             const sampleContainer = document.getElementById('sampleTestContainer'); sampleContainer.innerHTML = '';
-            const publicTests = found.tests.filter(t => !t.is_hidden);
-            publicTests.forEach((t) => sampleContainer.innerHTML += `<div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-code text-[11px] flex justify-between items-center"><div><span class="text-slate-400">Đầu vào:</span> <strong class="text-blue-600">${t.input.replace(/\n/g, ' ')}</strong></div><div><span class="text-slate-400">Đầu ra:</span> <strong class="text-emerald-600">${t.expected.replace(/\n/g, ' ')}</strong></div></div>`);
+            const publicTests = found.tests ? found.tests.filter(t => !t.is_hidden) : [];
+            if (publicTests.length === 0) {
+                sampleContainer.innerHTML = `<div class="text-[11px] text-slate-400 italic">Đang cập nhật ví dụ minh họa...</div>`;
+            } else {
+                publicTests.forEach((t, i) => {
+                    sampleContainer.innerHTML += `
+                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 font-code text-[11px] space-y-1">
+                            <div class="text-[10px] text-indigo-600 font-bold uppercase">Ví dụ #${i + 1}</div>
+                            <div class="flex justify-between items-start gap-2">
+                                <div class="flex-1"><span class="text-slate-400">Đầu vào:</span> <strong class="text-blue-600 whitespace-pre-wrap">${t.input}</strong></div>
+                                <div class="flex-1"><span class="text-slate-400">Đầu ra:</span> <strong class="text-emerald-600 whitespace-pre-wrap">${t.expected}</strong></div>
+                            </div>
+                        </div>`;
+                });
+            }
             if (publicTests.length > 0) document.getElementById('customInput').value = publicTests[0].input;
             document.getElementById('judgeResultsCard').classList.add('hidden');
         }
 
+        // Cập nhật số dòng tự động cho trình soạn thảo Code
         function updateLineNumbers() {
-            const lines = document.getElementById('codeEditor').value.split('\n').length;
-            let str = ''; for (let i = 1; i <= Math.max(lines, 10); i++) str += i + '<br>';
-            document.getElementById('lineNumbers').innerHTML = str;
+            const editor = document.getElementById('codeEditor');
+            const lineNums = document.getElementById('lineNumbers');
+            if (!editor || !lineNums) return;
+            const lineCount = editor.value.split('\n').length;
+            let numsHtml = '';
+            for (let i = 1; i <= Math.max(lineCount, 10); i++) {
+                numsHtml += i + '<br>';
+            }
+            lineNums.innerHTML = numsHtml;
         }
 
-        function resetCodeTemplate() { if(currentAssignment) { document.getElementById('codeEditor').value = currentAssignment.templateCode; updateLineNumbers(); showToast("Đã đặt lại mã nguồn", "info"); } }
-        function copyCurrentCode() { document.getElementById('codeEditor').select(); document.execCommand('copy'); showToast("Đã sao chép mã nguồn!", "success"); }
+        function resetCodeTemplate() {
+            if (currentAssignment) {
+                const editor = document.getElementById('codeEditor');
+                if (editor) {
+                    if (currentUser && (currentUser.role === 'teacher' || currentUser.role === 'admin')) {
+                        editor.value = currentAssignment.templateCode || "";
+                    } else {
+                        editor.value = `# Viết mã Python của em ở đây...\n`;
+                    }
+                    updateLineNumbers();
+                    showToast("Đã làm mới khung soạn thảo mã nguồn", "info");
+                }
+            }
+        }
+
+        function copyCurrentCode() {
+            const editor = document.getElementById('codeEditor');
+            if (!editor) return;
+            editor.select();
+            document.execCommand('copy');
+            showToast("Đã sao chép mã nguồn vào bộ nhớ tạm!", "success");
+        }
 
         async function executePythonCode(code, stdinData = "") {
             if (pyodideInstance) {
@@ -2810,52 +3231,156 @@ sys.stdout = _old_stdout
             }
         }
 
-        // ==============================================
-        // THUẬT TOÁN PHÂN TÍCH VÀ GIẢI THÍCH LỖI SƯ PHẠM
-        // ==============================================
+        // Phân tích lý do test case chưa đúng cho học sinh
         function analyzeFailureReason(execRes, actual, expected, testCase) {
             if (execRes.isError) {
-                const errText = execRes.stderr || "";
-                if (errText.includes("IndentationError")) {
-                    return "Lỗi thụt lề (IndentationError): Các dòng lệnh trong cùng một khối (sau if, for, while, def) phải thụt vào đều nhau (dùng 4 khoảng trắng).";
-                }
-                if (errText.includes("SyntaxError")) {
-                    return "Lỗi cú pháp (SyntaxError): Em hãy kiểm tra xem có thiếu dấu hai chấm (:), thiếu đóng ngoặc đơn (), hoặc nhầm dấu gán '=' với so sánh '==' không.";
-                }
-                if (errText.includes("NameError")) {
-                    return "Biến chưa khai báo (NameError): Em đang sử dụng một biến chưa được khởi tạo giá trị trước đó hoặc viết sai chính tả tên biến.";
-                }
-                if (errText.includes("TypeError")) {
-                    return "Sai kiểu dữ liệu (TypeError): Phép toán không tương thích. Em nhớ dùng int() hoặc float() để ép kiểu khi đọc dữ liệu từ input().";
-                }
-                if (errText.includes("ValueError")) {
-                    return "Lỗi giá trị (ValueError): Không thể ép kiểu dữ liệu từ chuỗi sang số. Hãy kiểm tra định dạng dữ liệu đầu vào.";
-                }
-                if (errText.includes("ZeroDivisionError")) {
-                    return "Lỗi chia cho 0 (ZeroDivisionError): Chương trình thực hiện phép chia cho 0 trong một số trường hợp đầu vào.";
-                }
-                return `Lỗi trong quá trình chạy chương trình: ${errText.slice(0, 160)}`;
+                const err = execRes.stderr || "";
+                if (err.includes("IndentationError")) return "Lỗi thụt lề: Các dòng lệnh trong khối if/for/while chưa được thụt lề đồng đều.";
+                if (err.includes("SyntaxError")) return "Lỗi cú pháp: Em hãy kiểm tra xem có thiếu dấu hai chấm (:) hoặc quên đóng ngoặc không nhé.";
+                if (err.includes("NameError")) return "Biến chưa được khai báo: Em đang gọi một tên biến chưa từng gán giá trị.";
+                if (err.includes("TypeError")) return "Sai kiểu dữ liệu: Chú ý ép kiểu int() hoặc float() khi thực hiện phép toán.";
+                if (err.includes("ZeroDivisionError")) return "Lỗi chia cho 0: Biểu thức của em đang cố gắng chia một số cho 0.";
+                return `Chương trình bị dừng do lỗi thực thi: ${err.split('\n')[0]}`;
             }
 
-            if (!actual && expected) {
-                return "Chương trình không in ra bất kỳ kết quả nào ra màn hình (stdout). Em nhớ dùng lệnh print() để xuất đáp số nhé!";
+            if (!actual) {
+                return "Chương trình không in ra kết quả nào. Em hãy kiểm tra lại câu lệnh print() nhé.";
             }
 
-            // Bẫy Online Judge: In thừa chữ giải thích
-            const lowerActual = actual.toLowerCase();
-            if (lowerActual.includes("kết quả") || lowerActual.includes("tong") || lowerActual.includes("dap an") || lowerActual.includes("bằng") || lowerActual.includes("la:")) {
-                return "Chương trình in thừa văn bản dẫn giải (ví dụ: 'Kết quả là:'). Máy chấm tự động yêu cầu chỉ in đúng giá trị đáp số.";
+            // In thừa nhãn dẫn giải
+            if (actual.toLowerCase().includes("kết quả") || actual.toLowerCase().includes("tong") || actual.toLowerCase().includes("dap an") || actual.includes(":")) {
+                return "Hệ thống phát hiện em in thừa chữ giải thích (như 'Kết quả là:'). Online Judge chỉ so sánh chính xác đáp số, em chỉ cần dùng print(kết_quả) thôi nhé.";
             }
 
-            // Lỗi hoa / thường
+            // Sai chữ hoa/thường
             if (actual.toLowerCase() === expected.toLowerCase()) {
-                return "Sai chính tả hoa/thường: Đề bài yêu cầu chính xác định dạng chữ hoa/thường (ví dụ 'YES' thay vì 'yes').";
+                return `Chính tả hoa/thường chưa đúng: Đề bài yêu cầu in '${expected}', nhưng em lại in '${actual}'.`;
             }
 
-            if (!testCase.is_hidden) {
-                return `Đầu ra của em là '${actual}' nhưng đáp án chuẩn của đề bài là '${expected}'. Hãy kiểm tra lại thuật toán tính toán hoặc điều kiện rẽ nhánh.`;
+            // Test ẩn
+            if (testCase.is_hidden) {
+                return "Thuật toán chưa xử lý hết các trường hợp biên đặc biệt (ví dụ: số 0, số âm, hoặc giá trị lớn). Em hãy kiểm tra lại logic điều kiện nhé!";
+            }
+
+            return "Kết quả tính toán chưa khớp với đáp án của đề bài. Em hãy kiểm tra lại công thức hoặc các bước xử lý dữ liệu.";
+        }
+
+        // Render bảng chỉnh sửa Test Case trong form Soạn đề của GV/Admin
+        function renderTestCaseEditor() {
+            const container = document.getElementById('testCaseEditorList');
+            if (!container) return;
+            if (!editingTestCases || editingTestCases.length === 0) {
+                container.innerHTML = `<div class="text-xs text-slate-400 italic p-2 text-center">Chưa có test case nào. Nhấn "Thêm Test Case" để tạo mới.</div>`;
+                return;
+            }
+
+            container.innerHTML = editingTestCases.map((tc, idx) => `
+                <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 relative shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-700">Test Case #${idx + 1}</span>
+                        <div class="flex items-center gap-3">
+                            <label class="flex items-center gap-1.5 text-xs font-semibold text-purple-700 cursor-pointer">
+                                <input type="checkbox" ${tc.is_hidden ? 'checked' : ''} onchange="updateTestCaseField(${idx}, 'is_hidden', this.checked)" class="rounded text-purple-600 focus:ring-purple-500">
+                                <span>Test Ẩn</span>
+                            </label>
+                            <button type="button" onclick="deleteTestCaseRow(${idx})" class="text-rose-500 hover:text-rose-700 p-1" title="Xóa test case này">
+                                <i class="ph-bold ph-trash text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 text-xs">
+                        <div class="sm:col-span-5">
+                            <label class="block font-semibold text-slate-600 text-[11px] mb-0.5">Dữ liệu vào (Input / stdin):</label>
+                            <textarea rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-1.5 font-mono text-xs focus:ring-1 focus:ring-indigo-500" oninput="updateTestCaseField(${idx}, 'input', this.value)">${tc.input || ''}</textarea>
+                        </div>
+                        <div class="sm:col-span-5">
+                            <label class="block font-semibold text-slate-600 text-[11px] mb-0.5">Kết quả chuẩn (Expected stdout):</label>
+                            <textarea rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-1.5 font-mono text-xs focus:ring-1 focus:ring-indigo-500" oninput="updateTestCaseField(${idx}, 'expected', this.value)">${tc.expected || ''}</textarea>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold text-slate-600 text-[11px] mb-0.5">Điểm:</label>
+                            <input type="number" step="0.5" value="${tc.point !== undefined ? tc.point : 2.5}" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-1.5 font-mono text-xs text-center focus:ring-1 focus:ring-indigo-500" oninput="updateTestCaseField(${idx}, 'point', parseFloat(this.value) || 0)">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Hàm render KaTeX Toán học an toàn không xung đột
+        function renderMathInElementSafe(element) {
+            if (typeof renderMathInElement === 'function' && element) {
+                try {
+                    renderMathInElement(element, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false }
+                        ],
+                        throwOnError: false
+                    });
+                } catch (e) {
+                    console.warn("Lỗi render công thức toán KaTeX:", e);
+                }
+            }
+        }
+
+        // ==============================================
+        // MÔ HÌNH AI SƯ PHẠM CỤC BỘ DỰ PHÒNG THÔNG MINH (YÊU CẦU 2 & 9)
+        // ==============================================
+        function generatePedagogicalAiResponse(userMsg, context, currentMode) {
+            const code = context.code || "";
+            const err = context.error || "";
+            const title = context.assignmentTitle || "";
+
+            // 1. Phân tích nếu học sinh hỏi về soi lỗi
+            if (currentMode === 'debug_error' || userMsg.toLowerCase().includes('lỗi') || err) {
+                if (err.includes("IndentationError")) {
+                    return `Thầy thấy chương trình của em bị **lỗi thụt lề (IndentationError)**. Trong Python, các dòng lệnh nằm bên trong lệnh \`if\`, \`for\` hoặc \`while\` bắt buộc phải thụt vào trong 4 dấu cách. Em hãy căn chỉnh lại các dòng lệnh cho thẳng hàng nhé!`;
+                }
+                if (err.includes("SyntaxError")) {
+                    return `Em đang gặp **lỗi cú pháp (SyntaxError)**. Em hãy kiểm tra xem cuối các câu lệnh như \`if\`, \`else\`, \`for\` có bị thiếu dấu hai chấm \`:\` không, hoặc có đóng đủ dấu ngoặc đơn \`()\` chưa nhé.`;
+                }
+                if (err.includes("NameError")) {
+                    return `Chương trình báo **NameError**, nghĩa là em đang dùng một biến mà chưa từng tạo hoặc gán giá trị trước đó. Em kiểm tra lại xem có viết hoa/thường nhầm tên biến không nhé.`;
+                }
+                if (code.match(/input\s*\(\s*['"][^'"]+['"]\s*\)/)) {
+                    return `Thầy phát hiện em đang để câu nhắc bên trong lệnh \`input()\`. Khi chấm tự động, máy sẽ so khớp từng chữ nên em hãy sửa lại thành lệnh \`input()\` trống để không bị chấm sai nhé.`;
+                }
+                if (code.includes('input()') && !code.includes('int(') && !code.includes('float(')) {
+                    return `Lưu ý là lệnh \`input()\` luôn trả về chuỗi chữ. Để tính toán số học cho bài **${title}**, em nhớ dùng hàm \`int()\` hoặc \`float()\` bọc lại để ép kiểu số nhé!`;
+                }
+            }
+
+            // 2. Chế độ định hướng tiếp cận Socratic
+            if (currentMode === 'socratic' || userMsg.toLowerCase().includes('gợi ý')) {
+                return `Để giải bài toán **${title}**, em hãy chia làm 3 bước:\n1. **Đầu vào:** Đọc các giá trị cần thiết từ bàn phím bằng \`input()\`. Có cần chuyển thành số nguyên không?\n2. **Xử lý:** Áp dụng công thức tính toán hoặc đặt điều kiện so sánh \`if...else\`.\n3. **Đầu ra:** Dùng lệnh \`print()\` để xuất duy nhất kết quả mà đề bài yêu cầu. Em hãy bắt đầu viết thử dòng đọc dữ liệu trước nhé!`;
+            }
+
+            // 3. Phản hồi các câu hỏi thông thường
+            return `Chào em! Thầy Phương luôn sẵn sàng đồng hành cùng em trong bài toán **${title}**. Lập trình Python rất thú vị, em hãy thử bấm nút **Chạy Thử** để kiểm tra chương trình, nếu có lỗi thầy sẽ cùng em phân tích từng bước!`;
+        }
+
+        async function generateAiCodeReview(code, score, maxScore) {
+            const reviewText = document.getElementById('aiReviewText');
+            reviewText.textContent = "AI đang phân tích phong cách viết và cấu trúc mã nguồn...";
+            
+            const apiKey = localStorage.getItem('gemini_api_key') || "";
+            // Nếu có API key chuẩn AIzaSy thì gọi Gemini
+            if (apiKey && apiKey.startsWith("AIzaSy")) {
+                const prompt = `Bạn là thầy giáo Tin học THCS. Hãy viết 2 câu nhận xét sư phạm ngắn gọn (dưới 70 từ) về mã nguồn Python của học sinh:\nBài: ${currentAssignment.title}\nĐiểm: ${score}/${maxScore}\nCode:\n${code}`;
+                const res = await callGeminiChatApi({ contents: [{ role: "user", parts: [{ text: prompt }] }] });
+                if (res) {
+                    reviewText.textContent = cleanMarkdownForSpeech(res);
+                    return;
+                }
+            }
+
+            // Phân tích sư phạm cục bộ nếu không dùng API Gemini
+            if (score >= 9.9) {
+                reviewText.textContent = "Mã nguồn rất sáng sủa, xử lý đầu vào chính xác và bao quát toàn bộ các trường hợp kiểm thử. Em làm rất tốt!";
+            } else if (score >= 5.0) {
+                reviewText.textContent = "Thuật toán cơ bản đã đúng cho các trường hợp mẫu. Em hãy chú ý kiểm tra thêm các giá trị biên như số âm hoặc số 0 để đạt điểm tuyệt đối nhé.";
             } else {
-                return "Chưa vượt qua trường hợp kiểm thử biên đặc biệt. Em hãy kiểm tra lại các giá trị biên như số âm, số 0, hoặc giá trị lớn nhất theo ràng buộc đề bài.";
+                reviewText.textContent = "Em cần đọc kỹ lại định dạng dữ liệu vào/ra của đề bài. Tránh in thêm chữ giải thích và kiểm tra việc ép kiểu số nguyên int() khi đọc dữ liệu.";
             }
         }
 
@@ -3054,9 +3579,8 @@ sys.stdout = _old_stdout
         }
 
         async function callGeminiChatApi(payload, maxRetries = 2) {
-            const apiKey = localStorage.getItem('gemini_api_key') || "AQ.Ab8RN6KA_Cxp4cKAiLvrKD7LS0hB6i5f8SIqZOPStoe02AddLA";
-            if (!apiKey) return "API_KEY_MISSING";
-            if (!apiKey.startsWith("AIzaSy")) return "API_KEY_INVALID";
+            const apiKey = localStorage.getItem('gemini_api_key') || "";
+            if (!apiKey || !apiKey.startsWith("AIzaSy")) return null;
 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             let delay = 1000;
@@ -3066,15 +3590,9 @@ sys.stdout = _old_stdout
                     if (response.ok) {
                         const result = await response.json();
                         return result.candidates?.[0]?.content?.parts?.[0]?.text || null;
-                    } else {
-                        const errorData = await response.json();
-                        console.error("Lỗi từ Gemini API:", errorData);
-                        if (response.status === 400 || response.status === 403) {
-                            return "API_KEY_INVALID";
-                        }
                     }
                 } catch (err) {
-                    console.error("Lỗi kết nối mạng khi gọi API:", err);
+                    // Retry
                 }
                 await new Promise(res => setTimeout(res, delay));
                 delay *= 2;
@@ -3097,233 +3615,555 @@ sys.stdout = _old_stdout
             sendBtn.disabled = true;
             sendBtn.innerHTML = `<i class="ph-bold ph-spinner animate-spin"></i> Đang nghĩ...`;
 
-            // Chẩn đoán lỗi nội bộ
             const context = gatherStudentCodeContext();
-            const diagnostics = performIntelligentCodeDiagnostics(context.code, context);
-            
-            const systemPrompt = `Bạn là Thầy Phương - Giáo viên Tin học THCS kiêm Trợ lý AI sư phạm.
-Nhiệm vụ: Hướng dẫn học sinh lớp 8, 9 học lập trình Python TẬN TÂM và CÓ TƯ DUY SƯ PHẠM.
-QUY TẮC BẮT BUỘC:
-1. KHÔNG BAO GIỜ viết sẵn toàn bộ mã nguồn hoặc giải bài hộ học sinh. Mục tiêu là giúp học sinh tự hiểu và sửa.
-2. Trả lời súc tích, giản dị (dưới 150 từ), dùng xưng hô "Thầy" - "Em".
-3. Nếu có lỗi, xác định CHÍNH XÁC dòng lệnh bị lỗi và giải thích nguyên nhân rõ ràng.
-4. Nhắc nhở các bẫy thường gặp: Không dùng chữ nhắc trong input(), không in thừa chữ trong print().
-Chế độ hiện tại: ${currentAiMode}`;
+            let finalAiResponse = null;
 
-            let diagnosticNotes = "";
-            if (diagnostics.hasIssues) {
-                diagnosticNotes = "KẾT QUẢ QUÉT MÃ TỪ HỆ THỐNG:\n" + diagnostics.findings.map(f => `- ${f.title}: ${f.advice}`).join('\n');
+            // Thử gọi Gemini API nếu có cấu hình Key hợp lệ
+            const apiKey = localStorage.getItem('gemini_api_key') || "";
+            if (apiKey && apiKey.startsWith("AIzaSy")) {
+                const systemPrompt = `Bạn là Thầy Phương - Giáo viên Tin học THCS kiêm Trợ lý AI sư phạm. Hướng dẫn học sinh lớp 8 tận tâm, dùng xưng hô "Thầy" - "Em". KHÔNG viết sẵn mã nguồn giải bài, hãy gợi mở từng bước. Dưới 130 từ.`;
+                const userPromptContent = `[Bài: ${context.assignmentTitle}]\nCode học sinh: \`\`\`python\n${context.code || '# Trống'}\n\`\`\`\nLỗi: ${context.error || 'Không có'}\nCâu hỏi: "${msg}"`;
+                
+                aiChatConversationHistory.push({ role: "user", parts: [{ text: userPromptContent }] });
+                if (aiChatConversationHistory.length > 8) aiChatConversationHistory = aiChatConversationHistory.slice(-6);
+
+                finalAiResponse = await callGeminiChatApi({
+                    contents: aiChatConversationHistory,
+                    systemInstruction: { parts: [{ text: systemPrompt }] }
+                });
             }
 
-            const userPromptContent = `[BỐI CẢNH]
-Bài tập: ${context.assignmentTitle}
-Đề bài: ${context.assignmentDesc}
-Mã nguồn học sinh: \`\`\`python\n${context.code || '# Trống'}\n\`\`\`
-Lỗi hệ thống ghi nhận: ${context.error || 'Không có lỗi'}
-${diagnosticNotes ? '\n' + diagnosticNotes + '\n' : ''}
-Học sinh hỏi: "${msg}"`;
-
-            aiChatConversationHistory.push({ role: "user", parts: [{ text: userPromptContent }] });
-            if (aiChatConversationHistory.length > 8) aiChatConversationHistory = aiChatConversationHistory.slice(-6);
-
-            const payload = {
-                contents: aiChatConversationHistory,
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
-
-            const aiRespRaw = await callGeminiChatApi(payload);
-            let finalAiResponse = aiRespRaw;
-
-            // Cơ chế dự phòng khi rớt mạng API hoặc API Key lỗi
-            if (aiRespRaw === "API_KEY_MISSING" || aiRespRaw === "API_KEY_INVALID") {
-                finalAiResponse = "⚠️ **Thầy chưa thể đọc mã nguồn do API Key cấu hình bị sai hoặc chưa có.**\n\n(Lưu ý: API Key của Gemini luôn phải bắt đầu bằng chữ `AIzaSy...`). Quản trị viên vui lòng vào phần **Nạp dữ liệu** để dán đúng API Key lấy từ Google AI Studio nhé!";
-            } else if (!finalAiResponse) {
-                if (diagnostics.hasIssues) {
-                    const topIssue = diagnostics.findings[0];
-                    finalAiResponse = `Máy chủ AI đang bận, nhưng thầy đã soi mã nguồn bằng hệ thống cục bộ và phát hiện vấn đề: **${topIssue.title}**. ${topIssue.advice} Em thử sửa lại xem sao nhé!`;
-                } else if (!context.code.trim()) {
-                    finalAiResponse = "Khung soạn thảo của em đang trống. Em hãy bắt đầu viết lệnh đọc dữ liệu đầu vào nhé!";
-                } else {
-                    finalAiResponse = "Thầy không thể kết nối với máy chủ AI lúc này (Kiểm tra lại kết nối mạng hoặc API Key). Cấu trúc cơ bản có vẻ ổn, em hãy thử bấm nút Chạy Thử để kiểm tra kết quả nhé.";
-                }
-            }
-
-            if (aiRespRaw !== "API_KEY_MISSING") {
+            // Nếu không có API Key hoặc gọi API thất bại -> Kích hoạt mô hình AI Sư phạm Cục bộ thông minh (Yêu cầu 9)
+            if (!finalAiResponse) {
+                finalAiResponse = generatePedagogicalAiResponse(msg, context, currentAiMode);
+            } else {
                 aiChatConversationHistory.push({ role: "model", parts: [{ text: finalAiResponse }] });
             }
 
-            chatBox.innerHTML += `<div class="flex justify-start"><div class="bg-slate-100 border border-slate-200 text-slate-800 p-3.5 rounded-2xl rounded-tl-none max-w-[90%] text-xs leading-relaxed space-y-1">${renderSimpleMarkdown(finalAiResponse)}</div></div>`;
+            const bubbleId = 'aiResp_' + Date.now();
+            chatBox.innerHTML += `
+                <div class="flex justify-start">
+                    <div id="${bubbleId}" class="bg-slate-100 border border-slate-200 text-slate-800 p-3.5 rounded-2xl rounded-tl-none max-w-[90%] text-xs leading-relaxed space-y-1">
+                        ${renderSimpleMarkdown(finalAiResponse)}
+                    </div>
+                </div>`;
             chatBox.scrollTop = chatBox.scrollHeight;
+            renderMathInElementSafe(document.getElementById(bubbleId));
+
             sendBtn.disabled = false; sendBtn.innerHTML = `<i class="ph-bold ph-paper-plane-right"></i> Gửi`;
 
-            // Robot phát âm thanh phản hồi bằng giọng Google
+            // Robot phát âm thanh bằng giọng đọc tiếng Việt mượt mà
             speakRobotText(finalAiResponse);
         }
 
         // ==============================================
-        // QUẢN LÝ BỘ TEST CASE TRÊN GIAO DIỆN GIÁO VIÊN / ADMIN
+        // PHÂN HỆ QUẢN LÝ BÀI GIẢNG LÝ THUYẾT (YÊU CẦU 4 & 7)
         // ==============================================
-        function renderTestCaseEditor() {
-            const container = document.getElementById('testCaseEditorList');
-            if (!container) return;
+        function switchStudentTab(tab) {
+            const btnPractice = document.getElementById('btnStudentTabPractice');
+            const btnTheory = document.getElementById('btnStudentTabTheory');
+            const secPractice = document.getElementById('studentPracticeSection');
+            const secTheory = document.getElementById('studentTheorySection');
 
-            if (!editingTestCases || editingTestCases.length === 0) {
-                editingTestCases = [
-                    { id: 1, input: "3 5", expected: "8", point: 2.5, is_hidden: false },
-                    { id: 2, input: "-10 25", expected: "15", point: 2.5, is_hidden: false },
-                    { id: 3, input: "100 200", expected: "300", point: 2.5, is_hidden: true },
-                    { id: 4, input: "-50 -50", expected: "-100", point: 2.5, is_hidden: true }
-                ];
+            stopRobotVoice();
+
+            if (tab === 'theory') {
+                btnTheory.className = "flex-1 py-2.5 rounded-xl font-bold bg-white text-purple-600 shadow-sm transition-all flex items-center justify-center gap-1.5";
+                btnPractice.className = "flex-1 py-2.5 rounded-xl font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center gap-1.5";
+                secTheory.classList.remove('hidden');
+                secPractice.classList.add('hidden');
+                if (lessons.length > 0) loadLessonDetail(currentLesson ? currentLesson.id : lessons[0].id);
+            } else {
+                btnPractice.className = "flex-1 py-2.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm transition-all flex items-center justify-center gap-1.5";
+                btnTheory.className = "flex-1 py-2.5 rounded-xl font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center gap-1.5";
+                secPractice.classList.remove('hidden');
+                secTheory.classList.add('hidden');
             }
-
-            container.innerHTML = editingTestCases.map((tc, idx) => `
-                <div class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm space-y-2">
-                    <div class="flex items-center justify-between text-xs border-b border-slate-100 pb-1.5">
-                        <span class="font-bold text-slate-800 flex items-center gap-1.5">
-                            <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-mono font-bold text-[11px]">${idx + 1}</span>
-                            Test Case #${idx + 1}
-                        </span>
-                        <div class="flex items-center gap-3">
-                            <label class="flex items-center gap-1 text-[11px] font-semibold cursor-pointer ${tc.is_hidden ? 'text-purple-600' : 'text-slate-500'}">
-                                <input type="checkbox" ${tc.is_hidden ? 'checked' : ''} onchange="updateTestCaseField(${idx}, 'is_hidden', this.checked)" class="rounded text-purple-600 focus:ring-purple-500">
-                                <span>Test Ẩn</span>
-                            </label>
-                            <button type="button" onclick="deleteTestCaseRow(${idx})" class="text-rose-500 hover:text-rose-700 font-bold p-1 rounded hover:bg-rose-50" title="Xóa test case này">
-                                <i class="ph-bold ph-trash text-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-2 text-xs">
-                        <div class="md:col-span-5">
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Dữ liệu vào (Input / Stdin):</label>
-                            <textarea rows="2" oninput="updateTestCaseField(${idx}, 'input', this.value)" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Nhập dữ liệu vào...">${tc.input || ''}</textarea>
-                        </div>
-                        <div class="md:col-span-5">
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Kết quả mong đợi (Output):</label>
-                            <textarea rows="2" oninput="updateTestCaseField(${idx}, 'expected', this.value)" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Nhập kết quả chuẩn...">${tc.expected || ''}</textarea>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="block text-[11px] font-semibold text-slate-600 mb-0.5">Điểm:</label>
-                            <input type="number" step="0.5" value="${tc.point || 2.5}" oninput="updateTestCaseField(${idx}, 'point', parseFloat(this.value) || 0)" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-2 font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
-                        </div>
-                    </div>
-                </div>
-            `).join('');
         }
 
-        function addTestCaseRow() {
-            editingTestCases.push({
-                id: Date.now(),
-                input: "",
-                expected: "",
-                point: 2.5,
-                is_hidden: editingTestCases.length >= 2 // Mặc định từ test thứ 3 trở đi là test ẩn
+        function populateLessonSelect() {
+            const sel = document.getElementById('selectLessonStudent');
+            if (!sel) return;
+            sel.innerHTML = '';
+            lessons.forEach(l => {
+                const opt = document.createElement('option');
+                opt.value = l.id;
+                opt.textContent = `${l.title}`;
+                sel.appendChild(opt);
             });
-            renderTestCaseEditor();
+            const badge = document.getElementById('badgeTotalLessons');
+            if (badge) badge.textContent = `${lessons.length} bài học`;
         }
 
-        function deleteTestCaseRow(idx) {
-            if (editingTestCases.length <= 1) {
-                return showToast("Mỗi bài tập cần tối thiểu 1 bộ Test Case!", "error");
+        function loadLessonDetail(lessonId) {
+            // Ngay khi học sinh chọn bài giảng khác, Robot lập tức dừng đọc bài cũ
+            stopRobotVoice();
+
+            const found = lessons.find(l => l.id == lessonId);
+            if (!found) return;
+            currentLesson = found;
+            document.getElementById('currentLessonTitleDisplay').textContent = found.title;
+            const container = document.getElementById('lessonContentContainer');
+            container.innerHTML = renderSimpleMarkdown(found.content);
+            renderMathInElementSafe(container);
+            
+            // Cập nhật lại dropdown nếu được gọi từ ngoài
+            const sel = document.getElementById('selectLessonStudent');
+            if (sel && sel.value != lessonId) sel.value = lessonId;
+            
+            // Đặt lại nút đọc bài giảng về trạng thái ban đầu
+            updateLessonReadButtonState(false);
+        }
+
+        function updateLessonReadButtonState(isReading) {
+            const btn = document.getElementById('btnReadLessonAloud');
+            const icon = document.getElementById('btnReadLessonIcon');
+            const text = document.getElementById('btnReadLessonText');
+            if (!btn || !icon || !text) return;
+            if (isReading) {
+                btn.className = "px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all";
+                icon.className = "ph-bold ph-stop text-base";
+                text.textContent = "Dừng Giảng";
+            } else {
+                btn.className = "px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all";
+                icon.className = "ph-bold ph-speaker-high text-base";
+                text.textContent = "Robot Giảng Bài";
             }
-            editingTestCases.splice(idx, 1);
-            renderTestCaseEditor();
         }
 
-        function updateTestCaseField(idx, field, value) {
-            if (editingTestCases[idx]) {
-                editingTestCases[idx][field] = value;
+        function toggleReadCurrentLessonAloud() {
+            if (isRobotSpeaking) {
+                stopRobotVoice();
+                updateLessonReadButtonState(false);
+                showToast("Thầy đã tạm dừng bài giảng", "info");
+            } else {
+                if (!currentLesson) return;
+                updateLessonReadButtonState(true);
+                showToast("Thầy đang giảng bài cho em nghe...", "info");
+                // Giọng điệu của người Thầy nói chuyện và giảng giải với học trò
+                speakRobotText(`Thầy Phương chào các em. Hôm nay thầy trò mình cùng tìm hiểu nội dung ${currentLesson.title}. ${currentLesson.content}`);
             }
         }
 
-        function publishNewAssignment() {
-            saveAssignment();
+        function readCurrentLessonAloud() {
+            toggleReadCurrentLessonAloud();
         }
 
-        function createAssignment() {
+        function resetLessonForm() {
+            const editIdEl = document.getElementById('editingLessonId');
+            const titleEl = document.getElementById('newLessonTitle');
+            const contentEl = document.getElementById('newLessonContent');
+            const btnSave = document.getElementById('btnSaveLesson');
+
+            if (editIdEl) editIdEl.value = '';
+            if (titleEl) titleEl.value = '';
+            if (contentEl) contentEl.value = '';
+            if (btnSave) btnSave.textContent = 'Lưu Bài Giảng';
+        }
+
+        function openCreateLessonFromAdmin() {
+            switchRole('teacher');
+            switchTeacherTab('lessons');
+            resetLessonForm();
+            const titleInput = document.getElementById('newLessonTitle');
+            if (titleInput) {
+                titleInput.focus();
+                titleInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function previewLessonModal() {
+            const title = document.getElementById('newLessonTitle').value.trim() || "Bản Xem Trước Bài Học";
+            const content = document.getElementById('newLessonContent').value.trim() || "*Chưa có nội dung văn bản.*";
+            
+            showCodeSampleModal(`=== ${title} ===\n\n${content}`);
+            const titleSubtitle = document.getElementById('codeSampleModalSubtitle');
+            if (titleSubtitle) titleSubtitle.textContent = "Xem trước bài giảng lý thuyết";
+        }
+
+        function saveLesson() {
+            const editId = document.getElementById('editingLessonId').value;
+            const title = document.getElementById('newLessonTitle').value.trim();
+            const content = document.getElementById('newLessonContent').value.trim();
+
+            if (!title || !content) {
+                return showToast("Vui lòng nhập đầy đủ tiêu đề và nội dung bài học!", "error");
+            }
+
+            if (editId) {
+                const idx = lessons.findIndex(l => l.id == editId);
+                if (idx !== -1) {
+                    lessons[idx].title = title;
+                    lessons[idx].content = content;
+                    showToast(`Đã cập nhật bài học "${title}"!`, "success");
+                }
+            } else {
+                const newId = lessons.length > 0 ? Math.max(...lessons.map(l => l.id)) + 1 : 1;
+                lessons.push({ id: newId, title, content });
+                showToast(`Đã thêm bài giảng mới thành công!`, "success");
+            }
+
+            populateLessonSelect();
+            renderManageLessonsTable();
+            resetLessonForm();
+            autoSaveLocalSnapshot();
+            updateLiveSystemCounts();
+            uploadBackupToCloudApi(true);
+        }
+
+        function editLesson(id) {
+            const found = lessons.find(l => l.id == id);
+            if (!found) return;
+
             if (currentRole !== 'teacher') {
                 switchRole('teacher');
             }
+            switchTeacherTab('lessons');
+
+            const editIdEl = document.getElementById('editingLessonId');
+            const titleEl = document.getElementById('newLessonTitle');
+            const contentEl = document.getElementById('newLessonContent');
+            const btnSave = document.getElementById('btnSaveLesson');
+
+            if (editIdEl) editIdEl.value = found.id;
+            if (titleEl) titleEl.value = found.title;
+            if (contentEl) contentEl.value = found.content;
+            if (btnSave) btnSave.textContent = 'Cập Nhật Bài Giảng';
+
+            if (titleEl) {
+                titleEl.focus();
+                titleEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // CHỈ ADMIN MỚI CÓ QUYỀN XÓA BÀI HỌC (YÊU CẦU 7) - CÓ MODAL XÁC NHẬN AN TOÀN
+        function deleteLesson(id) {
+            if (currentUser.role !== 'admin') {
+                return showToast("Chỉ Quản Trị Viên (Admin) mới có quyền xóa bài giảng!", "error");
+            }
+            if (lessons.length <= 1) {
+                return showToast("Cần giữ lại ít nhất 1 bài giảng trong hệ thống!", "error");
+            }
+            const found = lessons.find(l => l.id == id);
+            if (!found) return;
+
+            const modal = document.getElementById('deleteLessonModal');
+            const titleSpan = document.getElementById('deleteLessonTitleTarget');
+            const targetInput = document.getElementById('deleteLessonIdTarget');
+
+            if (titleSpan) titleSpan.textContent = `"${found.title}"`;
+            if (targetInput) targetInput.value = found.id;
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeDeleteLessonModal() {
+            const modal = document.getElementById('deleteLessonModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function executeDeleteLesson() {
+            const targetInput = document.getElementById('deleteLessonIdTarget');
+            if (!targetInput) return;
+            const id = parseInt(targetInput.value);
+            const idx = lessons.findIndex(l => l.id == id);
+
+            if (idx !== -1) {
+                const title = lessons[idx].title;
+                lessons.splice(idx, 1);
+                populateLessonSelect();
+                renderManageLessonsTable();
+                autoSaveLocalSnapshot();
+                updateLiveSystemCounts();
+                uploadBackupToCloudApi(true);
+                showToast(`Đã xóa bài giảng "${title}" thành công!`, "success");
+
+                if (currentLesson && currentLesson.id == id && lessons.length > 0) {
+                    loadLessonDetail(lessons[0].id);
+                }
+            }
+            closeDeleteLessonModal();
+        }
+
+        function renderManageLessonsTable() {
+            const tbodyTeacher = document.getElementById('manageLessonsTableBody');
+            const tbodyAdmin = document.getElementById('adminLessonsTableBody');
+
+            const renderRows = (isAdmin) => {
+                if (!lessons || lessons.length === 0) {
+                    return `<tr><td colspan="3" class="p-4 text-center text-slate-400">Chưa có bài giảng nào.</td></tr>`;
+                }
+                return lessons.map(l => `
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-3 text-center font-mono text-slate-500 font-bold">${l.id}</td>
+                        <td class="p-3 font-semibold text-slate-900">${l.title}</td>
+                        <td class="p-3 text-center">
+                            <div class="flex items-center justify-center gap-1.5">
+                                <button onclick="editLesson(${l.id})" class="px-2.5 py-1 rounded-lg border border-purple-200 text-purple-600 hover:bg-purple-50 text-xs font-semibold flex items-center gap-1" title="Sửa bài giảng">
+                                    <i class="ph-bold ph-pencil-simple"></i> Sửa
+                                </button>
+                                ${isAdmin ? `
+                                    <button onclick="deleteLesson(${l.id})" class="px-2.5 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-semibold flex items-center gap-1" title="Chỉ Admin mới được xóa">
+                                        <i class="ph-bold ph-trash"></i> Xóa
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            };
+
+            const isAdminUser = currentUser && currentUser.role === 'admin';
+            if (tbodyTeacher) tbodyTeacher.innerHTML = renderRows(isAdminUser);
+            if (tbodyAdmin) tbodyAdmin.innerHTML = renderRows(true);
+        }
+
+        function stopRobotVoice() {
+            const audioPlayer = document.getElementById('robotAudioPlayer');
+            if (audioPlayer) {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+            }
+            audioPlaylist = [];
+            currentAudioIndex = 0;
+            if (synth) synth.cancel();
+
+            isRobotSpeaking = false;
+            updateRobotSpeakingUi(false);
+            updateLessonReadButtonState(false);
+        }
+
+        function closeCuteRobotModal() {
+            document.getElementById('cuteRobotHelpModal').classList.add('hidden');
+        }
+
+        function openCuteRobotAssistant() {
+            const modal = document.getElementById('cuteRobotHelpModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function robotGiveHintInstead() {
+            closeCuteRobotModal();
+            openAiAssistant('socratic');
+            quickAskAi(`Robot ơi, em muốn được gợi ý hướng tư duy để làm bài "${currentAssignment.title}".`);
+        }
+
+        function revealCodeSampleForStudent() {
+            closeCuteRobotModal();
+            showCodeSampleModal(currentAssignment ? currentAssignment.templateCode : "# Chưa có code mẫu");
+        }
+
+        function showCodeSampleModal(codeText) {
+            document.getElementById('codeSampleDisplayArea').textContent = codeText || "# Chưa có mã nguồn mẫu cho bài này.";
+            document.getElementById('codeSampleModal').classList.remove('hidden');
+        }
+
+        function closeCodeSampleModal() {
+            document.getElementById('codeSampleModal').classList.add('hidden');
+        }
+
+        // ==============================================
+        // QUẢN LÝ BÀI LÀM HỌC SINH (CHỈ ADMIN ĐƯỢC XÓA - YÊU CẦU 5)
+        // ==============================================
+        function renderAdminSubmissionsTable() {
+            const tbody = document.getElementById('adminSubmissionsTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            if (gradebook.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">Chưa có bài làm nào của học sinh trên hệ thống.</td></tr>`;
+                return;
+            }
+
+            gradebook.forEach((row, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                const isPass = row.highestScore >= 5.0;
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-slate-900">${row.student}</td>
+                    <td class="p-3 font-mono text-slate-500">${row.username}</td>
+                    <td class="p-3 text-center"><span class="bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">${row.attempts} lần</span></td>
+                    <td class="p-3 text-center font-bold font-mono text-sm ${row.highestScore >= 9.9 ? 'text-emerald-600' : (isPass ? 'text-blue-600' : 'text-slate-400')}">
+                        ${row.attempts > 0 ? Number(row.highestScore).toFixed(1) + ' đ' : 'Chưa nộp'}
+                    </td>
+                    <td class="p-3 text-center">
+                        <span class="text-[11px] px-2.5 py-0.5 rounded-full font-semibold ${row.highestScore >= 9.9 ? 'bg-emerald-100 text-emerald-700' : (isPass ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-500')}">
+                            ${row.highestScore >= 9.9 ? 'Hoàn thành 100%' : (isPass ? 'Đạt' : 'Chưa nộp')}
+                        </span>
+                    </td>
+                    <td class="p-3 text-right text-slate-400">${row.lastSubmit}</td>
+                    <td class="p-3 text-center">
+                        ${currentUser.role === 'admin' ? `
+                            <button onclick="deleteSingleStudentSubmission('${row.username}')" class="px-2 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-semibold" title="Chỉ Admin có quyền xóa">
+                                <i class="ph-bold ph-trash"></i> Xóa
+                            </button>
+                        ` : `<span class="text-[10px] text-slate-400 italic">Chỉ xem</span>`}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteSingleStudentSubmission(studentUsername) {
+            if (currentUser.role !== 'admin') {
+                return showToast("Chỉ Quản Trị Viên (Admin) mới có quyền xóa lịch sử nộp bài!", "error");
+            }
+            gradebook = gradebook.filter(g => g.username !== studentUsername);
+            studentSubmissions = studentSubmissions.filter(s => s.username !== studentUsername);
+            renderAdminSubmissionsTable();
+            renderGradebook();
+            autoSaveLocalSnapshot();
+            uploadBackupToCloudApi(true);
+            showToast(`Đã xóa lịch sử nộp bài của tài khoản "${studentUsername}"!`, "success");
+        }
+
+        function clearAllStudentSubmissions() {
+            if (currentUser.role !== 'admin') {
+                return showToast("Chỉ Quản Trị Viên (Admin) mới có quyền xóa toàn bộ lịch sử!", "error");
+            }
+            if (gradebook.length === 0) return showToast("Không có dữ liệu bài làm để xóa.", "info");
+
+            gradebook = [];
+            studentSubmissions = [];
+            renderAdminSubmissionsTable();
+            renderGradebook();
+            autoSaveLocalSnapshot();
+            uploadBackupToCloudApi(true);
+            showToast("Đã xóa sạch toàn bộ lịch sử nộp bài của học sinh trên hệ thống!", "success");
+        }
+        function switchAdminTab(tab) {
+            const tabs = ['users', 'logs', 'assignments', 'lessons', 'submissions'];
+            tabs.forEach(t => {
+                const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (el) el.classList.toggle('hidden', tab !== t);
+                const btn = document.getElementById('tabAdmin' + t.charAt(0).toUpperCase() + t.slice(1) + 'Btn');
+                if (btn) {
+                    btn.className = `pb-3 text-sm flex items-center gap-2 whitespace-nowrap ${tab === t ? 'font-bold border-b-2 border-indigo-600 text-indigo-600' : 'font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800'}`;
+                }
+            });
+            
+            if (tab === 'users') renderAdminUsersTable();
+            else if (tab === 'logs') renderAdminLogsTable();
+            else if (tab === 'assignments') renderAdminAssignmentsTable();
+            else if (tab === 'lessons') renderManageLessonsTable();
+            else if (tab === 'submissions') renderAdminSubmissionsTable();
+        }
+
+        function switchTeacherTab(tab) {
+            const tabs = ['create', 'manage', 'lessons', 'grades'];
+            tabs.forEach(t => {
+                const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (el) el.classList.toggle('hidden', tab !== t);
+                const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (btn) {
+                    btn.className = `pb-3 text-sm flex items-center gap-2 whitespace-nowrap ${tab === t ? 'font-bold border-b-2 border-blue-600 text-blue-600' : 'font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-800'}`;
+                }
+            });
+
+            if (tab === 'manage') renderManageAssignmentsTable();
+            else if (tab === 'lessons') renderManageLessonsTable();
+            else if (tab === 'grades') renderGradebook();
+        }
+
+        function refreshAdminDashboard() {
+            const studentsCount = registeredUsers.filter(u => u.role === 'student').length;
+            const teachersCount = registeredUsers.filter(u => u.role === 'teacher' || u.role === 'admin').length;
+            document.getElementById('adminStatTotalUsers').textContent = registeredUsers.length;
+            document.getElementById('adminStatTeachers').textContent = teachersCount;
+            document.getElementById('adminStatStudents').textContent = studentsCount;
+            document.getElementById('adminStatTotalLogs').textContent = loginLogs.length;
+            if (document.getElementById('adminBadgeStudentCount')) document.getElementById('adminBadgeStudentCount').textContent = studentsCount;
+            if (document.getElementById('adminBadgeTeacherCount')) document.getElementById('adminBadgeTeacherCount').textContent = teachersCount;
+            
+            updateLiveSystemCounts();
+            renderAdminUsersTable(); 
+            renderAdminLogsTable();
+            renderAdminAssignmentsTable();
+            renderManageLessonsTable();
+            renderAdminSubmissionsTable();
+        }
+
+        function renderAdminAssignmentsTable() {
+            const tbody = document.getElementById('adminAssignmentsTableBody');
+            if(!tbody) return;
+            tbody.innerHTML = '';
+            
+            if (assignments.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-slate-400">Chưa có bài tập nào trong Ngân hàng đề.</td></tr>`;
+                return;
+            }
+
+            assignments.forEach(a => {
+                let diffHtml = '';
+                if(a.difficulty === 'easy') diffHtml = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">Dễ</span>';
+                else if(a.difficulty === 'medium') diffHtml = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700">Trung bình</span>';
+                else diffHtml = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700">Khó</span>';
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-3 text-center font-mono font-bold text-slate-500">${a.id}</td>
+                    <td class="p-3 font-semibold text-slate-900">${a.title}</td>
+                    <td class="p-3 text-center">${diffHtml}</td>
+                    <td class="p-3 text-center font-mono text-slate-500">${a.timeLimit}s</td>
+                    <td class="p-3 text-center">
+                        <div class="flex items-center justify-center gap-1">
+                            <button onclick="shareAssignmentSpecific(${a.id})" class="p-1.5 rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50 text-xs" title="Chia sẻ liên kết">
+                                <i class="ph-bold ph-share-network"></i>
+                            </button>
+                            <button onclick="editAssignment(${a.id})" class="p-1.5 rounded-lg border border-blue-200 text-blue-600 hover:bg-blue-50 text-xs" title="Sửa đề bài">
+                                <i class="ph-bold ph-pencil-simple"></i>
+                            </button>
+                            <button onclick="confirmDeleteAssignment(${a.id})" class="p-1.5 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs" title="Xóa đề bài">
+                                <i class="ph-bold ph-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderManageLessonsTable() {
+            const tbodyTeacher = document.getElementById('manageLessonsTableBody');
+            const tbodyAdmin = document.getElementById('adminLessonsTableBody');
+
+            const renderRows = (isAdmin) => {
+                if (!lessons || lessons.length === 0) {
+                    return `<tr><td colspan="3" class="p-4 text-center text-slate-400">Chưa có bài giảng nào.</td></tr>`;
+                }
+                return lessons.map(l => `
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="p-3 text-center font-mono text-slate-500 font-bold">${l.id}</td>
+                        <td class="p-3 font-semibold text-slate-900">${l.title}</td>
+                        <td class="p-3 text-center">
+                            <div class="flex items-center justify-center gap-1.5">
+                                <button onclick="editLesson(${l.id})" class="px-2.5 py-1 rounded-lg border border-purple-200 text-purple-600 hover:bg-purple-50 text-xs font-semibold flex items-center gap-1">
+                                    <i class="ph-bold ph-pencil-simple"></i> Sửa
+                                </button>
+                                ${isAdmin ? `
+                                    <button onclick="deleteLesson(${l.id})" class="px-2.5 py-1 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 text-xs font-semibold flex items-center gap-1" title="Chỉ Admin mới được xóa">
+                                        <i class="ph-bold ph-trash"></i> Xóa
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            };
+
+            if (tbodyTeacher) tbodyTeacher.innerHTML = renderRows(currentUser.role === 'admin');
+            if (tbodyAdmin) tbodyAdmin.innerHTML = renderRows(true);
+        }
+
+        function createAssignment() {
+            if (currentRole !== 'teacher' && currentRole !== 'admin') {
+                switchRole('teacher');
+            }
+            if (currentRole === 'admin') {
+                switchRole('teacher'); // Chuyển sang form soạn đề của giáo viên
+            }
             resetAssignmentForm();
             switchTeacherTab('create');
-        }
-
-        function resetAssignmentForm() {
-            document.getElementById('editingAssignmentId').value = '';
-            document.getElementById('newTitle').value = '';
-            document.getElementById('newDescription').value = '';
-            document.getElementById('newDifficulty').value = 'easy';
-            document.getElementById('newTimeLimit').value = '2.0';
-            document.getElementById('newSolutionCode').value = '';
-            document.getElementById('btnSaveAssignment').innerHTML = '<i class="ph-bold ph-check"></i> Xuất Bản Đề Mới';
-            document.getElementById('btnCancelEdit').classList.add('hidden');
-
-            editingTestCases = [
-                { id: 1, input: "3 5", expected: "8", point: 2.5, is_hidden: false },
-                { id: 2, input: "-10 25", expected: "15", point: 2.5, is_hidden: false },
-                { id: 3, input: "100 200", expected: "300", point: 2.5, is_hidden: true },
-                { id: 4, input: "-500 -500", expected: "-1000", point: 2.5, is_hidden: true }
-            ];
-            renderTestCaseEditor();
-        }
-
-        function saveAssignment() {
-            const editId = document.getElementById('editingAssignmentId').value;
-            const title = document.getElementById('newTitle').value.trim();
-            const desc = document.getElementById('newDescription').value.trim();
-            const diff = document.getElementById('newDifficulty').value;
-            const timeL = parseFloat(document.getElementById('newTimeLimit').value) || 2.0;
-            const sol = document.getElementById('newSolutionCode').value.trim();
-
-            if (!title) return showToast("Vui lòng nhập tên bài tập!", "error");
-            
-            const templateCode = `# Mã nguồn cho bài ${title}\n` + (sol || "# Viết code của em ở đây\n");
-            const finalTests = editingTestCases && editingTestCases.length > 0 ? JSON.parse(JSON.stringify(editingTestCases)) : [
-                { id: 1, input: "5", expected: "10", point: 2.5, is_hidden: false }, 
-                { id: 2, input: "1", expected: "0", point: 2.5, is_hidden: false }, 
-                { id: 3, input: "100", expected: "2550", point: 2.5, is_hidden: true }, 
-                { id: 4, input: "999", expected: "249500", point: 2.5, is_hidden: true } 
-            ];
-            
-            if (editId) {
-                // Chế độ Cập nhật
-                const idx = assignments.findIndex(a => a.id == editId);
-                if (idx !== -1) {
-                    assignments[idx].title = title;
-                    assignments[idx].slug = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-                    assignments[idx].difficulty = diff;
-                    assignments[idx].timeLimit = timeL;
-                    assignments[idx].description = desc || "Mô tả đang cập nhật...";
-                    assignments[idx].templateCode = templateCode;
-                    assignments[idx].tests = finalTests;
-                    showToast(`Đã cập nhật bài tập "${title}"!`, "success");
-                }
-            } else {
-                // Chế độ Thêm mới
-                const newId = assignments.length > 0 ? Math.max(...assignments.map(a => a.id)) + 1 : 1;
-                assignments.push({ 
-                    id: newId, 
-                    title: title, 
-                    slug: title.toLowerCase().replace(/[^a-z0-9]/g, '-'), 
-                    difficulty: diff, 
-                    timeLimit: timeL, 
-                    description: desc || "Mô tả đang cập nhật...", 
-                    templateCode: templateCode, 
-                    tests: finalTests
-                });
-                showToast(`Đã xuất bản bài tập "${title}"!`, "success");
-            }
-            
-            populateAssignmentSelect(); 
-            if(document.getElementById('teacherCountAssignments')) document.getElementById('teacherCountAssignments').textContent = assignments.length + " bài";
-            autoSaveLocalSnapshot(); 
-            resetAssignmentForm();
-            switchTeacherTab('manage'); 
-            
-            if (currentRole === 'admin') renderAdminAssignmentsTable();
-
-            uploadBackupToCloudApi(true);
         }
 
         function editAssignment(id) {
@@ -3659,23 +4499,38 @@ Học sinh hỏi: "${msg}"`;
             await autoFetchDataFromGitHub();
 
             populateAssignmentSelect(); 
+            populateLessonSelect();
             
             // Khởi tạo bảng Test Case Editor ban đầu
             renderTestCaseEditor();
+            updateLiveSystemCounts();
 
             // Đọc tham số URL để tự động nạp đúng bài tập được chia sẻ
             const urlParams = new URLSearchParams(window.location.search);
             const assignId = urlParams.get('assignment');
             if (assignId && assignments.find(a => a.id == assignId)) {
-                document.getElementById('selectAssignment').value = assignId;
+                const selectAss = document.getElementById('selectAssignment');
+                if (selectAss) selectAss.value = assignId;
                 loadAssignment(parseInt(assignId));
             } else if (assignments.length > 0) {
-                document.getElementById('selectAssignment').value = assignments[0].id;
+                const selectAss = document.getElementById('selectAssignment');
+                if (selectAss) selectAss.value = assignments[0].id;
                 loadAssignment(assignments[0].id); 
+            }
+
+            if (lessons.length > 0) {
+                loadLessonDetail(lessons[0].id);
             }
             
             initPyodide();
-            currentUser.isLoggedIn = false; updateUserHeaderUi(); openLoginModal('student', 'login');
+            currentUser.isLoggedIn = false; 
+            updateUserHeaderUi(); 
+            openLoginModal('student', 'login');
+
+            // Tự động render KaTeX cho toàn trang nếu có phần tử toán học sẵn
+            if (typeof renderMathInElement === 'function') {
+                renderMathInElementSafe(document.body);
+            }
 
             // Tự động đẩy dữ liệu dự phòng nếu người dùng đóng tab trình duyệt đột ngột
             window.addEventListener('beforeunload', () => {
