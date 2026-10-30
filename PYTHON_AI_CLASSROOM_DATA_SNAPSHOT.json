@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "D855DB38",
-  "exported_at": "2026-10-30T00:49:22.955Z",
-  "exported_at_vn": "07:49:22 30/10/2026",
+  "checksum": "B998EF45",
+  "exported_at": "2026-10-30T00:49:32.113Z",
+  "exported_at_vn": "07:49:32 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,9 +434,9 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 4,
+        "attempts": 5,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 07:34"
+        "lastSubmit": "Hôm nay 07:49"
       },
       {
         "id": 8,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793321371514,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 4,
+        "assignmentTitle": "Xét số chẵn lẻ",
+        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "score": 0,
+        "type": "official_submission",
+        "timestamp": "07:49:31 30/10/2026"
+      },
       {
         "id": 1793321175359,
         "student": "Nguyễn Thế Bình",
@@ -707,6 +719,18 @@
         "score": null,
         "type": "draft_on_exit",
         "timestamp": "07:40:29 30/10/2026"
+      },
+      {
+        "id": 1793321372107,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "role": "student",
+        "assignmentId": 4,
+        "assignmentTitle": "Xét số chẵn lẻ",
+        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "score": null,
+        "type": "draft_on_exit",
+        "timestamp": "07:49:32 30/10/2026"
       }
     ],
     "loginLogs": [
