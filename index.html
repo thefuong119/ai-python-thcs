@@ -2132,9 +2132,19 @@
             }
         }
 
-        function processAuthSubmit() { currentAuthAction === 'login' ? processUserLogin() : processUserRegistration(); }
+        async function processAuthSubmit() { currentAuthAction === 'login' ? await processUserLogin() : await processUserRegistration(); }
 
-        function processUserLogin() {
+        async function processUserLogin() {
+            const btnSubmit = document.getElementById('btnSubmitAuth');
+            const originalText = btnSubmit.innerHTML;
+            
+            // Hiệu ứng chờ và đồng bộ GitHub ngay khi nhấn Đăng nhập
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<i class="ph-bold ph-spinner animate-spin"></i> Đang đồng bộ GitHub...`;
+            await autoFetchDataFromGitHub();
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = originalText;
+
             if (activeAuthTab === 'teacher') {
                 const identifier = document.getElementById('teacherCccdInput').value.trim();
                 const pass = document.getElementById('teacherPassInput').value.trim();
@@ -2171,7 +2181,17 @@
             }
         }
 
-        function processUserRegistration() {
+        async function processUserRegistration() {
+            const btnSubmit = document.getElementById('btnSubmitAuth');
+            const originalText = btnSubmit.innerHTML;
+            
+            // Đồng bộ GitHub trước khi đăng ký để lấy dữ liệu mới nhất (tránh đè tài khoản)
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<i class="ph-bold ph-spinner animate-spin"></i> Đang đồng bộ GitHub...`;
+            await autoFetchDataFromGitHub();
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = originalText;
+
             const nowStr = new Date().toLocaleString('vi-VN', { hour12: false });
             if (activeAuthTab === 'teacher') {
                 const name = document.getElementById('regTeacherName').value.trim(), username = document.getElementById('regTeacherUsername').value.trim().toLowerCase(), school = document.getElementById('regTeacherSchool').value.trim() || "THCS Thành Đông", className = document.getElementById('regTeacherClass').value.trim(), phone = document.getElementById('regTeacherPhone').value.trim(), email = document.getElementById('regTeacherEmail').value.trim(), pass = document.getElementById('regTeacherPass').value.trim();
@@ -2187,7 +2207,7 @@
                 const primaryIdentifier = username || email || phone;
                 if (!name || !className || !primaryIdentifier || !pass) return showToast("Vui lòng điền đủ các mục bắt buộc!", "error");
                 if (registeredUsers.some(u => (u.identifier?.toLowerCase() === primaryIdentifier.toLowerCase()) || (username && u.username?.toLowerCase() === username.toLowerCase()) || (phone && u.phone === phone) || (email && u.email?.toLowerCase() === email.toLowerCase()))) {
-                    showToast("Thông tin định danh này đã được đăng ký!", "error"); return;
+                    showToast("Thông định danh này đã được đăng ký!", "error"); return;
                 }
 
                 registeredUsers.push({ id: registeredUsers.length + 1, name, username: username || "", identifier: primaryIdentifier, password: pass, school, className, teacherName: "Thầy Nguyễn Thế Phương", phone: phone || "---", email: email || "---", role: 'student', authMethod: username ? "Tên đăng nhập" : (email ? "Gmail" : "Số điện thoại"), status: "active", firstLogin: nowStr, lastLogin: nowStr, loginCount: 1 });
@@ -2755,7 +2775,7 @@ sys.stdout = _old_stdout
         }
 
         async function callGeminiChatApi(payload, maxRetries = 2) {
-            const apiKey = localStorage.getItem('gemini_api_key') || "";
+            const apiKey = localStorage.getItem('gemini_api_key') || "AQ.Ab8RN6KA_Cxp4cKAiLvrKD7LS0hB6i5f8SIqZOPStoe02AddLA";
             if (!apiKey) return "API_KEY_MISSING";
             if (!apiKey.startsWith("AIzaSy")) return "API_KEY_INVALID";
 
@@ -3106,7 +3126,7 @@ Học sinh hỏi: "${msg}"`;
                     <td class="p-3 font-semibold text-slate-900">${row.student}</td>
                     <td class="p-3 font-mono text-slate-500">${row.username}</td>
                     <td class="p-3 text-center"><span class="bg-slate-100 px-2.5 py-0.5 rounded-full font-medium">${row.attempts} lần</span></td>
-                    <td class="p-3 text-center font-bold font-mono text-sm ${row.highestScore >= 9.9 ? 'textemerald-600' : (isPass ? 'text-blue-600' : 'text-slate-400')}">
+                    <td class="p-3 text-center font-bold font-mono text-sm ${row.highestScore >= 9.9 ? 'text-emerald-600' : (isPass ? 'text-blue-600' : 'text-slate-400')}">
                         ${row.attempts > 0 ? row.highestScore.toFixed(1) + ' đ' : 'Chưa nộp'}
                     </td>
                     <td class="p-3 text-center">
