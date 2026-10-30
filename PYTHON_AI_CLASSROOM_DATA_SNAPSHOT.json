@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "4E7C727D",
-  "exported_at": "2026-10-30T01:41:13.816Z",
-  "exported_at_vn": "08:41:13 30/10/2026",
+  "checksum": "BE5B8A73",
+  "exported_at": "2026-10-30T01:41:50.521Z",
+  "exported_at_vn": "08:41:50 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -308,7 +308,7 @@
         "slug": "--m-s--l--ng-s--ch-n-trong-d-y",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "### Đề bài\nCho số nguyên dương N và dãy số A_1, A_2,..., A_N. Hãy đếm số lượng các số chẵn trong dãy.\n\n### Dữ liệu vào (input.txt)\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 1000$).\n- Dòng 2: $N$ số nguyên cách nhau bởi dấu cách.\n\n### Dữ liệu ra (output.txt)\nIn ra số lượng các số chẵn.",
+        "description": "### Đề bài\nCho số nguyên dương N và dãy số A_1, A_2,..., A_N. Hãy đếm số lượng các số chẵn trong dãy.\n\n### Dữ liệu vào (input.txt)\n- Dòng 1: Số nguyên dương N (1 < N < 1000).\n- Dòng 2: N số nguyên cách nhau bởi dấu cách.\n\n### Dữ liệu ra (output.txt)\nIn ra số lượng các số chẵn.",
         "templateCode": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
         "tests": [
           {
@@ -949,7 +949,7 @@
         "timestamp": "08:26:24 30/10/2026"
       },
       {
-        "id": 1793324473814,
+        "id": 1793324510518,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -958,7 +958,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:41:13 30/10/2026"
+        "timestamp": "08:41:50 30/10/2026"
       }
     ],
     "loginLogs": []
