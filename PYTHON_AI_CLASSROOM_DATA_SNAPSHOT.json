@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Nguyễn Phú Lộc",
-    "role": "student",
-    "identifier": "loc"
+    "name": "Thầy Nguyễn Thế Phương",
+    "role": "admin",
+    "identifier": "086081006094"
   },
-  "checksum": "25873621",
-  "exported_at": "2026-10-30T02:33:46.386Z",
-  "exported_at_vn": "09:33:46 30/10/2026",
+  "checksum": "1FB8A0F4",
+  "exported_at": "2026-10-30T03:26:19.434Z",
+  "exported_at_vn": "10:26:19 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "08:59:51 30/10/2026",
-        "loginCount": 39
+        "lastLogin": "10:26:18 30/10/2026",
+        "loginCount": 40
       },
       {
         "id": 2,
@@ -877,16 +877,16 @@
         "timestamp": "18:21:43 29/10/2026"
       },
       {
-        "id": 1793313797513,
+        "id": 1793330779385,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
         "assignmentId": 1,
         "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "05:43:17 30/10/2026"
+        "timestamp": "10:26:19 30/10/2026"
       },
       {
         "id": 1793321435155,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 12,
+        "time": "10:26:18 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 11,
         "time": "09:33:36 30/10/2026",
