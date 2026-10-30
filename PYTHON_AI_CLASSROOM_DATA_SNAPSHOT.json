@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Thầy Nguyễn Thế Phương",
-    "role": "admin",
-    "identifier": "086081006094"
+    "name": "Nguyễn Thế Bình",
+    "role": "teacher",
+    "identifier": "binh"
   },
-  "checksum": "51E7377E",
-  "exported_at": "2026-10-30T00:40:29.079Z",
-  "exported_at_vn": "07:40:29 30/10/2026",
+  "checksum": "E891A583",
+  "exported_at": "2026-10-30T00:44:43.077Z",
+  "exported_at_vn": "07:44:43 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "07:40:05 30/10/2026",
-        "loginCount": 15
+        "lastLogin": "07:44:42 30/10/2026",
+        "loginCount": 16
       },
       {
         "id": 3,
@@ -625,16 +625,16 @@
         "timestamp": "19:11:45 29/10/2026"
       },
       {
-        "id": 1793320640164,
+        "id": 1793321083073,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
         "assignmentId": 1,
         "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:37:20 30/10/2026"
+        "timestamp": "07:44:43 30/10/2026"
       },
       {
         "id": 1793276353216,
@@ -686,6 +686,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 9,
+        "time": "07:44:42 30/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "THPT Tân Lược - 12A1 | binh",
+        "role": "teacher",
+        "authMethod": "Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 8,
         "time": "07:40:28 30/10/2026",
