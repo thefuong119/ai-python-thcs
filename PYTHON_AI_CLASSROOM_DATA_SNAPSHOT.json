@@ -1,15 +1,15 @@
 {
   "app": "TRỢ LÝ HỌC TẬP LẬP TRÌNH PYTHON",
-  "version": "3.0.0-GITHUB-SYNC",
+  "version": "3.5.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
     "name": "Thầy Nguyễn Thế Phương",
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "1E331581",
-  "exported_at": "2026-10-30T03:37:05.882Z",
-  "exported_at_vn": "10:37:05 30/10/2026",
+  "checksum": "1FF56894",
+  "exported_at": "2026-10-30T03:41:42.723Z",
+  "exported_at_vn": "10:41:42 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "10:36:16 30/10/2026",
-        "loginCount": 43
+        "lastLogin": "10:41:42 30/10/2026",
+        "loginCount": 44
       },
       {
         "id": 2,
@@ -877,16 +877,16 @@
         "timestamp": "18:21:43 29/10/2026"
       },
       {
-        "id": 1793331425880,
+        "id": 1793331702710,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
         "assignmentId": 1,
         "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+        "code": "# Viết mã Python của em ở đây...",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:37:05 30/10/2026"
+        "timestamp": "10:41:42 30/10/2026"
       },
       {
         "id": 1793321435155,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 24,
+        "time": "10:41:42 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 23,
         "time": "10:37:04 30/10/2026",
@@ -1204,6 +1213,73 @@
         "role": "admin",
         "authMethod": "Thoát & Đồng bộ Drive",
         "result": "Đã lưu an toàn"
+      }
+    ],
+    "lessons": [
+      {
+        "id": 1,
+        "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python",
+        "content": "### 1. Ngôn ngữ lập trình bậc cao là gì?\nNgôn ngữ lập trình bậc cao là ngôn ngữ gần gũi với ngôn ngữ tự nhiên của con người (tiếng Anh) và có tính độc lập cao, ít phụ thuộc vào phần cứng của máy tính.\n\n### 2. Giới thiệu về Python\nPython là ngôn ngữ lập trình bậc cao thông dịch do Guido van Rossum phát minh năm 1991. Python có cú pháp trong sáng, dễ học, mã nguồn mở và được ứng dụng mạnh mẽ trong phát triển phần mềm, phân tích dữ liệu và Trí tuệ nhân tạo (AI).\n\n### 3. Môi trường lập trình Python\n- Chế độ tương tác (Interactive Mode): Gõ từng lệnh và nhận ngay kết quả.\n- Chế độ soạn thảo (Script Mode): Viết các lệnh vào tệp `.py` để thực thi toàn bộ chương trình."
+      },
+      {
+        "id": 2,
+        "title": "Bài 2. Biến và lệnh gán và biểu thức số học",
+        "content": "### 1. Biến (Variable)\nBiến là vùng nhớ được đặt tên dùng để lưu trữ giá trị trong bộ nhớ. Tên biến không được bắt đầu bằng chữ số, không chứa dấu cách hay ký tự đặc biệt.\n\n### 2. Lệnh gán (Assignment)\nCú pháp: `tên_biến = giá_trị` hoặc `biểu_thức`.\nVí dụ: `x = 10`, `tong = a + b`.\n\n### 3. Biểu thức số học trong Python\n- Phép cộng: `+`, phép trừ: `-`\n- Phép nhân: `*`, phép chia thực: `/`\n- Phép chia lấy phần nguyên: `//`, phép chia lấy phần dư: `%`\n- Lũy thừa: `**` (Ví dụ $2^3$ viết là `2 ** 3`)."
+      },
+      {
+        "id": 3,
+        "title": "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu trong python",
+        "content": "### 1. Xuất dữ liệu (Output)\nSử dụng lệnh `print(giá_trị_1, giá_trị_2, ...)`. Có thể dùng tham số `sep` để phân tách và `end` để chỉ định ký tự kết thúc.\n\n### 2. Nhập dữ liệu (Input)\nLệnh `input()` dừng chương trình để nhận dữ liệu từ bàn phím. Lưu ý: `input()` **luôn trả về kiểu chuỗi (string)**.\n\n### 3. Các kiểu dữ liệu cơ bản\n- `int`: Số nguyên ($..., -2, -1, 0, 1, 2, ...$)\n- `float`: Số thực (ví dụ: $3.14, -0.5$)\n- `str`: Chuỗi ký tự đặt trong dấu ngoặc kép hoặc đơn\n- `bool`: Kiểu logic gồm hai giá trị `True` và `False`\n\n*Để nhập số nguyên từ bàn phím:* `n = int(input())`."
+      },
+      {
+        "id": 4,
+        "title": "Bài 4. Cấu trúc rẽ nhánh",
+        "content": "### 1. Ý nghĩa\nCấu trúc rẽ nhánh cho phép chương trình chọn thực hiện khối lệnh này hay khối lệnh khác tùy thuộc vào điều kiện đúng hay sai.\n\n### 2. Dạng thiếu\n```python\nif điều_kiện:\n    khối_lệnh\n```\n\n### 3. Dạng đủ\n```python\nif điều_kiện:\n    khối_lệnh_1\nelse:\n    khối_lệnh_2\n```\n\n### 4. Dạng nhiều nhánh (if - elif - else)\nSử dụng `elif` để kiểm tra nhiều trường hợp kế tiếp nhau.\n\n*Lưu ý:* Các phép so sánh gồm `==` (bằng), `!=` (khác), `>` (lớn hơn), `<` (bé hơn), `>=` (lớn hơn hoặc bằng $\\ge$), `<=` (bé hơn hoặc bằng $\\le$)."
+      },
+      {
+        "id": 5,
+        "title": "Bài 5. Cấu trúc lặp",
+        "content": "### 1. Vòng lặp với số lần biết trước: for\nCú pháp: `for biến in range(bắt_đầu, kết_thúc, bước_nhảy):`\n- `range(n)` tạo dãy số từ $0$ đến $n - 1$.\n- `range(1, n + 1)` tạo dãy từ $1$ đến $n$.\n\n### 2. Vòng lặp với số lần lặp chưa biết trước: while\nCú pháp:\n```python\nwhile điều_kiện:\n    khối_lệnh\n```\nKhối lệnh sẽ được lặp đi lặp lại chừng nào điều kiện vẫn còn nhận giá trị `True`.\n\n### 3. Các lệnh điều khiển lặp\n- `break`: Thoát ngay lập tức khỏi vòng lặp.\n- `continue`: Bỏ qua các lệnh còn lại của lần lặp hiện tại và chuyển sang lần lặp kế tiếp."
+      },
+      {
+        "id": 6,
+        "title": "Bài 6. Kiểu dữ liệu danh sách",
+        "content": "### 1. Khái niệm Danh sách (List)\nDanh sách là tập hợp các phần tử có thứ tự và có thể thay đổi giá trị. Danh sách được đặt trong cặp ngoặc vuông `[]`.\nVí dụ: `a = [2, 4, 6, 8, 10]`\n\n### 2. Chỉ số phần tử (Index)\nChỉ số phần tử trong Python được đánh số từ `0` đến `len(a) - 1`.\nPhần tử đầu tiên là `a[0]`, phần tử cuối cùng là `a[-1]`.\n\n### 3. Các thao tác phổ biến\n- Thêm phần tử vào cuối: `a.append(giá_trị)`\n- Chèn phần tử: `a.insert(vị_trí, giá_trị)`\n- Xóa phần tử: `a.pop(vị_trí)` hoặc `a.remove(giá_trị)`\n- Độ dài danh sách: `len(a)`\n- Tính tổng, max, min: `sum(a)`, `max(a)`, `min(a)`."
+      },
+      {
+        "id": 7,
+        "title": "Bài 7. Kiểu dữ liệu xâu",
+        "content": "### 1. Khái niệm Xâu (String)\nXâu ký tự là dãy các ký tự trong bảng mã Unicode, được đặt trong dấu nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Truy cập ký tự và lát cắt (Slicing)\n- Ký tự thứ $i$: `s[i]`\n- Cắt xâu: `s[bắt_đầu:kết_thúc]` lấy từ chỉ số bắt đầu đến `kết_thúc - 1`.\n\n### 3. Các hàm và phương thức xử lý xâu\n- Độ dài: `len(s)`\n- Đổi chữ hoa/thường: `s.upper()`, `s.lower()`\n- Tách xâu thành danh sách: `s.split()` (rất quan trọng khi đọc dữ liệu đầu vào)\n- Nối danh sách thành xâu: `\" \".join(danh_sách)`\n- Thay thế ký tự: `s.replace(cũ, mới)`."
+      },
+      {
+        "id": 8,
+        "title": "Bài 8. Chương trình con và thư viện trong python",
+        "content": "### 1. Khái niệm Hàm (Function)\nHàm là khối lệnh có tên, thực hiện một nhiệm vụ cụ thể và có thể tái sử dụng nhiều lần trong chương trình.\n\n### 2. Định nghĩa hàm\nSử dụng từ khóa `def`:\n```python\ndef ten_ham():\n    # các lệnh xử lý\n    return gia_tri\n```\n\n### 3. Thư viện trong Python\nPython có kho thư viện chuẩn phong phú. Để sử dụng, ta dùng lệnh `import`:\n- Thư viện toán học: `import math` (cung cấp hàm `math.sqrt()`, `math.isqrt()`, `math.gcd()`)\n- Thư viện ngẫu nhiên: `import random`."
+      },
+      {
+        "id": 9,
+        "title": "Bài 9. Tham số của hàm",
+        "content": "### 1. Tham số hình thức và đối số thực sự\n- **Tham số (Parameter):** Các biến được khai báo trong định nghĩa hàm.\n- **Đối số (Argument):** Các giá trị thực tế được truyền vào hàm khi gọi hàm.\n\n### 2. Ví dụ minh họa\n```python\ndef tinh_tong(a, b):  # a, b là tham số\n    return a + b\n\nkq = tinh_tong(5, 7)  # 5, 7 là đối số thực tế\nprint(kq)             # In ra 12\n```\n\n### 3. Tham số mặc định (Default Parameters)\nTa có thể gán giá trị mặc định cho tham số: `def chao(ten, loi_chao=\"Xin chào\"):`."
+      },
+      {
+        "id": 10,
+        "title": "Bài 10. Phạm vi của biến",
+        "content": "### 1. Biến cục bộ (Local Variable)\nBiến được khai báo bên trong một hàm chỉ có hiệu lực bên trong hàm đó. Khi hàm kết thúc, biến cục bộ sẽ bị giải phóng khỏi bộ nhớ.\n\n### 2. Biến toàn cục (Global Variable)\nBiến được khai báo bên ngoài các hàm, có hiệu lực trong toàn bộ chương trình.\n\n### 3. Từ khóa global\nKhi muốn thay đổi giá trị của một biến toàn cục ngay bên trong hàm, ta phải dùng từ khóa `global`:\n```python\nx = 5\ndef thay_doi():\n    global x\n    x = 10\n```"
+      },
+      {
+        "id": 11,
+        "title": "Bài 11. Làm việc với file",
+        "content": "### 1. Mở và đóng tệp\nSử dụng hàm `open(tên_tệp, chế_độ)`:\n- Chế độ đọc: `'r'` (read)\n- Chế độ ghi: `'w'` (write, ghi đè)\n- Chế độ ghi nối tiếp: `'a'` (append)\n\n### 2. Khối lệnh with open an toàn\nCách viết chuẩn mực để tự động đóng tệp sau khi làm việc:\n```python\nwith open('input.txt', 'r', encoding='utf-8') as f:\n    data = f.read()\n```\n\n### 3. Đọc và ghi tệp phục vụ chấm thi Online Judge\n- Đọc từng dòng: `f.readline()`\n- Đọc tất cả các dòng: `f.readlines()`\n- Ghi vào tệp: `f.write(chuỗi)`."
+      },
+      {
+        "id": 12,
+        "title": "Bài 12. Nhận biết lỗi trong chương trình",
+        "content": "### 1. Lỗi cú pháp (Syntax Error)\nXuất hiện khi người lập trình viết sai quy tắc ngữ pháp của Python (ví dụ: thiếu dấu `:`, quên đóng ngoặc, sai chính tả từ khóa). Lỗi này được phát hiện ngay khi dịch chương trình.\n\n### 2. Lỗi thực thi (Runtime Error / Exception)\nChương trình đúng cú pháp nhưng xảy ra lỗi khi đang chạy:\n- `ZeroDivisionError`: Phép chia cho số 0.\n- `ValueError`: Ép kiểu dữ liệu thất bại (ví dụ: `int(\"abc\")`).\n- `IndexError`: Truy cập phần tử danh sách vượt quá chỉ số.\n- `NameError`: Gọi tên biến hoặc hàm chưa được định nghĩa.\n\n### 3. Lỗi ngữ nghĩa / Lỗi logic (Logic Error)\nChương trình chạy bình thường không báo lỗi nhưng cho kết quả sai so với yêu cầu đề bài. Đây là loại lỗi khó phát hiện nhất."
+      },
+      {
+        "id": 13,
+        "title": "Bài 13. Kiểm thử và gỡ lỗi chương trình",
+        "content": "### 1. Kiểm thử chương trình (Testing)\nKiểm thử là quá trình chạy chương trình với nhiều bộ dữ liệu thử nghiệm (Test Cases) khác nhau để kiểm tra tính đúng đắn của chương trình.\n\n### 2. Thiết kế bộ kiểm thử (Test Case Design)\n- **Test thông thường:** Các trường hợp số liệu chuẩn theo mô tả.\n- **Test biên:** Các giá trị nhỏ nhất, lớn nhất (ví dụ: $0, 1, -1, 10^9$).\n- **Test đặc biệt:** Danh sách rỗng, xâu không có ký tự, các số bằng nhau.\n\n### 3. Kỹ thuật gỡ lỗi (Debugging)\n- Đặt lệnh `print()` trung gian để theo dõi giá trị của các biến trong quá trình chạy.\n- Kiểm tra từng bước trong vòng lặp.\n- Sử dụng công cụ chẩn đoán lỗi thông minh và gợi mở sư phạm từ Trợ lý AI."
       }
     ]
   }
