@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "203E13FD",
-  "exported_at": "2026-10-30T01:02:34.326Z",
-  "exported_at_vn": "08:02:34 30/10/2026",
+  "checksum": "44B91C02",
+  "exported_at": "2026-10-30T01:02:50.494Z",
+  "exported_at_vn": "08:02:50 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -829,16 +829,16 @@
         "timestamp": "07:40:29 30/10/2026"
       },
       {
-        "id": 1793322128823,
+        "id": 1793322170481,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:02:08 30/10/2026"
+        "timestamp": "08:02:50 30/10/2026"
       },
       {
         "id": 1793321480471,
@@ -854,6 +854,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 13,
+        "time": "08:02:49 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 12,
         "time": "08:02:33 30/10/2026",
