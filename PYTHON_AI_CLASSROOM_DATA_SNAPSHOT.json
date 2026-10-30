@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "2E3F5A99",
-  "exported_at": "2026-10-30T03:36:16.948Z",
-  "exported_at_vn": "10:36:16 30/10/2026",
+  "checksum": "1E331581",
+  "exported_at": "2026-10-30T03:37:05.882Z",
+  "exported_at_vn": "10:37:05 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -877,7 +877,7 @@
         "timestamp": "18:21:43 29/10/2026"
       },
       {
-        "id": 1793331376929,
+        "id": 1793331425880,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -886,7 +886,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:36:16 30/10/2026"
+        "timestamp": "10:37:05 30/10/2026"
       },
       {
         "id": 1793321435155,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 23,
+        "time": "10:37:04 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 22,
         "time": "10:36:16 30/10/2026",
