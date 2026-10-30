@@ -3,13 +3,13 @@
   "version": "3.5.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Nguyễn Thế Bình",
-    "role": "teacher",
-    "identifier": "binh"
+    "name": "Thầy Nguyễn Thế Phương",
+    "role": "admin",
+    "identifier": "086081006094"
   },
-  "checksum": "904BA6D9",
-  "exported_at": "2026-10-30T05:46:01.582Z",
-  "exported_at_vn": "12:46:01 30/10/2026",
+  "checksum": "FDCFADCC",
+  "exported_at": "2026-10-30T19:54:56.480Z",
+  "exported_at_vn": "02:54:56 31/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "10:41:42 30/10/2026",
-        "loginCount": 44
+        "lastLogin": "02:54:55 31/10/2026",
+        "loginCount": 45
       },
       {
         "id": 2,
@@ -889,7 +889,7 @@
         "timestamp": "18:21:43 29/10/2026"
       },
       {
-        "id": 1793331779444,
+        "id": 1793390096444,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -898,7 +898,7 @@
         "code": "# Viết mã Python của em ở đây...",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:42:59 30/10/2026"
+        "timestamp": "02:54:56 31/10/2026"
       },
       {
         "id": 1793321435155,
@@ -1010,6 +1010,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 28,
+        "time": "02:54:55 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 27,
         "time": "12:46:00 30/10/2026",
