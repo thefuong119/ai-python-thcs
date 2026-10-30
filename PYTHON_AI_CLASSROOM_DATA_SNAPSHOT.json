@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "C911629A",
-  "exported_at": "2026-10-30T01:24:46.197Z",
-  "exported_at_vn": "08:24:46 30/10/2026",
+  "checksum": "F7203475",
+  "exported_at": "2026-10-30T01:25:32.946Z",
+  "exported_at_vn": "08:25:32 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,9 +434,9 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 15,
+        "attempts": 16,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:24"
+        "lastSubmit": "Hôm nay 08:25"
       },
       {
         "id": 8,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793323531972,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 2,
+        "assignmentTitle": "Kiểm tra số nguyên tố",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
+        "score": 10,
+        "type": "official_submission",
+        "timestamp": "08:25:31 30/10/2026"
+      },
       {
         "id": 1793323485204,
         "student": "Nguyễn Phú Lộc",
@@ -865,7 +877,7 @@
         "timestamp": "08:12:05 30/10/2026"
       },
       {
-        "id": 1793321480471,
+        "id": 1793323532942,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -874,7 +886,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:51:20 30/10/2026"
+        "timestamp": "08:25:32 30/10/2026"
       }
     ],
     "loginLogs": [
