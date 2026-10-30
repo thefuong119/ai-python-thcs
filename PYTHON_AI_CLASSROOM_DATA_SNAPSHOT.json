@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "E891A583",
-  "exported_at": "2026-10-30T00:44:43.077Z",
-  "exported_at_vn": "07:44:43 30/10/2026",
+  "checksum": "99F3FE6F",
+  "exported_at": "2026-10-30T00:45:01.473Z",
+  "exported_at_vn": "07:45:01 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -348,7 +348,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Viết code Python nhập vào số nguyên n. Xuất thông báo Yes nếu là số chẵn, No nếu là số lẻ",
-        "templateCode": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
+        "templateCode": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "tests": [
           {
             "id": 1,
@@ -625,7 +625,7 @@
         "timestamp": "19:11:45 29/10/2026"
       },
       {
-        "id": 1793321083073,
+        "id": 1793321101455,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -634,7 +634,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:44:43 30/10/2026"
+        "timestamp": "07:45:01 30/10/2026"
       },
       {
         "id": 1793276353216,
