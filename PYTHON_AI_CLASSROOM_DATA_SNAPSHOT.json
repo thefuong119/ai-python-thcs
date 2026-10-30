@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Thầy Nguyễn Thế Phương",
-    "role": "admin",
-    "identifier": "086081006094"
+    "name": "Nguyễn Phú Lộc",
+    "role": "student",
+    "identifier": "loc"
   },
-  "checksum": "DFF8B628",
-  "exported_at": "2026-10-30T01:52:51.756Z",
-  "exported_at_vn": "08:52:51 30/10/2026",
+  "checksum": "B35888DE",
+  "exported_at": "2026-10-30T01:52:59.224Z",
+  "exported_at_vn": "08:52:59 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "08:42:46 30/10/2026",
-        "loginCount": 26
+        "lastLogin": "08:52:58 30/10/2026",
+        "loginCount": 27
       },
       {
         "id": 3,
@@ -949,7 +949,7 @@
         "timestamp": "08:12:05 30/10/2026"
       },
       {
-        "id": 1793324614513,
+        "id": 1793325179222,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -958,7 +958,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:43:34 30/10/2026"
+        "timestamp": "08:52:59 30/10/2026"
       },
       {
         "id": 1793325171755,
@@ -974,6 +974,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 6,
+        "time": "08:52:58 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Tên đăng nhập",
+        "result": "Thành công"
+      },
       {
         "id": 5,
         "time": "08:52:50 30/10/2026",
