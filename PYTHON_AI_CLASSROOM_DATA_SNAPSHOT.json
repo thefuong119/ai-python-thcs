@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Thầy Nguyễn Thế Phương",
-    "role": "admin",
-    "identifier": "086081006094"
+    "name": "Nguyễn Phú Lộc",
+    "role": "student",
+    "identifier": "loc"
   },
-  "checksum": "F47838C8",
-  "exported_at": "2026-10-30T01:23:29.874Z",
-  "exported_at_vn": "08:23:29 30/10/2026",
+  "checksum": "44150CE",
+  "exported_at": "2026-10-30T01:24:38.080Z",
+  "exported_at_vn": "08:24:38 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "08:20:43 30/10/2026",
-        "loginCount": 24
+        "lastLogin": "08:24:37 30/10/2026",
+        "loginCount": 25
       },
       {
         "id": 3,
@@ -805,7 +805,7 @@
         "timestamp": "19:19:13 29/10/2026"
       },
       {
-        "id": 1793322154324,
+        "id": 1793323478078,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -814,7 +814,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:02:34 30/10/2026"
+        "timestamp": "08:24:38 30/10/2026"
       },
       {
         "id": 1793323374823,
@@ -866,6 +866,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 24,
+        "time": "08:24:37 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Tên đăng nhập",
+        "result": "Thành công"
+      },
       {
         "id": 23,
         "time": "08:23:28 30/10/2026",
