@@ -1440,33 +1440,115 @@
 
         function getGoogleTtsUrls(text) {
             const chunks = splitTextIntoSentences(text);
-            return chunks.map(chunk => 
-                `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodeURIComponent(chunk)}`
-            );
+            // Sử dụng chuẩn Google Translate Audio Engine giống tiện ích Extension "Read Aloud"
+            return chunks.map(chunk => {
+                const encodedText = encodeURIComponent(chunk);
+                return {
+                    primary: `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodedText}`,
+                    secondary: `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodedText}`,
+                    tertiary: `https://dict.youdao.com/dictvoice?audio=${encodedText}&le=vi`,
+                    rawText: chunk
+                };
+            });
         }
 
         function playNextTtsChunk() {
             const audioPlayer = document.getElementById('robotAudioPlayer');
+            if (!audioPlayer) return;
+
             if (currentAudioIndex >= audioPlaylist.length) {
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
                 return;
             }
-            audioPlayer.src = audioPlaylist[currentAudioIndex];
+            
+            const chunkObj = audioPlaylist[currentAudioIndex];
+            const primaryUrl = typeof chunkObj === 'string' ? chunkObj : chunkObj.primary;
+            const secondaryUrl = typeof chunkObj === 'string' ? '' : chunkObj.secondary;
+            const tertiaryUrl = typeof chunkObj === 'string' ? '' : chunkObj.tertiary;
+            const rawText = typeof chunkObj === 'string' ? '' : chunkObj.rawText;
+
+            audioPlayer.src = primaryUrl;
             currentAudioIndex++;
-            audioPlayer.onplay = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
-            audioPlayer.onended = () => { playNextTtsChunk(); };
-            audioPlayer.onerror = () => { fallbackWebSpeechGuideForText(decodeURIComponent(audioPlayer.src.split('&q=')[1])); };
-            audioPlayer.play().catch(() => {
-                fallbackWebSpeechGuideForText(decodeURIComponent(audioPlayer.src.split('&q=')[1]));
-            });
+
+            audioPlayer.onplay = () => { 
+                isRobotSpeaking = true; 
+                updateRobotSpeakingUi(true); 
+            };
+
+            audioPlayer.onended = () => { 
+                playNextTtsChunk(); 
+            };
+
+            // Nếu gặp hạn chế trên trình duyệt, tự động chuyển tiếp qua Endpoint Google TTS dự phòng
+            audioPlayer.onerror = () => { 
+                if (secondaryUrl) {
+                    audioPlayer.src = secondaryUrl;
+                    audioPlayer.onerror = () => {
+                        if (tertiaryUrl) {
+                            audioPlayer.src = tertiaryUrl;
+                            audioPlayer.onerror = () => fallbackWebSpeechGuideForText(rawText);
+                            audioPlayer.play().catch(() => fallbackWebSpeechGuideForText(rawText));
+                        } else {
+                            fallbackWebSpeechGuideForText(rawText);
+                        }
+                    };
+                    audioPlayer.play().catch(() => fallbackWebSpeechGuideForText(rawText));
+                } else {
+                    fallbackWebSpeechGuideForText(rawText); 
+                }
+            };
+
+            const playPromise = audioPlayer.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    if (secondaryUrl) {
+                        audioPlayer.src = secondaryUrl;
+                        audioPlayer.play().catch(() => fallbackWebSpeechGuideForText(rawText));
+                    } else {
+                        fallbackWebSpeechGuideForText(rawText);
+                    }
+                });
+            }
+        }
+
+        function speakRobotText(text) {
+            stopRobotVoice();
+            const cleanText = cleanMarkdownForSpeech(text);
+            if (!cleanText) return;
+
+            // Ưu tiên phát trực tiếp bằng Google Translate TTS Engine (Chuẩn giọng Google Read Aloud Extension)
+            audioPlaylist = getGoogleTtsUrls(cleanText);
+            currentAudioIndex = 0;
+            
+            try {
+                playNextTtsChunk();
+            } catch (e) {
+                fallbackWebSpeechGuideForText(cleanText);
+            }
         }
 
         function initGoogleVietnameseVoice() {
             if (!synth) return;
             const voices = synth.getVoices();
-            googleVietnameseVoice = voices.find(v => (v.lang === 'vi-VN' || v.lang === 'vi') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('HoaiMy')));
-            if (!googleVietnameseVoice) googleVietnameseVoice = voices.find(v => v.lang.startsWith('vi'));
+            // CHỈ LỰA CHỌN DUY NHẤT GIỌNG NỮ TIẾNG VIỆT (HoaiMy, Google Tiếng Việt Female, v.v.)
+            // Loại bỏ hoàn toàn các giọng Nam hoặc giọng nam mặc định của hệ thống
+            googleVietnameseVoice = voices.find(v => 
+                (v.lang === 'vi-VN' || v.lang === 'vi') && 
+                (v.name.includes('HoaiMy') || v.name.includes('Female') || v.name.includes('Google') || v.name.includes('Natural')) &&
+                !v.name.toLowerCase().includes('male') && 
+                !v.name.toLowerCase().includes('nam') &&
+                !v.name.toLowerCase().includes('an')
+            );
+            
+            // Nếu không tìm thấy nhãn ưu tiên, vẫn chỉ tìm trong danh sách giọng nữ tiếng Việt
+            if (!googleVietnameseVoice) {
+                googleVietnameseVoice = voices.find(v => 
+                    (v.lang.startsWith('vi') || v.lang.includes('VI')) && 
+                    !v.name.toLowerCase().includes('male') && 
+                    !v.name.toLowerCase().includes('nam')
+                );
+            }
         }
 
         if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -1475,12 +1557,20 @@
         }
 
         function toggleRobotSpeechDirectly() {
+            // Mở khóa âm thanh cho trình duyệt trên GitHub Pages khi người dùng tương tác
+            if (synth && synth.resume) synth.resume();
+            
+            const audioPlayer = document.getElementById('robotAudioPlayer');
+            if (audioPlayer) {
+                audioPlayer.play().then(() => audioPlayer.pause()).catch(() => {});
+            }
+
             if (isRobotSpeaking) {
                 stopRobotVoice();
                 showToast("Đã dừng giọng đọc hướng dẫn", "info");
             } else {
                 speakRobotText(getCurrentContextScript());
-                showToast("Robot đang đọc hướng dẫn...", "info");
+                showToast("Robot đang đọc bài...", "info");
             }
         }
 
@@ -1494,19 +1584,28 @@
             stopRobotVoice();
             const cleanText = cleanMarkdownForSpeech(text);
             if (!cleanText) return;
+
+            // CHỈ SỬ DỤNG DUY NHẤT BỘ ĐỌC GIỌNG NỮ TRUYỀN CẢM CỦA GOOGLE
             audioPlaylist = getGoogleTtsUrls(cleanText);
             currentAudioIndex = 0;
-            try { playNextTtsChunk(); } catch (e) { fallbackWebSpeechGuideForText(cleanText); }
+            
+            try {
+                playNextTtsChunk();
+            } catch (e) {
+                fallbackWebSpeechGuideForText(cleanText);
+            }
         }
 
         function fallbackWebSpeechGuideForText(text) {
             if (!('speechSynthesis' in window)) return;
+            if (synth.paused) synth.resume();
+            
             const u = new SpeechSynthesisUtterance(text);
-            if (!googleVietnameseVoice) initGoogleVietnameseVoice();
+            initGoogleVietnameseVoice();
             if (googleVietnameseVoice) u.voice = googleVietnameseVoice;
             u.lang = 'vi-VN';
-            u.rate = 0.95;
-            u.pitch = 1.05;
+            u.rate = 0.92;
+            u.pitch = 1.1; // Chỉnh tông giọng cao thanh nhẹ nhàng đặc trưng giọng nữ
             u.onstart = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
             u.onend = () => { isRobotSpeaking = false; updateRobotSpeakingUi(false); };
             synth.speak(u);
