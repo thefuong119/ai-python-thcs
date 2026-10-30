@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "FDCFADCC",
-  "exported_at": "2026-10-30T19:54:56.480Z",
-  "exported_at_vn": "02:54:56 31/10/2026",
+  "checksum": "B4956B41",
+  "exported_at": "2026-10-30T19:56:01.409Z",
+  "exported_at_vn": "02:56:01 31/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -961,16 +961,16 @@
         "timestamp": "09:01:10 30/10/2026"
       },
       {
-        "id": 1793325605388,
+        "id": 1793390161377,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "gf\nFghfg\nFghfg",
+        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "09:00:05 30/10/2026"
+        "timestamp": "02:56:01 31/10/2026"
       },
       {
         "id": 1793327626380,
@@ -1010,6 +1010,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 29,
+        "time": "02:55:59 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 28,
         "time": "02:54:55 31/10/2026",
