@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "F4E24D47",
-  "exported_at": "2026-10-30T01:20:43.981Z",
-  "exported_at_vn": "08:20:43 30/10/2026",
+  "checksum": "97296662",
+  "exported_at": "2026-10-30T01:22:04.292Z",
+  "exported_at_vn": "08:22:04 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -353,29 +353,29 @@
           {
             "id": 1,
             "input": "5",
-            "expected": "10",
-            "point": 2.5,
+            "expected": "No",
+            "point": 2,
             "is_hidden": false
           },
           {
             "id": 2,
-            "input": "1",
-            "expected": "0",
-            "point": 2.5,
+            "input": "100",
+            "expected": "Yes",
+            "point": 2,
             "is_hidden": false
           },
           {
             "id": 3,
-            "input": "100",
-            "expected": "2550",
-            "point": 2.5,
+            "input": "10000",
+            "expected": "Yes",
+            "point": 3,
             "is_hidden": true
           },
           {
             "id": 4,
-            "input": "999",
-            "expected": "249500",
-            "point": 2.5,
+            "input": "111111",
+            "expected": "No",
+            "point": 3,
             "is_hidden": true
           }
         ]
@@ -769,7 +769,7 @@
         "timestamp": "07:50:35 30/10/2026"
       },
       {
-        "id": 1793323243974,
+        "id": 1793323324282,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -778,7 +778,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:20:43 30/10/2026"
+        "timestamp": "08:22:04 30/10/2026"
       },
       {
         "id": 1793276353216,
