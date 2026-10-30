@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "D3C72C75",
-  "exported_at": "2026-10-30T01:42:47.327Z",
-  "exported_at_vn": "08:42:47 30/10/2026",
+  "checksum": "976CF4EE",
+  "exported_at": "2026-10-30T01:43:34.514Z",
+  "exported_at_vn": "08:43:34 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -937,7 +937,7 @@
         "timestamp": "08:12:05 30/10/2026"
       },
       {
-        "id": 1793324567326,
+        "id": 1793324614513,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -946,7 +946,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:42:47 30/10/2026"
+        "timestamp": "08:43:34 30/10/2026"
       },
       {
         "id": 1793324561365,
@@ -962,6 +962,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 3,
+        "time": "08:43:33 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 2,
         "time": "08:42:46 30/10/2026",
