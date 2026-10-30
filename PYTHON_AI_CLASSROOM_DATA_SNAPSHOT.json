@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "D13FBD67",
-  "exported_at": "2026-10-30T01:26:37.594Z",
-  "exported_at_vn": "08:26:37 30/10/2026",
+  "checksum": "1F898979",
+  "exported_at": "2026-10-30T01:29:45.364Z",
+  "exported_at_vn": "08:29:45 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -913,7 +913,7 @@
         "timestamp": "08:26:24 30/10/2026"
       },
       {
-        "id": 1793323597593,
+        "id": 1793323785360,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -922,244 +922,9 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:26:37 30/10/2026"
+        "timestamp": "08:29:45 30/10/2026"
       }
     ],
-    "loginLogs": [
-      {
-        "id": 26,
-        "time": "08:26:37 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Tên đăng nhập + Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 25,
-        "time": "08:26:22 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 24,
-        "time": "08:24:37 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 23,
-        "time": "08:23:28 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 22,
-        "time": "08:23:11 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Tên đăng nhập + Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 21,
-        "time": "08:20:43 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 20,
-        "time": "08:12:22 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 19,
-        "time": "08:12:04 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 18,
-        "time": "08:11:34 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 17,
-        "time": "08:11:15 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 16,
-        "time": "08:05:59 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Tên đăng nhập + Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 15,
-        "time": "08:05:15 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 14,
-        "time": "08:03:03 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 13,
-        "time": "08:02:49 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 12,
-        "time": "08:02:33 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 11,
-        "time": "08:01:48 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 10,
-        "time": "07:49:22 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 9,
-        "time": "07:44:42 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 8,
-        "time": "07:40:28 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Tên đăng nhập + Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 7,
-        "time": "07:40:05 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 6,
-        "time": "07:40:00 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 5,
-        "time": "07:35:09 30/10/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "THPT Tân Lược - 12A1 | binh",
-        "role": "teacher",
-        "authMethod": "Mật khẩu",
-        "result": "Thành công"
-      },
-      {
-        "id": 4,
-        "time": "07:34:52 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 3,
-        "time": "07:34:24 30/10/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "THCS Thành Đông - 8A2 | loc",
-        "role": "student",
-        "authMethod": "Tên đăng nhập",
-        "result": "Thành công"
-      },
-      {
-        "id": 2,
-        "time": "05:43:16 30/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Thoát & Đồng bộ Drive",
-        "result": "Đã lưu an toàn"
-      },
-      {
-        "id": 1,
-        "time": "21:30:28 29/10/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
-        "role": "admin",
-        "authMethod": "Tên đăng nhập + Mật khẩu",
-        "result": "Thành công"
-      }
-    ]
+    "loginLogs": []
   }
 }
