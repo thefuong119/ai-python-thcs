@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Thầy Nguyễn Thế Phương",
-    "role": "admin",
-    "identifier": "086081006094"
+    "name": "Nguyễn Phú Lộc",
+    "role": "student",
+    "identifier": "loc"
   },
-  "checksum": "417DE43F",
-  "exported_at": "2026-10-30T01:42:41.367Z",
-  "exported_at_vn": "08:42:41 30/10/2026",
+  "checksum": "D3C72C75",
+  "exported_at": "2026-10-30T01:42:47.327Z",
+  "exported_at_vn": "08:42:47 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "08:24:37 30/10/2026",
-        "loginCount": 25
+        "lastLogin": "08:42:46 30/10/2026",
+        "loginCount": 26
       },
       {
         "id": 3,
@@ -937,16 +937,16 @@
         "timestamp": "08:12:05 30/10/2026"
       },
       {
-        "id": 1793323584050,
+        "id": 1793324567326,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
         "assignmentId": 2,
         "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:26:24 30/10/2026"
+        "timestamp": "08:42:47 30/10/2026"
       },
       {
         "id": 1793324561365,
@@ -962,6 +962,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 2,
+        "time": "08:42:46 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Tên đăng nhập",
+        "result": "Thành công"
+      },
       {
         "id": 1,
         "time": "08:42:40 30/10/2026",
