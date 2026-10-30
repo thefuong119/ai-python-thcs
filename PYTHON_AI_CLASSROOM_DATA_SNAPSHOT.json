@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "554DB386",
-  "exported_at": "2026-10-30T00:39:09.798Z",
-  "exported_at_vn": "07:39:09 30/10/2026",
+  "checksum": "96085A12",
+  "exported_at": "2026-10-30T00:39:26.473Z",
+  "exported_at_vn": "07:39:26 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -227,11 +227,11 @@
       {
         "id": 1,
         "title": "Tính tổng hai số nguyên A và B",
-        "slug": "tinh-tong-hai-so-nguyen",
+        "slug": "t-nh-t-ng-hai-s--nguy-n-a-v--b",
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy viết chương trình tính và in ra tổng $A + B$.\n\n### Dữ liệu vào (input.txt)\nGồm một dòng chứa hai số nguyên $A, B$ cách nhau bởi dấu cách ($-10^9 \\le A, B \\le 10^9$).\n\n### Dữ liệu ra (output.txt)\nIn ra một số nguyên duy nhất là kết quả của phép cộng $A + B$.",
-        "templateCode": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)\n",
+        "templateCode": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "tests": [
           {
             "id": 1,
@@ -661,7 +661,7 @@
         "timestamp": "07:34:53 30/10/2026"
       },
       {
-        "id": 1793320749796,
+        "id": 1793320766461,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -670,7 +670,7 @@
         "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:39:09 30/10/2026"
+        "timestamp": "07:39:26 30/10/2026"
       }
     ],
     "loginLogs": [
