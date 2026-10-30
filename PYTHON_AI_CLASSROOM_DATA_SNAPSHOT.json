@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "62B50C20",
-  "exported_at": "2026-10-30T00:35:10.197Z",
-  "exported_at_vn": "07:35:10 30/10/2026",
+  "checksum": "EF520897",
+  "exported_at": "2026-10-30T00:37:05.770Z",
+  "exported_at_vn": "07:37:05 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -340,6 +340,45 @@
             "is_hidden": true
           }
         ]
+      },
+      {
+        "id": 4,
+        "title": "Xét số chẵn lẻ",
+        "slug": "x-t-s--ch-n-l-",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Viết code Python nhập vào số nguyên n. Xuất thông báo Yes nếu là số chẵn, No nếu là số lẻ",
+        "templateCode": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "100",
+            "expected": "2550",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "999",
+            "expected": "249500",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -542,7 +581,7 @@
         "timestamp": "19:11:45 29/10/2026"
       },
       {
-        "id": 1793320510195,
+        "id": 1793320625756,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -551,7 +590,7 @@
         "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:35:10 30/10/2026"
+        "timestamp": "07:37:05 30/10/2026"
       },
       {
         "id": 1793276353216,
