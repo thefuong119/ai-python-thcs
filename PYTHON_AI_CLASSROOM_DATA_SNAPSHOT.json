@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "72657608",
-  "exported_at": "2026-10-30T03:33:13.684Z",
-  "exported_at_vn": "10:33:13 30/10/2026",
+  "checksum": "2E6852C8",
+  "exported_at": "2026-10-30T03:35:56.028Z",
+  "exported_at_vn": "10:35:56 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "10:32:56 30/10/2026",
-        "loginCount": 31
+        "lastLogin": "10:35:55 30/10/2026",
+        "loginCount": 32
       },
       {
         "id": 3,
@@ -925,7 +925,7 @@
         "timestamp": "19:19:13 29/10/2026"
       },
       {
-        "id": 1793331176755,
+        "id": 1793331356004,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -934,7 +934,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:32:56 30/10/2026"
+        "timestamp": "10:35:56 30/10/2026"
       },
       {
         "id": 1793325670634,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 20,
+        "time": "10:35:55 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Tên đăng nhập",
+        "result": "Thành công"
+      },
       {
         "id": 19,
         "time": "10:33:12 30/10/2026",
