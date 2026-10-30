@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Nguyễn Thế Bình",
-    "role": "teacher",
-    "identifier": "binh"
+    "name": "Thầy Nguyễn Thế Phương",
+    "role": "admin",
+    "identifier": "086081006094"
   },
-  "checksum": "8F038D58",
-  "exported_at": "2026-10-30T01:22:54.825Z",
-  "exported_at_vn": "08:22:54 30/10/2026",
+  "checksum": "375803E7",
+  "exported_at": "2026-10-30T01:23:12.785Z",
+  "exported_at_vn": "08:23:12 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "08:05:59 30/10/2026",
-        "loginCount": 35
+        "lastLogin": "08:23:11 30/10/2026",
+        "loginCount": 36
       },
       {
         "id": 2,
@@ -829,16 +829,16 @@
         "timestamp": "08:22:54 30/10/2026"
       },
       {
-        "id": 1793322676651,
+        "id": 1793323392781,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:11:16 30/10/2026"
+        "timestamp": "08:23:12 30/10/2026"
       },
       {
         "id": 1793322725539,
@@ -866,6 +866,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 22,
+        "time": "08:23:11 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 21,
         "time": "08:20:43 30/10/2026",
