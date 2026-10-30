@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "BF5A7D56",
-  "exported_at": "2026-10-30T01:30:48.525Z",
-  "exported_at_vn": "08:30:48 30/10/2026",
+  "checksum": "88C0545A",
+  "exported_at": "2026-10-30T01:40:03.797Z",
+  "exported_at_vn": "08:40:03 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -230,7 +230,7 @@
         "slug": "t-nh-t-ng-hai-s--nguy-n-a-v--b",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy viết chương trình tính và in ra tổng $A + B$.\n\n### Dữ liệu vào (input.txt)\nGồm một dòng chứa hai số nguyên $A, B$ cách nhau bởi dấu cách ($-10^9 \\le A, B \\le 10^9$).\n\n### Dữ liệu ra (output.txt)\nIn ra một số nguyên duy nhất là kết quả của phép cộng $A + B$.",
+        "description": "### Đề bài\nCho hai số nguyên A và B. Hãy viết chương trình tính và in ra tổng A + B.\n\n### Dữ liệu vào (input.txt)\nGồm một dòng chứa hai số nguyên A, B cách nhau bởi dấu cách (-10^9 < A, B < 10^9).\n\n### Dữ liệu ra (output.txt)\nIn ra một số nguyên duy nhất là kết quả của phép cộng A + B.",
         "templateCode": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "tests": [
           {
@@ -949,7 +949,7 @@
         "timestamp": "08:26:24 30/10/2026"
       },
       {
-        "id": 1793323848523,
+        "id": 1793324403794,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -958,7 +958,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:30:48 30/10/2026"
+        "timestamp": "08:40:03 30/10/2026"
       }
     ],
     "loginLogs": []
