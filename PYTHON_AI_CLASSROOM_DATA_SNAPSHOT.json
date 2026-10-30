@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "EF520897",
-  "exported_at": "2026-10-30T00:37:05.770Z",
-  "exported_at_vn": "07:37:05 30/10/2026",
+  "checksum": "2145062E",
+  "exported_at": "2026-10-30T00:37:20.166Z",
+  "exported_at_vn": "07:37:20 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -581,7 +581,7 @@
         "timestamp": "19:11:45 29/10/2026"
       },
       {
-        "id": 1793320625756,
+        "id": 1793320640164,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -590,7 +590,7 @@
         "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:37:05 30/10/2026"
+        "timestamp": "07:37:20 30/10/2026"
       },
       {
         "id": 1793276353216,
