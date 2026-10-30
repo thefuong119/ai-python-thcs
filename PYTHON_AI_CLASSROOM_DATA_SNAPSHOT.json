@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "E8C323B2",
-  "exported_at": "2026-10-30T03:58:12.774Z",
-  "exported_at_vn": "10:58:12 30/10/2026",
+  "checksum": "10E42C88",
+  "exported_at": "2026-10-30T03:58:37.544Z",
+  "exported_at_vn": "10:58:37 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,9 +434,9 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 20,
+        "attempts": 21,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 09:33"
+        "lastSubmit": "Hôm nay 10:58"
       },
       {
         "id": 8,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793332716856,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 1,
+        "assignmentTitle": "Tính tổng hai số nguyên A và B",
+        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nprint(a + b)",
+        "score": 10,
+        "type": "official_submission",
+        "timestamp": "10:58:36 30/10/2026"
+      },
       {
         "id": 1793327625601,
         "student": "Nguyễn Phú Lộc",
@@ -925,16 +937,16 @@
         "timestamp": "19:19:13 29/10/2026"
       },
       {
-        "id": 1793332692765,
+        "id": 1793332717540,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
         "assignmentId": 1,
         "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Viết mã Python của em ở đây...",
+        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:58:12 30/10/2026"
+        "timestamp": "10:58:37 30/10/2026"
       },
       {
         "id": 1793325670634,
