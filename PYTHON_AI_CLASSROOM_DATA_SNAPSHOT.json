@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "8B6D7FD6",
-  "exported_at": "2026-10-30T00:39:54.005Z",
-  "exported_at_vn": "07:39:54 30/10/2026",
+  "checksum": "CC3D50C6",
+  "exported_at": "2026-10-30T00:40:01.130Z",
+  "exported_at_vn": "07:40:01 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "07:35:09 30/10/2026",
-        "loginCount": 13
+        "lastLogin": "07:40:00 30/10/2026",
+        "loginCount": 14
       },
       {
         "id": 3,
@@ -661,7 +661,7 @@
         "timestamp": "07:34:53 30/10/2026"
       },
       {
-        "id": 1793320794003,
+        "id": 1793320801129,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -670,10 +670,19 @@
         "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:39:54 30/10/2026"
+        "timestamp": "07:40:01 30/10/2026"
       }
     ],
     "loginLogs": [
+      {
+        "id": 6,
+        "time": "07:40:00 30/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "THPT Tân Lược - 12A1 | binh",
+        "role": "teacher",
+        "authMethod": "Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 5,
         "time": "07:35:09 30/10/2026",
