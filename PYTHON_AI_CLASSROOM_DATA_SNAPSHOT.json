@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "C9EC1D28",
-  "exported_at": "2026-10-30T01:05:15.810Z",
-  "exported_at_vn": "08:05:15 30/10/2026",
+  "checksum": "D64DC928",
+  "exported_at": "2026-10-30T01:05:34.405Z",
+  "exported_at_vn": "08:05:34 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -769,7 +769,7 @@
         "timestamp": "07:50:35 30/10/2026"
       },
       {
-        "id": 1793322315806,
+        "id": 1793322334376,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -778,7 +778,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:05:15 30/10/2026"
+        "timestamp": "08:05:34 30/10/2026"
       },
       {
         "id": 1793276353216,
