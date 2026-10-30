@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "1F898979",
-  "exported_at": "2026-10-30T01:29:45.364Z",
-  "exported_at_vn": "08:29:45 30/10/2026",
+  "checksum": "9E136065",
+  "exported_at": "2026-10-30T01:30:27.508Z",
+  "exported_at_vn": "08:30:27 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -426,9 +426,9 @@
         "id": 6,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
-        "attempts": 4,
+        "attempts": 5,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 21:07"
+        "lastSubmit": "Hôm nay 08:30"
       },
       {
         "id": 7,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793323826569,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "className": "Toàn trường & Tổ Tin",
+        "assignmentId": 2,
+        "assignmentTitle": "Kiểm tra số nguyên tố",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
+        "score": 5,
+        "type": "official_submission",
+        "timestamp": "08:30:26 30/10/2026"
+      },
       {
         "id": 1793323548527,
         "student": "Nguyễn Phú Lộc",
@@ -913,7 +925,7 @@
         "timestamp": "08:26:24 30/10/2026"
       },
       {
-        "id": 1793323785360,
+        "id": 1793323827506,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -922,7 +934,7 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:29:45 30/10/2026"
+        "timestamp": "08:30:27 30/10/2026"
       }
     ],
     "loginLogs": []
