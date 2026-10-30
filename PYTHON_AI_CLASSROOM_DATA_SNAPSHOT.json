@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "EE9060EA",
-  "exported_at": "2026-10-30T00:39:46.061Z",
-  "exported_at_vn": "07:39:46 30/10/2026",
+  "checksum": "8B6D7FD6",
+  "exported_at": "2026-10-30T00:39:54.005Z",
+  "exported_at_vn": "07:39:54 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -266,11 +266,11 @@
       {
         "id": 2,
         "title": "Kiểm tra số nguyên tố",
-        "slug": "kiem-tra-so-nguyen-to",
+        "slug": "ki-m-tra-s--nguy-n-t-",
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "### Đề bài\nNhập vào số nguyên dương $N$. Hãy kiểm tra $N$ có phải là số nguyên tố hay không.\n\n### Dữ liệu vào (input.txt)\nMột dòng chứa số nguyên dương $N$ ($1 \\le N \\le 10^6$).\n\n### Dữ liệu ra (output.txt)\nIn ra \"YES\" nếu $N$ là số nguyên tố, ngược lại in \"NO\".",
-        "templateCode": "import math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")\n",
+        "templateCode": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "tests": [
           {
             "id": 1,
@@ -661,7 +661,7 @@
         "timestamp": "07:34:53 30/10/2026"
       },
       {
-        "id": 1793320786047,
+        "id": 1793320794003,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -670,7 +670,7 @@
         "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:39:46 30/10/2026"
+        "timestamp": "07:39:54 30/10/2026"
       }
     ],
     "loginLogs": [
