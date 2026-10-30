@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "6DF4A8F2",
-  "exported_at": "2026-10-30T01:25:40.348Z",
-  "exported_at_vn": "08:25:40 30/10/2026",
+  "checksum": "4DF7863E",
+  "exported_at": "2026-10-30T01:25:49.597Z",
+  "exported_at_vn": "08:25:49 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,7 +434,7 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 17,
+        "attempts": 18,
         "highestScore": 10,
         "lastSubmit": "Hôm nay 08:25"
       },
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793323548527,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 2,
+        "assignmentTitle": "Kiểm tra số nguyên tố",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
+        "score": 5,
+        "type": "official_submission",
+        "timestamp": "08:25:48 30/10/2026"
+      },
       {
         "id": 1793323539678,
         "student": "Nguyễn Phú Lộc",
@@ -889,16 +901,16 @@
         "timestamp": "08:12:05 30/10/2026"
       },
       {
-        "id": 1793323540346,
+        "id": 1793323549595,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
         "assignmentId": 2,
         "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:25:40 30/10/2026"
+        "timestamp": "08:25:49 30/10/2026"
       }
     ],
     "loginLogs": [
