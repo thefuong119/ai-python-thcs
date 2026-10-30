@@ -7,9 +7,9 @@
     "role": "admin",
     "identifier": "086081006094"
   },
-  "checksum": "1FF56894",
-  "exported_at": "2026-10-30T03:41:42.723Z",
-  "exported_at_vn": "10:41:42 30/10/2026",
+  "checksum": "192BEAAA",
+  "exported_at": "2026-10-30T03:42:59.461Z",
+  "exported_at_vn": "10:42:59 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -877,7 +877,7 @@
         "timestamp": "18:21:43 29/10/2026"
       },
       {
-        "id": 1793331702710,
+        "id": 1793331779444,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -886,7 +886,7 @@
         "code": "# Viết mã Python của em ở đây...",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:41:42 30/10/2026"
+        "timestamp": "10:42:59 30/10/2026"
       },
       {
         "id": 1793321435155,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 25,
+        "time": "10:42:58 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 24,
         "time": "10:41:42 30/10/2026",
