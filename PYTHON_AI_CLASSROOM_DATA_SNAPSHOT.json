@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "2E6852C8",
-  "exported_at": "2026-10-30T03:35:56.028Z",
-  "exported_at_vn": "10:35:56 30/10/2026",
+  "checksum": "E866BC9D",
+  "exported_at": "2026-10-30T03:36:03.334Z",
+  "exported_at_vn": "10:36:03 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -925,7 +925,7 @@
         "timestamp": "19:19:13 29/10/2026"
       },
       {
-        "id": 1793331356004,
+        "id": 1793331363332,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -934,7 +934,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "10:35:56 30/10/2026"
+        "timestamp": "10:36:03 30/10/2026"
       },
       {
         "id": 1793325670634,
@@ -998,6 +998,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 21,
+        "time": "10:36:02 30/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "THCS Thành Đông - 8A2 | loc",
+        "role": "student",
+        "authMethod": "Thoát & Đồng bộ Drive",
+        "result": "Đã lưu an toàn"
+      },
       {
         "id": 20,
         "time": "10:35:55 30/10/2026",
