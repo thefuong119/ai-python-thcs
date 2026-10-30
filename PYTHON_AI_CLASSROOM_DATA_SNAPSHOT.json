@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Thầy Nguyễn Thế Phương",
-    "role": "admin",
-    "identifier": "086081006094"
+    "name": "Nguyễn Thế Bình",
+    "role": "teacher",
+    "identifier": "binh"
   },
-  "checksum": "8AE0B45D",
-  "exported_at": "2026-10-30T02:00:05.396Z",
-  "exported_at_vn": "09:00:05 30/10/2026",
+  "checksum": "5BC0299D",
+  "exported_at": "2026-10-30T02:01:10.636Z",
+  "exported_at_vn": "09:01:10 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "08:52:58 30/10/2026",
-        "loginCount": 27
+        "lastLogin": "09:01:09 30/10/2026",
+        "loginCount": 28
       },
       {
         "id": 3,
@@ -925,16 +925,16 @@
         "timestamp": "08:24:46 30/10/2026"
       },
       {
-        "id": 1793323374823,
+        "id": 1793325670634,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "code": "gf\nFghfg\nFghfg",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:22:54 30/10/2026"
+        "timestamp": "09:01:10 30/10/2026"
       },
       {
         "id": 1793325605388,
@@ -986,6 +986,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 10,
+        "time": "09:01:09 30/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "THPT Tân Lược - 12A1 | binh",
+        "role": "teacher",
+        "authMethod": "Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 9,
         "time": "09:00:04 30/10/2026",
