@@ -111,6 +111,9 @@
                     <button id="btnOpenLoginStudent" onclick="openLoginModal('student', 'login')" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs flex items-center gap-1.5 shadow-sm transition-all">
                         <i class="ph-bold ph-student"></i> Học Sinh
                     </button>
+                    <button id="btnGuestExit" onclick="confirmExitApp()" class="px-3 py-1.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 font-semibold text-xs flex items-center gap-1.5 transition-all" title="Thoát ứng dụng">
+                        <i class="ph-bold ph-sign-out"></i> Thoát
+                    </button>
                     <button id="btnLogout" onclick="logout()" class="hidden px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white border border-rose-500/40 text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all" title="Thoát ứng dụng và tự động lưu toàn bộ dữ liệu lên Drive">
                         <i class="ph-bold ph-sign-out text-sm"></i>
                         <span>Thoát</span>
@@ -139,15 +142,15 @@
                 Hệ Thống Yêu Cầu Xác Thực Danh Tính
             </h2>
             <p class="text-sm text-slate-500 max-w-md leading-relaxed mb-8">
-                Để đảm bảo an toàn dữ liệu học đường và lưu trữ kết quả học tập, vui lòng đăng nhập tài khoản trước khi truy cập nền tảng.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md justify-center">
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-lg justify-center">
                 <button onclick="openLoginModal('student', 'login')" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all">
                     <i class="ph-bold ph-student text-lg"></i> Đăng Nhập Học Sinh
                 </button>
                 <button onclick="openLoginModal('teacher', 'login')" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-800 font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-all">
                     <i class="ph-bold ph-lock-key text-lg"></i> Giáo Viên / Admin
+                </button>
+                <button onclick="confirmExitApp()" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all" title="Thoát khỏi chương trình">
+                    <i class="ph-bold ph-sign-out text-lg"></i> Thoát
                 </button>
             </div>
 
@@ -773,6 +776,12 @@
 
             <!-- Tab chọn Đăng nhập / Đăng ký & Tab chọn Vai trò -->
             <div class="p-4 bg-slate-50 border-b border-slate-200 space-y-3">
+                <!-- Chỉ báo nạp dữ liệu người dùng từ GitHub -->
+                <div id="authSyncBadge" class="flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200/80 rounded-xl text-[11px] text-blue-700">
+                    <i id="authSyncIcon" class="ph-bold ph-arrows-clockwise animate-spin text-blue-600 text-xs"></i>
+                    <span id="authSyncText">Đang nạp danh sách tài khoản từ GitHub...</span>
+                </div>
+
                 <div class="flex bg-slate-200/80 p-1 rounded-2xl text-xs font-semibold">
                     <button id="authActionLoginBtn" onclick="setAuthAction('login')" class="flex-1 py-1.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm border border-slate-200 transition-all flex items-center justify-center gap-1.5">
                         <i class="ph-bold ph-sign-in"></i> Đăng Nhập
@@ -928,9 +937,35 @@
 
             <!-- Footer Modal -->
             <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                <span id="authToggleHintText">Chưa có tài khoản trên hệ thống?</span>
-                <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">
-                    Đăng ký ngay
+                <button onclick="confirmExitApp()" class="font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1 transition-colors px-2 py-1 rounded-lg hover:bg-rose-50" title="Thoát khỏi ứng dụng">
+                    <i class="ph-bold ph-sign-out text-sm"></i> Thoát
+                </button>
+                <div class="flex items-center gap-1.5">
+                    <span id="authToggleHintText">Chưa có tài khoản trên hệ thống?</span>
+                    <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">
+                        Đăng ký ngay
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- MODAL XÁC NHẬN THOÁT ỨNG DỤNG -->
+    <!-- ============================================== -->
+    <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+                <i class="ph-bold ph-sign-out"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Thoát</h3>
+            <p class="text-sm text-slate-600 mb-6 font-medium">Bạn có muốn thoát chương trình không?</p>
+            <div class="flex gap-3 justify-center">
+                <button onclick="closeConfirmExitAppModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition-all w-full">
+                    Hủy bỏ
+                </button>
+                <button onclick="executeExitApp()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md shadow-rose-500/20 transition-all w-full flex items-center justify-center gap-1.5">
+                    <i class="ph-bold ph-check"></i> Xác nhận
                 </button>
             </div>
         </div>
@@ -1560,7 +1595,11 @@
         // ==============================================
         const GITHUB_OWNER = "thefuong119";
         const GITHUB_REPO = "ai-python-thcs";
-        const GITHUB_FILE_PATH = "data/PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
+        const GITHUB_FILE_CANDIDATES = [
+            "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json",
+            "data/PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json"
+        ];
+        let GITHUB_FILE_PATH = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
         
         let githubPatToken = localStorage.getItem('pyclassroom_github_token') || null;
         let lastSyncTimestamp = localStorage.getItem('last_github_sync_time') || null;
@@ -1649,43 +1688,97 @@
 
         let currentAssignment = assignments[0];
 
-        // TỰ ĐỘNG NẠP DỮ LIỆU TỪ GITHUB
+        // TỰ ĐỘNG NẠP DỮ LIỆU TỪ GITHUB (KHO DUY NHẤT: thefuong119/ai-python-thcs)
         async function autoFetchDataFromGitHub() {
-            try {
-                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
-                const headers = { 'Accept': 'application/vnd.github.v3+json' };
-                if (githubPatToken) headers['Authorization'] = `token ${githubPatToken}`;
+            for (const filePath of GITHUB_FILE_CANDIDATES) {
+                try {
+                    // Cách 1: Nạp qua GitHub REST API
+                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`;
+                    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+                    if (githubPatToken) headers['Authorization'] = `token ${githubPatToken}`;
 
-                const res = await fetch(url, { headers, cache: 'no-store' });
-                if (res.ok) {
-                    const data = await res.json();
-                    // Lọc bỏ ký tự xuống dòng từ GitHub trước khi decode Base64 để tránh lỗi DOMException
-                    const base64Clean = data.content.replace(/\s/g, '');
-                    const decodedContent = decodeURIComponent(escape(atob(base64Clean)));
-                    const cloudPayload = JSON.parse(decodedContent);
-                    if (cloudPayload && cloudPayload.data) {
-                        applyCloudDataPayload(cloudPayload);
-                        console.log("Đã đồng bộ dữ liệu ngầm từ GitHub thành công.");
-                        return true;
+                    const res = await fetch(apiUrl, { headers, cache: 'no-store' });
+                    if (res.ok) {
+                        const data = await res.json();
+                        const base64Clean = data.content.replace(/\s/g, '');
+                        const decodedContent = decodeURIComponent(escape(atob(base64Clean)));
+                        const cloudPayload = JSON.parse(decodedContent);
+                        if (cloudPayload && cloudPayload.data) {
+                            GITHUB_FILE_PATH = filePath;
+                            applyCloudDataPayload(cloudPayload);
+                            console.log(`Đã nạp dữ liệu thành công từ GitHub: ${GITHUB_REPO}/${filePath}`);
+                            return true;
+                        }
                     }
+
+                    // Cách 2: Fallback qua Raw CDN nếu API bị giới hạn lượt gọi
+                    const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${filePath}?_t=${Date.now()}`;
+                    const rawRes = await fetch(rawUrl, { cache: 'no-store' });
+                    if (rawRes.ok) {
+                        const cloudPayload = await rawRes.json();
+                        if (cloudPayload && cloudPayload.data) {
+                            GITHUB_FILE_PATH = filePath;
+                            applyCloudDataPayload(cloudPayload);
+                            console.log(`Đã nạp dữ liệu từ Raw CDN: ${GITHUB_REPO}/${filePath}`);
+                            return true;
+                        }
+                    }
+                } catch (err) {
+                    // Thử vị trí file tiếp theo
                 }
-            } catch (err) {
-                console.warn("Không thể nạp dữ liệu từ GitHub:", err);
             }
             return false;
+        }
+
+        // Cập nhật trạng thái nạp dữ liệu trên giao diện Đăng nhập (Chỉ hiển thị thông báo, không có nút phụ)
+        async function refreshGitHubDataForAuth() {
+            const badge = document.getElementById('authSyncBadge');
+            const icon = document.getElementById('authSyncIcon');
+            const text = document.getElementById('authSyncText');
+
+            if (badge && icon && text) {
+                badge.className = "flex items-center justify-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200/80 rounded-xl text-[11px] text-blue-700";
+                icon.className = "ph-bold ph-arrows-clockwise animate-spin text-blue-600 text-xs";
+                text.textContent = "Đang nạp dữ liệu tài khoản từ GitHub...";
+            }
+
+            const success = await autoFetchDataFromGitHub();
+
+            if (badge && icon && text) {
+                if (success) {
+                    badge.className = "flex items-center justify-center gap-2 px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-xl text-[11px] text-emerald-700";
+                    icon.className = "ph-bold ph-check-circle text-emerald-600 text-xs";
+                    text.textContent = `Đã đồng bộ ${registeredUsers.length} tài khoản từ GitHub`;
+                } else {
+                    badge.className = "flex items-center justify-center gap-2 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-xl text-[11px] text-slate-600";
+                    icon.className = "ph-bold ph-database text-slate-500 text-xs";
+                    text.textContent = `Bộ nhớ cục bộ (${registeredUsers.length} tài khoản sẵn sàng)`;
+                }
+            }
+            return success;
         }
 
         function applyCloudDataPayload(parsed) {
             if (parsed.data.registeredUsers && Array.isArray(parsed.data.registeredUsers)) {
                 parsed.data.registeredUsers.forEach(cloudUser => {
-                    if (!registeredUsers.some(u => u.identifier === cloudUser.identifier || u.username === cloudUser.username)) {
+                    const idx = registeredUsers.findIndex(u => 
+                        (u.identifier && cloudUser.identifier && u.identifier.toLowerCase() === cloudUser.identifier.toLowerCase()) || 
+                        (u.username && cloudUser.username && u.username.toLowerCase() === cloudUser.username.toLowerCase())
+                    );
+                    if (idx !== -1) {
+                        // Cập nhật thông tin và mật khẩu mới nhất từ GitHub
+                        registeredUsers[idx] = { ...registeredUsers[idx], ...cloudUser };
+                    } else {
                         registeredUsers.push(cloudUser);
                     }
                 });
             }
             if (parsed.data.teachersList && Array.isArray(parsed.data.teachersList)) {
                 parsed.data.teachersList.forEach(cloudT => {
-                    if (!teachersList.some(t => t.username === cloudT.username)) {
+                    const idx = teachersList.findIndex(t => t.username && cloudT.username && t.username.toLowerCase() === cloudT.username.toLowerCase());
+                    if (idx !== -1) {
+                        teachersList[idx] = { ...teachersList[idx], ...cloudT };
+                    } else {
                         teachersList.push(cloudT);
                     }
                 });
@@ -2028,6 +2121,7 @@
             const btnLogout = document.getElementById('btnLogout');
             const btnOpenTeacher = document.getElementById('btnOpenLoginTeacher');
             const btnOpenStudent = document.getElementById('btnOpenLoginStudent');
+            const btnGuestExit = document.getElementById('btnGuestExit');
             const roleSwitcher = document.getElementById('roleSwitcherNav');
             const navBtnStudent = document.getElementById('navBtnStudent');
             const navBtnTeacher = document.getElementById('navBtnTeacher');
@@ -2039,6 +2133,7 @@
                 profileBadge.classList.replace('hidden', 'flex');
                 nameDisplay.textContent = currentUser.name;
                 btnLogout.classList.remove('hidden'); btnOpenTeacher.classList.add('hidden'); btnOpenStudent.classList.add('hidden');
+                if (btnGuestExit) btnGuestExit.classList.add('hidden');
                 if (btnShare) btnShare.classList.toggle('hidden', !(currentUser.role === 'admin' || currentUser.role === 'teacher'));
 
                 if (currentUser.role === 'admin') {
@@ -2060,16 +2155,22 @@
             } else {
                 if (guestLockView) guestLockView.classList.remove('hidden');
                 profileBadge.classList.add('hidden'); btnLogout.classList.add('hidden'); roleSwitcher.classList.add('hidden');
-                btnOpenTeacher.classList.remove('hidden'); btnOpenStudent.classList.remove('hidden'); if (btnShare) btnShare.classList.add('hidden');
+                btnOpenTeacher.classList.remove('hidden'); btnOpenStudent.classList.remove('hidden');
+                if (btnGuestExit) btnGuestExit.classList.remove('hidden');
+                if (btnShare) btnShare.classList.add('hidden');
             }
         }
 
         // ==============================================
         // MODAL ĐĂNG NHẬP / ĐĂNG KÝ
         // ==============================================
-        function openLoginModal(targetRole = 'student', action = 'login') {
+        async function openLoginModal(targetRole = 'student', action = 'login') {
             document.getElementById('authModal').classList.remove('hidden');
-            activeAuthTab = targetRole; currentAuthAction = action; updateAuthModalState();
+            activeAuthTab = targetRole; 
+            currentAuthAction = action; 
+            updateAuthModalState();
+            // Tự động nạp dữ liệu từ GitHub ngay khi mở màn hình đăng nhập
+            await refreshGitHubDataForAuth();
         }
         function closeLoginModal() { document.getElementById('authModal').classList.add('hidden'); }
         function setAuthAction(action) { currentAuthAction = action; updateAuthModalState(); }
@@ -2132,15 +2233,17 @@
             }
         }
 
-        async function processAuthSubmit() { currentAuthAction === 'login' ? await processUserLogin() : await processUserRegistration(); }
+        async function processAuthSubmit() { 
+            currentAuthAction === 'login' ? await processUserLogin() : await processUserRegistration(); 
+        }
 
         async function processUserLogin() {
             const btnSubmit = document.getElementById('btnSubmitAuth');
             const originalText = btnSubmit.innerHTML;
             
-            // Hiệu ứng chờ và đồng bộ GitHub ngay khi nhấn Đăng nhập
+            // Đối chiếu dữ liệu GitHub mới nhất trước khi kiểm tra tài khoản
             btnSubmit.disabled = true;
-            btnSubmit.innerHTML = `<i class="ph-bold ph-spinner animate-spin"></i> Đang đồng bộ GitHub...`;
+            btnSubmit.innerHTML = `<i class="ph-bold ph-arrows-clockwise animate-spin"></i> Đang đối chiếu với GitHub...`;
             await autoFetchDataFromGitHub();
             btnSubmit.disabled = false;
             btnSubmit.innerHTML = originalText;
@@ -2157,6 +2260,7 @@
                     showToast("Chào mừng Quản trị viên Thầy Nguyễn Thế Phương!", "success"); switchRole('admin'); return;
                 }
 
+                // Kiểm tra trong danh sách giáo viên
                 const teacher = teachersList.find(t => ((t.username && t.username.toLowerCase() === idLower) || (t.email && t.email.toLowerCase() === idLower) || (t.phone && t.phone === identifier)) && t.password === pass);
                 if (teacher) {
                     const regUser = registeredUsers.find(u => (u.identifier && u.identifier.toLowerCase() === idLower) || (u.username && u.username.toLowerCase() === idLower));
@@ -2171,6 +2275,7 @@
                 const password = document.getElementById('studentLoginPassword').value.trim();
                 if (!identifier || !password) return showToast("Vui lòng nhập Tên đăng nhập và Mật khẩu của học sinh!", "error");
 
+                // Đối chiếu với danh sách học sinh đã được nạp từ GitHub
                 const student = registeredUsers.find(u => u.role === 'student' && ((u.identifier && u.identifier.toLowerCase() === identifier) || (u.email && u.email.toLowerCase() === identifier) || (u.phone && u.phone === identifier) || (u.username && u.username.toLowerCase() === identifier)) && (u.password === password));
                 if (student) {
                     if (student.status === 'locked') return showToast("Tài khoản của em hiện đang bị tạm khóa!", "error");
@@ -2225,7 +2330,53 @@
             autoSaveLocalSnapshot(); uploadBackupToCloudApi(true);
         }
 
-        // NÚT THOÁT ỨNG DỤNG THÔNG MINH CHO ADMIN, GIÁO VIÊN VÀ HỌC SINH
+        // ==============================================
+        // XỬ LÝ THOÁT ỨNG DỤNG TỪ MÀN HÌNH ĐĂNG NHẬP
+        // ==============================================
+        function confirmExitApp() {
+            const modal = document.getElementById('confirmExitAppModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeConfirmExitAppModal() {
+            const modal = document.getElementById('confirmExitAppModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function executeExitApp() {
+            closeConfirmExitAppModal();
+            closeLoginModal();
+            stopRobotVoice();
+
+            // Thử đóng tab / thẻ ứng dụng trong trình duyệt
+            try {
+                window.open('', '_self', '');
+                window.close();
+            } catch (e) {}
+
+            // Hiển thị giao diện thông báo đã thoát an toàn (khi trình duyệt chặn lệnh tự đóng tab)
+            const guestLockView = document.getElementById('guestLockView');
+            if (guestLockView) {
+                guestLockView.innerHTML = `
+                    <div class="w-20 h-20 rounded-3xl bg-slate-200 text-slate-600 flex items-center justify-center text-4xl shadow-md mb-6">
+                        <i class="ph-bold ph-check-circle text-emerald-600"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+                        Đã Thoát Chương Trình
+                    </h2>
+                    <p class="text-sm text-slate-500 max-w-md leading-relaxed mb-6">
+                        Bạn đã thoát phiên làm việc. Bạn có thể đóng thẻ (tab) này trên trình duyệt hoặc nhấn nút bên dưới để mở lại.
+                    </p>
+                    <button onclick="location.reload()" class="px-6 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-md flex items-center gap-2 mx-auto">
+                        <i class="ph-bold ph-arrows-clockwise"></i> Mở lại ứng dụng
+                    </button>
+                `;
+                guestLockView.classList.remove('hidden');
+            }
+            showToast("Đã thoát ứng dụng thành công!", "info");
+        }
+
+        // NÚT THOÁT ỨNG DỤNG THÔNG MINH CHO ADMIN, GIÁO VIÊN VÀ HỌC SINH (KHI ĐÃ ĐĂNG NHẬP)
         async function logout() {
             stopRobotVoice();
 
