@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "DA7508B8",
-  "exported_at": "2026-10-30T01:12:35.083Z",
-  "exported_at_vn": "08:12:35 30/10/2026",
+  "checksum": "F4E24D47",
+  "exported_at": "2026-10-30T01:20:43.981Z",
+  "exported_at_vn": "08:20:43 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -45,8 +45,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
-        "lastLogin": "08:12:22 30/10/2026",
-        "loginCount": 23
+        "lastLogin": "08:20:43 30/10/2026",
+        "loginCount": 24
       },
       {
         "id": 3,
@@ -769,7 +769,7 @@
         "timestamp": "07:50:35 30/10/2026"
       },
       {
-        "id": 1793322334376,
+        "id": 1793323243974,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -778,7 +778,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:05:34 30/10/2026"
+        "timestamp": "08:20:43 30/10/2026"
       },
       {
         "id": 1793276353216,
@@ -854,6 +854,15 @@
       }
     ],
     "loginLogs": [
+      {
+        "id": 21,
+        "time": "08:20:43 30/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "THPT Tân Lược - 12A1 | binh",
+        "role": "teacher",
+        "authMethod": "Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 20,
         "time": "08:12:22 30/10/2026",
