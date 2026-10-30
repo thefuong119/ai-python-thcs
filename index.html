@@ -429,7 +429,7 @@
                         <label class="block font-bold text-xs text-slate-700">Nội dung bài giảng (Định dạng & Công thức $...$):</label>
                         <div class="flex flex-wrap items-center gap-1.5 p-2 bg-white border border-slate-300 rounded-t-xl text-xs border-b-0">
                             <button type="button" onclick="insertFormatting('**', '**')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 font-bold" title="In đậm">B</button>
-                            <button type="button" onclick="insertFormatting('*', '*')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 italic" title="In nghiêng">I</button>
+                            <button type="button" onclick="insertFormatting('*', '*')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 italic" title="In nghighiêng">I</button>
                             <button type="button" onclick="insertFormatting('### ')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 font-bold text-slate-800" title="Tiêu đề mục">H3</button>
                             <button type="button" onclick="insertFormatting('```python\n', '\n```')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 font-mono text-[11px]" title="Khối Code Python">Code</button>
                             <button type="button" onclick="insertFormatting('$', '$')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 font-mono text-[11px] text-blue-600" title="Công thức Toán MathType">$Math$</button>
@@ -930,6 +930,10 @@
                         <input type="text" id="regTeacherName" placeholder="Thầy Nguyễn Thế Phương" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
+                        <label class="block font-bold text-slate-700 mb-1">Thông tin liên lạc (Số điện thoại / Zalo / Email) (*):</label>
+                        <input type="text" id="regTeacherPhone" placeholder="0908889999 hoặc email@thcs.edu.vn" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs">
+                    </div>
+                    <div>
                         <label class="block font-bold text-slate-700 mb-1">Tên đăng nhập (*):</label>
                         <input type="text" id="regTeacherUsername" placeholder="phuong.nt" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-mono">
                     </div>
@@ -1161,6 +1165,10 @@
                     <label class="block font-bold text-slate-700 mb-1">Họ và tên Giáo viên (*):</label>
                     <input type="text" id="newTeacherName" placeholder="Thầy Nguyễn Văn A" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
                 </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Thông tin liên lạc (Số điện thoại / Zalo / Email):</label>
+                    <input type="text" id="newTeacherPhone" placeholder="0912345678" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">Trường THCS:</label>
@@ -1197,6 +1205,10 @@
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Họ và tên (*):</label>
                     <input type="text" id="editUserName" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Thông tin liên lạc (Số điện thoại / Zalo / Email):</label>
+                    <input type="text" id="editUserPhone" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2">
                 </div>
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Tên đăng nhập / Định danh (*):</label>
@@ -1328,31 +1340,15 @@
         function previewCurrentTeacherLecture() {
             const title = document.getElementById('lectureInputTitle').value.trim() || "Bài giảng xem trước";
             const body = document.getElementById('lectureInputBody').value.trim();
-            if (!body) return showToast("Vui lòng nhập nội dung bài giảng để xem trước!", "error");
+            if (!body) return showToast("Vui lòng nhập nội dung bài giảng để nghe thử!", "error");
 
-            switchRole('student');
-            switchStudentTab('lectures');
-            
-            const area = document.getElementById('studentLectureContentArea');
-            if (area) {
-                area.innerHTML = `
-                    <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between">
-                        <div>
-                            <h4 class="font-bold text-sm text-indigo-950">${title} (Xem trước)</h4>
-                            <span class="text-xs text-indigo-600">Chế độ kiểm tra dành cho Giáo viên / Admin</span>
-                        </div>
-                        <button onclick="speakRobotText(\`${body.replace(/`/g, '')}\`)" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow">
-                            <i class="ph-bold ph-speaker-high"></i> AI Đọc Bài Giảng
-                        </button>
-                    </div>
-                    <div class="bg-white border border-slate-200 rounded-2xl p-6 leading-relaxed space-y-3">
-                        ${renderSimpleMarkdown(body)}
-                    </div>
-                `;
-                if (window.renderMathInElement) renderMathInElement(area);
-            }
-            speakRobotText(body);
-            showToast("Đang mở chế độ xem trước với AI đọc bài giảng!", "info");
+            // Đọc bài giảng tại chỗ phù hợp với vai trò Giáo viên / Admin hiện tại
+            const prefixGreeting = (currentUser.role === 'admin' || currentUser.role === 'teacher')
+                ? "Kính gửi Thầy Cô, sau đây là nội dung bài giảng. "
+                : "Chào em, sau đây là nội dung bài giảng. ";
+
+            speakRobotText(prefixGreeting + body);
+            showToast("Robot AI đang đọc bài giảng...", "info");
         }
 
         // BIẾN THUẬT TOÁN GIỌNG ĐỌC AI & SPEECH SYNTHESIS
@@ -1580,22 +1576,6 @@
             return `Chịu khó học tập và làm bài nhé em ${currentUser.name || ''}! Thầy luôn sẵn sàng hỗ trợ em khi gặp thắc mắc đấy.`;
         }
 
-        function speakRobotText(text) {
-            stopRobotVoice();
-            const cleanText = cleanMarkdownForSpeech(text);
-            if (!cleanText) return;
-
-            // CHỈ SỬ DỤNG DUY NHẤT BỘ ĐỌC GIỌNG NỮ TRUYỀN CẢM CỦA GOOGLE
-            audioPlaylist = getGoogleTtsUrls(cleanText);
-            currentAudioIndex = 0;
-            
-            try {
-                playNextTtsChunk();
-            } catch (e) {
-                fallbackWebSpeechGuideForText(cleanText);
-            }
-        }
-
         function fallbackWebSpeechGuideForText(text) {
             if (!('speechSynthesis' in window)) return;
             if (synth.paused) synth.resume();
@@ -1751,6 +1731,11 @@
             const a = assignments.find(x => x.id == id);
             if (!a) return;
 
+            // Nếu Admin hoặc Giáo viên đang bấm sửa từ bất kỳ Tab nào, tự động điều hướng về Tab Soạn Đề
+            if (currentUser.role === 'admin') {
+                switchRole('teacher');
+            }
+
             const editId = document.getElementById('editingAssignmentId');
             const title = document.getElementById('newTitle');
             const desc = document.getElementById('newDescription');
@@ -1764,6 +1749,10 @@
             editingTestCases = JSON.parse(JSON.stringify(a.tests || []));
             renderTestCaseEditor();
             switchTeacherTab('create');
+            
+            const heading = document.getElementById('assignmentFormHeading');
+            if (heading) heading.textContent = `Chỉnh Sửa Bài Tập (ID: ${a.id})`;
+            showToast(`Đang mở form chỉnh sửa bài tập "${a.title}"`, "info");
         }
 
         function deleteAssignment(id) {
@@ -1813,10 +1802,14 @@
         function previewTeacherLectureById(id) {
             const lec = lectures.find(l => l.id == id);
             if (!lec) return;
-            switchRole('student');
-            switchStudentTab('lectures');
-            renderStudentLectureDetail(lec.id);
-            speakRobotText(lec.content);
+
+            // Giữ nguyên vai trò hiện tại (Giáo viên / Admin / Học sinh) và đọc với cách xưng hô phù hợp
+            const prefixGreeting = (currentUser.role === 'admin' || currentUser.role === 'teacher')
+                ? `Kính gửi Thầy Cô, sau đây là nội dung bài giảng: ${lec.title}. `
+                : `Chào em, sau đây là nội dung bài giảng: ${lec.title}. `;
+
+            speakRobotText(prefixGreeting + lec.content);
+            showToast(`Robot AI đang đọc bài giảng: ${lec.title}`, "info");
         }
 
         function openLectureModalForCreate() {
@@ -1825,18 +1818,40 @@
             document.getElementById('lectureInputGrade').value = 'Lớp 8 - Tin học cơ sở';
             document.getElementById('lectureInputBody').value = '';
             document.getElementById('lectureFormTitle').textContent = 'Thêm Bài Giảng Mới';
-            document.getElementById('lectureFormContainer').classList.remove('hidden');
+            
+            // Đảm bảo mở form chỉnh sửa bài giảng bất kể ở view Teacher hay Admin
+            const teacherTabLectures = document.getElementById('teacherTabLectures');
+            if (teacherTabLectures) teacherTabLectures.classList.remove('hidden');
+            const formContainer = document.getElementById('lectureFormContainer');
+            if (formContainer) {
+                formContainer.classList.remove('hidden');
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function editLecture(id) {
             const lec = lectures.find(l => l.id == id);
             if (!lec) return;
+
+            // Đảm bảo mở không gian Giáo viên / Admin để hiện Form chỉnh sửa bài giảng
+            if (currentRole === 'admin') {
+                switchRole('teacher');
+            }
+
+            switchTeacherTab('lectures');
+
             document.getElementById('editingLectureId').value = lec.id;
             document.getElementById('lectureInputTitle').value = lec.title;
             document.getElementById('lectureInputGrade').value = lec.grade || 'Lớp 8';
             document.getElementById('lectureInputBody').value = lec.content;
-            document.getElementById('lectureFormTitle').textContent = 'Chỉnh Sửa Bài Giảng';
-            document.getElementById('lectureFormContainer').classList.remove('hidden');
+            document.getElementById('lectureFormTitle').textContent = `Chỉnh Sửa Bài Giảng (ID: ${lec.id})`;
+
+            const formContainer = document.getElementById('lectureFormContainer');
+            if (formContainer) {
+                formContainer.classList.remove('hidden');
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            showToast(`Đang mở form chỉnh sửa bài giảng "${lec.title}"`, "info");
         }
 
         function saveOrUpdateLecture() {
@@ -2067,7 +2082,7 @@
                     <td class="p-3 text-center font-bold text-slate-700">${u.loginCount || 1}</td>
                     <td class="p-3 text-center">
                         <div class="flex items-center justify-center gap-2">
-                            <button onclick="editUserAccount(${u.id})" class="text-blue-600 hover:text-blue-800 font-bold" title="Sửa thông tin"><i class="ph-bold ph-pencil-simple"></i></button>
+                            <button onclick="editUserAccount(${u.id})" class="text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1" title="Sửa thông tin"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
                             <button onclick="deleteUserAccount(${u.id})" class="text-rose-600 hover:text-rose-800 font-bold" title="Xóa tài khoản"><i class="ph-bold ph-trash"></i></button>
                         </div>
                     </td>
@@ -2083,6 +2098,16 @@
             refreshAdminDashboard();
             autoSaveLocalSnapshot();
             showToast(`Đã xóa tài khoản "${user.name}" thành công!`, "success");
+        }
+
+        function deleteStudentSubmission(id) {
+            if (currentUser.role !== 'admin') {
+                return showToast("Chỉ Quản trị viên (Admin) mới có quyền xóa bài làm của học sinh!", "error");
+            }
+            studentSubmissions = studentSubmissions.filter(s => s.id !== id);
+            renderAdminSubmissionsTable();
+            autoSaveLocalSnapshot();
+            showToast("Đã xóa bài làm thành công!", "success");
         }
 
         function renderAdminAssignmentsTable() {
@@ -2187,23 +2212,121 @@
         }
 
         function openAddTeacherModal() {
-            document.getElementById('addStudentModal').classList.remove('hidden');
-            document.getElementById('newStudentUsername').placeholder = "gv_nguyenvana";
-            document.getElementById('newStudentName').placeholder = "Thầy Nguyễn Văn A";
-            document.getElementById('newStudentClass').placeholder = "Khối 8";
-            document.getElementById('newStudentPass').value = "GiaoVien#123";
+            const modal = document.getElementById('addTeacherModal');
+            if (modal) {
+                const u = document.getElementById('newTeacherUsername');
+                const n = document.getElementById('newTeacherName');
+                const p = document.getElementById('newTeacherPhone');
+                const s = document.getElementById('newTeacherSchool');
+                const c = document.getElementById('newTeacherClass');
+                const pwd = document.getElementById('newTeacherPass');
+                if (u) u.value = '';
+                if (n) n.value = '';
+                if (p) p.value = '';
+                if (s) s.value = 'THCS Thành Đông';
+                if (c) c.value = 'Khối 8';
+                if (pwd) pwd.value = 'GiaoVien#123';
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeAddTeacherModal() {
+            const modal = document.getElementById('addTeacherModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function saveNewTeacher() {
+            const username = document.getElementById('newTeacherUsername')?.value.trim();
+            const name = document.getElementById('newTeacherName')?.value.trim();
+            const phone = document.getElementById('newTeacherPhone')?.value.trim() || '---';
+            const school = document.getElementById('newTeacherSchool')?.value.trim() || 'THCS Thành Đông';
+            const className = document.getElementById('newTeacherClass')?.value.trim() || 'Khối 8';
+            const pass = document.getElementById('newTeacherPass')?.value.trim() || 'GiaoVien#123';
+
+            if (!username || !name) return showToast("Vui lòng điền tên đăng nhập và họ tên giáo viên!", "error");
+
+            const newId = registeredUsers.length > 0 ? Math.max(...registeredUsers.map(u => u.id)) + 1 : 1;
+            registeredUsers.push({
+                id: newId,
+                name,
+                username,
+                identifier: username,
+                password: pass,
+                school,
+                className,
+                phone,
+                role: 'teacher',
+                status: 'active',
+                loginCount: 0
+            });
+            closeAddTeacherModal();
+            refreshAdminDashboard();
+            updateTeacherStats();
+            autoSaveLocalSnapshot();
+            showToast(`Đã thêm giáo viên ${name} thành công!`, "success");
         }
 
         function editUserAccount(id) {
             const user = registeredUsers.find(u => u.id === id);
             if (!user) return;
-            const newName = prompt("Sửa Họ và tên tài khoản:", user.name);
-            if (newName && newName.trim()) {
-                user.name = newName.trim();
-                refreshAdminDashboard();
-                autoSaveLocalSnapshot();
-                showToast("Đã cập nhật tên tài khoản thành công!", "success");
+            const modal = document.getElementById('editUserModal');
+            if (!modal) return;
+
+            document.getElementById('editUserId').value = user.id;
+            document.getElementById('editUserName').value = user.name || '';
+            document.getElementById('editUserPhone').value = user.phone || '';
+            document.getElementById('editUserUsername').value = user.username || user.identifier || '';
+            document.getElementById('editUserSchool').value = user.school || '';
+            document.getElementById('editUserClass').value = user.className || '';
+            document.getElementById('editUserRole').value = user.role || 'student';
+            document.getElementById('editUserPass').value = user.password || '';
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeEditUserModal() {
+            const modal = document.getElementById('editUserModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function saveUserAccountEdit() {
+            const id = parseInt(document.getElementById('editUserId').value);
+            const user = registeredUsers.find(u => u.id === id);
+            if (!user) return showToast("Không tìm thấy tài khoản cần sửa!", "error");
+
+            const name = document.getElementById('editUserName').value.trim();
+            const phone = document.getElementById('editUserPhone').value.trim();
+            const username = document.getElementById('editUserUsername').value.trim();
+            const school = document.getElementById('editUserSchool').value.trim();
+            const className = document.getElementById('editUserClass').value.trim();
+            const role = document.getElementById('editUserRole').value;
+            const pass = document.getElementById('editUserPass').value.trim();
+
+            if (!name || !username || !pass) {
+                return showToast("Họ tên, tên đăng nhập và mật khẩu không được để trống!", "error");
             }
+
+            user.name = name;
+            user.phone = phone || '---';
+            user.username = username;
+            user.identifier = username;
+            user.school = school || 'THCS Thành Đông';
+            user.className = className || '---';
+            user.role = role;
+            user.password = pass;
+
+            if (currentUser.isLoggedIn && (currentUser.identifier === user.identifier || currentUser.name === user.name)) {
+                currentUser.name = user.name;
+                currentUser.role = user.role;
+                currentUser.className = user.className;
+                updateUserHeaderUi();
+            }
+
+            closeEditUserModal();
+            refreshAdminDashboard();
+            updateTeacherStats();
+            autoSaveLocalSnapshot();
+            showToast(`Đã cập nhật thông tin tài khoản "${name}" thành công!`, "success");
         }
 
         // ==============================================
@@ -2328,111 +2451,21 @@
                 if (btnShare) btnShare.classList.add('hidden');
             }
         }
-        function openAddStudentModal() { 
-            document.getElementById('addStudentModal').classList.remove('hidden'); 
-        }
-        function closeAddStudentModal() { 
-            document.getElementById('addStudentModal').classList.add('hidden'); 
-        }
-        function saveNewStudent() {
-            const username = document.getElementById('newStudentUsername').value.trim();
-            const name = document.getElementById('newStudentName').value.trim();
-            const school = document.getElementById('newStudentSchool').value.trim() || 'THCS Thành Đông';
-            const className = document.getElementById('newStudentClass').value.trim() || '8A1';
-            const pass = document.getElementById('newStudentPass').value.trim() || 'HocSinh#123';
-            if (!username || !name) return showToast("Vui lòng điền tên đăng nhập và họ tên!", "error");
 
-            registeredUsers.push({ id: registeredUsers.length + 1, name, username, identifier: username, password: pass, school, className, role: 'student', status: 'active', loginCount: 0 });
-            closeAddStudentModal();
-            refreshAdminDashboard();
-            updateTeacherStats();
-            autoSaveLocalSnapshot();
-            showToast(`Đã thêm học sinh ${name}!`, "success");
-        }
-
-        // Quản lý Mẫu Form Giáo viên Mới
-        function openAddTeacherModal() { 
-            document.getElementById('addTeacherModal').classList.remove('hidden'); 
-        }
-        function closeAddTeacherModal() { 
-            document.getElementById('addTeacherModal').classList.add('hidden'); 
-        }
-        function saveNewTeacher() {
-            const username = document.getElementById('newTeacherUsername').value.trim();
-            const name = document.getElementById('newTeacherName').value.trim();
-            const school = document.getElementById('newTeacherSchool').value.trim() || 'THCS Thành Đông';
-            const className = document.getElementById('newTeacherClass').value.trim() || 'Khối 8';
-            const pass = document.getElementById('newTeacherPass').value.trim() || 'GiaoVien#123';
-            if (!username || !name) return showToast("Vui lòng điền tên đăng nhập và họ tên giáo viên!", "error");
-
-            registeredUsers.push({ id: registeredUsers.length + 1, name, username, identifier: username, password: pass, school, className, role: 'teacher', status: 'active', loginCount: 0 });
-            closeAddTeacherModal();
-            refreshAdminDashboard();
-            updateTeacherStats();
-            autoSaveLocalSnapshot();
-            showToast(`Đã thêm Giáo viên ${name} thành công!`, "success");
-        }
-
-        // Quản lý Sửa Thông Tin Tài Khoản
-        function editUserAccount(id) {
-            const user = registeredUsers.find(u => u.id === id);
-            if (!user) return;
-            document.getElementById('editUserId').value = user.id;
-            document.getElementById('editUserName').value = user.name || '';
-            document.getElementById('editUserUsername').value = user.identifier || user.username || '';
-            document.getElementById('editUserSchool').value = user.school || 'THCS Thành Đông';
-            document.getElementById('editUserClass').value = user.className || '';
-            document.getElementById('editUserRole').value = user.role || 'student';
-            document.getElementById('editUserPass').value = user.password || '';
-            document.getElementById('editUserModal').classList.remove('hidden');
-        }
-
-        function closeEditUserModal() {
-            document.getElementById('editUserModal').classList.add('hidden');
-        }
-
-        // Khai báo hàm mở Modal Đăng Nhập / Đăng Ký
+        // ĐỊNH NGHĨA HÀM MỞ MODAL ĐĂNG NHẬP / ĐĂNG KÝ
         function openLoginModal(role = 'student', action = 'login') {
             activeAuthTab = role;
             currentAuthAction = action;
+            updateAuthModalState();
             const modal = document.getElementById('authModal');
-            if (modal) {
-                modal.classList.remove('hidden');
-                updateAuthModalState();
-            }
+            if (modal) modal.classList.remove('hidden');
         }
 
-        function saveUserAccountEdit() {
-            const id = parseInt(document.getElementById('editUserId').value);
-            const user = registeredUsers.find(u => u.id === id);
-            if (!user) return;
-
-            const name = document.getElementById('editUserName').value.trim();
-            const username = document.getElementById('editUserUsername').value.trim();
-            const school = document.getElementById('editUserSchool').value.trim();
-            const className = document.getElementById('editUserClass').value.trim();
-            const role = document.getElementById('editUserRole').value;
-            const pass = document.getElementById('editUserPass').value.trim();
-
-            if (!name || !username || !pass) {
-                return showToast("Vui lòng điền đầy đủ thông tin tên, tên đăng nhập và mật khẩu!", "error");
-            }
-
-            user.name = name;
-            user.username = username;
-            user.identifier = username;
-            user.school = school;
-            user.className = className;
-            user.role = role;
-            user.password = pass;
-
-            closeEditUserModal();
-            refreshAdminDashboard();
-            updateTeacherStats();
-            autoSaveLocalSnapshot();
-            showToast(`Đã cập nhật thông tin tài khoản "${name}"!`, "success");
+        function closeLoginModal() { 
+            const modal = document.getElementById('authModal'); 
+            if (modal) modal.classList.add('hidden'); 
         }
-        function closeLoginModal() { const modal = document.getElementById('authModal'); if (modal) modal.classList.add('hidden'); }
+
         function setAuthAction(action) { currentAuthAction = action; updateAuthModalState(); }
         function toggleAuthAction() { currentAuthAction = (currentAuthAction === 'login') ? 'register' : 'login'; updateAuthModalState(); }
         function switchAuthTab(role) { activeAuthTab = role; updateAuthModalState(); }
@@ -2952,7 +2985,6 @@ except Exception as e: _error = str(e)
             showToast(`Đã thêm học sinh ${name}!`, "success");
         }
 
-        function openAddTeacherModal() { openAddStudentModal(); }
         function openGithubSyncModal() { document.getElementById('githubSyncModal').classList.remove('hidden'); }
         function closeGithubSyncModal() { document.getElementById('githubSyncModal').classList.add('hidden'); }
 
