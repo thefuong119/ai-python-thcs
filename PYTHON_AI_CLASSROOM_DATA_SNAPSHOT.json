@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "99F3FE6F",
-  "exported_at": "2026-10-30T00:45:01.473Z",
-  "exported_at_vn": "07:45:01 30/10/2026",
+  "checksum": "43334C93",
+  "exported_at": "2026-10-30T00:45:15.959Z",
+  "exported_at_vn": "07:45:15 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -450,12 +450,24 @@
         "id": 9,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
-        "attempts": 3,
+        "attempts": 4,
         "highestScore": 0,
-        "lastSubmit": "Hôm nay 07:38"
+        "lastSubmit": "Hôm nay 07:45"
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793321115135,
+        "student": "Nguyễn Thế Bình",
+        "username": "binh",
+        "className": "12A1",
+        "assignmentId": 4,
+        "assignmentTitle": "Xét số chẵn lẻ",
+        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "score": 0,
+        "type": "official_submission",
+        "timestamp": "07:45:15 30/10/2026"
+      },
       {
         "id": 1793320709812,
         "student": "Nguyễn Thế Bình",
@@ -661,16 +673,16 @@
         "timestamp": "07:34:53 30/10/2026"
       },
       {
-        "id": 1793320806038,
+        "id": 1793321115950,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
         "assignmentId": 4,
         "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
+        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:40:06 30/10/2026"
+        "timestamp": "07:45:15 30/10/2026"
       },
       {
         "id": 1793320829078,
