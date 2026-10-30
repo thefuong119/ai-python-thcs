@@ -7,9 +7,9 @@
     "role": "teacher",
     "identifier": "binh"
   },
-  "checksum": "182E460E",
-  "exported_at": "2026-10-30T00:38:30.614Z",
-  "exported_at_vn": "07:38:30 30/10/2026",
+  "checksum": "B1A94476",
+  "exported_at": "2026-10-30T00:38:52.851Z",
+  "exported_at_vn": "07:38:52 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -661,7 +661,7 @@
         "timestamp": "07:34:53 30/10/2026"
       },
       {
-        "id": 1793320710612,
+        "id": 1793320732832,
         "student": "Nguyễn Thế Bình",
         "username": "binh",
         "role": "teacher",
@@ -670,7 +670,7 @@
         "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "07:38:30 30/10/2026"
+        "timestamp": "07:38:52 30/10/2026"
       }
     ],
     "loginLogs": [
