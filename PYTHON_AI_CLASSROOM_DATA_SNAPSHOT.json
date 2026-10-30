@@ -3,13 +3,13 @@
   "version": "3.0.0-GITHUB-SYNC",
   "repository": "thefuong119/ai-python-thcs",
   "triggered_by": {
-    "name": "Nguyễn Phú Lộc",
-    "role": "student",
-    "identifier": "loc"
+    "name": "Thầy Nguyễn Thế Phương",
+    "role": "admin",
+    "identifier": "086081006094"
   },
-  "checksum": "976CF4EE",
-  "exported_at": "2026-10-30T01:43:34.514Z",
-  "exported_at_vn": "08:43:34 30/10/2026",
+  "checksum": "6463050D",
+  "exported_at": "2026-10-30T01:43:41.654Z",
+  "exported_at_vn": "08:43:41 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -27,8 +27,8 @@
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
-        "lastLogin": "08:26:37 30/10/2026",
-        "loginCount": 37
+        "lastLogin": "08:43:40 30/10/2026",
+        "loginCount": 38
       },
       {
         "id": 2,
@@ -949,7 +949,7 @@
         "timestamp": "08:43:34 30/10/2026"
       },
       {
-        "id": 1793324561365,
+        "id": 1793324621650,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "role": "admin",
@@ -958,10 +958,19 @@
         "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:42:41 30/10/2026"
+        "timestamp": "08:43:41 30/10/2026"
       }
     ],
     "loginLogs": [
+      {
+        "id": 4,
+        "time": "08:43:40 30/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "THCS Thành Đông - Toàn trường & Tổ Tin | 086081006094",
+        "role": "admin",
+        "authMethod": "Tên đăng nhập + Mật khẩu",
+        "result": "Thành công"
+      },
       {
         "id": 3,
         "time": "08:43:33 30/10/2026",
