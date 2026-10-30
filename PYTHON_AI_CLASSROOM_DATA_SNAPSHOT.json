@@ -7,9 +7,9 @@
     "role": "student",
     "identifier": "loc"
   },
-  "checksum": "44150CE",
-  "exported_at": "2026-10-30T01:24:38.080Z",
-  "exported_at_vn": "08:24:38 30/10/2026",
+  "checksum": "C911629A",
+  "exported_at": "2026-10-30T01:24:46.197Z",
+  "exported_at_vn": "08:24:46 30/10/2026",
   "data": {
     "registeredUsers": [
       {
@@ -434,9 +434,9 @@
         "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 14,
+        "attempts": 15,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:02"
+        "lastSubmit": "Hôm nay 08:24"
       },
       {
         "id": 8,
@@ -456,6 +456,18 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793323485204,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "assignmentId": 1,
+        "assignmentTitle": "Tính tổng hai số nguyên A và B",
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+        "score": 10,
+        "type": "official_submission",
+        "timestamp": "08:24:45 30/10/2026"
+      },
       {
         "id": 1793323373929,
         "student": "Nguyễn Thế Bình",
@@ -805,7 +817,7 @@
         "timestamp": "19:19:13 29/10/2026"
       },
       {
-        "id": 1793323478078,
+        "id": 1793323486194,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "role": "student",
@@ -814,7 +826,7 @@
         "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
         "score": null,
         "type": "draft_on_exit",
-        "timestamp": "08:24:38 30/10/2026"
+        "timestamp": "08:24:46 30/10/2026"
       },
       {
         "id": 1793323374823,
