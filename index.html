@@ -3060,23 +3060,26 @@ except Exception as e: _error = str(e)
         let synth = typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null;
         let googleVietnameseVoice = null;
 
-        // --- BỔ SUNG LỖI GITHUB: Nạp giọng Tiếng Việt tự động cho Web Speech (Fallback) ---
+        // GIẢI PHÁP HYBRID (LAI): Kết hợp Web Speech API (Local) và Google TTS (Network)
         function loadVietnameseVoice() {
             if (!synth) return;
             const voices = synth.getVoices();
             if (voices.length > 0) {
-                // Ưu tiên giọng chuẩn Google Tiếng Việt (Nữ mượt nhất), sau đó lấy bất kỳ giọng vi-VN nào làm fallback
-                googleVietnameseVoice = voices.find(v => v.name.includes('Google Tiếng Việt') || v.name.includes('Google Vietnamese'))
-                                     || voices.find(v => v.lang === 'vi-VN' || v.lang === 'vi');
+                // Quét tìm giọng nữ Tiếng Việt chuẩn xác nhất trên từng hệ điều hành
+                googleVietnameseVoice = voices.find(v => v.name.includes('Google Tiếng Việt') || v.name.includes('Google Vietnamese')) || 
+                                        voices.find(v => v.name.includes('Linh')) || // Giọng mượt trên MacOS/iOS
+                                        voices.find(v => v.name.includes('Microsoft HoaiMy')) || // Giọng mượt trên Windows
+                                        voices.find(v => v.lang === 'vi-VN' || v.lang === 'vi');
             }
         }
+        
         if (synth) {
             loadVietnameseVoice();
+            // Lắng nghe sự kiện nạp giọng đọc bất đồng bộ của trình duyệt
             if (synth.onvoiceschanged !== undefined) {
                 synth.onvoiceschanged = loadVietnameseVoice;
             }
         }
-        // ----------------------------------------------------------------------------------
 
         // TÍNH NĂNG THÔNG MINH: ĐỔI CÁCH XƯNG HÔ THEO VAI TRÒ VÀ TÊN NGƯỜI DÙNG
         function getSmartRobotGreeting(content = "") {
@@ -3144,26 +3147,54 @@ except Exception as e: _error = str(e)
         }
 
         function playNextTtsChunk() {
-            const audioPlayer = document.getElementById('robotAudioPlayer');
-            if (!audioPlayer) return;
             if (currentAudioIndex >= audioPlaylist.length) {
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
                 return;
             }
-            const chunk = audioPlaylist[currentAudioIndex];
             
-            // --- SỬA LỖI GITHUB CORS/REFERER: Đổi client=tw-ob sang client=gtx & domain googleapis ---
-            audioPlayer.src = `https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=vi&q=${encodeURIComponent(chunk)}`;
-            // ------------------------------------------------------------------------------------------
-
+            const chunk = audioPlaylist[currentAudioIndex];
             currentAudioIndex++;
 
-            audioPlayer.onplay = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
-            audioPlayer.onended = () => { playNextTtsChunk(); };
-            audioPlayer.onerror = () => { fallbackWebSpeech(chunk); };
+            // NẾU CÓ GIỌNG LOCAL CHẤT LƯỢNG CAO -> DÙNG WEB SPEECH API
+            if (synth && googleVietnameseVoice) {
+                if (synth.paused) synth.resume();
+                const u = new SpeechSynthesisUtterance(chunk);
+                u.voice = googleVietnameseVoice;
+                
+                u.lang = 'vi-VN';
+                u.rate = 1.0;
+                u.pitch = 1.05;
+                
+                u.onstart = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
+                u.onend = () => { playNextTtsChunk(); };
+                u.onerror = (e) => { playNextTtsChunk(); };
 
-            audioPlayer.play().catch(() => fallbackWebSpeech(chunk));
+                synth.speak(u);
+            } 
+            // NẾU MÁY KHÔNG CÓ GIỌNG TIẾNG VIỆT -> FALLBACK SANG GOOGLE TTS NETWORK (BYPASS CORS)
+            else {
+                const audioPlayer = document.getElementById('robotAudioPlayer');
+                if (!audioPlayer) {
+                    playNextTtsChunk();
+                    return;
+                }
+                
+                // Sử dụng client=gtx bypasses CORS block trên thẻ Audio
+                audioPlayer.src = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                
+                audioPlayer.onplay = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
+                audioPlayer.onended = () => { playNextTtsChunk(); };
+                audioPlayer.onerror = () => { 
+                    console.warn("Lỗi tải giọng đọc dự phòng từ Google. Đang nhảy sang đoạn tiếp theo...");
+                    playNextTtsChunk(); 
+                };
+                
+                audioPlayer.play().catch(e => {
+                    console.warn("Trình duyệt chặn phát âm thanh tự động. Hãy tương tác với trang.", e);
+                    playNextTtsChunk();
+                });
+            }
         }
 
         function speakRobotText(text) {
@@ -3172,27 +3203,16 @@ except Exception as e: _error = str(e)
             if (!cleanText) return;
             audioPlaylist = splitTextIntoSentences(cleanText);
             currentAudioIndex = 0;
-            try { playNextTtsChunk(); } catch (e) { fallbackWebSpeech(cleanText); }
-        }
-
-        function fallbackWebSpeech(text) {
-            if (!synth) return;
-            if (synth.paused) synth.resume();
-            const u = new SpeechSynthesisUtterance(text);
-            if (googleVietnameseVoice) u.voice = googleVietnameseVoice; // Sử dụng giọng đã được nạp
-            u.lang = 'vi-VN';
-            u.rate = 0.95;
-            u.pitch = 1.05;
-            u.onstart = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
-            u.onend = () => { isRobotSpeaking = false; updateRobotSpeakingUi(false); };
-            synth.speak(u);
+            playNextTtsChunk();
         }
 
         function stopRobotVoice() {
             const audioPlayer = document.getElementById('robotAudioPlayer');
             if (audioPlayer) { audioPlayer.pause(); audioPlayer.currentTime = 0; }
             audioPlaylist = []; currentAudioIndex = 0;
-            if (synth) synth.cancel();
+            if (synth) {
+                synth.cancel(); // Dừng ngay lập tức Web Speech API
+            }
             isRobotSpeaking = false;
             updateRobotSpeakingUi(false);
         }
