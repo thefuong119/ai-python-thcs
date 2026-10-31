@@ -3061,7 +3061,9 @@ except Exception as e: _error = str(e)
             playlist: [],
             currentIndex: 0,
             audioElement: null,
-            
+            _sessionId: 0,       // Biến bảo vệ: Mã phiên đọc hiện tại
+            _timeoutId: null,    // Biến bảo vệ: Lưu trữ và dọn dẹp các lệnh delay
+
             init() {
                 // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang
                 const unlockAllAudio = () => {
@@ -3073,14 +3075,10 @@ except Exception as e: _error = str(e)
                         }
                     } catch(e) {}
                     
-                    if (!this.audioElement) {
-                        this.audioElement = new Audio();
-                    }
+                    // Tạo một thẻ Audio ĐỘC LẬP để mở khóa, không dùng chung với luồng đọc TTS
+                    const dummyAudio = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=");
+                    dummyAudio.play().catch(()=>{});
                     
-                    if (this.audioElement.src === "" || this.audioElement.src === window.location.href) {
-                        this.audioElement.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
-                        this.audioElement.play().catch(()=>{});
-                    }
                     document.removeEventListener('click', unlockAllAudio);
                     document.removeEventListener('touchstart', unlockAllAudio);
                 };
@@ -3089,17 +3087,21 @@ except Exception as e: _error = str(e)
             },
 
             speak(text) {
-                this.stop();
+                this.stop(); // Hủy mọi luồng đọc đang chạy
                 const cleanText = this.cleanMarkdownForSpeech(text);
                 if (!cleanText) return;
                 
                 // Băm nhỏ câu văn (tối đa 150 ký tự) để API Google không từ chối
                 this.playlist = this.splitTextIntoSentences(cleanText, 150);
                 this.currentIndex = 0;
-                this.playNext();
+                this._sessionId++; // Bật Cờ Bảo Vệ: Bắt đầu một Session đọc hoàn toàn mới
+                this.playNext(this._sessionId);
             },
 
-            playNext() {
+            playNext(sessionId) {
+                // CHẶN CHỒNG ÂM (BƯỚC 1): Nếu ID phiên không khớp, chặn đứng luồng hiện tại
+                if (sessionId !== this._sessionId) return; 
+
                 if (this.currentIndex >= this.playlist.length) {
                     this.stop();
                     return;
@@ -3118,25 +3120,28 @@ except Exception as e: _error = str(e)
 
                 // Đệ quy tải URL dự phòng với Thẻ Audio luôn Mới
                 const tryPlayUrl = (index) => {
+                    // CHẶN CHỒNG ÂM (BƯỚC 2): Rào chắn bên trong hàm tải bất đồng bộ
+                    if (sessionId !== this._sessionId) return; 
+
                     if (index >= urls.length) {
-                        console.error("[CONSOLE_ERROR] Mất kết nối mạng hoặc toàn bộ máy chủ TTS phản hồi chậm.");
                         this.currentIndex++;
-                        setTimeout(() => this.playNext(), 500); // Bỏ qua đoạn lỗi, tự động đọc đoạn tiếp theo
+                        // Dùng _timeoutId để có thể hủy ngay vòng lặp nếu bị user cấn nút Dừng
+                        this._timeoutId = setTimeout(() => this.playNext(sessionId), 500); 
                         return;
                     }
 
                     // LUÔN TẠO THẺ AUDIO MỚI: Tránh lỗi kẹt trạng thái error của trình duyệt
                     const audio = new Audio();
                     this.audioElement = audio;
-                    audio.referrerPolicy = "no-referrer";
                     
                     audio.onended = () => {
+                        if (sessionId !== this._sessionId) return; // CHẶN CHỒNG ÂM
                         this.currentIndex++;
-                        this.playNext();
+                        this.playNext(sessionId);
                     };
 
                     audio.onerror = (e) => {
-                        console.warn(`Cổng TTS ${index + 1} bị chặn hoặc lỗi mạng, tự động chuyển cổng dự phòng...`);
+                        if (sessionId !== this._sessionId) return; // CHẶN CHỒNG ÂM
                         tryPlayUrl(index + 1); // Đệ quy tạo thẻ audio mới với URL tiếp theo
                     };
 
@@ -3145,7 +3150,6 @@ except Exception as e: _error = str(e)
                     if (p !== undefined) {
                         p.catch(e => {
                             if (e.name === 'NotAllowedError') {
-                                console.warn("Trình duyệt chặn Autoplay. Cần người dùng tương tác.");
                                 this.stop();
                             }
                         });
@@ -3156,13 +3160,23 @@ except Exception as e: _error = str(e)
             },
 
             stop() {
+                this._sessionId++; // VÔ HIỆU HÓA TẤT CẢ CÁC LUỒNG CŨ, chặn đứt hiện tượng chồng âm
+                
+                if (this._timeoutId) {
+                    clearTimeout(this._timeoutId); // Quét dọn các khoảng trễ gây delay âm
+                    this._timeoutId = null;
+                }
+
                 this.playlist = [];
                 this.currentIndex = 0;
+                
                 if (this.audioElement) {
                     this.audioElement.pause();
-                    this.audioElement.removeAttribute('src'); // Giải phóng tài nguyên đúng chuẩn thay vì gán ""
+                    this.audioElement.removeAttribute('src'); // Giải phóng tài nguyên đúng chuẩn
                     this.audioElement.load();
+                    this.audioElement = null; // Cắt đứt thẻ audio cũ, thả bộ nhớ
                 }
+                
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
             },
