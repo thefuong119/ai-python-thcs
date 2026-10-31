@@ -231,7 +231,17 @@
                             <p class="text-xs text-slate-500">Đọc lý thuyết chi tiết theo chương trình chuẩn và nghe Robot AI thuyết minh trực tiếp.</p>
                         </div>
                         <div class="flex items-center gap-2">
-                            <select id="selectStudentLecture" onchange="renderStudentLectureDetail(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <select id="studentGradeFilter" onchange="populateStudentLectures()" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-xs font-bold text-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
+                                <option value="all">Tất cả khối</option>
+                                <option value="6">Khối 6</option>
+                                <option value="7">Khối 7</option>
+                                <option value="8" selected>Khối 8</option>
+                                <option value="9">Khối 9</option>
+                                <option value="10">Khối 10</option>
+                                <option value="11">Khối 11</option>
+                                <option value="12">Khối 12</option>
+                            </select>
+                            <select id="selectStudentLecture" onchange="renderStudentLectureDetail(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none max-w-[200px] sm:max-w-xs cursor-pointer truncate">
                                 <!-- Nạp bài giảng qua JS -->
                             </select>
                         </div>
@@ -405,9 +415,16 @@
                         </h3>
                         <p class="text-xs text-slate-500">Giáo viên có thể soạn thảo, chỉnh sửa và đẩy đồng bộ dữ liệu bài giảng lên GitHub.</p>
                     </div>
-                    <button onclick="openLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
-                        <i class="ph-bold ph-plus"></i> Thêm Bài Giảng Mới
-                    </button>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <select id="teacherGradeFilter" onchange="renderTeacherLecturesTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                        </select>
+                        <button onclick="openLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
+                            <i class="ph-bold ph-plus"></i> Thêm Mới
+                        </button>
+                    </div>
                 </div>
 
                 <div id="lectureFormContainer" class="hidden bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
@@ -427,9 +444,17 @@
                             <label class="block font-bold text-xs text-slate-700 mb-1">Tiêu đề bài giảng (*):</label>
                             <input type="text" id="lectureInputTitle" placeholder="Ví dụ: Bài 1. Ngôn ngữ lập trình bậc cao và python" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
                         </div>
-                        <div>
-                            <label class="block font-bold text-xs text-slate-700 mb-1">Khối lớp / Chủ đề:</label>
-                            <input type="text" id="lectureInputGrade" value="Lớp 8 - Tin học cơ sở" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
+                        <div class="flex gap-2">
+                            <div class="w-1/3">
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Khối:</label>
+                                <select id="lectureInputClassLevel" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800">
+                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8">Khối 8</option><option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                                </select>
+                            </div>
+                            <div class="w-2/3">
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Chủ đề:</label>
+                                <input type="text" id="lectureInputGrade" placeholder="Ví dụ: Tin học cơ sở" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
+                            </div>
                         </div>
                     </div>
 
@@ -697,9 +722,16 @@
                         </h3>
                         <p class="text-xs text-slate-500">Admin có thể tạo mới, sửa, xóa trực tiếp và đẩy đồng bộ lên GitHub.</p>
                     </div>
-                    <button onclick="openAdminLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
-                        <i class="ph-bold ph-plus"></i> Thêm Bài Giảng Mới
-                    </button>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <select id="adminGradeFilter" onchange="renderTeacherLecturesTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none cursor-pointer">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                        </select>
+                        <button onclick="openAdminLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
+                            <i class="ph-bold ph-plus"></i> Thêm Mới
+                        </button>
+                    </div>
                 </div>
 
                 <!-- FORM SOẠN THẢO BÀI GIẢNG DÀNH RIÊNG CHO ADMIN -->
@@ -720,9 +752,17 @@
                             <label class="block font-bold text-xs text-slate-700 mb-1">Tiêu đề bài giảng (*):</label>
                             <input type="text" id="adminLectureInputTitle" placeholder="Tiêu đề bài giảng..." class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
                         </div>
-                        <div>
-                            <label class="block font-bold text-xs text-slate-700 mb-1">Khối lớp / Chủ đề:</label>
-                            <input type="text" id="adminLectureInputGrade" value="Lớp 8 - Tin học cơ sở" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
+                        <div class="flex gap-2">
+                            <div class="w-1/3">
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Khối:</label>
+                                <select id="adminLectureInputClassLevel" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-800">
+                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8">Khối 8</option><option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                                </select>
+                            </div>
+                            <div class="w-2/3">
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Chủ đề:</label>
+                                <input type="text" id="adminLectureInputGrade" placeholder="Ví dụ: Tin học cơ sở" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs">
+                            </div>
                         </div>
                     </div>
 
@@ -2088,9 +2128,20 @@
         // ==============================================
         function populateStudentLectures() {
             const sel = document.getElementById('selectStudentLecture');
+            const filterEl = document.getElementById('studentGradeFilter');
             if (!sel) return;
-            sel.innerHTML = lectures.map(l => `<option value="${l.id}">${l.id}. ${l.title}</option>`).join('');
-            if (lectures.length > 0) renderStudentLectureDetail(lectures[0].id);
+            
+            const filterVal = filterEl ? filterEl.value : 'all';
+            const filteredLectures = lectures.filter(l => filterVal === 'all' || (l.classLevel || '8') === filterVal);
+            
+            sel.innerHTML = filteredLectures.map(l => `<option value="${l.id}">Khối ${l.classLevel || '8'} - ${l.title}</option>`).join('');
+            
+            const area = document.getElementById('studentLectureContentArea');
+            if (filteredLectures.length > 0) {
+                renderStudentLectureDetail(filteredLectures[0].id);
+            } else if (area) {
+                area.innerHTML = '<div class="text-center p-8 text-slate-500 text-sm font-medium bg-white rounded-2xl border border-slate-200 shadow-inner">Chưa có bài giảng nào cho khối lớp này.</div>';
+            }
         }
 
         function speakStudentLecture(id) {
@@ -2106,10 +2157,10 @@
             const area = document.getElementById('studentLectureContentArea');
             if (!lec || !area) return;
             area.innerHTML = `
-                <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between">
+                <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between shadow-sm">
                     <div>
                         <h4 class="font-bold text-sm text-indigo-950">${lec.title}</h4>
-                        <span class="text-xs text-indigo-600 font-semibold">${lec.grade || 'Lớp 8'}</span>
+                        <span class="text-xs text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${lec.classLevel || '8'} - ${lec.grade || 'Tin học'}</span>
                     </div>
                     <button onclick="speakStudentLecture(${lec.id})" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow">
                         <i class="ph-bold ph-speaker-high"></i> AI Đọc Bài Giảng
@@ -2125,11 +2176,17 @@
         function renderTeacherLecturesTable() {
             const tbody = document.getElementById('teacherLecturesTableBody');
             const adminTbody = document.getElementById('adminLecturesTableBody');
+            
+            const teacherFilter = document.getElementById('teacherGradeFilter')?.value || 'all';
+            const adminFilter = document.getElementById('adminGradeFilter')?.value || 'all';
 
-            const rowHtml = lectures.map(l => `
+            const filteredForTeacher = lectures.filter(l => teacherFilter === 'all' || (l.classLevel || '8') === teacherFilter);
+            const filteredForAdmin = lectures.filter(l => adminFilter === 'all' || (l.classLevel || '8') === adminFilter);
+
+            const rowHtml = filteredForTeacher.map(l => `
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-3 font-bold text-center text-slate-500 font-mono">${l.id}</td>
-                    <td class="p-3 font-semibold text-slate-900">${l.title}</td>
+                    <td class="p-3 font-semibold text-slate-900"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-[10px] mr-2 font-bold border border-indigo-100">Khối ${l.classLevel || '8'}</span>${l.title}</td>
                     <td class="p-3 text-slate-600">${l.grade || 'Tin học'}</td>
                     <td class="p-3 text-center">
                         <div class="flex items-center justify-center gap-2">
@@ -2149,10 +2206,10 @@
 
             if (tbody) tbody.innerHTML = rowHtml;
 
-            const adminRowHtml = lectures.map(l => `
+            const adminRowHtml = filteredForAdmin.map(l => `
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-3 font-bold text-center text-slate-500 font-mono">${l.id}</td>
-                    <td class="p-3 font-semibold text-slate-900">${l.title}</td>
+                    <td class="p-3 font-semibold text-slate-900"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-[10px] mr-2 font-bold border border-indigo-100">Khối ${l.classLevel || '8'}</span>${l.title}</td>
                     <td class="p-3 text-slate-600">${l.grade || 'Tin học'}</td>
                     <td class="p-3 text-center">
                         <div class="flex items-center justify-center gap-2">
@@ -2186,7 +2243,12 @@
         function openLectureModalForCreate() {
             document.getElementById('editingLectureId').value = '';
             document.getElementById('lectureInputTitle').value = '';
-            document.getElementById('lectureInputGrade').value = 'Lớp 8 - Tin học cơ sở';
+            
+            // Tự động nhận giá trị khối lớp từ bộ lọc hiện tại
+            const currentFilter = document.getElementById('teacherGradeFilter')?.value;
+            document.getElementById('lectureInputClassLevel').value = (currentFilter && currentFilter !== 'all') ? currentFilter : '8';
+            
+            document.getElementById('lectureInputGrade').value = 'Tin học cơ sở';
             document.getElementById('lectureInputBody').value = '';
             document.getElementById('lectureFormTitle').textContent = 'Thêm Bài Giảng Mới';
             document.getElementById('lectureFormContainer')?.classList.remove('hidden');
@@ -2197,7 +2259,8 @@
             if (!lec) return;
             document.getElementById('editingLectureId').value = lec.id;
             document.getElementById('lectureInputTitle').value = lec.title;
-            document.getElementById('lectureInputGrade').value = lec.grade || 'Lớp 8';
+            document.getElementById('lectureInputClassLevel').value = lec.classLevel || '8';
+            document.getElementById('lectureInputGrade').value = lec.grade || 'Tin học cơ sở';
             document.getElementById('lectureInputBody').value = lec.content;
             document.getElementById('lectureFormTitle').textContent = `Chỉnh Sửa Bài Giảng (ID: ${lec.id})`;
             document.getElementById('lectureFormContainer')?.classList.remove('hidden');
@@ -2207,6 +2270,7 @@
         async function saveOrUpdateLecture() {
             const id = document.getElementById('editingLectureId')?.value;
             const title = document.getElementById('lectureInputTitle')?.value.trim();
+            const classLevel = document.getElementById('lectureInputClassLevel')?.value;
             const grade = document.getElementById('lectureInputGrade')?.value.trim();
             const body = document.getElementById('lectureInputBody')?.value.trim();
 
@@ -2216,13 +2280,14 @@
                 const lec = lectures.find(l => l.id == id);
                 if (lec) {
                     lec.title = title;
+                    lec.classLevel = classLevel;
                     lec.grade = grade;
                     lec.content = body;
                     showToast(`Đã cập nhật bài giảng "${title}"!`, "success");
                 }
             } else {
                 const newId = lectures.length > 0 ? Math.max(...lectures.map(l => l.id)) + 1 : 1;
-                lectures.push({ id: newId, title, grade, content: body });
+                lectures.push({ id: newId, title, classLevel, grade, content: body });
                 showToast(`Đã thêm bài giảng mới "${title}"!`, "success");
             }
 
@@ -2286,7 +2351,12 @@
         function openAdminLectureModalForCreate() {
             document.getElementById('adminEditingLectureId').value = '';
             document.getElementById('adminLectureInputTitle').value = '';
-            document.getElementById('adminLectureInputGrade').value = 'Lớp 8 - Tin học cơ sở';
+            
+            // Tự động nhận giá trị khối lớp từ bộ lọc hiện tại
+            const currentFilter = document.getElementById('adminGradeFilter')?.value;
+            document.getElementById('adminLectureInputClassLevel').value = (currentFilter && currentFilter !== 'all') ? currentFilter : '8';
+            
+            document.getElementById('adminLectureInputGrade').value = 'Tin học cơ sở';
             document.getElementById('adminLectureInputBody').value = '';
             document.getElementById('adminLectureFormTitle').textContent = 'Thêm Bài Giảng Mới (Admin)';
             document.getElementById('adminLectureFormContainer')?.classList.remove('hidden');
@@ -2297,7 +2367,8 @@
             if (!lec) return;
             document.getElementById('adminEditingLectureId').value = lec.id;
             document.getElementById('adminLectureInputTitle').value = lec.title;
-            document.getElementById('adminLectureInputGrade').value = lec.grade || 'Lớp 8';
+            document.getElementById('adminLectureInputClassLevel').value = lec.classLevel || '8';
+            document.getElementById('adminLectureInputGrade').value = lec.grade || 'Tin học cơ sở';
             document.getElementById('adminLectureInputBody').value = lec.content;
             document.getElementById('adminLectureFormTitle').textContent = `Chỉnh Sửa Bài Giảng (ID: ${lec.id}) - Quyền Admin`;
             document.getElementById('adminLectureFormContainer')?.classList.remove('hidden');
@@ -2307,6 +2378,7 @@
         async function saveOrUpdateAdminLecture() {
             const id = document.getElementById('adminEditingLectureId')?.value;
             const title = document.getElementById('adminLectureInputTitle')?.value.trim();
+            const classLevel = document.getElementById('adminLectureInputClassLevel')?.value;
             const grade = document.getElementById('adminLectureInputGrade')?.value.trim();
             const body = document.getElementById('adminLectureInputBody')?.value.trim();
 
@@ -2316,13 +2388,14 @@
                 const lec = lectures.find(l => l.id == id);
                 if (lec) {
                     lec.title = title;
+                    lec.classLevel = classLevel;
                     lec.grade = grade;
                     lec.content = body;
                     showToast(`Admin đã cập nhật bài giảng "${title}"!`, "success");
                 }
             } else {
                 const newId = lectures.length > 0 ? Math.max(...lectures.map(l => l.id)) + 1 : 1;
-                lectures.push({ id: newId, title, grade, content: body });
+                lectures.push({ id: newId, title, classLevel, grade, content: body });
                 showToast(`Admin đã thêm bài giảng mới "${title}"!`, "success");
             }
 
@@ -2387,9 +2460,20 @@
         // ==============================================
         function populateAssignmentSelect() {
             const sel = document.getElementById('selectAssignment');
+            const filterEl = document.getElementById('studentGradeFilter'); // Dùng chung bộ lọc khối toàn cục
             if (!sel) return;
-            sel.innerHTML = assignments.map(a => `<option value="${a.id}">${a.id}. ${a.title}</option>`).join('');
-            if (assignments.length > 0) loadAssignment(assignments[0].id);
+            
+            const filterVal = filterEl ? filterEl.value : 'all';
+            const filteredAssignments = assignments.filter(a => filterVal === 'all' || (a.classLevel || '8') === filterVal);
+            
+            sel.innerHTML = filteredAssignments.map(a => `<option value="${a.id}">Khối ${a.classLevel || '8'} - ${a.title}</option>`).join('');
+            
+            if (filteredAssignments.length > 0) {
+                loadAssignment(filteredAssignments[0].id);
+            } else {
+                document.getElementById('assignmentDescription').innerHTML = '<div class="text-slate-500 italic text-center p-6 border border-slate-200 rounded-2xl bg-white shadow-inner">Chưa có bài tập cho khối lớp này.</div>';
+                currentAssignment = null;
+            }
         }
 
         function loadAssignment(id) {
@@ -2460,6 +2544,11 @@
         function resetAssignmentForm() {
             document.getElementById('editingAssignmentId').value = '';
             document.getElementById('newTitle').value = '';
+            
+            // Tự động nhận giá trị khối lớp
+            const currentFilter = document.getElementById('teacherGradeFilter')?.value;
+            document.getElementById('newAssignmentClassLevel').value = (currentFilter && currentFilter !== 'all') ? currentFilter : '8';
+            
             document.getElementById('newDescription').value = '';
             document.getElementById('newSolutionCode').value = '';
             editingTestCases = [
@@ -2473,6 +2562,7 @@
             const a = assignments.find(x => x.id == id);
             if (!a) return;
             document.getElementById('editingAssignmentId').value = a.id;
+            document.getElementById('newAssignmentClassLevel').value = a.classLevel || '8';
             document.getElementById('newTitle').value = a.title || '';
             document.getElementById('newDescription').value = a.description || '';
             document.getElementById('newSolutionCode').value = a.templateCode || '';
@@ -2484,6 +2574,7 @@
 
         async function saveAssignment() {
             const title = document.getElementById('newTitle')?.value.trim();
+            const classLevel = document.getElementById('newAssignmentClassLevel')?.value || '8';
             const desc = document.getElementById('newDescription')?.value.trim();
             const sol = document.getElementById('newSolutionCode')?.value.trim();
             if (!title) return showToast("Vui lòng nhập tên bài tập!", "error");
@@ -2493,6 +2584,7 @@
                 const ass = assignments.find(a => a.id == editId);
                 if (ass) {
                     ass.title = title;
+                    ass.classLevel = classLevel;
                     ass.description = desc;
                     ass.templateCode = sol;
                     ass.tests = JSON.parse(JSON.stringify(editingTestCases));
@@ -2500,8 +2592,9 @@
                 showToast("Đã cập nhật bài tập!", "success");
             } else {
                 assignments.push({
-                    id: assignments.length + 1,
+                    id: assignments.length > 0 ? Math.max(...assignments.map(x => x.id)) + 1 : 1,
                     title,
+                    classLevel,
                     difficulty: 'easy',
                     timeLimit: 2.0,
                     description: desc,
@@ -2534,10 +2627,14 @@
         function renderManageAssignmentsTable() {
             const tbody = document.getElementById('manageAssignmentsTableBody');
             if (!tbody) return;
-            tbody.innerHTML = assignments.map(a => `
+            
+            const filterVal = document.getElementById('teacherGradeFilter')?.value || 'all';
+            const filteredAssignments = assignments.filter(a => filterVal === 'all' || (a.classLevel || '8') === filterVal);
+            
+            tbody.innerHTML = filteredAssignments.map(a => `
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-3 font-bold text-center text-slate-500 font-mono">${a.id}</td>
-                    <td class="p-3 font-semibold text-slate-900">${a.title}</td>
+                    <td class="p-3 font-semibold text-slate-900"><span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-[10px] mr-2 font-bold border border-blue-100">Khối ${a.classLevel || '8'}</span>${a.title}</td>
                     <td class="p-3 text-center uppercase text-[10px] font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
                     <td class="p-3 text-center font-mono text-slate-600">${a.timeLimit || 2.0}s</td>
                     <td class="p-3 text-center">
@@ -2552,10 +2649,14 @@
         function renderAdminAssignmentsTable() {
             const tbody = document.getElementById('adminAssignmentsTableBody');
             if (!tbody) return;
-            tbody.innerHTML = assignments.map(a => `
+            
+            const filterVal = document.getElementById('adminGradeFilter')?.value || 'all';
+            const filteredAssignments = assignments.filter(a => filterVal === 'all' || (a.classLevel || '8') === filterVal);
+            
+            tbody.innerHTML = filteredAssignments.map(a => `
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="p-3 font-bold text-center text-slate-500 font-mono">${a.id}</td>
-                    <td class="p-3 font-semibold text-slate-900">${a.title}</td>
+                    <td class="p-3 font-semibold text-slate-900"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-[10px] mr-2 font-bold border border-indigo-100">Khối ${a.classLevel || '8'}</span>${a.title}</td>
                     <td class="p-3 text-center uppercase text-[10px] font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
                     <td class="p-3 text-center">
                         <button onclick="editAdminAssignment(${a.id})" class="text-blue-600 hover:text-blue-800 font-bold mr-2"><i class="ph-bold ph-pencil-simple"></i> Sửa (Admin)</button>
@@ -2573,6 +2674,11 @@
         function resetAdminAssignmentForm() {
             document.getElementById('adminEditingAssignmentId').value = '';
             document.getElementById('adminNewTitle').value = '';
+            
+            // Tự động nhận giá trị khối lớp
+            const currentFilter = document.getElementById('adminGradeFilter')?.value;
+            document.getElementById('adminNewAssignmentClassLevel').value = (currentFilter && currentFilter !== 'all') ? currentFilter : '8';
+            
             document.getElementById('adminNewDescription').value = '';
             document.getElementById('adminNewSolutionCode').value = '';
             adminEditingTestCases = [
@@ -2619,6 +2725,7 @@
             const a = assignments.find(x => x.id == id);
             if (!a) return;
             document.getElementById('adminEditingAssignmentId').value = a.id;
+            document.getElementById('adminNewAssignmentClassLevel').value = a.classLevel || '8';
             document.getElementById('adminNewTitle').value = a.title || '';
             document.getElementById('adminNewDescription').value = a.description || '';
             document.getElementById('adminNewSolutionCode').value = a.templateCode || '';
@@ -2631,6 +2738,7 @@
 
         async function saveAdminAssignment() {
             const title = document.getElementById('adminNewTitle')?.value.trim();
+            const classLevel = document.getElementById('adminNewAssignmentClassLevel')?.value || '8';
             const desc = document.getElementById('adminNewDescription')?.value.trim();
             const sol = document.getElementById('adminNewSolutionCode')?.value.trim();
             if (!title) return showToast("Vui lòng nhập tên bài tập!", "error");
@@ -2640,6 +2748,7 @@
                 const ass = assignments.find(a => a.id == editId);
                 if (ass) {
                     ass.title = title;
+                    ass.classLevel = classLevel;
                     ass.description = desc;
                     ass.templateCode = sol;
                     ass.tests = JSON.parse(JSON.stringify(adminEditingTestCases));
@@ -2647,8 +2756,9 @@
                 showToast("Admin đã cập nhật bài tập!", "success");
             } else {
                 assignments.push({
-                    id: assignments.length + 1,
+                    id: assignments.length > 0 ? Math.max(...assignments.map(x => x.id)) + 1 : 1,
                     title,
+                    classLevel,
                     difficulty: 'easy',
                     timeLimit: 2.0,
                     description: desc,
