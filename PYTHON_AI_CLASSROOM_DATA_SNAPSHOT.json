@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T08:52:04.791Z",
+    "updatedAt": "2026-10-31T08:52:46.039Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 1. Tin học 12"
+    "action": "Lưu bài giảng: Bài 1. An toàn thông tin cá nhân cho học sinh"
   },
   "data": {
     "registeredUsers": [
@@ -538,9 +538,9 @@
       },
       {
         "id": 15,
-        "title": "Bài 1. Tin học 12",
+        "title": "Bài 1. An toàn thông tin cá nhân cho học sinh",
         "classLevel": "12",
-        "grade": "An toàn thông tin cá nhân cho học sinh",
+        "grade": "Xã hội số",
         "content": "CHECKLIST AN TOÀN CNTT CÁ NHÂN DÀNH CHO HỌC SINH\n\nSTT\n\nHành động cụ thể hàng ngày\n\nTrạng thái\n\nLưu ý bảo mật\n\n1\n\nĐặt và bảo vệ mật khẩu mạnh\n\n\n\n• Dùng mật khẩu dài từ 8–12 ký tự (gồm chữ hoa, chữ thường, số, ký tự đặc biệt).\n\n\n\n• Không chia sẻ mật khẩu cho bạn bè, kể cả bạn thân.\n\n[ ] Hoàn thành\n\nThay đổi mật khẩu định kỳ 3–6 tháng/lần; bật bảo mật 2 lớp (2FA) cho tài khoản mạng xã hội.\n\n2\n\nCảnh giác với đường link và tệp đính kèm lạ\n\n\n\n• Không bấm vào các đường link lạ gửi qua tin nhắn (Messenger, Zalo, SMS).\n\n\n\n• Không tải về các tệp tin từ trang web không rõ nguồn gốc.\n\n[ ] Hoàn thành\n\nKiểm tra kỹ địa chỉ trang web (URL); cảnh giác với tin nhắn trúng thưởng hoặc đe dọa.\n\n3\n\nBảo vệ thông tin định danh cá nhân\n\n\n\n• Không đăng tải ảnh chụp Căn cước công dân/Thẻ học sinh, số điện thoại, địa chỉ nhà hay vị trí thời gian thực lên mạng xã hội.\n\n[ ] Hoàn thành\n\nĐặt chế độ riêng tư (Chỉ bạn bè) cho các bài viết cá nhân trên Facebook/TikTok/Instagram.\n\n4\n\nXác minh thông tin khi gặp yêu cầu chuyển tiền/mượn tài khoản\n\n\n\n• Nếu bạn bè hoặc người thân nhắn tin nhờ chuyển tiền hay nhờ nhận mã OTP, cần gọi điện thoại thoại (hoặc gặp trực tiếp) để xác nhận.\n\n[ ] Hoàn thành\n\nTuyệt đối không gửi mã OTP cho bất kỳ ai, kể cả người tự xưng là công an, thầy cô hay nhân viên ngân hàng.\n\n5\n\nĐăng xuất tài khoản & Khóa thiết bị khi không sử dụng\n\n\n\n• Đăng xuất tài khoản Google, Facebook... sau khi dùng xong trên máy tính trường/quán net.\n\n\n\n• Luôn cài mã khóa màn hình (PIN/Vân tay) cho điện thoại, máy tính bảng.\n\n[ ] Hoàn thành\n\nTránh lưu mật khẩu tự động trên các trình duyệt ở thiết bị công cộng."
       }
     ],
