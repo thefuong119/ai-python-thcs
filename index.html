@@ -45,7 +45,7 @@
     <!-- KaTeX for MathType / Mathematical Formulas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderMathInElement) renderMathInElement(document.body);"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
 
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -425,7 +425,7 @@
                         <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
                             <i class="ph-bold ph-book-open-text text-blue-600"></i> Quản Lý Thư Viện Bài Giảng & Lý Thuyết Python
                         </h3>
-                        <p class="text-xs text-slate-500">Giáo viên có thể soạn thảo, chỉnh sửa và đẩy đồng bộ dữ liệu bài giảng lên GitHub.</p>
+                        <p class="text-xs text-slate-500">Giáo viên có thể soạn thảo, nạp tệp mẫu hàng loạt và đẩy đồng bộ dữ liệu lên GitHub.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
                         <select id="teacherGradeFilter" onchange="renderTeacherLecturesTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
@@ -433,6 +433,13 @@
                             <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
+                        <button onclick="exportLectureTemplate()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Tải tệp mẫu bài giảng (.json)">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        </button>
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp JSON mẫu">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
+                            <input type="file" accept=".json" class="hidden" onchange="importLectureFileFromTemplate(event)">
+                        </label>
                         <button onclick="openLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
                             <i class="ph-bold ph-plus"></i> Thêm Mới
                         </button>
@@ -569,14 +576,23 @@
 
             <!-- Tab 3 Giáo viên: Ngân hàng Đề Bài -->
             <div id="teacherTabManage" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                     <div>
                         <h4 class="font-bold text-sm text-slate-900">Danh Sách Bài Tập Đã Tạo</h4>
-                        <p class="text-xs text-slate-500">Giáo viên có thể chỉnh sửa và thêm đề bài mới.</p>
+                        <p class="text-xs text-slate-500">Giáo viên có thể chỉnh sửa, nạp tệp bài tập từ file mẫu và thêm đề mới.</p>
                     </div>
-                    <button onclick="createAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs flex items-center gap-1.5 transition-all">
-                        <i class="ph-bold ph-plus"></i> Thêm Đề Mới
-                    </button>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="exportAssignmentTemplate()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all" title="Tải tệp mẫu bài tập (.json)">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        </button>
+                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp JSON mẫu">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
+                            <input type="file" accept=".json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
+                        </label>
+                        <button onclick="createAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs flex items-center gap-1.5 transition-all">
+                            <i class="ph-bold ph-plus"></i> Thêm Đề Mới
+                        </button>
+                    </div>
                 </div>
                 
                 <div class="overflow-x-auto border border-slate-200 rounded-2xl">
@@ -740,7 +756,7 @@
                         <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
                             <i class="ph-bold ph-book-open-text text-indigo-600"></i> Quản Lý Bài Giảng Lý Thuyết (Quyền Quản Trị)
                         </h3>
-                        <p class="text-xs text-slate-500">Admin có thể tạo mới, sửa, xóa trực tiếp và đẩy đồng bộ lên GitHub.</p>
+                        <p class="text-xs text-slate-500">Admin có thể tạo mới, xuất/nạp tệp mẫu và đẩy đồng bộ lên GitHub.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
                         <select id="adminGradeFilter" onchange="renderTeacherLecturesTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none cursor-pointer">
@@ -748,6 +764,13 @@
                             <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
+                        <button onclick="exportLectureTemplate()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Xuất tệp mẫu bài giảng (.json)">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        </button>
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp JSON">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
+                            <input type="file" accept=".json" class="hidden" onchange="importLectureFileFromTemplate(event)">
+                        </label>
                         <button onclick="openAdminLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
                             <i class="ph-bold ph-plus"></i> Thêm Mới
                         </button>
@@ -828,14 +851,23 @@
 
             <!-- Tab 3 Admin: Ngân Hàng Đề Bài (Admin sửa trực tiếp) -->
             <div id="adminTabAssignments" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                     <div>
                         <h4 class="font-bold text-sm text-slate-900">Ngân Hàng Đề Bài (Quyền Quản Trị)</h4>
-                        <p class="text-xs text-slate-500">Admin có thể tạo mới, chỉnh sửa và cấu hình test case trực tiếp.</p>
+                        <p class="text-xs text-slate-500">Admin có thể xuất/nạp tệp mẫu đề bài, tạo mới và cấu hình test case trực tiếp.</p>
                     </div>
-                    <button onclick="createAdminAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5">
-                        <i class="ph-bold ph-plus"></i> Thêm Đề Mới
-                    </button>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="exportAssignmentTemplate()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all" title="Xuất tệp mẫu bài tập (.json)">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        </button>
+                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp JSON">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
+                            <input type="file" accept=".json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
+                        </label>
+                        <button onclick="createAdminAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-plus"></i> Thêm Đề Mới
+                        </button>
+                    </div>
                 </div>
 
                 <!-- FORM SOẠN THẢO BÀI TẬP DÀNH RIÊNG CHO ADMIN -->
@@ -1801,6 +1833,7 @@
                     closeLoginModal();
                     switchRole('admin');
                     showToast("Chào mừng Quản trị viên Thầy Nguyễn Thế Phương!", "success");
+                    speakRobotText("Kính chào Thầy Nguyễn Thế Phương! Chúc thầy quản trị hệ thống và giảng dạy hiệu quả. Thầy có thể kéo tôi đến văn bản bất kỳ để nghe đọc nhé!");
                     return;
                 }
 
@@ -1817,6 +1850,7 @@
                     closeLoginModal();
                     switchRole(teacher.role || 'teacher');
                     showToast(`Chào mừng ${teacher.name}!`, "success");
+                    speakRobotText(`Kính chào thầy cô ${teacher.name}! Chúc thầy cô một ngày giảng dạy thật tốt. Hãy kéo tôi đến văn bản để nghe đọc nhé!`);
                 } else {
                     logUserAccess(id, id, "teacher", "Thất bại");
                     showToast("Tên đăng nhập hoặc mật khẩu không chính xác!", "error");
@@ -1840,6 +1874,7 @@
                     closeLoginModal();
                     switchRole('student');
                     showToast(`Chào mừng học sinh ${student.name}!`, "success");
+                    speakRobotText(`Chào em ${student.name}! Chúc em một buổi học vui vẻ. Em hãy kéo robot đến văn bản bất kỳ để nghe đọc bài nhé!`);
                 } else {
                     logUserAccess(id, id, "student", "Thất bại");
                     showToast("Tài khoản hoặc mật khẩu Học sinh không chính xác!", "error");
@@ -2164,9 +2199,8 @@
         function speakStudentLecture(id) {
             const lec = lectures.find(l => l.id == id);
             if (!lec) return;
-            const intro = getSmartRobotGreeting(`sau đây là nội dung bài giảng ${lec.title}. `);
-            speakRobotText(intro + lec.content);
-            showToast(`Robot AI đang đọc bài giảng: ${lec.title}`, "info");
+            speakRobotText(`Nội dung ${lec.title}. ${lec.content}`);
+            showToast(`Robot đang đọc: ${lec.title}`, "info");
         }
 
         function renderStudentLectureDetail(id) {
@@ -2187,7 +2221,7 @@
                     ${renderSimpleMarkdown(lec.content)}
                 </div>
             `;
-            if (window.renderMathInElement) renderMathInElement(area);
+            renderKaTeXFormulas(area);
         }
 
         function renderTeacherLecturesTable() {
@@ -2251,9 +2285,8 @@
         function previewTeacherLectureById(id) {
             const lec = lectures.find(l => l.id == id);
             if (!lec) return;
-            const intro = getSmartRobotGreeting(`sau đây là nội dung bài giảng: ${lec.title}. `);
-            speakRobotText(intro + lec.content);
-            showToast(`Robot AI đang đọc bài giảng: ${lec.title}`, "info");
+            speakRobotText(`${lec.title}. ${lec.content}`);
+            showToast(`Robot đang đọc: ${lec.title}`, "info");
         }
 
         // Quản lý bài giảng - Giao diện Giáo viên
@@ -2326,8 +2359,7 @@
             const title = document.getElementById('lectureInputTitle')?.value.trim() || "bài giảng";
             const body = document.getElementById('lectureInputBody')?.value.trim();
             if (!body) return showToast("Vui lòng nhập nội dung bài giảng để nghe thử!", "error");
-            const intro = getSmartRobotGreeting(`sau đây là bản đọc thử ${title}. `);
-            speakRobotText(intro + body);
+            speakRobotText(`${title}. ${body}`);
         }
 
         function insertFormatting(prefix, suffix = '') {
@@ -2434,8 +2466,7 @@
             const title = document.getElementById('adminLectureInputTitle')?.value.trim() || "bài giảng";
             const body = document.getElementById('adminLectureInputBody')?.value.trim();
             if (!body) return showToast("Vui lòng nhập nội dung bài giảng để nghe thử!", "error");
-            const intro = getSmartRobotGreeting(`sau đây là bản đọc thử ${title}. `);
-            speakRobotText(intro + body);
+            speakRobotText(`${title}. ${body}`);
         }
 
         function insertAdminFormatting(prefix, suffix = '') {
@@ -2517,7 +2548,7 @@
                     </div>
                 `).join('');
             }
-            if (window.renderMathInElement) renderMathInElement(document.getElementById('assignmentDescription'));
+            renderKaTeXFormulas(document.getElementById('assignmentDescription'));
         }
 
         function renderTestCaseEditor() {
@@ -2882,8 +2913,7 @@ except Exception as e: _error = str(e)
             if (!currentAssignment) return;
             document.getElementById('codeEditor').value = currentAssignment.templateCode || "# Lời giải mẫu\n";
             updateLineNumbers();
-            const message = getSmartRobotGreeting("mình đã mở khóa mã nguồn mẫu cho em tham khảo rồi nhé!");
-            speakRobotText(message);
+            speakRobotText("Đã mở khóa mã nguồn mẫu cho em tham khảo nhé!");
             showToast("Đã nạp mã nguồn mẫu!", "success");
         }
 
@@ -3219,7 +3249,156 @@ except Exception as e: _error = str(e)
         }
 
         // ==============================================
-        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC (100% GOOGLE CLOUD TTS)
+        // TIỆN ÍCH XUẤT & NẠP TỆP MẪU BÀI GIẢNG / BÀI TẬP
+        // ==============================================
+        function downloadJsonFile(filename, dataObj) {
+            const jsonStr = JSON.stringify(dataObj, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+        }
+
+        function exportLectureTemplate() {
+            const sample = [
+                {
+                    "title": "Bài 14. Kiểu dữ liệu Dictionary trong Python",
+                    "classLevel": "8",
+                    "grade": "Tin học cơ sở",
+                    "content": "### 1. Khái niệm Dictionary\n- Kiểu dữ liệu từ điển lưu các cặp khóa và giá trị (`key: value`), ví dụ: `d = {'ten': 'An', 'diem': 10}`.\n- Độ phức tạp tìm kiếm theo khóa là $O(1)$.\n\n### 2. Ví dụ Python minh họa\n```python\nperson = {'name': 'An', 'age': 14}\nprint(person['name'])\n```"
+                },
+                {
+                    "title": "Bài 15. Thuật toán tìm kiếm nhị phân (Binary Search)",
+                    "classLevel": "9",
+                    "grade": "Bồi dưỡng HSG",
+                    "content": "### 1. Nguyên lý tìm kiếm nhị phân\n- Cho dãy số đã sắp xếp tăng dần. Ở mỗi bước, so sánh phần tử cần tìm với phần tử giữa để thu hẹp không gian tìm kiếm còn một nửa.\n- Thời gian thực thi là $O(\\log n)$."
+                }
+            ];
+            downloadJsonFile("tep_mau_bai_giang_python.json", sample);
+            showToast("Đã tải xuống tệp mẫu Bài giảng (.json)!", "success");
+        }
+
+        function exportAssignmentTemplate() {
+            const sample = [
+                {
+                    "title": "Tính chu vi và diện tích hình chữ nhật",
+                    "classLevel": "8",
+                    "difficulty": "easy",
+                    "timeLimit": 2.0,
+                    "description": "### Đề bài\nCho hai số nguyên dương $a$ và $b$ tương ứng là chiều dài và chiều rộng của hình chữ nhật.\n\nHãy tính chu vi $P = 2 \\times (a + b)$ và diện tích $S = a \\times b$.\n\n### Dữ liệu vào (stdin)\nHai số nguyên dương $a, b$ cách nhau bởi dấu cách ($1 \\le a, b \\le 10^6$).\n\n### Dữ liệu ra (stdout)\nDòng 1 in ra chu vi $P$.\nDòng 2 in ra diện tích $S$.",
+                    "templateCode": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nprint(2 * (a + b))\nprint(a * b)\n",
+                    "tests": [
+                        { "id": 1, "input": "3 5", "expected": "16\n15", "point": 5.0, "is_hidden": false },
+                        { "id": 2, "input": "10 20", "expected": "60\n200", "point": 5.0, "is_hidden": true }
+                    ]
+                }
+            ];
+            downloadJsonFile("tep_mau_bai_tap_python.json", sample);
+            showToast("Đã tải xuống tệp mẫu Bài tập (.json)!", "success");
+        }
+
+        async function importLectureFileFromTemplate(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            try {
+                showToast(`Đang nạp bài giảng từ ${file.name}...`, "info");
+                const text = await file.text();
+                const parsed = JSON.parse(text);
+                const list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.lectures || [parsed]);
+                let addedCount = 0;
+                let maxId = lectures.length > 0 ? Math.max(...lectures.map(l => Number(l.id) || 0)) : 0;
+                
+                for (let item of list) {
+                    if (item && item.title && item.content) {
+                        maxId++;
+                        lectures.push({
+                            id: maxId,
+                            title: String(item.title).trim(),
+                            classLevel: String(item.classLevel || '8').trim(),
+                            grade: String(item.grade || 'Tin học cơ sở').trim(),
+                            content: String(item.content).trim()
+                        });
+                        addedCount++;
+                    }
+                }
+                
+                if (addedCount > 0) {
+                    populateStudentLectures();
+                    renderTeacherLecturesTable();
+                    autoSaveLocalSnapshot();
+                    showToast(`Đã nạp thành công ${addedCount} bài giảng từ tệp!`, "success");
+                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài giảng từ tệp ${file.name}`);
+                } else {
+                    showToast("Tệp không chứa cấu trúc bài giảng hợp lệ!", "error");
+                }
+            } catch (e) {
+                showToast("Lỗi định dạng tệp JSON bài giảng!", "error");
+            }
+            event.target.value = "";
+        }
+
+        async function importAssignmentFileFromTemplate(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+            try {
+                showToast(`Đang nạp bài tập từ ${file.name}...`, "info");
+                const text = await file.text();
+                const parsed = JSON.parse(text);
+                const list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.assignments || [parsed]);
+                let addedCount = 0;
+                let maxId = assignments.length > 0 ? Math.max(...assignments.map(a => Number(a.id) || 0)) : 0;
+                
+                for (let item of list) {
+                    if (item && item.title) {
+                        maxId++;
+                        assignments.push({
+                            id: maxId,
+                            title: String(item.title).trim(),
+                            classLevel: String(item.classLevel || '8').trim(),
+                            difficulty: item.difficulty || 'easy',
+                            timeLimit: Number(item.timeLimit) || 2.0,
+                            description: String(item.description || '').trim(),
+                            templateCode: String(item.templateCode || '').trim(),
+                            tests: Array.isArray(item.tests) ? item.tests.map((t, idx) => ({
+                                id: idx + 1,
+                                input: String(t.input || ''),
+                                expected: String(t.expected || ''),
+                                point: Number(t.point) || 5.0,
+                                is_hidden: Boolean(t.is_hidden)
+                            })) : [
+                                { id: 1, input: "3 5", expected: "8", point: 5.0, is_hidden: false }
+                            ]
+                        });
+                        addedCount++;
+                    }
+                }
+                
+                if (addedCount > 0) {
+                    populateAssignmentSelect();
+                    renderManageAssignmentsTable();
+                    renderAdminAssignmentsTable();
+                    updateTeacherStats();
+                    autoSaveLocalSnapshot();
+                    showToast(`Đã nạp thành công ${addedCount} bài tập từ tệp!`, "success");
+                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài tập từ tệp ${file.name}`);
+                } else {
+                    showToast("Tệp không chứa cấu trúc bài tập hợp lệ!", "error");
+                }
+            } catch (e) {
+                showToast("Lỗi định dạng tệp JSON bài tập!", "error");
+            }
+            event.target.value = "";
+        }
+
+        // ==============================================
+        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC (SONG NGỮ ANH - VIỆT BẢN XỨ)
         // ==============================================
         let isRobotSpeaking = false;
 
@@ -3227,11 +3406,11 @@ except Exception as e: _error = str(e)
             playlist: [],
             currentIndex: 0,
             audioElement: null,
-            _sessionId: 0,       // Biến bảo vệ: Mã phiên đọc hiện tại
-            _timeoutId: null,    // Biến bảo vệ: Lưu trữ và dọn dẹp các lệnh delay
+            _preloadedAudio: null,
+            _sessionId: 0,
+            _timeoutId: null,
 
             init() {
-                // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang
                 const unlockAllAudio = () => {
                     try {
                         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -3241,7 +3420,6 @@ except Exception as e: _error = str(e)
                         }
                     } catch(e) {}
                     
-                    // Tạo một thẻ Audio ĐỘC LẬP để mở khóa, không dùng chung với luồng đọc TTS
                     const dummyAudio = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=");
                     dummyAudio.play().catch(()=>{});
                     
@@ -3252,63 +3430,200 @@ except Exception as e: _error = str(e)
                 document.addEventListener('touchstart', unlockAllAudio, { passive: true });
             },
 
+            // Kiểm tra xem từ có phải là từ vựng tiếng Anh để phát âm theo giọng Anh chuẩn
+            isEnglishWord(word) {
+                if (!word) return false;
+                const cleanWord = word.replace(/^[^\w]+|[^\w]+$/g, '');
+                if (!cleanWord || cleanWord.length <= 1) return false;
+
+                // Có dấu tiếng Việt -> 100% tiếng Việt
+                if (/[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/i.test(cleanWord)) {
+                    return false;
+                }
+
+                // Chứa các ký tự đặc trưng không thuộc bảng chữ cái tiếng Việt
+                if (/[fjwz]/i.test(cleanWord)) return true;
+
+                // Chữ viết tắt công nghệ viết hoa: AI, LMS, IDE, PDF, CSV, JSON, API, WASM, CPU, RAM
+                if (/^[A-Z]{2,6}$/.test(cleanWord)) return true;
+
+                // Tên hàm hoặc biến dạng camelCase / snake_case
+                if (/^[a-z]+[A-Z][a-zA-Z]*$/.test(cleanWord) || /^[A-Z][a-z]+[A-Z][a-zA-Z]*$/.test(cleanWord) || /^[a-zA-Z]+_[a-zA-Z0-9_]+$/.test(cleanWord)) {
+                    return true;
+                }
+
+                // Từ điển thuật ngữ Lập trình & Tiếng Anh thông dụng
+                const engSet = new Set([
+                    "python", "print", "input", "output", "code", "coding", "coder", "syntax", "runtime", "logic", "error",
+                    "debug", "debugging", "test", "tests", "case", "cases", "testcase", "exception", "function",
+                    "def", "return", "while", "for", "range", "list", "str", "string", "int", "integer", "float",
+                    "bool", "boolean", "true", "false", "none", "null", "import", "math", "sqrt", "sys", "io",
+                    "open", "file", "read", "write", "append", "pop", "len", "length", "index", "key", "value",
+                    "dictionary", "dict", "tuple", "set", "variable", "local", "global", "statement", "if", "else",
+                    "elif", "break", "continue", "pass", "try", "except", "finally", "format", "split", "strip",
+                    "lower", "upper", "capitalize", "replace", "join", "find", "count", "remove", "clear", "insert",
+                    "sort", "sorted", "reverse", "reversed", "copy", "lambda", "class", "object", "method", "module",
+                    "package", "library", "framework", "script", "ide", "editor", "terminal", "console", "developer",
+                    "fullstack", "algorithm", "solution", "stdin", "stdout", "stderr", "run", "runner", "step",
+                    "data", "database", "web", "app", "api", "git", "github", "token", "repo", "repository",
+                    "commit", "push", "pull", "clone", "branch", "main", "master", "zero", "division", "name",
+                    "type", "indexerror", "valueerror", "syntaxerror", "zerodivisionerror", "socratic", "chat",
+                    "robot", "ai", "lms", "katex", "mathtype", "markdown", "json", "csv", "excel", "docx", "pdf",
+                    "pptx", "windows", "linux", "macos", "chrome", "google", "gemini", "prompt", "bug", "cookie",
+                    "server", "client", "desktop", "laptop", "screen", "project", "click", "mouse", "drag",
+                    "drop", "link", "share", "online", "offline", "network", "internet", "website", "user",
+                    "admin", "teacher", "student", "session", "id", "log", "logs", "login", "logout", "password",
+                    "submit", "grade", "score", "point", "status", "active", "time", "timer", "limit", "sample",
+                    "template", "help", "hint", "guide", "unit", "passed", "failed", "array", "loop", "hello",
+                    "world", "easy", "medium", "hard", "guido", "van", "rossum", "wavenet", "tts", "speech"
+                ]);
+
+                const lower = cleanWord.toLowerCase();
+                if (engSet.has(lower)) return true;
+
+                // Các hậu tố tiếng Anh điển hình (khi không dấu)
+                if (/(tion|sion|ment|ing|able|ible|ness)$/i.test(cleanWord) && cleanWord.length > 4) {
+                    return true;
+                }
+
+                return false;
+            },
+
+            // Tách câu thành chuỗi phát âm song ngữ thông minh (tiếng Việt `vi` và tiếng Anh `en`)
+            splitTextIntoBilingualPlaylist(text, maxLength = 140) {
+                if (!text) return [];
+                const rawSentences = [];
+                let cur = "";
+                for (let i = 0; i < text.length; i++) {
+                    const c = text[i];
+                    cur += c;
+                    if (['.', '!', '?', '\n', ';'].includes(c)) {
+                        if (cur.trim()) rawSentences.push(cur.trim());
+                        cur = "";
+                    }
+                }
+                if (cur.trim()) rawSentences.push(cur.trim());
+
+                const tokens = [];
+                rawSentences.forEach(sentence => {
+                    const words = sentence.split(/\s+/).filter(Boolean);
+                    if (words.length === 0) return;
+
+                    let currentSegment = [];
+                    let currentLang = this.isEnglishWord(words[0]) ? 'en' : 'vi';
+
+                    words.forEach(w => {
+                        const isEng = this.isEnglishWord(w);
+                        const wLang = isEng ? 'en' : 'vi';
+
+                        if (wLang === currentLang) {
+                            currentSegment.push(w);
+                        } else {
+                            if (currentSegment.length > 0) {
+                                tokens.push({
+                                    text: currentSegment.join(' '),
+                                    lang: currentLang
+                                });
+                            }
+                            currentSegment = [w];
+                            currentLang = wLang;
+                        }
+                    });
+
+                    if (currentSegment.length > 0) {
+                        tokens.push({
+                            text: currentSegment.join(' '),
+                            lang: currentLang
+                        });
+                    }
+                });
+
+                // Gom các đoạn nhỏ cùng ngôn ngữ liên tiếp để tối ưu hóa số lượt gọi âm thanh
+                const consolidated = [];
+                let buf = null;
+
+                tokens.forEach(item => {
+                    if (!buf) {
+                        buf = { text: item.text, lang: item.lang };
+                    } else if (buf.lang === item.lang && (buf.text + ' ' + item.text).length <= maxLength) {
+                        buf.text += ' ' + item.text;
+                    } else {
+                        consolidated.push(buf);
+                        buf = { text: item.text, lang: item.lang };
+                    }
+                });
+                if (buf) consolidated.push(buf);
+
+                return consolidated;
+            },
+
+            getTtsUrls(chunk, lang = 'vi') {
+                return [
+                    `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=${lang}&q=${encodeURIComponent(chunk)}`,
+                    `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=${lang}&q=${encodeURIComponent(chunk)}`,
+                    `https://translate.google.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=${lang}&q=${encodeURIComponent(chunk)}`
+                ];
+            },
+
             speak(text) {
-                this.stop(); // Hủy mọi luồng đọc đang chạy
+                this.stop();
                 const cleanText = this.cleanMarkdownForSpeech(text);
                 if (!cleanText) return;
                 
-                // Băm nhỏ câu văn (tối đa 150 ký tự) để API Google không từ chối
-                this.playlist = this.splitTextIntoSentences(cleanText, 150);
+                this.playlist = this.splitTextIntoBilingualPlaylist(cleanText, 140);
                 this.currentIndex = 0;
-                this._sessionId++; // Bật Cờ Bảo Vệ: Bắt đầu một Session đọc hoàn toàn mới
+                this._sessionId++;
                 this.playNext(this._sessionId);
             },
 
             playNext(sessionId) {
-                // CHẶN CHỒNG ÂM (BƯỚC 1): Nếu ID phiên không khớp, chặn đứng luồng hiện tại
-                if (sessionId !== this._sessionId) return; 
+                if (sessionId !== this._sessionId) return;
 
                 if (this.currentIndex >= this.playlist.length) {
                     this.stop();
                     return;
                 }
                 
-                const chunk = this.playlist[this.currentIndex];
+                const item = this.playlist[this.currentIndex];
+                const chunk = item.text;
+                const lang = item.lang || 'vi';
+
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
 
-                // Các cổng Google TTS được sắp xếp theo mức độ ưu tiên
-                const urls = [
-                    `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`,
-                    `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`,
-                    `https://translate.google.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`
-                ];
+                const urls = this.getTtsUrls(chunk, lang);
 
-                // Đệ quy tải URL dự phòng với Thẻ Audio luôn Mới
+                // Kỹ thuật nạp ngầm đoạn kế tiếp (Preloading) để chuyển ngữ mượt mà 0ms
+                if (this.currentIndex + 1 < this.playlist.length) {
+                    const nextItem = this.playlist[this.currentIndex + 1];
+                    const nextUrls = this.getTtsUrls(nextItem.text, nextItem.lang || 'vi');
+                    const preAudio = new Audio();
+                    preAudio.preload = 'auto';
+                    preAudio.src = nextUrls[0];
+                    this._preloadedAudio = preAudio;
+                }
+
                 const tryPlayUrl = (index) => {
-                    // CHẶN CHỒNG ÂM (BƯỚC 2): Rào chắn bên trong hàm tải bất đồng bộ
-                    if (sessionId !== this._sessionId) return; 
+                    if (sessionId !== this._sessionId) return;
 
                     if (index >= urls.length) {
                         this.currentIndex++;
-                        // Dùng _timeoutId để có thể hủy ngay vòng lặp nếu bị user cấn nút Dừng
-                        this._timeoutId = setTimeout(() => this.playNext(sessionId), 500); 
+                        this._timeoutId = setTimeout(() => this.playNext(sessionId), 300);
                         return;
                     }
 
-                    // LUÔN TẠO THẺ AUDIO MỚI: Tránh lỗi kẹt trạng thái error của trình duyệt
                     const audio = new Audio();
                     this.audioElement = audio;
                     
                     audio.onended = () => {
-                        if (sessionId !== this._sessionId) return; // CHẶN CHỒNG ÂM
+                        if (sessionId !== this._sessionId) return;
                         this.currentIndex++;
                         this.playNext(sessionId);
                     };
 
-                    audio.onerror = (e) => {
-                        if (sessionId !== this._sessionId) return; // CHẶN CHỒNG ÂM
-                        tryPlayUrl(index + 1); // Đệ quy tạo thẻ audio mới với URL tiếp theo
+                    audio.onerror = () => {
+                        if (sessionId !== this._sessionId) return;
+                        tryPlayUrl(index + 1);
                     };
 
                     audio.src = urls[index];
@@ -3326,23 +3641,20 @@ except Exception as e: _error = str(e)
             },
 
             stop() {
-                this._sessionId++; // VÔ HIỆU HÓA TẤT CẢ CÁC LUỒNG CŨ, chặn đứt hiện tượng chồng âm
-                
+                this._sessionId++;
                 if (this._timeoutId) {
-                    clearTimeout(this._timeoutId); // Quét dọn các khoảng trễ gây delay âm
+                    clearTimeout(this._timeoutId);
                     this._timeoutId = null;
                 }
-
                 this.playlist = [];
                 this.currentIndex = 0;
-                
                 if (this.audioElement) {
                     this.audioElement.pause();
-                    this.audioElement.removeAttribute('src'); // Giải phóng tài nguyên đúng chuẩn
+                    this.audioElement.removeAttribute('src');
                     this.audioElement.load();
-                    this.audioElement = null; // Cắt đứt thẻ audio cũ, thả bộ nhớ
+                    this.audioElement = null;
                 }
-                
+                this._preloadedAudio = null;
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
             },
@@ -3350,6 +3662,31 @@ except Exception as e: _error = str(e)
             cleanMarkdownForSpeech(text) {
                 if (!text) return "";
                 let clean = String(text);
+
+                // Diễn giải các công thức toán học $...$ thành lời đọc tự nhiên
+                clean = clean.replace(/\$([^\$]+)\$/g, (m, math) => {
+                    let s = math.trim();
+                    s = s.replace(/x\^2/gi, "x bình phương");
+                    s = s.replace(/y\^2/gi, "y bình phương");
+                    s = s.replace(/n\^2/gi, "n bình phương");
+                    s = s.replace(/a\^2/gi, "a bình phương");
+                    s = s.replace(/b\^2/gi, "b bình phương");
+                    s = s.replace(/([a-zA-Z0-9]+)\^2/g, "$1 bình phương");
+                    s = s.replace(/([a-zA-Z0-9]+)\^3/g, "$1 lập phương");
+                    s = s.replace(/([a-zA-Z0-9]+)\^([a-zA-Z0-9]+)/g, "$1 mũ $2");
+                    s = s.replace(/\\le|<=/g, " nhỏ hơn hoặc bằng ");
+                    s = s.replace(/\\ge|>=/g, " lớn hơn hoặc bằng ");
+                    s = s.replace(/\\ne|!=/g, " khác ");
+                    s = s.replace(/==/g, " bằng ");
+                    s = s.replace(/\\times/g, " nhân ");
+                    s = s.replace(/\\div/g, " chia ");
+                    s = s.replace(/\+/g, " cộng ");
+                    s = s.replace(/-/g, " trừ ");
+                    s = s.replace(/\*/g, " nhân ");
+                    s = s.replace(/\//g, " chia ");
+                    return " " + s + " ";
+                });
+
                 while (clean.indexOf('```') !== -1) {
                     const first = clean.indexOf('```');
                     const second = clean.indexOf('```', first + 3);
@@ -3357,59 +3694,74 @@ except Exception as e: _error = str(e)
                         clean = clean.substring(0, first) + ' đoạn mã chương trình ' + clean.substring(second + 3);
                     } else break;
                 }
+
                 ['`', '**', '*', '#', '$', '|', '\\', '/', '_', '~', '[', ']', '(', ')'].forEach(tok => {
                     clean = clean.split(tok).join(' ');
                 });
                 return clean.split(/\s+/).filter(Boolean).join(' ');
-            },
-
-            splitTextIntoSentences(text, maxLength) {
-                if (!text) return [];
-                const str = String(text);
-                const rawSentences = [];
-                let current = "";
-                for (let i = 0; i < str.length; i++) {
-                    const char = str.charAt(i);
-                    current += char;
-                    if (['.', '!', '?', '\n', ',', ';'].includes(char)) {
-                        if (current.trim().length > 0) rawSentences.push(current.trim());
-                        current = "";
-                    }
-                }
-                if (current.trim().length > 0) rawSentences.push(current.trim());
-
-                const chunks = [];
-                let currentChunk = "";
-                for (let i = 0; i < rawSentences.length; i++) {
-                    const trimmed = rawSentences[i];
-                    if ((currentChunk + " " + trimmed).trim().length <= maxLength) {
-                        currentChunk = (currentChunk + " " + trimmed).trim();
-                    } else {
-                        if (currentChunk) chunks.push(currentChunk);
-                        currentChunk = trimmed;
-                    }
-                }
-                if (currentChunk) chunks.push(currentChunk);
-                return chunks;
             }
         };
 
-        // Khởi động hệ thống TTS ngay khi khởi tạo
         RobotTTS.init();
 
         function getSmartRobotGreeting(content = "") {
-            const isTeacherOrAdmin = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
-            const userName = (currentUser.name && currentUser.name !== 'Khách') ? currentUser.name : '';
+            return content;
+        }
 
-            let greeting = "";
-            if (!currentUser.isLoggedIn) {
-                greeting = "Xin chào bạn! ";
-            } else if (isTeacherOrAdmin) {
-                greeting = userName ? `Kính chào thầy cô ${userName}! ` : "Kính chào thầy cô! ";
-            } else {
-                greeting = userName ? `Chào em ${userName}! ` : "Chào em! ";
+        // Tự động nhận diện và đọc văn bản nằm ngay bên dưới vị trí của Robot
+        function getTextAtRobotPosition() {
+            const widget = document.getElementById('robotVoiceWidget');
+            if (!widget) return "";
+            const rect = widget.getBoundingClientRect();
+            // Lấy tọa độ trung tâm của nút Robot
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+
+            const elements = document.elementsFromPoint(x, y) || [];
+            for (let el of elements) {
+                if (!el || el === widget || widget.contains(el)) continue;
+                if (el.id === 'robotVoiceWidget' || el.closest('#robotVoiceWidget')) continue;
+                if (el.closest('#toastContainer')) continue;
+                if (['HTML', 'BODY', 'MAIN', 'HEADER', 'FOOTER'].includes(el.tagName)) continue;
+
+                // Nếu là thẻ nhập liệu (textarea hoặc input)
+                if (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {
+                    const val = (el.value || el.placeholder || '').trim();
+                    if (val) return val;
+                    continue;
+                }
+
+                // Bỏ qua các khung bao bọc diện rộng
+                if (el.classList.contains('max-w-7xl') || el.classList.contains('min-h-screen')) continue;
+
+                // Ưu tiên khối văn bản cụ thể
+                let block = el.closest('p, li, h1, h2, h3, h4, h5, h6, pre, code, blockquote, td, th');
+                if (!block) block = el;
+
+                let txt = (block.innerText || block.textContent || '').trim();
+                // Nếu thẻ cha chứa lượng chữ quá lớn, chỉ lấy thẻ con trực tiếp
+                if (txt.length > 500 && block !== el) {
+                    txt = (el.innerText || el.textContent || '').trim();
+                }
+
+                if (txt && txt.length >= 2 && !txt.startsWith('ph-')) {
+                    return txt;
+                }
             }
-            return content ? `${greeting}${content}` : greeting;
+            return "";
+        }
+
+        function readTextAtRobotPosition(isFromDrag = false) {
+            const text = getTextAtRobotPosition();
+            if (text) {
+                speakRobotText(text);
+                const shortPreview = text.length > 40 ? text.substring(0, 40) + "..." : text;
+                showToast(`Đang đọc: "${shortPreview}"`, "info");
+            } else {
+                if (!isFromDrag) {
+                    showToast("Kéo tôi đến đoạn văn bản bất kỳ để nghe đọc nhé!", "info");
+                }
+            }
         }
 
         function speakRobotText(text) {
@@ -3424,8 +3776,7 @@ except Exception as e: _error = str(e)
             }
 
             const textToRead = "Giới thiệu tác giả và dự án. Đây là ứng dụng dạng web app do thầy Nguyễn Thế Phương, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!! Điện thoại liên hệ: 0 9 3 2, 8 6 1, 7 3 9. Email: thefuong119@gmail.com.";
-            const intro = getSmartRobotGreeting("Mời bạn nghe phần ");
-            speakRobotText(intro + textToRead);
+            speakRobotText(textToRead);
             showToast("Robot đang đọc thông tin giới thiệu...", "info");
         }
 
@@ -3450,18 +3801,7 @@ except Exception as e: _error = str(e)
                 stopRobotVoice();
                 showToast("Đã dừng giọng đọc", "info");
             } else {
-                let message = "";
-                const isTeacherOrAdmin = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
-                if (!currentUser.isLoggedIn) {
-                    message = "Vui lòng đăng nhập để bắt đầu trải nghiệm học tập cùng trợ lý Python.";
-                } else if (isTeacherOrAdmin) {
-                    message = "chúc thầy cô có một buổi giảng dạy và quản lý lớp học thật hiệu quả. Robot luôn sẵn sàng hỗ trợ đọc bài giảng và kiểm tra bài tập.";
-                } else {
-                    message = "chúc em một buổi học lập trình Python thật vui và hiệu quả. Hãy chăm chỉ đọc lý thuyết và làm bài tập nhé!";
-                }
-                const speechText = getSmartRobotGreeting(message);
-                speakRobotText(speechText);
-                showToast("Robot đang đọc...", "info");
+                readTextAtRobotPosition(false);
             }
         }
 
@@ -3528,6 +3868,10 @@ except Exception as e: _error = str(e)
             document.removeEventListener('mouseup', endRobotDrag);
             document.removeEventListener('touchend', endRobotDrag);
             updateBubbleOrientation();
+            // Nếu người dùng vừa thực hiện kéo thả, đọc văn bản tại vị trí vừa thả tới
+            if (hasDraggedRobot) {
+                readTextAtRobotPosition(true);
+            }
         }
 
         if (robotBtn) {
@@ -3610,15 +3954,15 @@ except Exception as e: _error = str(e)
                 const isTeacherOrAdmin = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
 
                 if (currentAiMode === 'socratic') {
-                    reply = getSmartRobotGreeting(isTeacherOrAdmin ?
-                        "thầy cô hãy quan sát xem trong bài toán này, các ràng buộc và điều kiện biên đã được bao quát hết hay chưa." :
-                        "em hãy quan sát xem trong bài toán này, đầu vào gồm những gì? Biến nào lưu giá trị và điều kiện kết thúc ra sao?");
+                    reply = isTeacherOrAdmin ?
+                        "Thầy cô hãy quan sát xem trong bài toán này, các ràng buộc và điều kiện biên đã được bao quát hết hay chưa." :
+                        "Em hãy quan sát xem trong bài toán này, đầu vào gồm những gì? Biến nào lưu giá trị và điều kiện kết thúc ra sao?";
                 } else if (currentAiMode === 'algorithm_hint') {
-                    reply = getSmartRobotGreeting("hướng tiếp cận bài toán: Dùng hàm `input().split()` để tách các số, sau đó ép kiểu sang `int` và thực hiện phép toán tương ứng.");
+                    reply = "Hướng tiếp cận bài toán: Dùng hàm `input().split()` để tách các số, sau đó ép kiểu sang `int` và thực hiện phép toán tương ứng.";
                 } else {
                     reply = code.includes('input') ?
-                        getSmartRobotGreeting(`đoạn code đã có lệnh nhập. Hãy kiểm tra xem ${isTeacherOrAdmin ? 'thầy cô' : 'em'} đã xử lý các trường hợp test biên (số âm hoặc số 0) hay chưa!`) :
-                        getSmartRobotGreeting(`${isTeacherOrAdmin ? 'thầy cô' : 'em'} lưu ý cần đọc dữ liệu vào bằng hàm \`input()\` trước khi tính toán nhé!`);
+                        `Đoạn code đã có lệnh nhập. Hãy kiểm tra xem ${isTeacherOrAdmin ? 'thầy cô' : 'em'} đã xử lý các trường hợp test biên (số âm hoặc số 0) hay chưa!` :
+                        `${isTeacherOrAdmin ? 'thầy cô' : 'em'} lưu ý cần đọc dữ liệu vào bằng hàm \`input()\` trước khi tính toán nhé!`;
                 }
                 appendAiChatMessage('assistant', reply);
                 
@@ -3740,27 +4084,78 @@ except Exception as e: _error = str(e)
             };
         }
 
+        // ==============================================
+        // BỘ RENDER CÔNG THỨC TOÁN HỌC KATEX (MATHTYPE) & MARKDOWN
+        // ==============================================
+        function renderMathInText(str) {
+            if (!str) return str;
+            if (typeof katex === 'undefined') return str;
+            try {
+                // 1. Công thức toán dạng khối (Display Math: $$...$$)
+                str = str.replace(/\$\$([\s\S]+?)\$\$/g, (match, math) => {
+                    try {
+                        return '<div class="my-3 py-1 text-center overflow-x-auto text-base text-indigo-950 font-serif">' +
+                            katex.renderToString(math.trim(), { displayMode: true, throwOnError: false }) +
+                            '</div>';
+                    } catch(e) { return match; }
+                });
+                // 2. Công thức toán nội dòng (Inline Math: $...$)
+                str = str.replace(/\$([^\$\r\n]+?)\$/g, (match, math) => {
+                    try {
+                        return '<span class="inline-block px-1 text-indigo-950 font-serif align-baseline">' +
+                            katex.renderToString(math.trim(), { displayMode: false, throwOnError: false }) +
+                            '</span>';
+                    } catch(e) { return match; }
+                });
+            } catch(err) {}
+            return str;
+        }
+
+        function renderKaTeXFormulas(element) {
+            const el = element || document.body;
+            if (!el || typeof renderMathInElement !== 'function') return;
+            try {
+                renderMathInElement(el, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false },
+                        { left: '\\(', right: '\\)', display: false },
+                        { left: '\\[', right: '\\]', display: true }
+                    ],
+                    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "option"],
+                    throwOnError: false
+                });
+            } catch (e) {
+                console.warn("KaTeX notice:", e);
+            }
+        }
+        window.renderKaTeXFormulas = renderKaTeXFormulas;
+
         function renderSimpleMarkdown(text) {
             if (!text) return "";
             try {
                 let html = String(text);
-                if (html.indexOf('```') !== -1) {
-                    const parts = [];
-                    let rem = html;
-                    while (rem.indexOf('```') !== -1) {
-                        const first = rem.indexOf('```');
-                        const second = rem.indexOf('```', first + 3);
-                        if (second !== -1) {
-                            parts.push(rem.substring(0, first));
-                            const code = rem.substring(first + 3, second).replace(/^python\s*/i, '');
-                            parts.push('<pre class="bg-slate-900 text-slate-100 p-3 rounded-xl font-mono text-xs overflow-x-auto my-2"><code>' + code + '</code></pre>');
-                            rem = rem.substring(second + 3);
-                        } else break;
-                    }
-                    parts.push(rem);
-                    html = parts.join('');
-                }
 
+                // 1. Tách và bảo toàn khối mã nguồn Python ```...```
+                const codeBlocks = [];
+                html = html.replace(/```([a-zA-Z0-9_]*)\n([\s\S]*?)```/g, (match, lang, code) => {
+                    const placeholder = `@@@CODEBLOCK_${codeBlocks.length}@@@`;
+                    codeBlocks.push(`<pre class="bg-slate-900 text-slate-100 p-3 rounded-xl font-mono text-xs overflow-x-auto my-2 border border-slate-800"><code>${code.trim()}</code></pre>`);
+                    return placeholder;
+                });
+
+                // 2. Tách và bảo toàn đoạn mã inline `...`
+                const inlineCodes = [];
+                html = html.replace(/`([^`\n]+?)`/g, (match, code) => {
+                    const placeholder = `@@@INLINECODE_${inlineCodes.length}@@@`;
+                    inlineCodes.push(`<code class="bg-slate-100 text-blue-700 px-1 py-0.5 rounded font-mono text-xs border border-slate-200">${code}</code>`);
+                    return placeholder;
+                });
+
+                // 3. Render công thức Toán học KaTeX ($x^2$, $A+B$, v.v.)
+                html = renderMathInText(html);
+
+                // 4. Xử lý tiêu đề Markdown
                 const lines = html.split('\n');
                 const outLines = lines.map(line => {
                     const trimmed = line.trim();
@@ -3771,14 +4166,20 @@ except Exception as e: _error = str(e)
                 });
                 html = outLines.join('<br>');
 
+                // 5. In đậm
                 if (html.indexOf('**') !== -1) {
                     const bParts = html.split('**');
                     html = bParts.map((p, i) => i % 2 === 1 ? `<strong>${p}</strong>` : p).join('');
                 }
-                if (html.indexOf('`') !== -1) {
-                    const cParts = html.split('`');
-                    html = cParts.map((p, i) => i % 2 === 1 ? `<code class="bg-slate-100 text-blue-700 px-1 py-0.5 rounded font-mono text-xs">${p}</code>` : p).join('');
-                }
+
+                // 6. Khôi phục mã inline và khối mã
+                inlineCodes.forEach((codeHtml, idx) => {
+                    html = html.replace(`@@@INLINECODE_${idx}@@@`, codeHtml);
+                });
+                codeBlocks.forEach((blockHtml, idx) => {
+                    html = html.replace(`@@@CODEBLOCK_${idx}@@@`, blockHtml);
+                });
+
                 return html;
             } catch (e) { return String(text || ""); }
         }
@@ -3817,6 +4218,7 @@ except Exception as e: _error = str(e)
             updateUserHeaderUi();
             openLoginModal('student', 'login');
             setTimeout(centerRobotOnScreen, 150);
+            setTimeout(() => renderKaTeXFormulas(document.body), 300);
         });
 
         window.addEventListener('resize', () => {
