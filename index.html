@@ -3052,13 +3052,172 @@ except Exception as e: _error = str(e)
         }
 
         // ==============================================
-        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC
+        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC (ULTRA PRO HYBRID)
         // ==============================================
         let isRobotSpeaking = false;
-        let audioPlaylist = [];
-        let currentAudioIndex = 0;
 
-        // TÍNH NĂNG THÔNG MINH: ĐỔI CÁCH XƯNG HÔ THEO VAI TRÒ VÀ TÊN NGƯỜI DÙNG
+        const RobotTTS = {
+            playlist: [],
+            currentIndex: 0,
+            voice: null,
+            forceExternal: false, 
+            
+            init() {
+                // Nạp giọng đọc Tiếng Việt từ hệ thống (Web Speech API)
+                const loadVoices = () => {
+                    const voices = window.speechSynthesis.getVoices();
+                    // Ưu tiên giọng Google Tiếng Việt hoặc Microsoft HoaiMy (Chất lượng cao nhất)
+                    this.voice = voices.find(v => v.lang.includes('vi') && (v.name.includes('Google') || v.name.includes('HoaiMy'))) || 
+                                 voices.find(v => v.lang.includes('vi'));
+                                 
+                    // Trí tuệ nhân tạo: Nếu thiết bị hoàn toàn không có giọng Tiếng Việt, bẻ lái sang Cloud API
+                    if (!this.voice && voices.length > 0) {
+                        this.forceExternal = true;
+                    }
+                };
+                
+                loadVoices();
+                if (window.speechSynthesis) {
+                    window.speechSynthesis.onvoiceschanged = loadVoices;
+                }
+            },
+
+            speak(text) {
+                this.stop();
+                const cleanText = this.cleanMarkdownForSpeech(text);
+                if (!cleanText) return;
+                
+                // Băm nhỏ câu văn thành các đoạn ngắn (tối đa 120 ký tự) để đọc mượt mà
+                this.playlist = this.splitTextIntoSentences(cleanText, 120);
+                this.currentIndex = 0;
+                this.playNext();
+            },
+
+            playNext() {
+                if (this.currentIndex >= this.playlist.length) {
+                    this.stop();
+                    return;
+                }
+                
+                const chunk = this.playlist[this.currentIndex];
+                this.currentIndex++;
+                updateRobotSpeakingUi(true);
+                isRobotSpeaking = true;
+
+                // Tự động phân luồng âm thanh
+                if (this.forceExternal) {
+                    this.playExternal(chunk);
+                } else {
+                    this.playNative(chunk);
+                }
+            },
+
+            playNative(text) {
+                const u = new SpeechSynthesisUtterance(text);
+                if (this.voice) u.voice = this.voice;
+                u.lang = 'vi-VN';
+                u.rate = 1.0;
+                u.pitch = 1.0;
+                
+                // Vá lỗi Garbage Collection cực kỳ nổi tiếng của Chrome
+                window._ttsUtteranceBackup = u; 
+                
+                u.onend = () => this.playNext();
+                u.onerror = (e) => {
+                    console.warn("Giọng đọc hệ thống bị lỗi, tự động bẻ lái sang Cloud API...", e);
+                    this.forceExternal = true;
+                    this.playExternal(text);
+                };
+                
+                window.speechSynthesis.speak(u);
+            },
+
+            playExternal(text) {
+                const audio = document.getElementById('robotAudioPlayer');
+                if (!audio) return;
+                
+                // SỬ DỤNG CLIENT=DICT-CHROME-EX ĐỂ VƯỢT CORS 100% TRÊN GITHUB PAGES
+                const url = `https://translate.googleapis.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(text)}`;
+                
+                audio.src = url;
+                audio.onended = () => this.playNext();
+                audio.onerror = () => {
+                    console.warn("Lỗi tải âm thanh từ Cloud API, tự động bỏ qua đoạn này.");
+                    this.playNext(); 
+                };
+                
+                audio.play().catch(e => {
+                    console.error("Trình duyệt chặn tự động phát âm thanh:", e);
+                    this.stop();
+                    showToast("Trình duyệt chặn âm thanh. Vui lòng nhấp lại vào Robot!", "error");
+                });
+            },
+
+            stop() {
+                this.playlist = [];
+                this.currentIndex = 0;
+                isRobotSpeaking = false;
+                updateRobotSpeakingUi(false);
+                
+                if (window.speechSynthesis) window.speechSynthesis.cancel();
+                
+                const audio = document.getElementById('robotAudioPlayer');
+                if (audio) {
+                    audio.pause();
+                    audio.src = "";
+                }
+            },
+
+            cleanMarkdownForSpeech(text) {
+                if (!text) return "";
+                let clean = String(text);
+                while (clean.indexOf('```') !== -1) {
+                    const first = clean.indexOf('```');
+                    const second = clean.indexOf('```', first + 3);
+                    if (second !== -1) {
+                        clean = clean.substring(0, first) + ' đoạn mã chương trình ' + clean.substring(second + 3);
+                    } else break;
+                }
+                ['`', '**', '*', '#', '$', '|', '\\', '/', '_', '~', '[', ']', '(', ')'].forEach(tok => {
+                    clean = clean.split(tok).join(' ');
+                });
+                return clean.split(/\s+/).filter(Boolean).join(' ');
+            },
+
+            splitTextIntoSentences(text, maxLength) {
+                if (!text) return [];
+                const str = String(text);
+                const rawSentences = [];
+                let current = "";
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charAt(i);
+                    current += char;
+                    if (['.', '!', '?', '\n', ',', ';'].includes(char)) {
+                        if (current.trim().length > 0) rawSentences.push(current.trim());
+                        current = "";
+                    }
+                }
+                if (current.trim().length > 0) rawSentences.push(current.trim());
+
+                const chunks = [];
+                let currentChunk = "";
+                for (let i = 0; i < rawSentences.length; i++) {
+                    const trimmed = rawSentences[i];
+                    if ((currentChunk + " " + trimmed).trim().length <= maxLength) {
+                        currentChunk = (currentChunk + " " + trimmed).trim();
+                    } else {
+                        if (currentChunk) chunks.push(currentChunk);
+                        currentChunk = trimmed;
+                    }
+                }
+                if (currentChunk) chunks.push(currentChunk);
+                return chunks;
+            }
+        };
+
+        // Khởi động hệ thống TTS ngay khi khởi tạo
+        RobotTTS.init();
+
         function getSmartRobotGreeting(content = "") {
             const isTeacherOrAdmin = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
             const userName = (currentUser.name && currentUser.name !== 'Khách') ? currentUser.name : '';
@@ -3067,114 +3226,19 @@ except Exception as e: _error = str(e)
             if (!currentUser.isLoggedIn) {
                 greeting = "Xin chào bạn! ";
             } else if (isTeacherOrAdmin) {
-                // Giáo viên và Admin: "Kính chào thầy cô + Tên thầy cô và nội dung cần trao đổi..."
                 greeting = userName ? `Kính chào thầy cô ${userName}! ` : "Kính chào thầy cô! ";
             } else {
-                // Học sinh: "Chào em + Tên học sinh và nội dung..."
                 greeting = userName ? `Chào em ${userName}! ` : "Chào em! ";
             }
-
             return content ? `${greeting}${content}` : greeting;
         }
 
-        function splitTextIntoSentences(text, maxLength = 150) {
-            if (!text) return [];
-            const str = String(text);
-            const rawSentences = [];
-            let current = "";
-            // Tối ưu thuật toán cắt câu: băm nhỏ hơn tại các dấu phẩy để Google TTS chạy mượt
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charAt(i);
-                current += char;
-                if (char === '.' || char === '!' || char === '?' || char === '\n' || char === ',') {
-                    if (current.trim().length > 0) rawSentences.push(current.trim());
-                    current = "";
-                }
-            }
-            if (current.trim().length > 0) rawSentences.push(current.trim());
-
-            const chunks = [];
-            let currentChunk = "";
-            for (let i = 0; i < rawSentences.length; i++) {
-                const trimmed = rawSentences[i];
-                if ((currentChunk + " " + trimmed).trim().length <= maxLength) {
-                    currentChunk = (currentChunk + " " + trimmed).trim();
-                } else {
-                    if (currentChunk) chunks.push(currentChunk);
-                    currentChunk = trimmed;
-                }
-            }
-            if (currentChunk) chunks.push(currentChunk);
-            return chunks;
-        }
-
-        function cleanMarkdownForSpeech(text) {
-            if (!text) return "";
-            let clean = String(text);
-            while (clean.indexOf('```') !== -1) {
-                const first = clean.indexOf('```');
-                const second = clean.indexOf('```', first + 3);
-                if (second !== -1) {
-                    clean = clean.substring(0, first) + ' đoạn mã chương trình ' + clean.substring(second + 3);
-                } else break;
-            }
-            ['`', '**', '*', '#', '$', '|', '\\', '/', '_', '~', '[', ']', '(', ')'].forEach(tok => {
-                clean = clean.split(tok).join(' ');
-            });
-            return clean.split(/\s+/).filter(Boolean).join(' ');
-        }
-
-        function playNextTtsChunk() {
-            const audioPlayer = document.getElementById('robotAudioPlayer');
-            if (!audioPlayer) return;
-
-            if (currentAudioIndex >= audioPlaylist.length) {
-                isRobotSpeaking = false;
-                updateRobotSpeakingUi(false);
-                return;
-            }
-            
-            const chunk = audioPlaylist[currentAudioIndex];
-            currentAudioIndex++;
-
-            // GIẢI PHÁP TỐI ƯU NHẤT: SỬ DỤNG TRỰC TIẾP GOOGLE TRANSLATE
-            // - client=tw-ob: Phương thức API mạnh mẽ nhất cho web (nghe giống giọng nữ đọc).
-            // - Thẻ <audio> đã được gài sẵn referrer="no-referrer" nên Google không biết request đến từ GitHub.
-            const ttsUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodeURIComponent(chunk)}`;
-            
-            audioPlayer.src = ttsUrl;
-            audioPlayer.onplay = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
-            audioPlayer.onended = () => { playNextTtsChunk(); };
-            audioPlayer.onerror = () => { 
-                // Nếu 1 đoạn bị lỗi, tự động bỏ qua và đọc tiếp đoạn sau để không bị câm toàn bộ
-                playNextTtsChunk(); 
-            };
-            
-            audioPlayer.play().catch(e => {
-                console.warn("Trình duyệt chặn autoplay, vui lòng nhấp vào biểu tượng Robot để nghe.", e);
-            });
-        }
-
         function speakRobotText(text) {
-            stopRobotVoice();
-            const cleanText = cleanMarkdownForSpeech(text);
-            if (!cleanText) return;
-            audioPlaylist = splitTextIntoSentences(cleanText, 150); // Giới hạn 150 ký tự mỗi đoạn để an toàn
-            currentAudioIndex = 0;
-            playNextTtsChunk();
+            RobotTTS.speak(text);
         }
 
         function stopRobotVoice() {
-            const audioPlayer = document.getElementById('robotAudioPlayer');
-            if (audioPlayer) {
-                audioPlayer.pause();
-                audioPlayer.currentTime = 0;
-                audioPlayer.src = ""; // Gỡ link cũ
-            }
-            audioPlaylist = []; 
-            currentAudioIndex = 0;
-            isRobotSpeaking = false;
-            updateRobotSpeakingUi(false);
+            RobotTTS.stop();
         }
 
         function updateRobotSpeakingUi(speaking) {
@@ -3190,6 +3254,11 @@ except Exception as e: _error = str(e)
         }
 
         function toggleRobotSpeechDirectly() {
+            // Đánh thức Web Speech API (Đặc trị cho iOS / MacOS)
+            if (window.speechSynthesis && window.speechSynthesis.resume) {
+                window.speechSynthesis.resume();
+            }
+
             if (isRobotSpeaking) {
                 stopRobotVoice();
                 showToast("Đã dừng giọng đọc", "info");
