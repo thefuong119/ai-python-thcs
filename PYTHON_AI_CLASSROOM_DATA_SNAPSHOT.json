@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T02:18:58.757Z",
+    "updatedAt": "2026-10-31T02:24:56.138Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
@@ -52,7 +52,7 @@
         "school": "THCS Thành Đông",
         "className": "9A2",
         "teacherName": "Thầy Nguyễn Thế Phương",
-        "phone": "",
+        "phone": "0932861739",
         "email": "",
         "role": "student",
         "authMethod": "Gmail + Mật khẩu",
@@ -1043,6 +1043,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "09:24:36 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "09:18:29 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
