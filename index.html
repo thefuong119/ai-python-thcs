@@ -3061,16 +3061,15 @@ except Exception as e: _error = str(e)
             currentIndex: 0,
             voice: null,
             forceExternal: false, 
+            currentChunkFailed: false, // Cờ chống lặp vô hạn khi fallback
             
             init() {
                 // Nạp giọng đọc Tiếng Việt từ hệ thống (Web Speech API)
                 const loadVoices = () => {
                     const voices = window.speechSynthesis.getVoices();
-                    // Ưu tiên giọng Google Tiếng Việt hoặc Microsoft HoaiMy (Chất lượng cao nhất)
                     this.voice = voices.find(v => v.lang.includes('vi') && (v.name.includes('Google') || v.name.includes('HoaiMy'))) || 
                                  voices.find(v => v.lang.includes('vi'));
                                  
-                    // Trí tuệ nhân tạo: Nếu thiết bị hoàn toàn không có giọng Tiếng Việt, bẻ lái sang Cloud API
                     if (!this.voice && voices.length > 0) {
                         this.forceExternal = true;
                     }
@@ -3080,6 +3079,25 @@ except Exception as e: _error = str(e)
                 if (window.speechSynthesis) {
                     window.speechSynthesis.onvoiceschanged = loadVoices;
                 }
+
+                // [MỚI] CHÌA KHÓA VẠN NĂNG: Mở khóa âm thanh ngầm trên toàn trang
+                const unlockAllAudio = () => {
+                    if (window.speechSynthesis && window.speechSynthesis.resume) {
+                        window.speechSynthesis.resume();
+                    }
+                    const audio = document.getElementById('robotAudioPlayer');
+                    if (audio && audio.src === "") {
+                        // Âm thanh trống siêu nhỏ gọn (base64) để kích hoạt AudioContext ngay lần chạm đầu tiên
+                        audio.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
+                        audio.play().catch(()=>{});
+                        audio.pause();
+                        audio.src = "";
+                    }
+                    document.removeEventListener('click', unlockAllAudio);
+                    document.removeEventListener('touchstart', unlockAllAudio);
+                };
+                document.addEventListener('click', unlockAllAudio);
+                document.addEventListener('touchstart', unlockAllAudio, { passive: true });
             },
 
             speak(text) {
@@ -3103,6 +3121,7 @@ except Exception as e: _error = str(e)
                 this.currentIndex++;
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
+                this.currentChunkFailed = false; // Reset cờ thử lại
 
                 // Tự động phân luồng âm thanh
                 if (this.forceExternal) {
@@ -3124,9 +3143,14 @@ except Exception as e: _error = str(e)
                 
                 u.onend = () => this.playNext();
                 u.onerror = (e) => {
-                    console.warn("Giọng đọc hệ thống bị lỗi, tự động bẻ lái sang Cloud API...", e);
-                    this.forceExternal = true;
-                    this.playExternal(text);
+                    console.warn("Giọng hệ thống lỗi:", e);
+                    if (!this.currentChunkFailed) {
+                        this.currentChunkFailed = true;
+                        this.forceExternal = true;
+                        this.playExternal(text);
+                    } else {
+                        this.playNext(); // Bỏ qua đoạn này nếu cả 2 phương án đều thất bại
+                    }
                 };
                 
                 window.speechSynthesis.speak(u);
@@ -3140,17 +3164,27 @@ except Exception as e: _error = str(e)
                 const url = `https://translate.googleapis.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(text)}`;
                 
                 audio.src = url;
-                audio.onended = () => this.playNext();
-                audio.onerror = () => {
-                    console.warn("Lỗi tải âm thanh từ Cloud API, tự động bỏ qua đoạn này.");
-                    this.playNext(); 
-                };
+                audio.load(); // Bắt buộc đối với Safari/iOS để nạp lại nguồn
                 
-                audio.play().catch(e => {
-                    console.error("Trình duyệt chặn tự động phát âm thanh:", e);
-                    this.stop();
-                    showToast("Trình duyệt chặn âm thanh. Vui lòng nhấp lại vào Robot!", "error");
-                });
+                // [MỚI] Tự động bẻ lái mượt mà không hiện lỗi làm gián đoạn học sinh
+                const fallbackToNative = () => {
+                    console.warn("Mạng hoặc trình duyệt chặn API, bẻ lái sang Native TTS...");
+                    if (!this.currentChunkFailed) {
+                        this.currentChunkFailed = true;
+                        this.forceExternal = false; // Hủy cờ ép dùng external
+                        this.playNative(text);
+                    } else {
+                        this.playNext();
+                    }
+                };
+
+                audio.onended = () => this.playNext();
+                audio.onerror = fallbackToNative;
+                
+                const p = audio.play();
+                if (p !== undefined) {
+                    p.catch(fallbackToNative);
+                }
             },
 
             stop() {
