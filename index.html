@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON - Nền tảng học trực tuyến cùng AI</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -3059,11 +3060,11 @@ except Exception as e: _error = str(e)
         const RobotTTS = {
             playlist: [],
             currentIndex: 0,
+            audioElement: null,
             
             init() {
                 // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang
                 const unlockAllAudio = () => {
-                    // Mở khóa AudioContext cho iOS/Safari
                     try {
                         const AudioCtx = window.AudioContext || window.webkitAudioContext;
                         if (AudioCtx) {
@@ -3072,12 +3073,15 @@ except Exception as e: _error = str(e)
                         }
                     } catch(e) {}
                     
-                    const audio = document.getElementById('robotAudioPlayer');
-                    if (audio && audio.src === "") {
-                        audio.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
-                        audio.play().catch(()=>{});
-                        audio.pause();
-                        audio.src = "";
+                    if (!this.audioElement) {
+                        this.audioElement = new Audio();
+                    }
+                    
+                    if (this.audioElement.src === "" || this.audioElement.src === window.location.href) {
+                        this.audioElement.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
+                        this.audioElement.play().catch(()=>{});
+                        this.audioElement.pause();
+                        this.audioElement.src = "";
                     }
                     document.removeEventListener('click', unlockAllAudio);
                     document.removeEventListener('touchstart', unlockAllAudio);
@@ -3108,33 +3112,42 @@ except Exception as e: _error = str(e)
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
 
-                // TẠO ĐỐI TƯỢNG AUDIO ĐỘC LẬP: Khắc phục lỗi cache và rò rỉ bộ nhớ trên di động
+                // LUÔN tạo mới thẻ Audio để tránh lỗi kẹt trạng thái (stuck error state) của trình duyệt
                 const audio = new Audio();
-                audio.referrerPolicy = "no-referrer"; // Vô hình trên GitHub Pages
-                audio.crossOrigin = "anonymous";
+                this.audioElement = audio; 
                 
-                // [BÍ QUYẾT PRO] Dùng client=gtx (Google Translate Extension) 
-                // Ép máy chủ Google trả về mô hình giọng Wavenet Premium (giọng nữ mượt nhất).
-                const url = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                // Tàng hình nguồn gốc (ẩn referer)
+                audio.referrerPolicy = "no-referrer";
                 
-                audio.src = url;
+                // [GIẢI PHÁP PRO] Chuỗi API Google khép kín (Không dùng Proxy ngoài để tránh hỏng file mp3)
+                const urlGtx = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                const urlTwOb = `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                const urlDict = `https://translate.google.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                
+                let failCount = 0;
+                
                 audio.onended = () => this.playNext();
                 audio.onerror = (e) => {
-                    console.warn("Lỗi tải âm thanh, đang kích hoạt cổng dự phòng...");
-                    // Dự phòng cổng dịch thuật web (client=tw-ob)
-                    const fallbackAudio = new Audio();
-                    fallbackAudio.referrerPolicy = "no-referrer";
-                    fallbackAudio.src = `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
-                    fallbackAudio.onended = () => this.playNext();
-                    fallbackAudio.onerror = () => setTimeout(() => this.playNext(), 500); // Bỏ qua nếu cả 2 cổng đều lỗi
-                    fallbackAudio.play().catch(()=>{});
+                    failCount++;
+                    if (failCount === 1) {
+                        console.warn("Cổng gtx bị chặn, chuyển sang tw-ob...");
+                        audio.src = urlTwOb;
+                        audio.play().catch(()=>{});
+                    } else if (failCount === 2) {
+                        console.warn("Cổng tw-ob bị chặn, chuyển sang dict-chrome-ex...");
+                        audio.src = urlDict;
+                        audio.play().catch(()=>{});
+                    } else {
+                        console.error("[CONSOLE_ERROR] Mất kết nối mạng hoặc toàn bộ máy chủ TTS phản hồi chậm.");
+                        setTimeout(() => this.playNext(), 500); // Bỏ qua đoạn lỗi, tự động đọc đoạn tiếp theo
+                    }
                 };
                 
+                audio.src = urlGtx;
                 const p = audio.play();
                 if (p !== undefined) {
                     p.catch(e => {
-                        console.warn("Autoplay bị trình duyệt chặn:", e);
-                        this.stop();
+                        console.warn("Cảnh báo phát âm thanh (có thể do Autoplay hoặc mạng):", e);
                     });
                 }
             },
@@ -3142,6 +3155,10 @@ except Exception as e: _error = str(e)
             stop() {
                 this.playlist = [];
                 this.currentIndex = 0;
+                if (this.audioElement) {
+                    this.audioElement.pause();
+                    this.audioElement.src = "";
+                }
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
             },
