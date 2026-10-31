@@ -3052,39 +3052,17 @@ except Exception as e: _error = str(e)
         }
 
         // ==============================================
-        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC (ULTRA PRO HYBRID)
+        // ROBOT AI THUYẾT MINH & GIỌNG ĐỌC (100% GOOGLE CLOUD TTS)
         // ==============================================
         let isRobotSpeaking = false;
 
         const RobotTTS = {
             playlist: [],
             currentIndex: 0,
-            voice: null,
-            forceExternal: false, 
-            currentChunkFailed: false, // Cờ chống lặp vô hạn khi fallback
             
             init() {
-                // Nạp giọng đọc Tiếng Việt từ hệ thống (Web Speech API)
-                const loadVoices = () => {
-                    const voices = window.speechSynthesis.getVoices();
-                    this.voice = voices.find(v => v.lang.includes('vi') && (v.name.includes('Google') || v.name.includes('HoaiMy'))) || 
-                                 voices.find(v => v.lang.includes('vi'));
-                                 
-                    if (!this.voice && voices.length > 0) {
-                        this.forceExternal = true;
-                    }
-                };
-                
-                loadVoices();
-                if (window.speechSynthesis) {
-                    window.speechSynthesis.onvoiceschanged = loadVoices;
-                }
-
-                // [MỚI] CHÌA KHÓA VẠN NĂNG: Mở khóa âm thanh ngầm trên toàn trang
+                // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang (Khắc phục chặn Autoplay)
                 const unlockAllAudio = () => {
-                    if (window.speechSynthesis && window.speechSynthesis.resume) {
-                        window.speechSynthesis.resume();
-                    }
                     const audio = document.getElementById('robotAudioPlayer');
                     if (audio && audio.src === "") {
                         // Âm thanh trống siêu nhỏ gọn (base64) để kích hoạt AudioContext ngay lần chạm đầu tiên
@@ -3105,8 +3083,8 @@ except Exception as e: _error = str(e)
                 const cleanText = this.cleanMarkdownForSpeech(text);
                 if (!cleanText) return;
                 
-                // Băm nhỏ câu văn thành các đoạn ngắn (tối đa 120 ký tự) để đọc mượt mà
-                this.playlist = this.splitTextIntoSentences(cleanText, 120);
+                // Băm nhỏ câu văn thành các đoạn ngắn (tối đa 150 ký tự) để API Google không từ chối
+                this.playlist = this.splitTextIntoSentences(cleanText, 150);
                 this.currentIndex = 0;
                 this.playNext();
             },
@@ -3121,69 +3099,29 @@ except Exception as e: _error = str(e)
                 this.currentIndex++;
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
-                this.currentChunkFailed = false; // Reset cờ thử lại
 
-                // Tự động phân luồng âm thanh
-                if (this.forceExternal) {
-                    this.playExternal(chunk);
-                } else {
-                    this.playNative(chunk);
-                }
-            },
-
-            playNative(text) {
-                const u = new SpeechSynthesisUtterance(text);
-                if (this.voice) u.voice = this.voice;
-                u.lang = 'vi-VN';
-                u.rate = 1.0;
-                u.pitch = 1.0;
-                
-                // Vá lỗi Garbage Collection cực kỳ nổi tiếng của Chrome
-                window._ttsUtteranceBackup = u; 
-                
-                u.onend = () => this.playNext();
-                u.onerror = (e) => {
-                    console.warn("Giọng hệ thống lỗi:", e);
-                    if (!this.currentChunkFailed) {
-                        this.currentChunkFailed = true;
-                        this.forceExternal = true;
-                        this.playExternal(text);
-                    } else {
-                        this.playNext(); // Bỏ qua đoạn này nếu cả 2 phương án đều thất bại
-                    }
-                };
-                
-                window.speechSynthesis.speak(u);
-            },
-
-            playExternal(text) {
                 const audio = document.getElementById('robotAudioPlayer');
                 if (!audio) return;
                 
-                // SỬ DỤNG CLIENT=DICT-CHROME-EX ĐỂ VƯỢT CORS 100% TRÊN GITHUB PAGES
-                const url = `https://translate.googleapis.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(text)}`;
+                // SỬ DỤNG CLIENT=DICT-CHROME-EX VÀ GOOGLEAPIS ĐỂ VƯỢT CORS 100% TRÊN GITHUB PAGES
+                const url = `https://translate.googleapis.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
                 
                 audio.src = url;
                 audio.load(); // Bắt buộc đối với Safari/iOS để nạp lại nguồn
                 
-                // [MỚI] Tự động bẻ lái mượt mà không hiện lỗi làm gián đoạn học sinh
-                const fallbackToNative = () => {
-                    console.warn("Mạng hoặc trình duyệt chặn API, bẻ lái sang Native TTS...");
-                    if (!this.currentChunkFailed) {
-                        this.currentChunkFailed = true;
-                        this.forceExternal = false; // Hủy cờ ép dùng external
-                        this.playNative(text);
-                    } else {
-                        this.playNext();
-                    }
-                };
-
                 audio.onended = () => this.playNext();
-                audio.onerror = fallbackToNative;
+                audio.onerror = () => {
+                    console.warn("Lỗi tải một đoạn âm thanh, tự động nhảy sang câu tiếp theo...");
+                    setTimeout(() => this.playNext(), 500); // Bỏ qua đoạn lỗi, tránh câm toàn bộ
+                };
                 
                 const p = audio.play();
                 if (p !== undefined) {
-                    p.catch(fallbackToNative);
+                    p.catch(e => {
+                        console.warn("Autoplay bị trình duyệt chặn:", e);
+                        showToast("Vui lòng chạm vào màn hình một lần để cấp quyền phát âm thanh!", "error");
+                        this.stop();
+                    });
                 }
             },
 
@@ -3192,8 +3130,6 @@ except Exception as e: _error = str(e)
                 this.currentIndex = 0;
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
-                
-                if (window.speechSynthesis) window.speechSynthesis.cancel();
                 
                 const audio = document.getElementById('robotAudioPlayer');
                 if (audio) {
@@ -3288,11 +3224,6 @@ except Exception as e: _error = str(e)
         }
 
         function toggleRobotSpeechDirectly() {
-            // Đánh thức Web Speech API (Đặc trị cho iOS / MacOS)
-            if (window.speechSynthesis && window.speechSynthesis.resume) {
-                window.speechSynthesis.resume();
-            }
-
             if (isRobotSpeaking) {
                 stopRobotVoice();
                 showToast("Đã dừng giọng đọc", "info");
