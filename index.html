@@ -3060,6 +3060,24 @@ except Exception as e: _error = str(e)
         let synth = typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null;
         let googleVietnameseVoice = null;
 
+        // --- BỔ SUNG LỖI GITHUB: Nạp giọng Tiếng Việt tự động cho Web Speech (Fallback) ---
+        function loadVietnameseVoice() {
+            if (!synth) return;
+            const voices = synth.getVoices();
+            if (voices.length > 0) {
+                // Ưu tiên giọng chuẩn Google Tiếng Việt (Nữ mượt nhất), sau đó lấy bất kỳ giọng vi-VN nào làm fallback
+                googleVietnameseVoice = voices.find(v => v.name.includes('Google Tiếng Việt') || v.name.includes('Google Vietnamese'))
+                                     || voices.find(v => v.lang === 'vi-VN' || v.lang === 'vi');
+            }
+        }
+        if (synth) {
+            loadVietnameseVoice();
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = loadVietnameseVoice;
+            }
+        }
+        // ----------------------------------------------------------------------------------
+
         // TÍNH NĂNG THÔNG MINH: ĐỔI CÁCH XƯNG HÔ THEO VAI TRÒ VÀ TÊN NGƯỜI DÙNG
         function getSmartRobotGreeting(content = "") {
             const isTeacherOrAdmin = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
@@ -3134,7 +3152,11 @@ except Exception as e: _error = str(e)
                 return;
             }
             const chunk = audioPlaylist[currentAudioIndex];
-            audioPlayer.src = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=${encodeURIComponent(chunk)}`;
+            
+            // --- SỬA LỖI GITHUB CORS/REFERER: Đổi client=tw-ob sang client=gtx & domain googleapis ---
+            audioPlayer.src = `https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=vi&q=${encodeURIComponent(chunk)}`;
+            // ------------------------------------------------------------------------------------------
+
             currentAudioIndex++;
 
             audioPlayer.onplay = () => { isRobotSpeaking = true; updateRobotSpeakingUi(true); };
@@ -3157,7 +3179,7 @@ except Exception as e: _error = str(e)
             if (!synth) return;
             if (synth.paused) synth.resume();
             const u = new SpeechSynthesisUtterance(text);
-            if (googleVietnameseVoice) u.voice = googleVietnameseVoice;
+            if (googleVietnameseVoice) u.voice = googleVietnameseVoice; // Sử dụng giọng đã được nạp
             u.lang = 'vi-VN';
             u.rate = 0.95;
             u.pitch = 1.05;
