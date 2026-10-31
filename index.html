@@ -160,6 +160,45 @@
                     Đăng ký tại đây
                 </button>
             </div>
+
+            <!-- THẺ GIỚI THIỆU TÁC GIẢ -->
+            <div class="mt-12 w-full max-w-3xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden text-left relative z-10 transform transition-all hover:-translate-y-1 hover:shadow-blue-500/20 duration-300">
+                <div class="p-5 bg-gradient-to-r from-blue-700 via-indigo-600 to-indigo-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative overflow-hidden">
+                    <!-- Họa tiết nền chìm -->
+                    <div class="absolute inset-0 bg-white/5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSI+PC9yZWN0Pgo8cGF0aCBkPSJNMCAwTDggOFpNOCAwTDAgOFoiIHN0cm9rZT0iI2ZmZiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPjwvc3ZnPg==')] opacity-20"></div>
+                    
+                    <h3 class="text-white font-bold flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-inner">
+                            <i class="ph-bold ph-identification-card text-2xl text-amber-300 drop-shadow-md"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="tracking-wide text-base">Giới Thiệu Tác Giả & Dự Án</span>
+                            <span class="text-[10px] text-blue-200 font-medium font-mono uppercase tracking-widest mt-0.5">Năm học 2026-2027</span>
+                        </div>
+                    </h3>
+                    <button onclick="speakAuthorIntro()" class="relative z-10 w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold flex items-center justify-center gap-2 backdrop-blur-md transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group outline-none">
+                        <i class="ph-fill ph-speaker-high text-amber-300 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span>Nghe AI Đọc</span>
+                    </button>
+                </div>
+                
+                <div class="p-6 md:p-8 space-y-5 text-sm text-slate-700 leading-relaxed text-justify bg-gradient-to-b from-white to-slate-50/50">
+                    <p class="first-letter:text-5xl first-letter:font-extrabold first-letter:text-blue-600 first-letter:mr-2 first-letter:float-left first-letter:leading-none">
+                        Đây là ứng dụng dạng web app do <strong>thầy Nguyễn Thế Phương</strong>, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027.
+                    </p>
+                    <p>
+                        Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: <span class="font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-100 shadow-sm inline-block my-1">Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python</span>.
+                    </p>
+                    <div class="mt-6 p-4 md:p-5 bg-gradient-to-r from-amber-50 to-orange-50/50 border-l-4 border-amber-400 rounded-r-2xl shadow-inner relative overflow-hidden">
+                        <!-- Biểu tượng Quotes mờ làm nền -->
+                        <i class="ph-fill ph-quotes text-amber-400/20 text-6xl absolute -top-2 -left-2 rotate-12"></i>
+                        <p class="font-semibold text-slate-800 italic relative z-10 flex gap-3 items-start pl-2">
+                            <span class="leading-relaxed">Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!!</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- VIEW 1: KHÔNG GIAN HỌC SINH (STUDENT) -->
@@ -3248,6 +3287,19 @@ except Exception as e: _error = str(e)
 
         function speakRobotText(text) {
             RobotTTS.speak(text);
+        }
+
+        function speakAuthorIntro() {
+            // Đóng Modal Đăng nhập nếu đang mở để người dùng xem hiệu ứng Robot
+            const authModal = document.getElementById('authModal');
+            if (authModal && !authModal.classList.contains('hidden')) {
+                closeLoginModal();
+            }
+
+            const textToRead = "Giới thiệu tác giả và dự án. Đây là ứng dụng dạng web app do thầy Nguyễn Thế Phương, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!!";
+            const intro = getSmartRobotGreeting("Mời bạn nghe phần ");
+            speakRobotText(intro + textToRead);
+            showToast("Robot đang đọc thông tin giới thiệu...", "info");
         }
 
         function stopRobotVoice() {
