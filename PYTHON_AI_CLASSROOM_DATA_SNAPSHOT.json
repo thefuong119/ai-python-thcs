@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T03:45:56.327Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 14. Nhập xuất tệp"
+    "updatedAt": "2026-10-31T03:53:14.832Z",
+    "updatedBy": "Nguyễn Thế Bình",
+    "action": "Lưu bài giảng: Bài 1. Ngôn ngữ lập trình bậc cao và python"
   },
   "data": {
     "registeredUsers": [
@@ -1073,6 +1073,27 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:53:00 31/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "10:52:49 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "10:51:54 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "10:41:05 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
