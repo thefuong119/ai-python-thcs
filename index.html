@@ -3080,8 +3080,6 @@ except Exception as e: _error = str(e)
                     if (this.audioElement.src === "" || this.audioElement.src === window.location.href) {
                         this.audioElement.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
                         this.audioElement.play().catch(()=>{});
-                        this.audioElement.pause();
-                        this.audioElement.src = "";
                     }
                     document.removeEventListener('click', unlockAllAudio);
                     document.removeEventListener('touchstart', unlockAllAudio);
@@ -3108,48 +3106,53 @@ except Exception as e: _error = str(e)
                 }
                 
                 const chunk = this.playlist[this.currentIndex];
-                this.currentIndex++;
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
 
-                // LUÔN tạo mới thẻ Audio để tránh lỗi kẹt trạng thái (stuck error state) của trình duyệt
-                const audio = new Audio();
-                this.audioElement = audio; 
-                
-                // Tàng hình nguồn gốc (ẩn referer)
-                audio.referrerPolicy = "no-referrer";
-                
-                // [GIẢI PHÁP PRO] Chuỗi API Google khép kín (Không dùng Proxy ngoài để tránh hỏng file mp3)
-                const urlGtx = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
-                const urlTwOb = `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
-                const urlDict = `https://translate.google.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
-                
-                let failCount = 0;
-                
-                audio.onended = () => this.playNext();
-                audio.onerror = (e) => {
-                    failCount++;
-                    if (failCount === 1) {
-                        console.warn("Cổng gtx bị chặn, chuyển sang tw-ob...");
-                        audio.src = urlTwOb;
-                        audio.play().catch(()=>{});
-                    } else if (failCount === 2) {
-                        console.warn("Cổng tw-ob bị chặn, chuyển sang dict-chrome-ex...");
-                        audio.src = urlDict;
-                        audio.play().catch(()=>{});
-                    } else {
+                // Các cổng Google TTS được sắp xếp theo mức độ ưu tiên
+                const urls = [
+                    `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`,
+                    `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`,
+                    `https://translate.google.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`
+                ];
+
+                // Đệ quy tải URL dự phòng với Thẻ Audio luôn Mới
+                const tryPlayUrl = (index) => {
+                    if (index >= urls.length) {
                         console.error("[CONSOLE_ERROR] Mất kết nối mạng hoặc toàn bộ máy chủ TTS phản hồi chậm.");
+                        this.currentIndex++;
                         setTimeout(() => this.playNext(), 500); // Bỏ qua đoạn lỗi, tự động đọc đoạn tiếp theo
+                        return;
+                    }
+
+                    // LUÔN TẠO THẺ AUDIO MỚI: Tránh lỗi kẹt trạng thái error của trình duyệt
+                    const audio = new Audio();
+                    this.audioElement = audio;
+                    audio.referrerPolicy = "no-referrer";
+                    
+                    audio.onended = () => {
+                        this.currentIndex++;
+                        this.playNext();
+                    };
+
+                    audio.onerror = (e) => {
+                        console.warn(`Cổng TTS ${index + 1} bị chặn hoặc lỗi mạng, tự động chuyển cổng dự phòng...`);
+                        tryPlayUrl(index + 1); // Đệ quy tạo thẻ audio mới với URL tiếp theo
+                    };
+
+                    audio.src = urls[index];
+                    const p = audio.play();
+                    if (p !== undefined) {
+                        p.catch(e => {
+                            if (e.name === 'NotAllowedError') {
+                                console.warn("Trình duyệt chặn Autoplay. Cần người dùng tương tác.");
+                                this.stop();
+                            }
+                        });
                     }
                 };
-                
-                audio.src = urlGtx;
-                const p = audio.play();
-                if (p !== undefined) {
-                    p.catch(e => {
-                        console.warn("Cảnh báo phát âm thanh (có thể do Autoplay hoặc mạng):", e);
-                    });
-                }
+
+                tryPlayUrl(0);
             },
 
             stop() {
@@ -3157,7 +3160,8 @@ except Exception as e: _error = str(e)
                 this.currentIndex = 0;
                 if (this.audioElement) {
                     this.audioElement.pause();
-                    this.audioElement.src = "";
+                    this.audioElement.removeAttribute('src'); // Giải phóng tài nguyên đúng chuẩn thay vì gán ""
+                    this.audioElement.load();
                 }
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
