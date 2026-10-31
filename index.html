@@ -172,13 +172,13 @@
                             <i class="ph-bold ph-identification-card text-2xl text-amber-300 drop-shadow-md"></i>
                         </div>
                         <div class="flex flex-col">
-                            <span class="tracking-wide text-base">Giới Thiệu Tác Giả & Dự Án</span>
+                            <span class="tracking-wide text-base">Giới thiệu</span>
                             <span class="text-[10px] text-blue-200 font-medium font-mono uppercase tracking-widest mt-0.5">Năm học 2026-2027</span>
                         </div>
                     </h3>
                     <button onclick="speakAuthorIntro()" class="relative z-10 w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold flex items-center justify-center gap-2 backdrop-blur-md transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] group outline-none">
                         <i class="ph-fill ph-speaker-high text-amber-300 group-hover:scale-110 transition-transform duration-300"></i>
-                        <span>Nghe AI Đọc</span>
+                        <span>Nghe giới thiệu</span>
                     </button>
                 </div>
                 
@@ -195,6 +195,17 @@
                         <p class="font-semibold text-slate-800 italic relative z-10 flex gap-3 items-start pl-2">
                             <span class="leading-relaxed">Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!!</span>
                         </p>
+                    </div>
+
+                    <!-- THÔNG TIN LIÊN HỆ -->
+                    <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-blue-50/50 p-3.5 rounded-2xl border border-blue-100 text-sm font-bold text-blue-900">
+                        <span class="flex items-center gap-2 hover:text-blue-700 transition-colors">
+                            <span class="text-lg">📞</span> Điện thoại: 0932.861.739
+                        </span>
+                        <span class="hidden sm:block w-1.5 h-1.5 rounded-full bg-blue-300"></span>
+                        <span class="flex items-center gap-2 hover:text-blue-700 transition-colors">
+                            <span class="text-lg">💌</span> Email: thefuong119@gmail.com
+                        </span>
                     </div>
                 </div>
             </div>
@@ -3406,7 +3417,7 @@ except Exception as e: _error = str(e)
                 closeLoginModal();
             }
 
-            const textToRead = "Giới thiệu tác giả và dự án. Đây là ứng dụng dạng web app do thầy Nguyễn Thế Phương, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!!";
+            const textToRead = "Giới thiệu tác giả và dự án. Đây là ứng dụng dạng web app do thầy Nguyễn Thế Phương, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp!!! Điện thoại liên hệ: 0 9 3 2, 8 6 1, 7 3 9. Email: thefuong119@gmail.com.";
             const intro = getSmartRobotGreeting("Mời bạn nghe phần ");
             speakRobotText(intro + textToRead);
             showToast("Robot đang đọc thông tin giới thiệu...", "info");
@@ -3604,6 +3615,10 @@ except Exception as e: _error = str(e)
                         getSmartRobotGreeting(`${isTeacherOrAdmin ? 'thầy cô' : 'em'} lưu ý cần đọc dữ liệu vào bằng hàm \`input()\` trước khi tính toán nhé!`);
                 }
                 appendAiChatMessage('assistant', reply);
+                
+                // Gọi Robot phát âm thanh câu trả lời của Gia sư AI
+                speakRobotText(reply);
+                
             }, 600);
         }
 
