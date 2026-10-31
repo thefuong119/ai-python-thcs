@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T06:29:57.217Z",
-    "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài giảng: Bài 1. Tin học 12"
+    "updatedAt": "2026-10-31T07:53:24.839Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
   "data": {
     "registeredUsers": [
@@ -173,6 +173,19 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
+        "loginCount": 0
+      },
+      {
+        "id": 1793433198849,
+        "name": "Giáo Viên Tin Học",
+        "username": "demo",
+        "identifier": "demo",
+        "password": "Abc123",
+        "school": "THCS THPT VIệt Nam",
+        "className": "Khối 9",
+        "phone": "0123456789",
+        "role": "teacher",
+        "status": "active",
         "loginCount": 0
       }
     ],
@@ -1080,6 +1093,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "14:51:39 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "13:24:26 31/10/2026",
         "name": "Trần Thị Trúc Mai",
