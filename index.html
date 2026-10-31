@@ -3061,11 +3061,19 @@ except Exception as e: _error = str(e)
             currentIndex: 0,
             
             init() {
-                // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang (Khắc phục chặn Autoplay)
+                // CHÌA KHÓA VẠN NĂNG: Mở khóa thẻ <audio> ngầm trên toàn trang
                 const unlockAllAudio = () => {
+                    // Mở khóa AudioContext cho iOS/Safari
+                    try {
+                        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                        if (AudioCtx) {
+                            const ctx = new AudioCtx();
+                            ctx.resume();
+                        }
+                    } catch(e) {}
+                    
                     const audio = document.getElementById('robotAudioPlayer');
                     if (audio && audio.src === "") {
-                        // Âm thanh trống siêu nhỏ gọn (base64) để kích hoạt AudioContext ngay lần chạm đầu tiên
                         audio.src = "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIwD/8AAABQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFAAA=";
                         audio.play().catch(()=>{});
                         audio.pause();
@@ -3083,7 +3091,7 @@ except Exception as e: _error = str(e)
                 const cleanText = this.cleanMarkdownForSpeech(text);
                 if (!cleanText) return;
                 
-                // Băm nhỏ câu văn thành các đoạn ngắn (tối đa 150 ký tự) để API Google không từ chối
+                // Băm nhỏ câu văn (tối đa 150 ký tự) để API Google không từ chối
                 this.playlist = this.splitTextIntoSentences(cleanText, 150);
                 this.currentIndex = 0;
                 this.playNext();
@@ -3100,26 +3108,32 @@ except Exception as e: _error = str(e)
                 updateRobotSpeakingUi(true);
                 isRobotSpeaking = true;
 
-                const audio = document.getElementById('robotAudioPlayer');
-                if (!audio) return;
+                // TẠO ĐỐI TƯỢNG AUDIO ĐỘC LẬP: Khắc phục lỗi cache và rò rỉ bộ nhớ trên di động
+                const audio = new Audio();
+                audio.referrerPolicy = "no-referrer"; // Vô hình trên GitHub Pages
+                audio.crossOrigin = "anonymous";
                 
-                // SỬ DỤNG CLIENT=DICT-CHROME-EX VÀ GOOGLEAPIS ĐỂ VƯỢT CORS 100% TRÊN GITHUB PAGES
-                const url = `https://translate.googleapis.com/translate_tts?client=dict-chrome-ex&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                // [BÍ QUYẾT PRO] Dùng client=gtx (Google Translate Extension) 
+                // Ép máy chủ Google trả về mô hình giọng Wavenet Premium (giọng nữ mượt nhất).
+                const url = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
                 
                 audio.src = url;
-                audio.load(); // Bắt buộc đối với Safari/iOS để nạp lại nguồn
-                
                 audio.onended = () => this.playNext();
-                audio.onerror = () => {
-                    console.warn("Lỗi tải một đoạn âm thanh, tự động nhảy sang câu tiếp theo...");
-                    setTimeout(() => this.playNext(), 500); // Bỏ qua đoạn lỗi, tránh câm toàn bộ
+                audio.onerror = (e) => {
+                    console.warn("Lỗi tải âm thanh, đang kích hoạt cổng dự phòng...");
+                    // Dự phòng cổng dịch thuật web (client=tw-ob)
+                    const fallbackAudio = new Audio();
+                    fallbackAudio.referrerPolicy = "no-referrer";
+                    fallbackAudio.src = `https://translate.google.com/translate_tts?client=tw-ob&ie=UTF-8&tl=vi&q=${encodeURIComponent(chunk)}`;
+                    fallbackAudio.onended = () => this.playNext();
+                    fallbackAudio.onerror = () => setTimeout(() => this.playNext(), 500); // Bỏ qua nếu cả 2 cổng đều lỗi
+                    fallbackAudio.play().catch(()=>{});
                 };
                 
                 const p = audio.play();
                 if (p !== undefined) {
                     p.catch(e => {
                         console.warn("Autoplay bị trình duyệt chặn:", e);
-                        showToast("Vui lòng chạm vào màn hình một lần để cấp quyền phát âm thanh!", "error");
                         this.stop();
                     });
                 }
@@ -3130,12 +3144,6 @@ except Exception as e: _error = str(e)
                 this.currentIndex = 0;
                 isRobotSpeaking = false;
                 updateRobotSpeakingUi(false);
-                
-                const audio = document.getElementById('robotAudioPlayer');
-                if (audio) {
-                    audio.pause();
-                    audio.src = "";
-                }
             },
 
             cleanMarkdownForSpeech(text) {
