@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T04:28:08.496Z",
+    "updatedAt": "2026-10-31T04:57:36.838Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 14. Nhập xuất tệp"
+    "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
   "data": {
     "registeredUsers": [
@@ -70,7 +70,7 @@
         "school": "THCS Thành Đông",
         "className": "9A3",
         "teacherName": "Thầy Nguyễn Thế Phương",
-        "phone": "",
+        "phone": "0983328073",
         "email": "",
         "role": "student",
         "authMethod": "Số điện thoại",
@@ -88,7 +88,7 @@
         "school": "THCS Thành Đông",
         "className": "9A3",
         "teacherName": "Cô Lê Thị B",
-        "phone": "",
+        "phone": "Zalo cá nhân",
         "email": "",
         "role": "student",
         "authMethod": "Tên đăng nhập",
@@ -136,7 +136,7 @@
         "school": "THCS Thành Đông",
         "className": "8A4",
         "teacherName": "Thầy Nguyễn Thế Phương",
-        "phone": "",
+        "phone": "Zalo PHHS",
         "email": "",
         "role": "student",
         "authMethod": "Tên đăng nhập",
@@ -1073,6 +1073,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "11:44:09 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "11:44:04 31/10/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "student",
+        "result": "Thất bại"
+      },
       {
         "time": "11:27:57 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
