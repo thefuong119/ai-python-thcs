@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T02:25:39.118Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 14. Nhập xuất tệp"
+    "updatedAt": "2026-10-31T02:27:39.655Z",
+    "updatedBy": "Nguyễn Thế Bình",
+    "action": "Lưu bài tập: Bài 5"
   },
   "data": {
     "registeredUsers": [
@@ -329,6 +329,30 @@
             "input": "111111",
             "expected": "No",
             "point": 3,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Bài 5",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Tính giai thừa",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
             "is_hidden": true
           }
         ]
@@ -1049,6 +1073,27 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "09:27:12 31/10/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "09:27:05 31/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "09:26:47 31/10/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "09:24:36 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
