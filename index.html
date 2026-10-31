@@ -42,6 +42,8 @@
     <!-- Mammoth JS for .docx import & PDF.js for PDF parsing -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- JSZip for Word .docx generation and export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <!-- KaTeX for MathType / Mathematical Formulas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
@@ -433,12 +435,12 @@
                             <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
-                        <button onclick="exportLectureTemplate()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Tải tệp mẫu bài giảng (.json)">
-                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        <button onclick="exportLectureTemplateDocx()" class="px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Tải tệp mẫu bài giảng dạng Word (.docx)">
+                            <i class="ph-bold ph-file-doc text-base text-blue-600"></i> Xuất Mẫu Word (.docx)
                         </button>
-                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp JSON mẫu">
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp Word (.docx) hoặc JSON">
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
-                            <input type="file" accept=".json" class="hidden" onchange="importLectureFileFromTemplate(event)">
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importLectureFileFromTemplate(event)">
                         </label>
                         <button onclick="openLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
                             <i class="ph-bold ph-plus"></i> Thêm Mới
@@ -582,12 +584,12 @@
                         <p class="text-xs text-slate-500">Giáo viên có thể chỉnh sửa, nạp tệp bài tập từ file mẫu và thêm đề mới.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="exportAssignmentTemplate()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all" title="Tải tệp mẫu bài tập (.json)">
-                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        <button onclick="exportAssignmentTemplateDocx()" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Tải tệp mẫu bài tập dạng Word (.docx)">
+                            <i class="ph-bold ph-file-doc text-base text-blue-600"></i> Xuất Mẫu Word (.docx)
                         </button>
-                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp JSON mẫu">
+                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp Word (.docx) hoặc JSON">
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
-                            <input type="file" accept=".json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
                         </label>
                         <button onclick="createAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs flex items-center gap-1.5 transition-all">
                             <i class="ph-bold ph-plus"></i> Thêm Đề Mới
@@ -764,12 +766,12 @@
                             <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
-                        <button onclick="exportLectureTemplate()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Xuất tệp mẫu bài giảng (.json)">
-                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        <button onclick="exportLectureTemplateDocx()" class="px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Xuất tệp mẫu bài giảng Word (.docx)">
+                            <i class="ph-bold ph-file-doc text-base text-indigo-600"></i> Xuất Mẫu Word (.docx)
                         </button>
-                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp JSON">
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Nạp bài giảng từ tệp Word (.docx) hoặc JSON">
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
-                            <input type="file" accept=".json" class="hidden" onchange="importLectureFileFromTemplate(event)">
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importLectureFileFromTemplate(event)">
                         </label>
                         <button onclick="openAdminLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
                             <i class="ph-bold ph-plus"></i> Thêm Mới
@@ -857,12 +859,12 @@
                         <p class="text-xs text-slate-500">Admin có thể xuất/nạp tệp mẫu đề bài, tạo mới và cấu hình test case trực tiếp.</p>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="exportAssignmentTemplate()" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all" title="Xuất tệp mẫu bài tập (.json)">
-                            <i class="ph-bold ph-download-simple"></i> Xuất Tệp Mẫu
+                        <button onclick="exportAssignmentTemplateDocx()" class="px-3 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Xuất tệp mẫu bài tập Word (.docx)">
+                            <i class="ph-bold ph-file-doc text-base text-indigo-600"></i> Xuất Mẫu Word (.docx)
                         </button>
-                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp JSON">
+                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5 transition-all" title="Nạp bài tập từ tệp Word (.docx) hoặc JSON">
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp Tệp Mẫu
-                            <input type="file" accept=".json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
                         </label>
                         <button onclick="createAdminAssignment()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5">
                             <i class="ph-bold ph-plus"></i> Thêm Đề Mới
@@ -2005,6 +2007,10 @@
                     return false;
                 }
 
+                // Chuẩn hóa công thức MathType/LaTeX trước khi đóng gói JSON đẩy lên GitHub
+                const cleanAssignments = sanitizeMathForJson(assignments);
+                const cleanLectures = sanitizeMathForJson(lectures);
+
                 const snapshotPayload = {
                     metadata: {
                         repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`,
@@ -2014,9 +2020,9 @@
                     },
                     data: {
                         registeredUsers,
-                        assignments,
+                        assignments: cleanAssignments,
                         gradebook,
-                        lectures,
+                        lectures: cleanLectures,
                         studentSubmissions,
                         loginLogs
                     }
@@ -2381,11 +2387,11 @@
             showToast(`Đang đọc tệp ${file.name}...`, "info");
             const ext = file.name.split('.').pop().toLowerCase();
             try {
-                if (ext === 'docx' && window.mammoth) {
+                if (ext === 'docx') {
                     const arrayBuffer = await file.arrayBuffer();
-                    const result = await mammoth.extractRawText({ arrayBuffer });
-                    if (bodyTextarea) bodyTextarea.value = result.value;
-                    showToast("Trích xuất DOCX thành công!", "success");
+                    const text = await extractDocxTextWithMath(arrayBuffer);
+                    if (bodyTextarea) bodyTextarea.value = text;
+                    showToast("Đã nạp và chuyển đổi công thức MathType thành công!", "success");
                 } else {
                     const text = await file.text();
                     if (bodyTextarea) bodyTextarea.value = text;
@@ -2488,11 +2494,11 @@
             showToast(`Đang đọc tệp ${file.name}...`, "info");
             const ext = file.name.split('.').pop().toLowerCase();
             try {
-                if (ext === 'docx' && window.mammoth) {
+                if (ext === 'docx') {
                     const arrayBuffer = await file.arrayBuffer();
-                    const result = await mammoth.extractRawText({ arrayBuffer });
-                    if (bodyTextarea) bodyTextarea.value = result.value;
-                    showToast("Trích xuất DOCX thành công!", "success");
+                    const text = await extractDocxTextWithMath(arrayBuffer);
+                    if (bodyTextarea) bodyTextarea.value = text;
+                    showToast("Đã nạp và chuyển đổi công thức MathType thành công!", "success");
                 } else {
                     const text = await file.text();
                     if (bodyTextarea) bodyTextarea.value = text;
@@ -3249,72 +3255,729 @@ except Exception as e: _error = str(e)
         }
 
         // ==============================================
-        // TIỆN ÍCH XUẤT & NẠP TỆP MẪU BÀI GIẢNG / BÀI TẬP
+        // BỘ CHUYỂN ĐỔI MATHTYPE / OMML SANG LATEX VÀ CHUẨN HÓA JSON
         // ==============================================
-        function downloadJsonFile(filename, dataObj) {
-            const jsonStr = JSON.stringify(dataObj, null, 2);
-            const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(() => {
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            }, 100);
+        function ommlNodeToLatex(node) {
+            if (!node) return "";
+            if (node.nodeType === 3) return node.textContent || "";
+            const local = (node.localName || node.nodeName || "").replace(/^.*:/, "");
+
+            switch (local) {
+                case "oMathPara":
+                case "oMath": {
+                    let inner = "";
+                    for (let child of node.childNodes) {
+                        inner += ommlNodeToLatex(child);
+                    }
+                    inner = inner.trim();
+                    if (!inner) return "";
+                    if (inner.startsWith("$") && inner.endsWith("$")) return inner;
+                    return `$${inner}$`;
+                }
+                case "f": { // Phân số: \frac{num}{den}
+                    let num = "", den = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "num") num = ommlChildrenToLatex(child);
+                        else if (cLocal === "den") den = ommlChildrenToLatex(child);
+                    }
+                    return `\\frac{${num}}{${den}}`;
+                }
+                case "sSup": { // Lũy thừa: x^2
+                    let base = "", sup = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") base = ommlChildrenToLatex(child);
+                        else if (cLocal === "sup") sup = ommlChildrenToLatex(child);
+                    }
+                    return `{${base}}^{${sup}}`;
+                }
+                case "sSub": { // Chỉ số dưới: x_1
+                    let base = "", sub = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") base = ommlChildrenToLatex(child);
+                        else if (cLocal === "sub") sub = ommlChildrenToLatex(child);
+                    }
+                    return `{${base}}_{${sub}}`;
+                }
+                case "sSubSup": { // Vừa trên vừa dưới: x_i^2
+                    let base = "", sub = "", sup = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") base = ommlChildrenToLatex(child);
+                        else if (cLocal === "sub") sub = ommlChildrenToLatex(child);
+                        else if (cLocal === "sup") sup = ommlChildrenToLatex(child);
+                    }
+                    return `{${base}}_{${sub}}^{${sup}}`;
+                }
+                case "rad": { // Căn thức: \sqrt{x} hoặc \sqrt[n]{x}
+                    let deg = "", base = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "deg") deg = ommlChildrenToLatex(child);
+                        else if (cLocal === "e") base = ommlChildrenToLatex(child);
+                    }
+                    deg = deg.trim();
+                    return deg ? `\\sqrt[${deg}]{${base}}` : `\\sqrt{${base}}`;
+                }
+                case "d": { // Dấu ngoặc () [] {} ||
+                    let beg = "(", end = ")";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "dPr") {
+                            for (let p of child.childNodes) {
+                                const pLocal = (p.localName || p.nodeName || "").replace(/^.*:/, "");
+                                if (pLocal === "begChr") beg = p.getAttribute("m:val") || p.getAttribute("val") || "(";
+                                else if (pLocal === "endChr") end = p.getAttribute("m:val") || p.getAttribute("val") || ")";
+                            }
+                        }
+                    }
+                    let content = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") content += ommlChildrenToLatex(child);
+                    }
+                    if (beg === "{" || beg === "\\{") beg = "\\{";
+                    if (end === "}" || end === "\\}") end = "\\}";
+                    if (beg === "|" || beg === "∣") beg = "|";
+                    if (end === "|" || end === "∣") end = "|";
+                    return `\\left${beg} ${content} \\right${end}`;
+                }
+                case "nary": { // Tích phân, Tổng ∑, Tích ∏
+                    let chr = "\\sum", sub = "", sup = "", base = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "naryPr") {
+                            for (let p of child.childNodes) {
+                                const pLocal = (p.localName || p.nodeName || "").replace(/^.*:/, "");
+                                if (pLocal === "chr") {
+                                    const val = p.getAttribute("m:val") || p.getAttribute("val") || "∑";
+                                    if (val === "∫") chr = "\\int";
+                                    else if (val === "∏") chr = "\\prod";
+                                    else chr = "\\sum";
+                                }
+                            }
+                        } else if (cLocal === "sub") sub = ommlChildrenToLatex(child);
+                        else if (cLocal === "sup") sup = ommlChildrenToLatex(child);
+                        else if (cLocal === "e") base = ommlChildrenToLatex(child);
+                    }
+                    let res = chr;
+                    if (sub) res += `_{${sub}}`;
+                    if (sup) res += `^{${sup}}`;
+                    if (base) res += ` {${base}}`;
+                    return res;
+                }
+                case "func": { // Hàm số f(x), sin(x), cos, lim
+                    let fname = "", e = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "fName") fname = ommlChildrenToLatex(child);
+                        else if (cLocal === "e") e = ommlChildrenToLatex(child);
+                    }
+                    return `${fname}\\left(${e}\\right)`;
+                }
+                case "limLow": {
+                    let base = "", lim = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") base = ommlChildrenToLatex(child);
+                        else if (cLocal === "lim") lim = ommlChildrenToLatex(child);
+                    }
+                    return `${base}_{${lim}}`;
+                }
+                case "bar": {
+                    let base = "";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "e") base = ommlChildrenToLatex(child);
+                    }
+                    return `\\overline{${base}}`;
+                }
+                case "acc": { // Dấu vector \vec{x} hoặc dấu mũ \hat{x}
+                    let base = "", chr = "\\vec";
+                    for (let child of node.childNodes) {
+                        const cLocal = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+                        if (cLocal === "accPr") {
+                            for (let p of child.childNodes) {
+                                const pLocal = (p.localName || p.nodeName || "").replace(/^.*:/, "");
+                                if (pLocal === "chr") {
+                                    const val = p.getAttribute("m:val") || p.getAttribute("val");
+                                    if (val === "^" || val === "̂") chr = "\\hat";
+                                    else if (val === "." || val === "̇") chr = "\\dot";
+                                }
+                            }
+                        } else if (cLocal === "e") base = ommlChildrenToLatex(child);
+                    }
+                    return `${chr}{${base}}`;
+                }
+                case "t": { // Ký tự toán học
+                    let t = node.textContent || "";
+                    t = t.replace(/≤/g, " \\le ")
+                         .replace(/≥/g, " \\ge ")
+                         .replace(/≠/g, " \\ne ")
+                         .replace(/±/g, " \\pm ")
+                         .replace(/×/g, " \\times ")
+                         .replace(/÷/g, " \\div ")
+                         .replace(/∞/g, " \\infty ")
+                         .replace(/π/g, " \\pi ")
+                         .replace(/α/g, " \\alpha ")
+                         .replace(/β/g, " \\beta ")
+                         .replace(/γ/g, " \\gamma ")
+                         .replace(/θ/g, " \\theta ")
+                         .replace(/λ/g, " \\lambda ")
+                         .replace(/μ/g, " \\mu ")
+                         .replace(/Δ/g, " \\Delta ")
+                         .replace(/∈/g, " \\in ")
+                         .replace(/∉/g, " \\notin ")
+                         .replace(/⊂/g, " \\subset ")
+                         .replace(/⊆/g, " \\subseteq ")
+                         .replace(/∪/g, " \\cup ")
+                         .replace(/∩/g, " \\cap ")
+                         .replace(/→/g, " \\to ")
+                         .replace(/⇒/g, " \\Rightarrow ")
+                         .replace(/⇔/g, " \\Leftrightarrow ");
+                    return t;
+                }
+                default: {
+                    let res = "";
+                    for (let child of node.childNodes) {
+                        res += ommlNodeToLatex(child);
+                    }
+                    return res;
+                }
+            }
         }
 
-        function exportLectureTemplate() {
-            const sample = [
-                {
-                    "title": "Bài 14. Kiểu dữ liệu Dictionary trong Python",
-                    "classLevel": "8",
-                    "grade": "Tin học cơ sở",
-                    "content": "### 1. Khái niệm Dictionary\n- Kiểu dữ liệu từ điển lưu các cặp khóa và giá trị (`key: value`), ví dụ: `d = {'ten': 'An', 'diem': 10}`.\n- Độ phức tạp tìm kiếm theo khóa là $O(1)$.\n\n### 2. Ví dụ Python minh họa\n```python\nperson = {'name': 'An', 'age': 14}\nprint(person['name'])\n```"
-                },
-                {
-                    "title": "Bài 15. Thuật toán tìm kiếm nhị phân (Binary Search)",
-                    "classLevel": "9",
-                    "grade": "Bồi dưỡng HSG",
-                    "content": "### 1. Nguyên lý tìm kiếm nhị phân\n- Cho dãy số đã sắp xếp tăng dần. Ở mỗi bước, so sánh phần tử cần tìm với phần tử giữa để thu hẹp không gian tìm kiếm còn một nửa.\n- Thời gian thực thi là $O(\\log n)$."
-                }
-            ];
-            downloadJsonFile("tep_mau_bai_giang_python.json", sample);
-            showToast("Đã tải xuống tệp mẫu Bài giảng (.json)!", "success");
+        function ommlChildrenToLatex(parent) {
+            if (!parent) return "";
+            let s = "";
+            for (let c of parent.childNodes) {
+                s += ommlNodeToLatex(c);
+            }
+            return s.trim();
         }
 
-        function exportAssignmentTemplate() {
-            const sample = [
-                {
-                    "title": "Tính chu vi và diện tích hình chữ nhật",
-                    "classLevel": "8",
-                    "difficulty": "easy",
-                    "timeLimit": 2.0,
-                    "description": "### Đề bài\nCho hai số nguyên dương $a$ và $b$ tương ứng là chiều dài và chiều rộng của hình chữ nhật.\n\nHãy tính chu vi $P = 2 \\times (a + b)$ và diện tích $S = a \\times b$.\n\n### Dữ liệu vào (stdin)\nHai số nguyên dương $a, b$ cách nhau bởi dấu cách ($1 \\le a, b \\le 10^6$).\n\n### Dữ liệu ra (stdout)\nDòng 1 in ra chu vi $P$.\nDòng 2 in ra diện tích $S$.",
-                    "templateCode": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nprint(2 * (a + b))\nprint(a * b)\n",
-                    "tests": [
-                        { "id": 1, "input": "3 5", "expected": "16\n15", "point": 5.0, "is_hidden": false },
-                        { "id": 2, "input": "10 20", "expected": "60\n200", "point": 5.0, "is_hidden": true }
-                    ]
+        async function extractDocxTextWithMath(arrayBuffer) {
+            if (typeof JSZip === 'undefined') {
+                if (window.mammoth) {
+                    const res = await mammoth.extractRawText({ arrayBuffer });
+                    return res.value || "";
                 }
-            ];
-            downloadJsonFile("tep_mau_bai_tap_python.json", sample);
-            showToast("Đã tải xuống tệp mẫu Bài tập (.json)!", "success");
+                return "";
+            }
+            try {
+                const zip = await JSZip.loadAsync(arrayBuffer);
+                const docFile = zip.file("word/document.xml");
+                if (!docFile) {
+                    if (window.mammoth) {
+                        const res = await mammoth.extractRawText({ arrayBuffer });
+                        return res.value || "";
+                    }
+                    return "";
+                }
+
+                const xmlText = await docFile.async("text");
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+
+                function parseWordContainer(node) {
+                    let out = "";
+                    for (let child of node.childNodes) {
+                        const local = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+
+                        if (local === "p") {
+                            out += parseParagraph(child) + "\n";
+                        } else if (local === "tbl") {
+                            for (let row of child.getElementsByTagNameNS("*", "tr")) {
+                                let rowText = [];
+                                for (let cell of row.getElementsByTagNameNS("*", "tc")) {
+                                    rowText.push(parseWordContainer(cell).trim());
+                                }
+                                out += rowText.join(" | ") + "\n";
+                            }
+                        } else {
+                            out += parseWordContainer(child);
+                        }
+                    }
+                    return out;
+                }
+
+                function parseParagraph(pNode) {
+                    let pText = "";
+                    for (let child of pNode.childNodes) {
+                        const local = (child.localName || child.nodeName || "").replace(/^.*:/, "");
+
+                        if (local === "oMath" || local === "oMathPara") {
+                            const mathLatex = ommlNodeToLatex(child).trim();
+                            if (mathLatex) {
+                                pText += " " + mathLatex + " ";
+                            }
+                        } else if (local === "r") {
+                            for (let rChild of child.childNodes) {
+                                const rLocal = (rChild.localName || rChild.nodeName || "").replace(/^.*:/, "");
+                                if (rLocal === "t") {
+                                    pText += rChild.textContent || "";
+                                } else if (rLocal === "br") {
+                                    pText += "\n";
+                                } else if (rLocal === "tab") {
+                                    pText += "\t";
+                                }
+                            }
+                        } else if (local === "object" || local === "drawing") {
+                            const descr = child.getAttribute("descr") || child.getAttribute("title");
+                            if (descr) {
+                                pText += " $" + descr.trim() + "$ ";
+                            } else {
+                                const docPr = child.querySelector ? (child.querySelector("docPr") || child.querySelector("*|docPr")) : null;
+                                if (docPr) {
+                                    const dText = docPr.getAttribute("descr") || docPr.getAttribute("title");
+                                    if (dText) pText += " $" + dText.trim() + "$ ";
+                                }
+                            }
+                        } else if (local === "hyperlink") {
+                            pText += parseParagraph(child);
+                        }
+                    }
+                    return pText;
+                }
+
+                const body = xmlDoc.getElementsByTagNameNS("*", "body")[0] || xmlDoc.documentElement;
+                let textResult = parseWordContainer(body);
+
+                textResult = textResult
+                    .replace(/\u00A0/g, " ")
+                    .replace(/\u200B/g, "")
+                    .replace(/[ \t]+/g, " ")
+                    .replace(/\n\s*\n\s*\n/g, "\n\n");
+
+                return textResult.trim();
+            } catch (err) {
+                console.warn("Lỗi phân tích OMML, dự phòng sang mammoth:", err);
+                if (window.mammoth) {
+                    const res = await mammoth.extractRawText({ arrayBuffer });
+                    return res.value || "";
+                }
+                return "";
+            }
+        }
+
+        // Chuẩn hóa chuỗi công thức Toán học để lưu tệp JSON trên GitHub
+        function sanitizeMathForJson(data) {
+            if (!data) return data;
+            const cleanStr = (s) => {
+                if (!s || typeof s !== 'string') return s;
+                let res = s;
+                // Chuẩn hóa \( ... \) thành $ ... $
+                res = res.replace(/\\\(([\s\S]+?)\\\)/g, "$$1$");
+                // Chuẩn hóa \[ ... \] thành $$ ... $$
+                res = res.replace(/\\\[([\s\S]+?)\\\]/g, "$$$$1$$$$");
+                // Làm sạch các khoảng trắng lỗi bên trong dấu $
+                res = res.replace(/\$\s+([^\$]+?)\s+\$/g, "$$1$");
+                // Bỏ ký tự vô hình
+                res = res.replace(/\u200B/g, "").replace(/\uFEFF/g, "");
+                return res;
+            };
+
+            return JSON.parse(JSON.stringify(data, (key, value) => {
+                if (typeof value === 'string' && (key === 'content' || key === 'description' || key === 'title')) {
+                    return cleanStr(value);
+                }
+                return value;
+            }));
+        }
+
+        // ==============================================
+        // TIỆN ÍCH XUẤT & NẠP TỆP MẪU WORD (.DOCX) / JSON
+        // ==============================================
+        function xmlEscapeDocx(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&apos;');
+        }
+
+        async function generateDocxFile(filename, paragraphs) {
+            if (typeof JSZip === 'undefined') {
+                showToast("Đang tải thư viện tạo Word, vui lòng thử lại sau giây lát!", "error");
+                return;
+            }
+            try {
+                const zip = new JSZip();
+
+                zip.file("[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+  <Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>
+</Types>`);
+
+                zip.file("_rels/.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`);
+
+                zip.file("word/_rels/document.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+</Relationships>`);
+
+                zip.file("word/styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/>
+        <w:sz w:val="24"/>
+        <w:szCs w:val="24"/>
+        <w:lang w:val="vi-VN"/>
+      </w:rPr>
+    </w:rPrDefault>
+  </w:docDefaults>
+</w:styles>`);
+
+                let bodyXml = "";
+                for (const p of paragraphs) {
+                    if (typeof p === 'string') {
+                        bodyXml += `<w:p><w:r><w:t xml:space="preserve">${xmlEscapeDocx(p)}</w:t></w:r></w:p>`;
+                    } else {
+                        let pPr = "";
+                        let rPr = "";
+                        if (p.align) pPr += `<w:jc w:val="${p.align}"/>`;
+                        if (p.bg) pPr += `<w:shd w:val="clear" w:color="auto" w:fill="${p.bg}"/>`;
+                        if (p.spaceAfter !== undefined) pPr += `<w:spacing w:after="${p.spaceAfter}"/>`;
+                        if (p.spaceBefore !== undefined) pPr += `<w:spacing w:before="${p.spaceBefore}"/>`;
+                        if (p.bold) rPr += `<w:b/>`;
+                        if (p.italic) rPr += `<w:i/>`;
+                        if (p.color) rPr += `<w:color w:val="${p.color}"/>`;
+                        if (p.size) rPr += `<w:sz w:val="${p.size}"/>`;
+
+                        bodyXml += `<w:p>${pPr ? `<w:pPr>${pPr}</w:pPr>` : ''}<w:r>${rPr ? `<w:rPr>${rPr}</w:rPr>` : ''}<w:t xml:space="preserve">${xmlEscapeDocx(p.text || '')}</w:t></w:r></w:p>`;
+                    }
+                }
+
+                const docXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    ${bodyXml}
+    <w:sectPr>
+      <w:pgSz w:w="11906" w:h="16838"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440"/>
+    </w:sectPr>
+  </w:body>
+</w:document>`;
+
+                zip.file("word/document.xml", docXml);
+
+                const blob = await zip.generateAsync({
+                    type: "blob",
+                    mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                });
+
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+            } catch (err) {
+                console.error("Lỗi xuất tệp Word:", err);
+                showToast("Lỗi khi tạo tệp Word!", "error");
+            }
+        }
+
+        function addLinesToDocx(list, text, opts = {}) {
+            if (!text) {
+                list.push({ text: '', ...opts });
+                return;
+            }
+            const lines = String(text).split('\n');
+            lines.forEach(line => {
+                list.push({ text: line, ...opts });
+            });
+        }
+
+        async function exportLectureTemplateDocx() {
+            const paragraphs = [];
+
+            // Tiêu đề tài liệu Word
+            paragraphs.push({ text: "HƯỚNG DẪN SOẠN BÀI GIẢNG PYTHON (MẪU CHUẨN WORD)", bold: true, size: 32, color: "1E40AF", align: "center", spaceAfter: 120 });
+            paragraphs.push({ text: "Hệ thống Web Trợ Lý Học Lập Trình Python - THCS Thành Đông", bold: false, italic: true, size: 20, color: "64748B", align: "center", spaceAfter: 200 });
+
+            paragraphs.push({ text: "HƯỚNG DẪN DÀNH CHO THẦY CÔ:", bold: true, size: 24, color: "0F172A", spaceBefore: 100, spaceAfter: 60 });
+            paragraphs.push({ text: "1. Thầy cô có thể thêm nhiều bài giảng trong cùng 1 tệp Word bằng cách lặp lại khối [BÀI GIẢNG] ... [HẾT BÀI GIẢNG].", size: 22, color: "334155" });
+            paragraphs.push({ text: "2. Hỗ trợ định dạng Markdown và công thức Toán học KaTeX/MathType (ví dụ $x^2$, $\\frac{a}{b}$, $-10^9 \\le A, B \\le 10^9$).", size: 22, color: "334155" });
+            paragraphs.push({ text: "3. Sau khi nhập xong, lưu tệp Word (.docx) rồi nhấn 'Nạp Tệp Mẫu' trên web để hệ thống tự động chuyển thành JSON và lưu trữ.", size: 22, color: "334155", spaceAfter: 200 });
+
+            // Mẫu bài 1
+            paragraphs.push({ text: "[BÀI GIẢNG]", bold: true, size: 26, color: "1D4ED8", bg: "EFF6FF", spaceBefore: 120 });
+            paragraphs.push({ text: "[TIÊU ĐỀ]: Bài 14. Kiểu dữ liệu Dictionary trong Python", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[KHỐI LỚP]: 8", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[CHỦ ĐỀ]: Tin học cơ sở", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[NỘI DUNG]:", bold: true, size: 24, color: "0F172A" });
+            addLinesToDocx(paragraphs, `### 1. Khái niệm Dictionary
+- Kiểu dữ liệu từ điển lưu các cặp khóa và giá trị (key: value). Ví dụ: d = {'ten': 'An', 'diem': 10}.
+- Độ phức tạp tìm kiếm theo khóa là $O(1)$.
+
+### 2. Ví dụ Python minh họa
+\`\`\`python
+person = {'name': 'An', 'age': 14}
+print(person['name'])
+\`\`\``, { size: 22, color: "1E293B" });
+            paragraphs.push({ text: "[HẾT BÀI GIẢNG]", bold: true, size: 24, color: "1D4ED8", bg: "EFF6FF", spaceAfter: 200 });
+
+            // Mẫu bài 2
+            paragraphs.push({ text: "[BÀI GIẢNG]", bold: true, size: 26, color: "1D4ED8", bg: "EFF6FF", spaceBefore: 120 });
+            paragraphs.push({ text: "[TIÊU ĐỀ]: Bài 15. Thuật toán tìm kiếm nhị phân (Binary Search)", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[KHỐI LỚP]: 9", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[CHỦ ĐỀ]: Bồi dưỡng HSG Tin học", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[NỘI DUNG]:", bold: true, size: 24, color: "0F172A" });
+            addLinesToDocx(paragraphs, `### 1. Nguyên lý tìm kiếm nhị phân
+- Cho dãy số đã sắp xếp tăng dần. Ở mỗi bước, so sánh phần tử cần tìm với phần tử ở giữa dãy để thu hẹp không gian tìm kiếm còn một nửa.
+- Thời gian thực thi là $O(\\log n)$.
+
+\`\`\`python
+def binary_search(arr, x):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == x: return mid
+        elif arr[mid] < x: left = mid + 1
+        else: right = mid - 1
+    return -1
+\`\`\``, { size: 22, color: "1E293B" });
+            paragraphs.push({ text: "[HẾT BÀI GIẢNG]", bold: true, size: 24, color: "1D4ED8", bg: "EFF6FF", spaceAfter: 120 });
+
+            await generateDocxFile("tep_mau_bai_giang_python.docx", paragraphs);
+            showToast("Đã xuất tệp mẫu Bài giảng dạng Word (.docx) thành công!", "success");
+        }
+
+        async function exportAssignmentTemplateDocx() {
+            const paragraphs = [];
+
+            paragraphs.push({ text: "HƯỚNG DẪN SOẠN BÀI TẬP PYTHON (MẪU CHUẨN WORD)", bold: true, size: 32, color: "1E40AF", align: "center", spaceAfter: 120 });
+            paragraphs.push({ text: "Hệ thống Web Trợ Lý Học Lập Trình Python - THCS Thành Đông", bold: false, italic: true, size: 20, color: "64748B", align: "center", spaceAfter: 200 });
+
+            paragraphs.push({ text: "HƯỚNG DẪN SOẠN ĐỀ BÀI VÀ TEST CASE:", bold: true, size: 24, color: "0F172A", spaceBefore: 100, spaceAfter: 60 });
+            paragraphs.push({ text: "1. Mỗi bài tập bắt đầu bằng [BÀI TẬP] và kết thúc bằng [HẾT BÀI TẬP].", size: 22, color: "334155" });
+            paragraphs.push({ text: "2. Thầy cô có thể thêm bao nhiêu Test Case tùy ý ([TEST 1], [TEST 2], [TEST 3]...).", size: 22, color: "334155" });
+            paragraphs.push({ text: "3. Nhập xong, lưu tệp Word (.docx) và chọn 'Nạp Tệp Mẫu' để hệ thống tự chuyển thành JSON chấm điểm tự động.", size: 22, color: "334155", spaceAfter: 200 });
+
+            // Mẫu bài tập 1
+            paragraphs.push({ text: "[BÀI TẬP]", bold: true, size: 26, color: "1D4ED8", bg: "EFF6FF", spaceBefore: 120 });
+            paragraphs.push({ text: "[TÊN BÀI]: Tính chu vi và diện tích hình chữ nhật", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[KHỐI LỚP]: 8", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[ĐỘ KHÓ]: Dễ", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[THỜI GIAN]: 2.0", bold: true, size: 24, color: "0F172A" });
+            paragraphs.push({ text: "[ĐỀ BÀI]:", bold: true, size: 24, color: "0F172A" });
+            addLinesToDocx(paragraphs, `### Đề bài
+Cho hai số nguyên dương $a$ và $b$ tương ứng là chiều dài và chiều rộng của hình chữ nhật.
+Hãy viết chương trình tính chu vi $P = 2 \\times (a + b)$ và diện tích $S = a \\times b$.
+
+### Dữ liệu vào (stdin)
+Hai số nguyên dương $a, b$ cách nhau bởi dấu cách ($1 \\le a, b \\le 10^6$).
+
+### Dữ liệu ra (stdout)
+Dòng 1 in ra chu vi $P$.
+Dòng 2 in ra diện tích $S$.`, { size: 22, color: "1E293B" });
+
+            paragraphs.push({ text: "[CODE MẪU]:", bold: true, size: 24, color: "0F172A" });
+            addLinesToDocx(paragraphs, `# Đọc dữ liệu từ bàn phím
+a, b = map(int, input().split())
+print(2 * (a + b))
+print(a * b)`, { size: 22, color: "1E293B" });
+
+            paragraphs.push({ text: "[TEST 1]:", bold: true, size: 24, color: "059669", bg: "ECFDF5" });
+            paragraphs.push({ text: "Input: 3 5", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Output: 16\\n15", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Điểm: 5.0", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Ẩn: Không", size: 22, color: "1E293B" });
+
+            paragraphs.push({ text: "[TEST 2]:", bold: true, size: 24, color: "059669", bg: "ECFDF5" });
+            paragraphs.push({ text: "Input: 10 20", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Output: 60\\n200", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Điểm: 5.0", size: 22, color: "1E293B" });
+            paragraphs.push({ text: "Ẩn: Có", size: 22, color: "1E293B" });
+
+            paragraphs.push({ text: "[HẾT BÀI TẬP]", bold: true, size: 24, color: "1D4ED8", bg: "EFF6FF", spaceAfter: 120 });
+
+            await generateDocxFile("tep_mau_bai_tap_python.docx", paragraphs);
+            showToast("Đã xuất tệp mẫu Bài tập dạng Word (.docx) thành công!", "success");
+        }
+
+        // Tương thích ngược với tên hàm cũ
+        function exportLectureTemplate() { exportLectureTemplateDocx(); }
+        function exportAssignmentTemplate() { exportAssignmentTemplateDocx(); }
+
+        // BỘ PHÂN TÍCH VĂN BẢN TỪ WORD SANG ĐỐI TƯỢNG JSON
+        function parseLecturesFromDocxText(text) {
+            const lecturesList = [];
+            const blocks = text.split(/(?:\[BÀI GIẢNG\]|=== BÀI GIẢNG ===)/i);
+
+            for (let block of blocks) {
+                if (!block.trim()) continue;
+                block = block.split(/(?:\[HẾT BÀI GIẢNG\]|=== HẾT BÀI GIẢNG ===)/i)[0];
+
+                let title = "";
+                let classLevel = "8";
+                let grade = "Tin học cơ sở";
+                let content = "";
+
+                const titleMatch = block.match(/(?:\[TIÊU ĐỀ\]|Tiêu đề|Title)\s*:\s*([^\n\r]+)/i);
+                if (titleMatch) title = titleMatch[1].trim();
+
+                const classMatch = block.match(/(?:\[KHỐI LỚP\]|\[KHỐI\]|Khối lớp|Khối)\s*:\s*([^\n\r]+)/i);
+                if (classMatch) {
+                    const num = classMatch[1].match(/\d+/);
+                    classLevel = num ? num[0] : classMatch[1].trim();
+                }
+
+                const topicMatch = block.match(/(?:\[CHỦ ĐỀ\]|Chủ đề|Chủ điểm)\s*:\s*([^\n\r]+)/i);
+                if (topicMatch) grade = topicMatch[1].trim();
+
+                const contentIndex = block.search(/(?:\[NỘI DUNG\]|Nội dung)\s*:/i);
+                if (contentIndex !== -1) {
+                    const afterTag = block.substring(contentIndex);
+                    const firstNewline = afterTag.indexOf('\n');
+                    content = (firstNewline !== -1 ? afterTag.substring(firstNewline + 1) : afterTag.replace(/^[^:]*:\s*/, '')).trim();
+                }
+
+                if (title && content) {
+                    lecturesList.push({ title, classLevel, grade, content });
+                }
+            }
+            return lecturesList;
+        }
+
+        function parseAssignmentsFromDocxText(text) {
+            const list = [];
+            const blocks = text.split(/(?:\[BÀI TẬP\]|=== BÀI TẬP ===)/i);
+
+            for (let block of blocks) {
+                if (!block.trim()) continue;
+                block = block.split(/(?:\[HẾT BÀI TẬP\]|=== HẾT BÀI TẬP ===)/i)[0];
+
+                let title = "";
+                let classLevel = "8";
+                let difficulty = "easy";
+                let timeLimit = 2.0;
+                let description = "";
+                let templateCode = "";
+                let tests = [];
+
+                const titleMatch = block.match(/(?:\[TÊN BÀI\]|\[TIÊU ĐỀ\]|Tên bài|Tiêu đề)\s*:\s*([^\n\r]+)/i);
+                if (titleMatch) title = titleMatch[1].trim();
+
+                const classMatch = block.match(/(?:\[KHỐI LỚP\]|\[KHỐI\]|Khối lớp|Khối)\s*:\s*([^\n\r]+)/i);
+                if (classMatch) {
+                    const num = classMatch[1].match(/\d+/);
+                    classLevel = num ? num[0] : classMatch[1].trim();
+                }
+
+                const diffMatch = block.match(/(?:\[ĐỘ KHÓ\]|Độ khó)\s*:\s*([^\n\r]+)/i);
+                if (diffMatch) {
+                    const d = diffMatch[1].toLowerCase().trim();
+                    if (d.includes('khó') || d.includes('nâng cao') || d.includes('hard')) difficulty = 'hard';
+                    else if (d.includes('trung bình') || d.includes('vừa') || d.includes('medium')) difficulty = 'medium';
+                    else difficulty = 'easy';
+                }
+
+                const timeMatch = block.match(/(?:\[THỜI GIAN\]|Thời gian|Giới hạn)\s*:\s*([^\n\r]+)/i);
+                if (timeMatch) {
+                    const t = parseFloat(timeMatch[1]);
+                    if (!isNaN(t) && t > 0) timeLimit = t;
+                }
+
+                const descIdx = block.search(/(?:\[ĐỀ BÀI\]|Đề bài)\s*:/i);
+                const codeIdx = block.search(/(?:\[CODE MẪU\]|\[LỜI GIẢI MẪU\]|Code mẫu|Lời giải)\s*:/i);
+                const testIdx = block.search(/(?:\[TEST\s*\d*\]|Test\s*\d*\s*:)/i);
+
+                if (descIdx !== -1) {
+                    const endIdx = codeIdx !== -1 ? codeIdx : (testIdx !== -1 ? testIdx : block.length);
+                    const rawDesc = block.substring(descIdx, endIdx);
+                    const nl = rawDesc.indexOf('\n');
+                    description = (nl !== -1 ? rawDesc.substring(nl + 1) : rawDesc.replace(/^[^:]*:\s*/, '')).trim();
+                }
+
+                if (codeIdx !== -1) {
+                    const endIdx = testIdx !== -1 ? testIdx : block.length;
+                    const rawCode = block.substring(codeIdx, endIdx);
+                    const nl = rawCode.indexOf('\n');
+                    templateCode = (nl !== -1 ? rawCode.substring(nl + 1) : rawCode.replace(/^[^:]*:\s*/, '')).trim();
+                }
+
+                if (testIdx !== -1) {
+                    const testSection = block.substring(testIdx);
+                    const testBlocks = testSection.split(/(?:\[TEST\s*\d*\]|Test\s*\d*\s*:)/i);
+                    let tIndex = 1;
+                    for (let tb of testBlocks) {
+                        if (!tb.trim()) continue;
+                        let input = "";
+                        let expected = "";
+                        let point = 5.0;
+                        let is_hidden = false;
+
+                        const inMatch = tb.match(/Input\s*:\s*([\s\S]*?)(?=Output\s*:|Điểm\s*:|Ẩn\s*:|$)/i);
+                        if (inMatch) input = inMatch[1].trim().replace(/\\n/g, '\n');
+
+                        const outMatch = tb.match(/Output\s*:\s*([\s\S]*?)(?=Điểm\s*:|Ẩn\s*:|$)/i);
+                        if (outMatch) expected = outMatch[1].trim().replace(/\\n/g, '\n');
+
+                        const ptMatch = tb.match(/(?:Điểm|Point)\s*:\s*([0-9.]+)/i);
+                        if (ptMatch) point = parseFloat(ptMatch[1]) || 5.0;
+
+                        const hidMatch = tb.match(/(?:Ẩn|Hidden)\s*:\s*([^\n\r]+)/i);
+                        if (hidMatch) {
+                            const h = hidMatch[1].toLowerCase().trim();
+                            is_hidden = (h === 'có' || h === 'yes' || h === 'true' || h === '1');
+                        }
+
+                        if (input !== "" || expected !== "") {
+                            tests.push({ id: tIndex++, input, expected, point, is_hidden });
+                        }
+                    }
+                }
+
+                if (tests.length === 0) {
+                    tests = [{ id: 1, input: "3 5", expected: "8", point: 5.0, is_hidden: false }];
+                }
+
+                if (title) {
+                    list.push({ title, classLevel, difficulty, timeLimit, description, templateCode, tests });
+                }
+            }
+            return list;
         }
 
         async function importLectureFileFromTemplate(event) {
             const file = event.target.files && event.target.files[0];
             if (!file) return;
             try {
-                showToast(`Đang nạp bài giảng từ ${file.name}...`, "info");
-                const text = await file.text();
-                const parsed = JSON.parse(text);
-                const list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.lectures || [parsed]);
+                showToast(`Đang đọc tệp ${file.name}...`, "info");
+                let list = [];
+                const isDocx = file.name.toLowerCase().endsWith('.docx');
+
+                if (isDocx) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const fullText = await extractDocxTextWithMath(arrayBuffer);
+                    list = parseLecturesFromDocxText(fullText);
+                } else {
+                    const text = await file.text();
+                    const parsed = JSON.parse(text);
+                    list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.lectures || [parsed]);
+                }
+
                 let addedCount = 0;
                 let maxId = lectures.length > 0 ? Math.max(...lectures.map(l => Number(l.id) || 0)) : 0;
-                
+
                 for (let item of list) {
                     if (item && item.title && item.content) {
                         maxId++;
@@ -3328,18 +3991,19 @@ except Exception as e: _error = str(e)
                         addedCount++;
                     }
                 }
-                
+
                 if (addedCount > 0) {
                     populateStudentLectures();
                     renderTeacherLecturesTable();
                     autoSaveLocalSnapshot();
-                    showToast(`Đã nạp thành công ${addedCount} bài giảng từ tệp!`, "success");
-                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài giảng từ tệp ${file.name}`);
+                    showToast(`✅ Đã chuyển đổi thành công ${addedCount} bài giảng (kèm MathType)!`, "success");
+                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài giảng từ ${file.name}`);
                 } else {
-                    showToast("Tệp không chứa cấu trúc bài giảng hợp lệ!", "error");
+                    showToast("Tệp không chứa nội dung bài giảng hợp lệ theo mẫu!", "error");
                 }
             } catch (e) {
-                showToast("Lỗi định dạng tệp JSON bài giảng!", "error");
+                console.error("Lỗi nạp tệp bài giảng:", e);
+                showToast("Lỗi khi đọc và chuyển đổi tệp bài giảng!", "error");
             }
             event.target.value = "";
         }
@@ -3348,13 +4012,23 @@ except Exception as e: _error = str(e)
             const file = event.target.files && event.target.files[0];
             if (!file) return;
             try {
-                showToast(`Đang nạp bài tập từ ${file.name}...`, "info");
-                const text = await file.text();
-                const parsed = JSON.parse(text);
-                const list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.assignments || [parsed]);
+                showToast(`Đang đọc tệp ${file.name}...`, "info");
+                let list = [];
+                const isDocx = file.name.toLowerCase().endsWith('.docx');
+
+                if (isDocx) {
+                    const arrayBuffer = await file.arrayBuffer();
+                    const fullText = await extractDocxTextWithMath(arrayBuffer);
+                    list = parseAssignmentsFromDocxText(fullText);
+                } else {
+                    const text = await file.text();
+                    const parsed = JSON.parse(text);
+                    list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.assignments || [parsed]);
+                }
+
                 let addedCount = 0;
                 let maxId = assignments.length > 0 ? Math.max(...assignments.map(a => Number(a.id) || 0)) : 0;
-                
+
                 for (let item of list) {
                     if (item && item.title) {
                         maxId++;
@@ -3379,20 +4053,21 @@ except Exception as e: _error = str(e)
                         addedCount++;
                     }
                 }
-                
+
                 if (addedCount > 0) {
                     populateAssignmentSelect();
                     renderManageAssignmentsTable();
                     renderAdminAssignmentsTable();
                     updateTeacherStats();
                     autoSaveLocalSnapshot();
-                    showToast(`Đã nạp thành công ${addedCount} bài tập từ tệp!`, "success");
-                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài tập từ tệp ${file.name}`);
+                    showToast(`✅ Đã chuyển đổi thành công ${addedCount} bài tập (kèm MathType)!`, "success");
+                    await syncDataToGitHubDirectly(`Nạp ${addedCount} bài tập từ ${file.name}`);
                 } else {
-                    showToast("Tệp không chứa cấu trúc bài tập hợp lệ!", "error");
+                    showToast("Tệp không chứa nội dung bài tập hợp lệ theo mẫu!", "error");
                 }
             } catch (e) {
-                showToast("Lỗi định dạng tệp JSON bài tập!", "error");
+                console.error("Lỗi nạp tệp bài tập:", e);
+                showToast("Lỗi khi đọc và chuyển đổi tệp bài tập!", "error");
             }
             event.target.value = "";
         }
@@ -3666,6 +4341,9 @@ except Exception as e: _error = str(e)
                 // Diễn giải các công thức toán học $...$ thành lời đọc tự nhiên
                 clean = clean.replace(/\$([^\$]+)\$/g, (m, math) => {
                     let s = math.trim();
+                    s = s.replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "phân số $1 trên $2");
+                    s = s.replace(/\\sqrt\[([^\]]+)\]\{([^\}]+)\}/g, "căn bậc $1 của $2");
+                    s = s.replace(/\\sqrt\{([^\}]+)\}/g, "căn bậc hai của $1");
                     s = s.replace(/x\^2/gi, "x bình phương");
                     s = s.replace(/y\^2/gi, "y bình phương");
                     s = s.replace(/n\^2/gi, "n bình phương");
@@ -3680,6 +4358,9 @@ except Exception as e: _error = str(e)
                     s = s.replace(/==/g, " bằng ");
                     s = s.replace(/\\times/g, " nhân ");
                     s = s.replace(/\\div/g, " chia ");
+                    s = s.replace(/\\pm/g, " cộng trừ ");
+                    s = s.replace(/\\pi/g, " pi ");
+                    s = s.replace(/\\infty/g, " vô cùng ");
                     s = s.replace(/\+/g, " cộng ");
                     s = s.replace(/-/g, " trừ ");
                     s = s.replace(/\*/g, " nhân ");
