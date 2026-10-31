@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T07:53:24.839Z",
+    "updatedAt": "2026-10-31T07:54:47.041Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
@@ -34,7 +34,7 @@
         "school": "Trường THCS - THPT Mỹ Thuận",
         "className": "11A1",
         "teacherName": "---",
-        "phone": "",
+        "phone": "Zalo cá nhân",
         "email": "",
         "role": "teacher",
         "authMethod": "Tên đăng nhập + Mật khẩu",
@@ -107,7 +107,10 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0
+        "loginCount": 0,
+        "phone": "Zalo cá nhân",
+        "school": "THCS Thành Đông",
+        "className": "9"
       },
       {
         "id": 7,
@@ -173,7 +176,10 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0
+        "loginCount": 0,
+        "phone": "Zalo cá nhân",
+        "school": "Trường THPT Tân Lược",
+        "className": "11"
       },
       {
         "id": 1793433198849,
