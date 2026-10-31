@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T02:24:56.138Z",
+    "updatedAt": "2026-10-31T02:25:39.118Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công từ hệ thống"
+    "action": "Lưu bài giảng: Bài 14. Nhập xuất tệp"
   },
   "data": {
     "registeredUsers": [
@@ -486,6 +486,12 @@
         "title": "Bài 13. Kiểm thử và gỡ lỗi chương trình",
         "grade": "Lớp 8 - Tin học cơ sở",
         "content": "### 1. Kiểm thử chương trình (Testing)\n- Chạy chương trình với nhiều bộ dữ liệu thử nghiệm khác nhau (Test cases), bao gồm các trường hợp thông thường và trường hợp đặc biệt (biên).\n\n### 2. Kỹ thuật gỡ lỗi (Debugging)\n- Dùng lệnh `print()` để kiểm tra giá trị trung gian của các biến.\n- Sử dụng khối lệnh `try...except` để bắt và xử lý ngoại lệ một cách linh hoạt.\n\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho số 0!')\n```"
+      },
+      {
+        "id": 14,
+        "title": "Bài 14. Nhập xuất tệp",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "Bài giảng đang được biên soạn..."
       }
     ],
     "studentSubmissions": [
