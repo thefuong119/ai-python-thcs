@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T03:18:49.903Z",
+    "updatedAt": "2026-10-31T03:42:09.260Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công từ hệ thống"
+    "action": "Lưu bài giảng: Bài 8. Chương trình con và thư viện trong python"
   },
   "data": {
     "registeredUsers": [
@@ -1073,6 +1073,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:41:05 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "10:18:25 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
