@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T04:23:02.120Z",
+    "updatedAt": "2026-10-31T04:28:08.496Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công từ hệ thống"
+    "action": "Lưu bài giảng: Bài 14. Nhập xuất tệp"
   },
   "data": {
     "registeredUsers": [
@@ -1073,6 +1073,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "11:27:57 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "11:02:56 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
