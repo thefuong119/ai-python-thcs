@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T08:52:46.039Z",
+    "updatedAt": "2026-10-31T09:04:25.645Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 1. An toàn thông tin cá nhân cho học sinh"
+    "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
   "data": {
     "registeredUsers": [
@@ -570,18 +570,6 @@
         "timestamp": "09:33:45 30/10/2026"
       },
       {
-        "id": 1793325327432,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "gf\nFghfg\nFghfg",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "08:55:27 30/10/2026"
-      },
-      {
         "id": 1793324918882,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
@@ -690,18 +678,6 @@
         "timestamp": "08:22:53 30/10/2026"
       },
       {
-        "id": 1793322127788,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "08:02:07 30/10/2026"
-      },
-      {
         "id": 1793321479449,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -798,78 +774,6 @@
         "timestamp": "07:49:53 30/10/2026"
       },
       {
-        "id": 1793321371514,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:49:31 30/10/2026"
-      },
-      {
-        "id": 1793321175359,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "className": "12A1",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:46:15 30/10/2026"
-      },
-      {
-        "id": 1793321115135,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "className": "12A1",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:45:15 30/10/2026"
-      },
-      {
-        "id": 1793320709812,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "className": "12A1",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:38:29 30/10/2026"
-      },
-      {
-        "id": 1793320698414,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "className": "12A1",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:38:18 30/10/2026"
-      },
-      {
-        "id": 1793320686744,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "className": "12A1",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "n = int(input())\nif n % 2 == 0:\n    print (n,\" Yes\")\nelse:\n   print (n,\" No\")",
-        "score": 0,
-        "type": "official_submission",
-        "timestamp": "07:38:06 30/10/2026"
-      },
-      {
         "id": 1793320469647,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -964,141 +868,30 @@
         "score": 10,
         "type": "official_submission",
         "timestamp": "19:10:17 29/10/2026"
-      },
-      {
-        "id": 1793272903150,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "18:21:43 29/10/2026"
-      },
-      {
-        "id": 1793390096444,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "role": "admin",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Viết mã Python của em ở đây...",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "02:54:56 31/10/2026"
-      },
-      {
-        "id": 1793321435155,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "role": "student",
-        "assignmentId": 3,
-        "assignmentTitle": "Đếm số lượng số chẵn trong dãy",
-        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "07:50:35 30/10/2026"
-      },
-      {
-        "id": 1793339161561,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "role": "teacher",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Viết mã Python của em ở đây...",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "12:46:01 30/10/2026"
-      },
-      {
-        "id": 1793276353216,
-        "student": "Nguyễn Tấn Thanh",
-        "username": "tanthanh",
-        "role": "teacher",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "19:19:13 29/10/2026"
-      },
-      {
-        "id": 1793332717540,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "role": "student",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nprint(a + b)",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "10:58:37 30/10/2026"
-      },
-      {
-        "id": 1793325670634,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "role": "teacher",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "gf\nFghfg\nFghfg",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "09:01:10 30/10/2026"
-      },
-      {
-        "id": 1793390161377,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "role": "admin",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "02:56:01 31/10/2026"
-      },
-      {
-        "id": 1793327626380,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "role": "student",
-        "assignmentId": 4,
-        "assignmentTitle": "Xét số chẵn lẻ",
-        "code": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "09:33:46 30/10/2026"
-      },
-      {
-        "id": 1793331193670,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "role": "student",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "10:33:13 30/10/2026"
-      },
-      {
-        "id": 1793325171755,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "role": "admin",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": null,
-        "type": "draft_on_exit",
-        "timestamp": "08:52:51 30/10/2026"
       }
     ],
     "loginLogs": [
+      {
+        "time": "16:04:12 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "16:04:09 31/10/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Thất bại"
+      },
+      {
+        "time": "16:04:01 31/10/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
       {
         "time": "15:27:22 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
