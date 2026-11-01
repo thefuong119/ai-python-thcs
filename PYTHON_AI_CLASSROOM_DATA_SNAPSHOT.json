@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-01T10:12:23.867Z",
+    "updatedAt": "2026-11-01T10:12:34.481Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin cập nhật tài khoản: Nguyễn Phú Cường"
+    "action": "Admin cập nhật tài khoản: Học sinh Demo"
   },
   "data": {
     "registeredUsers": [
@@ -230,7 +230,8 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 0
+        "loginCount": 0,
+        "phone": "Zalo cá nhân"
       },
       {
         "id": 1793526960586,
