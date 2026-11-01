@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-10-31T09:04:25.645Z",
+    "updatedAt": "2026-11-01T05:55:58.109Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Đẩy dữ liệu thủ công từ hệ thống"
   },
@@ -193,6 +193,19 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0
+      },
+      {
+        "id": 1793512514532,
+        "name": "Nguyên Phú Cường",
+        "username": "cuong",
+        "identifier": "cuong",
+        "password": "cuong",
+        "school": "THCS Thành Đông",
+        "className": "6A2",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "phone": "0123456789"
       }
     ],
     "assignments": [
@@ -871,6 +884,76 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "12:35:16 1/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "12:35:06 1/11/2026",
+        "name": "Giáo Viên Tin Học",
+        "identifier": "demo",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "12:35:02 1/11/2026",
+        "name": "Giáo Viên Tin Học",
+        "identifier": "demo",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "12:34:56 1/11/2026",
+        "name": "Giáo Viên Tin Học",
+        "identifier": "demo",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "12:24:06 1/11/2026",
+        "name": "Giáo Viên Tin Học",
+        "identifier": "demo",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "12:23:55 1/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "12:23:34 1/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "12:23:26 1/11/2026",
+        "name": "tuan",
+        "identifier": "tuan",
+        "role": "teacher",
+        "result": "Thất bại"
+      },
+      {
+        "time": "12:23:14 1/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Thất bại"
+      },
+      {
+        "time": "12:20:28 1/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Thất bại"
+      },
       {
         "time": "16:04:12 31/10/2026",
         "name": "Thầy Nguyễn Thế Phương",
