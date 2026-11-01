@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-01T11:25:37.287Z",
-    "updatedBy": "Nguyễn Thanh Tùng",
-    "action": "Đăng ký giáo viên mới: Nguyễn Thanh Tùng"
+    "updatedAt": "2026-11-01T12:13:34.348Z",
+    "updatedBy": "Thiều Dĩ Phụng",
+    "action": "Đăng ký giáo viên mới: Thiều Dĩ Phụng"
   },
   "data": {
     "registeredUsers": [
@@ -255,6 +255,19 @@
         "school": "THCS Thành Đông",
         "className": "Khối 8",
         "phone": "0123456799",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 1
+      },
+      {
+        "id": 1793535213586,
+        "name": "Thiều Dĩ Phụng",
+        "username": "phung",
+        "identifier": "phung",
+        "password": "phung123",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "0989682045",
         "role": "teacher",
         "status": "active",
         "loginCount": 1
@@ -968,6 +981,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "19:13:33 1/11/2026",
+        "name": "Thiều Dĩ Phụng",
+        "identifier": "phung",
+        "role": "teacher",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "18:25:36 1/11/2026",
         "name": "Nguyễn Thanh Tùng",
