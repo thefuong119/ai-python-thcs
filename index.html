@@ -4481,12 +4481,28 @@ except Exception as e: _error = str(e)
                 const cleanWord = word.replace(/^[^\w]+|[^\w]+$/g, '');
                 if (!cleanWord || cleanWord.length <= 1) return false;
 
+                // Có dấu tiếng Việt -> 100% tiếng Việt
                 if (/[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/i.test(cleanWord)) {
                     return false;
                 }
 
+                // Các từ viết tắt thuần tiếng Việt tuyệt đối không đọc tiếng Anh
+                const vnAcronyms = new Set([
+                    "THCS", "THPT", "HSG", "GV", "HS", "GD", "TH", "BGD", "SGD", "PGD", "CNTT", "CCCD", "TP", "TX", "VN", "VND", "VNĐ", "ĐN", "BT"
+                ]);
+                if (vnAcronyms.has(cleanWord.toUpperCase())) return false;
+
+                // Chứa các ký tự đặc trưng không thuộc bảng chữ cái tiếng Việt (f, j, w, z)
                 if (/[fjwz]/i.test(cleanWord)) return true;
-                if (/^[A-Z]{2,6}$/.test(cleanWord)) return true;
+
+                // Chỉ nhận diện các chữ viết tắt công nghệ tiếng Anh chuyên ngành cụ thể
+                const englishTechAcronyms = new Set([
+                    "AI", "LMS", "IDE", "PDF", "CSV", "JSON", "API", "WASM", "CPU", "RAM", "ROM",
+                    "HTML", "CSS", "JS", "UI", "UX", "URL", "HTTP", "HTTPS", "TTS", "DOCX", "PPTX",
+                    "SQL", "OOP", "OS", "GUI", "CLI", "IO", "PAT", "REST", "SDK"
+                ]);
+                if (englishTechAcronyms.has(cleanWord.toUpperCase())) return true;
+
                 if (/^[a-z]+[A-Z][a-zA-Z]*$/.test(cleanWord) || /^[a-zA-Z]+_[a-zA-Z0-9_]+$/.test(cleanWord)) return true;
 
                 const engSet = new Set([
@@ -4661,6 +4677,44 @@ except Exception as e: _error = str(e)
                 if (!text) return "";
                 let clean = String(text);
 
+                // 1. XỬ LÝ ĐẶC BIỆT ĐỊA CHỈ EMAIL: thefuong119@gmail.com -> Thế Phương 119 a còng gờ meo chấm com
+                clean = clean.replace(/thefuong119@gmail\.com\.?/gi, "Thế Phương 119 a còng gờ meo chấm com");
+                clean = clean.replace(/([a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)/g, (match, user, domain) => {
+                    if (user.toLowerCase() === 'thefuong119' && domain.toLowerCase().startsWith('gmail.com')) {
+                        return "Thế Phương 119 a còng gờ meo chấm com";
+                    }
+                    let domClean = domain.replace(/\./g, " chấm ").replace(/gmail/gi, "gờ meo");
+                    return `${user} a còng ${domClean}`;
+                });
+
+                // 2. CHUYỂN ĐỔI LINH HOẠT CÁC TỪ VIẾT TẮT TIẾNG VIỆT (KHÔNG ĐỌC TIẾNG ANH)
+                const vnAbbreviations = [
+                    [/\bTHCS\b/gi, "Trung học cơ sở"],
+                    [/\bTHPT\b/gi, "Trung học phổ thông"],
+                    [/\bHSG\b/gi, "học sinh giỏi"],
+                    [/\bGV\b/g, "giáo viên"],
+                    [/\bHS\b/g, "học sinh"],
+                    [/\bGD-ĐT\b/gi, "Giáo dục và Đào tạo"],
+                    [/\bGD&ĐT\b/gi, "Giáo dục và Đào tạo"],
+                    [/\bGDĐT\b/gi, "Giáo dục và Đào tạo"],
+                    [/\bBGDĐT\b/gi, "Bộ Giáo dục và Đào tạo"],
+                    [/\bSGDĐT\b/gi, "Sở Giáo dục và Đào tạo"],
+                    [/\bPGDĐT\b/gi, "Phòng Giáo dục và Đào tạo"],
+                    [/\bCNTT\b/gi, "Công nghệ thông tin"],
+                    [/\bCCCD\b/gi, "Căn cước công dân"],
+                    [/\bTPHCM\b/gi, "Thành phố Hồ Chí Minh"],
+                    [/\bTP\.\s*/g, "Thành phố "],
+                    [/\bTX\.\s*/g, "Thị xã "],
+                    [/\bĐN\b/g, "đăng nhập"]
+                ];
+                for (const [regex, replacement] of vnAbbreviations) {
+                    clean = clean.replace(regex, replacement);
+                }
+
+                // Định dạng số điện thoại ngắt nhịp dễ nghe cho TTS
+                clean = clean.replace(/\b0932[\.\s]861[\.\s]739\b/g, "0 9 3 2, 8 6 1, 7 3 9");
+
+                // Diễn giải công thức toán học $...$
                 clean = clean.replace(/\$([^\$]+)\$/g, (m, math) => {
                     let s = math.trim();
                     s = s.replace(/\\frac\{([^\}]+)\}\{([^\}]+)\}/g, "phân số $1 trên $2");
