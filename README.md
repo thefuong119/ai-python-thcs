@@ -8,14 +8,20 @@ Tác giả: Nguyễn Thế Phương, Trường THCS Thành Đông, xã Tân Qu�
 Tác giả: **Nguyễn Thế Phương - Trường THCS Thành Đông**, xã Tân Quới, tỉnh Vĩnh Long.
 
 **1) Vai  trò Admin **(Xin phép trả lời khi được phỏng vấn)
-Admin có thể: Thêm, sửa, xóa toàn bộ dữ liệu nguồn: Tài khoản, đổi mật khẩu, nạp bài giảng, bài tập, xóa lịch sử...)
+Admin có thể: Thêm, sửa, xóa toàn bộ dữ liệu nguồn.
+
+(Admin: Tài khoản, đổi mật khẩu, nạp bài giảng, bài tập, xóa lịch sử...)
 
 **2) Vai trò Giáo viên:**
+
 Tên đăng nhập: **giaovien**
+
 Mật khẩu: **Giaovien@123**
 
 **3) Vai trò Học sinh:**
+
 Tên đăng nhập: **hocsinh**
+
 Mật khẩu: **Hocsinh@123**
 
 Email: thefuong119@gmail.com
