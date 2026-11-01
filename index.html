@@ -138,11 +138,13 @@
                         <i class="ph-bold ph-sign-out text-sm"></i>
                         <span>Thoát</span>
                     </button>
-                </div>
 
-                <button id="btnShareNav" onclick="openShareModal()" class="hidden p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-colors" title="Chia sẻ liên kết">
-                    <i class="ph-bold ph-share-network text-lg"></i>
-                </button>
+                    <!-- NÚT HƯỚNG DẪN SỬ DỤNG (THAY THẾ NÚT CHIA SẺ) -->
+                    <button id="btnGuideNav" onclick="openGuideModal()" class="px-3 py-1.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 hover:text-white border border-indigo-500/40 font-semibold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Xem hướng dẫn sử dụng và vận hành nền tảng">
+                        <i class="ph-bold ph-book-open text-base text-amber-300"></i>
+                        <span class="hidden sm:inline font-bold">Hướng Dẫn</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -1367,26 +1369,288 @@
         </div>
     </div>
 
-    <!-- MODAL CHIA SẺ -->
-    <div id="shareModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
-            <div class="p-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-between">
-                <h3 class="text-base font-bold flex items-center gap-2">
-                    <i class="ph-bold ph-share-network text-amber-300"></i> Chia Sẻ Bài Tập Trực Tuyến
-                </h3>
-                <button onclick="closeShareModal()" class="text-white hover:text-amber-200"><i class="ph-bold ph-x text-lg"></i></button>
+    <!-- MODAL HƯỚNG DẪN SỬ DỤNG VÀ VẬN HÀNH NỀN TẢNG (GIAO DIỆN HIỆN ĐẠI BẮT MẮT) -->
+    <div id="guideModal" class="fixed inset-0 bg-slate-950/75 backdrop-blur-md z-[10004] hidden flex items-center justify-center p-3 sm:p-5">
+        <div class="bg-white rounded-3xl max-w-4xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh] animate-in fade-in zoom-in-95 duration-200">
+            <!-- Header Modal -->
+            <div class="p-5 sm:p-6 bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 text-white flex items-start justify-between relative overflow-hidden shrink-0 shadow-md">
+                <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex items-start gap-3.5 relative z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl shadow-inner text-amber-300 shrink-0">
+                        <i class="ph-bold ph-book-open"></i>
+                    </div>
+                    <div>
+                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-300/30 text-[10px] font-bold uppercase tracking-wider mb-1">
+                            <i class="ph-bold ph-sparkle"></i> Cẩm nang hướng dẫn
+                        </span>
+                        <h2 class="text-base sm:text-lg font-extrabold tracking-tight leading-snug">
+                            HƯỚNG DẪN SỬ DỤNG VÀ VẬN HÀNH NỀN TẢNG DẠY HỌC LẬP TRÌNH PYTHON
+                        </h2>
+                        <p class="text-xs text-blue-200 mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                            <span><i class="ph-bold ph-code"></i> Nền tảng thực hành lập trình & Chấm điểm tự động</span>
+                            <span><i class="ph-bold ph-user-circle"></i> Tác giả: <strong>Thầy Nguyễn Thế Phương</strong> - Trường THCS Thành Đông, Tân Quới, Vĩnh Long</span>
+                        </p>
+                    </div>
+                </div>
+                <button onclick="closeGuideModal()" class="w-9 h-9 rounded-2xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all shrink-0 hover:rotate-90 duration-200" title="Đóng hướng dẫn">
+                    <i class="ph-bold ph-x text-lg"></i>
+                </button>
             </div>
-            <div class="p-5 space-y-3 text-xs">
-                <p class="text-slate-600 leading-relaxed">Sao chép liên kết dưới đây để gửi cho học sinh làm bài:</p>
-                <div class="flex items-center gap-2">
-                    <input type="text" id="shareLinkInput" readonly class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 font-mono text-[11px] text-slate-700 focus:outline-none select-all">
-                    <button onclick="copyShareLink()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center gap-1 shadow-sm">
-                        <i class="ph-bold ph-copy"></i> Chép
-                    </button>
+
+            <!-- Nội dung Hướng dẫn dạng Card cuộn -->
+            <div id="guideContentBody" class="p-4 sm:p-6 space-y-6 overflow-y-auto text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50/50">
+
+                <!-- PHẦN I: CÁC TÍNH NĂNG ƯU VIỆT VÀ ĐIỂM SÁNG NỔI BẬT -->
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100">
+                        <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg font-bold">
+                            <i class="ph-bold ph-trophy"></i>
+                        </div>
+                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight">
+                            I. CÁC TÍNH NĂNG ƯU VIỆT VÀ ĐIỂM SÁNG NỔI BẬT CỦA ỨNG DỤNG
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-blue-50/60 to-indigo-50/30 border border-blue-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-blue-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-cpu text-blue-600"></i> 1. Trình thông dịch Python Wasm (Pyodide)
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li>Chạy trực tiếp mã nguồn Python 3.12 ngay trên trình duyệt web của người dùng thông qua công nghệ WebAssembly (Pyodide).</li>
+                                <li>Phản hồi kết quả thực thi tức thì, giúp học sinh thử nghiệm code liên tục mà không làm quá tải máy chủ trung tâm.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-emerald-50/60 to-teal-50/30 border border-emerald-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-emerald-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-check-circle text-emerald-600"></i> 2. Hệ thống chấm tự động (Online Judge)
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li>Đánh giá mã nguồn dựa trên bộ Test cases phong phú (kết hợp giữa test công khai và test ẩn).</li>
+                                <li>Chấm điểm chính xác theo từng mốc điểm chuẩn, phân tích chi tiết kết quả đầu ra (stdout) và thông báo lỗi cú pháp/thực thi (stderr).</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-amber-50/60 to-orange-50/30 border border-amber-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-amber-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-robot text-amber-600"></i> 3. Robot Trợ lý AI đa năng thông minh
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li><strong>Giao diện nổi tự do:</strong> Robot AI luôn nằm ở lớp phủ cao nhất (z-index), hỗ trợ kéo thả linh hoạt đến bất kỳ vị trí nào trên màn hình.</li>
+                                <li><strong>Đọc văn bản theo tọa độ thả:</strong> Khi thả Robot trên bất kỳ khối văn bản nào, Robot sẽ tự động quét và cất giọng đọc nội dung đó.</li>
+                                <li><strong>Giọng đọc song ngữ:</strong> Tự động phân tách tiếng Việt và các từ khóa lập trình tiếng Anh (Python, print, input, list, syntax...) để phát âm chuẩn xác.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-purple-50/60 to-fuchsia-50/30 border border-purple-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-purple-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-cloud-arrow-up text-purple-600"></i> 4. Đồng bộ hóa dữ liệu đám mây
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li>Hệ thống tự động đồng bộ thời gian thực toàn bộ cơ sở dữ liệu (tài khoản, bài giảng, ngân hàng đề bài, sổ điểm, nhật ký) lên máy chủ đám mây.</li>
+                                <li>Tích hợp bộ lưu trữ cục bộ (LocalStorage) giúp bảo toàn dữ liệu an toàn ngay cả khi ngắt kết nối mạng.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-sky-50/60 to-cyan-50/30 border border-sky-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-sky-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-sparkle text-sky-600"></i> 5. Gia sư AI trí tuệ nhân tạo (Gemini AI)
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li>Tích hợp 3 chế độ tư vấn học tập: Gợi mở tư duy (Socratic), Gợi ý hướng tiếp cận thuật toán, và Phân tích/soi lỗi mã nguồn tự động.</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-gradient-to-br from-rose-50/60 to-pink-50/30 border border-rose-100 space-y-1.5">
+                            <h4 class="font-bold text-xs sm:text-sm text-rose-900 flex items-center gap-1.5">
+                                <i class="ph-bold ph-file-doc text-rose-600"></i> 6. Hỗ trợ KaTeX & Tệp Word (.docx)
+                            </h4>
+                            <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs">
+                                <li>Hiển thị mượt mà các công thức toán học dạng LaTeX ($...$ và $$...$$).</li>
+                                <li>Tự động quét và chuyển đổi công thức MathType/OMML từ tệp Word (.docx) sang chuẩn LaTeX khi giáo viên nạp tệp bài giảng hay đề bài từ máy tính.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHẦN II: CÁC BƯỚC ĐĂNG NHẬP VÀ XÁC THỰC DANH TÍNH -->
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100">
+                        <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg font-bold">
+                            <i class="ph-bold ph-shield-check"></i>
+                        </div>
+                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight">
+                            II. CÁC BƯỚC ĐĂNG NHẬP VÀ XÁC THỰC DANH TÍNH
+                        </h3>
+                    </div>
+
+                    <p class="text-slate-600">Khi mở ứng dụng, màn hình sẽ hiển thị Cửa sổ Xác thực Danh tính tự động:</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[10px]">Bước 1</span>
+                            <p class="text-xs text-slate-700">Chọn vai trò tương ứng trên giao diện (<strong>Học Sinh</strong> hoặc <strong>Giáo Viên / Admin</strong>).</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[10px]">Bước 2</span>
+                            <p class="text-xs text-slate-700">Chọn tab <strong>"Đăng Nhập"</strong> hoặc <strong>"Đăng Ký Mới"</strong> (để tạo tài khoản mới lưu trực tiếp lên máy chủ).</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[10px]">Bước 3</span>
+                            <p class="text-xs text-slate-700">Nhập <strong>Tên đăng nhập / Số điện thoại</strong> và <strong>Mật khẩu</strong>.</p>
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[10px]">Bước 4</span>
+                            <p class="text-xs text-slate-700">Nhấn nút <strong>"Đăng Nhập"</strong>. Hệ thống sẽ lưu nhật ký truy cập và tải toàn bộ dữ liệu mới nhất.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hộp tài khoản trải nghiệm -->
+                    <div class="bg-gradient-to-r from-amber-50 to-orange-50/60 p-4 rounded-xl border border-amber-200 space-y-2">
+                        <div class="font-bold text-xs sm:text-sm text-amber-900 flex items-center gap-1.5">
+                            <i class="ph-bold ph-key text-amber-600"></i> THÔNG TIN TÀI KHOẢN TRẢI NGHIỆM DÙNG THỬ (ĐÃ TÍCH HỢP NÚT ĐIỀN NHANH):
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-2.5 bg-white rounded-lg border border-amber-200/80 shadow-sm space-y-1">
+                                <span class="font-bold text-amber-800 flex items-center gap-1"><i class="ph-bold ph-chalkboard-teacher"></i> Tài khoản Giáo viên:</span>
+                                <div>• Tên đăng nhập: <code class="font-bold text-amber-900 bg-amber-50 px-1 py-0.5 rounded">giaovien</code></div>
+                                <div>• Mật khẩu: <code class="font-bold text-amber-900 bg-amber-50 px-1 py-0.5 rounded">Giaovien@123</code></div>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-lg border border-blue-200/80 shadow-sm space-y-1">
+                                <span class="font-bold text-blue-800 flex items-center gap-1"><i class="ph-bold ph-student"></i> Tài khoản Học sinh:</span>
+                                <div>• Tên đăng nhập: <code class="font-bold text-blue-900 bg-blue-50 px-1 py-0.5 rounded">hocsinh</code></div>
+                                <div>• Mật khẩu: <code class="font-bold text-blue-900 bg-blue-50 px-1 py-0.5 rounded">Hocsinh@123</code></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHẦN III: HƯỚNG DẪN QUY TRÌNH LÀM VIỆC THEO TỪNG VAI TRÒ -->
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg font-bold">
+                            <i class="ph-bold ph-users-three"></i>
+                        </div>
+                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight">
+                            III. HƯỚNG DẪN QUY TRÌNH LÀM VIỆC THEO TỪNG VAI TRÒ
+                        </h3>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <!-- 1. VAI TRÒ QUẢN TRỊ VIÊN -->
+                        <div class="p-4 rounded-xl bg-purple-50/50 border border-purple-200/80 space-y-2">
+                            <h4 class="font-bold text-xs sm:text-sm text-purple-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-purple-600 text-white flex items-center justify-center text-xs shadow-sm">1</span>
+                                VAI TRÒ QUẢN TRỊ VIÊN (ADMIN)
+                            </h4>
+                            <p class="text-xs text-purple-950 font-medium">Admin có toàn quyền quản trị và điều hành toàn bộ nền tảng.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 text-xs">
+                                <li><strong>Quản lý tài khoản:</strong> Thêm mới, chỉnh sửa thông tin, đổi mật khẩu hoặc xóa các tài khoản Học sinh và Giáo viên.</li>
+                                <li><strong>Quản lý nội dung:</strong> Thêm, sửa, nạp tệp Word/JSON và XÓA bài giảng hoặc đề bài khi cần (có cửa sổ xác nhận an toàn trước khi xóa).</li>
+                                <li><strong>Nhật ký & Lịch sử:</strong> Theo dõi lượt truy cập hệ thống và lịch sử nộp bài của học sinh, dọn dẹp nhật ký khi cần thiết.</li>
+                                <li><strong>Đồng bộ đám mây:</strong> Thực hiện đẩy toàn bộ dữ liệu mới nhất lên máy chủ đám mây.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2. VAI TRÒ GIÁO VIÊN -->
+                        <div class="p-4 rounded-xl bg-blue-50/50 border border-blue-200/80 space-y-2">
+                            <h4 class="font-bold text-xs sm:text-sm text-blue-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xs shadow-sm">2</span>
+                                VAI TRÒ GIÁO VIÊN (TEACHER)
+                            </h4>
+                            <p class="text-xs text-blue-950 font-medium">Giáo viên chịu trách nhiệm quản lý chuyên môn và theo dõi tình hình học tập.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 text-xs">
+                                <li><strong>Quản lý Bài giảng:</strong> Xem, chỉnh sửa bài giảng theo từng khối lớp (Khối 6-12), nạp bài giảng từ tệp Word (.docx) hoặc xuất tệp mẫu chuẩn Word về máy.</li>
+                                <li><strong>Soạn Ngân hàng Đề bài:</strong> Tạo mới bài tập, nhập mô tả bài toán, thiết lập các Test case (test công khai & test ẩn) và cấp điểm số tương ứng.</li>
+                                <li><strong>Xem Bài làm Học sinh:</strong> Theo dõi kết quả và lịch sử nộp bài của các lớp.</li>
+                                <li><strong>Quản lý Sổ Điểm:</strong> Xem tổng hợp lượt nộp bài, điểm số cao nhất của từng học sinh và xuất dữ liệu ra tệp CSV (mở bằng Excel).</li>
+                                <li class="text-rose-700 font-semibold">• <em>Lưu ý an toàn:</em> Giáo viên được cấp quyền Xem, Soạn, Sửa nhưng KHÔNG CÓ NÚT XÓA bài giảng hay đề bài nhằm đảm bảo tính an toàn dữ liệu học đường.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. VAI TRÒ HỌC SINH -->
+                        <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
+                            <h4 class="font-bold text-xs sm:text-sm text-emerald-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-xs shadow-sm">3</span>
+                                VAI TRÒ HỌC SINH (STUDENT)
+                            </h4>
+                            <p class="text-xs text-emerald-950 font-medium">Giao diện thực hành trực quan dành cho học sinh.</p>
+                            <ul class="list-disc list-inside space-y-1 text-slate-700 text-xs">
+                                <li><strong>Phân khu Bài giảng:</strong> Đọc lý thuyết chi tiết theo chương trình chuẩn, nhấn nút "AI Đọc Bài Giảng" để Robot thuyết minh bài học.</li>
+                                <li><strong>Phân khu Thực hành:</strong> Chọn bài tập, đọc yêu cầu và ví dụ minh họa.</li>
+                                <li><strong>Khung viết code:</strong> Soạn thảo mã Python tại ô <code class="font-bold bg-white px-1 py-0.5 rounded border border-emerald-200">solution.py</code>.</li>
+                                <li><strong>Chạy thử:</strong> Nhập dữ liệu vào khung Input và bấm "Chạy Thử" để kiểm tra Output.</li>
+                                <li><strong>Nộp bài chấm điểm:</strong> Bấm nút "NỘP BÀI CHẤM ĐIỂM" để hệ thống tự động chấm điểm qua toàn bộ bộ test case và hiển thị bảng điểm chi tiết.</li>
+                                <li><strong>Xem code mẫu:</strong> Học sinh có thể nhấn "Xem Code Mẫu" để Robot hỗ trợ hiển thị cấu trúc mã nguồn tham khảo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHẦN IV: VAI TRÒ ĐỌC VĂN BẢN VÀ HƯỚNG DẪN CỦA TRỢ LÝ ROBOT AI -->
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2.5 pb-3 border-b border-slate-100">
+                        <div class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-lg font-bold">
+                            <i class="ph-bold ph-speaker-high"></i>
+                        </div>
+                        <h3 class="font-extrabold text-sm sm:text-base text-slate-900 tracking-tight">
+                            IV. VAI TRÒ ĐỌC VĂN BẢN VÀ HƯỚNG DẪN HỌC SINH CỦA TRỢ LÝ ROBOT AI
+                        </h3>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-700">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+                                <i class="ph-bold ph-hand-pointing text-blue-600"></i> 1. Cơ chế đọc văn bản theo vị trí kéo thả (Position-Based Text Reading):
+                            </h4>
+                            <p>• Học sinh hoặc giáo viên có thể kéo Robot AI và thả vào bất kỳ vị trí nào trên màn hình (bài giảng, đề bài, khung code, thông báo).</p>
+                            <p>• Robot sẽ tự động nhận diện thẻ văn bản bên dưới vị trí thả và cất giọng đọc.</p>
+                            <p>• Nhấp trực tiếp vào đại diện Robot để Tắt hoặc Bật lại giọng đọc nhanh chóng.</p>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+                                <i class="ph-bold ph-translate text-indigo-600"></i> 2. Giọng đọc thuyết minh song ngữ (Bilingual TTS):
+                            </h4>
+                            <p>• Robot tự động nhận biết từ vựng tiếng Việt và từ khóa lập trình tiếng Anh để chọn chất giọng phù hợp, phát âm chuẩn xác.</p>
+                            <p>• Các từ viết tắt giáo dục (THCS, THPT, HSG, CCCD...) được đọc chuẩn tiếng Việt; số điện thoại được tách nhịp rõ ràng; công thức toán học được diễn giải sinh động.</p>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+                                <i class="ph-bold ph-brain text-purple-600"></i> 3. Trợ lý Gia sư AI (Gemini AI Assistant):
+                            </h4>
+                            <p>• Khi gặp khó khăn trong quá trình giải toán, học sinh nhấn <strong>"Hỏi Gia Sư AI"</strong> hoặc <strong>"Phân tích lỗi"</strong>.</p>
+                            <p>• <strong>Chế độ Gợi mở (Socratic):</strong> AI đặt câu hỏi dẫn dắt giúp học sinh tự tìm ra đáp án.</p>
+                            <p>• <strong>Chế độ Gợi ý thuật toán:</strong> Cung cấp các bước tư duy tổng quan để giải bài.</p>
+                            <p>• <strong>Chế độ Phân tích lỗi (Debug):</strong> Kiểm tra mã nguồn hiện tại và chỉ ra nguyên nhân dẫn đến lỗi cú pháp hoặc kết quả sai.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Bản quyền bên trong hướng dẫn -->
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-blue-950 text-white text-center text-xs space-y-1 shadow-md">
+                    <p class="font-bold text-amber-300 tracking-wide text-xs sm:text-sm">
+                        Bản quyền © 2026 - Thầy Nguyễn Thế Phương
+                    </p>
+                    <p class="text-slate-300">
+                        Trường THCS Thành Đông - Tân Quới - Vĩnh Long
+                    </p>
                 </div>
             </div>
-            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
-                <button onclick="closeShareModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs">Đóng</button>
+
+            <!-- Footer nút bấm Modal -->
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0">
+                <button onclick="speakGuideContentAloud()" class="px-4 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-bold text-xs flex items-center gap-1.5 transition-all">
+                    <i class="ph-bold ph-speaker-high text-base text-indigo-600"></i>
+                    <span>Nghe Robot Đọc Hướng Dẫn</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <button onclick="closeGuideModal()" class="px-6 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-all shadow-sm">
+                        Đóng Hướng Dẫn
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -2069,7 +2333,6 @@
             const navBtnAdmin = document.getElementById('navBtnAdmin');
             const navBtnTeacher = document.getElementById('navBtnTeacher');
             const navBtnStudent = document.getElementById('navBtnStudent');
-            const btnShare = document.getElementById('btnShareNav');
 
             if (currentUser.isLoggedIn) {
                 profileBadge?.classList.replace('hidden', 'flex');
@@ -2078,7 +2341,6 @@
                 btnOpenTeacher?.classList.add('hidden');
                 btnOpenStudent?.classList.add('hidden');
                 btnGuestExit?.classList.add('hidden');
-                btnShare?.classList.toggle('hidden', !(currentUser.role === 'admin' || currentUser.role === 'teacher'));
 
                 roleSwitcher?.classList.replace('hidden', 'flex');
 
@@ -2122,7 +2384,6 @@
                 btnOpenTeacher?.classList.remove('hidden');
                 btnOpenStudent?.classList.remove('hidden');
                 btnGuestExit?.classList.remove('hidden');
-                btnShare?.classList.add('hidden');
             }
         }
 
@@ -4476,19 +4737,23 @@ except Exception as e: _error = str(e)
                 document.addEventListener('touchstart', unlockAllAudio, { passive: true });
             },
 
+            // Kiểm tra xem từ có phải là từ vựng tiếng Anh để phát âm theo giọng Anh chuẩn
             isEnglishWord(word) {
                 if (!word) return false;
                 const cleanWord = word.replace(/^[^\w]+|[^\w]+$/g, '');
-                if (!cleanWord || cleanWord.length <= 1) return false;
+                if (!cleanWord) return false;
+
+                // Quy tắc: Những từ ngắn dưới 4 kí tự thì cứ đọc tiếng Việt mà không cần chuyển sang tiếng Anh
+                if (cleanWord.length < 4) return false;
 
                 // Có dấu tiếng Việt -> 100% tiếng Việt
                 if (/[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ]/i.test(cleanWord)) {
                     return false;
                 }
 
-                // Các từ viết tắt thuần tiếng Việt tuyệt đối không đọc tiếng Anh
+                // Các từ viết tắt thuần tiếng Việt hoặc được phiên âm tiếng Việt (AI -> Ây ai)
                 const vnAcronyms = new Set([
-                    "THCS", "THPT", "HSG", "GV", "HS", "GD", "TH", "BGD", "SGD", "PGD", "CNTT", "CCCD", "TP", "TX", "VN", "VND", "VNĐ", "ĐN", "BT"
+                    "AI", "THCS", "THPT", "HSG", "GV", "HS", "GD", "TH", "BGD", "SGD", "PGD", "CNTT", "CCCD", "TP", "TX", "VN", "VND", "VNĐ", "ĐN", "BT"
                 ]);
                 if (vnAcronyms.has(cleanWord.toUpperCase())) return false;
 
@@ -4497,7 +4762,7 @@ except Exception as e: _error = str(e)
 
                 // Chỉ nhận diện các chữ viết tắt công nghệ tiếng Anh chuyên ngành cụ thể
                 const englishTechAcronyms = new Set([
-                    "AI", "LMS", "IDE", "PDF", "CSV", "JSON", "API", "WASM", "CPU", "RAM", "ROM",
+                    "LMS", "IDE", "PDF", "CSV", "JSON", "API", "WASM", "CPU", "RAM", "ROM",
                     "HTML", "CSS", "JS", "UI", "UX", "URL", "HTTP", "HTTPS", "TTS", "DOCX", "PPTX",
                     "SQL", "OOP", "OS", "GUI", "CLI", "IO", "PAT", "REST", "SDK"
                 ]);
@@ -4507,11 +4772,11 @@ except Exception as e: _error = str(e)
 
                 const engSet = new Set([
                     "python", "print", "input", "output", "code", "coding", "syntax", "runtime", "logic", "error",
-                    "debug", "test", "case", "exception", "function", "def", "return", "while", "for", "range",
-                    "list", "str", "int", "float", "bool", "true", "false", "none", "import", "math", "sqrt",
-                    "open", "file", "read", "write", "append", "pop", "len", "length", "index", "key", "value",
-                    "dictionary", "tuple", "set", "variable", "local", "global", "if", "else", "elif", "try",
-                    "except", "server", "admin", "teacher", "student", "submit", "score", "sample", "template"
+                    "debug", "test", "case", "exception", "function", "return", "while", "range",
+                    "list", "float", "bool", "true", "false", "none", "import", "math", "sqrt",
+                    "open", "file", "read", "write", "append", "length", "index", "value",
+                    "dictionary", "tuple", "variable", "local", "global", "except", "server",
+                    "admin", "teacher", "student", "submit", "score", "sample", "template"
                 ]);
 
                 return engSet.has(cleanWord.toLowerCase());
@@ -4689,6 +4954,10 @@ except Exception as e: _error = str(e)
 
                 // 2. CHUYỂN ĐỔI LINH HOẠT CÁC TỪ VIẾT TẮT TIẾNG VIỆT (KHÔNG ĐỌC TIẾNG ANH)
                 const vnAbbreviations = [
+                    [/\bA\.I\.\b/gi, "Ây ai"],
+                    [/\bA\.I\b/gi, "Ây ai"],
+                    [/(?:Robot|Gia\s+sư|Trợ\s+lý|Ứng\s+dụng)\s+Ai\b/gi, (m) => m.replace(/Ai$/i, "Ây ai")],
+                    [/\bAI\b/g, "Ây ai"],
                     [/\bTHCS\b/gi, "Trung học cơ sở"],
                     [/\bTHPT\b/gi, "Trung học phổ thông"],
                     [/\bHSG\b/gi, "học sinh giỏi"],
@@ -5006,16 +5275,18 @@ except Exception as e: _error = str(e)
         // ==============================================
         // TIỆN ÍCH & KHỞI CHẠY HỆ THỐNG
         // ==============================================
-        function openShareModal() {
-            document.getElementById('shareLinkInput').value = window.location.href;
-            document.getElementById('shareModal')?.classList.remove('hidden');
+        function openGuideModal() {
+            document.getElementById('guideModal')?.classList.remove('hidden');
         }
-        function closeShareModal() { document.getElementById('shareModal')?.classList.add('hidden'); }
-        function copyShareLink() {
-            const el = document.getElementById('shareLinkInput');
-            el?.select();
-            document.execCommand('copy');
-            showToast("Đã sao chép liên kết chia sẻ!", "success");
+
+        function closeGuideModal() {
+            document.getElementById('guideModal')?.classList.add('hidden');
+        }
+
+        function speakGuideContentAloud() {
+            const textToRead = "Hướng dẫn sử dụng và vận hành nền tảng dạy học lập trình Python. Nền tảng thực hành lập trình và chấm điểm tự động. Tác giả: Thầy Nguyễn Thế Phương, Trường Trung học cơ sở Thành Đông, Tân Quới, Vĩnh Long. Phần một: Các tính năng ưu việt của ứng dụng gồm trình thông dịch Python WebAssembly, hệ thống chấm điểm tự động Online Judge, Robot trợ lý AI thông minh song ngữ, đồng bộ hóa dữ liệu đám mây, Gia sư AI Gemini và hỗ trợ công thức Toán học KaTeX. Phần hai: Quy trình đăng nhập gồm 4 bước và thông tin tài khoản dùng thử cho Giáo viên và Học sinh. Phần ba: Quy trình làm việc theo vai trò Quản trị viên, Giáo viên và Học sinh. Phần bốn: Hướng dẫn kéo thả Robot để đọc văn bản và sử dụng gia sư AI.";
+            speakRobotText(textToRead);
+            showToast("Robot đang đọc tóm tắt cẩm nang hướng dẫn...", "info");
         }
 
         function openGithubSyncModal() {
