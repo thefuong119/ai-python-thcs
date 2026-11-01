@@ -213,6 +213,116 @@
                         </p>
                     </div>
 
+                    <!-- KHỐI TÀI KHOẢN TRẢI NGHIỆM DÙNG THỬ (BỔ SUNG THEO YÊU CẦU) -->
+                    <div class="mt-6 pt-5 border-t border-slate-200">
+                        <div class="flex items-center gap-2 mb-3.5">
+                            <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 text-lg shadow-inner">
+                                <i class="ph-bold ph-key"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900 flex items-center gap-1.5">
+                                    Tài Khoản Dùng Thử Trải Nghiệm Hệ Thống
+                                    <span class="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">Dùng thử ngay</span>
+                                </h4>
+                                <p class="text-[11px] text-slate-500">Quý thầy cô và các em học sinh có thể sử dụng thông tin bên dưới để trải nghiệm đầy đủ các tính năng:</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                            <!-- 1. VAI TRÒ GIÁO VIÊN -->
+                            <div class="bg-gradient-to-br from-amber-50/70 to-orange-50/40 p-4 rounded-2xl border border-amber-200/80 shadow-sm hover:shadow-md hover:border-amber-300 transition-all flex flex-col justify-between group">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2.5">
+                                        <div class="flex items-center gap-2 font-bold text-xs text-amber-900">
+                                            <div class="w-7 h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center shadow-sm">
+                                                <i class="ph-bold ph-chalkboard-teacher text-sm"></i>
+                                            </div>
+                                            <span>1) Vai trò Giáo viên:</span>
+                                        </div>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold">Giáo Viên</span>
+                                    </div>
+                                    <div class="space-y-1.5 text-xs bg-white/90 p-2.5 rounded-xl border border-amber-100/80 shadow-inner">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-slate-500 text-[11px] flex items-center gap-1">
+                                                <i class="ph-bold ph-user text-amber-600"></i> Tên đăng nhập:
+                                            </span>
+                                            <code class="font-mono font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60 select-all">giaovien</code>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-slate-500 text-[11px] flex items-center gap-1">
+                                                <i class="ph-bold ph-lock-key text-amber-600"></i> Mật khẩu:
+                                            </span>
+                                            <code class="font-mono font-bold text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200/60 select-all">Giaovien@123</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="quickFillTrialAccount('teacher', 'giaovien', 'Giaovien@123')" class="mt-3 w-full py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-1.5">
+                                    <i class="ph-bold ph-sign-in"></i> Đăng nhập Giáo viên ngay
+                                </button>
+                            </div>
+
+                            <!-- 2. VAI TRÒ HỌC SINH -->
+                            <div class="bg-gradient-to-br from-blue-50/70 to-indigo-50/40 p-4 rounded-2xl border border-blue-200/80 shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col justify-between group">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2.5">
+                                        <div class="flex items-center gap-2 font-bold text-xs text-blue-900">
+                                            <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-sm">
+                                                <i class="ph-bold ph-student text-sm"></i>
+                                            </div>
+                                            <span>2) Vai trò Học sinh:</span>
+                                        </div>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold">Học Sinh</span>
+                                    </div>
+                                    <div class="space-y-1.5 text-xs bg-white/90 p-2.5 rounded-xl border border-blue-100/80 shadow-inner">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-slate-500 text-[11px] flex items-center gap-1">
+                                                <i class="ph-bold ph-user text-blue-600"></i> Tên đăng nhập:
+                                            </span>
+                                            <code class="font-mono font-bold text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200/60 select-all">hocsinh</code>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-slate-500 text-[11px] flex items-center gap-1">
+                                                <i class="ph-bold ph-lock-key text-blue-600"></i> Mật khẩu:
+                                            </span>
+                                            <code class="font-mono font-bold text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200/60 select-all">Hocsinh@123</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="quickFillTrialAccount('student', 'hocsinh', 'Hocsinh@123')" class="mt-3 w-full py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-1.5">
+                                    <i class="ph-bold ph-sign-in"></i> Đăng nhập Học sinh ngay
+                                </button>
+                            </div>
+
+                            <!-- 3. VAI TRÒ ADMIN -->
+                            <div class="bg-gradient-to-br from-purple-50/70 to-slate-100 p-4 rounded-2xl border border-purple-200/80 shadow-sm hover:shadow-md hover:border-purple-300 transition-all flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <div class="flex items-center gap-2 font-bold text-xs text-purple-900">
+                                            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex items-center justify-center shadow-sm">
+                                                <i class="ph-bold ph-shield-star text-sm"></i>
+                                            </div>
+                                            <span>3) Vai trò Admin</span>
+                                        </div>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 font-bold flex items-center gap-1">
+                                            <i class="ph-bold ph-sparkle text-amber-500"></i> Quản Trị
+                                        </span>
+                                    </div>
+                                    <div class="text-[11px] text-purple-950 font-semibold italic mb-2 bg-purple-100/70 px-2.5 py-1 rounded-lg border border-purple-200/60">
+                                        (Xin phép trả lời khi được phỏng vấn)
+                                    </div>
+                                    <p class="text-[11px] text-slate-700 leading-relaxed bg-white/90 p-2.5 rounded-xl border border-purple-100/80 shadow-inner">
+                                        <strong class="text-purple-900">Admin có thể:</strong> Thêm, sửa, xóa toàn bộ dữ liệu nguồn: Tài khoản, đổi mật khẩu, nạp bài giảng, bài tập, xóa lịch sử...
+                                    </p>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <span class="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-xl border border-purple-200 w-full justify-center">
+                                        <i class="ph-bold ph-shield-check"></i> Quyền Quản Trị Hệ Thống
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 bg-blue-50/50 p-3.5 rounded-2xl border border-blue-100 text-sm font-bold text-blue-900">
                         <span class="flex items-center gap-2 hover:text-blue-700 transition-colors">
                             <span class="text-lg">📞</span> Điện thoại: 0932.861.739
@@ -1679,7 +1789,9 @@
             { id: 1, name: "Thầy Nguyễn Thế Phương", username: "086081006094", identifier: "086081006094", password: "Admin#999", school: "THCS Thành Đông", className: "Toàn trường", phone: "0908889999", role: "admin", status: "active", loginCount: 45 },
             { id: 2, name: "Cô Trần Thị Trúc Mai", username: "comai", identifier: "comai", password: "GiaoVien#123", school: "THCS - THPT Mỹ Thuận", className: "11A1", phone: "0912345678", role: "teacher", status: "active", loginCount: 34 },
             { id: 3, name: "Trần Ngọc Hân", username: "han", identifier: "han", password: "HocSinh#123", school: "THCS Thành Đông", className: "9A2", phone: "---", role: "student", status: "active", loginCount: 6 },
-            { id: 4, name: "Trần Lê Phúc Khang", username: "khang", identifier: "khang", password: "HocSinh#123", school: "THCS Thành Đông", className: "9A3", phone: "---", role: "student", status: "active", loginCount: 3 }
+            { id: 4, name: "Trần Lê Phúc Khang", username: "khang", identifier: "khang", password: "HocSinh#123", school: "THCS Thành Đông", className: "9A3", phone: "---", role: "student", status: "active", loginCount: 3 },
+            { id: 5, name: "Giáo viên Dùng Thử", username: "giaovien", identifier: "giaovien", password: "Giaovien@123", school: "THCS Thành Đông", className: "Khối 8", phone: "0932861739", role: "teacher", status: "active", loginCount: 10 },
+            { id: 6, name: "Học sinh Dùng Thử", username: "hocsinh", identifier: "hocsinh", password: "Hocsinh@123", school: "THCS Thành Đông", className: "8A1", phone: "---", role: "student", status: "active", loginCount: 15 }
         ];
 
         let gradebook = [];
@@ -1766,6 +1878,36 @@
         function closeConfirmDeleteModal() {
             document.getElementById('confirmDeleteModal')?.classList.add('hidden');
             pendingDeleteCallback = null;
+        }
+
+        // ==============================================
+        // TIỆN ÍCH ĐIỀN NHANH TÀI KHOẢN DÙNG THỬ
+        // ==============================================
+        function quickFillTrialAccount(role, username, password) {
+            openLoginModal(role, 'login');
+            setTimeout(() => {
+                if (role === 'teacher') {
+                    const idInput = document.getElementById('teacherCccdInput');
+                    const passInput = document.getElementById('teacherPassInput');
+                    if (idInput) idInput.value = username;
+                    if (passInput) passInput.value = password;
+                } else {
+                    const idInput = document.getElementById('studentLoginIdentifier');
+                    const passInput = document.getElementById('studentLoginPassword');
+                    if (idInput) idInput.value = username;
+                    if (passInput) passInput.value = password;
+                }
+                showToast(`Đã tự động điền tài khoản dùng thử ${role === 'teacher' ? 'Giáo viên' : 'Học sinh'}! Nhấn Đăng Nhập để vào ngay.`, "info");
+            }, 100);
+        }
+
+        function ensureTrialAccountsAlwaysAvailable() {
+            if (!registeredUsers.some(u => (u.username && u.username.toLowerCase() === 'giaovien') || (u.identifier && u.identifier.toLowerCase() === 'giaovien'))) {
+                registeredUsers.push({ id: 901, name: "Giáo viên Dùng Thử", username: "giaovien", identifier: "giaovien", password: "Giaovien@123", school: "THCS Thành Đông", className: "Khối 8", phone: "0932861739", role: "teacher", status: "active", loginCount: 10 });
+            }
+            if (!registeredUsers.some(u => (u.username && u.username.toLowerCase() === 'hocsinh') || (u.identifier && u.identifier.toLowerCase() === 'hocsinh'))) {
+                registeredUsers.push({ id: 902, name: "Học sinh Dùng Thử", username: "hocsinh", identifier: "hocsinh", password: "Hocsinh@123", school: "THCS Thành Đông", className: "8A1", phone: "---", role: "student", status: "active", loginCount: 15 });
+            }
         }
 
         // ==============================================
@@ -5022,10 +5164,12 @@ except Exception as e: _error = str(e)
         // Khởi động toàn hệ thống
         window.addEventListener('DOMContentLoaded', async () => {
             loadLocalSnapshotIfAvailable();
+            ensureTrialAccountsAlwaysAvailable();
             updateGithubTokenIndicator();
 
             // Truy xuất dữ liệu từ máy chủ ngay khi vừa mở ứng dụng (Yêu cầu 1)
             await autoFetchDataFromGitHub();
+            ensureTrialAccountsAlwaysAvailable();
             
             populateAssignmentSelect();
             populateStudentLectures();
