@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-01T06:16:01.714Z",
+    "updatedAt": "2026-11-01T06:19:13.845Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công từ hệ thống"
+    "action": "Nạp 1 bài tập từ tep_mau_bai_tap_python.docx"
   },
   "data": {
     "registeredUsers": [
@@ -384,6 +384,31 @@
             "id": 2,
             "input": "-10 25",
             "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Tính chu vi và diện tích hình chữ nhật",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "### Đề bài\nCho hai số nguyên dương $a$1$b$1$P = 2 \\times (a + b)$1$S = a \\times b$.\n\n### Dữ liệu vào (stdin)\nHai số nguyên dương $a, b$ cách nhau bởi dấu cách ($1 \\le a, b \\le 10^6$).\n\n### Dữ liệu ra (stdout)\nDòng 1 in ra chu vi $P$.\nDòng 2 in ra diện tích $S$.",
+        "templateCode": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nprint(2 * (a + b))\nprint(a * b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "16\n15",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 20",
+            "expected": "60\n200",
             "point": 5,
             "is_hidden": true
           }
