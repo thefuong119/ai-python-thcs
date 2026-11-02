@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:07:32.060Z",
+    "updatedAt": "2026-11-02T10:07:46.103Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 38. Tính lãi kép"
+    "action": "Admin lưu bài tập: Bài 39. Đoạn con dài nhất gồm các phần tử đôi một khác nhau"
   },
   "data": {
     "registeredUsers": [
@@ -2746,7 +2746,7 @@
       },
       {
         "id": 75,
-        "title": "Đoạn con dài nhất gồm các phần tử đôi một khác nhau",
+        "title": "Bài 39. Đoạn con dài nhất gồm các phần tử đôi một khác nhau",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
