@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:13:02.614Z",
+    "updatedAt": "2026-11-02T10:13:14.080Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 46. Mua bất động sản"
+    "action": "Admin lưu bài tập: Bài 47. Tính tổng nghịch đảo bình phương"
   },
   "data": {
     "registeredUsers": [
@@ -2946,7 +2946,7 @@
       },
       {
         "id": 83,
-        "title": "Tính tổng nghịch đảo bình phương",
+        "title": "Bài 47. Tính tổng nghịch đảo bình phương",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
