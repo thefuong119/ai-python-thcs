@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:01:00.910Z",
+    "updatedAt": "2026-11-02T16:02:12.263Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 77. Tách số thành ba số"
+    "action": "Admin lưu bài tập: Bài 78. Tắc kè hoa"
   },
   "data": {
     "registeredUsers": [
@@ -3726,7 +3726,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Có x con tắc kè đỏ, y con xanh, z con vàng. Khi hai con khác màu chạm nhau, cả hai cùng đổi sang màu thứ ba. Hãy tìm một chuỗi trạng thái dẫn đến lúc chỉ còn một màu (hai số lượng còn lại bằng 0). Mỗi trạng thái sau một lần chạm được in trên một dòng. Nếu không thể, in KHONG.\nDữ liệu vào: Ba số nguyên không âm x, y, z (mỗi số nhỏ hơn 500).\nDữ liệu ra: Các bộ (đỏ, xanh, vàng) trên đường đi tìm được, không cần in trạng thái ban đầu; nếu không có đường đi, in KHONG.",
-        "templateCode": "from collections import deque\nx, y, z = map(int, input().split())\nstart = (x, y, z)\nq = deque([(start, [])])\nseen = {start}\npath = None\nwhile q:\n (r, g, b), steps = q.popleft()\n if sum(v > 0 for v in (r, g, b)) == 1:\n path = steps\n break\n # Lần lượt: xanh+vàng -> đỏ; đỏ+vàng -> xanh; đỏ+xanh -> vàng.\n nxt = [(r + 2, g - 1, b - 1),\n (r - 1, g + 2, b - 1),\n (r - 1, g - 1, b + 2)]\n for state in nxt:\n if min(state) >= 0 and state not in seen:\n seen.add(state)\n q.append((state, steps + [state]))\nif path is None or not path:\n print(\"KHONG\")\nelse:\n for state in path:\n print(*state)",
+        "templateCode": "from collections import deque\n\nx, y, z = map(int, input().split())\nstart = (x, y, z)\nq = deque([(start, [])])\nseen = {start}\npath = None\n\nwhile q:\n    (r, g, b), steps = q.popleft()\n    \n    # Kiểm tra nếu chỉ còn lại 1 loại màu\n    if sum(v > 0 for v in (r, g, b)) == 1:\n        path = steps\n        break\n    \n    # Lần lượt: xanh+vàng -> đỏ; đỏ+vàng -> xanh; đỏ+xanh -> vàng.\n    nxt = [\n        (r + 2, g - 1, b - 1),\n        (r - 1, g + 2, b - 1),\n        (r - 1, g - 1, b + 2)\n    ]\n    \n    for state in nxt:\n        if min(state) >= 0 and state not in seen:\n            seen.add(state)\n            q.append((state, steps + [state]))\n\n# Lưu ý: nếu ban đầu đã chỉ có 1 màu thì path = []\nif path is None:\n    print(\"KHONG\")\nelse:\n    for state in path:\n        print(*state)",
         "tests": [
           {
             "id": 1,
