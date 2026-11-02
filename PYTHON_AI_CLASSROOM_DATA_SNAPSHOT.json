@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:54:09.354Z",
+    "updatedAt": "2026-11-02T14:54:45.918Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Đếm số tam giác tạo từ N đoạn thẳng"
+    "action": "Admin lưu bài tập: Tính phí đỗ xe thông minh theo khung giờ"
   },
   "data": {
     "registeredUsers": [
@@ -8301,7 +8301,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một bãi đỗ xe thông minh quản lý xe ra vào dựa trên loại phương tiện và thời lượng đỗ xe (tính theo số phút $M$). Quy tắc tính phí như sau:\n- Loại xe máy ('M'): 30 phút đầu giá 5,000 đ. Sau đó cứ mỗi block 30 phút tiếp theo tính thêm 3,000 đ (nếu lẻ dưới 30 phút vẫn tính trọn 1 block).\n- Loại ô tô con ('O'): 60 phút đầu giá 25,000 đ. Sau đó cứ mỗi block 60 phút tiếp theo tính thêm 15,000 đ (nếu lẻ dưới 60 phút tính trọn 1 block).\n- Nếu thời gian đỗ vượt quá 720 phút (12 giờ), tính thêm phụ phí qua đêm bằng 20% tổng cước phát sinh.\nHãy viết chương trình nhập loại xe và tổng số phút đỗ, in ra số tiền phải trả (làm tròn số nguyên).\n\nDữ liệu vào: Một dòng gồm một ký tự đại diện loại xe ('M' hoặc 'O') và số nguyên dương $M$ ($1 \\le M \\le 1440$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền phí bãi xe.",
-        "templateCode": "import math\n\nline = input().split()\nloai = line[0].upper()\nm = int(line[1])\n\nif loai == 'M':\n if m <= 30:\n cuoc = 5000\n else:\n cuoc = 5000 + math.ceil((m - 30) / 30) * 3000\nelse:\n if m <= 60:\n cuoc = 25000\n else:\n cuoc = 25000 + math.ceil((m - 60) / 60) * 15000\n\nif m > 720:\n cuoc = cuoc * 1.2\n\nprint(round(cuoc))",
+        "templateCode": "import math\n\nline = input().split()\nloai = line[0].upper()\nm = int(line[1])\n\nif loai == 'M':\n    if m <= 30:\n        cuoc = 5000\n    else:\n        cuoc = 5000 + math.ceil((m - 30) / 30) * 3000\nelse:\n    if m <= 60:\n        cuoc = 25000\n    else:\n        cuoc = 25000 + math.ceil((m - 60) / 60) * 15000\n\nif m > 720:\n    cuoc = cuoc * 1.2\n\nprint(round(cuoc))",
         "tests": [
           {
             "id": 1,
