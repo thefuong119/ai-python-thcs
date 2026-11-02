@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:47:33.678Z",
+    "updatedAt": "2026-11-02T15:48:35.381Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 55. Tổng chẵn"
+    "action": "Admin lưu bài tập: Bài 56. Số thân thiện"
   },
   "data": {
     "registeredUsers": [
@@ -3176,7 +3176,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Theo quy ước của đề, hai số thân thiện nếu có cùng ước nguyên tố lớn nhất. Cho a (a > 1), hãy tìm 5 số nguyên dương nhỏ nhất thân thiện với a, có tính cả a nếu phù hợp. In theo thứ tự tăng dần.\nDữ liệu vào: Một số nguyên a.\nDữ liệu ra: Năm số thân thiện, cách nhau bởi dấu cách.",
-        "templateCode": "def uoc_nguyen_to_lon_nhat(x):\n p = 1\n d = 2\n while d * d <= x:\n while x % d == 0:\n p = d\n x //= d\n d += 1\n if x > 1:\n p = x\n return p\n\na = int(input())\np = uoc_nguyen_to_lon_nhat(a)\nkq = []\nx = 1\nwhile len(kq) < 5:\n if uoc_nguyen_to_lon_nhat(p * x) == p:\n kq.append(p * x)\n x += 1\nprint(*kq)",
+        "templateCode": "def uoc_nguyen_to_lon_nhat(x):\n    p = 1\n    d = 2\n    while d * d <= x:\n        while x % d == 0:\n            p = d\n            x //= d\n        d += 1\n    if x > 1:\n        p = x\n    return p\n\n\na = int(input())\np = uoc_nguyen_to_lon_nhat(a)\nkq = []\nx = 1\n\nwhile len(kq) < 5:\n    if uoc_nguyen_to_lon_nhat(p * x) == p:\n        kq.append(p * x)\n    x += 1\n\nprint(*kq)",
         "tests": [
           {
             "id": 1,
