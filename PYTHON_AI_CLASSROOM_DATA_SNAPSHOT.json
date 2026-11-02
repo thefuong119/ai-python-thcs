@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:11:34.430Z",
+    "updatedAt": "2026-11-02T10:12:03.052Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 43. Ký tự đầu tiên xuất hiện k lần"
+    "action": "Admin lưu bài tập: Bài 42. Tắc kè hoa"
   },
   "data": {
     "registeredUsers": [
@@ -2821,7 +2821,7 @@
       },
       {
         "id": 78,
-        "title": "Tắc kè hoa",
+        "title": "Bài 42. Tắc kè hoa",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
