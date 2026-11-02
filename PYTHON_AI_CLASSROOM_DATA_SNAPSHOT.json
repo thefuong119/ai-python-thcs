@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:57:37.147Z",
+    "updatedAt": "2026-11-02T09:57:49.592Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 12. Tìm số tự mãn bậc 3 trong dãy"
+    "action": "Admin lưu bài tập: Bài 13. Xếp hàng"
   },
   "data": {
     "registeredUsers": [
@@ -2096,7 +2096,7 @@
       },
       {
         "id": 49,
-        "title": "Xếp hàng",
+        "title": "Bài 13. Xếp hàng",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
