@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:48:35.381Z",
+    "updatedAt": "2026-11-02T15:49:04.974Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 56. Số thân thiện"
+    "action": "Admin lưu bài tập: Bài 57. Phần tử yên ngựa"
   },
   "data": {
     "registeredUsers": [
@@ -3201,7 +3201,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho ma trận A có m hàng và n cột. Phần tử A[i][j] là phần tử yên ngựa nếu nó đồng thời là phần tử nhỏ nhất trên hàng i và lớn nhất trên cột j. Hãy tìm tất cả vị trí yên ngựa (chỉ số hàng, cột tính từ 1).\nDữ liệu vào: Dòng 1 ghi m, n; m dòng tiếp theo, mỗi dòng gồm n số nguyên.\nDữ liệu ra: Mỗi vị trí ghi trên một dòng theo dạng (i,j). Nếu không có, ghi khong co.",
-        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\nmax_cot = [max(a[i][j] for i in range(m)) for j in range(n)]\nkq = []\nfor i in range(m):\n mn = min(a[i])\n for j in range(n):\n if a[i][j] == mn and a[i][j] == max_cot[j]:\n kq.append(f\"({i + 1},{j + 1})\")\nprint(\"\\n\".join(kq) if kq else \"khong co\")",
+        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\n\nmax_cot = [max(a[i][j] for i in range(m)) for j in range(n)]\nkq = []\n\nfor i in range(m):\n    mn = min(a[i])\n    for j in range(n):\n        if a[i][j] == mn and a[i][j] == max_cot[j]:\n            kq.append(f\"({i + 1},{j + 1})\")\n\nprint(\"\\n\".join(kq) if kq else \"khong co\")",
         "tests": [
           {
             "id": 1,
