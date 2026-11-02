@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:03:46.785Z",
+    "updatedAt": "2026-11-02T15:04:16.280Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)"
+    "action": "Admin lưu bài tập: Định giá đơn hàng theo biểu thức tính toán rút gọn"
   },
   "data": {
     "registeredUsers": [
@@ -8751,7 +8751,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một phần mềm thu ngân cho phép nhân viên nhập nhanh biểu thức tính tổng tiền gồm các phép toán cộng và trừ giữa các số nguyên không âm (ví dụ: `15000+20000-5000+12000`). Hãy viết chương trình nhận vào một chuỗi biểu thức chỉ chứa các số nguyên và hai dấu toán tử '+' hoặc '-', tính và in ra giá trị cuối cùng của biểu thức.\n\nDữ liệu vào: Một chuỗi ký tự $S$ là biểu thức số học không chứa dấu cách (độ dài không quá 1000 ký tự).\nDữ liệu ra: Một số nguyên duy nhất là kết quả của biểu thức.",
-        "templateCode": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n if ch.isdigit():\n so_hien_tai = so_hien_tai * 10 + int(ch)\n elif ch in ['+', '-']:\n tong += dau * so_hien_tai\n so_hien_tai = 0\n dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)",
+        "templateCode": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n    if ch.isdigit():\n        so_hien_tai = so_hien_tai * 10 + int(ch)\n    elif ch in ['+', '-']:\n        tong += dau * so_hien_tai\n        so_hien_tai = 0\n        dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)",
         "tests": [
           {
             "id": 1,
