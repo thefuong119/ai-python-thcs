@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:01:35.212Z",
+    "updatedAt": "2026-11-02T11:01:51.323Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 107. Tổng luân phiên và tổng tích"
+    "action": "Admin lưu bài tập: Bài 108. Dãy số tăng không giảm"
   },
   "data": {
     "registeredUsers": [
@@ -4471,7 +4471,7 @@
       },
       {
         "id": 144,
-        "title": "Dãy số tăng không giảm",
+        "title": "Bài 108. Dãy số tăng không giảm",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
