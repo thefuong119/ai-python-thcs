@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:29:46.987Z",
+    "updatedAt": "2026-11-02T09:30:28.566Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Admin lưu bài tập: Bài 5: Tính giai thừa"
   },
@@ -444,7 +444,7 @@
         "tests": [
           {
             "id": 1,
-            "input": "2 6",
+            "input": "2 3",
             "expected": "8",
             "point": 5,
             "is_hidden": false
