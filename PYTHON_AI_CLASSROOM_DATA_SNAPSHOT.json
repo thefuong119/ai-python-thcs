@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:16:25.569Z",
+    "updatedAt": "2026-11-02T08:23:54.184Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Nạp 10 bài tập từ tep_mau_bai_tap_python.docx"
   },
@@ -864,6 +864,396 @@
             "id": 4,
             "input": "7\n13 17 4 19 23 8 2",
             "expected": "19 23",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "title": "Bội số đặc biệt",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho trước một số nguyên dương P không chia hết cho 2 và 5. Số X được gọi là một bội đặc biệt của P nếu X chia hết cho P và chỉ chứa toàn chữ số 9 (ví dụ: 9, 99, 999, ...).\nCho trước hai số nguyên dương P và N. Hãy đếm xem có bao nhiêu số X là bội đặc biệt của P sao cho số chữ số của X không vượt quá N.\n\n- Dữ liệu vào: Một dòng duy nhất chứa hai số nguyên dương P và N cách nhau bởi dấu cách (1 <= P <= 10^5, 1 <= N <= 10^5, P không chia hết cho 2 và 5).\n- Dữ liệu ra: In ra một số nguyên là số lượng số X thỏa mãn yêu cầu.",
+        "templateCode": "P, N = map(int, input().split())\ncount = 0\nremainder = 0\nfor k in range(1, N + 1):\n remainder = (remainder * 10 + 9) % P\n if remainder == 0:\n count += 1\nprint(count)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7 7",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "9 11",
+            "expected": "11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "13 15",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "3 6",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "title": "Giải nén xâu ký tự",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong nén văn bản, một phương pháp nén đơn giản thay thế các đoạn ký tự lặp liên tiếp bằng số lần lặp kèm theo ký tự đó. Ví dụ: xâu aaaabbb được nén thành 4a3b; xâu aaab nén thành 3ab; nếu ký tự xuất hiện 1 lần thì có thể không ghi số (ví dụ c thay vì 1c).\nCho một xâu ký tự nén St. Hãy viết chương trình giải nén xâu St để thu lại xâu ký tự ban đầu.\n\n- Dữ liệu vào: Một dòng chứa xâu ký tự St gồm các chữ số và chữ cái tiếng Anh in thường (1 <= |St| <= 255).\n- Dữ liệu ra: In ra xâu ký tự sau khi giải nén.",
+        "templateCode": "St = input().strip()\nkq = []\ni = 0\nn = len(St)\nwhile i < n:\n num = 0\n has_num = False\n while i < n and St[i].isdigit():\n num = num * 10 + int(St[i])\n i += 1\n has_num = True\n if not has_num:\n num = 1\n if i < n:\n ch = St[i]\n kq.append(ch * num)\n i += 1\nprint(\"\".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3a5bc",
+            "expected": "aaabbbbbc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4a3b",
+            "expected": "aaaabbb",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2a10b1c",
+            "expected": "aabbbbbbbbbbc",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "xyz",
+            "expected": "xyz",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "title": "Số nhỏ nhất chia hết từ 1 đến N",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số tự nhiên n. Tìm số nguyên dương nhỏ nhất chia hết cho tất cả các số nguyên từ 1 đến n (tức là bội chung nhỏ nhất của dãy số 1, 2, 3, ..., n).\n\n- Dữ liệu vào: Nhập vào từ bàn phím một số nguyên dương n (1 <= n <= 40).\n- Dữ liệu ra: In ra màn hình số nguyên nhỏ nhất tìm được.",
+        "templateCode": "import math\n\nn = int(input().strip())\nkq = 1\nfor i in range(1, n + 1):\n kq = kq * i // math.gcd(kq, i)\nprint(kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7",
+            "expected": "420",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10",
+            "expected": "2520",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "20",
+            "expected": "232792560",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "title": "Phân số nhỏ nhất",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số tự nhiên dương A, B, C. Từ ba số đó, ta có thể chọn hai số bất kỳ để tạo thành một phân số (một số làm tử số, một số làm mẫu số).\nHãy tìm phân số nhỏ nhất có thể tạo thành, sau đó rút gọn về dạng tối giản và in ra tổng của tử số và mẫu số của phân số tối giản đó.\n\n- Dữ liệu vào: Gồm 3 dòng, mỗi dòng chứa một số tự nhiên dương lần lượt là A, B, C (1 <= A, B, C <= 10^4).\n- Dữ liệu ra: In ra một số nguyên duy nhất là tổng của tử số và mẫu số của phân số tối giản nhỏ nhất.",
+        "templateCode": "import math\n\na = int(input().strip())\nb = int(input().strip())\nc = int(input().strip())\n\ntu = min(a, b, c)\nmau = max(a, b, c)\nuoc = math.gcd(tu, mau)\nprint((tu // uoc) + (mau // uoc))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n2\n4",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6\n9\n15",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "12\n18\n24",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "25\n30\n75",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "title": "Rút gọn tối đa dãy số",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Phép biến đổi rút gọn một dãy số nguyên là tính tổng tất cả các chữ số của số đó để thu được một số mới. Quá trình này được lặp đi lặp lại liên tục cho đến khi kết quả thu được chỉ còn đúng một chữ số duy nhất (chữ số gốc).\nVí dụ với số 55577:\n- Bước 1: 5 + 5 + 5 + 7 + 7 = 29\n- Bước 2: 2 + 9 = 11\n- Bước 3: 1 + 1 = 2\nKết quả cuối cùng là 2.\nCho một số nguyên dương S có thể có nhiều chữ số. Hãy tìm chữ số rút gọn cuối cùng của S.\n\n- Dữ liệu vào: Một chuỗi ký tự biểu diễn số nguyên dương S (độ dài chuỗi lên tới 1000 chữ số).\n- Dữ liệu ra: In ra một chữ số duy nhất sau khi đã rút gọn tối đa.",
+        "templateCode": "s = input().strip()\ndigits = [int(ch) for ch in s]\nwhile len(digits) > 1:\n tong = sum(digits)\n digits = [int(ch) for ch in str(tong)]\nprint(digits[0])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "55577",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12345",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "999999",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "9876543210",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "title": "Biểu diễn tổng các số Fibonacci",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dãy số Fibonacci bắt đầu bằng: F1 = 1, F2 = 2, F3 = 3, F4 = 5, F5 = 8, F6 = 13, ... (F_i = F_{i-1} + F_{i-2}).\nTheo Định lý Zeckendorf, mọi số tự nhiên dương N >= 1 đều có thể biểu diễn một cách duy nhất thành tổng của các số Fibonacci không liên tiếp nhau.\nCho số nguyên không âm N. Hãy kiểm tra và biểu diễn số N:\n- Nếu N >= 1: Dòng 1 in YES, dòng 2 in biểu diễn tổng các số Fibonacci giảm dần theo định dạng 'f1 + f2 + ...'.\n- Nếu N = 0: In ra NO.\n\n- Dữ liệu vào: Một số nguyên N (0 <= N <= 10^9).\n- Dữ liệu ra: Kết quả theo định dạng mô tả.",
+        "templateCode": "n = int(input().strip())\nif n <= 0:\n print(\"NO\")\nelse:\n fibo = [1, 2]\n while fibo[-1] <= n:\n fibo.append(fibo[-1] + fibo[-2])\n phan_tich = []\n rem = n\n for x in reversed(fibo):\n if x <= rem:\n phan_tich.append(x)\n rem -= x\n if rem == 0:\n print(\"YES\")\n print(\" + \".join(map(str, phan_tich)))\n else:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "0",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "YES\n8 + 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "19",
+            "expected": "YES\n13 + 5 + 1",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "40",
+            "expected": "YES\n34 + 5 + 1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "title": "Tổ chức tham quan",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Ban tổ chức Hội thi Tin học tổ chức cho N đoàn đi tham quan các địa điểm khác nhau. Đoàn thứ i đi thăm địa điểm cách khách sạn d_i km (i = 1, ..., N).\nHội thi có M xe taxi (M >= N) được đánh số từ 1 đến M. Xe thứ j có mức tiêu thụ nhiên liệu là v_j lít/km. Mỗi xe chỉ phục vụ đúng một đoàn.\nYêu cầu: Hãy chọn ra N xe phục vụ N đoàn sao cho tổng lượng xăng tiêu thụ là ít nhất.\n\n- Dữ liệu vào:\n + Dòng 1: Hai số nguyên dương N và M (1 <= N <= M <= 200).\n + Dòng 2: N số nguyên dương d_1, d_2, ..., d_N.\n + Dòng 3: M số nguyên dương v_1, v_2, ..., v_M.\n- Dữ liệu ra:\n + Dòng 1: Tổng lượng nhiên liệu ít nhất cần dùng.\n + N dòng tiếp theo, dòng thứ i ghi số hiệu xe phục vụ cho đoàn thứ i (i = 1, ..., N).",
+        "templateCode": "import sys\n\ndef solve():\n lines = sys.stdin.read().strip().split('\\n')\n if not lines or not lines[0]:\n return\n n, m = map(int, lines[0].split())\n dist = list(map(int, lines[1].split()))\n fuel = list(map(int, lines[2].split()))\n\n ds_dist = [(dist[i], i) for i in range(n)]\n ds_fuel = [(fuel[j], j + 1) for j in range(m)]\n\n ds_dist.sort(key=lambda x: x[0], reverse=True)\n ds_fuel.sort(key=lambda x: x[0])\n\n assigned = [0] * n\n total = 0\n for i in range(n):\n d_val, d_idx = ds_dist[i]\n f_val, f_idx = ds_fuel[i]\n total += d_val * f_val\n assigned[d_idx] = f_idx\n\n print(total)\n for x in assigned:\n print(x)\n\nif __name__ == '__main__':\n solve()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4\n7 5 9\n17 13 15 10",
+            "expected": "256\n2\n3\n4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2\n10 20\n5 8",
+            "expected": "180\n2\n1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3 3\n15 25 35\n4 6 2",
+            "expected": "260\n2\n1\n3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1 3\n50\n12 8 15",
+            "expected": "400\n2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "title": "Kiểm tra số Kaprekar",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số Kaprekar là số tự nhiên mà khi bình phương lên, ta tách kết quả thành hai phần (phần bên phải có số chữ số bằng đúng số chữ số của số ban đầu, phần bên trái là phần còn lại), sau đó cộng hai phần lại thì bằng chính số ban đầu.\nVí dụ:\n- 45^2 = 2025: Tách thành 20 và 25, tổng 20 + 25 = 45 -> 45 là số Kaprekar.\n- 9^2 = 81: Tách thành 8 và 1, tổng 8 + 1 = 9 -> 9 là số Kaprekar.\n- 10^2 = 100: Tách thành 1 và 00, tổng 1 + 0 = 1 != 10 -> 10 không phải số Kaprekar.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số Kaprekar hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số Kaprekar, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nsq = n * n\ns = str(sq)\nd = len(str(n))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif trai + phai == n:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "45",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "297",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "title": "Kiểm tra số hạnh phúc",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương được gọi là số hạnh phúc (Happy Number) nếu ta thay thế số đó bằng tổng bình phương các chữ số của nó, và lặp lại quá trình này cho đến khi kết quả bằng 1. Nếu quá trình rơi vào vòng lặp vô hạn không bao giờ đạt tới 1 thì số đó không phải là số hạnh phúc.\nVí dụ:\n- Số 19: 1^2 + 9^2 = 82 -> 8^2 + 2^2 = 68 -> 6^2 + 8^2 = 100 -> 1^2 + 0^2 + 0^2 = 1 -> 19 là số hạnh phúc.\n- Số 4: Rơi vào chu trình lặp vô hạn và không bao giờ đạt tới 1 -> 4 không phải số hạnh phúc.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hạnh phúc hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hạnh phúc, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nseen = set()\ncurr = n\nwhile curr != 1 and curr not in seen:\n seen.add(curr)\n curr = sum(int(d) ** 2 for d in str(curr))\n\nif curr == 1:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "19",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "13",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "title": "Cặp số là bạn",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hai số nguyên dương phân biệt a và b được gọi là cặp số là bạn (amicable numbers) nếu tổng các ước số thực sự (các ước số nguyên dương nhỏ hơn chính nó) của số này bằng số kia và ngược lại.\nVí dụ: 220 và 284 là cặp số bạn:\n- Các ước số thực sự của 220 là 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 -> Tổng = 284.\n- Các ước số thực sự của 284 là 1, 2, 4, 71, 142 -> Tổng = 220.\nCho hai số nguyên dương a và b. Hãy kiểm tra xem hai số đó có phải là cặp số là bạn hay không.\n\n- Dữ liệu vào: Một dòng gồm hai số nguyên dương a và b cách nhau bởi dấu cách (1 <= a, b <= 10^7).\n- Dữ liệu ra: In ra YES nếu a và b là cặp số là bạn, ngược lại in ra NO.",
+        "templateCode": "def tong_uoc_thuc_su(n):\n if n <= 1:\n return 0\n tong = 1\n i = 2\n while i * i <= n:\n if n % i == 0:\n tong += i\n if i * i != n:\n tong += n // i\n i += 1\n return tong\n\na, b = map(int, input().split())\nif a != b and tong_uoc_thuc_su(a) == b and tong_uoc_thuc_su(b) == a:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "220 284",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 20",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1184 1210",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "6 6",
+            "expected": "NO",
             "point": 2.5,
             "is_hidden": true
           }
