@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:57:58.091Z",
+    "updatedAt": "2026-11-02T09:58:14.334Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 14. Kangaroo"
+    "action": "Admin lưu bài tập: Bài 15. Ước chung lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -2146,7 +2146,7 @@
       },
       {
         "id": 51,
-        "title": "Ước chung lớn nhất",
+        "title": "Bài 15. Ước chung lớn nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
