@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:45:07.024Z",
+    "updatedAt": "2026-11-02T10:46:07.933Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 86. Mã số"
+    "action": "Admin lưu bài tập: Bài 87. Phân tích số nguyên"
   },
   "data": {
     "registeredUsers": [
@@ -3946,7 +3946,7 @@
       },
       {
         "id": 123,
-        "title": "Phân tích số nguyên",
+        "title": "Bài 87. Phân tích số nguyên",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
