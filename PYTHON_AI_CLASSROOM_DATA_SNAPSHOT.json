@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:56:22.332Z",
+    "updatedAt": "2026-11-02T10:56:36.680Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 94. Cắt gỗ"
+    "action": "Admin lưu bài tập: Bài 95. Thực hiện phép tính phân số"
   },
   "data": {
     "registeredUsers": [
@@ -4146,7 +4146,7 @@
       },
       {
         "id": 131,
-        "title": "Thực hiện phép tính phân số",
+        "title": "Bài 95. Thực hiện phép tính phân số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
