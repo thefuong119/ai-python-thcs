@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:50:22.525Z",
+    "updatedAt": "2026-11-02T11:55:09.397Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 40 bài tập từ tep_mau_bai_tap_python.docx"
+    "action": "Admin lưu bài tập: Bài 139. Một chữ số của tổng"
   },
   "data": {
     "registeredUsers": [
@@ -5221,7 +5221,7 @@
       },
       {
         "id": 174,
-        "title": "Một chữ số của tổng",
+        "title": "Bài 139. Một chữ số của tổng",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
