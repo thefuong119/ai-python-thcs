@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:09:24.328Z",
+    "updatedAt": "2026-11-02T11:13:47.889Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 120. Tam giác"
+    "action": "Admin lưu bài tập: 121. Ước số"
   },
   "data": {
     "registeredUsers": [
@@ -4771,7 +4771,7 @@
       },
       {
         "id": 156,
-        "title": "Ước số",
+        "title": "121. Ước số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
