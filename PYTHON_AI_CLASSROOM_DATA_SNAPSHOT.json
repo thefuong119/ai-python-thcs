@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:07:45.373Z",
+    "updatedAt": "2026-11-02T11:08:36.940Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 116. Tính tổng và số hạng"
+    "action": "Admin lưu bài tập: Bài 117. Dãy đan dấu"
   },
   "data": {
     "registeredUsers": [
@@ -4671,7 +4671,7 @@
       },
       {
         "id": 152,
-        "title": "Dãy đan dấu",
+        "title": "Bài 117. Dãy đan dấu",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
