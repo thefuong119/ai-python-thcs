@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:41:50.269Z",
+    "updatedAt": "2026-11-02T08:43:23.598Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 10. Xếp que diêm thành tháp tam giác"
+    "action": "Lưu bài tập: Bài 11. Chi phí mua bóng tối ưu"
   },
   "data": {
     "registeredUsers": [
@@ -641,7 +641,7 @@
       },
       {
         "id": 11,
-        "title": "Chi phí mua bóng tối ưu",
+        "title": "Bài 11. Chi phí mua bóng tối ưu",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
