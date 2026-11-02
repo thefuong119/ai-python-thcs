@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:56:22.888Z",
+    "updatedAt": "2026-11-02T11:56:37.002Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 143. Dãy con nguyên tố"
+    "action": "Admin lưu bài tập: Bài 144. Số lớn nhất nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -5346,7 +5346,7 @@
       },
       {
         "id": 179,
-        "title": "Số lớn nhất nhỏ nhất",
+        "title": "Bài 144. Số lớn nhất nhỏ nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
