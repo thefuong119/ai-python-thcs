@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:37:58.120Z",
+    "updatedAt": "2026-11-02T08:38:42.407Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 1. Tính tổng hai số nguyên A và B"
+    "action": "Lưu bài tập: Bài 2. Kiểm tra số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -316,7 +316,7 @@
       },
       {
         "id": 2,
-        "title": "Kiểm tra số nguyên tố",
+        "title": "Bài 2. Kiểm tra số nguyên tố",
         "slug": "ki-m-tra-s--nguy-n-t-",
         "difficulty": "medium",
         "timeLimit": 2,
@@ -351,7 +351,8 @@
             "point": 2.5,
             "is_hidden": true
           }
-        ]
+        ],
+        "classLevel": "8"
       },
       {
         "id": 3,
