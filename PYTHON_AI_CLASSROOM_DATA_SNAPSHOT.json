@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:00:53.759Z",
+    "updatedAt": "2026-11-02T12:01:15.195Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 149. Số nhị phân"
+    "action": "Admin lưu bài tập: Bài 150. Sắp xếp chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -5496,7 +5496,7 @@
       },
       {
         "id": 185,
-        "title": "Sắp xếp chẵn lẻ",
+        "title": "Bài 150. Sắp xếp chẵn lẻ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
