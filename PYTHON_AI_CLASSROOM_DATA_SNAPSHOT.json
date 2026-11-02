@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:25:23.084Z",
+    "updatedAt": "2026-11-02T14:26:02.075Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 11. Chi phí mua bóng tối ưu"
+    "action": "Admin lưu bài tập: Bài 12. Bội số đặc biệt"
   },
   "data": {
     "registeredUsers": [
@@ -881,7 +881,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho trước một số nguyên dương P không chia hết cho 2 và 5. Số X được gọi là một bội đặc biệt của P nếu X chia hết cho P và chỉ chứa toàn chữ số 9 (ví dụ: 9, 99, 999, ...).\nCho trước hai số nguyên dương P và N. Hãy đếm xem có bao nhiêu số X là bội đặc biệt của P sao cho số chữ số của X không vượt quá N.\n\n- Dữ liệu vào: Một dòng duy nhất chứa hai số nguyên dương P và N cách nhau bởi dấu cách (1 <= P <= 10^5, 1 <= N <= 10^5, P không chia hết cho 2 và 5).\n- Dữ liệu ra: In ra một số nguyên là số lượng số X thỏa mãn yêu cầu.",
-        "templateCode": "P, N = map(int, input().split())\ncount = 0\nremainder = 0\nfor k in range(1, N + 1):\n remainder = (remainder * 10 + 9) % P\n if remainder == 0:\n count += 1\nprint(count)",
+        "templateCode": "P, N = map(int, input().split())\n\ncount = 0\nremainder = 0\n\nfor k in range(1, N + 1):\n    remainder = (remainder * 10 + 9) % P\n\n    if remainder == 0:\n        count += 1\n\nprint(count)",
         "tests": [
           {
             "id": 1,
