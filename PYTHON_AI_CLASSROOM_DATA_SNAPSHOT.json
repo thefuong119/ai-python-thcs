@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T13:39:23.481Z",
+    "updatedAt": "2026-11-02T13:41:10.254Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài mở đầu: Phân tích cấu trúc đề thi HSG Tin học 8, 9 và Chiến lược đạt giải năm học 2025 - 2026"
+    "action": "Admin lưu bài giảng: Bài 6. Kiểu dữ liệu danh sách (list)"
   },
   "data": {
     "registeredUsers": [
@@ -9902,9 +9902,10 @@
       },
       {
         "id": 6,
-        "title": "Bài 6. Kiểu dữ liệu danh sách",
+        "title": "Bài 6. Kiểu dữ liệu danh sách (list)",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Khái niệm Danh sách (List)\n- Danh sách trong Python là tập hợp các phần tử có thứ tự, các phần tử được đặt trong cặp ngoặc vuông `[...]` và cách nhau bởi dấu phẩy.\n\n### 2. Các thao tác cơ bản với danh sách\n- Truy cập phần tử theo chỉ số (bắt đầu từ 0): `a[0]`.\n- Thêm phần tử vào cuối: `a.append(giá_trị)`.\n- Độ dài danh sách: `len(a)`.\n\n```python\nds = [12, 5, 8, 20]\nds.append(15)\nprint('Số phần tử:', len(ds))\nprint('Phần tử đầu tiên:', ds[0])\n```"
+        "content": "### 1. Khái niệm Danh sách (List)\n- Danh sách trong Python là tập hợp các phần tử có thứ tự, các phần tử được đặt trong cặp ngoặc vuông `[...]` và cách nhau bởi dấu phẩy.\n\n### 2. Các thao tác cơ bản với danh sách\n- Truy cập phần tử theo chỉ số (bắt đầu từ 0): `a[0]`.\n- Thêm phần tử vào cuối: `a.append(giá_trị)`.\n- Độ dài danh sách: `len(a)`.\n\n```python\nds = [12, 5, 8, 20]\nds.append(15)\nprint('Số phần tử:', len(ds))\nprint('Phần tử đầu tiên:', ds[0])\n```",
+        "classLevel": "8"
       },
       {
         "id": 7,
