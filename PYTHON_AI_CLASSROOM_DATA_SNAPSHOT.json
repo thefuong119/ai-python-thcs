@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:07:22.136Z",
+    "updatedAt": "2026-11-02T11:07:45.373Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 115. Bộ ba chữ số"
+    "action": "Admin lưu bài tập: Bài 116. Tính tổng và số hạng"
   },
   "data": {
     "registeredUsers": [
@@ -4646,7 +4646,7 @@
       },
       {
         "id": 151,
-        "title": "Tính tổng và số hạng",
+        "title": "Bài 116. Tính tổng và số hạng",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
