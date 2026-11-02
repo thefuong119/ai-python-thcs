@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:57:21.145Z",
+    "updatedAt": "2026-11-02T12:00:12.388Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 146. Số nguyên tố lớn nhất không vượt ai"
+    "action": "Admin lưu bài tập: Bài 147. Đảo từ"
   },
   "data": {
     "registeredUsers": [
@@ -5421,7 +5421,7 @@
       },
       {
         "id": 182,
-        "title": "Đảo từ",
+        "title": "Bài 147. Đảo từ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
