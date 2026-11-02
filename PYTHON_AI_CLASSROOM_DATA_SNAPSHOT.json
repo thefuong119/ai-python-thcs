@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:55:43.720Z",
+    "updatedAt": "2026-11-02T12:56:11.003Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 20 bài tập từ tep_mau_bai_tap_python Bai thong hieu.docx"
+    "action": "Admin lưu bài tập: Bài 4. Kiểm tra tam giác và xác định loại tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -7796,7 +7796,7 @@
       },
       {
         "id": 277,
-        "title": "Kiểm tra tam giác và xác định loại tam giác",
+        "title": "Bài 4. Kiểm tra tam giác và xác định loại tam giác",
         "classLevel": "7",
         "difficulty": "medium",
         "timeLimit": 2,
