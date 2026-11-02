@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:28:13.422Z",
+    "updatedAt": "2026-11-02T14:29:16.788Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 15. Phân số nhỏ nhất"
+    "action": "Admin lưu bài tập: Bài 16. Rút gọn tối đa dãy số"
   },
   "data": {
     "registeredUsers": [
@@ -1037,7 +1037,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Phép biến đổi rút gọn một dãy số nguyên là tính tổng tất cả các chữ số của số đó để thu được một số mới. Quá trình này được lặp đi lặp lại liên tục cho đến khi kết quả thu được chỉ còn đúng một chữ số duy nhất (chữ số gốc).\nVí dụ với số 55577:\n- Bước 1: 5 + 5 + 5 + 7 + 7 = 29\n- Bước 2: 2 + 9 = 11\n- Bước 3: 1 + 1 = 2\nKết quả cuối cùng là 2.\nCho một số nguyên dương S có thể có nhiều chữ số. Hãy tìm chữ số rút gọn cuối cùng của S.\n\n- Dữ liệu vào: Một chuỗi ký tự biểu diễn số nguyên dương S (độ dài chuỗi lên tới 1000 chữ số).\n- Dữ liệu ra: In ra một chữ số duy nhất sau khi đã rút gọn tối đa.",
-        "templateCode": "s = input().strip()\ndigits = [int(ch) for ch in s]\nwhile len(digits) > 1:\n tong = sum(digits)\n digits = [int(ch) for ch in str(tong)]\nprint(digits[0])",
+        "templateCode": "s = input().strip()\n\ndigits = [int(ch) for ch in s]\n\nwhile len(digits) > 1:\n    tong = sum(digits)\n    digits = [int(ch) for ch in str(tong)]\n\nprint(digits[0])",
         "tests": [
           {
             "id": 1,
