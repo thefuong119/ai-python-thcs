@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:17:11.818Z",
+    "updatedAt": "2026-11-02T10:17:32.721Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 60. Xóa ký tự trong xâu để được số nhỏ nhất"
+    "action": "Admin lưu bài tập: Bài 61. Bộ ba số"
   },
   "data": {
     "registeredUsers": [
@@ -3296,7 +3296,7 @@
       },
       {
         "id": 97,
-        "title": "Bộ ba số",
+        "title": "Bài 61. Bộ ba số",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
