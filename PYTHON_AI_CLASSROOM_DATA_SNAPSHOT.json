@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:12:51.582Z",
+    "updatedAt": "2026-11-02T10:13:02.614Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 45. Tạo ma trận theo quy luật"
+    "action": "Admin lưu bài tập: Bài 46. Mua bất động sản"
   },
   "data": {
     "registeredUsers": [
@@ -2921,7 +2921,7 @@
       },
       {
         "id": 82,
-        "title": "Mua bất động sản",
+        "title": "Bài 46. Mua bất động sản",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
