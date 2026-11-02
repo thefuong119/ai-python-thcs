@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:08:36.940Z",
+    "updatedAt": "2026-11-02T11:08:50.547Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 117. Dãy đan dấu"
+    "action": "Admin lưu bài tập: Bài 118. Xóa chữ số bên phải"
   },
   "data": {
     "registeredUsers": [
@@ -4696,7 +4696,7 @@
       },
       {
         "id": 153,
-        "title": "Xóa chữ số bên phải",
+        "title": "Bài 118. Xóa chữ số bên phải",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
