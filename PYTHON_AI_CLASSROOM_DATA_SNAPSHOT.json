@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:55:26.716Z",
+    "updatedAt": "2026-11-02T11:55:44.116Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 140. UCLN và BCNN ba số"
+    "action": "Admin lưu bài tập: Bài 141. Tổng nghịch đảo và tổng bình phương"
   },
   "data": {
     "registeredUsers": [
@@ -5271,7 +5271,7 @@
       },
       {
         "id": 176,
-        "title": "Tổng nghịch đảo và tổng bình phương",
+        "title": "Bài 141. Tổng nghịch đảo và tổng bình phương",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
