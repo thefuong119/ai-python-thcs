@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:58:03.600Z",
+    "updatedAt": "2026-11-02T10:58:28.510Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 98. Tổng các bình phương"
+    "action": "Admin lưu bài tập: Bài 99. Tính tổng phân thức"
   },
   "data": {
     "registeredUsers": [
@@ -4246,7 +4246,7 @@
       },
       {
         "id": 135,
-        "title": "Tính tổng phân thức",
+        "title": "Bài 99. Tính tổng phân thức",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
