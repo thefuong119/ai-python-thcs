@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:18:20.884Z",
+    "updatedAt": "2026-11-02T09:26:55.614Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 108 bài tập từ tep_mau_bai_tap_python.docx"
+    "action": "Admin lưu bài tập: Xâu có ba thành phần"
   },
   "data": {
     "registeredUsers": [
@@ -6500,7 +6500,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Nhập xâu gồm chữ hoa, chữ thường và chữ số. Đếm từng loại; tìm đoạn con ngắn nhất chứa đủ cả ba loại; nếu không có in KHONG.",
-        "templateCode": "s=input().strip(); U=sum(c.isupper() for c in s); L=sum(c.islower() for c in s); D=sum(c.isdigit() for c in s); print(U,L,D)\nbest=None\nfor i in range(len(s)):\n for j in range(i+1,len(s)+1):\n t=s[i:j]\n if any(c.isupper() for c in t) and any(c.islower() for c in t) and any(c.isdigit() for c in t):\n if best is None or len(t)<len(best): best=t\n break\nprint(best if best else 'KHONG')",
+        "templateCode": "s = input().strip()\n\nU = sum(c.isupper() for c in s)\nL = sum(c.islower() for c in s)\nD = sum(c.isdigit() for c in s)\n\nprint(U, L, D)\n\nbest = None\n\nfor i in range(len(s)):\n    for j in range(i + 1, len(s) + 1):\n        t = s[i:j]\n\n        if (any(c.isupper() for c in t) and\n            any(c.islower() for c in t) and\n            any(c.isdigit() for c in t)):\n\n            if best is None or len(t) < len(best):\n                best = t\n            break\n\nprint(best if best else 'KHONG')",
         "tests": [
           {
             "id": 1,
