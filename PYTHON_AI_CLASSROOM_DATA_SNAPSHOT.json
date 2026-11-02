@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:57:26.657Z",
+    "updatedAt": "2026-11-02T09:57:37.147Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 11. Tính tổng nghịch đảo bình phương"
+    "action": "Admin lưu bài tập: Bài 12. Tìm số tự mãn bậc 3 trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -2071,7 +2071,7 @@
       },
       {
         "id": 48,
-        "title": "Tìm số tự mãn bậc 3 trong dãy",
+        "title": "Bài 12. Tìm số tự mãn bậc 3 trong dãy",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
