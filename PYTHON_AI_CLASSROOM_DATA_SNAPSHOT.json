@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:13:47.889Z",
+    "updatedAt": "2026-11-02T11:14:04.599Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: 121. Ước số"
+    "action": "Admin lưu bài tập: Bài 122. Tần suất"
   },
   "data": {
     "registeredUsers": [
@@ -4796,7 +4796,7 @@
       },
       {
         "id": 157,
-        "title": "Tần suất",
+        "title": "Bài 122. Tần suất",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
