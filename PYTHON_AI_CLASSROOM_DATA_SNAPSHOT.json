@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:15:22.607Z",
+    "updatedAt": "2026-11-02T10:15:37.824Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 56. Số thân thiện"
+    "action": "Admin lưu bài tập: Bài 57. Phần tử yên ngựa"
   },
   "data": {
     "registeredUsers": [
@@ -3196,7 +3196,7 @@
       },
       {
         "id": 93,
-        "title": "Phần tử yên ngựa",
+        "title": "Bài 57. Phần tử yên ngựa",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
