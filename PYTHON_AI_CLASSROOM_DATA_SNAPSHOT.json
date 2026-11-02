@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:16:24.595Z",
+    "updatedAt": "2026-11-02T16:17:23.598Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 100. Số chữ số"
+    "action": "Admin lưu bài tập: Bài 101. Tam giác vuông"
   },
   "data": {
     "registeredUsers": [
@@ -4301,7 +4301,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho AB và AH (0 < AH < AB) là cạnh và đường cao trong tam giác vuông tại A. Tính BH và CH, làm tròn 2 chữ số.",
-        "templateCode": "import math\nAB,AH=map(float,input().split())\nAC=AB*AH/math.sqrt(AB*AB-AH*AH)\nBC=math.sqrt(AB*AB+AC*AC)\nprint(f'{AB*AB/BC:.2f}')\nprint(f'{AC*AC/BC:.2f}')",
+        "templateCode": "import math\n\nAB, AH = map(float, input().split())\n\n# Tính cạnh AC từ hệ thức lượng trong tam giác vuông\nAC = AB * AH / math.sqrt(AB * AB - AH * AH)\nBC = math.sqrt(AB * AB + AC * AC)\n\n# In ra độ dài các hình chiếu BH và CH trên cạnh huyền BC\nprint(f\"{AB * AB / BC:.2f}\")\nprint(f\"{AC * AC / BC:.2f}\")",
         "tests": [
           {
             "id": 1,
