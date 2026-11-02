@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:09:51.947Z",
+    "updatedAt": "2026-11-02T15:10:42.302Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 9. In ra K số nguyên tố đầu tiên và tính tổng"
+    "action": "Admin lưu bài tập: Bài 10. Phân loại rác tái chế và quy đổi tích điểm"
   },
   "data": {
     "registeredUsers": [
@@ -8351,7 +8351,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một trạm tái chế xanh thu gom 3 nhóm rác: Giấy ('G', 10 điểm/kg), Nhựa ('N', 15 điểm/kg), Kim loại ('K', 25 điểm/kg). Các loại khác không tích điểm ('X', 0 điểm/kg).\nKhách hàng đem đến $T$1$T$ ($1 \\le T \\le 100$).\n- $T$ dòng tiếp theo, mỗi dòng gồm loại rác (ký tự) và khối lượng (số thực tính bằng kg).\nDữ liệu ra: Hai số nguyên là số voucher và số điểm còn dư, cách nhau một khoảng trắng.",
-        "templateCode": "bang_diem = {'G': 10, 'N': 15, 'K': 25}\nT = int(input().strip())\ntong_diem = 0.0\n\nfor _ in range(T):\n loai, kg = input().split()\n kg = float(kg)\n if loai in bang_diem:\n tong_diem += bang_diem[loai] * kg\n\ndiem_nguyen = int(tong_diem)\nvoucher = diem_nguyen // 100\ndu = diem_nguyen % 100\nprint(f\"{voucher} {du}\")",
+        "templateCode": "bang_diem = {'G': 10, 'N': 15, 'K': 25}\nT = int(input().strip())\ntong_diem = 0.0\n\nfor _ in range(T):\n    loai, kg = input().split()\n    kg = float(kg)\n    if loai in bang_diem:\n        tong_diem += bang_diem[loai] * kg\n\ndiem_nguyen = int(tong_diem)\nvoucher = diem_nguyen // 100\ndu = diem_nguyen % 100\nprint(f\"{voucher} {du}\")",
         "tests": [
           {
             "id": 1,
