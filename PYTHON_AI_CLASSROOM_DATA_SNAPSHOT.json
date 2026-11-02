@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:57:20.926Z",
+    "updatedAt": "2026-11-02T09:18:20.884Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 33. Tích lớn nhất từ ba số"
+    "action": "Nạp 108 bài tập từ tep_mau_bai_tap_python.docx"
   },
   "data": {
     "registeredUsers": [
@@ -3842,6 +3842,2706 @@
             "is_hidden": true
           }
         ]
+      },
+      {
+        "id": 119,
+        "title": "Bài toán gà và chó",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Vừa gà vừa chó, bó lại cho tròn; có m con và n chân. Tìm số gà và số chó. Nếu không có nghiệm nguyên dương, in KHONG.\nInput: m, n. Output: Ga = số_gà; Cho = số_chó.",
+        "templateCode": "m, n = map(int, input().split())\nfor ga in range(1, m):\n cho = m - ga\n if 2 * ga + 4 * cho == n:\n print(f\"Ga = {ga}; Cho = {cho}\")\n break\nelse:\n print(\"KHONG\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "Ga = 22 ; Cho = 14",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 25",
+            "expected": "KHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 120,
+        "title": "Tổng chữ số, tổng luân phiên và bất đẳng thức",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho n nguyên dương. Tính P là tổng chữ số của n; S = 1/2 − 1/3 + 1/4 − 1/5 + ... + (−1)^n/(n+1), làm tròn 4 chữ số; tìm k lớn nhất sao cho 1·2 + 2·3 + ... + k(k+1) ≤ n².\nInput: n. Output: P, S, k trên ba dòng.",
+        "templateCode": "n = int(input())\ns = sum(int(c) for c in str(n))\nt = sum((1 if i % 2 == 1 else -1) / (i + 1) for i in range(1, n + 1))\nk = 0\nwhile (k + 1) * (k + 2) * (k + 3) // 3 <= n * n:\n k += 1\nprint(s)\nprint(f\"{t:.4f}\")\nprint(k)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "16",
+            "expected": "7\n0.2783\n8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5",
+            "expected": "5\n0.6167\n3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 121,
+        "title": "Xử lý xâu chữ và chữ số",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Xâu S gồm chữ thường và chữ số. In số a tạo bởi các chữ số trong S; xóa một số chữ số của a để được số lớn nhất chia hết cho 5 (nếu không có in KHONG); tính tổng các số xuất hiện trong S.\nInput: S. Output: a, b, T.",
+        "templateCode": "s = input().strip()\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\nb = max(candidates, key=lambda x: int(x)) if candidates else 'KHONG'\nimport re\nT = sum(map(int, re.findall(r'\\d+', s)))\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "hsg8ngay21thang4nam2023",
+            "expected": "a = 82142023\nb = 821420\nT = 2056",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "abc123x",
+            "expected": "a = 123\nb = KHONG\nT = 123",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 122,
+        "title": "Mã số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Mã số của số là chữ số còn lại sau khi liên tiếp cộng các chữ số cho đến khi còn một chữ số. Nhập n số nguyên dương, in mã số từng số và các số có mã xuất hiện nhiều nhất; nếu hòa chọn mã nhỏ nhất.\nInput: n; dòng tiếp theo n số. Output: dãy mã số và các số đồng mã xuất hiện nhiều nhất.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef ma(x):\n while x >= 10:\n x = sum(map(int, str(x)))\n return x\nb = [ma(x) for x in a]\nfrom collections import Counter\nc = Counter(b)\nmx = max(c.values())\ntarget = min(k for k,v in c.items() if v == mx)\nprint('Ma so:', *b)\nprint('Cac so cung ma nhieu nhat:', *[x for x,y in zip(a,b) if y == target])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n23 7 59 26 50",
+            "expected": "Ma so: 5 7 5 8 5\nCac so cung ma nhieu nhat: 23 59 50",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n11 20 38",
+            "expected": "Ma so: 2 2 2\nCac so cung ma nhieu nhat: 11 20 38",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 123,
+        "title": "Phân tích số nguyên",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n ≥ 2. In số chữ số, tổng chữ số, tổng các số nguyên tố nhỏ hơn n và số nguyên tố khác n gần n nhất (hòa chọn số nhỏ hơn).",
+        "templateCode": "n = int(input())\ndef prime(x):\n return x >= 2 and all(x % d for d in range(2, int(x**0.5)+1))\nnear = min((x for x in range(2, n+1) if prime(x) and x != n), key=lambda x: (abs(x-n), x))\nprint(len(str(n)))\nprint(sum(map(int, str(n))))\nprint(sum(x for x in range(2,n) if prime(x)))\nprint(near)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "24",
+            "expected": "2\n6\n100\n23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "2\n1\n17\n11",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 124,
+        "title": "Số bậc thang và các số chính phương",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập a,b (10 < a ≤ b). Tính UCLN, phân số tối giản a/b, các số chính phương trong [a,b], và số lượng số bậc thang (chữ số từ trái sang phải không giảm) trong đoạn.",
+        "templateCode": "import math\na, b = map(int, input().split())\ng = math.gcd(a,b)\nprint('UCLN la:', g)\nprint('Phan so toi gian la:', a//g, '/', b//g, sep='')\nsq = [x for x in range(a,b+1) if math.isqrt(x)**2 == x]\nprint('Cac so chinh phuong la:', *sq)\ndef stair(x):\n s=str(x)\n return all(s[i] <= s[i+1] for i in range(len(s)-1))\nprint('Co', sum(stair(x) for x in range(a,b+1)), 'So bac thang')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "32 40",
+            "expected": "UCLN la: 8\nPhan so toi gian la: 4/5\nCac so chinh phuong la: 36\nCo 7 So bac thang",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "11 15",
+            "expected": "UCLN la: 1\nPhan so toi gian la: 11/15\nCac so chinh phuong la: \nCo 2 So bac thang",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 125,
+        "title": "Thống kê xâu ký tự",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập xâu S gồm chữ thường và chữ số. Tính tổng chữ số; xóa chữ số khỏi S tạo S1; trong S1 xóa các ký tự liên tiếp giống nhau, chỉ giữ một ký tự mỗi nhóm để tạo S2.",
+        "templateCode": "s=input().strip()\nt=sum(int(c) for c in s if c.isdigit())\ns1=''.join(c for c in s if not c.isdigit())\ns2=''\nfor c in s1:\n if not s2 or s2[-1]!=c: s2+=c\nprint(t)\nprint('S1 =',s1)\nprint('S2 =',s2)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5trrraaann thhhhiii45 tttthanhh ta64mmm",
+            "expected": "24\nS1 = trrraaann thhhhiii tttthanhh tammm\nS2 = tran thi thanh tam",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "aabbcc123",
+            "expected": "6\nS1 = aabbcc\nS2 = abc",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 126,
+        "title": "Bố trí phòng cách ly",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có n nhóm người, nhóm i có 1–4 người. Mỗi phòng chứa tối đa 4 người; không ghép người khác nhóm? Theo đề, mỗi nhóm được phân phòng và phòng chứa không quá 4 người; tính số phòng ít nhất bằng cách ghép nhóm phù hợp.",
+        "templateCode": "a=list(map(int,input().split()))\n# Input: n followed by n group sizes\nn=a[0]; g=a[1:1+n]\nfrom collections import Counter\nc=Counter(g)\nans=c[4]+c[3]\nc[1]=max(0,c[1]-c[3])\nans+=c[2]//2\nc[2]%=2\nif c[2]:\n ans+=1\n c[1]=max(0,c[1]-2)\nans+=(c[1]+3)//4\nprint('So phong it nhat la:',ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n1 4 2 3 2 3",
+            "expected": "So phong it nhat la: 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n4 4 4 4",
+            "expected": "So phong it nhat la: 4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 127,
+        "title": "Số tự nhiên",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n (2 < k < 7 chữ số). In số ước dương, số chữ số, chữ số lớn nhất và số lớn nhất có thể tạo từ các chữ số của n.",
+        "templateCode": "n=int(input()); s=str(n)\nprint(sum(n%i==0 for i in range(1,n+1)))\nprint(len(s))\nprint(max(s))\nprint(''.join(sorted(s,reverse=True)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7168",
+            "expected": "22\n4\n8\n8761",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "123",
+            "expected": "4\n3\n3\n321",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 128,
+        "title": "Số dư",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập a,b,c,k. Tìm số nhỏ nhất trong ba số và số dư của tích lớn nhất tạo bởi hai số trong ba số khi chia k.",
+        "templateCode": "a,b,c,k=map(int,input().split())\np=max(a*b,a*c,b*c)\nprint(min(a,b,c))\nprint(p%k)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2 8 3",
+            "expected": "2\n1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 4 5 7",
+            "expected": "3\n6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 129,
+        "title": "Xâu ký tự và tổng chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập xâu S gồm chữ cái và chữ số. In số lượng ký tự số và tổng các chữ số trong xâu.",
+        "templateCode": "s=input().strip(); d=[int(c) for c in s if c.isdigit()]\nprint(len(d))\nprint(sum(d))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "ngay28thang10nam2021",
+            "expected": "6\n14",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "a1b23",
+            "expected": "3\n6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 130,
+        "title": "Cắt gỗ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho n thanh gỗ độ dài a[i] và số nguyên k. Tính tổng số mét phải cắt bỏ để tất cả thanh còn lại bằng thanh ngắn nhất; tìm độ dài h lớn nhất sao cho tổng mét cắt bỏ không vượt k.",
+        "templateCode": "n,k=map(int,input().split()); a=list(map(int,input().split()))\nm=min(a)\nprint(sum(x-m for x in a))\n# h as the largest common target length with total removal <= k\nh=max(x for x in range(m,max(a)+1) if sum(max(0,v-x) for v in a)<=k)\nprint(h)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 7\n20 15 10 18",
+            "expected": "23\n15",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 0\n5 5 5",
+            "expected": "0\n5",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 131,
+        "title": "Thực hiện phép tính phân số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập a,b,c,d dương. Tính phân số tối giản S=a/b+c/d và Q=(a/b):(c/d).",
+        "templateCode": "from fractions import Fraction\na,b,c,d=map(int,input().split())\ns=Fraction(a,b)+Fraction(c,d)\nq=Fraction(a,b)/Fraction(c,d)\nprint(f'S = {s.numerator}/{s.denominator}')\nprint(f'Q = {q.numerator}/{q.denominator}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5 6",
+            "expected": "S = 19/12\nQ = 9/10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 2 1 4",
+            "expected": "S = 3/4\nQ = 2/1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 132,
+        "title": "Dãy số biến đổi",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n số nguyên dương. In dãy tăng dần; sau đó tăng mỗi số lẻ thêm 5 và giảm mỗi số chẵn 3, rồi in dãy giảm dần.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\na.sort(); print(*a)\nb=[x+5 if x%2 else x-3 for x in a]\nb.sort(reverse=True); print(*b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n23 16 9 19",
+            "expected": "9 16 19 23\n28 24 14 13",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "1 2 3\n8 2 -1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 133,
+        "title": "Số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập m,n. In các số nguyên tố nhỏ hơn m; và các số nguyên tố không vượt quá m có tổng chữ số bằng n.",
+        "templateCode": "m,n=map(int,input().split())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\na=[x for x in range(2,m) if p(x)]\nb=[x for x in range(2,m+1) if p(x) and sum(map(int,str(x)))==n]\nprint(*a)\nprint(*b if b else ['KHONG'])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "30 5",
+            "expected": "2 3 5 7 11 13 17 19 23 29\n5 23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 100",
+            "expected": "2 3 5 7\nKHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 134,
+        "title": "Tổng các bình phương",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Phân tích n thành tổng các số chính phương dương, số hạng ít nhất; nếu nhiều phương án, ưu tiên phương án có số hạng lớn nhất lớn hơn.",
+        "templateCode": "n=int(input()); dp=[10**9]*(n+1); ch=[0]*(n+1); dp[0]=0\nfor s in range(1,n+1):\n for x in range(1,int(s**0.5)+1):\n q=x*x; v=dp[s-q]+1\n if v<dp[s] or (v==dp[s] and q>ch[s]): dp[s]=v; ch[s]=q\nans=[]\nwhile n:\n q=ch[n]; ans.append(int(q**0.5)); n-=q\nprint(*ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "60",
+            "expected": "7 3 1 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "13",
+            "expected": "3 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 135,
+        "title": "Tính tổng phân thức",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n dương. Tính S=1/2+2/3+...+n/(n+1) làm tròn 4 chữ số; tìm x lớn nhất sao cho 1+2+...+x ≤ n.",
+        "templateCode": "n=int(input()); s=sum(i/(i+1) for i in range(1,n+1)); x=0\nwhile (x+1)*(x+2)//2<=n: x+=1\nprint(f'{s:.4f}'); print(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "2.7167\n2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "7.0710\n4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 136,
+        "title": "Số chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n dương. In số chữ số, tổng chữ số, chữ số lớn nhất và số lớn nhất chia hết cho 5 thu được khi xóa một hoặc nhiều chữ số bên phải; nếu không có in KHONG.",
+        "templateCode": "n=int(input()); s=str(n)\nprint(len(s)); print(sum(map(int,s))); print(max(s))\nr=''\nfor i in range(len(s),0,-1):\n t=s[:i]\n if int(t)>0 and int(t)%5==0: r=t; break\nprint(r if r else 'KHONG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "37654",
+            "expected": "5\n25\n7\n3765",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1234",
+            "expected": "4\n10\n4\nKHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 137,
+        "title": "Tam giác vuông",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho AB và AH (0 < AH < AB) là cạnh và đường cao trong tam giác vuông tại A. Tính BH và CH, làm tròn 2 chữ số.",
+        "templateCode": "import math\nAB,AH=map(float,input().split())\nAC=AB*AH/math.sqrt(AB*AB-AH*AH)\nBC=math.sqrt(AB*AB+AC*AC)\nprint(f'{AB*AB/BC:.2f}')\nprint(f'{AC*AC/BC:.2f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 4",
+            "expected": "3.00\n5.33",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "13 5",
+            "expected": "12.00\n2.08",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 138,
+        "title": "Dãy số xuất hiện k lần",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên dương và k. In dãy tăng dần; tìm các số xuất hiện ít nhất k lần, theo thứ tự tăng; nếu không có in KHONG.",
+        "templateCode": "from collections import Counter\nn,k=map(int,input().split()); a=list(map(int,input().split())); a.sort(); print(*a)\nc=Counter(a); r=sorted(x for x,v in c.items() if v>=k)\nprint(*r if r else ['KHONG'])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8 2\n1 2 1 4 3 4 5 4",
+            "expected": "1 1 2 3 4 4 4 5\n1 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 3\n1 2 3 4 5",
+            "expected": "1 2 3 4 5\nKHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 139,
+        "title": "Tính tiền taxi",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Tính tiền taxi theo bảng: km đầu 10.000đ; km 2–10: 9.000đ/km; từ km 11: 8.000đ/km; trên 50 km giảm 10% tổng tiền.",
+        "templateCode": "n=int(input())\nif n<=1: s=10000\nelif n<=10: s=10000+9000*(n-1)\nelse: s=10000+9*9000+8000*(n-10)\nif n>50: s*=0.9\nprint(f'{s:.0f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "9",
+            "expected": "82000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "70",
+            "expected": "513900",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 140,
+        "title": "Bộ ba số Pitago",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập a,b,c. In số lớn nhất, UCLN của ba số và xác định ba số có phải bộ Pitago (bình phương một số bằng tổng bình phương hai số còn lại) hay không.",
+        "templateCode": "import math\nx=sorted(map(int,input().split())); a,b,c=x\nprint('So lon nhat la:',c)\nprint('UCLN:',math.gcd(math.gcd(a,b),c))\nprint('PITAGO' if a*a+b*b==c*c else 'KHONG PITHAGO')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 16 20",
+            "expected": "So lon nhat la: 20\nUCLN: 4\nPITAGO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 4 6",
+            "expected": "So lon nhat la: 6\nUCLN: 1\nKHONG PITHAGO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 141,
+        "title": "Phân số tối giản",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập m<n. Tính tổng số lẻ từ m đến n, phân số tối giản m/n và các cặp số nguyên dương x,y sao cho x+y=m, x*y=n, x≤y.",
+        "templateCode": "import math\nm,n=map(int,input().split()); g=math.gcd(m,n)\nprint(sum(x for x in range(m,n+1) if x%2))\nprint(f'{m//g}/{n//g}')\nr=[(x,m-x) for x in range(1,m//2+1) if x*(m-x)==n]\nfor x,y in r: print(x,y)\nif not r: print('KHONG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 16",
+            "expected": "39\n5/8\n2 8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 12",
+            "expected": "27\n2/3\nKHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 142,
+        "title": "Dãy con có tổng bằng nhau",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho dãy số nguyên dương. Tìm tổng nhỏ nhất của các đoạn con liên tiếp sao cho có thể chia toàn bộ dãy thành các đoạn con có tổng bằng nhau; in các đoạn, ngăn cách bằng dấu *.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); total=sum(a)\nfor target in range(max(a),total+1):\n if total%target: continue\n seg=[]; cur=[]; s=0\n for x in a:\n cur.append(x); s+=x\n if s==target: seg.append(cur); cur=[]; s=0\n if not cur:\n print(total); print(' | '.join(' '.join(map(str,z)) for z in seg)); break",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n10 2 6 2 5 2 1 2",
+            "expected": "30\n10 2 | 6 2 | 5 2 1 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n2 2 2",
+            "expected": "6\n2 2 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 143,
+        "title": "Tổng luân phiên và tổng tích",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S=1/2−1/5+1/10−1/17+... với mẫu i²+1, lấy 4 chữ số; tìm x lớn nhất sao cho 1/2+2/3+...+x/(x+1) ≤ n.",
+        "templateCode": "n=int(input()); s=sum((1 if i%2 else -1)/(i*i+1) for i in range(1,n+1)); x=0; t=0\nwhile t+(x+1)/(x+2)<=n: x+=1; t+=x/(x+1)\nprint(f'{s:.4f}'); print(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "0.3796\n6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "0.3595\n12",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 144,
+        "title": "Dãy số tăng không giảm",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n số nguyên. In tổng số chẵn, giá trị lớn nhất/nhỏ nhất cùng vị trí đầu tiên và xác định dãy có tăng không giảm hay không.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nprint(sum(x for x in a if x%2==0))\nmx=max(a); mn=min(a)\nprint(mx,a.index(mx)+1); print(mn,a.index(mn)+1)\nprint('DAY TANG' if all(a[i]<=a[i+1] for i in range(n-1)) else 'DAY KHONG TANG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n-4 -7 3 8 6",
+            "expected": "10\n8 4\n-7 2\nDAY KHONG TANG",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 2 5",
+            "expected": "4\n5 4\n1 1\nDAY TANG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 145,
+        "title": "Thống kê từ trong xâu",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập đoạn văn có ít nhất hai từ. Chuẩn hóa khoảng trắng; in số từ, độ dài từ dài nhất và các từ dài nhất.",
+        "templateCode": "s=' '.join(input().split()); a=s.split(); m=max(map(len,a)); print(len(a)); print(m); print(*[w for w in a if len(w)==m])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "An la hoc sinh gioi mon Tin hoc 8",
+            "expected": "8\n7\nhoc sinh",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "xin chao ban",
+            "expected": "3\n4\nchao",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 146,
+        "title": "Số nguyên tố trong dãy",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập n số nguyên dương. In các số nguyên tố, các số song tố (là số nguyên tố và tổng chữ số cũng nguyên tố), và số nguyên tố gần nhất với từng phần tử.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\ndef near(x):\n for d in range(1,10000):\n lo=x-d; hi=x+d\n if lo>=2 and p(lo): return lo\n if p(hi): return hi\nprint(*[x for x in a if p(x)])\nprint(*[x for x in a if p(x) and p(sum(map(int,str(x))))])\nprint(*[near(x) for x in a])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n13 43 30 23 7 26",
+            "expected": "13 43 23 7\n43 23 7\n11 41 31 19 5 29",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n4 8 10",
+            "expected": "3 7 11",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 147,
+        "title": "Tổng bình phương và phân thức",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n. In số chữ số của n, A=1²+...+n² và B=1/(2·3)+...+n/((n+1)(n+2)), B làm tròn 4 chữ số.",
+        "templateCode": "n=int(input()); A=sum(i*i for i in range(1,n+1)); B=sum(i/((i+1)*(i+2)) for i in range(1,n+1))\nprint(len(str(n))); print(A); print(f'{B:.4f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "1\n55\n0.7357",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "15",
+            "expected": "2\n1240\n0.9375",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 148,
+        "title": "Dãy số và giá trị tuyệt đối lớn nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên. In tổng, dãy tăng dần và số có giá trị tuyệt đối lớn nhất (nếu hòa lấy số xuất hiện đầu tiên).",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nprint(sum(a)); print(*sorted(a)); print(max(a,key=abs))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n5 2 -6 1 -8 3",
+            "expected": "-3\n-8 -6 1 2 3 5\n-8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n-2 2 1 -1",
+            "expected": "0\n-2 -1 1 2\n-2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 149,
+        "title": "Lũy thừa của 2",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập N>1. In số chính phương lớn nhất không vượt N; kiểm tra N có là lũy thừa của 2; tìm x,y tự nhiên lớn nhất x sao cho 2^x+y=N.",
+        "templateCode": "import math\nN=int(input()); q=math.isqrt(N); print(q*q)\nprint('LA LUY THUA 2' if N&(N-1)==0 else 'KHONG LA LUY THUA 2')\nx=N.bit_length()-1; print(x,N-(1<<x))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "17",
+            "expected": "16\nKHONG LA LUY THUA 2\n4 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "16",
+            "expected": "16\nLA LUY THUA 2\n4 0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 150,
+        "title": "Bộ ba chữ số",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập số tự nhiên N. Xóa các chữ số trùng nhau chỉ giữ lần xuất hiện đầu; tìm các bộ ba chữ số khác nhau a,b,c sao cho a=b+c; nếu không có in KHONG CO.",
+        "templateCode": "s=input().strip(); u=''.join(dict.fromkeys(s)); print(u)\nd=list(dict.fromkeys(map(int,u)))\nr=[]\nfor a in d:\n for b in d:\n for c in d:\n if len({a,b,c})==3 and a==b+c: r.append((a,b,c))\nprint('; '.join(f'{a}{b}{c}' for a,b,c in r) if r else 'KHONG CO')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "870694359938",
+            "expected": "87069435\n963; 954; 853; 743",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "112233",
+            "expected": "123\nKHONG CO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 151,
+        "title": "Tính tổng và số hạng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S=1/2+2/3+...+n/(n+1), làm tròn 4 chữ số; tìm x lớn nhất để 1·2+2·3+...+x(x+1) ≤ n.",
+        "templateCode": "n=int(input()); s=sum(i/(i+1) for i in range(1,n+1)); x=0\nwhile (x+1)*(x+2)*(x+3)//3<=n: x+=1\nprint(f'{s:.4f}'); print(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "7.9801\n2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20",
+            "expected": "17.3546\n3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 152,
+        "title": "Dãy đan dấu",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên khác 0. In giá trị lớn nhất; các số chẵn lớn hơn 0; xác định dãy đan dấu (hai phần tử kề nhau trái dấu).",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nprint(max(a)); e=[x for x in a if x>0 and x%2==0]; print(*e if e else ['KHONG CO'])\nprint('DAY LA DAY DAN DAU' if all(a[i]*a[i+1]<0 for i in range(n-1)) else 'DAY KHONG DAN DAU')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n14 -4 21 -1 4",
+            "expected": "21\n14 4\nDAY LA DAY DAN DAU",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 -3 4",
+            "expected": "4\n4\nDAY KHONG DAN DAU",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 153,
+        "title": "Xóa chữ số bên phải",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n,k. In số chữ số n; số còn lại sau khi xóa k chữ số bên phải; lần lượt xóa từng chữ số bên phải cho đến khi được số nguyên tố đầu tiên, nếu không có in KHONG.",
+        "templateCode": "n,k=map(int,input().split()); s=str(n); print(len(s)); r=s[:-k] if k else s; print(int(r) if r else 0)\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nx=n\nwhile x and not p(x): x//=10\nprint(x if x else 'KHONG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "23456 2",
+            "expected": "5\n234\n23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100 1",
+            "expected": "3\n10\nKHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 154,
+        "title": "Tổng chữ số lặp",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập số nguyên dương n có tối đa 100 chữ số. In dãy tổng chữ số liên tiếp cho đến khi còn một chữ số.",
+        "templateCode": "s=input().strip(); a=[]\nwhile len(s)>1:\n s=str(sum(map(int,s))); a.append(s)\nprint('; '.join(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "456789",
+            "expected": "39; 12; 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "999",
+            "expected": "27; 9",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 155,
+        "title": "Tam giác",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập ba cạnh. Kiểm tra tam giác; nếu đúng in diện tích làm tròn 2 chữ số và loại tam giác (vuông, tù, nhọn).",
+        "templateCode": "import math\na=sorted(map(int,input().split())); x,y,z=a\nif x+y<=z: print('KHONG LA TAM GIAC')\nelse:\n p=sum(a)/2; print(f'{math.sqrt(p*(p-x)*(p-y)*(p-z)):.2f}')\n t=x*x+y*y-z*z\n print('vuong' if t==0 else ('nhon' if t>0 else 'tu'))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5 4",
+            "expected": "6.00\nvuong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 5 8",
+            "expected": "KHONG LA TAM GIAC",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 156,
+        "title": "Ước số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. In ước lớn nhất nhỏ hơn n, tổng chữ số và số ≤ n có nhiều ước dương nhất (hòa lấy số nhỏ nhất).",
+        "templateCode": "n=int(input()); print(max(i for i in range(1,n) if n%i==0)); print(sum(map(int,str(n))))\ndef d(x): return sum(x%i==0 for i in range(1,x+1))\nbest=max(range(1,n+1),key=lambda x:(d(x),-x)); print(best)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "435",
+            "expected": "145\n12\n360",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12",
+            "expected": "6\n3\n12",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 157,
+        "title": "Tần suất",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên. In số dương nhỏ nhất, số âm lớn nhất, và các số xuất hiện nhiều hơn một lần cùng số lần xuất hiện.",
+        "templateCode": "from collections import Counter\nn=int(input()); a=list(map(int,input().split()))\np=[x for x in a if x>0]; q=[x for x in a if x<0]\nprint(min(p) if p else 'KHONG CO'); print(max(q) if q else 'KHONG CO')\nc=Counter(a)\nfor x,v in c.items():\n if v>1: print(x,v)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n5 -3 2 5 -3 -1 5",
+            "expected": "2\n-1\n5 3\n-3 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 3 4",
+            "expected": "1\nKHONG CO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 158,
+        "title": "Dãy nguyên tố liên tiếp",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên dương. In các số nguyên tố và đoạn liên tiếp có nhiều số nguyên tố nhất; hòa chọn đoạn có tổng lớn hơn.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nprint(*[x for x in a if p(x)])\nbest=[]; cur=[]\nfor x in a+[0]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best) or (len(cur)==len(best) and sum(cur)>sum(best)): best=cur[:]\n cur=[]\nprint(*best if best else ['KHONG CO'])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n18 17 23 21 13 3 7 10",
+            "expected": "17 23 13 3 7\n13 3 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n4 6 8 10 12",
+            "expected": "KHONG CO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 159,
+        "title": "Dãy số và số chính phương",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên. In số lượng và các số chính phương; các số lớn hơn trung bình cộng; các số nguyên x không thuộc dãy với a<x<b, trong đó a,b là hai số nhỏ nhất/lớn nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); import math\nq=[x for x in a if x>=0 and math.isqrt(x)**2==x]\nprint(len(q),*q); avg=sum(a)/n; print(*[x for x in a if x>avg])\nlo,hi=min(a),max(a); s=set(a); print(*[x for x in range(lo+1,hi) if x not in s])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n4 -3 1 -2 2 7 5",
+            "expected": "2 4 1\n4 7\n0 3 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 4 9 16",
+            "expected": "3 1 4 9\n16\n2 3 5 6 7 8 10 11 12 13 14 15",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 160,
+        "title": "Khoảng cách",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên. In cặp có khoảng cách lớn nhất; cặp liên tiếp đầu tiên có khoảng cách nhỏ nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nmx=max(a)-min(a); print(max(a),min(a),mx)\nmd=min(abs(a[i]-a[i+1]) for i in range(n-1))\nfor i in range(n-1):\n if abs(a[i]-a[i+1])==md: print(a[i],a[i+1],md); break",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n7 4 -3 -1 5",
+            "expected": "7 -3 10\n-3 -1 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 8 3 10",
+            "expected": "10 1 9\n1 8 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 161,
+        "title": "Xâu đối xứng có dấu hỏi",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập xâu chữ hoa và dấu ?. Thay dấu ? bằng chữ cái để tạo xâu đối xứng từ điển nhỏ nhất; nếu không thể in XAU KHONG DOI XUNG.",
+        "templateCode": "s=list(input().strip()); n=len(s)\nfor i in range(n//2):\n j=n-1-i\n if s[i]=='?' and s[j]=='?': s[i]=s[j]='A'\n elif s[i]=='?': s[i]=s[j]\n elif s[j]=='?': s[j]=s[i]\n elif s[i]!=s[j]: print('XAU KHONG DOI XUNG'); break\nelse: print(''.join(s))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "DE??D",
+            "expected": "DEDD",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "AB?C",
+            "expected": "XAU KHONG DOI XUNG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 162,
+        "title": "Tìm người nhận tấm bìa",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có n tấm bìa xếp chồng, người thứ i lần lượt lấy hai tấm ở trên cùng; người n lấy tấm còn lại. Mô phỏng thứ tự lấy theo quy luật: người đầu sang hàng 2, người tiếp xuống cuối hàng 1, người tiếp xuống cuối hàng 2, lặp lại. Tìm người nhận tấm thứ k trong chồng ban đầu.",
+        "templateCode": "n,k=map(int,input().split()); a=list(range(1,n+1)); row=[]\n# mô phỏng lần lượt lấy tấm đầu; hai hàng luân phiên theo đề\nwhile a:\n row.append(a.pop(0))\n if a: a.append(a.pop(0))\nprint(row.index(k)+1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 2",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 163,
+        "title": "UCLN, BCNN và phân số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập m,n dương. In UCLN, BCNN, phân số tối giản m/n và số k nhỏ nhất để (k+m)/n và (k+n)/m đều nguyên.",
+        "templateCode": "import math\nm,n=map(int,input().split()); g=math.gcd(m,n)\nprint(g); print(m*n//g); print(f'{m//g}/{n//g}')\nk=0\nwhile (k+m)%n or (k+n)%m: k+=1\nprint(k)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 20",
+            "expected": "4\n60\n3/5\n28",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 3",
+            "expected": "1\n6\n2/3\n4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 164,
+        "title": "Phân tích thừa số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. In tích các thừa số nguyên tố của n và số k nhỏ nhất sao cho n-k là số nguyên tố.",
+        "templateCode": "n=int(input()); x=n; fac=[]; d=2\nwhile d*d<=x:\n while x%d==0: fac.append(d); x//=d\n d+=1\nif x>1: fac.append(x)\nprint('*'.join(map(str,fac)))\ndef p(v): return v>=2 and all(v%i for i in range(2,int(v**0.5)+1))\nk=0\nwhile not p(n-k): k+=1\nprint(k)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "84",
+            "expected": "2*2*3*7\n1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "15",
+            "expected": "3*5\n0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 165,
+        "title": "Độ bền",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Độ bền của số một chữ số là 0; nếu có từ 2 chữ số, độ bền bằng độ bền của tích các chữ số cộng 1. In độ bền n và số bé hơn n có độ bền lớn nhất.",
+        "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n p=1\n for c in str(x): p*=int(c)\n return d(p)+1\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "82",
+            "expected": "2\n77",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100",
+            "expected": "3\n77",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 166,
+        "title": "Dãy số và cặp số",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên chẵn >2. Với mỗi phần tử ai, tìm cặp số nguyên tố gần nhất có tổng bằng ai và in các cặp.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nfor x in a:\n pairs=[]\n for b in range(2,x//2+1):\n c=x-b\n if p(b) and p(c): pairs.append((b,c))\n if pairs: print(*pairs)\n else: print('KHONG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n22 72 18",
+            "expected": "(11, 11)\n(31, 41)\n(7, 11)",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n10 12",
+            "expected": "(3, 7)\n(5, 7)",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 167,
+        "title": "Dãy số có GT tuyệt đối lớn nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên. In phần tử có giá trị tuyệt đối lớn nhất; số âm lớn nhất; số dương nhỏ nhất; các số chính phương.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nx=max(a,key=abs); neg=[v for v in a if v<0]; pos=[v for v in a if v>0]\nprint(x); print(max(neg) if neg else 'KHONG CO'); print(min(pos) if pos else 'KHONG CO')\nimport math; print(*[v for v in a if v>=0 and math.isqrt(v)**2==v])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n4 -34 -49 25 -5",
+            "expected": "-49\n-5\n4\n4 25",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "3\nKHONG CO\n1\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 168,
+        "title": "Cặp số nguyên tố gần nhất",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy số chẵn lớn hơn 2. Với mỗi ai, tìm cặp số nguyên tố có tổng bằng ai sao cho hai số gần nhau nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nfor x in a:\n for b in range(x//2,1,-1):\n if p(b) and p(x-b): print(b,x-b); break",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n22 72 18",
+            "expected": "11 11\n31 41\n7 11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n10 12",
+            "expected": "5 5\n5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 169,
+        "title": "Viết ngược từ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập đoạn văn tiếng Việt không dấu. Chuẩn hóa khoảng trắng, giữ nguyên dấu câu và viết ngược thứ tự các từ.",
+        "templateCode": "s=' '.join(input().split()); print(' '.join(s.split()[::-1]))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Chieu nay Lan co di hoc khong?",
+            "expected": "khong? hoc di co Lan nay Chieu",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "choi di xe dap",
+            "expected": "dap xe di choi",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 170,
+        "title": "Xếp người",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có n người mang số 1..n theo hàng dọc. Chuyển lần lượt: người đầu sang cuối hàng 2, người tiếp xuống cuối hàng 1, người tiếp sang cuối hàng 2... In thứ tự ban đầu cần xếp để hàng 2 có thứ tự 1..n.",
+        "templateCode": "n=int(input()); a=list(range(1,n+1)); b=[]\n# reverse mapping of alternating transfer pattern\nfor i in range(n):\n if i==0: b.append(a.pop(0))\n elif i%2: b.append(a.pop())\n else: b.append(a.pop())\nprint(*b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "1 5 2 4 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "1 3 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 171,
+        "title": "Số chẵn lẻ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên. In tổng số chẵn, tổng số lẻ, số lớn nhất và số bé nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nprint(sum(x for x in a if x%2==0)); print(sum(x for x in a if x%2)); print(max(a)); print(min(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n4 -16 25 -5 -34",
+            "expected": "-46\n20\n25\n-34",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "2\n4\n3\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 172,
+        "title": "Tính tổng và tích",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S=1·2/(3·4)+2·3/(4·5)+...+n(n+1)/((n+2)(n+3)) và tích T=(1+1/1²)(1−1/2²)(1+1/3²)... theo dấu luân phiên, làm tròn 4 chữ số.",
+        "templateCode": "n=int(input()); s=sum(i*(i+1)/((i+2)*(i+3)) for i in range(1,n+1)); t=1\nfor i in range(1,n+1): t*=1+((-1)**(i+1))/(i*i)\nprint(f'{s:.4f}'); print(f'{t:.4f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "1.8786\n1.6250",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0.1667\n2.0000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 173,
+        "title": "Số nguyên tố gần nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n (2<n<1000). In các số nguyên tố bé hơn n và số nguyên tố gần n nhất (hòa chọn số nhỏ hơn).",
+        "templateCode": "n=int(input())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nprint(*[x for x in range(2,n) if p(x)])\nprint(min((x for x in range(2,2*n) if p(x)),key=lambda x:(abs(x-n),x)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "2 3 5 7\n11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20",
+            "expected": "2 3 5 7 11 13 17 19\n19",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 174,
+        "title": "Một chữ số của tổng",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n. Lặp phép tính tổng chữ số cho đến khi còn một chữ số; in chữ số đó.",
+        "templateCode": "n=int(input())\nwhile n>=10: n=sum(map(int,str(n)))\nprint(n)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8975",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "15012",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 175,
+        "title": "UCLN và BCNN ba số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập m,n,p. In số lớn nhất, số nhỏ nhất, UCLN và BCNN của hai số lớn nhất/nhỏ nhất.",
+        "templateCode": "import math\nx=sorted(map(int,input().split())); a,b=x[0],x[-1]; g=math.gcd(a,b)\nprint(b); print(a); print(g); print(a*b//g)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "14 15 12",
+            "expected": "15\n12\n3\n60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 4 6",
+            "expected": "8\n4\n4\n8",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 176,
+        "title": "Tổng nghịch đảo và tổng bình phương",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S=1+1/2+...+1/n làm tròn 4 chữ số; tìm x lớn nhất sao cho 1²+2²+...+x²≤n.",
+        "templateCode": "n=int(input()); print(f'{sum(1/i for i in range(1,n+1)):.4f}')\nx=0\nwhile (x+1)*(x+2)*(2*x+3)//6<=n: x+=1\nprint(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "2.2833\n2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20",
+            "expected": "3.5977\n3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 177,
+        "title": "Tách từ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập xâu có ít nhất hai từ, các từ cách nhau bởi một hoặc nhiều dấu cách. In mỗi từ trên một dòng theo thứ tự nhập.",
+        "templateCode": "for w in input().split(): print(w)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "con ga Trong",
+            "expected": "con\nga\nTrong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "choi di xe dap",
+            "expected": "choi\ndi\nxe\ndap",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 178,
+        "title": "Dãy con nguyên tố",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên dương, sắp xếp giảm dần. In dãy con nguyên tố liên tiếp dài nhất; hòa chọn dãy đầu tiên.",
+        "templateCode": "n=int(input()); a=sorted(map(int,input().split()),reverse=True)\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nbest=[]; cur=[]\nfor x in a+[1]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best): best=cur[:]\n cur=[]\nprint(*a); print(*best)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n9 43 23 45 7 17 8 3",
+            "expected": "45 43 23 17 9 8 7 3\n43 23 17",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n23 11 8 5 7",
+            "expected": "23 11 8 7 5\n23 11",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 179,
+        "title": "Số lớn nhất nhỏ nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên. In tổng số dương, tổng số âm, số lớn nhất và vị trí xuất hiện, số nhỏ nhất và vị trí xuất hiện.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\nprint(sum(x for x in a if x>0)); print(sum(x for x in a if x<0))\nmx=max(a); mn=min(a); print(mx,*[i+1 for i,x in enumerate(a) if x==mx]); print(mn,*[i+1 for i,x in enumerate(a) if x==mn])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n12 -34 -41 47 0",
+            "expected": "59\n-75\n47 4\n-41 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 1 -2",
+            "expected": "2\n-2\n1 1\n-2 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 180,
+        "title": "Tổng hai biểu thức",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S1=1+2−3+4+5−6+...+n; S2=1/5+1/13+1/25+...+1/(n²+(n+1)²), làm tròn 4 chữ số.",
+        "templateCode": "n=int(input()); s1=sum(i if i%3 else -i for i in range(1,n+1)); s2=sum(1/(i*i+(i+1)**2) for i in range(1,n+1))\nprint(s1); print(f'{s2:.4f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "9\n0.3577",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "0\n0.2189",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 181,
+        "title": "Số nguyên tố lớn nhất không vượt ai",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy ai>1, sắp xếp tăng dần; với mỗi ai tìm số nguyên tố lớn nhất không vượt ai.",
+        "templateCode": "n=int(input()); a=sorted(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nr=[]\nfor x in a:\n y=x\n while not p(y): y-=1\n r.append(y)\nprint(*a); print(*r)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n10 45 3 8 17",
+            "expected": "3 8 10 17 45\n3 7 7 17 43",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n5 6 7",
+            "expected": "5 6 7\n5 5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 182,
+        "title": "Đảo từ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập xâu gồm ít nhất hai từ, đảo ngược thứ tự các từ; giữ nguyên thứ tự ký tự trong từng từ.",
+        "templateCode": "print(' '.join(input().split()[::-1]))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "con ga",
+            "expected": "ga con",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "choi di xe dap",
+            "expected": "dap xe di choi",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 183,
+        "title": "Ước chung và bội chung",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập m,n. In tất cả ước chung dương, tổng bình phương các ước chung và BCNN.",
+        "templateCode": "import math\nm,n=map(int,input().split()); a=[i for i in range(1,math.gcd(m,n)+1) if m%i==0 and n%i==0]\nprint(*a); print(sum(x*x for x in a)); print(math.lcm(m,n))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 30",
+            "expected": "1 2 3 6\n50\n60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 12",
+            "expected": "1 2 4\n21\n24",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 184,
+        "title": "Số nhị phân",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập số tự nhiên n. In tổng chữ số và biểu diễn nhị phân của n.",
+        "templateCode": "n=int(input()); print(sum(map(int,str(n)))); print(bin(n)[2:])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "103",
+            "expected": "4\n1100111",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "1\n1010",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 185,
+        "title": "Sắp xếp chẵn lẻ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số tự nhiên. In giá trị lớn nhất, nhỏ nhất; sắp xếp số chẵn tăng dần ở đầu và số lẻ giảm dần ở cuối.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(max(a)); print(min(a))\ne=sorted(x for x in a if x%2==0); o=sorted((x for x in a if x%2),reverse=True); print(*(e+o))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n15 26 11 27 8 4 12",
+            "expected": "27\n4\n4 8 12 26 27 15 11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n5 2 3 8",
+            "expected": "8\n2\n2 8 5 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 186,
+        "title": "Dãy con nguyên tố dài nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập dãy số tự nhiên. Tìm đoạn liên tiếp gồm nhiều số nguyên tố nhất; hòa chọn đoạn có tổng lớn nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nbest=[]; cur=[]\nfor x in a+[0]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best) or (len(cur)==len(best) and sum(cur)>sum(best)): best=cur[:]\n cur=[]\nprint(*best if best else ['KHONG CO'])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n15 17 43 21 11 3 7 8",
+            "expected": "11 3 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n23 11 8 5 7",
+            "expected": "23 11",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 187,
+        "title": "Ước chung, UCLN, BCNN",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập m,n. In tất cả ước chung dương, UCLN và BCNN.",
+        "templateCode": "import math\nm,n=map(int,input().split()); g=math.gcd(m,n)\nprint(*[i for i in range(1,g+1) if g%i==0]); print(g); print(m*n//g)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 30",
+            "expected": "1 2 3 6\n6\n60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 12",
+            "expected": "1 2 4\n4\n24",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 188,
+        "title": "Lỗ hổng chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Chữ số 0,4,6,9 có 1 lỗ; 8 có 2 lỗ; các chữ số còn lại có 0 lỗ. Tính tổng số lỗ hổng của các chữ số trong n.",
+        "templateCode": "n=input().strip(); d={'0':1,'4':1,'6':1,'9':1,'8':2}; print(sum(d.get(c,0) for c in n))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "80649",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12358",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 189,
+        "title": "Sắp xếp và khoảng cách",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số tự nhiên. Sắp xếp tăng dần và in các khoảng cách giữa hai số liền kề.",
+        "templateCode": "n=int(input()); a=sorted(map(int,input().split())); print(*a); print(*(a[i+1]-a[i] for i in range(n-1)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n8 2 5 1 9",
+            "expected": "1 2 5 8 9\n1 3 3 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n4 4 7 10",
+            "expected": "4 4 7 10\n0 3 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 190,
+        "title": "Tính tích số có nhiều chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập m (0<m<10) và số n có 10–254 chữ số. Tính tích m*n và in kết quả.",
+        "templateCode": "m=int(input()); n=int(input()); print(m*n)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n12345678901",
+            "expected": "37037036703",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n12345678901",
+            "expected": "24691357802",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 191,
+        "title": "Tổng và số lượng ước",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n<100. In tổng các ước số và số lượng ước của n.",
+        "templateCode": "n=int(input()); a=[i for i in range(1,n+1) if n%i==0]; print(sum(a)); print(len(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12",
+            "expected": "28\n6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "18\n4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 192,
+        "title": "Tổng số nguyên lẻ và sắp xếp",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n số nguyên. In tổng các số lẻ và dãy tăng dần.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(sum(x for x in a if x%2)); print(*sorted(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n3 2 7 4 1",
+            "expected": "11\n1 2 3 4 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n2 4 6 8",
+            "expected": "0\n2 4 6 8",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 193,
+        "title": "Phân tích thừa số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n. In quá trình phân tích n thành thừa số nguyên tố và tích các thừa số.",
+        "templateCode": "n=int(input()); x=n; f=[]; d=2\nwhile d*d<=x:\n while x%d==0: f.append(d); x//=d\n d+=1\nif x>1:f.append(x)\nprint(' * '.join(map(str,f)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "2 * 2 * 5 * 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "84",
+            "expected": "2 * 2 * 3 * 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 194,
+        "title": "Dãy số và tổng chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy số nguyên. In tổng các số lẻ và dãy tăng dần.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(sum(x for x in a if x%2)); print(*sorted(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n1 4 3 2 5",
+            "expected": "9\n1 2 3 4 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n2 2 2",
+            "expected": "0\n2 2 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 195,
+        "title": "Ước chung",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập hai số nguyên dương a,b. In tất cả ước chung và UCLN.",
+        "templateCode": "import math\na,b=map(int,input().split()); g=math.gcd(a,b); print(*[i for i in range(1,g+1) if g%i==0]); print(g)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 18",
+            "expected": "1 2 3 6\n6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7 9",
+            "expected": "1\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 196,
+        "title": "Thống kê dãy",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập N số nguyên. In số lượng số chẵn, số lớn nhất và các vị trí của nó, rồi in dãy tăng dần.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(sum(x%2==0 for x in a)); m=max(a); print(m,*[i+1 for i,x in enumerate(a) if x==m]); print(*sorted(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n2 7 4 7 1",
+            "expected": "3\n7 2 4\n1 2 4 7 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "1\n3 3\n1 2 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 197,
+        "title": "Bài toán trâu",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trăm trâu trăm cỏ: trâu đứng ăn 5 bó, trâu nằm ăn 3 bó, trâu già 1 bó ăn 1/3 bó. Tìm các bộ số trâu có tổng 100 con và tổng cỏ 100 bó.",
+        "templateCode": "for dung in range(1,20):\n for nam in range(1,34):\n gia=100-dung-nam\n if gia>0 and 5*dung+3*nam+gia/3==100: print(dung,nam,gia)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "",
+            "expected": "4 18 78",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "",
+            "expected": "4 18 78",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 198,
+        "title": "Chuẩn hóa họ tên",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập họ tên không phân biệt hoa thường. In họ tên chữ hoa và dạng viết hoa chữ cái đầu mỗi từ.",
+        "templateCode": "s=' '.join(input().split()); print(s.upper()); print(s.title())",
+        "tests": [
+          {
+            "id": 1,
+            "input": "nguyEn VaN bINh",
+            "expected": "NGUYEN VAN BINH\nNguyen Van Binh",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "le THI hoa",
+            "expected": "LE THI HOA\nLe Thi Hoa",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 199,
+        "title": "Số Armstrong",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập k (2<k<7). In các số Armstrong có k chữ số (bằng tổng lũy thừa bậc k của chữ số).",
+        "templateCode": "k=int(input()); lo=10**(k-1); hi=10**k\nfor x in range(lo,hi):\n if x==sum(int(c)**k for c in str(x)): print(x,end=' ')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "153 370 371 407",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 200,
+        "title": "Viết ngược từng từ",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập xâu có ít nhất hai từ. In xâu với thứ tự các từ bị đảo ngược.",
+        "templateCode": "print(' '.join(input().split()[::-1]))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "choi di xe dap",
+            "expected": "dap xe di choi",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "con ga",
+            "expected": "ga con",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 201,
+        "title": "Số cận nguyên tố",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập N số tự nhiên. Sắp xếp tăng dần; với mỗi ai tìm số nguyên tố gần ai nhất, nếu hòa chọn số nhỏ hơn.",
+        "templateCode": "n=int(input()); a=sorted(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\ndef near(x):\n for d in range(10000):\n if x-d>=2 and p(x-d): return x-d\n if p(x+d): return x+d\nprint(*a); print(*[near(x) for x in a])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n10 8 5 17",
+            "expected": "5 8 10 17\n5 7 11 17",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n4 6 8",
+            "expected": "4 6 8\n3 5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 202,
+        "title": "Đi xoắn ốc",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập N. Tạo ma trận N×N gồm các số từ 1 đến N² theo chiều xoắn ốc cùng chiều kim đồng hồ.",
+        "templateCode": "n=int(input()); a=[[0]*n for _ in range(n)]; top=left=0; bottom=right=n-1; v=1\nwhile top<=bottom and left<=right:\n for j in range(left,right+1): a[top][j]=v; v+=1\n top+=1\n for i in range(top,bottom+1): a[i][right]=v; v+=1\n right-=1\n if top<=bottom:\n for j in range(right,left-1,-1): a[bottom][j]=v; v+=1\n bottom-=1\n if left<=right:\n for i in range(bottom,top-1,-1): a[i][left]=v; v+=1\n left+=1\nfor r in a: print(*r)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "1 2 3 4\n12 13 14 5\n11 16 15 6\n10 9 8 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "1 2\n4 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 203,
+        "title": "Số chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n dương. In các ước, số chữ số, tổng chữ số và chữ số hàng lớn nhất.",
+        "templateCode": "n=int(input()); s=str(n); print(*[i for i in range(1,n+1) if n%i==0]); print(len(s)); print(sum(map(int,s))); print(s[0])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "24",
+            "expected": "1 2 3 4 6 8 12 24\n2\n6\n2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "15",
+            "expected": "1 3 5 15\n2\n6\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 204,
+        "title": "Tổng phân thức luân phiên",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n. Tính S=1−1/3+1/5−1/7+...+1/(2n−1)−1/(2n+1), làm tròn 4 chữ số.",
+        "templateCode": "n=int(input()); s=sum((1 if i%2 else -1)/(2*i-1) for i in range(1,n+1)); print(f'{s:.4f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2",
+            "expected": "0.5333",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1.0000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 205,
+        "title": "Số nguyên tố và tổng chữ số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n≤1000. In các số nguyên tố nhỏ hơn n và các số trong đó có tổng chữ số cũng là số nguyên tố.",
+        "templateCode": "n=int(input())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\na=[x for x in range(2,n) if p(x)]; b=[x for x in a if p(sum(map(int,str(x))))]\nprint(*a); print(*b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "25",
+            "expected": "2 3 5 7 11 13 17 19 23\n2 3 5 7 11 23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "2 3 5 7\n2 3 5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 206,
+        "title": "Độ bền và số nhỏ hơn n",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập n≤1000. Tính độ bền n và tìm số bé hơn n có độ bền lớn nhất.",
+        "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n z=1\n for c in str(x):z*=int(c)\n return d(z)+1\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "3\n77",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "82",
+            "expected": "2\n77",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 207,
+        "title": "Số chữ số và ước số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bài tương tự Đề 22 Bài 1: in ước, số chữ số, tổng chữ số và chữ số hàng lớn nhất của n.",
+        "templateCode": "n=int(input()); s=str(n); print(*[i for i in range(1,n+1) if n%i==0]); print(len(s)); print(sum(map(int,s))); print(s[0])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "24",
+            "expected": "1 2 3 4 6 8 12 24\n2\n6\n2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100",
+            "expected": "1 2 4 5 10 20 25 50 100\n3\n1\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 208,
+        "title": "Tuổi cha và con",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập tuổi cha (20≤cha<100) và con (0<con<cha−20). Tính số năm trước hoặc sau hiện tại khi tuổi cha gấp đôi tuổi con.",
+        "templateCode": "cha,con=map(int,input().split())\nif cha==2*con: print('HIEN TAI')\nelif cha<2*con: print('SAU',2*con-cha)\nelse: print('TRUOC',cha-2*con)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "40 15",
+            "expected": "TRUOC 10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50 30",
+            "expected": "SAU 10",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 209,
+        "title": "Số nguyên tố tổng chữ số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Bài tương tự Đề 22 Bài 3: in số nguyên tố nhỏ hơn n có tổng chữ số là số nguyên tố.",
+        "templateCode": "n=int(input())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nprint(*[x for x in range(2,n) if p(x) and p(sum(map(int,str(x))))])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "25",
+            "expected": "2 3 5 7 11 23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "2 3 5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 210,
+        "title": "Độ bền",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Bài tương tự Đề 22 Bài 4: tính độ bền n và tìm số nhỏ hơn n có độ bền lớn nhất.",
+        "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n z=1\n for c in str(x):z*=int(c)\n return 1+d(z)\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "3\n77",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "1\n9",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 211,
+        "title": "Ước số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập x,y tự nhiên. In tất cả ước số của x, tất cả ước số của y và các ước chung.",
+        "templateCode": "x,y=map(int,input().split()); a=[i for i in range(1,x+1) if x%i==0]; b=[i for i in range(1,y+1) if y%i==0]\nprint(*a); print(*b); print(*sorted(set(a)&set(b)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 18",
+            "expected": "1 2 3 4 6 12\n1 2 3 6 9 18\n1 2 3 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7 9",
+            "expected": "1 7\n1 3 9\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 212,
+        "title": "Giai thừa",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập n tự nhiên n<10. Tính n!.",
+        "templateCode": "import math\nn=int(input()); print(math.factorial(n))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "120",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 213,
+        "title": "Số nhỏ hơn",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số tự nhiên. Với mỗi phần tử ak, tính số lượng phần tử đứng trước nó và nhỏ hơn ak.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(*[sum(x<v for x in a[:i]) for i,v in enumerate(a)])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n5 2 7 1 6",
+            "expected": "0 0 2 0 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 3 4",
+            "expected": "0 1 2 3",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 214,
+        "title": "Ước nhiều nhất",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n. Tìm số trong [1,n] có nhiều ước nhất và in số lượng ước; nếu hòa in tất cả.",
+        "templateCode": "n=int(input()); c=[sum(x%i==0 for i in range(1,x+1)) for x in range(n+1)]; m=max(c[1:]); print(*[i for i in range(1,n+1) if c[i]==m]); print(m)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "6\n4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 215,
+        "title": "Tổng số chẵn trong đoạn",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập hai số nguyên m,n. Tính tổng các số chẵn từ m đến n (kể cả hai đầu).",
+        "templateCode": "m,n=map(int,input().split()); print(sum(x for x in range(m,n+1) if x%2==0))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "30",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 7",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 216,
+        "title": "Lũy thừa",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập hai số nguyên x,n. Tính x^n.",
+        "templateCode": "x,n=map(int,input().split()); print(x**n)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 10",
+            "expected": "1024",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 4",
+            "expected": "81",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 217,
+        "title": "GTTNN và bội",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập n (5≤n≤20) và dãy số tự nhiên nhỏ hơn 100. Tìm số nhỏ nhất của dãy và in các phần tử là bội của số nhỏ nhất; sau đó sắp xếp tăng dần.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); m=min(a); print(m); print(*[x for x in a if x%m==0]); print(*sorted(a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n12 6 24 18 30",
+            "expected": "6\n12 6 24 18 30\n6 12 18 24 30",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n5 10 3 6 9",
+            "expected": "3\n6 3 9\n3 5 6 9 10",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 218,
+        "title": "Số siêu nguyên tố",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Số siêu nguyên tố khi lần lượt bỏ chữ số bên phải vẫn là số nguyên tố. Nhập n (0<n<10), in tất cả số siêu nguyên tố có n chữ số.",
+        "templateCode": "n=int(input())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\ndef superp(x):\n s=str(x)\n return all(p(int(s[:i])) for i in range(1,len(s)+1))\nlo=10**(n-1); hi=10**n\nprint(*[x for x in range(lo,hi) if superp(x)])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "233 239 293 311 313 317 373 379 593 599 719 733 739 797",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "2 3 5 7",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 219,
+        "title": "Thống kê dãy số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập dãy n số nguyên dương. Tính tổng, trung bình cộng, số lẻ lớn nhất và số chẵn nhỏ nhất.",
+        "templateCode": "n=int(input()); a=list(map(int,input().split())); print(sum(a)); print(f'{sum(a)/n:.4f}')\ne=[x for x in a if x%2==0]; o=[x for x in a if x%2]\nprint(max(o) if o else 'KHONG CO', min(e) if e else 'KHONG CO')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "15\n3.0000\n5 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n2 4 6 8",
+            "expected": "20\n5.0000\nKHONG CO 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 220,
+        "title": "Lãi kép",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập T,L,N. Lãi suất L% được nhập vào vốn sau mỗi tháng. Tính số tiền tăng thêm sau N tháng.",
+        "templateCode": "T=float(input()); L=float(input())/100; n=int(input()); v=T\nfor _ in range(n): v*=1+L\nprint(f'{v-T:.4f}')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 6.9 2",
+            "expected": "14.2761",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000 5 1",
+            "expected": "50.0000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 221,
+        "title": "Chữ số ở vị trí k trong dãy số nối",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dãy vô hạn tạo bằng cách nối 1,2,3,... Hãy tìm chữ số ở vị trí k (đánh số từ 1).",
+        "templateCode": "k=int(input()); length=1; start=1\nwhile True:\n count=9*start*length\n if k>count: k-=count; start*=10; length+=1\n else: num=start+(k-1)//length; pos=(k-1)%length; print(str(num)[pos]); break",
+        "tests": [
+          {
+            "id": 1,
+            "input": "15",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 222,
+        "title": "Số đối xứng lớn hơn hoặc bằng x",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập x<1.000.000. Tìm số đối xứng nhỏ nhất lớn hơn hoặc bằng x.",
+        "templateCode": "x=int(input())\nwhile str(x)!=str(x)[::-1]: x+=1\nprint(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "561",
+            "expected": "565",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7453",
+            "expected": "7557",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 223,
+        "title": "Bài toán trâu",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có a con trâu, ăn b bó cỏ: trâu đứng ăn 5 bó, trâu nằm ăn 3 bó, trâu già ăn 1 bó. Nhập a,b; tìm số từng loại, biết số trâu đứng ít nhất; nếu không có in KHONG.",
+        "templateCode": "a,b=map(int,input().split()); ans=None\nfor d in range(1,a+1):\n for n in range(a-d+1):\n g=a-d-n\n if 5*d+3*n+g==b: ans=(d,n,g); break\n if ans: break\nprint(*(ans if ans else ['KHONG']))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 20",
+            "expected": "1 3 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 10",
+            "expected": "KHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 224,
+        "title": "Số phong phú",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập a,b. In UCLN, các số nguyên tố trong [a,b] và số lượng số phong phú (tổng ước dương thực sự lớn hơn chính nó).",
+        "templateCode": "import math\na,b=map(int,input().split()); print(math.gcd(a,b))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nprint(*[x for x in range(a,b+1) if p(x)])\ndef abundant(x): return sum(i for i in range(1,x) if x%i==0)>x\nprint(sum(abundant(x) for x in range(a,b+1)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 20",
+            "expected": "4\n13 17 19\n3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 10",
+            "expected": "1\n2 3 5 7\n0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 225,
+        "title": "Xâu có ba thành phần",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập xâu gồm chữ hoa, chữ thường và chữ số. Đếm từng loại; tìm đoạn con ngắn nhất chứa đủ cả ba loại; nếu không có in KHONG.",
+        "templateCode": "s=input().strip(); U=sum(c.isupper() for c in s); L=sum(c.islower() for c in s); D=sum(c.isdigit() for c in s); print(U,L,D)\nbest=None\nfor i in range(len(s)):\n for j in range(i+1,len(s)+1):\n t=s[i:j]\n if any(c.isupper() for c in t) and any(c.islower() for c in t) and any(c.isdigit() for c in t):\n if best is None or len(t)<len(best): best=t\n break\nprint(best if best else 'KHONG')",
+        "tests": [
+          {
+            "id": 1,
+            "input": "TinHocTre2023",
+            "expected": "3 6 4\nTre2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "ABCabc123",
+            "expected": "3 3 3\nABCabc1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 226,
+        "title": "Phân số dạng liên phân số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập m,n (m<n). Tìm dãy số a1,...,ak trong biểu diễn liên phân số theo thuật toán Euclid; in các thương liên tiếp.",
+        "templateCode": "m,n=map(int,input().split()); a=[]\nwhile m:\n a.append(n//m); n,m=m,n%m\nprint(*a)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7 9",
+            "expected": "1 3 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 8",
+            "expected": "2 1 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -4019,6 +6719,76 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793610325344,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:05:25 2/11/2026"
+      },
+      {
+        "id": 1793610153045,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:02:33 2/11/2026"
+      },
+      {
+        "id": 1793610152841,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:02:32 2/11/2026"
+      },
+      {
+        "id": 1793610152592,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:02:32 2/11/2026"
+      },
+      {
+        "id": 1793610151332,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:02:31 2/11/2026"
+      },
+      {
+        "id": 1793610151127,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Mật mã kép",
+        "score": 0,
+        "timestamp": "16:02:31 2/11/2026"
+      },
+      {
+        "id": 1793610119162,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Cặp tích chẵn",
+        "score": 0,
+        "timestamp": "16:01:59 2/11/2026"
+      },
+      {
+        "id": 1793610061358,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Ghép số nhỏ nhất",
+        "score": 0,
+        "timestamp": "16:01:01 2/11/2026"
+      },
+      {
+        "id": 1793610042444,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Kiểm tra số bán nguyên tố (Semi-prime)",
+        "score": 0,
+        "timestamp": "16:00:42 2/11/2026"
+      },
+      {
+        "id": 1793610030511,
+        "student": "Thầy Nguyễn Thế Phương",
+        "assignmentTitle": "Kiểm tra số bán nguyên tố (Semi-prime)",
+        "score": 0,
+        "timestamp": "16:00:30 2/11/2026"
+      },
       {
         "id": 1793608486446,
         "student": "Trần Thị Trúc Mai",
