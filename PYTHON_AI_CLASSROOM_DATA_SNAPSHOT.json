@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:03:37.447Z",
+    "updatedAt": "2026-11-02T12:03:51.172Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 156. Tổng và số lượng ước"
+    "action": "Admin lưu bài tập: Bài 157. Tổng số nguyên lẻ và sắp xếp"
   },
   "data": {
     "registeredUsers": [
@@ -5671,7 +5671,7 @@
       },
       {
         "id": 192,
-        "title": "Tổng số nguyên lẻ và sắp xếp",
+        "title": "Bài 157. Tổng số nguyên lẻ và sắp xếp",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
