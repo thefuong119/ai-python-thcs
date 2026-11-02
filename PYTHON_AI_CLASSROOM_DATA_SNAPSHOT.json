@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:09:02.087Z",
+    "updatedAt": "2026-11-02T10:10:02.494Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 41. Tách số thành ba số"
+    "action": "Admin lưu bài tập: 42. Tìm số nguyên tố có tổng chữ số bằng m"
   },
   "data": {
     "registeredUsers": [
@@ -2846,7 +2846,7 @@
       },
       {
         "id": 79,
-        "title": "Tìm số nguyên tố có tổng chữ số bằng m",
+        "title": "42. Tìm số nguyên tố có tổng chữ số bằng m",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
