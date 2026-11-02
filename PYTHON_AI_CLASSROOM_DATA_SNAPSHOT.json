@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:59:31.408Z",
+    "updatedAt": "2026-11-02T10:59:43.504Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 102. Dãy số xuất hiện k lần"
+    "action": "Admin lưu bài tập: Bài 103. Tính tiền taxi"
   },
   "data": {
     "registeredUsers": [
@@ -4346,7 +4346,7 @@
       },
       {
         "id": 139,
-        "title": "Tính tiền taxi",
+        "title": "Bài 103. Tính tiền taxi",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
