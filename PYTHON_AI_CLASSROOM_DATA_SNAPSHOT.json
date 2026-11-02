@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:15:06.642Z",
+    "updatedAt": "2026-11-02T11:15:24.216Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 123. Dãy nguyên tố liên tiếp"
+    "action": "Admin lưu bài tập: Bài 124. Dãy số và số chính phương"
   },
   "data": {
     "registeredUsers": [
@@ -4846,7 +4846,7 @@
       },
       {
         "id": 159,
-        "title": "Dãy số và số chính phương",
+        "title": "Bài 124. Dãy số và số chính phương",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
