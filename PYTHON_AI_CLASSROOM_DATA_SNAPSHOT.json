@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:48:55.651Z",
+    "updatedAt": "2026-11-02T11:49:10.267Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 136. Số chẵn lẻ"
+    "action": "Admin lưu bài tập: Bài 137. Tính tổng và tích"
   },
   "data": {
     "registeredUsers": [
@@ -5171,7 +5171,7 @@
       },
       {
         "id": 172,
-        "title": "Tính tổng và tích",
+        "title": "Bài 137. Tính tổng và tích",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
