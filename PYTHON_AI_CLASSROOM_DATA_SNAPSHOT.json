@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:23:54.184Z",
+    "updatedAt": "2026-11-02T08:28:45.485Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 10 bài tập từ tep_mau_bai_tap_python.docx"
+    "action": "Nạp 20 bài tập từ tep_mau_bai_tap_python.docx"
   },
   "data": {
     "registeredUsers": [
@@ -1253,6 +1253,786 @@
           {
             "id": 4,
             "input": "6 6",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "title": "Tần suất xuất hiện ký tự",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một chuỗi ký tự. Hãy đếm số lần xuất hiện của từng chữ cái tiếng Anh trong chuỗi (không phân biệt chữ hoa hay chữ thường).\nIn kết quả ra màn hình theo thứ tự bảng chữ cái tăng dần, mỗi dòng gồm chữ cái in hoa và số lần xuất hiện tương ứng theo định dạng: <Chữ cái>: <Số lần>.\n\n- Dữ liệu vào: Một chuỗi ký tự S gồm các từ cách nhau bởi dấu cách (1 <= |S| <= 1000).\n- Dữ liệu ra: Danh sách các chữ cái xuất hiện trong chuỗi và tần suất của chúng.",
+        "templateCode": "s = input().strip().upper()\ntan_suat = {}\nfor ch in s:\n if ch.isalpha():\n tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n print(f\"{ch}: {tan_suat[ch]}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Ngay thang nam",
+            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Python",
+            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "THCS Thanh Dong 2026",
+            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "Tin hoc tre",
+            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "title": "Kiểm tra số hoàn hảo",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Số hoàn hảo là số nguyên dương có tổng tất cả các ước số nguyên dương nhỏ hơn nó bằng chính nó.\nVí dụ: 6 là số hoàn hảo vì các ước nhỏ hơn 6 là 1, 2, 3 và 1 + 2 + 3 = 6.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hoàn hảo hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hoàn hảo, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nif n <= 1:\n print(\"NO\")\nelse:\n tong_uoc = 1\n i = 2\n while i * i <= n:\n if n % i == 0:\n tong_uoc += i\n if i * i != n:\n tong_uoc += n // i\n i += 1\n if tong_uoc == n:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "28",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "496",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 29,
+        "title": "Tách từ và tìm từ dài nhất",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một chuỗi ký tự gồm các từ được phân tách bởi dấu khoảng trắng.\nHãy đếm xem chuỗi có bao nhiêu từ và tìm từ có độ dài lớn nhất trong chuỗi. Nếu có nhiều từ có cùng độ dài lớn nhất thì in ra từ đầu tiên xuất hiện.\n\n- Dữ liệu vào: Một dòng chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra:\n + Dòng 1: Số lượng từ trong chuỗi.\n + Dòng 2: Từ dài nhất tìm được.",
+        "templateCode": "s = input().strip()\nwords = s.split()\nprint(len(words))\nif words:\n max_word = max(words, key=len)\n print(max_word)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "title": "Số cạnh tạo thành tam giác",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho trước 2 số nguyên dương a và b.\nYêu cầu: Xác định có bao nhiêu số nguyên dương c sao cho 3 số a, b, c có thể là độ dài 3 cạnh của một tam giác không suy biến.\n\n- Dữ liệu vào: Hai số nguyên dương a và b trên cùng một dòng, cách nhau bởi một dấu cách (1 <= a, b <= 10^9).\n- Dữ liệu ra: Một số nguyên duy nhất là số lượng số c thỏa mãn yêu cầu.",
+        "templateCode": "a, b = map(int, input().split())\n# Điều kiện tam giác: |a - b| < c < a + b\n# Số lượng số nguyên c là: (a + b - 1) - (|a - b| + 1) + 1 = 2 * min(a, b) - 1\nprint(2 * min(a, b) - 1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6 8",
+            "expected": "11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 10",
+            "expected": "19",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000 500000",
+            "expected": "999999",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "title": "Tìm số cộng thêm để được số nguyên tố",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương a. Hãy tìm và in ra màn hình số nguyên dương b nhỏ nhất (b >= 1) sao cho tổng a + b là một số nguyên tố.\n\n- Dữ liệu vào: Một số nguyên dương a (1 <= a <= 10^9).\n- Dữ liệu ra: Một số nguyên dương b nhỏ nhất tìm được.",
+        "templateCode": "def is_prime(n):\n if n < 2:\n return False\n if n in (2, 3):\n return True\n if n % 2 == 0 or n % 3 == 0:\n return False\n i = 5\n while i * i <= n:\n if n % i == 0 or n % (i + 2) == 0:\n return False\n i += 6\n return True\n\na = int(input().strip())\nb = 1\nwhile not is_prime(a + b):\n b += 1\nprint(b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "14",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "99",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "title": "Phân loại ký tự trong chuỗi",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một chuỗi ký tự bất kỳ. Hãy đếm số ký tự chữ cái tiếng Anh, số ký tự chữ số và số ký tự đặc biệt (các ký tự không phải chữ cái và không phải chữ số) có trong chuỗi.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra: Gồm 3 dòng:\n + Dòng 1: So chu cai: <số lượng>\n + Dòng 2: So chu so: <số lượng>\n + Dòng 3: So ky tu dac biet: <số lượng>",
+        "templateCode": "s = input()\nchu_cai = sum(1 for ch in s if ch.isalpha())\nchu_so = sum(1 for ch in s if ch.isdigit())\ndac_biet = len(s) - chu_cai - chu_so\n\nprint(\"So chu cai:\", chu_cai)\nprint(\"So chu so:\", chu_so)\nprint(\"So ky tu dac biet:\", dac_biet)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Mvc2@26pro$%911",
+            "expected": "So chu cai: 6\nSo chu so: 6\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Doi5hs#%tuyendeu18$",
+            "expected": "So chu cai: 13\nSo chu so: 3\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Hello World 2026!",
+            "expected": "So chu cai: 10\nSo chu so: 4\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "123456",
+            "expected": "So chu cai: 0\nSo chu so: 6\nSo ky tu dac biet: 0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "title": "Tổng n số lẻ đầu tiên",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy số lẻ bắt đầu từ 1 có dạng: 1, 3, 5, 7, 9, 11, ...\nCho số nguyên dương n. Hãy tính tổng của n số lẻ đầu tiên trong dãy số trên.\n\n- Dữ liệu vào: Một số nguyên dương n (1 <= n <= 10^9).\n- Dữ liệu ra: Một số nguyên duy nhất là tổng n số lẻ đầu tiên tính được.",
+        "templateCode": "n = int(input().strip())\n# Tổng n số lẻ đầu tiên: 1 + 3 + ... + (2n - 1) = n^2\nprint(n * n)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "36",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "100",
+            "expected": "10000",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000",
+            "expected": "1000000000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "title": "Lọc ký tự chữ và số của thí sinh",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong danh sách dự thi, mỗi thí sinh được gán một mã chuỗi ký tự ngẫu nhiên S.\nBan tổ chức cần tách riêng các ký tự chỉ gồm chữ cái và chữ số (gọi là chuỗi X) để sắp xếp phòng thi và đếm số lượng ký tự của chuỗi X.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (độ dài chuỗi lên tới 1000 ký tự).\n- Dữ liệu ra:\n + Dòng 1: Số lượng n là độ dài của chuỗi X.\n + Dòng 2: Chuỗi X gồm các ký tự chữ và số đã lọc theo thứ tự xuất hiện ban đầu.",
+        "templateCode": "s = input()\nx = \"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "123abcABC",
+            "expected": "9\n123abcABC",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Tin @! Hoc:; Pro #&%2026",
+            "expected": "13\nTinHocPro2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "THCS, Thanh Dong - 2026!",
+            "expected": "17\nTHCSThanhDong2026",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "@#$$%^&*",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "title": "Xác định vị trí số đẹp",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Những số chỉ gồm chữ số 6 hoặc chỉ gồm chữ số 8 hoặc gồm cả hai chữ số trên nhưng chữ số 6 luôn đứng trước chữ số 8 được gọi là số đẹp (ví dụ 6, 8, 66, 68, 88, 668,...). Số 9 không phải số đẹp; số 86 không phải số đẹp vì chữ số 8 đứng trước 6.\nCác số đẹp được sắp xếp theo thứ tự tăng dần về giá trị: 6, 8, 66, 68, 88, 666, 668, 688, 888, ...\nCho số nguyên dương N. Hãy kiểm tra xem N có phải số đẹp không. Nếu phải, in ra vị trí thứ tự của N trong dãy số đẹp tăng dần. Nếu không phải, in ra NO.\n\n- Dữ liệu vào: Một số nguyên dương N dưới dạng chuỗi (1 <= N <= 10^18).\n- Dữ liệu ra: Vị trí của N trong dãy số đẹp hoặc chữ NO.",
+        "templateCode": "s = input().strip()\n# Kiểm tra nếu chỉ gồm '6' và '8' và không chứa '86'\nif any(ch not in ('6', '8') for ch in s) or '86' in s:\n print(\"NO\")\nelse:\n L = len(s)\n c8 = s.count('8')\n # Số lượng số đẹp có độ dài < L là: (L - 1) * (L + 2) // 2\n pos = (L - 1) * (L + 2) // 2 + c8 + 1\n print(pos)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "168",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "668",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "888",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "86",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "title": "Đồng hồ điện tử sau 1 giây",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Đồng hồ điện tử hiển thị ba số nguyên h, p, s thể hiện tương ứng giờ, phút và giây tại thời điểm hiện tại (0 <= h <= 23, 0 <= p <= 59, 0 <= s <= 59).\nHãy xác định thời điểm mới sau đúng 1 giây (h1, p1, s1).\n\n- Dữ liệu vào: Một dòng chứa ba số nguyên h, p, s cách nhau bởi dấu cách.\n- Dữ liệu ra: Ba số nguyên h1, p1, s1 cách nhau bởi dấu cách.",
+        "templateCode": "h, p, s = map(int, input().split())\ns += 1\nif s == 60:\n s = 0\n p += 1\n if p == 60:\n p = 0\n h = (h + 1) % 24\nprint(h, p, s)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8 30 0",
+            "expected": "8 30 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12 59 59",
+            "expected": "13 0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "23 59 59",
+            "expected": "0 0 0",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "15 45 30",
+            "expected": "15 45 31",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "title": "Tính cước taxi",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Giá cước taxi được tính theo quãng đường di chuyển (km) như sau:\n- 1 km đầu tiên: giá 5.000 đồng.\n- Từ km thứ 2 đến km thứ 5: giá 4.500 đồng/km.\n- Từ km thứ 6 trở đi: giá 3.500 đồng/km.\n- Nếu khách đi trên 120 km thì được giảm 10% trên tổng số tiền cước.\nHãy tính số tiền cước khách phải trả, làm tròn 2 chữ số thập phân (nếu là số nguyên thì in số nguyên).\n\n- Dữ liệu vào: Một số nguyên dương km biểu thị quãng đường di chuyển (km <= 10^5).\n- Dữ liệu ra: Số tiền khách phải trả.",
+        "templateCode": "km = int(input().strip())\nif km <= 0:\n tien = 0\nelif km == 1:\n tien = 5000\nelif km <= 5:\n tien = 5000 + (km - 1) * 4500\nelse:\n tien = 5000 + 4 * 4500 + (km - 5) * 3500\n\nif km > 120:\n tien *= 0.9\n\ntien = round(float(tien), 2)\nif tien % 1 == 0:\n print(int(tien))\nelse:\n print(tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "130",
+            "expected": "414450",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "121",
+            "expected": "386100",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4",
+            "expected": "18500",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "40500",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "title": "Số âm lớn nhất trong dãy",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho một dãy gồm N số nguyên a1, a2, ..., aN.\nHãy tìm số âm lớn nhất trong dãy (số âm có giá trị gần 0 nhất). Nếu dãy không có số âm nào thì in ra số 0.\n\n- Dữ liệu vào:\n + Dòng 1: Số nguyên dương N (1 <= N <= 10^5).\n + N dòng tiếp theo (hoặc trên cùng một dòng), mỗi dòng chứa một số nguyên ai (-10^5 <= ai <= 10^5).\n- Dữ liệu ra: In ra số âm lớn nhất tìm được hoặc số 0.",
+        "templateCode": "import sys\n\ndef solve():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n so_am = [x for x in arr if x < 0]\n if so_am:\n print(max(so_am))\n else:\n print(0)\n\nif __name__ == '__main__':\n solve()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n-4\n3\n2\n-5\n7",
+            "expected": "-4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6\n-10\n-3\n-25\n0\n7\n-8",
+            "expected": "-3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n1\n2\n3",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "4\n-100\n-200\n-50\n-75",
+            "expected": "-50",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "title": "Số nguyên tố có tổng chữ số cho trước",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương n và m. Viết chương trình tìm tất cả các số nguyên tố không vượt quá n sao cho tổng các chữ số của mỗi số đều bằng m.\n\n- Dữ liệu vào: Một dòng chứa 2 số nguyên n và m cách nhau bởi dấu cách (1 <= n <= 10^5, 1 <= m <= 100).\n- Dữ liệu ra:\n + Dòng 1: Ghi số lượng các số nguyên tố tìm được.\n + Dòng 2: Ghi các số nguyên tố thỏa mãn theo thứ tự tăng dần, cách nhau bởi dấu cách (nếu không có số nào thì dòng 2 để trống).",
+        "templateCode": "def is_prime(x):\n if x < 2:\n return False\n if x in (2, 3):\n return True\n if x % 2 == 0 or x % 3 == 0:\n return False\n i = 5\n while i * i <= x:\n if x % i == 0 or x % (i + 2) == 0:\n return False\n i += 6\n return True\n\nn, m = map(int, input().split())\nkq = []\nfor num in range(2, n + 1):\n if is_prime(num) and sum(int(d) for d in str(num)) == m:\n kq.append(num)\n\nprint(len(kq))\nif kq:\n print(*(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "50 5",
+            "expected": "3\n5 23 41",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000 18",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "30 4",
+            "expected": "2\n13 31",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100 2",
+            "expected": "2\n2 11",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "title": "Đếm tần suất chữ số của tổng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên M và N. Gọi S = M + N.\nHãy đếm số lần xuất hiện của các chữ số trong giá trị tuyệt đối của tổng S và in ra theo thứ tự tăng dần của các chữ số.\n\n- Dữ liệu vào: Một dòng ghi hai số nguyên M và N (-10^9 <= M, N <= 10^9).\n- Dữ liệu ra: Mỗi dòng ghi một chữ số và số lần xuất hiện của nó theo định dạng: <Chữ số>: <Số lần>.",
+        "templateCode": "m, n = map(int, input().split())\ns = str(abs(m + n))\ndem = {}\nfor ch in s:\n dem[ch] = dem.get(ch, 0) + 1\n\nfor d in sorted(dem.keys(), key=int):\n print(f\"{d}: {dem[d]}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "309 21",
+            "expected": "0: 1\n3: 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 -112",
+            "expected": "1: 2\n2: 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "555 444",
+            "expected": "9: 3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1234 4321",
+            "expected": "5: 4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "title": "Quyển sách có bao nhiêu tờ",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một quyển sách được đánh số trang chỉ ở các trang lẻ lần lượt là 1, 3, 5, 7, 9, 11, ... Trang cuối cùng của quyển sách được đánh số trang tối đa M gần với một giá trị N cho trước (M <= N và M là số lẻ).\nBiết rằng mỗi tờ giấy có hai trang. Hỏi quyển sách có bao nhiêu tờ giấy (T), bao nhiêu trang được đánh số (K) và số trang được đánh ở trang cuối cùng (M)?\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^18).\n- Dữ liệu ra: Ghi ba số T, K, M cách nhau bởi đúng một dấu cách.",
+        "templateCode": "n = int(input().strip())\nm = n if n % 2 == 1 else n - 1\nk = (m + 1) // 2\nt = (k + 1) // 2\nprint(t, k, m)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "3 5 9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1",
+            "expected": "1 1 1",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100",
+            "expected": "25 50 99",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 42,
+        "title": "Tích lớn nhất từ ba số",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số tự nhiên A, B, C. Gọi T là tích lớn nhất tạo bởi 2 hoặc 3 số đã cho.\nYêu cầu: Hãy tính giá trị lớn nhất T có thể tạo thành.\n\n- Dữ liệu vào: Ba dòng, mỗi dòng chứa một số tự nhiên lần lượt là A, B, C (0 <= A, B, C <= 1000).\n- Dữ liệu ra: Một số nguyên duy nhất là tích lớn nhất T.",
+        "templateCode": "a = int(input().strip())\nb = int(input().strip())\nc = int(input().strip())\n\nt = max(a * b, a * c, b * c, a * b * c)\nprint(t)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n0\n1",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n2\n6",
+            "expected": "60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10\n10\n10",
+            "expected": "1000",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "0\n0\n5",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 43,
+        "title": "Kiểm tra số Armstrong",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương n gồm k chữ số được gọi là số Armstrong nếu tổng các lũy thừa bậc k của từng chữ số bằng chính số đó.\nVí dụ: 153 là số Armstrong vì có 3 chữ số và 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153.\nCho số nguyên dương n. Hãy kiểm tra xem n có phải là số Armstrong hay không.\n\n- Dữ liệu vào: Một số nguyên dương n (1 <= n <= 10^9).\n- Dữ liệu ra: In ra YES nếu n là số Armstrong, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\ns = str(n)\nk = len(s)\ntong = sum(int(d) ** k for d in s)\nif tong == n:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "153",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "125",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1634",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "9",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 44,
+        "title": "Kiểm tra số tăng dần",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương được gọi là số tăng dần nếu các chữ số của nó tăng ngặt từ trái sang phải.\nVí dụ: 1234, 459 là số tăng dần; còn 91, 112 không phải là số tăng dần.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số tăng dần hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số tăng dần, ngược lại in ra NO.",
+        "templateCode": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1234",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "91",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "459",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "112",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 45,
+        "title": "Tìm số cộng thêm để tạo số đối xứng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương được gọi là số đối xứng (palindrome) nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: 22, 101, 121, 1331).\nCho trước một số nguyên dương x. Hãy tìm số nguyên dương y nhỏ nhất (y >= 1) sao cho tổng x + y là một số đối xứng.\n\n- Dữ liệu vào: Một số nguyên dương x (1 <= x <= 10^7).\n- Dữ liệu ra: In ra số nguyên dương y nhỏ nhất tìm được.",
+        "templateCode": "x = int(input().strip())\nn = x + 1\nwhile True:\n s = str(n)\n if s == s[::-1]:\n print(n - x)\n break\n n += 1",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "98",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "100",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1234",
+            "expected": "97",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 46,
+        "title": "Kiểm tra số Smith",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số Smith là một hợp số (không phải là số nguyên tố) mà tổng các chữ số của nó bằng tổng các chữ số của tất cả các thừa số nguyên tố khi phân tích nó ra thừa số nguyên tố (tính cả các thừa số trùng nhau).\nVí dụ:\n- Số 94 = 2 * 47 là hợp số. Tổng các chữ số của 94 là 9 + 4 = 13. Tổng chữ số của các thừa số nguyên tố là 2 + (4 + 7) = 13 -> 94 là số Smith.\n- Số 4 = 2 * 2: 4 = 2 + 2 -> 4 là số Smith.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số Smith hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số Smith, ngược lại in ra NO.",
+        "templateCode": "def is_prime(x):\n if x < 2:\n return False\n if x in (2, 3):\n return True\n if x % 2 == 0 or x % 3 == 0:\n return False\n i = 5\n while i * i <= x:\n if x % i == 0 or x % (i + 2) == 0:\n return False\n i += 6\n return True\n\nn = int(input().strip())\nif n < 4 or is_prime(n):\n print(\"NO\")\nelse:\n sum_digits_n = sum(int(d) for d in str(n))\n sum_prime_digits = 0\n temp = n\n i = 2\n while i * i <= temp:\n while temp % i == 0:\n sum_prime_digits += sum(int(d) for d in str(i))\n temp //= i\n i += 1\n if temp > 1:\n sum_prime_digits += sum(int(d) for d in str(temp))\n \n if sum_digits_n == sum_prime_digits:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "94",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "666",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "13",
             "expected": "NO",
             "point": 2.5,
             "is_hidden": true
