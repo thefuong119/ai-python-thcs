@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:03:51.172Z",
+    "updatedAt": "2026-11-02T12:04:07.140Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 157. Tổng số nguyên lẻ và sắp xếp"
+    "action": "Admin lưu bài tập: Bài 158. Phân tích thừa số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -5696,7 +5696,7 @@
       },
       {
         "id": 193,
-        "title": "Phân tích thừa số nguyên tố",
+        "title": "Bài 158. Phân tích thừa số nguyên tố",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
