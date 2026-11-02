@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:09:06.059Z",
+    "updatedAt": "2026-11-02T11:09:24.328Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 119. Tổng chữ số lặp"
+    "action": "Admin lưu bài tập: Bài 120. Tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -4746,7 +4746,7 @@
       },
       {
         "id": 155,
-        "title": "Tam giác",
+        "title": "Bài 120. Tam giác",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
