@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:02:06.210Z",
+    "updatedAt": "2026-11-02T12:02:55.115Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 153. Lỗ hổng chữ số"
+    "action": "Admin lưu bài tập: Bài 154. Sắp xếp và khoảng cách"
   },
   "data": {
     "registeredUsers": [
@@ -5596,7 +5596,7 @@
       },
       {
         "id": 189,
-        "title": "Sắp xếp và khoảng cách",
+        "title": "Bài 154. Sắp xếp và khoảng cách",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
