@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:46:07.933Z",
+    "updatedAt": "2026-11-02T10:46:30.206Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 87. Phân tích số nguyên"
+    "action": "Admin lưu bài tập: Bài 88. Số bậc thang và các số chính phương"
   },
   "data": {
     "registeredUsers": [
@@ -3971,7 +3971,7 @@
       },
       {
         "id": 124,
-        "title": "Số bậc thang và các số chính phương",
+        "title": "Bài 88. Số bậc thang và các số chính phương",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
