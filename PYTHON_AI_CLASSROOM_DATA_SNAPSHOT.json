@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:12:22.695Z",
+    "updatedAt": "2026-11-02T16:13:31.118Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 95. Thực hiện phép tính phân số"
+    "action": "Admin lưu bài tập: Bài 97. Số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -4201,7 +4201,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Nhập m,n. In các số nguyên tố nhỏ hơn m; và các số nguyên tố không vượt quá m có tổng chữ số bằng n.",
-        "templateCode": "m,n=map(int,input().split())\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\na=[x for x in range(2,m) if p(x)]\nb=[x for x in range(2,m+1) if p(x) and sum(map(int,str(x)))==n]\nprint(*a)\nprint(*b if b else ['KHONG'])",
+        "templateCode": "m, n = map(int, input().split())\n\ndef p(x):\n    return x >= 2 and all(x % d != 0 for d in range(2, int(x**0.5) + 1))\n\n# Danh sách số nguyên tố nhỏ hơn m\na = [x for x in range(2, m) if p(x)]\n\n# Danh sách số nguyên tố nhỏ hơn hoặc bằng m có tổng các chữ số bằng n\nb = [x for x in range(2, m + 1) if p(x) and sum(map(int, str(x))) == n]\n\nprint(*a)\nprint(*b if b else ['KHONG'])",
         "tests": [
           {
             "id": 1,
