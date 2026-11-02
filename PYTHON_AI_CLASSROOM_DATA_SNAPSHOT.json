@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:15:38.953Z",
+    "updatedAt": "2026-11-02T11:15:54.027Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 125. Khoảng cách"
+    "action": "Admin lưu bài tập: Bài 126. Xâu đối xứng có dấu hỏi"
   },
   "data": {
     "registeredUsers": [
@@ -4896,7 +4896,7 @@
       },
       {
         "id": 161,
-        "title": "Xâu đối xứng có dấu hỏi",
+        "title": "Bài 126. Xâu đối xứng có dấu hỏi",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
