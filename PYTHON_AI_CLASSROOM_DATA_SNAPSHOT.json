@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:59:29.367Z",
+    "updatedAt": "2026-11-02T15:00:14.547Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Lập lịch sạc xe điện tối ưu thời gian chờ"
+    "action": "Admin lưu bài tập: Phân tích nhật ký Web: Phát hiện IP truy cập bất thường"
   },
   "data": {
     "registeredUsers": [
@@ -8476,7 +8476,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Máy chủ ghi lại danh sách $M$1$K$1$K$, và liệt kê các IP đó theo thứ tự từ điển tăng dần.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $M$1$K$ ($1 \\le M \\le 10^5; 1 \\le K \\le M$).\n- $M$ dòng tiếp theo, mỗi dòng là một địa chỉ IP.\nDữ liệu ra:\n- Dòng 1: Số lượng IP vi phạm.\n- Các dòng tiếp theo: Mỗi dòng in một địa chỉ IP vi phạm theo thứ tự bảng chữ cái.",
-        "templateCode": "M, K = map(int, input().split())\ndem = {}\nfor _ in range(M):\n ip = input().strip()\n dem[ip] = dem.get(ip, 0) + 1\n\nvi_pham = [ip for ip, cnt in dem.items() if cnt >= K]\nvi_pham.sort()\n\nprint(len(vi_pham))\nfor ip in vi_pham:\n print(ip)",
+        "templateCode": "M, K = map(int, input().split())\ndem = {}\nfor _ in range(M):\n    ip = input().strip()\n    dem[ip] = dem.get(ip, 0) + 1\n\nvi_pham = [ip for ip, cnt in dem.items() if cnt >= K]\nvi_pham.sort()\n\nprint(len(vi_pham))\nfor ip in vi_pham:\n    print(ip)",
         "tests": [
           {
             "id": 1,
