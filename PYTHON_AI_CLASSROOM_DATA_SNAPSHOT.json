@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:15:37.824Z",
+    "updatedAt": "2026-11-02T10:15:53.132Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 57. Phần tử yên ngựa"
+    "action": "Admin lưu bài tập: Bài 58. Tính tổng các số chia hết cho K"
   },
   "data": {
     "registeredUsers": [
@@ -3221,7 +3221,7 @@
       },
       {
         "id": 94,
-        "title": "Tính tổng các số chia hết cho K",
+        "title": "Bài 58. Tính tổng các số chia hết cho K",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
