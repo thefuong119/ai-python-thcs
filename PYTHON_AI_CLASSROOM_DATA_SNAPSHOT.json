@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:56:53.161Z",
+    "updatedAt": "2026-11-02T15:57:29.341Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 70. Phân biệt"
+    "action": "Admin lưu bài tập: Bài 71. Dãy tăng liên tục dài nhất"
   },
   "data": {
     "registeredUsers": [
@@ -3551,7 +3551,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho dãy n số nguyên. Hãy tìm dãy con liên tiếp không giảm dài nhất (mỗi phần tử sau lớn hơn hoặc bằng phần tử trước). Nếu có nhiều dãy cùng độ dài, chọn dãy xuất hiện cuối cùng.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi độ dài dãy con; dòng 2 ghi các phần tử của dãy con.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nbest_l = best_r = 0\nl = 0\nfor r in range(1, n):\n if a[r] < a[r - 1]:\n if r - l >= best_r - best_l:\n best_l, best_r = l, r\n l = r\nif n - l >= best_r - best_l:\n best_l, best_r = l, n\nans = a[best_l:best_r]\nprint(len(ans))\nprint(*ans)",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\nbest_l = best_r = 0\nl = 0\n\nfor r in range(1, n):\n    if a[r] < a[r - 1]:\n        if r - l >= best_r - best_l:\n            best_l, best_r = l, r\n        l = r\n\nif n - l >= best_r - best_l:\n    best_l, best_r = l, n\n\nans = a[best_l:best_r]\nprint(len(ans))\nprint(*ans)",
         "tests": [
           {
             "id": 1,
