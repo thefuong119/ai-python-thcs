@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:49:40.816Z",
+    "updatedAt": "2026-11-02T10:50:02.599Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài 1. Ngôn ngữ lập trình bậc cao và python"
+    "action": "Lưu bài giảng: Bài 1. Ngôn ngữ lập trình bậc cao và python - Hẹn gặp các em ở lớp 8 nhé!!!"
   },
   "data": {
     "registeredUsers": [
@@ -6839,7 +6839,7 @@
       },
       {
         "id": 35,
-        "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python",
+        "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python - Hẹn gặp các em ở lớp 8 nhé!!!",
         "classLevel": "7",
         "grade": "Tin học cơ sở",
         "content": "1. Ngôn ngữ lập trình bậc cao là gì?\n\n- Ngôn ngữ máy: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân 0 và 1.\n- Ngôn ngữ bậc cao: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên (tiếng Anh) và biểu thức toán học, giúp con người dễ đọc, dễ viết và độc lập với phần cứng máy tính.\n\n2. Giới thiệu về ngôn ngữ lập trình Python\n\n- Python do nhà khoa học máy tính người Hà Lan Guido van Rossum phát triển và phát hành lần đầu năm 1991.\n- Ưu điểm vượt trội: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn và được ứng dụng mạnh mẽ trong khoa học dữ liệu và trí tuệ nhân tạo (AI).\n\n3. Chương trình đầu tiên với Python\n\n# In ra lời chào thế giới lập trình\nprint('Xin chào thế giới lập trình Python!')\n\nHẹn gặp các em ở lớp 8 nhé..."
