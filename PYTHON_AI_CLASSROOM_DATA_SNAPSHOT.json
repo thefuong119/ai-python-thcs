@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:37:27.732Z",
+    "updatedAt": "2026-11-02T14:38:10.851Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 27. Đồng hồ điện tử sau 1 giây"
+    "action": "Admin lưu bài tập: Bài 28. Tính cước taxi"
   },
   "data": {
     "registeredUsers": [
@@ -1661,7 +1661,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Giá cước taxi được tính theo quãng đường di chuyển (km) như sau:\n- 1 km đầu tiên: giá 5.000 đồng.\n- Từ km thứ 2 đến km thứ 5: giá 4.500 đồng/km.\n- Từ km thứ 6 trở đi: giá 3.500 đồng/km.\n- Nếu khách đi trên 120 km thì được giảm 10% trên tổng số tiền cước.\nHãy tính số tiền cước khách phải trả, làm tròn 2 chữ số thập phân (nếu là số nguyên thì in số nguyên).\n\n- Dữ liệu vào: Một số nguyên dương km biểu thị quãng đường di chuyển (km <= 10^5).\n- Dữ liệu ra: Số tiền khách phải trả.",
-        "templateCode": "km = int(input().strip())\nif km <= 0:\n tien = 0\nelif km == 1:\n tien = 5000\nelif km <= 5:\n tien = 5000 + (km - 1) * 4500\nelse:\n tien = 5000 + 4 * 4500 + (km - 5) * 3500\n\nif km > 120:\n tien *= 0.9\n\ntien = round(float(tien), 2)\nif tien % 1 == 0:\n print(int(tien))\nelse:\n print(tien)",
+        "templateCode": "# Tính tiền điện\nkm = int(input().strip())\nif km <= 0:\n    tien = 0\nelif km == 1:\n    tien = 5000\nelif km <= 5:\n    tien = 5000 + (km - 1) * 4500\nelse:\n    tien = 5000 + 4 * 4500 + (km - 5) * 3500\n\nif km > 120:\n    tien *= 0.9\n\ntien = round(float(tien), 2)\nif tien % 1 == 0:\n    print(int(tien))\nelse:\n    print(tien)",
         "tests": [
           {
             "id": 1,
