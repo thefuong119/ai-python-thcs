@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:51:15.262Z",
+    "updatedAt": "2026-11-02T08:51:37.319Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 28. Tính cước taxi"
+    "action": "Lưu bài tập: Bài 29. Số âm lớn nhất trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -1694,7 +1694,7 @@
       },
       {
         "id": 38,
-        "title": "Số âm lớn nhất trong dãy",
+        "title": "Bài 29. Số âm lớn nhất trong dãy",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
