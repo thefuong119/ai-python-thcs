@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:55:09.397Z",
+    "updatedAt": "2026-11-02T11:55:26.716Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 139. Một chữ số của tổng"
+    "action": "Admin lưu bài tập: Bài 140. UCLN và BCNN ba số"
   },
   "data": {
     "registeredUsers": [
@@ -5246,7 +5246,7 @@
       },
       {
         "id": 175,
-        "title": "UCLN và BCNN ba số",
+        "title": "Bài 140. UCLN và BCNN ba số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
