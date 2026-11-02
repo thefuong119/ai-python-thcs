@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:37:43.256Z",
+    "updatedAt": "2026-11-02T10:37:58.443Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 77. Tách số thành ba số"
+    "action": "Admin lưu bài tập: Bài 78. Tắc kè hoa"
   },
   "data": {
     "registeredUsers": [
@@ -3721,7 +3721,7 @@
       },
       {
         "id": 114,
-        "title": "Tắc kè hoa",
+        "title": "Bài 78. Tắc kè hoa",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
