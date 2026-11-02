@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:47:20.354Z",
+    "updatedAt": "2026-11-02T11:47:40.471Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 134. Viết ngược từ"
+    "action": "Admin lưu bài tập: Bài 135. Xếp người"
   },
   "data": {
     "registeredUsers": [
@@ -5121,7 +5121,7 @@
       },
       {
         "id": 170,
-        "title": "Xếp người",
+        "title": "Bài 135. Xếp người",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
