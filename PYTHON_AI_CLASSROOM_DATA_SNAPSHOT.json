@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:33:15.361Z",
+    "updatedAt": "2026-11-02T09:53:18.099Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 5: Tính giai thừa"
+    "action": "Admin lưu bài tập: Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)"
   },
   "data": {
     "registeredUsers": [
@@ -681,7 +681,7 @@
       },
       {
         "id": 12,
-        "title": "Kiểm tra số bán nguyên tố (Semi-prime)",
+        "title": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
