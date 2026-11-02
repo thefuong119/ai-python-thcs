@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:30:20.587Z",
+    "updatedAt": "2026-11-02T14:31:03.119Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 17. Kiểm tra số Kaprekar"
+    "action": "Admin lưu bài tập: Bài 18. Kiểm tra số hạnh phúc"
   },
   "data": {
     "registeredUsers": [
@@ -1193,7 +1193,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một số nguyên dương được gọi là số hạnh phúc (Happy Number) nếu ta thay thế số đó bằng tổng bình phương các chữ số của nó, và lặp lại quá trình này cho đến khi kết quả bằng 1. Nếu quá trình rơi vào vòng lặp vô hạn không bao giờ đạt tới 1 thì số đó không phải là số hạnh phúc.\nVí dụ:\n- Số 19: 1^2 + 9^2 = 82 -> 8^2 + 2^2 = 68 -> 6^2 + 8^2 = 100 -> 1^2 + 0^2 + 0^2 = 1 -> 19 là số hạnh phúc.\n- Số 4: Rơi vào chu trình lặp vô hạn và không bao giờ đạt tới 1 -> 4 không phải số hạnh phúc.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hạnh phúc hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hạnh phúc, ngược lại in ra NO.",
-        "templateCode": "n = int(input().strip())\nseen = set()\ncurr = n\nwhile curr != 1 and curr not in seen:\n seen.add(curr)\n curr = sum(int(d) ** 2 for d in str(curr))\n\nif curr == 1:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "templateCode": "n = int(input().strip())\n\nseen = set()\ncurr = n\n\nwhile curr != 1 and curr not in seen:\n    seen.add(curr)\n    curr = sum(int(d) ** 2 for d in str(curr))\n\nif curr == 1:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
         "tests": [
           {
             "id": 1,
