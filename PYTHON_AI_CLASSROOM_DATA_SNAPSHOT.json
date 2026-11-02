@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:19:22.661Z",
+    "updatedAt": "2026-11-02T10:20:07.684Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 68. Số lượng số nguyên tố trên hàng"
+    "action": "Admin lưu bài tập: Bài 69. Nguyên tố từ tổng chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3496,7 +3496,7 @@
       },
       {
         "id": 105,
-        "title": "Nguyên tố từ tổng chữ số",
+        "title": "Bài 69. Nguyên tố từ tổng chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
