@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:34:58.314Z",
+    "updatedAt": "2026-11-02T10:35:35.861Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 73. Đếm chữ số trong chuỗi"
+    "action": "Admin lưu bài tập: Bài 74. Đoạn con dài nhất gồm các phần tử đôi một khác nhau"
   },
   "data": {
     "registeredUsers": [
@@ -3646,7 +3646,7 @@
       },
       {
         "id": 111,
-        "title": "Đoạn con dài nhất gồm các phần tử đôi một khác nhau",
+        "title": "Bài 74. Đoạn con dài nhất gồm các phần tử đôi một khác nhau",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
