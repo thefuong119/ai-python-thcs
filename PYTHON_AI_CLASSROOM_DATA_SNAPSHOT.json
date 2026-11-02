@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:27:42.856Z",
+    "updatedAt": "2026-11-02T15:28:27.874Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 25. Bộ ba số"
+    "action": "Admin lưu bài tập: Bài 26. Diện tích tam giác vuông"
   },
   "data": {
     "registeredUsers": [
@@ -2426,7 +2426,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho ba số nguyên dương a, b, c là độ dài ba cạnh. Nếu ba số là độ dài các cạnh của một tam giác vuông, hãy tính diện tích tam giác và làm tròn đến 1 chữ số thập phân. Nếu không, in -1.\nDữ liệu vào: Ba số a, b, c trên một dòng.\nDữ liệu ra: Diện tích hoặc -1.",
-        "templateCode": "a = sorted(map(int, input().split()))\nif a[0] ** 2 + a[1] ** 2 == a[2] ** 2:\n print(f\"{a[0] * a[1] / 2:.1f}\")\nelse:\n print(-1)",
+        "templateCode": "a = sorted(map(int, input().split()))\nif a[0] ** 2 + a[1] ** 2 == a[2] ** 2:\n    print(f\"{a[0] * a[1] / 2:.1f}\")\nelse:\n    print(-1)",
         "tests": [
           {
             "id": 1,
