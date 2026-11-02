@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:06:34.135Z",
+    "updatedAt": "2026-11-02T16:07:13.580Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 85. Xử lý xâu chữ và chữ số"
+    "action": "Admin lưu bài tập: Bài 86. Mã số"
   },
   "data": {
     "registeredUsers": [
@@ -3926,7 +3926,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Mã số của số là chữ số còn lại sau khi liên tiếp cộng các chữ số cho đến khi còn một chữ số. Nhập n số nguyên dương, in mã số từng số và các số có mã xuất hiện nhiều nhất; nếu hòa chọn mã nhỏ nhất.\nInput: n; dòng tiếp theo n số. Output: dãy mã số và các số đồng mã xuất hiện nhiều nhất.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef ma(x):\n while x >= 10:\n x = sum(map(int, str(x)))\n return x\nb = [ma(x) for x in a]\nfrom collections import Counter\nc = Counter(b)\nmx = max(c.values())\ntarget = min(k for k,v in c.items() if v == mx)\nprint('Ma so:', *b)\nprint('Cac so cung ma nhieu nhat:', *[x for x,y in zip(a,b) if y == target])",
+        "templateCode": "from collections import Counter\n\nn = int(input())\na = list(map(int, input().split()))\n\ndef ma(x):\n    while x >= 10:\n        x = sum(map(int, str(x)))\n    return x\n\nb = [ma(x) for x in a]\n\nc = Counter(b)\nmx = max(c.values())\ntarget = min(k for k, v in c.items() if v == mx)\n\nprint('Ma so:', *b)\nprint('Cac so cung ma nhieu nhat:', *[x for x, y in zip(a, b) if y == target])",
         "tests": [
           {
             "id": 1,
