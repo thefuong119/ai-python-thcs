@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:45:10.380Z",
+    "updatedAt": "2026-11-02T14:45:38.763Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Tính tiền điện bậc thang sinh hoạt"
+    "action": "Admin lưu bài tập: Tính tiền nước sinh hoạt và phí bảo vệ môi trường"
   },
   "data": {
     "registeredUsers": [
@@ -7576,7 +7576,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ của một hộ gia đình là $m$ ($m$1$m^3$ đầu tiên): 6000 đ/$m^3$1$m^3$ thứ 11 đến 20): 7500 đ/$m^3$1$m^3$ thứ 21 trở lên): 10000 đ/$m^3$1$m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả.",
-        "templateCode": "m = int(input().strip())\nif m <= 10:\n tien = m * 6000\nelif m <= 20:\n tien = 10 * 6000 + (m - 10) * 7500\nelse:\n tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
+        "templateCode": "m = int(input().strip())\nif m <= 10:\n    tien = m * 6000\nelif m <= 20:\n    tien = 10 * 6000 + (m - 10) * 7500\nelse:\n    tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
         "tests": [
           {
             "id": 1,
