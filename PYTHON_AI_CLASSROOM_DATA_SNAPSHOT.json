@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:04:16.280Z",
+    "updatedAt": "2026-11-02T15:05:06.315Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Định giá đơn hàng theo biểu thức tính toán rút gọn"
+    "action": "Admin lưu bài tập: Bài 1. Tính tiền cước taxi theo quãng đường"
   },
   "data": {
     "registeredUsers": [
@@ -7601,7 +7601,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Giá cước taxi của một hãng xe được tính như sau:\n- Giá mở cửa (cho 1 km đầu tiên): 12000 đồng.\n- Từ km thứ 2 đến km thứ 30: 15000 đồng/km.\n- Từ km thứ 31 trở đi: 12500 đồng/km.\nNếu đi từ 50 km trở lên, khách hàng được giảm 10% trên tổng giá cước.\nNhập vào số km khách hàng đã đi là một số thực $d$.\nHãy tính số tiền khách hàng phải trả (làm tròn đến hàng đơn vị).\n\nDữ liệu vào: Một số thực $d$ ($0 < d \\le 500$).\nDữ liệu ra: Một số nguyên là số tiền cước khách phải trả.",
-        "templateCode": "d = float(input().strip())\nif d <= 1:\n tien = 12000 * d\nelif d <= 30:\n tien = 12000 + (d - 1) * 15000\nelse:\n tien = 12000 + 29 * 15000 + (d - 30) * 12500\nif d >= 50:\n tien = tien * 0.9\nprint(round(tien))",
+        "templateCode": "d = float(input().strip())\nif d <= 1:\n    tien = 12000 * d\nelif d <= 30:\n    tien = 12000 + (d - 1) * 15000\nelse:\n    tien = 12000 + 29 * 15000 + (d - 30) * 12500\nif d >= 50:\n    tien = tien * 0.9\nprint(round(tien))",
         "tests": [
           {
             "id": 1,
@@ -11766,6 +11766,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "22:04:34 2/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "21:03:09 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
