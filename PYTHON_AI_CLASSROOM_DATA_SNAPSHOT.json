@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:44:20.317Z",
+    "updatedAt": "2026-11-02T08:46:28.530Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 15. Phân số nhỏ nhất"
+    "action": "Lưu bài tập: Bài 16. Rút gọn tối đa dãy số"
   },
   "data": {
     "registeredUsers": [
@@ -1031,7 +1031,7 @@
       },
       {
         "id": 21,
-        "title": "Rút gọn tối đa dãy số",
+        "title": "Bài 16. Rút gọn tối đa dãy số",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
