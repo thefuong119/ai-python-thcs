@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:59:42.556Z",
+    "updatedAt": "2026-11-02T09:59:55.761Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 9. Tổng chẵn"
+    "action": "Admin lưu bài tập: Bài 19. Xác định vị trí số đẹp"
   },
   "data": {
     "registeredUsers": [
@@ -1578,7 +1578,7 @@
       },
       {
         "id": 35,
-        "title": "Bài 9. Xác định vị trí số đẹp",
+        "title": "Bài 19. Xác định vị trí số đẹp",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
