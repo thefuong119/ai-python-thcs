@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:01:52.110Z",
+    "updatedAt": "2026-11-02T12:02:06.210Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 152. Ước chung, UCLN, BCNN"
+    "action": "Admin lưu bài tập: Bài 153. Lỗ hổng chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -5571,7 +5571,7 @@
       },
       {
         "id": 188,
-        "title": "Lỗ hổng chữ số",
+        "title": "Bài 153. Lỗ hổng chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
