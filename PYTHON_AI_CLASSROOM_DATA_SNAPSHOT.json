@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:41:42.927Z",
+    "updatedAt": "2026-11-02T10:45:07.024Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 16 bài giảng từ tep_bai_giang_hsg_python_16_bai.docx"
+    "action": "Admin lưu bài tập: Bài 86. Mã số"
   },
   "data": {
     "registeredUsers": [
@@ -3921,7 +3921,7 @@
       },
       {
         "id": 122,
-        "title": "Mã số",
+        "title": "Bài 86. Mã số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
