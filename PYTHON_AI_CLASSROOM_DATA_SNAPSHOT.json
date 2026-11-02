@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:56:20.449Z",
+    "updatedAt": "2026-11-02T12:56:31.712Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 5. Chu vi và diện tích tam giác theo công thức Heron"
+    "action": "Admin lưu bài tập: Bài 6. Đếm số nguyên tố trong đoạn [L, R]"
   },
   "data": {
     "registeredUsers": [
@@ -8021,7 +8021,7 @@
       },
       {
         "id": 286,
-        "title": "Đếm số nguyên tố trong đoạn [L, R]",
+        "title": "Bài 6. Đếm số nguyên tố trong đoạn [L, R]",
         "classLevel": "7",
         "difficulty": "medium",
         "timeLimit": 2,
