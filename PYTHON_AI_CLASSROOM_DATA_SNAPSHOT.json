@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:07:39.480Z",
+    "updatedAt": "2026-11-02T15:08:16.131Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 5. Chu vi và diện tích tam giác theo công thức Heron"
+    "action": "Admin lưu bài tập: Bài 6. Đếm số nguyên tố trong đoạn [L, R]"
   },
   "data": {
     "registeredUsers": [
@@ -8026,7 +8026,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho hai số nguyên dương $L$1$R$ ($L \\le R$). Hãy đếm xem có bao nhiêu số nguyên tố nằm trong đoạn $[L, R]$.\n\nDữ liệu vào: Một dòng gồm hai số nguyên $L, R$ ($1 \\le L \\le R \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số lượng số nguyên tố tìm được.",
-        "templateCode": "L, R = map(int, input().split())\nprime = [True] * (R + 1)\nprime[0] = prime[1] = False\n\np = 2\nwhile p * p <= R:\n if prime[p]:\n for i in range(p * p, R + 1, p):\n prime[i] = False\n p += 1\n\ncnt = sum(1 for i in range(L, R + 1) if prime[i])\nprint(cnt)",
+        "templateCode": "L, R = map(int, input().split())\nprime = [True] * (R + 1)\nprime[0] = prime[1] = False\n\np = 2\nwhile p * p <= R:\n    if prime[p]:\n        for i in range(p * p, R + 1, p):\n            prime[i] = False\n    p += 1\n\ncnt = sum(1 for i in range(L, R + 1) if prime[i])\nprint(cnt)",
         "tests": [
           {
             "id": 1,
