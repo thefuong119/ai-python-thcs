@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:03:20.926Z",
+    "updatedAt": "2026-11-02T12:03:37.447Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 155. Tính tích số có nhiều chữ số"
+    "action": "Admin lưu bài tập: Bài 156. Tổng và số lượng ước"
   },
   "data": {
     "registeredUsers": [
@@ -5646,7 +5646,7 @@
       },
       {
         "id": 191,
-        "title": "Tổng và số lượng ước",
+        "title": "Bài 156. Tổng và số lượng ước",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
