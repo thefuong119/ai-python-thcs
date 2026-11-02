@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:46:30.206Z",
+    "updatedAt": "2026-11-02T10:46:50.437Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 88. Số bậc thang và các số chính phương"
+    "action": "Admin lưu bài tập: Bài 89. Thống kê xâu ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -3996,7 +3996,7 @@
       },
       {
         "id": 125,
-        "title": "Thống kê xâu ký tự",
+        "title": "Bài 89. Thống kê xâu ký tự",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
