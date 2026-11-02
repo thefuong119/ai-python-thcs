@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:13:02.169Z",
+    "updatedAt": "2026-11-02T15:14:07.441Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 2. Ghép số nhỏ nhất"
+    "action": "Admin lưu bài tập: Bài 3. Cặp tích chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -764,7 +764,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho một dãy a gồm n số nguyên không âm a_1, a_2, ..., a_n. Hãy viết chương trình đếm số lượng cách chọn ra trong dãy hai phần tử sao cho tích của hai phần tử đó là một số chẵn.\n\n- Dữ liệu vào:\n + Dòng 1: Chứa số nguyên n (2 <= n <= 10^6).\n + Dòng 2: Chứa n số nguyên a_1, a_2, ..., a_n (0 <= a_i <= 10^18), các số cách nhau bởi một dấu cách trống.\n- Dữ liệu ra: In ra một số nguyên duy nhất là số lượng cặp số thỏa mãn yêu cầu đề bài.",
-        "templateCode": "import sys\n\ndef solve():\n input_data = sys.stdin.read().split()\n if not input_data:\n return\n n = int(input_data[0])\n dem_le = 0\n for idx in range(1, n + 1):\n if int(input_data[idx]) % 2 == 1:\n dem_le += 1\n tong_cap = n * (n - 1) // 2\n cap_le = dem_le * (dem_le - 1) // 2\n print(tong_cap - cap_le)\n\nif __name__ == '__main__':\n solve()",
+        "templateCode": "import sys\n\ninput_data = sys.stdin.read().split()\nif input_data:\n    n = int(input_data[0])\n    dem_le = 0\n    for idx in range(1, n + 1):\n        if int(input_data[idx]) % 2 == 1:\n            dem_le += 1\n    tong_cap = n * (n - 1) // 2\n    cap_le = dem_le * (dem_le - 1) // 2\n    print(tong_cap - cap_le)",
         "tests": [
           {
             "id": 1,
