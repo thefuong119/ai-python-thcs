@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:27:08.103Z",
+    "updatedAt": "2026-11-02T15:27:42.856Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 24. Xóa ký tự trong xâu để được số nhỏ nhất"
+    "action": "Admin lưu bài tập: Bài 25. Bộ ba số"
   },
   "data": {
     "registeredUsers": [
@@ -2401,7 +2401,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho dãy N số nguyên dương A1, A2, ..., AN (N ≥ 3). Với mọi bộ chỉ số i < j < k, xét S = 2Ai − 3Aj + 5Ak. Hãy tìm giá trị S lớn nhất.\nDữ liệu vào: Dòng 1 ghi N; dòng 2 ghi N số nguyên.\nDữ liệu ra: Giá trị S lớn nhất.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nans = None\nfor i in range(n - 2):\n for j in range(i + 1, n - 1):\n for k in range(j + 1, n):\n v = 2 * a[i] - 3 * a[j] + 5 * a[k]\n if ans is None or v > ans:\n ans = v\nprint(ans)",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\nans = None\nfor i in range(n - 2):\n    for j in range(i + 1, n - 1):\n        for k in range(j + 1, n):\n            v = 2 * a[i] - 3 * a[j] + 5 * a[k]\n            if ans is None or v > ans:\n                ans = v\n\nprint(ans)",
         "tests": [
           {
             "id": 1,
