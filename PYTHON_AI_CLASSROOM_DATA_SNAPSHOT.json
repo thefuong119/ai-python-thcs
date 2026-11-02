@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:51:45.487Z",
+    "updatedAt": "2026-11-02T12:51:55.063Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 2. Hóa đơn siêu thị và chiết khấu thành viên"
+    "action": "Admin lưu bài tập: Bài 3. Phí vận chuyển giao hàng trực tuyến"
   },
   "data": {
     "registeredUsers": [
@@ -7646,7 +7646,7 @@
       },
       {
         "id": 271,
-        "title": "Phí vận chuyển giao hàng trực tuyến",
+        "title": "Bài 3. Phí vận chuyển giao hàng trực tuyến",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
