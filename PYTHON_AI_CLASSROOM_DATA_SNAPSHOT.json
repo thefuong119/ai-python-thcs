@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:04:53.692Z",
+    "updatedAt": "2026-11-02T16:05:18.794Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 82. Mua bất động sản"
+    "action": "Admin lưu bài tập: Bài 83. Bài toán gà và chó"
   },
   "data": {
     "registeredUsers": [
@@ -3851,7 +3851,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Vừa gà vừa chó, bó lại cho tròn; có m con và n chân. Tìm số gà và số chó. Nếu không có nghiệm nguyên dương, in KHONG.\nInput: m, n. Output: Ga = số_gà; Cho = số_chó.",
-        "templateCode": "m, n = map(int, input().split())\nfor ga in range(1, m):\n cho = m - ga\n if 2 * ga + 4 * cho == n:\n print(f\"Ga = {ga}; Cho = {cho}\")\n break\nelse:\n print(\"KHONG\")",
+        "templateCode": "m, n = map(int, input().split())\n\nfor ga in range(1, m):\n    cho = m - ga\n    if 2 * ga + 4 * cho == n:\n        print(f\"Ga = {ga}; Cho = {cho}\")\n        break\nelse:\n    print(\"KHONG\")",
         "tests": [
           {
             "id": 1,
