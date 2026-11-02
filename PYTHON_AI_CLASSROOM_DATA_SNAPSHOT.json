@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:54:00.234Z",
+    "updatedAt": "2026-11-02T10:54:48.969Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài 1. Thuật toán tìm kiếm nhị phân (Binary Search)"
+    "action": "Admin lưu bài tập: Bài 90. Bố trí phòng cách ly"
   },
   "data": {
     "registeredUsers": [
@@ -4021,7 +4021,7 @@
       },
       {
         "id": 126,
-        "title": "Bố trí phòng cách ly",
+        "title": "Bài 90. Bố trí phòng cách ly",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
