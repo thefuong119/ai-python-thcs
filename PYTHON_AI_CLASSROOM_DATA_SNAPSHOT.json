@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:03:49.810Z",
+    "updatedAt": "2026-11-02T10:04:02.698Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 30. Sắp xếp ký tự số"
+    "action": "Admin lưu bài tập: Bài 31. Chia kẹo"
   },
   "data": {
     "registeredUsers": [
@@ -2546,7 +2546,7 @@
       },
       {
         "id": 67,
-        "title": "Chia kẹo",
+        "title": "Bài 31. Chia kẹo",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
