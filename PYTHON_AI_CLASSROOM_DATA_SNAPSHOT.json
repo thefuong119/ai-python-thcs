@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:24:58.494Z",
+    "updatedAt": "2026-11-02T14:25:23.084Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 10. Xếp que diêm thành tháp tam giác"
+    "action": "Admin lưu bài tập: Bài 11. Chi phí mua bóng tối ưu"
   },
   "data": {
     "registeredUsers": [
@@ -647,7 +647,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Ban tổ chức cần mua đúng N quả bóng cho hoạt động tập thể. Cửa hàng bán bóng theo 3 hình thức:\n- Mua lẻ 1 quả bóng: giá 2 đồng.\n- Mua 1 túi đóng sẵn 5 quả bóng: giá 9 đồng.\n- Mua 1 túi đóng sẵn 10 quả bóng: giá 17 đồng.\nHãy tính số tiền ít nhất cần dùng để mua đúng N quả bóng.\n\n- Dữ liệu vào: Nhập vào từ bàn phím duy nhất số tự nhiên N (1 <= N <= 10^8).\n- Dữ liệu ra: Đưa ra màn hình số tiền ít nhất cần thanh toán.",
-        "templateCode": "n = int(input().strip())\ntui_muoi = n // 10\nbest = float('inf')\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n du = n - t * 10\n tui_nam = du // 5\n le = du - tui_nam * 5\n gia = t * 17 + tui_nam * 9 + le * 2\n if gia < best:\n best = gia\nprint(best)",
+        "templateCode": "n = int(input().strip())\n\ntui_muoi = n // 10\nbest = float('inf')\n\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n    du = n - t * 10\n    tui_nam = du // 5\n    le = du - tui_nam * 5\n\n    gia = t * 17 + tui_nam * 9 + le * 2\n\n    if gia < best:\n        best = gia\n\nprint(best)",
         "tests": [
           {
             "id": 1,
