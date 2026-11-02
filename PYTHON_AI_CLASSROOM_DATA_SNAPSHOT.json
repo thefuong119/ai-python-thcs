@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:33:39.155Z",
+    "updatedAt": "2026-11-02T14:34:07.859Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 22. Số cạnh tạo thành tam giác"
+    "action": "Admin lưu bài tập: Bài 23. Tìm số cộng thêm để được số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -1427,7 +1427,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập vào một số nguyên dương a. Hãy tìm và in ra màn hình số nguyên dương b nhỏ nhất (b >= 1) sao cho tổng a + b là một số nguyên tố.\n\n- Dữ liệu vào: Một số nguyên dương a (1 <= a <= 10^9).\n- Dữ liệu ra: Một số nguyên dương b nhỏ nhất tìm được.",
-        "templateCode": "def is_prime(n):\n if n < 2:\n return False\n if n in (2, 3):\n return True\n if n % 2 == 0 or n % 3 == 0:\n return False\n i = 5\n while i * i <= n:\n if n % i == 0 or n % (i + 2) == 0:\n return False\n i += 6\n return True\n\na = int(input().strip())\nb = 1\nwhile not is_prime(a + b):\n b += 1\nprint(b)",
+        "templateCode": "def is_prime(n):\n    if n < 2:\n        return False\n\n    if n in (2, 3):\n        return True\n\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n\n    i = 5\n\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n\n        i += 6\n\n    return True\n\n\na = int(input().strip())\n\nb = 1\n\nwhile not is_prime(a + b):\n    b += 1\n\nprint(b)",
         "tests": [
           {
             "id": 1,
