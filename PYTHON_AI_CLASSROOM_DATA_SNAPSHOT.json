@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:36:56.885Z",
+    "updatedAt": "2026-11-02T14:37:27.732Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 26. Lọc ký tự chữ và số của thí sinh"
+    "action": "Admin lưu bài tập: Bài 27. Đồng hồ điện tử sau 1 giây"
   },
   "data": {
     "registeredUsers": [
@@ -1622,7 +1622,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Đồng hồ điện tử hiển thị ba số nguyên h, p, s thể hiện tương ứng giờ, phút và giây tại thời điểm hiện tại (0 <= h <= 23, 0 <= p <= 59, 0 <= s <= 59).\nHãy xác định thời điểm mới sau đúng 1 giây (h1, p1, s1).\n\n- Dữ liệu vào: Một dòng chứa ba số nguyên h, p, s cách nhau bởi dấu cách.\n- Dữ liệu ra: Ba số nguyên h1, p1, s1 cách nhau bởi dấu cách.",
-        "templateCode": "h, p, s = map(int, input().split())\ns += 1\nif s == 60:\n s = 0\n p += 1\n if p == 60:\n p = 0\n h = (h + 1) % 24\nprint(h, p, s)",
+        "templateCode": "h, p, s = map(int, input().split())\ns += 1\nif s == 60:\n    s = 0\n    p += 1\n    if p == 60:\n        p = 0\n        h = (h + 1) % 24\nprint(h, p, s)",
         "tests": [
           {
             "id": 1,
