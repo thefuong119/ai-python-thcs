@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-01T14:23:50.998Z",
+    "updatedAt": "2026-11-02T08:16:25.569Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công lên máy chủ"
+    "action": "Nạp 10 bài tập từ tep_mau_bai_tap_python.docx"
   },
   "data": {
     "registeredUsers": [
@@ -475,6 +475,396 @@
             "input": "10 20",
             "expected": "60\n200",
             "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Chuỗi đơn điệu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Chuỗi đơn điệu là chuỗi được tạo thành bằng cách lấy lần lượt từ trái sang phải các ký tự của chuỗi ban đầu theo quy tắc: Ký tự tiếp theo phải là chữ cái đứng sau ký tự liền trước đó trong bảng chữ cái tiếng Anh. Các ký tự không thỏa mãn điều kiện sẽ bị bỏ qua.\nCho một chuỗi ký tự S gồm các chữ cái in hoa. Hãy tìm chuỗi đơn điệu trích xuất từ chuỗi S.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra: In ra chuỗi đơn điệu tìm được.",
+        "templateCode": "s = input().strip()\nif s:\n result = s[0]\n for ch in s[1:]:\n if ch > result[-1]:\n result += ch\n print(result)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Tìm số trong dãy quy luật",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh T_i (i >= 1) như sau:\nT_1 = 3, T_2 = 5, T_3 = 8, T_4 = 12, T_5 = 17, T_6 = 23, ..., T_m.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= 10^9).\n- Dữ liệu ra: In ra giá trị của số báo danh T_m.",
+        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10",
+            "expected": "57",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000000",
+            "expected": "500000000500000002",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Số có đúng ba ước nguyên dương",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một số tự nhiên được gọi là số có đúng ba ước nguyên dương nếu tập hợp các ước số nguyên dương của nó có đúng 3 phần tử phân biệt. Ví dụ: số 4 có 3 ước là {1, 2, 4}; số 9 có 3 ước là {1, 3, 9}.\nCho số nguyên dương N. Hãy đếm xem có bao nhiêu số nguyên dương không vượt quá N có đúng ba ước số nguyên dương.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^12).\n- Dữ liệu ra: Một số nguyên duy nhất là số lượng số tìm được.",
+        "templateCode": "import math\n\ndef count_three_divisors(n):\n limit = math.isqrt(n)\n if limit < 2:\n return 0\n is_prime = bytearray([1]) * (limit + 1)\n is_prime[0] = is_prime[1] = 0\n for i in range(2, math.isqrt(limit) + 1):\n if is_prime[i]:\n is_prime[i * i : limit + 1 : i] = bytearray([0]) * len(range(i * i, limit + 1, i))\n return sum(is_prime)\n\nn = int(input().strip())\nprint(count_three_divisors(n))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "30",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "100",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Xếp que diêm thành tháp tam giác",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dùng các que diêm bằng nhau để xếp thành lưới tam giác đều theo tầng:\n- Tam giác 1 tầng cần 3 que diêm.\n- Tam giác 2 tầng cần 9 que diêm.\n- Tam giác 3 tầng cần 18 que diêm.\nTổng quát, để xếp hoàn thiện lưới tam giác M tầng cần 3*M*(M+1)//2 que diêm.\nCho trước N que diêm. Hỏi có thể xếp được lưới tam giác đều có nhiều nhất bao nhiêu tầng hoàn chỉnh (gọi số này là M)?\n\n- Dữ liệu vào: Nhập vào từ bàn phím số tự nhiên N (1 <= N <= 10^15).\n- Dữ liệu ra: In ra màn hình duy nhất số nguyên M.",
+        "templateCode": "import math\n\nn = int(input().strip())\nval = 9 + 24 * n\nm = (math.isqrt(val) - 3) // 6\nwhile 3 * (m + 1) * (m + 2) // 2 <= n:\n m += 1\nwhile 3 * m * (m + 1) // 2 > n:\n m -= 1\nprint(m)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "18",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000000000000",
+            "expected": "25819888",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Chi phí mua bóng tối ưu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Ban tổ chức cần mua đúng N quả bóng cho hoạt động tập thể. Cửa hàng bán bóng theo 3 hình thức:\n- Mua lẻ 1 quả bóng: giá 2 đồng.\n- Mua 1 túi đóng sẵn 5 quả bóng: giá 9 đồng.\n- Mua 1 túi đóng sẵn 10 quả bóng: giá 17 đồng.\nHãy tính số tiền ít nhất cần dùng để mua đúng N quả bóng.\n\n- Dữ liệu vào: Nhập vào từ bàn phím duy nhất số tự nhiên N (1 <= N <= 10^8).\n- Dữ liệu ra: Đưa ra màn hình số tiền ít nhất cần thanh toán.",
+        "templateCode": "n = int(input().strip())\ntui_muoi = n // 10\nbest = float('inf')\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n du = n - t * 10\n tui_nam = du // 5\n le = du - tui_nam * 5\n gia = t * 17 + tui_nam * 9 + le * 2\n if gia < best:\n best = gia\nprint(best)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "11",
+            "expected": "19",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "28",
+            "expected": "49",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100000000",
+            "expected": "170000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Kiểm tra số bán nguyên tố (Semi-prime)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số bán nguyên tố là số tự nhiên có thể phân tích thành tích của đúng hai số nguyên tố (hai số nguyên tố này có thể giống hoặc khác nhau).\nVí dụ: 4 = 2 * 2; 6 = 2 * 3; 9 = 3 * 3; 21 = 3 * 7 là các số bán nguyên tố. Các số 8 (= 2^3), 12 (= 2^2 * 3), 7 (số nguyên tố) không phải là số bán nguyên tố.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số bán nguyên tố hay không.\n\n- Dữ liệu vào: Số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số bán nguyên tố, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nif n < 4:\n print(\"NO\")\nelse:\n count = 0\n temp = n\n i = 2\n while i * i <= temp:\n while temp % i == 0:\n count += 1\n temp //= i\n if count > 2:\n break\n if count > 2:\n break\n i += 1\n if temp > 1:\n count += 1\n print(\"YES\" if count == 2 else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "21",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "999999937",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Ghép số nhỏ nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho hai số tự nhiên A và B sao cho mỗi số đều chỉ gồm các chữ số đôi một khác nhau. Lần lượt lấy các chữ số của A và B ghép lại để tạo thành số C sao cho:\n1. Số chữ số của C bằng tổng số chữ số của A và B.\n2. Thứ tự các chữ số trong A không đổi.\n3. Thứ tự các chữ số trong B không đổi.\nHãy tìm số C nhỏ nhất có thể ghép được.\n\n- Dữ liệu vào: Nhập vào hai số tự nhiên A và B (1 <= A, B <= 10^8), mỗi số được ghi trên một dòng.\n- Dữ liệu ra: Đưa ra số C thỏa mãn đề bài.",
+        "templateCode": "a = input().strip()\nb = input().strip()\ni = 0\nj = 0\nres = []\nwhile i < len(a) and j < len(b):\n if a[i:] < b[j:]:\n res.append(a[i])\n i += 1\n else:\n res.append(b[j])\n j += 1\nres.append(a[i:])\nres.append(b[j:])\nprint(\"\".join(res))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "15\n28",
+            "expected": "1258",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12547\n2469",
+            "expected": "122454679",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "93\n82",
+            "expected": "8293",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "521\n5210",
+            "expected": "5210521",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Cặp tích chẵn",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một dãy a gồm n số nguyên không âm a_1, a_2, ..., a_n. Hãy viết chương trình đếm số lượng cách chọn ra trong dãy hai phần tử sao cho tích của hai phần tử đó là một số chẵn.\n\n- Dữ liệu vào:\n + Dòng 1: Chứa số nguyên n (2 <= n <= 10^6).\n + Dòng 2: Chứa n số nguyên a_1, a_2, ..., a_n (0 <= a_i <= 10^18), các số cách nhau bởi một dấu cách trống.\n- Dữ liệu ra: In ra một số nguyên duy nhất là số lượng cặp số thỏa mãn yêu cầu đề bài.",
+        "templateCode": "import sys\n\ndef solve():\n input_data = sys.stdin.read().split()\n if not input_data:\n return\n n = int(input_data[0])\n dem_le = 0\n for idx in range(1, n + 1):\n if int(input_data[idx]) % 2 == 1:\n dem_le += 1\n tong_cap = n * (n - 1) // 2\n cap_le = dem_le * (dem_le - 1) // 2\n print(tong_cap - cap_le)\n\nif __name__ == '__main__':\n solve()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n1 6 6",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n1 6 6 13 8",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "15",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Mật mã kép",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một xâu mật mã gồm các ký tự và các con số. Mật mã kép nằm trong xâu là các chữ số chung được sắp xếp tăng dần của số nguyên tố lớn nhất và số chính phương lớn nhất có trong xâu. Nếu không tồn tại số nguyên tố hoặc số chính phương, hoặc chúng không có chữ số chung thì in ra xâu rỗng.\n\n- Dữ liệu vào: Một chuỗi ký tự S chứa chữ cái và số (|S| <= 1000).\n- Dữ liệu ra: In ra chuỗi mật mã kép tìm được.",
+        "templateCode": "import re\nimport math\n\ndef is_prime(n):\n if n < 2:\n return False\n if n in (2, 3):\n return True\n if n % 2 == 0 or n % 3 == 0:\n return False\n i = 5\n while i * i <= n:\n if n % i == 0 or n % (i + 2) == 0:\n return False\n i += 6\n return True\n\ndef is_square(n):\n if n < 0:\n return False\n r = math.isqrt(n)\n return r * r == n\n\ns = input().strip()\nnumbers = list(map(int, re.findall(r'\\d+', s)))\n\nprimes = [n for n in numbers if is_prime(n)]\nsquares = [n for n in numbers if is_square(n)]\n\nif primes and squares:\n max_p = max(primes)\n max_sq = max(squares)\n common_digits = sorted(set(str(max_p)) & set(str(max_sq)))\n print(\"\".join(common_digits))\nelse:\n print(\"\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "A7H2269LE1936K65537Q23R3025",
+            "expected": "35",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "ABC16XYZ17",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "M99N25P13",
+            "expected": "",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "CODE4K9M25T79",
+            "expected": "",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "title": "Dãy con nguyên tố dài nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một dãy số nguyên gồm n phần tử a_1, a_2, ..., a_n.\nHãy tìm dãy con gồm các số nguyên tố liên tiếp có độ dài dài nhất. Nếu có nhiều dãy con nguyên tố cùng độ dài dài nhất, hãy chọn dãy có tổng giá trị các phần tử lớn hơn.\n\n- Dữ liệu vào:\n + Dòng 1: Ghi số nguyên dương n (1 <= n <= 10^5).\n + Dòng 2: Ghi n số nguyên a_1, a_2, ..., a_n (0 <= a_i <= 10^6), cách nhau bởi dấu cách.\n- Dữ liệu ra: Ghi dãy con nguyên tố dài nhất tìm được, các phần tử cách nhau bởi dấu cách.",
+        "templateCode": "import sys\n\ndef is_prime(x):\n if x < 2:\n return False\n if x in (2, 3):\n return True\n if x % 2 == 0 or x % 3 == 0:\n return False\n i = 5\n while i * i <= x:\n if x % i == 0 or x % (i + 2) == 0:\n return False\n i += 6\n return True\n\ndef solve():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n a = [int(x) for x in data[1:n+1]]\n \n best = []\n curr = []\n for x in a:\n if is_prime(x):\n curr.append(x)\n else:\n if len(curr) > len(best) or (len(curr) == len(best) and sum(curr) > sum(best)):\n best = curr[:]\n curr = []\n if len(curr) > len(best) or (len(curr) == len(best) and sum(curr) > sum(best)):\n best = curr[:]\n \n print(*(best))\n\nif __name__ == '__main__':\n solve()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10\n2 3 5 8 11 13 17 4 7 3",
+            "expected": "11 13 17",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6\n4 6 8 9 10 12",
+            "expected": "",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n2 3 5 7 11",
+            "expected": "2 3 5 7 11",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "7\n13 17 4 19 23 8 2",
+            "expected": "19 23",
+            "point": 2.5,
             "is_hidden": true
           }
         ]
@@ -981,6 +1371,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "14:52:04 2/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "21:21:35 1/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
