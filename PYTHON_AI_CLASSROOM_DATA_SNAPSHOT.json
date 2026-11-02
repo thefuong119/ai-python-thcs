@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:42:38.332Z",
+    "updatedAt": "2026-11-02T14:43:50.029Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 34. Kiểm tra số Armstrong"
+    "action": "Admin lưu bài tập: Bài 36. Tìm số cộng thêm để tạo số đối xứng"
   },
   "data": {
     "registeredUsers": [
@@ -1972,8 +1972,8 @@
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Một số nguyên dương được gọi là số đối xứng (palindrome) nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: 22, 101, 121, 1331).\nCho trước một số nguyên dương x. Hãy tìm số nguyên dương y nhỏ nhất (y >= 1) sao cho tổng x + y là một số đối xứng.\n\n- Dữ liệu vào: Một số nguyên dương x (1 <= x <= 10^7).\n- Dữ liệu ra: In ra số nguyên dương y nhỏ nhất tìm được.",
-        "templateCode": "x = int(input().strip())\nn = x + 1\nwhile True:\n s = str(n)\n if s == s[::-1]:\n print(n - x)\n break\n n += 1",
+        "description": "Một số nguyên dương được gọi là số đối xứng (palindrome) nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: 22, 101, 121, 1331).\nCho trước một số nguyên dương x. Hãy tìm số nguyên dương y nhỏ nhất $(y >= 1)$1$(1 <= x <= 10^7)$.\n- Dữ liệu ra: In ra số nguyên dương y nhỏ nhất tìm được.",
+        "templateCode": "x = int(input().strip())\nn = x + 1\nwhile True:\n    s = str(n)\n    if s == s[::-1]:\n        print(n - x)\n        break\n    n += 1",
         "tests": [
           {
             "id": 1,
