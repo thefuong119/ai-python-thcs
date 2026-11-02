@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:18:27.577Z",
+    "updatedAt": "2026-11-02T14:21:24.278Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 7. Chuỗi đơn điệu"
+    "action": "Admin lưu bài tập: Bài 8. Tìm số trong dãy quy luật"
   },
   "data": {
     "registeredUsers": [
@@ -529,7 +529,7 @@
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh T_i (i >= 1) như sau:\nT_1 = 3, T_2 = 5, T_3 = 8, T_4 = 12, T_5 = 17, T_6 = 23, ..., T_m.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= 10^9).\n- Dữ liệu ra: In ra giá trị của số báo danh T_m.",
+        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
         "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
         "tests": [
           {
