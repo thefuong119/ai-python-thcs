@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:56:01.296Z",
+    "updatedAt": "2026-11-02T09:56:29.261Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 36. Tìm số cộng thêm để tạo số đối xứng"
+    "action": "Admin lưu bài tập: Bài 6. Tổ chức tham quan"
   },
   "data": {
     "registeredUsers": [
@@ -1110,7 +1110,7 @@
       },
       {
         "id": 23,
-        "title": "Tổ chức tham quan",
+        "title": "Bài 6. Tổ chức tham quan",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
