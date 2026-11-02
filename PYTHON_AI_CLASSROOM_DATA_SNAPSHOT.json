@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:33:32.458Z",
+    "updatedAt": "2026-11-02T15:34:44.278Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 35. Dãy tăng liên tục dài nhất"
+    "action": "Admin lưu bài tập: Bài 36. Ma trận con có giá trị nhỏ nhất lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -2676,7 +2676,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho ma trận A kích thước n × m và số k. Xét mọi ma trận con k × k gồm các phần tử liền kề nhau. Với mỗi ma trận con, lấy phần tử nhỏ nhất; hãy tìm giá trị lớn nhất trong các giá trị nhỏ nhất đó.\nDữ liệu vào: Dòng 1 ghi n, m, k; n dòng tiếp theo, mỗi dòng m số nguyên.\nDữ liệu ra: Giá trị cần tìm.",
-        "templateCode": "n, m, k = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(n)]\nans = None\nfor i in range(n - k + 1):\n for j in range(m - k + 1):\n mn = min(a[x][y] for x in range(i, i + k) for y in range(j, j + k))\n if ans is None or mn > ans:\n ans = mn\nprint(ans)",
+        "templateCode": "n, m, k = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(n)]\n\nans = None\nfor i in range(n - k + 1):\n    for j in range(m - k + 1):\n        mn = min(a[x][y] for x in range(i, i + k) for y in range(j, j + k))\n        if ans is None or mn > ans:\n            ans = mn\n\nprint(ans)",
         "tests": [
           {
             "id": 1,
