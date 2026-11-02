@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:47:01.113Z",
+    "updatedAt": "2026-11-02T11:47:20.354Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 133. Cặp số nguyên tố gần nhất"
+    "action": "Admin lưu bài tập: Bài 134. Viết ngược từ"
   },
   "data": {
     "registeredUsers": [
@@ -5096,7 +5096,7 @@
       },
       {
         "id": 169,
-        "title": "Viết ngược từ",
+        "title": "Bài 134. Viết ngược từ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
