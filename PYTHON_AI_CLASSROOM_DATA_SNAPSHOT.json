@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:39:54.368Z",
+    "updatedAt": "2026-11-02T08:40:10.358Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 7. Chuỗi đơn điệu"
+    "action": "Lưu bài tập: Bài 8. Tìm số trong dãy quy luật"
   },
   "data": {
     "registeredUsers": [
@@ -524,7 +524,7 @@
       },
       {
         "id": 8,
-        "title": "Tìm số trong dãy quy luật",
+        "title": "Bài 8. Tìm số trong dãy quy luật",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
