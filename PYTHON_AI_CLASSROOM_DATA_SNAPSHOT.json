@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:41:32.423Z",
+    "updatedAt": "2026-11-02T08:41:50.269Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 9. Số có đúng ba ước nguyên dương"
+    "action": "Lưu bài tập: Bài 10. Xếp que diêm thành tháp tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -602,7 +602,7 @@
       },
       {
         "id": 10,
-        "title": "Xếp que diêm thành tháp tam giác",
+        "title": "Bài 10. Xếp que diêm thành tháp tam giác",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
