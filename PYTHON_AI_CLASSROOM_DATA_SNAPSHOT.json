@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:51:01.015Z",
+    "updatedAt": "2026-11-02T14:51:55.128Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Chu vi và diện tích hình thang cân"
+    "action": "Admin lưu bài tập: Bài toán cổ: Vừa gà vừa chó"
   },
   "data": {
     "registeredUsers": [
@@ -8101,7 +8101,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Bài toán cổ Việt Nam:\n\"Vừa gà vừa chó\nBó lại cho tròn\n$m$1$n$1$m$1$n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên hợp lệ (số con không âm), in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$1$n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
-        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n cho = (n - 2 * m) // 2\n ga = m - cho\n if ga >= 0 and cho >= 0:\n print(f\"{ga} {cho}\")\n else:\n print(\"VO NGHIEM\")\nelse:\n print(\"VO NGHIEM\")",
+        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n    cho = (n - 2 * m) // 2\n    ga = m - cho\n    if ga >= 0 and cho >= 0:\n        print(f\"{ga} {cho}\")\n    else:\n        print(\"VO NGHIEM\")\nelse:\n    print(\"VO NGHIEM\")",
         "tests": [
           {
             "id": 1,
