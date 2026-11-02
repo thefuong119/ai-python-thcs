@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:36:45.878Z",
+    "updatedAt": "2026-11-02T10:37:24.572Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 75. Đoạn con dài nhất gồm các phần tử đôi một khác nhau"
+    "action": "Admin lưu bài tập: Bài 76. Chữ số lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -3671,7 +3671,7 @@
       },
       {
         "id": 112,
-        "title": "Chữ số lớn nhất",
+        "title": "Bài 76. Chữ số lớn nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
