@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:43:23.598Z",
+    "updatedAt": "2026-11-02T08:43:36.414Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 11. Chi phí mua bóng tối ưu"
+    "action": "Lưu bài tập: Bài 12. Bội số đặc biệt"
   },
   "data": {
     "registeredUsers": [
@@ -875,7 +875,7 @@
       },
       {
         "id": 17,
-        "title": "Bội số đặc biệt",
+        "title": "Bài 12. Bội số đặc biệt",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
