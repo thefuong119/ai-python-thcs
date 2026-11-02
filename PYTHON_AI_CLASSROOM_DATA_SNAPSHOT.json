@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:24:04.859Z",
+    "updatedAt": "2026-11-02T14:24:58.494Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 9. Số có đúng ba ước nguyên dương"
+    "action": "Admin lưu bài tập: Bài 10. Xếp que diêm thành tháp tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -608,7 +608,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Dùng các que diêm bằng nhau để xếp thành lưới tam giác đều theo tầng:\n- Tam giác 1 tầng cần 3 que diêm.\n- Tam giác 2 tầng cần 9 que diêm.\n- Tam giác 3 tầng cần 18 que diêm.\nTổng quát, để xếp hoàn thiện lưới tam giác M tầng cần 3*M*(M+1)//2 que diêm.\nCho trước N que diêm. Hỏi có thể xếp được lưới tam giác đều có nhiều nhất bao nhiêu tầng hoàn chỉnh (gọi số này là M)?\n\n- Dữ liệu vào: Nhập vào từ bàn phím số tự nhiên N (1 <= N <= 10^15).\n- Dữ liệu ra: In ra màn hình duy nhất số nguyên M.",
-        "templateCode": "import math\n\nn = int(input().strip())\nval = 9 + 24 * n\nm = (math.isqrt(val) - 3) // 6\nwhile 3 * (m + 1) * (m + 2) // 2 <= n:\n m += 1\nwhile 3 * m * (m + 1) // 2 > n:\n m -= 1\nprint(m)",
+        "templateCode": "import math\n\nn = int(input().strip())\n\nval = 9 + 24 * n\nm = (math.isqrt(val) - 3) // 6\n\nwhile 3 * (m + 1) * (m + 2) // 2 <= n:\n    m += 1\n\nwhile 3 * m * (m + 1) // 2 > n:\n    m -= 1\n\nprint(m)",
         "tests": [
           {
             "id": 1,
