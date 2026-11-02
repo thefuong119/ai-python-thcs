@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:15:04.040Z",
+    "updatedAt": "2026-11-02T14:16:22.905Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Admin lưu bài tập: Bài 5: Tính giai thừa"
   },
@@ -439,7 +439,7 @@
         "title": "Bài 5: Tính giai thừa",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Cho số nguyên dương N trên một dòng trong tệp input.txt.\n\nHãy tính giá trị tính N giai thừa ghi kết quả ra trên một dòng trong tệp output.txt.\n\n\nDữ liệu vào (input.txt)\n\n3\nKết quả ra\n\n6\n\nVí dụ:\ninput.txt\n3\nTa có:\n\n3! = 1*2*3 = 6\n\n9! = 1*2*3*4*5*6*7*8*9 = 362880\n\nOutput:\n\n362880",
+        "description": "Cho số nguyên dương N trên một dòng trong tệp input.txt.\nHãy tính giá trị tính N giai thừa ghi kết quả ra trên một dòng trong tệp output.txt.\n\nDữ liệu vào (input.txt)\n3\nKết quả ra\n6\nVí dụ:\ninput.txt\n3\nTa có:\n3! = 1*2*3 = 6\n9! = 1*2*3*4*5*6*7*8*9 = 362880\n\nOutput:\n362880",
         "templateCode": "import math\n\n# Nhập số nguyên N từ bàn phím\nn = int(input())\n\n# Tính N! và in kết quả ra màn hình\nket_qua = math.factorial(n)\nprint(ket_qua)",
         "tests": [
           {
