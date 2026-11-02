@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:38:42.407Z",
+    "updatedAt": "2026-11-02T08:39:03.440Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 2. Kiểm tra số nguyên tố"
+    "action": "Lưu bài tập: Bài 3. Đếm số lượng số chẵn trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -356,7 +356,7 @@
       },
       {
         "id": 3,
-        "title": "Đếm số lượng số chẵn trong dãy",
+        "title": "Bài 3. Đếm số lượng số chẵn trong dãy",
         "slug": "--m-s--l--ng-s--ch-n-trong-d-y",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -391,7 +391,8 @@
             "point": 2.5,
             "is_hidden": true
           }
-        ]
+        ],
+        "classLevel": "8"
       },
       {
         "id": 4,
