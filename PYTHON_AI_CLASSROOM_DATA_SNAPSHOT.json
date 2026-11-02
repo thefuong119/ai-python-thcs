@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:56:02.456Z",
+    "updatedAt": "2026-11-02T15:56:53.161Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 69. Nguyên tố từ tổng chữ số"
+    "action": "Admin lưu bài tập: Bài 70. Phân biệt"
   },
   "data": {
     "registeredUsers": [
@@ -3526,7 +3526,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho dãy n số nguyên. Hãy lấy các giá trị phân biệt, mỗi giá trị chỉ xuất hiện một lần, giữ nguyên thứ tự xuất hiện lần đầu.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi số lượng phần tử phân biệt; dòng 2 ghi các phần tử đó.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nb = []\nseen = set()\nfor x in a:\n if x not in seen:\n seen.add(x)\n b.append(x)\nprint(len(b))\nprint(*b)",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\nb = []\nseen = set()\n\nfor x in a:\n    if x not in seen:\n        seen.add(x)\n        b.append(x)\n\nprint(len(b))\nprint(*b)",
         "tests": [
           {
             "id": 1,
