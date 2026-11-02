@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:58:28.510Z",
+    "updatedAt": "2026-11-02T10:58:47.452Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 99. Tính tổng phân thức"
+    "action": "Admin lưu bài tập: Bài 100. Số chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -4271,7 +4271,7 @@
       },
       {
         "id": 136,
-        "title": "Số chữ số",
+        "title": "Bài 100. Số chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
