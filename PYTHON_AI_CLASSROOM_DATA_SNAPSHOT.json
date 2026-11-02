@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:05:06.315Z",
+    "updatedAt": "2026-11-02T15:05:46.556Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 1. Tính tiền cước taxi theo quãng đường"
+    "action": "Admin lưu bài tập: Bài 2. Hóa đơn siêu thị và chiết khấu thành viên"
   },
   "data": {
     "registeredUsers": [
@@ -7626,7 +7626,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một khách hàng mua $n$ mặt hàng tại siêu thị. Nhập vào số lượng và đơn giá của từng mặt hàng, cùng với loại thẻ khách hàng ($T$: Thường, $V$: VIP).\nChính sách khuyến mãi như sau:\n- Nếu tổng tiền hàng từ 500,000 đồng đến dưới 1,000,000 đồng: Giảm 5%.\n- Nếu tổng tiền hàng từ 1,000,000 đồng trở lên: Giảm 10%.\n- Nếu là khách VIP, sau khi áp dụng giảm giá trên, khách hàng được giảm thêm 5% trên số tiền còn lại.\nHãy in ra tổng số tiền khách hàng cần thanh toán (làm tròn số nguyên).\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $n$ ($1 \\le n \\le 100$) và ký tự loại thẻ ('T' hoặc 'V').\n- $n$1$sl$1$dg$ tương ứng với số lượng và đơn giá của mặt hàng.\nDữ liệu ra: Một số nguyên là số tiền thanh toán cuối cùng.",
-        "templateCode": "dong1 = input().split()\nn = int(dong1[0])\nthe = dong1[1].upper()\ntong = 0\nfor _ in range(n):\n sl, dg = map(int, input().split())\n tong += sl * dg\nif tong >= 1000000:\n tong = tong * 0.9\nelif tong >= 500000:\n tong = tong * 0.95\nif the == 'V':\n tong = tong * 0.95\nprint(round(tong))",
+        "templateCode": "dong1 = input().split()\nn = int(dong1[0])\nthe = dong1[1].upper()\ntong = 0\nfor _ in range(n):\n    sl, dg = map(int, input().split())\n    tong += sl * dg\nif tong >= 1000000:\n    tong = tong * 0.9\nelif tong >= 500000:\n    tong = tong * 0.95\nif the == 'V':\n    tong = tong * 0.95\nprint(round(tong))",
         "tests": [
           {
             "id": 1,
