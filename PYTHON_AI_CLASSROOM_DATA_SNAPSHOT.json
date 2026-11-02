@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:55:09.202Z",
+    "updatedAt": "2026-11-02T10:55:40.060Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 91. Số tự nhiên"
+    "action": "Admin lưu bài tập: Bài 92. Số dư"
   },
   "data": {
     "registeredUsers": [
@@ -4071,7 +4071,7 @@
       },
       {
         "id": 128,
-        "title": "Số dư",
+        "title": "Bài 92. Số dư",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
