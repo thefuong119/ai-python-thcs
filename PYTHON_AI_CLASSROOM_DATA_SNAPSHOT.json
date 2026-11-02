@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:56:40.241Z",
+    "updatedAt": "2026-11-02T09:56:52.697Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 7. Tổ chức tham quan"
+    "action": "Admin lưu bài tập: Bài 8. Cặp số là bạn"
   },
   "data": {
     "registeredUsers": [
@@ -1227,7 +1227,7 @@
       },
       {
         "id": 26,
-        "title": "Cặp số là bạn",
+        "title": "Bài 8. Cặp số là bạn",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
