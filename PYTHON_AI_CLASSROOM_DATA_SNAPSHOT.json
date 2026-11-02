@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:49:04.974Z",
+    "updatedAt": "2026-11-02T15:49:49.881Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 57. Phần tử yên ngựa"
+    "action": "Admin lưu bài tập: Bài 59. Tìm số đường khép kín"
   },
   "data": {
     "registeredUsers": [
@@ -3251,7 +3251,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Quy ước: các chữ số 1, 2, 3, 5, 7 có 0 đường khép kín; các chữ số 0, 4, 6, 9 có 1 đường; chữ số 8 có 2 đường. Cho số nguyên dương N, hãy tính tổng số đường khép kín của các chữ số.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Tổng số đường khép kín.",
-        "templateCode": "n = input().strip()\ndem = 0\nfor ch in n:\n if ch in \"0469\":\n dem += 1\n elif ch == \"8\":\n dem += 2\nprint(dem)",
+        "templateCode": "n = input().strip()\ndem = 0\nfor ch in n:\n    if ch in \"0469\":\n        dem += 1\n    elif ch == \"8\":\n        dem += 2\nprint(dem)",
         "tests": [
           {
             "id": 1,
