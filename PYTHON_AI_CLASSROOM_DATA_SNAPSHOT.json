@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:44:05.688Z",
+    "updatedAt": "2026-11-02T08:44:20.317Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 14. Số nhỏ nhất chia hết từ 1 đến N"
+    "action": "Lưu bài tập: Bài 15. Phân số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -992,7 +992,7 @@
       },
       {
         "id": 20,
-        "title": "Phân số nhỏ nhất",
+        "title": "Bài 15. Phân số nhỏ nhất",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
