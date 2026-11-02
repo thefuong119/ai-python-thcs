@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:53:18.099Z",
+    "updatedAt": "2026-11-02T09:53:31.596Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)"
+    "action": "Admin lưu bài tập: Bài 2. Ghép số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -720,7 +720,7 @@
       },
       {
         "id": 13,
-        "title": "Ghép số nhỏ nhất",
+        "title": "Bài 2. Ghép số nhỏ nhất",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
