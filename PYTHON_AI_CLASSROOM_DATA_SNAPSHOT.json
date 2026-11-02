@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:54:15.118Z",
+    "updatedAt": "2026-11-02T09:54:40.024Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 5. Dãy con nguyên tố dài nhất"
+    "action": "Admin lưu bài tập: Bài 6. Biểu diễn tổng các số Fibonacci"
   },
   "data": {
     "registeredUsers": [
@@ -1071,7 +1071,7 @@
       },
       {
         "id": 22,
-        "title": "Biểu diễn tổng các số Fibonacci",
+        "title": "Bài 6. Biểu diễn tổng các số Fibonacci",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
