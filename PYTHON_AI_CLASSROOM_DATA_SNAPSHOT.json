@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:09:12.854Z",
+    "updatedAt": "2026-11-02T15:09:51.947Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 8. Kiểm tra một số có thuộc dãy Fibonacci hay không"
+    "action": "Admin lưu bài tập: Bài 9. In ra K số nguyên tố đầu tiên và tính tổng"
   },
   "data": {
     "registeredUsers": [
@@ -8226,7 +8226,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho số nguyên dương $K$. Hãy in ra danh sách $K$1$K$ ($1 \\le K \\le 5000$).\nDữ liệu ra: Dòng 1 chứa $K$1$K$ số nguyên tố đó.",
-        "templateCode": "import math\n\ndef is_prime(x):\n if x < 2:\n return False\n for i in range(2, math.isqrt(x) + 1):\n if x % i == 0:\n return False\n return True\n\nK = int(input().strip())\nprimes = []\nnum = 2\nwhile len(primes) < K:\n if is_prime(num):\n primes.append(num)\n num += 1\n\nprint(*(primes))\nprint(sum(primes))",
+        "templateCode": "import math\n\ndef is_prime(x):\n    if x < 2:\n        return False\n    for i in range(2, math.isqrt(x) + 1):\n        if x % i == 0:\n            return False\n    return True\n\nK = int(input().strip())\nprimes = []\nnum = 2\nwhile len(primes) < K:\n    if is_prime(num):\n        primes.append(num)\n    num += 1\n\nprint(*(primes))\nprint(sum(primes))",
         "tests": [
           {
             "id": 1,
