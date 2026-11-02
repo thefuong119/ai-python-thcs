@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:14:26.450Z",
+    "updatedAt": "2026-11-02T10:14:41.214Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 52. Đếm các số nguyên tố"
+    "action": "Admin lưu bài tập: Bài 53. Dãy theo quy luật tổng bình phương chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3096,7 +3096,7 @@
       },
       {
         "id": 89,
-        "title": "Dãy theo quy luật tổng bình phương chữ số",
+        "title": "Bài 53. Dãy theo quy luật tổng bình phương chữ số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
