@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:32:02.508Z",
+    "updatedAt": "2026-11-02T10:32:24.751Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 71. Dãy tăng liên tục dài nhất"
+    "action": "Admin lưu bài tập: Bài 72. Ma trận con có giá trị nhỏ nhất lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -3571,7 +3571,7 @@
       },
       {
         "id": 108,
-        "title": "Ma trận con có giá trị nhỏ nhất lớn nhất",
+        "title": "Bài 72. Ma trận con có giá trị nhỏ nhất lớn nhất",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
