@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:38:17.885Z",
+    "updatedAt": "2026-11-02T10:38:31.572Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 79. Tìm số nguyên tố có tổng chữ số bằng m"
+    "action": "Admin lưu bài tập: Bài 80. Ký tự đầu tiên xuất hiện k lần"
   },
   "data": {
     "registeredUsers": [
@@ -3771,7 +3771,7 @@
       },
       {
         "id": 116,
-        "title": "Ký tự đầu tiên xuất hiện k lần",
+        "title": "Bài 80. Ký tự đầu tiên xuất hiện k lần",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
