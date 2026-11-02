@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:00:10.865Z",
+    "updatedAt": "2026-11-02T11:01:07.461Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 104. Bộ ba số Pitago"
+    "action": "Admin lưu bài tập: Bài 105. Phân số tối giản"
   },
   "data": {
     "registeredUsers": [
@@ -4396,7 +4396,7 @@
       },
       {
         "id": 141,
-        "title": "Phân số tối giản",
+        "title": "Bài 105. Phân số tối giản",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
