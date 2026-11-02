@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:02:09.835Z",
+    "updatedAt": "2026-11-02T10:02:25.731Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 23. Tìm số đường khép kín"
+    "action": "Admin lưu bài tập: Bài 24. Xóa ký tự trong xâu để được số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -2371,7 +2371,7 @@
       },
       {
         "id": 60,
-        "title": "Xóa ký tự trong xâu để được số nhỏ nhất",
+        "title": "Bài 24. Xóa ký tự trong xâu để được số nhỏ nhất",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
