@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:30:09.707Z",
+    "updatedAt": "2026-11-02T15:30:43.857Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 29. Đổi quà"
+    "action": "Admin lưu bài tập: Bài 30. Sắp xếp ký tự số"
   },
   "data": {
     "registeredUsers": [
@@ -2526,7 +2526,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho một xâu ký tự có thể chứa chữ số và các ký tự khác. Hãy lấy tất cả ký tự là chữ số rồi sắp xếp giảm dần. Nếu không có chữ số, in khong.\nDữ liệu vào: Một dòng chứa xâu S.\nDữ liệu ra: Xâu gồm các chữ số được sắp xếp giảm dần hoặc khong.",
-        "templateCode": "s = input()\ndigits = sorted((ch for ch in s if ch in \"0123456789\"), reverse=True)\nprint(''.join(digits) if digits else \"khong\")",
+        "templateCode": "s = input()\ndigits = sorted((ch for ch in s if ch in \"0123456789\"), reverse=True)\nprint(\"\".join(digits) if digits else \"khong\")",
         "tests": [
           {
             "id": 1,
