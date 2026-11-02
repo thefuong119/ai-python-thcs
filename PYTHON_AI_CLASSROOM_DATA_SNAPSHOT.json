@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:39:36.351Z",
+    "updatedAt": "2026-11-02T08:39:54.368Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 6. Tính chu vi và diện tích hình chữ nhật"
+    "action": "Lưu bài tập: Bài 7. Chuỗi đơn điệu"
   },
   "data": {
     "registeredUsers": [
@@ -485,7 +485,7 @@
       },
       {
         "id": 7,
-        "title": "Chuỗi đơn điệu",
+        "title": "Bài 7. Chuỗi đơn điệu",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
