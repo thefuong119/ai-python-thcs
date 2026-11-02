@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:04:23.803Z",
+    "updatedAt": "2026-11-02T11:05:00.787Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 113. Dãy số và giá trị tuyệt đối lớn nhất"
+    "action": "Admin lưu bài tập: Bài 114. Lũy thừa của 2"
   },
   "data": {
     "registeredUsers": [
@@ -4596,7 +4596,7 @@
       },
       {
         "id": 149,
-        "title": "Lũy thừa của 2",
+        "title": "Bài 114. Lũy thừa của 2",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
