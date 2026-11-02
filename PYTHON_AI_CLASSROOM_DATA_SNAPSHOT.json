@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:31:03.119Z",
+    "updatedAt": "2026-11-02T14:31:41.436Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 18. Kiểm tra số hạnh phúc"
+    "action": "Admin lưu bài tập: Bài 19. Tần suất xuất hiện ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -1271,7 +1271,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập vào một chuỗi ký tự. Hãy đếm số lần xuất hiện của từng chữ cái tiếng Anh trong chuỗi (không phân biệt chữ hoa hay chữ thường).\nIn kết quả ra màn hình theo thứ tự bảng chữ cái tăng dần, mỗi dòng gồm chữ cái in hoa và số lần xuất hiện tương ứng theo định dạng: <Chữ cái>: <Số lần>.\n\n- Dữ liệu vào: Một chuỗi ký tự S gồm các từ cách nhau bởi dấu cách (1 <= |S| <= 1000).\n- Dữ liệu ra: Danh sách các chữ cái xuất hiện trong chuỗi và tần suất của chúng.",
-        "templateCode": "s = input().strip().upper()\ntan_suat = {}\nfor ch in s:\n if ch.isalpha():\n tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n print(f\"{ch}: {tan_suat[ch]}\")",
+        "templateCode": "s = input().strip().upper()\n\ntan_suat = {}\n\nfor ch in s:\n    if ch.isalpha():\n        tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n    print(f\"{ch}: {tan_suat[ch]}\")",
         "tests": [
           {
             "id": 1,
