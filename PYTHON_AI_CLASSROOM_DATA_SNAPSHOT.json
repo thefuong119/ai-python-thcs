@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:57:03.426Z",
+    "updatedAt": "2026-11-02T09:57:15.668Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 9. Xác định vị trí số đẹp"
+    "action": "Admin lưu bài tập: Bài 10. Kiểm tra số Smith"
   },
   "data": {
     "registeredUsers": [
@@ -2007,7 +2007,7 @@
       },
       {
         "id": 46,
-        "title": "Kiểm tra số Smith",
+        "title": "Bài 10. Kiểm tra số Smith",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
