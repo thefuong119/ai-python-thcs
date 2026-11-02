@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:23:15.356Z",
+    "updatedAt": "2026-11-02T15:24:20.793Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 19. Xác định vị trí số đẹp"
+    "action": "Admin lưu bài tập: Bài 20. Số thân thiện"
   },
   "data": {
     "registeredUsers": [
@@ -2276,7 +2276,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Theo quy ước của đề, hai số thân thiện nếu có cùng ước nguyên tố lớn nhất. Cho a (a > 1), hãy tìm 5 số nguyên dương nhỏ nhất thân thiện với a, có tính cả a nếu phù hợp. In theo thứ tự tăng dần.\nDữ liệu vào: Một số nguyên a.\nDữ liệu ra: Năm số thân thiện, cách nhau bởi dấu cách.",
-        "templateCode": "def uoc_nguyen_to_lon_nhat(x):\n p = 1\n d = 2\n while d * d <= x:\n while x % d == 0:\n p = d\n x //= d\n d += 1\n if x > 1:\n p = x\n return p\n\na = int(input())\np = uoc_nguyen_to_lon_nhat(a)\nkq = []\nx = 1\nwhile len(kq) < 5:\n if uoc_nguyen_to_lon_nhat(p * x) == p:\n kq.append(p * x)\n x += 1\nprint(*kq)",
+        "templateCode": "a = int(input())\n\n# Tìm ước nguyên tố lớn nhất của a\ntemp_a = a\np = 1\nd = 2\nwhile d * d <= temp_a:\n    while temp_a % d == 0:\n        p = d\n        temp_a //= d\n    d += 1\nif temp_a > 1:\n    p = temp_a\n\nkq = []\nx = 1\nwhile len(kq) < 5:\n    val = p * x\n    # Tìm ước nguyên tố lớn nhất của val\n    temp_val = val\n    max_p = 1\n    d = 2\n    while d * d <= temp_val:\n        while temp_val % d == 0:\n            max_p = d\n            temp_val //= d\n        d += 1\n    if temp_val > 1:\n        max_p = temp_val\n\n    if max_p == p:\n        kq.append(val)\n    x += 1\n\nprint(*kq)",
         "tests": [
           {
             "id": 1,
