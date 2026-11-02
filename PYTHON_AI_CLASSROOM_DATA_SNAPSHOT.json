@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:19:39.554Z",
+    "updatedAt": "2026-11-02T15:20:08.583Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 12. Tìm số tự mãn bậc 3 trong dãy"
+    "action": "Admin lưu bài tập: Bài 13. Xếp hàng"
   },
   "data": {
     "registeredUsers": [
@@ -2101,7 +2101,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một hàng có n học sinh, chiều cao của học sinh thứ i là a[i] (cm). Hãy tìm số lượng học sinh có cùng chiều cao nhiều nhất và chiều cao tương ứng.\nNếu có nhiều chiều cao cùng đạt tần suất lớn nhất, chọn chiều cao nhỏ nhất.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên là chiều cao.\nDữ liệu ra: Hai số: tần suất lớn nhất và chiều cao tương ứng.",
-        "templateCode": "from collections import Counter\nn = int(input())\na = list(map(int, input().split()))\ndem = Counter(a)\nmax_dem = max(dem.values())\nchieu_cao = min(x for x, c in dem.items() if c == max_dem)\nprint(max_dem, chieu_cao)",
+        "templateCode": "from collections import Counter\n\nn = int(input())\na = list(map(int, input().split()))\ndem = Counter(a)\nmax_dem = max(dem.values())\nchieu_cao = min(x for x, c in dem.items() if c == max_dem)\nprint(max_dem, chieu_cao)",
         "tests": [
           {
             "id": 1,
