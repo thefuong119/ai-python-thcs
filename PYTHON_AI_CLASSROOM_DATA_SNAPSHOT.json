@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:56:05.671Z",
+    "updatedAt": "2026-11-02T11:56:22.888Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 142. Tách từ"
+    "action": "Admin lưu bài tập: Bài 143. Dãy con nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -5321,7 +5321,7 @@
       },
       {
         "id": 178,
-        "title": "Dãy con nguyên tố",
+        "title": "Bài 143. Dãy con nguyên tố",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
