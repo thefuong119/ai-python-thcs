@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:04:02.698Z",
+    "updatedAt": "2026-11-02T10:05:24.988Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 31. Chia kẹo"
+    "action": "Admin lưu bài tập: Bài 32. Số lượng số nguyên tố trên hàng"
   },
   "data": {
     "registeredUsers": [
@@ -2571,7 +2571,7 @@
       },
       {
         "id": 68,
-        "title": "Số lượng số nguyên tố trên hàng",
+        "title": "Bài 32. Số lượng số nguyên tố trên hàng",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
