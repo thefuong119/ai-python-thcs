@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:18:25.832Z",
+    "updatedAt": "2026-11-02T10:18:40.703Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 65. Đổi quà"
+    "action": "Admin lưu bài tập: Bài 66. Sắp xếp ký tự số"
   },
   "data": {
     "registeredUsers": [
@@ -3421,7 +3421,7 @@
       },
       {
         "id": 102,
-        "title": "Sắp xếp ký tự số",
+        "title": "Bài 66. Sắp xếp ký tự số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
