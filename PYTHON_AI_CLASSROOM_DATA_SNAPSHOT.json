@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:43:36.414Z",
+    "updatedAt": "2026-11-02T08:43:55.127Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 12. Bội số đặc biệt"
+    "action": "Lưu bài tập: Bài 13. Giải nén xâu ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -914,7 +914,7 @@
       },
       {
         "id": 18,
-        "title": "Giải nén xâu ký tự",
+        "title": "Bài 13. Giải nén xâu ký tự",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
