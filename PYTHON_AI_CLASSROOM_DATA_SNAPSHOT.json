@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:50:49.549Z",
+    "updatedAt": "2026-11-02T08:51:15.262Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 27. Đồng hồ điện tử sau 1 giây"
+    "action": "Lưu bài tập: Bài 28. Tính cước taxi"
   },
   "data": {
     "registeredUsers": [
@@ -1655,7 +1655,7 @@
       },
       {
         "id": 37,
-        "title": "Tính cước taxi",
+        "title": "Bài 28. Tính cước taxi",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
