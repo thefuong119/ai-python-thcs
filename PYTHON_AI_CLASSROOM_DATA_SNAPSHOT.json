@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:11:13.431Z",
+    "updatedAt": "2026-11-02T15:12:14.337Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 11. Mã hóa bảo mật thông điệp Caesar cải tiến"
+    "action": "Admin lưu bài tập: Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)"
   },
   "data": {
     "registeredUsers": [
@@ -686,7 +686,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Số bán nguyên tố là số tự nhiên có thể phân tích thành tích của đúng hai số nguyên tố (hai số nguyên tố này có thể giống hoặc khác nhau).\nVí dụ: 4 = 2 * 2; 6 = 2 * 3; 9 = 3 * 3; 21 = 3 * 7 là các số bán nguyên tố. Các số 8 (= 2^3), 12 (= 2^2 * 3), 7 (số nguyên tố) không phải là số bán nguyên tố.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số bán nguyên tố hay không.\n\n- Dữ liệu vào: Số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số bán nguyên tố, ngược lại in ra NO.",
-        "templateCode": "n = int(input().strip())\nif n < 4:\n print(\"NO\")\nelse:\n count = 0\n temp = n\n i = 2\n while i * i <= temp:\n while temp % i == 0:\n count += 1\n temp //= i\n if count > 2:\n break\n if count > 2:\n break\n i += 1\n if temp > 1:\n count += 1\n print(\"YES\" if count == 2 else \"NO\")",
+        "templateCode": "n = int(input().strip())\nif n < 4:\n    print(\"NO\")\nelse:\n    count = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            count += 1\n            temp //= i\n            if count > 2:\n                break\n        if count > 2:\n            break\n        i += 1\n    if temp > 1:\n        count += 1\n    print(\"YES\" if count == 2 else \"NO\")",
         "tests": [
           {
             "id": 1,
