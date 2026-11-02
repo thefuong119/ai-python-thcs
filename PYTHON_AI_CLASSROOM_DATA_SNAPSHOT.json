@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:51:45.280Z",
+    "updatedAt": "2026-11-02T10:54:00.234Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!"
+    "action": "Admin lưu bài giảng: Bài 1. Thuật toán tìm kiếm nhị phân (Binary Search)"
   },
   "data": {
     "registeredUsers": [
@@ -6713,7 +6713,7 @@
       },
       {
         "id": 17,
-        "title": "Bài 15. Thuật toán tìm kiếm nhị phân (Binary Search)",
+        "title": "Bài 1. Thuật toán tìm kiếm nhị phân (Binary Search)",
         "classLevel": "9",
         "grade": "Bồi dưỡng HSG Tin học",
         "content": "### 1. Nguyên lý tìm kiếm nhị phân\n- Cho dãy số đã sắp xếp tăng dần. Ở mỗi bước, so sánh phần tử cần tìm với phần tử ở giữa dãy để thu hẹp không gian tìm kiếm còn một nửa.\n- Thời gian thực thi là $O(\\log n)$.\n\n```python\ndef binary_search(arr, x):\n left, right = 0, len(arr) - 1\n while left <= right:\n mid = (left + right) // 2\n if arr[mid] == x: return mid\n elif arr[mid] < x: left = mid + 1\n else: right = mid - 1\n return -1\n```"
