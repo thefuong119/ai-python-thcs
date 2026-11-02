@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:46:45.679Z",
+    "updatedAt": "2026-11-02T14:49:46.130Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Chi phí sơn phòng học hình hộp chữ nhật"
+    "action": "Admin lưu bài tập: Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo"
   },
   "data": {
     "registeredUsers": [
@@ -7850,8 +7850,8 @@
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
-        "description": "Cho một tứ giác $ABCD$1$AB=a, BC=b, CD=c, DA=d$1$AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$1$a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.",
-        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n if abs(a - b) < eps:\n print(\"HINH VUONG\")\n else:\n print(\"HINH CHU NHAT\")\nelse:\n print(\"HINH KHAC\")",
+        "description": "Cho một tứ giác $ABCD$1$AB=a, BC=b, CD=c, DA=d$1$AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$1$a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.\n*Giải thích*: eps = 1e-5 được dùng làm sai số cho phép để kiểm tra xem hai cạnh có bằng nhau hay không (abs(a - c) < eps), giúp chương trình tránh được các lỗi sai số làm tròn khi nhập số thực.",
+        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n    if abs(a - b) < eps:\n        print(\"HINH VUONG\")\n    else:\n        print(\"HINH CHU NHAT\")\nelse:\n    print(\"HINH KHAC\")",
         "tests": [
           {
             "id": 1,
