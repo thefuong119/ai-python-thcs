@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:02:25.328Z",
+    "updatedAt": "2026-11-02T11:03:51.316Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 110. Số nguyên tố trong dãy"
+    "action": "Admin lưu bài tập: Bài 112. Tổng bình phương và phân thức"
   },
   "data": {
     "registeredUsers": [
@@ -4546,7 +4546,7 @@
       },
       {
         "id": 147,
-        "title": "Tổng bình phương và phân thức",
+        "title": "Bài 112. Tổng bình phương và phân thức",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
