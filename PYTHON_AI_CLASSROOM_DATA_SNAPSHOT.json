@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:51:35.706Z",
+    "updatedAt": "2026-11-02T12:51:45.487Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 1. Tính tiền cước taxi theo quãng đường"
+    "action": "Admin lưu bài tập: Bài 2. Hóa đơn siêu thị và chiết khấu thành viên"
   },
   "data": {
     "registeredUsers": [
@@ -7621,7 +7621,7 @@
       },
       {
         "id": 270,
-        "title": "Hóa đơn siêu thị và chiết khấu thành viên",
+        "title": "Bài 2. Hóa đơn siêu thị và chiết khấu thành viên",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
