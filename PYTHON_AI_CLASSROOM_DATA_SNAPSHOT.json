@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:26:02.075Z",
+    "updatedAt": "2026-11-02T14:26:48.107Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 12. Bội số đặc biệt"
+    "action": "Admin lưu bài tập: Bài 13. Giải nén xâu ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -920,7 +920,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Trong nén văn bản, một phương pháp nén đơn giản thay thế các đoạn ký tự lặp liên tiếp bằng số lần lặp kèm theo ký tự đó. Ví dụ: xâu aaaabbb được nén thành 4a3b; xâu aaab nén thành 3ab; nếu ký tự xuất hiện 1 lần thì có thể không ghi số (ví dụ c thay vì 1c).\nCho một xâu ký tự nén St. Hãy viết chương trình giải nén xâu St để thu lại xâu ký tự ban đầu.\n\n- Dữ liệu vào: Một dòng chứa xâu ký tự St gồm các chữ số và chữ cái tiếng Anh in thường (1 <= |St| <= 255).\n- Dữ liệu ra: In ra xâu ký tự sau khi giải nén.",
-        "templateCode": "St = input().strip()\nkq = []\ni = 0\nn = len(St)\nwhile i < n:\n num = 0\n has_num = False\n while i < n and St[i].isdigit():\n num = num * 10 + int(St[i])\n i += 1\n has_num = True\n if not has_num:\n num = 1\n if i < n:\n ch = St[i]\n kq.append(ch * num)\n i += 1\nprint(\"\".join(kq))",
+        "templateCode": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))",
         "tests": [
           {
             "id": 1,
