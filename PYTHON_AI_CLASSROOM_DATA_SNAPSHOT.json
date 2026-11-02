@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:00:14.547Z",
+    "updatedAt": "2026-11-02T15:00:53.726Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Phân tích nhật ký Web: Phát hiện IP truy cập bất thường"
+    "action": "Admin lưu bài tập: Tính tiền cước di động linh hoạt theo Block giây"
   },
   "data": {
     "registeredUsers": [
@@ -8551,7 +8551,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một nhà mạng tính cước cuộc gọi theo cơ chế block 6 giây + 1 giây:\n- Cuộc gọi dưới hoặc bằng 6 giây tính cước nguyên block 6 giây đầu: 120 đ (nội mạng), 200 đ (ngoại mạng).\n- Từ giây thứ 7 trở đi, mỗi giây tính thêm 20 đ/giây (nội mạng) hoặc 33 đ/giây (ngoại mạng).\n- Nhà mạng có chương trình ưu đãi: Nếu là cuộc gọi nội mạng và thời lượng gọi từ 600 giây (10 phút) trở lên, toàn bộ cước cuộc gọi đó được giảm 15%.\nHãy tính cước phí của một cuộc gọi dựa trên loại mạng ('NOI' hoặc 'NGOAI') và số giây đàm thoại $S$.\n\nDữ liệu vào: Một dòng gồm mã loại cuộc gọi ('NOI' hoặc 'NGOAI') và số nguyên dương $S$ ($1 \\le S \\le 7200$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền cước (làm tròn số nguyên).",
-        "templateCode": "line = input().split()\nloai = line[0].upper()\ns = int(line[1])\n\nif loai == 'NOI':\n if s <= 6:\n cuoc = 120\n else:\n cuoc = 120 + (s - 6) * 20\n if s >= 600:\n cuoc = cuoc * 0.85\nelse:\n if s <= 6:\n cuoc = 200\n else:\n cuoc = 200 + (s - 6) * 33\n\nprint(round(cuoc))",
+        "templateCode": "line = input().split()\nloai = line[0].upper()\ns = int(line[1])\n\nif loai == 'NOI':\n    if s <= 6:\n        cuoc = 120\n    else:\n        cuoc = 120 + (s - 6) * 20\n        if s >= 600:\n            cuoc = cuoc * 0.85\nelse:\n    if s <= 6:\n        cuoc = 200\n    else:\n        cuoc = 200 + (s - 6) * 33\n\nprint(round(cuoc))",
         "tests": [
           {
             "id": 1,
