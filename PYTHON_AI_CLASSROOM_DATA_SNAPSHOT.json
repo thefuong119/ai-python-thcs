@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:05:58.852Z",
+    "updatedAt": "2026-11-02T16:06:34.135Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 84. Tổng chữ số, tổng luân phiên và bất đẳng thức"
+    "action": "Admin lưu bài tập: Bài 85. Xử lý xâu chữ và chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3901,7 +3901,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Xâu S gồm chữ thường và chữ số. In số a tạo bởi các chữ số trong S; xóa một số chữ số của a để được số lớn nhất chia hết cho 5 (nếu không có in KHONG); tính tổng các số xuất hiện trong S.\nInput: S. Output: a, b, T.",
-        "templateCode": "s = input().strip()\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\nb = max(candidates, key=lambda x: int(x)) if candidates else 'KHONG'\nimport re\nT = sum(map(int, re.findall(r'\\d+', s)))\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
+        "templateCode": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key=lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
         "tests": [
           {
             "id": 1,
