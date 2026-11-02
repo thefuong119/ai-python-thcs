@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:40:00.779Z",
+    "updatedAt": "2026-11-02T10:40:21.560Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 84. Tổng chữ số, tổng luân phiên và bất đẳng thức"
+    "action": "Admin lưu bài tập: Bài 85. Xử lý xâu chữ và chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3896,7 +3896,7 @@
       },
       {
         "id": 121,
-        "title": "Xử lý xâu chữ và chữ số",
+        "title": "Bài 85. Xử lý xâu chữ và chữ số",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
