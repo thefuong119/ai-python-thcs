@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T13:04:06.810Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Đăng ký học sinh mới: Nguyễn Phú Lộc"
+    "updatedAt": "2026-11-02T13:04:58.666Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Admin lưu bài tập: Bài 11. Mã hóa bảo mật thông điệp Caesar cải tiến"
   },
   "data": {
     "registeredUsers": [
@@ -269,19 +269,6 @@
         "className": "Khối 8",
         "phone": "0989682045",
         "role": "teacher",
-        "status": "active",
-        "loginCount": 1
-      },
-      {
-        "id": 1793624644494,
-        "name": "Nguyễn Phú Lộc",
-        "username": "nguyenphuloc",
-        "identifier": "nguyenphuloc",
-        "password": "1234567890",
-        "school": "THCS Thành Đông",
-        "className": "8a2",
-        "phone": "---",
-        "role": "student",
         "status": "active",
         "loginCount": 1
       }
@@ -8359,7 +8346,7 @@
       },
       {
         "id": 299,
-        "title": "Phân loại rác tái chế và quy đổi tích điểm",
+        "title": "Bài 10. Phân loại rác tái chế và quy đổi tích điểm",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -8509,7 +8496,7 @@
       },
       {
         "id": 305,
-        "title": "Mã hóa bảo mật thông điệp Caesar cải tiến",
+        "title": "Bài 11. Mã hóa bảo mật thông điệp Caesar cải tiến",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -9673,41 +9660,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "20:04:04 2/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "nguyenphuloc",
-        "role": "student",
-        "result": "Đăng ký thành công"
-      },
-      {
-        "time": "20:02:33 2/11/2026",
-        "name": "0939924811",
-        "identifier": "0939924811",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "20:02:23 2/11/2026",
-        "name": "0939924811",
-        "identifier": "0939924811",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "20:01:55 2/11/2026",
-        "name": "nguyenphuloc",
-        "identifier": "nguyenphuloc",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "20:01:39 2/11/2026",
-        "name": "nguyenphuloc",
-        "identifier": "nguyenphuloc",
-        "role": "student",
-        "result": "Thất bại"
-      },
       {
         "time": "15:56:40 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
