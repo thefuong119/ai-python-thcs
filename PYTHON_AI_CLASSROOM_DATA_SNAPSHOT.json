@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:16:03.724Z",
+    "updatedAt": "2026-11-02T15:17:21.373Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 5. Dãy con nguyên tố dài nhất"
+    "action": "Admin lưu bài tập: Bài 7. Tổ chức tham quan"
   },
   "data": {
     "registeredUsers": [
@@ -1115,7 +1115,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Ban tổ chức Hội thi Tin học tổ chức cho N đoàn đi tham quan các địa điểm khác nhau. Đoàn thứ i đi thăm địa điểm cách khách sạn d_i km (i = 1, ..., N).\nHội thi có M xe taxi (M >= N) được đánh số từ 1 đến M. Xe thứ j có mức tiêu thụ nhiên liệu là v_j lít/km. Mỗi xe chỉ phục vụ đúng một đoàn.\nYêu cầu: Hãy chọn ra N xe phục vụ N đoàn sao cho tổng lượng xăng tiêu thụ là ít nhất.\n\n- Dữ liệu vào:\n + Dòng 1: Hai số nguyên dương N và M (1 <= N <= M <= 200).\n + Dòng 2: N số nguyên dương d_1, d_2, ..., d_N.\n + Dòng 3: M số nguyên dương v_1, v_2, ..., v_M.\n- Dữ liệu ra:\n + Dòng 1: Tổng lượng nhiên liệu ít nhất cần dùng.\n + N dòng tiếp theo, dòng thứ i ghi số hiệu xe phục vụ cho đoàn thứ i (i = 1, ..., N).",
-        "templateCode": "import sys\n\ndef solve():\n lines = sys.stdin.read().strip().split('\\n')\n if not lines or not lines[0]:\n return\n n, m = map(int, lines[0].split())\n dist = list(map(int, lines[1].split()))\n fuel = list(map(int, lines[2].split()))\n\n ds_dist = [(dist[i], i) for i in range(n)]\n ds_fuel = [(fuel[j], j + 1) for j in range(m)]\n\n ds_dist.sort(key=lambda x: x[0], reverse=True)\n ds_fuel.sort(key=lambda x: x[0])\n\n assigned = [0] * n\n total = 0\n for i in range(n):\n d_val, d_idx = ds_dist[i]\n f_val, f_idx = ds_fuel[i]\n total += d_val * f_val\n assigned[d_idx] = f_idx\n\n print(total)\n for x in assigned:\n print(x)\n\nif __name__ == '__main__':\n solve()",
+        "templateCode": "import sys\n\nlines = sys.stdin.read().strip().split('\\n')\nif lines and lines[0]:\n    n, m = map(int, lines[0].split())\n    dist = list(map(int, lines[1].split()))\n    fuel = list(map(int, lines[2].split()))\n\n    ds_dist = [(dist[i], i) for i in range(n)]\n    ds_fuel = [(fuel[j], j + 1) for j in range(m)]\n\n    ds_dist.sort(key=lambda x: x[0], reverse=True)\n    ds_fuel.sort(key=lambda x: x[0])\n\n    assigned = [0] * n\n    total = 0\n    for i in range(n):\n        d_val, d_idx = ds_dist[i]\n        f_val, f_idx = ds_fuel[i]\n        total += d_val * f_val\n        assigned[d_idx] = f_idx\n\n    print(total)\n    for x in assigned:\n        print(x)",
         "tests": [
           {
             "id": 1,
