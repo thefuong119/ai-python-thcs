@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:14:40.678Z",
+    "updatedAt": "2026-11-02T15:16:03.724Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 4. Mật mã kép"
+    "action": "Admin lưu bài tập: Bài 5. Dãy con nguyên tố dài nhất"
   },
   "data": {
     "registeredUsers": [
@@ -842,7 +842,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho một dãy số nguyên gồm n phần tử a_1, a_2, ..., a_n.\nHãy tìm dãy con gồm các số nguyên tố liên tiếp có độ dài dài nhất. Nếu có nhiều dãy con nguyên tố cùng độ dài dài nhất, hãy chọn dãy có tổng giá trị các phần tử lớn hơn.\n\n- Dữ liệu vào:\n + Dòng 1: Ghi số nguyên dương n (1 <= n <= 10^5).\n + Dòng 2: Ghi n số nguyên a_1, a_2, ..., a_n (0 <= a_i <= 10^6), cách nhau bởi dấu cách.\n- Dữ liệu ra: Ghi dãy con nguyên tố dài nhất tìm được, các phần tử cách nhau bởi dấu cách.",
-        "templateCode": "import sys\n\ndef is_prime(x):\n if x < 2:\n return False\n if x in (2, 3):\n return True\n if x % 2 == 0 or x % 3 == 0:\n return False\n i = 5\n while i * i <= x:\n if x % i == 0 or x % (i + 2) == 0:\n return False\n i += 6\n return True\n\ndef solve():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n a = [int(x) for x in data[1:n+1]]\n \n best = []\n curr = []\n for x in a:\n if is_prime(x):\n curr.append(x)\n else:\n if len(curr) > len(best) or (len(curr) == len(best) and sum(curr) > sum(best)):\n best = curr[:]\n curr = []\n if len(curr) > len(best) or (len(curr) == len(best) and sum(curr) > sum(best)):\n best = curr[:]\n \n print(*(best))\n\nif __name__ == '__main__':\n solve()",
+        "templateCode": "import sys\n\ndata = sys.stdin.read().split()\nif data:\n    n = int(data[0])\n    a = [int(x) for x in data[1 : n + 1]]\n\n    best = []\n    curr = []\n    for x in a:\n        # Kiem tra x co phai so nguyen to khong\n        is_prime = True\n        if x < 2:\n            is_prime = False\n        elif x in (2, 3):\n            is_prime = True\n        elif x % 2 == 0 or x % 3 == 0:\n            is_prime = False\n        else:\n            i = 5\n            while i * i <= x:\n                if x % i == 0 or x % (i + 2) == 0:\n                    is_prime = False\n                    break\n                i += 6\n\n        if is_prime:\n            curr.append(x)\n        else:\n            if len(curr) > len(best) or (\n                len(curr) == len(best) and sum(curr) > sum(best)\n            ):\n                best = curr[:]\n            curr = []\n\n    if len(curr) > len(best) or (\n        len(curr) == len(best) and sum(curr) > sum(best)\n    ):\n        best = curr[:]\n\n    print(*(best))",
         "tests": [
           {
             "id": 1,
