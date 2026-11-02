@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:18:15.967Z",
+    "updatedAt": "2026-11-02T15:18:50.449Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 9. Tổng chẵn"
+    "action": "Admin lưu bài tập: Bài 10. Kiểm tra số Smith"
   },
   "data": {
     "registeredUsers": [
@@ -2012,7 +2012,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Số Smith là một hợp số (không phải là số nguyên tố) mà tổng các chữ số của nó bằng tổng các chữ số của tất cả các thừa số nguyên tố khi phân tích nó ra thừa số nguyên tố (tính cả các thừa số trùng nhau).\nVí dụ:\n- Số 94 = 2 * 47 là hợp số. Tổng các chữ số của 94 là 9 + 4 = 13. Tổng chữ số của các thừa số nguyên tố là 2 + (4 + 7) = 13 -> 94 là số Smith.\n- Số 4 = 2 * 2: 4 = 2 + 2 -> 4 là số Smith.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số Smith hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số Smith, ngược lại in ra NO.",
-        "templateCode": "def is_prime(x):\n if x < 2:\n return False\n if x in (2, 3):\n return True\n if x % 2 == 0 or x % 3 == 0:\n return False\n i = 5\n while i * i <= x:\n if x % i == 0 or x % (i + 2) == 0:\n return False\n i += 6\n return True\n\nn = int(input().strip())\nif n < 4 or is_prime(n):\n print(\"NO\")\nelse:\n sum_digits_n = sum(int(d) for d in str(n))\n sum_prime_digits = 0\n temp = n\n i = 2\n while i * i <= temp:\n while temp % i == 0:\n sum_prime_digits += sum(int(d) for d in str(i))\n temp //= i\n i += 1\n if temp > 1:\n sum_prime_digits += sum(int(d) for d in str(temp))\n \n if sum_digits_n == sum_prime_digits:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "templateCode": "n = int(input().strip())\n\n# Kiem tra n co phai so nguyen to hay khong\nis_prime_n = True\nif n < 2:\n    is_prime_n = False\nelif n in (2, 3):\n    is_prime_n = True\nelif n % 2 == 0 or n % 3 == 0:\n    is_prime_n = False\nelse:\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            is_prime_n = False\n            break\n        i += 6\n\nif n < 4 or is_prime_n:\n    print(\"NO\")\nelse:\n    sum_digits_n = sum(int(d) for d in str(n))\n    sum_prime_digits = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            sum_prime_digits += sum(int(d) for d in str(i))\n            temp //= i\n        i += 1\n    if temp > 1:\n        sum_prime_digits += sum(int(d) for d in str(temp))\n\n    if sum_digits_n == sum_prime_digits:\n        print(\"YES\")\n    else:\n        print(\"NO\")",
         "tests": [
           {
             "id": 1,
