@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:54:45.918Z",
+    "updatedAt": "2026-11-02T14:56:06.487Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Tính phí đỗ xe thông minh theo khung giờ"
+    "action": "Admin lưu bài tập: Kiểm tra mã vạch sản phẩm EAN-13"
   },
   "data": {
     "registeredUsers": [
@@ -8326,7 +8326,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Mã vạch chuẩn EAN-13 gồm đúng 13 chữ số $d_1 d_2 ... d_{13}$. Chữ số cuối cùng $d_{13}$1$S = \\sum_{i=1}^{12} (d_i \\times w_i)$, với $w_i = 1$1$i$1$w_i = 3$1$i$1$c \\in [0, 9]$1$(S + c)$1$S \\% 10 == 0$1$c = 0$, ngược lại $c = 10 - (S \\% 10)$.\nNếu $d_{13} == c$, mã vạch hợp lệ; ngược lại mã vạch bị làm giả hoặc sai sót.\n\nDữ liệu vào: Một chuỗi ký tự độ dài 13 chữ số.\nDữ liệu ra: In \"VALID\" nếu mã vạch hợp lệ, ngược lại in \"INVALID\" kèm chữ số kiểm tra đúng cách nhau một dấu cách (ví dụ: \"INVALID 8\").",
-        "templateCode": "s = input().strip()\nd = [int(c) for c in s]\ntong = 0\nfor i in range(12):\n if (i + 1) % 2 == 1:\n tong += d[i] * 1\n else:\n tong += d[i] * 3\n\ndu = tong % 10\nc = 0 if du == 0 else 10 - du\n\nif d[12] == c:\n print(\"VALID\")\nelse:\n print(f\"INVALID {c}\")",
+        "templateCode": "s = input().strip()\nd = [int(c) for c in s]\ntong = 0\nfor i in range(12):\n    if (i + 1) % 2 == 1:\n        tong += d[i] * 1\n    else:\n        tong += d[i] * 3\n\ndu = tong % 10\nc = 0 if du == 0 else 10 - du\n\nif d[12] == c:\n    print(\"VALID\")\nelse:\n    print(f\"INVALID {c}\")",
         "tests": [
           {
             "id": 1,
