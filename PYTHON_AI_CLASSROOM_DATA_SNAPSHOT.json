@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:38:10.851Z",
+    "updatedAt": "2026-11-02T14:38:55.894Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 28. Tính cước taxi"
+    "action": "Admin lưu bài tập: Bài 29. Số âm lớn nhất trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -1700,7 +1700,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho một dãy gồm N số nguyên a1, a2, ..., aN.\nHãy tìm số âm lớn nhất trong dãy (số âm có giá trị gần 0 nhất). Nếu dãy không có số âm nào thì in ra số 0.\n\n- Dữ liệu vào:\n + Dòng 1: Số nguyên dương N (1 <= N <= 10^5).\n + N dòng tiếp theo (hoặc trên cùng một dòng), mỗi dòng chứa một số nguyên ai (-10^5 <= ai <= 10^5).\n- Dữ liệu ra: In ra số âm lớn nhất tìm được hoặc số 0.",
-        "templateCode": "import sys\n\ndef solve():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n so_am = [x for x in arr if x < 0]\n if so_am:\n print(max(so_am))\n else:\n print(0)\n\nif __name__ == '__main__':\n solve()",
+        "templateCode": "import sys\n\ndef solve():\n    data = sys.stdin.read().split()\n    if not data:\n        return\n    n = int(data[0])\n    arr = [int(x) for x in data[1:n+1]]\n    so_am = [x for x in arr if x < 0]\n    if so_am:\n        print(max(so_am))\n    else:\n        print(0)\n\nif __name__ == '__main__':\n    solve()",
         "tests": [
           {
             "id": 1,
