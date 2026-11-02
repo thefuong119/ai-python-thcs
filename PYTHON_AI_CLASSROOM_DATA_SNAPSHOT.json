@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:47:24.617Z",
+    "updatedAt": "2026-11-02T08:47:36.134Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 17. Kiểm tra số Kaprekar"
+    "action": "Lưu bài tập: Bài 18. Kiểm tra số hạnh phúc"
   },
   "data": {
     "registeredUsers": [
@@ -1187,7 +1187,7 @@
       },
       {
         "id": 25,
-        "title": "Kiểm tra số hạnh phúc",
+        "title": "Bài 18. Kiểm tra số hạnh phúc",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
