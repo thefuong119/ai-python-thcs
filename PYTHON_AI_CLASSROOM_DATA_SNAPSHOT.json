@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:58:47.452Z",
+    "updatedAt": "2026-11-02T10:59:16.202Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 100. Số chữ số"
+    "action": "Admin lưu bài tập: Bài 101. Tam giác vuông"
   },
   "data": {
     "registeredUsers": [
@@ -4296,7 +4296,7 @@
       },
       {
         "id": 137,
-        "title": "Tam giác vuông",
+        "title": "Bài 101. Tam giác vuông",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
