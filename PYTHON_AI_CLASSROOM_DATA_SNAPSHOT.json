@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:01:15.195Z",
+    "updatedAt": "2026-11-02T12:01:34.992Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 150. Sắp xếp chẵn lẻ"
+    "action": "Admin lưu bài tập: Bài 151. Dãy con nguyên tố dài nhất"
   },
   "data": {
     "registeredUsers": [
@@ -5521,7 +5521,7 @@
       },
       {
         "id": 186,
-        "title": "Dãy con nguyên tố dài nhất",
+        "title": "Bài 151. Dãy con nguyên tố dài nhất",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
