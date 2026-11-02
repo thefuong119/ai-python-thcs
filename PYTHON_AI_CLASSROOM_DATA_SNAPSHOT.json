@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:01:24.600Z",
+    "updatedAt": "2026-11-02T10:02:09.835Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 22. Tính tổng các số chia hết cho K"
+    "action": "Admin lưu bài tập: Bài 23. Tìm số đường khép kín"
   },
   "data": {
     "registeredUsers": [
@@ -2346,7 +2346,7 @@
       },
       {
         "id": 59,
-        "title": "Tìm số đường khép kín",
+        "title": "Bài 23. Tìm số đường khép kín",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
