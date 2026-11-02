@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:39:31.365Z",
+    "updatedAt": "2026-11-02T14:40:05.930Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 30. Số nguyên tố có tổng chữ số cho trước"
+    "action": "Admin lưu bài tập: Bài 31. Đếm tần suất chữ số của tổng"
   },
   "data": {
     "registeredUsers": [
@@ -1778,7 +1778,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho hai số nguyên M và N. Gọi S = M + N.\nHãy đếm số lần xuất hiện của các chữ số trong giá trị tuyệt đối của tổng S và in ra theo thứ tự tăng dần của các chữ số.\n\n- Dữ liệu vào: Một dòng ghi hai số nguyên M và N (-10^9 <= M, N <= 10^9).\n- Dữ liệu ra: Mỗi dòng ghi một chữ số và số lần xuất hiện của nó theo định dạng: <Chữ số>: <Số lần>.",
-        "templateCode": "m, n = map(int, input().split())\ns = str(abs(m + n))\ndem = {}\nfor ch in s:\n dem[ch] = dem.get(ch, 0) + 1\n\nfor d in sorted(dem.keys(), key=int):\n print(f\"{d}: {dem[d]}\")",
+        "templateCode": "m, n = map(int, input().split())\ns = str(abs(m + n))\ndem = {}\nfor ch in s:\n    dem[ch] = dem.get(ch, 0) + 1\n\nfor d in sorted(dem.keys(), key=int):\n    print(f\"{d}: {dem[d]}\")",
         "tests": [
           {
             "id": 1,
