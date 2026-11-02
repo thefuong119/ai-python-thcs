@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:56:06.487Z",
+    "updatedAt": "2026-11-02T14:56:56.386Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Kiểm tra mã vạch sản phẩm EAN-13"
+    "action": "Admin lưu bài tập: Tìm dãy ghế liền kề trong rạp chiếu phim"
   },
   "data": {
     "registeredUsers": [
@@ -8376,7 +8376,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một phòng chiếu phim có $R$1$C$1$K$1$R, C, K$ ($1 \\le R, C \\le 100; 1 \\le K \\le C$).\n- $R$1$C$ chỉ gồm '0' và '1'.\nDữ liệu ra: Hai số nguyên là chỉ số hàng và chỉ số cột bắt đầu (đánh số từ 1), hoặc \"NONE\".",
-        "templateCode": "R, C, K = map(int, input().split())\ntim_thay = False\nmuc_tieu = '0' * K\n\nfor r in range(R):\n hang = input().strip()\n idx = hang.find(muc_tieu)\n if idx != -1 and not tim_thay:\n print(f\"{r + 1} {idx + 1}\")\n tim_thay = True\n\nif not tim_thay:\n print(\"NONE\")",
+        "templateCode": "R, C, K = map(int, input().split())\ntim_thay = False\nmuc_tieu = '0' * K\n\nfor r in range(R):\n    hang = input().strip()\n    idx = hang.find(muc_tieu)\n    if idx != -1 and not tim_thay:\n        print(f\"{r + 1} {idx + 1}\")\n        tim_thay = True\n\nif not tim_thay:\n    print(\"NONE\")",
         "tests": [
           {
             "id": 1,
