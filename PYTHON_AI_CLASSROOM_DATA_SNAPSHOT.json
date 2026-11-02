@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:41:39.382Z",
+    "updatedAt": "2026-11-02T15:42:32.253Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 45. Tạo ma trận theo quy luật"
+    "action": "Admin lưu bài tập: Bài 46. Mua bất động sản"
   },
   "data": {
     "registeredUsers": [
@@ -2926,7 +2926,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Có n tỷ đồng. Mỗi mảnh đất hình vuông cạnh nguyên dương x có giá x² tỷ đồng. Hãy phân tích n thành tổng các số chính phương sao cho số mảnh đất ít nhất. Nếu có nhiều phương án cùng số mảnh, chọn phương án có cạnh lớn nhất lớn nhất; tiếp tục ưu tiên dãy cạnh giảm dần theo thứ tự từ điển.\nDữ liệu vào: Một số nguyên dương n (n ≤ 60000).\nDữ liệu ra: Dãy độ dài cạnh các mảnh đất theo thứ tự giảm dần.",
-        "templateCode": "n = int(input())\ndp = [10**9] * (n + 1)\nchon = [0] * (n + 1)\ndp[0] = 0\nfor s in range(1, n + 1):\n for canh in range(1, int(s ** 0.5) + 1):\n sq = canh * canh\n cand = dp[s - sq] + 1\n if cand < dp[s] or (cand == dp[s] and sq > chon[s]):\n dp[s] = cand\n chon[s] = sq\nans = []\nwhile n > 0:\n sq = chon[n]\n ans.append(int(sq ** 0.5))\n n -= sq\nprint(*sorted(ans, reverse=True))",
+        "templateCode": "n = int(input())\ndp = [10**9] * (n + 1)\nchon = [0] * (n + 1)\ndp[0] = 0\n\nfor s in range(1, n + 1):\n    for canh in range(1, int(s**0.5) + 1):\n        sq = canh * canh\n        cand = dp[s - sq] + 1\n        if cand < dp[s] or (cand == dp[s] and sq > chon[s]):\n            dp[s] = cand\n            chon[s] = sq\n\nans = []\nwhile n > 0:\n    sq = chon[n]\n    ans.append(int(sq**0.5))\n    n -= sq\n\nprint(*sorted(ans, reverse=True))",
         "tests": [
           {
             "id": 1,
