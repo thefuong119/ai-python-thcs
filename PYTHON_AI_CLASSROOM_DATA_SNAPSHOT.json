@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:10:42.302Z",
+    "updatedAt": "2026-11-02T15:11:13.431Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 10. Phân loại rác tái chế và quy đổi tích điểm"
+    "action": "Admin lưu bài tập: Bài 11. Mã hóa bảo mật thông điệp Caesar cải tiến"
   },
   "data": {
     "registeredUsers": [
@@ -8501,7 +8501,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Để bảo mật thông tin nội bộ gửi qua mạng, một công ty mã hóa thông điệp bằng cách dịch chuyển các chữ cái tiếng Anh đi $K$1$i$1$(i + K) \\% 26$.\n- Chữ in thường biến đổi tương tự theo chu trình chữ thường.\n- Các ký tự khác (chữ số, dấu cách, dấu câu) được giữ nguyên không đổi.\nHãy viết chương trình nhận vào số bước dịch chuyển $K$1$K$ ($0 \\le K \\le 100$).\n- Dòng 2: Chuỗi văn bản $S$ (độ dài không quá 1000 ký tự).\nDữ liệu ra: Chuỗi văn bản sau khi mã hóa.",
-        "templateCode": "K = int(input().strip()) % 26\ns = input()\nres = []\n\nfor ch in s:\n if 'A' <= ch <= 'Z':\n res.append(chr((ord(ch) - ord('A') + K) % 26 + ord('A')))\n elif 'a' <= ch <= 'z':\n res.append(chr((ord(ch) - ord('a') + K) % 26 + ord('a')))\n else:\n res.append(ch)\n\nprint(\"\".join(res))",
+        "templateCode": "K = int(input().strip()) % 26\ns = input()\nres = []\n\nfor ch in s:\n    if 'A' <= ch <= 'Z':\n        res.append(chr((ord(ch) - ord('A') + K) % 26 + ord('A')))\n    elif 'a' <= ch <= 'z':\n        res.append(chr((ord(ch) - ord('a') + K) % 26 + ord('a')))\n    else:\n        res.append(ch)\n\nprint(\"\".join(res))",
         "tests": [
           {
             "id": 1,
