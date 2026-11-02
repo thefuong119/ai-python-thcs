@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:40:10.358Z",
+    "updatedAt": "2026-11-02T08:41:32.423Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 8. Tìm số trong dãy quy luật"
+    "action": "Lưu bài tập: Bài 9. Số có đúng ba ước nguyên dương"
   },
   "data": {
     "registeredUsers": [
@@ -563,7 +563,7 @@
       },
       {
         "id": 9,
-        "title": "Số có đúng ba ước nguyên dương",
+        "title": "Bài 9. Số có đúng ba ước nguyên dương",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
