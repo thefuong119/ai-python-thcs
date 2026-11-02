@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:55:26.427Z",
+    "updatedAt": "2026-11-02T15:56:02.456Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 68. Số lượng số nguyên tố trên hàng"
+    "action": "Admin lưu bài tập: Bài 69. Nguyên tố từ tổng chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3501,7 +3501,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho số nguyên dương n. Tính tổng các chữ số của n và kiểm tra tổng đó có phải số nguyên tố hay không.\nDữ liệu vào: Một số nguyên dương n.\nDữ liệu ra: Dòng 1 ghi tổng chữ số; dòng 2 ghi YES nếu tổng là số nguyên tố, ngược lại ghi NO.",
-        "templateCode": "n = input().strip()\ns = sum(int(ch) for ch in n)\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\nprint(s)\nprint(\"YES\" if la_nguyen_to(s) else \"NO\")",
+        "templateCode": "n = input().strip()\ns = sum(int(ch) for ch in n)\n\n\ndef la_nguyen_to(x):\n    if x < 2:\n        return False\n    d = 2\n    while d * d <= x:\n        if x % d == 0:\n            return False\n        d += 1\n    return True\n\n\nprint(s)\nprint(\"YES\" if la_nguyen_to(s) else \"NO\")",
         "tests": [
           {
             "id": 1,
