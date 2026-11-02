@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:52:34.995Z",
+    "updatedAt": "2026-11-02T08:53:13.302Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 32. Quyển sách có bao nhiêu tờ"
+    "action": "Nạp 36 bài tập từ tep_mau_bai_tap_python.docx"
   },
   "data": {
     "registeredUsers": [
@@ -2038,6 +2038,906 @@
             "id": 4,
             "input": "13",
             "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 47,
+        "title": "Tính tổng nghịch đảo bình phương",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương n. Tính tổng S = 1/1² + 1/2² + ... + 1/n².\nIn S với đúng 3 chữ số sau dấu thập phân. Tài liệu nguồn có chỗ ghi làm tròn 2 chữ số, nhưng phần phân tích và các ví dụ thống nhất 3 chữ số; bài này sử dụng 3 chữ số để khớp ví dụ.\nDữ liệu vào: Một số nguyên n.\nDữ liệu ra: Giá trị S với 3 chữ số thập phân.",
+        "templateCode": "n = int(input())\ns = sum(1 / (i * i) for i in range(1, n + 1))\nprint(f\"{s:.3f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "1.361",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4",
+            "expected": "1.424",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 48,
+        "title": "Tìm số tự mãn bậc 3 trong dãy",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số tự mãn bậc 3 là số bằng tổng lập phương các chữ số của nó. Ví dụ: 153 = 1³ + 5³ + 3³.\nCho dãy gồm n số nguyên dương. Hãy tìm các số tự mãn bậc 3 trong dãy và in theo thứ tự tăng dần. Nếu không có số nào, in KHONG.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên dương.\nDữ liệu ra: Các số tự mãn theo thứ tự tăng dần, cách nhau bởi dấu cách; nếu rỗng in KHONG.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef la_tu_man(x):\n return x == sum(int(ch) ** 3 for ch in str(x))\nkq = sorted(x for x in a if la_tu_man(x))\nprint(*kq if kq else [\"KHONG\"])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n6 371 18 153 28",
+            "expected": "153 371",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 10 20",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 49,
+        "title": "Xếp hàng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một hàng có n học sinh, chiều cao của học sinh thứ i là a[i] (cm). Hãy tìm số lượng học sinh có cùng chiều cao nhiều nhất và chiều cao tương ứng.\nNếu có nhiều chiều cao cùng đạt tần suất lớn nhất, chọn chiều cao nhỏ nhất.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên là chiều cao.\nDữ liệu ra: Hai số: tần suất lớn nhất và chiều cao tương ứng.",
+        "templateCode": "from collections import Counter\nn = int(input())\na = list(map(int, input().split()))\ndem = Counter(a)\nmax_dem = max(dem.values())\nchieu_cao = min(x for x, c in dem.items() if c == max_dem)\nprint(max_dem, chieu_cao)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10\n160 158 158 160 159 158 159 160 158 161",
+            "expected": "4 158",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n150 151 150 151 152",
+            "expected": "2 150",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 50,
+        "title": "Kangaroo",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một chú Kangaroo cần đi đúng quãng đường n dm. Mỗi bước nhảy có độ dài a hoặc b dm, với 1 ≤ a < b. Hãy tìm số bước nhảy ít nhất để tổng độ dài đúng bằng n. Dữ liệu bảo đảm luôn có cách nhảy.\nDữ liệu vào: Ba số nguyên dương n, a, b trên một dòng.\nDữ liệu ra: Số bước nhảy ít nhất.",
+        "templateCode": "n, a, b = map(int, input().split())\nans = n + 1\nfor so_nhay_dai in range(n // b + 1):\n con_lai = n - so_nhay_dai * b\n if con_lai % a == 0:\n ans = min(ans, so_nhay_dai + con_lai // a)\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "21 2 5",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20 2 5",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 51,
+        "title": "Ước chung lớn nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương N và M. Hãy tìm ước chung lớn nhất của chúng.\nDữ liệu vào: Hai số nguyên N, M trên một dòng.\nDữ liệu ra: Một số nguyên là UCLN(N, M).",
+        "templateCode": "import math\nn, m = map(int, input().split())\nprint(math.gcd(n, m))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "24 11",
+            "expected": "1",
+            "point": 3,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "24 36",
+            "expected": "12",
+            "point": 3,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 52,
+        "title": "Đếm các số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho dãy gồm n số nguyên dương. Số nguyên tố là số nguyên lớn hơn 1 chỉ có hai ước dương là 1 và chính nó. Hãy đếm số phần tử là số nguyên tố.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Số lượng số nguyên tố trong dãy.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\nprint(sum(la_nguyen_to(x) for x in a))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n7 13 27 13 29",
+            "expected": "4",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 4 5",
+            "expected": "2",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 53,
+        "title": "Dãy theo quy luật tổng bình phương chữ số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Với số tự nhiên x, đặt f(x) là tổng bình phương các chữ số của x. Xây dựng dãy X1 = x và Xi = f(Xi-1) với i ≥ 2. Hãy in n phần tử đầu tiên của dãy.\nDữ liệu vào: Hai số nguyên x, n.\nDữ liệu ra: n số của dãy, cách nhau bởi dấu cách.",
+        "templateCode": "x, n = map(int, input().split())\ndef f(v):\n return sum(int(ch) ** 2 for ch in str(v))\nkq = []\nfor _ in range(n):\n kq.append(x)\n x = f(x)\nprint(*kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 4",
+            "expected": "12 5 25 29",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 3",
+            "expected": "5 25 29",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 54,
+        "title": "Tính tổng phân thức",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương a. Tính S = 1/(1×3) + 1/(2×4) + ... + 1/(a×(a+2)). In kết quả làm tròn đến 1 chữ số thập phân.\nDữ liệu vào: Một số nguyên dương a.\nDữ liệu ra: S với đúng 1 chữ số thập phân.",
+        "templateCode": "a = int(input())\ns = sum(1 / (i * (i + 2)) for i in range(1, a + 1))\nprint(f\"{s:.1f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1",
+            "expected": "0.3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "0.5",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 55,
+        "title": "Tổng chẵn",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho dãy n số nguyên. Hãy in các số chẵn theo đúng thứ tự xuất hiện và tính tổng của chúng.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi các số chẵn cách nhau bởi dấu cách (để trống nếu không có); dòng 2 ghi tổng các số chẵn.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nb = [x for x in a if x % 2 == 0]\nprint(*b)\nprint(sum(b))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n8 9 6 12 20 25 45",
+            "expected": "8 6 12 20\n46",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 56,
+        "title": "Số thân thiện",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Theo quy ước của đề, hai số thân thiện nếu có cùng ước nguyên tố lớn nhất. Cho a (a > 1), hãy tìm 5 số nguyên dương nhỏ nhất thân thiện với a, có tính cả a nếu phù hợp. In theo thứ tự tăng dần.\nDữ liệu vào: Một số nguyên a.\nDữ liệu ra: Năm số thân thiện, cách nhau bởi dấu cách.",
+        "templateCode": "def uoc_nguyen_to_lon_nhat(x):\n p = 1\n d = 2\n while d * d <= x:\n while x % d == 0:\n p = d\n x //= d\n d += 1\n if x > 1:\n p = x\n return p\n\na = int(input())\np = uoc_nguyen_to_lon_nhat(a)\nkq = []\nx = 1\nwhile len(kq) < 5:\n if uoc_nguyen_to_lon_nhat(p * x) == p:\n kq.append(p * x)\n x += 1\nprint(*kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "25",
+            "expected": "5 10 15 20 25",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "2 4 8 16 32",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 57,
+        "title": "Phần tử yên ngựa",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho ma trận A có m hàng và n cột. Phần tử A[i][j] là phần tử yên ngựa nếu nó đồng thời là phần tử nhỏ nhất trên hàng i và lớn nhất trên cột j. Hãy tìm tất cả vị trí yên ngựa (chỉ số hàng, cột tính từ 1).\nDữ liệu vào: Dòng 1 ghi m, n; m dòng tiếp theo, mỗi dòng gồm n số nguyên.\nDữ liệu ra: Mỗi vị trí ghi trên một dòng theo dạng (i,j). Nếu không có, ghi khong co.",
+        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\nmax_cot = [max(a[i][j] for i in range(m)) for j in range(n)]\nkq = []\nfor i in range(m):\n mn = min(a[i])\n for j in range(n):\n if a[i][j] == mn and a[i][j] == max_cot[j]:\n kq.append(f\"({i + 1},{j + 1})\")\nprint(\"\\n\".join(kq) if kq else \"khong co\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+            "expected": "(3,1)",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n15 10 5\n5 4 6\n7 6 2",
+            "expected": "khong co",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 58,
+        "title": "Tính tổng các số chia hết cho K",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số nguyên A, B, K với A < B và K > 0. Tính tổng các số nguyên M thỏa A < M < B và M chia hết cho K.\nDữ liệu vào: Ba số A, B, K trên một dòng.\nDữ liệu ra: Tổng cần tìm.",
+        "templateCode": "a, b, k = map(int, input().split())\ntong = sum(x for x in range(a + 1, b) if x % k == 0)\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 8 3",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 10 20",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 59,
+        "title": "Tìm số đường khép kín",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Quy ước: các chữ số 1, 2, 3, 5, 7 có 0 đường khép kín; các chữ số 0, 4, 6, 9 có 1 đường; chữ số 8 có 2 đường. Cho số nguyên dương N, hãy tính tổng số đường khép kín của các chữ số.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Tổng số đường khép kín.",
+        "templateCode": "n = input().strip()\ndem = 0\nfor ch in n:\n if ch in \"0469\":\n dem += 1\n elif ch == \"8\":\n dem += 2\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2369524",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8801",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 60,
+        "title": "Xóa ký tự trong xâu để được số nhỏ nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho xâu gồm N ký tự chữ số và số nguyên K (0 < K < N). Xóa đúng K ký tự sao cho xâu còn lại biểu diễn số nhỏ nhất có thể. Giữ nguyên thứ tự tương đối của các chữ số còn lại.\nDữ liệu vào: Dòng 1 là xâu chữ số; dòng 2 là K.\nDữ liệu ra: Xâu số nhỏ nhất sau khi xóa.",
+        "templateCode": "s = input().strip()\nk = int(input())\nst = []\nfor ch in s:\n while k > 0 and st and st[-1] > ch:\n st.pop()\n k -= 1\n st.append(ch)\nif k:\n st = st[:-k]\nprint(''.join(st))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "65278934\n3",
+            "expected": "27834",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "987654\n2",
+            "expected": "7654",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 61,
+        "title": "Bộ ba số",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho dãy N số nguyên dương A1, A2, ..., AN (N ≥ 3). Với mọi bộ chỉ số i < j < k, xét S = 2Ai − 3Aj + 5Ak. Hãy tìm giá trị S lớn nhất.\nDữ liệu vào: Dòng 1 ghi N; dòng 2 ghi N số nguyên.\nDữ liệu ra: Giá trị S lớn nhất.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nans = None\nfor i in range(n - 2):\n for j in range(i + 1, n - 1):\n for k in range(j + 1, n):\n v = 2 * a[i] - 3 * a[j] + 5 * a[k]\n if ans is None or v > ans:\n ans = v\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n3 2 1",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7\n3 5 2 6 4 5 7",
+            "expected": "39",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 62,
+        "title": "Diện tích tam giác vuông",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho ba số nguyên dương a, b, c là độ dài ba cạnh. Nếu ba số là độ dài các cạnh của một tam giác vuông, hãy tính diện tích tam giác và làm tròn đến 1 chữ số thập phân. Nếu không, in -1.\nDữ liệu vào: Ba số a, b, c trên một dòng.\nDữ liệu ra: Diện tích hoặc -1.",
+        "templateCode": "a = sorted(map(int, input().split()))\nif a[0] ** 2 + a[1] ** 2 == a[2] ** 2:\n print(f\"{a[0] * a[1] / 2:.1f}\")\nelse:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "6.0",
+            "point": 3,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 4 9",
+            "expected": "-1",
+            "point": 3,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 63,
+        "title": "Tính số ngày giữa hai ngày",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai ngày d1/m1/y1 và d2/m2/y2 (năm từ 2012 đến 2099). Theo đề, năm nhuận trong khoảng này là năm chia hết cho 4. Tính số ngày chênh lệch giữa hai ngày, không tính gộp ngày đầu.\nDữ liệu vào: Hai dòng, mỗi dòng gồm ngày, tháng, năm.\nDữ liệu ra: Số ngày giữa hai ngày.",
+        "templateCode": "from datetime import date\n\nd1, m1, y1 = map(int, input().split())\nd2, m2, y2 = map(int, input().split())\nprint((date(y2, m2, d2) - date(y1, m1, d1)).days)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "25 1 2012\n26 3 2012",
+            "expected": "61",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20 1 2018\n20 11 2020",
+            "expected": "1035",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 64,
+        "title": "Connect Four",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Bàn cờ có 6 hàng và 7 cột, mỗi ô chứa 0 (quân vàng) hoặc 1 (quân đỏ). Một màu thắng nếu có ít nhất 4 quân liên tiếp theo hàng ngang hoặc cột dọc. Nếu cả hai màu cùng thắng hoặc không màu nào thắng thì hòa.\nDữ liệu vào: 6 dòng, mỗi dòng gồm 7 ký tự 0/1 (có thể cách nhau bởi dấu cách).\nDữ liệu ra: 1 nếu đỏ thắng duy nhất; 0 nếu vàng thắng duy nhất; -1 nếu hòa.",
+        "templateCode": "a = []\nfor _ in range(6):\n line = input().strip().replace(\" \", \"\")\n a.append(list(line))\nwin = {\"0\": False, \"1\": False}\nfor i in range(6):\n for j in range(7):\n color = a[i][j]\n if j + 3 < 7 and all(a[i][j + t] == color for t in range(4)):\n win[color] = True\n if i + 3 < 6 and all(a[i + t][j] == color for t in range(4)):\n win[color] = True\nif win[\"0\"] == win[\"1\"]:\n print(-1)\nelif win[\"1\"]:\n print(1)\nelse:\n print(0)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1111111\n1111111\n1111111\n1111111\n1111111\n1111111",
+            "expected": "1",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0000000\n0000000\n0000000\n0000000\n0000000\n0000000",
+            "expected": "0",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 65,
+        "title": "Đổi quà",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Mỗi lần mua hàng thứ i được cộng i điểm. Cho ngưỡng k, hãy tìm lần mua nhỏ nhất n sao cho tổng 1 + 2 + ... + n ≥ k.\nDữ liệu vào: Một số nguyên k.\nDữ liệu ra: Dòng 1 ghi n; dòng 2 ghi tổng điểm đạt được.",
+        "templateCode": "k = int(input())\nn = 0\ns = 0\nwhile s < k:\n n += 1\n s += n\nprint(n)\nprint(s)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "4\n10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000",
+            "expected": "45\n1035",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 66,
+        "title": "Sắp xếp ký tự số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho một xâu ký tự có thể chứa chữ số và các ký tự khác. Hãy lấy tất cả ký tự là chữ số rồi sắp xếp giảm dần. Nếu không có chữ số, in khong.\nDữ liệu vào: Một dòng chứa xâu S.\nDữ liệu ra: Xâu gồm các chữ số được sắp xếp giảm dần hoặc khong.",
+        "templateCode": "s = input()\ndigits = sorted((ch for ch in s if ch in \"0123456789\"), reverse=True)\nprint(''.join(digits) if digits else \"khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Viet3135 Nam",
+            "expected": "5331",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nguyen Van Nam",
+            "expected": "khong",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 67,
+        "title": "Chia kẹo",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có n gói kẹo với số viên lần lượt a1, a2, ..., an. Chọn một vị trí cắt i (1 ≤ i < n): bạn thứ nhất nhận các gói 1..i, bạn thứ hai nhận các gói i+1..n. Tìm mọi cách chia có độ chênh lệch tổng kẹo nhỏ nhất. Không được tách gói.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên dương.\nDữ liệu ra: Với mỗi vị trí chia tối ưu, in hai dòng: các gói của bạn thứ nhất, rồi các gói của bạn thứ hai. Các phương án theo thứ tự vị trí cắt tăng dần.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ntong = sum(a)\nchenh_lech = [abs(sum(a[:i]) - (tong - sum(a[:i]))) for i in range(1, n)]\nmin_lech = min(chenh_lech)\nfor i, d in enumerate(chenh_lech, start=1):\n if d == min_lech:\n print(*a[:i])\n print(*a[i:])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n3 6 8 5",
+            "expected": "3 6\n8 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n3 4 6 2 5",
+            "expected": "3 4\n6 2 5\n3 4 6\n2 5",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 68,
+        "title": "Số lượng số nguyên tố trên hàng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho ma trận gồm m hàng và n cột. Hãy tìm các hàng chứa số lượng số nguyên tố lớn nhất. Nếu toàn ma trận không có số nguyên tố, in khong.\nDữ liệu vào: Dòng 1 ghi m, n; tiếp theo là m dòng, mỗi dòng n số nguyên.\nDữ liệu ra: Số thứ tự các hàng đạt số lượng nguyên tố lớn nhất (đánh số từ 1), mỗi hàng một dòng; nếu không có số nguyên tố thì in khong.",
+        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\ncnt = [sum(la_nguyen_to(x) for x in row) for row in a]\nmx = max(cnt)\nif mx == 0:\n print(\"khong\")\nelse:\n for i, v in enumerate(cnt, 1):\n if v == mx:\n print(i)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4\n2 3 5 7\n4 6 8 9\n11 13 15 17",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n1 4 6\n8 9 10\n12 14 16",
+            "expected": "khong",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 69,
+        "title": "Nguyên tố từ tổng chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương n. Tính tổng các chữ số của n và kiểm tra tổng đó có phải số nguyên tố hay không.\nDữ liệu vào: Một số nguyên dương n.\nDữ liệu ra: Dòng 1 ghi tổng chữ số; dòng 2 ghi YES nếu tổng là số nguyên tố, ngược lại ghi NO.",
+        "templateCode": "n = input().strip()\ns = sum(int(ch) for ch in n)\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\nprint(s)\nprint(\"YES\" if la_nguyen_to(s) else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "14",
+            "expected": "5\nYES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "56137",
+            "expected": "22\nNO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 70,
+        "title": "Phân biệt",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho dãy n số nguyên. Hãy lấy các giá trị phân biệt, mỗi giá trị chỉ xuất hiện một lần, giữ nguyên thứ tự xuất hiện lần đầu.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi số lượng phần tử phân biệt; dòng 2 ghi các phần tử đó.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nb = []\nseen = set()\nfor x in a:\n if x not in seen:\n seen.add(x)\n b.append(x)\nprint(len(b))\nprint(*b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n7 12 4 9 8 12 9 15",
+            "expected": "6\n7 12 4 9 8 15",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n1 1 1 1 1",
+            "expected": "1\n1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 71,
+        "title": "Dãy tăng liên tục dài nhất",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho dãy n số nguyên. Hãy tìm dãy con liên tiếp không giảm dài nhất (mỗi phần tử sau lớn hơn hoặc bằng phần tử trước). Nếu có nhiều dãy cùng độ dài, chọn dãy xuất hiện cuối cùng.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi độ dài dãy con; dòng 2 ghi các phần tử của dãy con.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nbest_l = best_r = 0\nl = 0\nfor r in range(1, n):\n if a[r] < a[r - 1]:\n if r - l >= best_r - best_l:\n best_l, best_r = l, r\n l = r\nif n - l >= best_r - best_l:\n best_l, best_r = l, n\nans = a[best_l:best_r]\nprint(len(ans))\nprint(*ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "13\n3 4 -1 2 13 7 8 9 -5 -2 3 10 9",
+            "expected": "4\n-5 -2 3 10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "11\n2 13 7 8 9 -5 21 3 9 10 -7",
+            "expected": "3\n3 9 10",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 72,
+        "title": "Ma trận con có giá trị nhỏ nhất lớn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho ma trận A kích thước n × m và số k. Xét mọi ma trận con k × k gồm các phần tử liền kề nhau. Với mỗi ma trận con, lấy phần tử nhỏ nhất; hãy tìm giá trị lớn nhất trong các giá trị nhỏ nhất đó.\nDữ liệu vào: Dòng 1 ghi n, m, k; n dòng tiếp theo, mỗi dòng m số nguyên.\nDữ liệu ra: Giá trị cần tìm.",
+        "templateCode": "n, m, k = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(n)]\nans = None\nfor i in range(n - k + 1):\n for j in range(m - k + 1):\n mn = min(a[x][y] for x in range(i, i + k) for y in range(j, j + k))\n if ans is None or mn > ans:\n ans = mn\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 2\n1 3 5 7\n2 4 6 8\n1 2 3 5",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2 1\n4 9\n7 3",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 73,
+        "title": "Đếm chữ số trong chuỗi",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho một chuỗi ký tự S có độ dài không quá 255. Hãy đếm số ký tự là chữ số (0 đến 9) xuất hiện trong chuỗi.\nDữ liệu vào: Một dòng chứa chuỗi S.\nDữ liệu ra: Số ký tự chữ số trong chuỗi.",
+        "templateCode": "s = input()\nprint(sum(ch.isdigit() for ch in s))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Ky2 thi ho5c sinh gioi3",
+            "expected": "3",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nam hoc 2020 - 2021",
+            "expected": "8",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 74,
+        "title": "Tính lãi kép",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Gửi số tiền gốc G với lãi suất L% mỗi năm. Tiền lãi được nhập vào vốn sau mỗi năm và lãi suất không đổi. Cho số năm N, hãy tính số tiền nhận được sau N năm, làm tròn đến 2 chữ số thập phân.\nDữ liệu vào: Ba số G, L, N trên một dòng (G là số thực, L là phần trăm, N là số nguyên).\nDữ liệu ra: Số tiền sau N năm với 2 chữ số thập phân.",
+        "templateCode": "g, l, n = input().split()\ng = float(g)\nl = float(l)\nn = int(n)\ntien = g * (1 + l / 100) ** n\nprint(f\"{tien:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 6.9 2",
+            "expected": "114.28",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000 5 1",
+            "expected": "1050.00",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 75,
+        "title": "Đoạn con dài nhất gồm các phần tử đôi một khác nhau",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho dãy N số nguyên dương. Một đoạn con là các phần tử liên tiếp. Hãy tìm đoạn con dài nhất mà các phần tử đôi một khác nhau. Nếu có nhiều đoạn cùng độ dài, chọn đoạn có vị trí bắt đầu nhỏ nhất.\nDữ liệu vào: Dòng 1 ghi N; dòng 2 ghi N số nguyên dương.\nDữ liệu ra: Dòng 1 ghi chỉ số bắt đầu (đánh số từ 1); dòng 2 ghi độ dài đoạn con.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nseen = set()\nl = 0\nbest_l = 0\nbest_len = 0\nfor r, x in enumerate(a):\n while x in seen:\n seen.remove(a[l])\n l += 1\n seen.add(x)\n if r - l + 1 > best_len:\n best_len = r - l + 1\n best_l = l\nprint(best_l + 1)\nprint(best_len)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10\n5 2 4 1 5 3 2 7 6 9",
+            "expected": "3\n8",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n1 2 1 3 4",
+            "expected": "2\n4",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 76,
+        "title": "Chữ số lớn nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho số tự nhiên N. Hãy tìm chữ số lớn nhất xuất hiện trong biểu diễn thập phân của N.\nDữ liệu vào: Một số nguyên không âm N.\nDữ liệu ra: Chữ số lớn nhất.",
+        "templateCode": "s = input().strip()\nprint(max(s))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2369524",
+            "expected": "9",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "333333333",
+            "expected": "3",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 77,
+        "title": "Tách số thành ba số",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương N. Đếm số bộ ba số nguyên dương có thứ tự (a, b, c) thỏa a + b + c = N, a là ước chung lớn hơn 1 của b và c, đồng thời a ≤ b và a ≤ c. Các cặp (b, c) hoán đổi vị trí được tính là hai cách khác nhau.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Số bộ ba thỏa mãn.",
+        "templateCode": "n = int(input())\ndem = 0\nfor a in range(2, n // 3 + 1):\n for b in range(a, n - a + 1):\n c = n - a - b\n if b % a == 0 and c % a == 0 and c >= a:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "18",
+            "expected": "12",
+            "point": 3.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "1",
+            "point": 3.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "title": "Tắc kè hoa",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có x con tắc kè đỏ, y con xanh, z con vàng. Khi hai con khác màu chạm nhau, cả hai cùng đổi sang màu thứ ba. Hãy tìm một chuỗi trạng thái dẫn đến lúc chỉ còn một màu (hai số lượng còn lại bằng 0). Mỗi trạng thái sau một lần chạm được in trên một dòng. Nếu không thể, in KHONG.\nDữ liệu vào: Ba số nguyên không âm x, y, z (mỗi số nhỏ hơn 500).\nDữ liệu ra: Các bộ (đỏ, xanh, vàng) trên đường đi tìm được, không cần in trạng thái ban đầu; nếu không có đường đi, in KHONG.",
+        "templateCode": "from collections import deque\nx, y, z = map(int, input().split())\nstart = (x, y, z)\nq = deque([(start, [])])\nseen = {start}\npath = None\nwhile q:\n (r, g, b), steps = q.popleft()\n if sum(v > 0 for v in (r, g, b)) == 1:\n path = steps\n break\n # Lần lượt: xanh+vàng -> đỏ; đỏ+vàng -> xanh; đỏ+xanh -> vàng.\n nxt = [(r + 2, g - 1, b - 1),\n (r - 1, g + 2, b - 1),\n (r - 1, g - 1, b + 2)]\n for state in nxt:\n if min(state) >= 0 and state not in seen:\n seen.add(state)\n q.append((state, steps + [state]))\nif path is None or not path:\n print(\"KHONG\")\nelse:\n for state in path:\n print(*state)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 1",
+            "expected": "5 3 0\n4 2 2\n6 1 1\n8 0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 3 4",
+            "expected": "KHONG",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 79,
+        "title": "Tìm số nguyên tố có tổng chữ số bằng m",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương n và m. Tìm các số nguyên tố không vượt quá n có tổng chữ số bằng m.\nDữ liệu vào: Hai số n, m trên một dòng (n, m ≤ 10⁶).\nDữ liệu ra: Dòng 1 ghi số lượng số tìm được; dòng 2 ghi các số đó theo thứ tự tăng dần. Nếu không có, dòng 1 ghi 0 và dòng 2 để trống.",
+        "templateCode": "n, m = map(int, input().split())\nis_prime = [True] * (n + 1)\nif n >= 0:\n is_prime[0] = False\nif n >= 1:\n is_prime[1] = False\nfor p in range(2, int(n ** 0.5) + 1):\n if is_prime[p]:\n for x in range(p * p, n + 1, p):\n is_prime[x] = False\nans = [x for x in range(2, n + 1)\n if is_prime[x] and sum(map(int, str(x))) == m]\nprint(len(ans))\nprint(*ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "50 5",
+            "expected": "3\n5 23 41",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000 18",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 80,
+        "title": "Ký tự đầu tiên xuất hiện k lần",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên k và xâu S chỉ gồm chữ cái tiếng Anh in thường. Tìm vị trí nhỏ nhất (đánh số từ 1) của ký tự có tổng số lần xuất hiện trong S đúng bằng k. Nếu không có ký tự nào như vậy, in -1.\nDữ liệu vào: Dòng 1 ghi k; dòng 2 ghi xâu S.\nDữ liệu ra: Vị trí cần tìm hoặc -1.",
+        "templateCode": "from collections import Counter\nk = int(input())\ns = input().strip()\ndem = Counter(s)\nans = -1\nfor i, ch in enumerate(s, 1):\n if dem[ch] == k:\n ans = i\n break\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2\nabcdbc",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\nabbaccdd",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 81,
+        "title": "Tạo ma trận theo quy luật",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Tạo ma trận vuông n × n theo quy luật đối xứng của bảng mẫu: hàng 1 và cột 1 lần lượt là 1, 2, ..., n. Với mỗi cột j (j ≥ 2), bắt đầu từ giá trị j ở hàng 1; tiếp tục tăng j cho đến khi vượt 2n thì quay về 2, sau lần quay đầu tiên thì các bước tăng tiếp theo là 2. Gán đối xứng A[j][i] = A[i][j].\nDữ liệu vào: Một số nguyên n (1 ≤ n ≤ 600).\nDữ liệu ra: n dòng, mỗi dòng n số theo quy luật, cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = [[0] * n for _ in range(n)]\nfor i in range(n):\n a[0][i] = i + 1\n a[i][0] = i + 1\nfor j in range(1, n):\n value = a[j - 1][j]\n wrapped = any(a[k][j] > a[k + 1][j] for k in range(1, j - 1))\n for i in range(j, n):\n step = 2 if wrapped else j + 1\n if value + step > 2 * n:\n value = 2\n wrapped = True\n else:\n value += step\n a[i][j] = value\n a[j][i] = value\nfor row in a:\n print(*row)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "1 2 3 4 5 6\n2 4 6 8 10 12\n3 6 9 12 2 4\n4 8 12 2 4 6\n5 10 2 4 6 8\n6 12 4 6 8 10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "1 2 3\n2 4 6\n3 6 2",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 82,
+        "title": "Mua bất động sản",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có n tỷ đồng. Mỗi mảnh đất hình vuông cạnh nguyên dương x có giá x² tỷ đồng. Hãy phân tích n thành tổng các số chính phương sao cho số mảnh đất ít nhất. Nếu có nhiều phương án cùng số mảnh, chọn phương án có cạnh lớn nhất lớn nhất; tiếp tục ưu tiên dãy cạnh giảm dần theo thứ tự từ điển.\nDữ liệu vào: Một số nguyên dương n (n ≤ 60000).\nDữ liệu ra: Dãy độ dài cạnh các mảnh đất theo thứ tự giảm dần.",
+        "templateCode": "n = int(input())\ndp = [10**9] * (n + 1)\nchon = [0] * (n + 1)\ndp[0] = 0\nfor s in range(1, n + 1):\n for canh in range(1, int(s ** 0.5) + 1):\n sq = canh * canh\n cand = dp[s - sq] + 1\n if cand < dp[s] or (cand == dp[s] and sq > chon[s]):\n dp[s] = cand\n chon[s] = sq\nans = []\nwhile n > 0:\n sq = chon[n]\n ans.append(int(sq ** 0.5))\n n -= sq\nprint(*sorted(ans, reverse=True))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "30",
+            "expected": "5 2 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "60",
+            "expected": "7 3 1 1",
             "point": 2.5,
             "is_hidden": true
           }
