@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:58:39.249Z",
+    "updatedAt": "2026-11-02T09:58:54.780Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 17. Dãy theo quy luật tổng bình phương chữ số"
+    "action": "Admin lưu bài tập: Bài 18. Tính tổng phân thức"
   },
   "data": {
     "registeredUsers": [
@@ -2221,7 +2221,7 @@
       },
       {
         "id": 54,
-        "title": "Tính tổng phân thức",
+        "title": "Bài 18. Tính tổng phân thức",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
