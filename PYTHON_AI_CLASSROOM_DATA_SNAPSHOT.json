@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:51:37.428Z",
+    "updatedAt": "2026-11-02T10:51:45.280Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Lưu bài giảng: Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!"
   },
@@ -6855,6 +6855,13 @@
         "id": 37,
         "title": "Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!",
         "classLevel": "11",
+        "grade": "Tin học cơ sở",
+        "content": "Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!"
+      },
+      {
+        "id": 38,
+        "title": "Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!",
+        "classLevel": "12",
         "grade": "Tin học cơ sở",
         "content": "Sắp tới thầy sẽ phát  triển thêm cho các bạn THPT nhé!!!"
       }
