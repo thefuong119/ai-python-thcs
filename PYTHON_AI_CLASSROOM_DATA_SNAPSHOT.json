@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:46:50.437Z",
+    "updatedAt": "2026-11-02T10:49:02.423Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 89. Thống kê xâu ký tự"
+    "action": "Lưu bài giảng: Bài 1. Giới thiệu ngôn ngữ lập trình python"
   },
   "data": {
     "registeredUsers": [
@@ -6829,6 +6829,13 @@
         "classLevel": "8",
         "grade": "Ôn thi HSG Tin học THCS",
         "content": "### 1. Kiến thức trọng tâm\n- **Quy chuẩn thi HSG Tin học cấp THCS**: Các kỳ thi HSG Huyện, Tỉnh, Quốc gia đều yêu cầu đọc dữ liệu từ tệp `TENBAI.INP` và ghi kết quả ra tệp `TENBAI.OUT`.\n- **Kỹ thuật chuyển hướng luồng nhập/xuất chuẩn (`sys.stdin` & `sys.stdout`)**:\n + Đây là kỹ thuật tối ưu nhất trong Python. Giúp thí sinh vẫn dùng `input()` và `print()` một cách quen thuộc, nhưng hệ thống tự động đọc/ghi trực tiếp từ/ra tệp.\n```python\nimport sys\nsys.stdin = open('BAITHI.INP', 'r')\nsys.stdout = open('BAITHI.OUT', 'w')\n```\n- **Kỹ thuật tối ưu nhập xuất siêu tốc cho dữ liệu lớn ($N \\ge 10^5$)**:\n + Hàm `input()` thông thường khá chậm do có thêm bước xử lý chuỗi và thông báo nhắc.\n + Dùng `sys.stdin.read().split()`: Đọc toàn bộ các từ/số trong file cùng một lúc vào bộ nhớ, tốc độ nhanh hơn `input()` từ 5 đến 10 lần.\n + Dùng `sys.stdout.write(str(...) + '\\n')` khi cần in hàng chục vạn kết quả.\n\n### 2. Ví dụ chi tiết cho từng kiến thức\n- **Ví dụ 1: Khung chương trình chuẩn thi HSG với chuyển hướng luồng**\n```python\nimport sys\n\n# Chuyển hướng luồng tệp\ntry:\n sys.stdin = open('TONG.INP', 'r')\n sys.stdout = open('TONG.OUT', 'w')\nexcept FileNotFoundError:\n pass # Cho phép chạy trên màn hình console khi thử nghiệm\n\n# Lập trình bình thường bằng input() và print()\na, b = map(int, input().split())\nprint(a + b)\n```\n\n- **Ví dụ 2: Kỹ thuật nạp toàn bộ file một lần với `sys.stdin.read`**\n```python\nimport sys\n\ndef main():\n input_data = sys.stdin.read().split()\n if not input_data:\n return\n \n n = int(input_data[0])\n arr = [int(x) for x in input_data[1:n+1]]\n \n tong = sum(arr)\n print(tong)\n\nif __name__ == '__main__':\n main()\n```\n\n### 3. Bài tập vận dụng ôn thi HSG\n**Bài 16.1: Khung hoàn chỉnh giải bài toán \"Cặp số có tổng bằng K\" chuẩn file**\n- **Đề bài**: Đọc từ tệp `SUMK.INP` gồm: dòng 1 chứa $N, K$; dòng 2 chứa dãy số $A_1, A_2, \\dots, A_N$. Tìm số cặp $(i, j)$1$i < j$1$A_i + A_j = K$. Xuất kết quả ra tệp `SUMK.OUT`.\n```python\nimport sys\nfrom collections import defaultdict\n\ndef giai():\n try:\n sys.stdin = open('SUMK.INP', 'r')\n sys.stdout = open('SUMK.OUT', 'w')\n except FileNotFoundError:\n pass\n\n data = sys.stdin.read().split()\n if not data:\n return\n\n n = int(data[0])\n k = int(data[1])\n arr = [int(x) for x in data[2:n+2]]\n\n dem = 0\n tan_suat = defaultdict(int)\n\n for x in arr:\n can_tim = k - x\n dem += tan_suat[can_tim]\n tan_suat[x] += 1\n\n print(dem)\n\nif __name__ == '__main__':\n giai()\n```\n\n**Bài 16.2: Xử lý nhiều bộ dữ liệu (Multiple Test Cases) từ tệp**\n- **Đề bài**: Tệp `PRIME.INP` có dòng đầu là số lượng test $T$ ($T \\le 1000$). Mỗi dòng trong $T$1$N$ ($N \\le 10^7$). Hãy kiểm tra $N$1$O(M \\log \\log M)$, sau đó trả lời mỗi truy vấn trong $O(1)$.\n```python\nimport sys\n\ndef sang_nguyen_to(gioi_han):\n la_nt = [True] * (gioi_han + 1)\n la_nt[0] = la_nt[1] = False\n for i in range(2, int(gioi_han**0.5) + 1):\n if la_nt[i]:\n for j in range(i * i, gioi_han + 1, i):\n la_nt[j] = False\n return la_nt\n\ndef main():\n try:\n sys.stdin = open('PRIME.INP', 'r')\n sys.stdout = open('PRIME.OUT', 'w')\n except FileNotFoundError:\n pass\n\n data = sys.stdin.read().split()\n if not data:\n return\n\n MAX_VAL = 10000000\n la_nt = sang_nguyen_to(MAX_VAL)\n\n t = int(data[0])\n ket_qua = []\n for i in range(1, t + 1):\n val = int(data[i])\n ket_qua.append(\"YES\" if la_nt[val] else \"NO\")\n\n sys.stdout.write(\"\\n\".join(ket_qua) + \"\\n\")\n\nif __name__ == '__main__':\n main()\n```"
+      },
+      {
+        "id": 34,
+        "title": "Bài 1. Giới thiệu ngôn ngữ lập trình python",
+        "classLevel": "6",
+        "grade": "Tin học cơ sở",
+        "content": "1. Ngôn ngữ lập trình bậc cao là gì?\n\n- Ngôn ngữ máy: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân 0 và 1.\n- Ngôn ngữ bậc cao: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên (tiếng Anh) và biểu thức toán học, giúp con người dễ đọc, dễ viết và độc lập với phần cứng máy tính.\n\n2. Giới thiệu về ngôn ngữ lập trình Python\n\n- Python do nhà khoa học máy tính người Hà Lan Guido van Rossum phát triển và phát hành lần đầu năm 1991.\n- Ưu điểm vượt trội: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn và được ứng dụng mạnh mẽ trong khoa học dữ liệu và trí tuệ nhân tạo (AI).\n\n3. Chương trình đầu tiên với Python\n\n# In ra lời chào thế giới lập trình\nprint('Xin chào thế giới lập trình Python!')"
       }
     ],
     "studentSubmissions": [
