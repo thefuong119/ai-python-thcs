@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:05:19.300Z",
+    "updatedAt": "2026-11-02T12:05:35.505Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 160. Ước chung"
+    "action": "Admin lưu bài tập: Bài 161. Thống kê dãy"
   },
   "data": {
     "registeredUsers": [
@@ -5771,7 +5771,7 @@
       },
       {
         "id": 196,
-        "title": "Thống kê dãy",
+        "title": "Bài 161. Thống kê dãy",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
