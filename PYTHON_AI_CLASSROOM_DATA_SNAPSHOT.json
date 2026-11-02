@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:55:20.667Z",
+    "updatedAt": "2026-11-02T08:57:20.926Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 36 bài tập từ tep_mau_bai_tap_python.docx"
+    "action": "Admin lưu bài tập: Bài 33. Tích lớn nhất từ ba số"
   },
   "data": {
     "registeredUsers": [
@@ -1850,7 +1850,7 @@
       },
       {
         "id": 42,
-        "title": "Tích lớn nhất từ ba số",
+        "title": "Bài 33. Tích lớn nhất từ ba số",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -4352,6 +4352,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "15:56:40 2/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "15:53:54 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
