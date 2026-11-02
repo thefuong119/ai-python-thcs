@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:05:56.790Z",
+    "updatedAt": "2026-11-02T12:06:16.396Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 162. Bài toán trâu"
+    "action": "Admin lưu bài tập: Bài 163. Chuẩn hóa họ tên"
   },
   "data": {
     "registeredUsers": [
@@ -5821,7 +5821,7 @@
       },
       {
         "id": 198,
-        "title": "Chuẩn hóa họ tên",
+        "title": "Bài 163. Chuẩn hóa họ tên",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
