@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:20:55.303Z",
+    "updatedAt": "2026-11-02T15:21:25.553Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 15. Ước chung lớn nhất"
+    "action": "Admin lưu bài tập: Bài 16. Đếm các số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -2176,7 +2176,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho dãy gồm n số nguyên dương. Số nguyên tố là số nguyên lớn hơn 1 chỉ có hai ước dương là 1 và chính nó. Hãy đếm số phần tử là số nguyên tố.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Số lượng số nguyên tố trong dãy.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\nprint(sum(la_nguyen_to(x) for x in a))",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\ndem = 0\nfor x in a:\n    if x >= 2:\n        is_prime = True\n        d = 2\n        while d * d <= x:\n            if x % d == 0:\n                is_prime = False\n                break\n            d += 1\n        if is_prime:\n            dem += 1\n\nprint(dem)",
         "tests": [
           {
             "id": 1,
