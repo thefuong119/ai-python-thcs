@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:16:41.913Z",
+    "updatedAt": "2026-11-02T11:17:20.824Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 129. Phân tích thừa số nguyên tố"
+    "action": "Admin lưu bài tập: Bài 130. Độ bền"
   },
   "data": {
     "registeredUsers": [
@@ -4996,7 +4996,7 @@
       },
       {
         "id": 165,
-        "title": "Độ bền",
+        "title": "Bài 130. Độ bền",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
