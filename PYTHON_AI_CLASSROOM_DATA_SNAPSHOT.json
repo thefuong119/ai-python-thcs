@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:07:57.950Z",
+    "updatedAt": "2026-11-02T10:09:02.087Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 40. Chữ số lớn nhất"
+    "action": "Admin lưu bài tập: Bài 41. Tách số thành ba số"
   },
   "data": {
     "registeredUsers": [
@@ -2796,7 +2796,7 @@
       },
       {
         "id": 77,
-        "title": "Tách số thành ba số",
+        "title": "Bài 41. Tách số thành ba số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
