@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:03:08.786Z",
+    "updatedAt": "2026-11-02T10:03:26.636Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 27. Tính số ngày giữa hai ngày"
+    "action": "Admin lưu bài tập: Bài 28. Connect Four"
   },
   "data": {
     "registeredUsers": [
@@ -2471,7 +2471,7 @@
       },
       {
         "id": 64,
-        "title": "Connect Four",
+        "title": "Bài 28. Connect Four",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
