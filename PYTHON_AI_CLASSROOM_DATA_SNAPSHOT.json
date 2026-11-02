@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:45:50.226Z",
+    "updatedAt": "2026-11-02T11:46:49.414Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài mở đầu. Thuật toán tìm kiếm nhị phân (Binary Search)"
+    "action": "Admin lưu bài tập: Bài 132. Dãy số có GT tuyệt đối lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -5046,7 +5046,7 @@
       },
       {
         "id": 167,
-        "title": "Dãy số có GT tuyệt đối lớn nhất",
+        "title": "Bài 132. Dãy số có GT tuyệt đối lớn nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
