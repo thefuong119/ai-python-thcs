@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:56:56.386Z",
+    "updatedAt": "2026-11-02T14:57:28.435Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Tìm dãy ghế liền kề trong rạp chiếu phim"
+    "action": "Admin lưu bài tập: Theo dõi chuỗi ngày ô nhiễm không khí AQI"
   },
   "data": {
     "registeredUsers": [
@@ -8401,7 +8401,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Trạm quan trắc ghi nhận chỉ số chất lượng không khí (AQI) trong $N$1$AQI > 150$.\nHãy xác định:\n1. Độ dài chuỗi ngày liên tiếp dài nhất có chỉ số AQI ô nhiễm nghiêm trọng.\n2. Chỉ số AQI cao nhất trong toàn bộ chuỗi ngày ghi nhận được.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 10^5$).\n- Dòng 2: $N$ số nguyên dương biểu thị chỉ số AQI từng ngày ($1 \\le AQI_i \\le 500$).\nDữ liệu ra: Hai số nguyên cách nhau một khoảng trắng tương ứng với độ dài chuỗi dài nhất và AQI lớn nhất.",
-        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\n\nmax_len = 0\ncur_len = 0\nfor x in a:\n if x > 150:\n cur_len += 1\n if cur_len > max_len:\n max_len = cur_len\n else:\n cur_len = 0\n\nprint(f\"{max_len} {max(a)}\")",
+        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\n\nmax_len = 0\ncur_len = 0\nfor x in a:\n    if x > 150:\n        cur_len += 1\n        if cur_len > max_len:\n            max_len = cur_len\n    else:\n        cur_len = 0\n\nprint(f\"{max_len} {max(a)}\")",
         "tests": [
           {
             "id": 1,
