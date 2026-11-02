@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:41:03.453Z",
+    "updatedAt": "2026-11-02T15:41:39.382Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 44. Ký tự đầu tiên xuất hiện k lần"
+    "action": "Admin lưu bài tập: Bài 45. Tạo ma trận theo quy luật"
   },
   "data": {
     "registeredUsers": [
@@ -2901,7 +2901,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Tạo ma trận vuông n × n theo quy luật đối xứng của bảng mẫu: hàng 1 và cột 1 lần lượt là 1, 2, ..., n. Với mỗi cột j (j ≥ 2), bắt đầu từ giá trị j ở hàng 1; tiếp tục tăng j cho đến khi vượt 2n thì quay về 2, sau lần quay đầu tiên thì các bước tăng tiếp theo là 2. Gán đối xứng A[j][i] = A[i][j].\nDữ liệu vào: Một số nguyên n (1 ≤ n ≤ 600).\nDữ liệu ra: n dòng, mỗi dòng n số theo quy luật, cách nhau bởi dấu cách.",
-        "templateCode": "n = int(input())\na = [[0] * n for _ in range(n)]\nfor i in range(n):\n a[0][i] = i + 1\n a[i][0] = i + 1\nfor j in range(1, n):\n value = a[j - 1][j]\n wrapped = any(a[k][j] > a[k + 1][j] for k in range(1, j - 1))\n for i in range(j, n):\n step = 2 if wrapped else j + 1\n if value + step > 2 * n:\n value = 2\n wrapped = True\n else:\n value += step\n a[i][j] = value\n a[j][i] = value\nfor row in a:\n print(*row)",
+        "templateCode": "n = int(input())\na = [[0] * n for _ in range(n)]\n\nfor i in range(n):\n    a[0][i] = i + 1\n    a[i][0] = i + 1\n\nfor j in range(1, n):\n    value = a[j - 1][j]\n    wrapped = any(a[k][j] > a[k + 1][j] for k in range(1, j - 1))\n    for i in range(j, n):\n        step = 2 if wrapped else j + 1\n        if value + step > 2 * n:\n            value = 2\n            wrapped = True\n        else:\n            value += step\n        a[i][j] = value\n        a[j][i] = value\n\nfor row in a:\n    print(*row)",
         "tests": [
           {
             "id": 1,
