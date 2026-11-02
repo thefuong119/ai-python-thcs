@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:49:10.267Z",
+    "updatedAt": "2026-11-02T11:49:25.246Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 137. Tính tổng và tích"
+    "action": "Admin lưu bài tập: Bài 138. Số nguyên tố gần nhất"
   },
   "data": {
     "registeredUsers": [
@@ -5196,7 +5196,7 @@
       },
       {
         "id": 173,
-        "title": "Số nguyên tố gần nhất",
+        "title": "Bài 138. Số nguyên tố gần nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
