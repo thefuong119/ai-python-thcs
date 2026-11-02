@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:47:36.134Z",
+    "updatedAt": "2026-11-02T08:47:49.674Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 18. Kiểm tra số hạnh phúc"
+    "action": "Lưu bài tập: Bài 19. Tần suất xuất hiện ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -1265,7 +1265,7 @@
       },
       {
         "id": 27,
-        "title": "Tần suất xuất hiện ký tự",
+        "title": "Bài 19. Tần suất xuất hiện ký tự",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
