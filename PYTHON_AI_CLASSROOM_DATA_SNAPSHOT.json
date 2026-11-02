@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:46:31.062Z",
+    "updatedAt": "2026-11-02T15:47:33.678Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 53. Dãy theo quy luật tổng bình phương chữ số"
+    "action": "Admin lưu bài tập: Bài 55. Tổng chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -3151,7 +3151,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho dãy n số nguyên. Hãy in các số chẵn theo đúng thứ tự xuất hiện và tính tổng của chúng.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên.\nDữ liệu ra: Dòng 1 ghi các số chẵn cách nhau bởi dấu cách (để trống nếu không có); dòng 2 ghi tổng các số chẵn.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nb = [x for x in a if x % 2 == 0]\nprint(*b)\nprint(sum(b))",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\nb = [x for x in a if x % 2 == 0]\n\nprint(*b)\nprint(sum(b))",
         "tests": [
           {
             "id": 1,
