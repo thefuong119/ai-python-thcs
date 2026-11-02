@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:53:34.757Z",
+    "updatedAt": "2026-11-02T14:54:09.354Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài toán mua quả chia phần (Phương trình nghiệm nguyên)"
+    "action": "Admin lưu bài tập: Đếm số tam giác tạo từ N đoạn thẳng"
   },
   "data": {
     "registeredUsers": [
@@ -8276,7 +8276,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho một tập hợp gồm $N$1$a_1, a_2, ..., a_N$. Hãy đếm xem có bao nhiêu bộ 3 đoạn thẳng $(a_i, a_j, a_k)$1$i < j < k$1$N$ ($3 \\le N \\le 2000$).\n- Dòng 2: Gồm $N$1$a_1, a_2, ..., a_N$ ($1 \\le a_i \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số bộ 3 thỏa mãn.",
-        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\na.sort()\n\ncount = 0\nfor i in range(N - 2):\n k = i + 2\n for j in range(i + 1, N - 1):\n while k < N and a[i] + a[j] > a[k]:\n k += 1\n count += max(0, k - j - 1)\n\nprint(count)",
+        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\na.sort()\n\ncount = 0\nfor i in range(N - 2):\n    k = i + 2\n    for j in range(i + 1, N - 1):\n        while k < N and a[i] + a[j] > a[k]:\n            k += 1\n        count += max(0, k - j - 1)\n\nprint(count)",
         "tests": [
           {
             "id": 1,
