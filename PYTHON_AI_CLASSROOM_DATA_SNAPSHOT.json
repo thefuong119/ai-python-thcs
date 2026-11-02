@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:54:48.969Z",
+    "updatedAt": "2026-11-02T10:55:09.202Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 90. Bố trí phòng cách ly"
+    "action": "Admin lưu bài tập: Bài 91. Số tự nhiên"
   },
   "data": {
     "registeredUsers": [
@@ -4046,7 +4046,7 @@
       },
       {
         "id": 127,
-        "title": "Số tự nhiên",
+        "title": "Bài 91. Số tự nhiên",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
