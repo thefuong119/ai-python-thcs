@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:47:40.471Z",
+    "updatedAt": "2026-11-02T11:48:55.651Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 135. Xếp người"
+    "action": "Admin lưu bài tập: Bài 136. Số chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -5146,7 +5146,7 @@
       },
       {
         "id": 171,
-        "title": "Số chẵn lẻ",
+        "title": "Bài 136. Số chẵn lẻ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
