@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:02:38.862Z",
+    "updatedAt": "2026-11-02T10:02:54.574Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 25. Bộ ba số"
+    "action": "Admin lưu bài tập: Bài 26. Diện tích tam giác vuông"
   },
   "data": {
     "registeredUsers": [
@@ -2421,7 +2421,7 @@
       },
       {
         "id": 62,
-        "title": "Diện tích tam giác vuông",
+        "title": "Bài 26. Diện tích tam giác vuông",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
