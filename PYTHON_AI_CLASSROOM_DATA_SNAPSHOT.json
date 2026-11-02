@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:01:34.992Z",
+    "updatedAt": "2026-11-02T12:01:52.110Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 151. Dãy con nguyên tố dài nhất"
+    "action": "Admin lưu bài tập: Bài 152. Ước chung, UCLN, BCNN"
   },
   "data": {
     "registeredUsers": [
@@ -5546,7 +5546,7 @@
       },
       {
         "id": 187,
-        "title": "Ước chung, UCLN, BCNN",
+        "title": "Bài 152. Ước chung, UCLN, BCNN",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
