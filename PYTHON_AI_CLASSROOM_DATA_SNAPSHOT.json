@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:16:07.685Z",
+    "updatedAt": "2026-11-02T11:16:26.805Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 127. Tìm người nhận tấm bìa"
+    "action": "Admin lưu bài tập: Bài 128. UCLN, BCNN và phân số"
   },
   "data": {
     "registeredUsers": [
@@ -4946,7 +4946,7 @@
       },
       {
         "id": 163,
-        "title": "UCLN, BCNN và phân số",
+        "title": "Bài 128. UCLN, BCNN và phân số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
