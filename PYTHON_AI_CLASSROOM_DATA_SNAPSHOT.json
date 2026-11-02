@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:39:15.705Z",
+    "updatedAt": "2026-11-02T08:39:36.351Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 4. Xét số chẵn lẻ"
+    "action": "Lưu bài tập: Bài 6. Tính chu vi và diện tích hình chữ nhật"
   },
   "data": {
     "registeredUsers": [
@@ -460,7 +460,7 @@
       },
       {
         "id": 6,
-        "title": "Tính chu vi và diện tích hình chữ nhật",
+        "title": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
