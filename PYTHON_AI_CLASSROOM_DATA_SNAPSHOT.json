@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:14:04.599Z",
+    "updatedAt": "2026-11-02T11:15:06.642Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 122. Tần suất"
+    "action": "Admin lưu bài tập: Bài 123. Dãy nguyên tố liên tiếp"
   },
   "data": {
     "registeredUsers": [
@@ -4821,7 +4821,7 @@
       },
       {
         "id": 158,
-        "title": "Dãy nguyên tố liên tiếp",
+        "title": "Bài 123. Dãy nguyên tố liên tiếp",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
