@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:17:21.373Z",
+    "updatedAt": "2026-11-02T15:17:55.639Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 7. Tổ chức tham quan"
+    "action": "Admin lưu bài tập: Bài 8. Cặp số là bạn"
   },
   "data": {
     "registeredUsers": [
@@ -1232,7 +1232,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Hai số nguyên dương phân biệt a và b được gọi là cặp số là bạn (amicable numbers) nếu tổng các ước số thực sự (các ước số nguyên dương nhỏ hơn chính nó) của số này bằng số kia và ngược lại.\nVí dụ: 220 và 284 là cặp số bạn:\n- Các ước số thực sự của 220 là 1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110 -> Tổng = 284.\n- Các ước số thực sự của 284 là 1, 2, 4, 71, 142 -> Tổng = 220.\nCho hai số nguyên dương a và b. Hãy kiểm tra xem hai số đó có phải là cặp số là bạn hay không.\n\n- Dữ liệu vào: Một dòng gồm hai số nguyên dương a và b cách nhau bởi dấu cách (1 <= a, b <= 10^7).\n- Dữ liệu ra: In ra YES nếu a và b là cặp số là bạn, ngược lại in ra NO.",
-        "templateCode": "def tong_uoc_thuc_su(n):\n if n <= 1:\n return 0\n tong = 1\n i = 2\n while i * i <= n:\n if n % i == 0:\n tong += i\n if i * i != n:\n tong += n // i\n i += 1\n return tong\n\na, b = map(int, input().split())\nif a != b and tong_uoc_thuc_su(a) == b and tong_uoc_thuc_su(b) == a:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "templateCode": "a, b = map(int, input().split())\n\n# Tinh tong uoc thuc su cua a\ntong_a = 0\nif a > 1:\n    tong_a = 1\n    i = 2\n    while i * i <= a:\n        if a % i == 0:\n            tong_a += i\n            if i * i != a:\n                tong_a += a // i\n        i += 1\n\n# Tinh tong uoc thuc su cua b\ntong_b = 0\nif b > 1:\n    tong_b = 1\n    i = 2\n    while i * i <= b:\n        if b % i == 0:\n            tong_b += i\n            if i * i != b:\n                tong_b += b // i\n        i += 1\n\nif a != b and tong_a == b and tong_b == a:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
         "tests": [
           {
             "id": 1,
