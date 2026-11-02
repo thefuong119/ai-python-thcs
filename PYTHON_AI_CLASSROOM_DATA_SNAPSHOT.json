@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:07:06.812Z",
+    "updatedAt": "2026-11-02T10:07:18.356Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 36. Ma trận con có giá trị nhỏ nhất lớn nhất"
+    "action": "Admin lưu bài tập: Bài 37. Đếm chữ số trong chuỗi"
   },
   "data": {
     "registeredUsers": [
@@ -2696,7 +2696,7 @@
       },
       {
         "id": 73,
-        "title": "Đếm chữ số trong chuỗi",
+        "title": "Bài 37. Đếm chữ số trong chuỗi",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
