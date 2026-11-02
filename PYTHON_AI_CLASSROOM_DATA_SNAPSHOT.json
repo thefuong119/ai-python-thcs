@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:06:16.396Z",
+    "updatedAt": "2026-11-02T12:06:43.156Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 163. Chuẩn hóa họ tên"
+    "action": "Admin lưu bài tập: Bài 164. Số Armstrong"
   },
   "data": {
     "registeredUsers": [
@@ -5846,7 +5846,7 @@
       },
       {
         "id": 199,
-        "title": "Số Armstrong",
+        "title": "Bài 164. Số Armstrong",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
