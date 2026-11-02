@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:20:07.684Z",
+    "updatedAt": "2026-11-02T10:20:21.526Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 69. Nguyên tố từ tổng chữ số"
+    "action": "Admin lưu bài tập: Bài 70. Phân biệt"
   },
   "data": {
     "registeredUsers": [
@@ -3521,7 +3521,7 @@
       },
       {
         "id": 106,
-        "title": "Phân biệt",
+        "title": "Bài 70. Phân biệt",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
