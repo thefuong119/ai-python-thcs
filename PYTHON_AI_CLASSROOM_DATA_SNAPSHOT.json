@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:59:16.202Z",
+    "updatedAt": "2026-11-02T10:59:31.408Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 101. Tam giác vuông"
+    "action": "Admin lưu bài tập: Bài 102. Dãy số xuất hiện k lần"
   },
   "data": {
     "registeredUsers": [
@@ -4321,7 +4321,7 @@
       },
       {
         "id": 138,
-        "title": "Dãy số xuất hiện k lần",
+        "title": "Bài 102. Dãy số xuất hiện k lần",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
