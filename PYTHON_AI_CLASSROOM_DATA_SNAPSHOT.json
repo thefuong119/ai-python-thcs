@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:10:24.122Z",
+    "updatedAt": "2026-11-02T16:11:34.897Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 90. Bố trí phòng cách ly"
+    "action": "Admin lưu bài tập: Bài 94. Cắt gỗ"
   },
   "data": {
     "registeredUsers": [
@@ -4126,7 +4126,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho n thanh gỗ độ dài a[i] và số nguyên k. Tính tổng số mét phải cắt bỏ để tất cả thanh còn lại bằng thanh ngắn nhất; tìm độ dài h lớn nhất sao cho tổng mét cắt bỏ không vượt k.",
-        "templateCode": "n,k=map(int,input().split()); a=list(map(int,input().split()))\nm=min(a)\nprint(sum(x-m for x in a))\n# h as the largest common target length with total removal <= k\nh=max(x for x in range(m,max(a)+1) if sum(max(0,v-x) for v in a)<=k)\nprint(h)",
+        "templateCode": "n, k = map(int, input().split())\na = list(map(int, input().split()))\n\nm = min(a)\nprint(sum(x - m for x in a))\n\n# h là độ dài đích chung lớn nhất sao cho tổng phần cắt bỏ <= k\nh = max(x for x in range(m, max(a) + 1) if sum(max(0, v - x) for v in a) <= k)\nprint(h)",
         "tests": [
           {
             "id": 1,
