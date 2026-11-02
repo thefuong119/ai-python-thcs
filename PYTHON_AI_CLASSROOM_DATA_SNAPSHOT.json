@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:37:12.401Z",
+    "updatedAt": "2026-11-02T15:38:46.012Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 39. Đoạn con dài nhất gồm các phần tử đôi một khác nhau"
+    "action": "Admin lưu bài tập: Bài 41. Tách số thành ba số"
   },
   "data": {
     "registeredUsers": [
@@ -2801,7 +2801,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho số nguyên dương N. Đếm số bộ ba số nguyên dương có thứ tự (a, b, c) thỏa a + b + c = N, a là ước chung lớn hơn 1 của b và c, đồng thời a ≤ b và a ≤ c. Các cặp (b, c) hoán đổi vị trí được tính là hai cách khác nhau.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Số bộ ba thỏa mãn.",
-        "templateCode": "n = int(input())\ndem = 0\nfor a in range(2, n // 3 + 1):\n for b in range(a, n - a + 1):\n c = n - a - b\n if b % a == 0 and c % a == 0 and c >= a:\n dem += 1\nprint(dem)",
+        "templateCode": "n = int(input())\ndem = 0\nfor a in range(2, n // 3 + 1):\n    for b in range(a, n - a + 1):\n        c = n - a - b\n        if b % a == 0 and c % a == 0 and c >= a:\n            dem += 1\nprint(dem)",
         "tests": [
           {
             "id": 1,
