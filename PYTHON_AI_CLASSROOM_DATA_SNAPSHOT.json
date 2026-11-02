@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:15:17.162Z",
+    "updatedAt": "2026-11-02T16:16:24.595Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 99. Tính tổng phân thức"
+    "action": "Admin lưu bài tập: Bài 100. Số chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -4276,7 +4276,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập n dương. In số chữ số, tổng chữ số, chữ số lớn nhất và số lớn nhất chia hết cho 5 thu được khi xóa một hoặc nhiều chữ số bên phải; nếu không có in KHONG.",
-        "templateCode": "n=int(input()); s=str(n)\nprint(len(s)); print(sum(map(int,s))); print(max(s))\nr=''\nfor i in range(len(s),0,-1):\n t=s[:i]\n if int(t)>0 and int(t)%5==0: r=t; break\nprint(r if r else 'KHONG')",
+        "templateCode": "n = int(input())\ns = str(n)\n\nprint(len(s))\nprint(sum(map(int, s)))\nprint(max(s))\n\nr = ''\nfor i in range(len(s), 0, -1):\n    t = s[:i]\n    if int(t) > 0 and int(t) % 5 == 0:\n        r = t\n        break\n\nprint(r if r else 'KHONG')",
         "tests": [
           {
             "id": 1,
