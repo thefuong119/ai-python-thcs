@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:17:20.824Z",
+    "updatedAt": "2026-11-02T11:24:42.681Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 130. Độ bền"
+    "action": "Admin lưu bài tập: Bài 131. Dãy số và cặp số"
   },
   "data": {
     "registeredUsers": [
@@ -5021,7 +5021,7 @@
       },
       {
         "id": 166,
-        "title": "Dãy số và cặp số",
+        "title": "Bài 131. Dãy số và cặp số",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
