@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:52:22.525Z",
+    "updatedAt": "2026-11-02T08:52:34.995Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 31. Đếm tần suất chữ số của tổng"
+    "action": "Lưu bài tập: Bài 32. Quyển sách có bao nhiêu tờ"
   },
   "data": {
     "registeredUsers": [
@@ -1811,7 +1811,7 @@
       },
       {
         "id": 41,
-        "title": "Quyển sách có bao nhiêu tờ",
+        "title": "Bài 32. Quyển sách có bao nhiêu tờ",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
