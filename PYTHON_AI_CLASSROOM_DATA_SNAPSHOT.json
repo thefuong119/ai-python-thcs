@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:55:29.049Z",
+    "updatedAt": "2026-11-02T09:55:43.716Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 34. Kiểm tra số Armstrong"
+    "action": "Admin lưu bài tập: Bài 35. Kiểm tra số tăng dần"
   },
   "data": {
     "registeredUsers": [
@@ -1929,7 +1929,7 @@
       },
       {
         "id": 44,
-        "title": "Kiểm tra số tăng dần",
+        "title": "Bài 35. Kiểm tra số tăng dần",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
