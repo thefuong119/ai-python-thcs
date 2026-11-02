@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:00:29.124Z",
+    "updatedAt": "2026-11-02T12:00:53.759Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 148. Ước chung và bội chung"
+    "action": "Admin lưu bài tập: Bài 149. Số nhị phân"
   },
   "data": {
     "registeredUsers": [
@@ -5471,7 +5471,7 @@
       },
       {
         "id": 184,
-        "title": "Số nhị phân",
+        "title": "Bài 149. Số nhị phân",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
