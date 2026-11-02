@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:28:45.485Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 20 bài tập từ tep_mau_bai_tap_python.docx"
+    "updatedAt": "2026-11-02T08:37:58.120Z",
+    "updatedBy": "Trần Thị Trúc Mai",
+    "action": "Lưu bài tập: Bài 1. Tính tổng hai số nguyên A và B"
   },
   "data": {
     "registeredUsers": [
@@ -41,7 +41,7 @@
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
-        "loginCount": 34
+        "loginCount": 35
       },
       {
         "id": 3,
@@ -276,7 +276,7 @@
     "assignments": [
       {
         "id": 1,
-        "title": "Tính tổng hai số nguyên A và B",
+        "title": "Bài 1. Tính tổng hai số nguyên A và B",
         "slug": "t-nh-t-ng-hai-s--nguy-n-a-v--b",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -311,7 +311,8 @@
             "point": 2.5,
             "is_hidden": true
           }
-        ]
+        ],
+        "classLevel": "8"
       },
       {
         "id": 2,
@@ -2216,6 +2217,13 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793608486446,
+        "student": "Trần Thị Trúc Mai",
+        "assignmentTitle": "Tính cước taxi",
+        "score": 10,
+        "timestamp": "15:34:46 2/11/2026"
+      },
+      {
         "id": 1793332716856,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -2541,6 +2549,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "15:34:03 2/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "14:52:04 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
