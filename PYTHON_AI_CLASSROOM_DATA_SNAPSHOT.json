@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:22:41.804Z",
+    "updatedAt": "2026-11-02T15:23:15.356Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 18. Bài toán cổ Việt Nam: Vừa gà vừa chó"
+    "action": "Admin lưu bài tập: Bài 19. Xác định vị trí số đẹp"
   },
   "data": {
     "registeredUsers": [
@@ -1583,7 +1583,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Những số chỉ gồm chữ số 6 hoặc chỉ gồm chữ số 8 hoặc gồm cả hai chữ số trên nhưng chữ số 6 luôn đứng trước chữ số 8 được gọi là số đẹp (ví dụ 6, 8, 66, 68, 88, 668,...). Số 9 không phải số đẹp; số 86 không phải số đẹp vì chữ số 8 đứng trước 6.\nCác số đẹp được sắp xếp theo thứ tự tăng dần về giá trị: 6, 8, 66, 68, 88, 666, 668, 688, 888, ...\nCho số nguyên dương N. Hãy kiểm tra xem N có phải số đẹp không. Nếu phải, in ra vị trí thứ tự của N trong dãy số đẹp tăng dần. Nếu không phải, in ra NO.\n\n- Dữ liệu vào: Một số nguyên dương N dưới dạng chuỗi (1 <= N <= 10^18).\n- Dữ liệu ra: Vị trí của N trong dãy số đẹp hoặc chữ NO.",
-        "templateCode": "s = input().strip()\n# Kiểm tra nếu chỉ gồm '6' và '8' và không chứa '86'\nif any(ch not in ('6', '8') for ch in s) or '86' in s:\n print(\"NO\")\nelse:\n L = len(s)\n c8 = s.count('8')\n # Số lượng số đẹp có độ dài < L là: (L - 1) * (L + 2) // 2\n pos = (L - 1) * (L + 2) // 2 + c8 + 1\n print(pos)",
+        "templateCode": "s = input().strip()\n# Kiểm tra nếu chỉ gồm '6' và '8' và không chứa '86'\nif any(ch not in ('6', '8') for ch in s) or '86' in s:\n    print(\"NO\")\nelse:\n    L = len(s)\n    c8 = s.count('8')\n    # Số lượng số đẹp có độ dài < L là: (L - 1) * (L + 2) // 2\n    pos = (L - 1) * (L + 2) // 2 + c8 + 1\n    print(pos)",
         "tests": [
           {
             "id": 1,
