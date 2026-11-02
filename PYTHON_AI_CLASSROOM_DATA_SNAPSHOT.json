@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:56:11.003Z",
+    "updatedAt": "2026-11-02T12:56:20.449Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 4. Kiểm tra tam giác và xác định loại tam giác"
+    "action": "Admin lưu bài tập: Bài 5. Chu vi và diện tích tam giác theo công thức Heron"
   },
   "data": {
     "registeredUsers": [
@@ -7821,7 +7821,7 @@
       },
       {
         "id": 278,
-        "title": "Chu vi và diện tích tam giác theo công thức Heron",
+        "title": "Bài 5. Chu vi và diện tích tam giác theo công thức Heron",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
