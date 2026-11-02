@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:12:36.278Z",
+    "updatedAt": "2026-11-02T10:12:51.582Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 44. Ký tự đầu tiên xuất hiện k lần"
+    "action": "Admin lưu bài tập: Bài 45. Tạo ma trận theo quy luật"
   },
   "data": {
     "registeredUsers": [
@@ -2896,7 +2896,7 @@
       },
       {
         "id": 81,
-        "title": "Tạo ma trận theo quy luật",
+        "title": "Bài 45. Tạo ma trận theo quy luật",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
