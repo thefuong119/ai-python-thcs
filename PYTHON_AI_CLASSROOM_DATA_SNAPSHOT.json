@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:06:19.594Z",
+    "updatedAt": "2026-11-02T15:07:04.262Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 3. Phí vận chuyển giao hàng trực tuyến"
+    "action": "Admin lưu bài tập: Bài 4. Kiểm tra tam giác và xác định loại tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -7801,7 +7801,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho ba số thực dương $a, b, c$1$\\epsilon = 10^{-6}$).\n\nDữ liệu vào: Một dòng gồm ba số thực $a, b, c$ ($0 < a, b, c \\le 10^4$).\nDữ liệu ra: Một xâu thông báo loại tam giác.",
-        "templateCode": "a, b, c = map(float, input().split())\neps = 1e-6\nif a + b > c + eps and a + c > b + eps and b + c > a + eps:\n can = (abs(a - b) < eps) or (abs(b - c) < eps) or (abs(c - a) < eps)\n deu = (abs(a - b) < eps) and (abs(b - c) < eps)\n sides = sorted([a, b, c])\n vuong = abs(sides[0]**2 + sides[1]**2 - sides[2]**2) < 1e-4\n if deu:\n print(\"TAM GIAC DEU\")\n elif vuong and can:\n print(\"TAM GIAC VUONG CAN\")\n elif vuong:\n print(\"TAM GIAC VUONG\")\n elif can:\n print(\"TAM GIAC CAN\")\n else:\n print(\"TAM GIAC THUONG\")\nelse:\n print(\"KHONG PHAI TAM GIAC\")",
+        "templateCode": "a, b, c = map(float, input().split())\neps = 1e-6\nif a + b > c + eps and a + c > b + eps and b + c > a + eps:\n    can = (abs(a - b) < eps) or (abs(b - c) < eps) or (abs(c - a) < eps)\n    deu = (abs(a - b) < eps) and (abs(b - c) < eps)\n    sides = sorted([a, b, c])\n    vuong = abs(sides[0]**2 + sides[1]**2 - sides[2]**2) < 1e-4\n    if deu:\n        print(\"TAM GIAC DEU\")\n    elif vuong and can:\n        print(\"TAM GIAC VUONG CAN\")\n    elif vuong:\n        print(\"TAM GIAC VUONG\")\n    elif can:\n        print(\"TAM GIAC CAN\")\n    else:\n        print(\"TAM GIAC THUONG\")\nelse:\n    print(\"KHONG PHAI TAM GIAC\")",
         "tests": [
           {
             "id": 1,
