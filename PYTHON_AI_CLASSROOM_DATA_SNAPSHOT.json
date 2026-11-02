@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:46:28.530Z",
+    "updatedAt": "2026-11-02T08:47:24.617Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 16. Rút gọn tối đa dãy số"
+    "action": "Lưu bài tập: Bài 17. Kiểm tra số Kaprekar"
   },
   "data": {
     "registeredUsers": [
@@ -1148,7 +1148,7 @@
       },
       {
         "id": 24,
-        "title": "Kiểm tra số Kaprekar",
+        "title": "Bài 17. Kiểm tra số Kaprekar",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
