@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:04:07.140Z",
+    "updatedAt": "2026-11-02T12:04:33.772Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 158. Phân tích thừa số nguyên tố"
+    "action": "Admin lưu bài tập: Bài 159. Dãy số và tổng chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -5721,7 +5721,7 @@
       },
       {
         "id": 194,
-        "title": "Dãy số và tổng chữ số",
+        "title": "Bài 159. Dãy số và tổng chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
