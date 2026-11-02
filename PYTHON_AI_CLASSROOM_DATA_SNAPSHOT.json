@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:56:29.261Z",
+    "updatedAt": "2026-11-02T09:56:40.241Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 6. Tổ chức tham quan"
+    "action": "Admin lưu bài tập: Bài 7. Tổ chức tham quan"
   },
   "data": {
     "registeredUsers": [
@@ -1110,7 +1110,7 @@
       },
       {
         "id": 23,
-        "title": "Bài 6. Tổ chức tham quan",
+        "title": "Bài 7. Tổ chức tham quan",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
