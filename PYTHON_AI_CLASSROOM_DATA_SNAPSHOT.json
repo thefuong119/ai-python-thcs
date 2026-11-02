@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:55:40.060Z",
+    "updatedAt": "2026-11-02T10:55:58.002Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 92. Số dư"
+    "action": "Admin lưu bài tập: Bài 93. Xâu ký tự và tổng chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -4096,7 +4096,7 @@
       },
       {
         "id": 129,
-        "title": "Xâu ký tự và tổng chữ số",
+        "title": "Bài 93. Xâu ký tự và tổng chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
