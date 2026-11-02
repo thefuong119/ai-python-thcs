@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:15:24.216Z",
+    "updatedAt": "2026-11-02T11:15:38.953Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 124. Dãy số và số chính phương"
+    "action": "Admin lưu bài tập: Bài 125. Khoảng cách"
   },
   "data": {
     "registeredUsers": [
@@ -4871,7 +4871,7 @@
       },
       {
         "id": 160,
-        "title": "Khoảng cách",
+        "title": "Bài 125. Khoảng cách",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
