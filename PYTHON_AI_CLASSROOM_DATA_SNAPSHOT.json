@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:39:24.293Z",
+    "updatedAt": "2026-11-02T10:39:46.641Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 82. Mua bất động sản"
+    "action": "Admin lưu bài tập: Bài 83. Bài toán gà và chó"
   },
   "data": {
     "registeredUsers": [
@@ -3846,7 +3846,7 @@
       },
       {
         "id": 119,
-        "title": "Bài toán gà và chó",
+        "title": "Bài 83. Bài toán gà và chó",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
