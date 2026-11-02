@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:43:55.127Z",
+    "updatedAt": "2026-11-02T08:44:05.688Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 13. Giải nén xâu ký tự"
+    "action": "Lưu bài tập: Bài 14. Số nhỏ nhất chia hết từ 1 đến N"
   },
   "data": {
     "registeredUsers": [
@@ -953,7 +953,7 @@
       },
       {
         "id": 19,
-        "title": "Số nhỏ nhất chia hết từ 1 đến N",
+        "title": "Bài 14. Số nhỏ nhất chia hết từ 1 đến N",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
