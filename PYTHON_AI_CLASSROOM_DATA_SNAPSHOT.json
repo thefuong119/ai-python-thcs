@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:02:55.115Z",
+    "updatedAt": "2026-11-02T12:03:20.926Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 154. Sắp xếp và khoảng cách"
+    "action": "Admin lưu bài tập: Bài 155. Tính tích số có nhiều chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -5621,7 +5621,7 @@
       },
       {
         "id": 190,
-        "title": "Tính tích số có nhiều chữ số",
+        "title": "Bài 155. Tính tích số có nhiều chữ số",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
