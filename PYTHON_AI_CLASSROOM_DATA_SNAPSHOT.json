@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:53:31.596Z",
+    "updatedAt": "2026-11-02T09:53:46.926Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 2. Ghép số nhỏ nhất"
+    "action": "Admin lưu bài tập: Bài 3. Cặp tích chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -759,7 +759,7 @@
       },
       {
         "id": 14,
-        "title": "Cặp tích chẵn",
+        "title": "Bài 3. Cặp tích chẵn",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
