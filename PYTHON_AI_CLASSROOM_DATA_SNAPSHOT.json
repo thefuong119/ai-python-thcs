@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T13:04:58.666Z",
+    "updatedAt": "2026-11-02T13:06:13.981Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 11. Mã hóa bảo mật thông điệp Caesar cải tiến"
+    "action": "Nạp 20 bài tập từ tep_mau_bai_tap_python-van_dung_9.docx"
   },
   "data": {
     "registeredUsers": [
@@ -8789,6 +8789,506 @@
             "id": 2,
             "input": "2\nA 1.0 B\nB 1.0 A",
             "expected": "A 1.0 1.0\nB 1.0 1.0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 317,
+        "title": "Mô phỏng trạm thu phí không dừng ETC và xử lý số dư âm",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một trạm thu phí tự động ETC quản lý $N$1$M$1$N$1$M$ ($1 \\le N, M \\le 10^4$).\n- $N$1$M$ dòng tiếp theo, mỗi dòng gồm Mã xe và Loại vé (1, 2 hoặc 3).\nDữ liệu ra: Các dòng in Mã xe và số dư âm (số nguyên) tương ứng sắp xếp theo mã xe, hoặc \"ALL VALID\".",
+        "templateCode": "bang_gia = {1: 35000, 2: 50000, 3: 75000}\nline1 = input().split()\nN, M = int(line1[0]), int(line1[1])\n\ntai_khoan = {}\nfor _ in range(N):\n parts = input().split()\n tai_khoan[parts[0]] = int(parts[1])\n\nfor _ in range(M):\n parts = input().split()\n xe, loai = parts[0], int(parts[1])\n gia = bang_gia[loai]\n if tai_khoan[xe] >= gia:\n tai_khoan[xe] -= gia\n else:\n tai_khoan[xe] -= round(gia * 1.05)\n\nno_tien = [(xe, so_du) for xe, so_du in tai_khoan.items() if so_du < 0]\nif not no_tien:\n print(\"ALL VALID\")\nelse:\n no_tien.sort(key=lambda x: x[0])\n for xe, so_du in no_tien:\n print(f\"{xe} {so_du}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3\n51A1 50000\n29B2 20000\n43C3 100000\n51A1 1\n29B2 2\n43C3 3",
+            "expected": "29B2 -32500",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2\n30A 100000\n50B 100000\n30A 1\n50B 2",
+            "expected": "ALL VALID",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 318,
+        "title": "Điều phối xe cấp cứu theo khoảng cách Manhattan",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trung tâm cấp cứu 115 nhận được cuộc gọi từ vị trí tai nạn có tọa độ $(X_0, Y_0)$. Hiện tại có $N$1$i$1$Name_i$, tọa độ $(x_i, y_i)$1$v_i$1$d = |x_i - X_0| + |y_i - Y_0|$1$t = \\frac{d}{v_i}$1$d$1$X_0, Y_0$.\n- Dòng 2: Số nguyên dương $N$ ($1 \\le N \\le 1000$).\n- $N$1$x_i, y_i$1$v_i$ ($v_i > 0$).\nDữ liệu ra: Tên xe được điều phối và thời gian di chuyển tính bằng phút (làm tròn 2 chữ số thập phân).",
+        "templateCode": "parts0 = input().split()\nx0, y0 = float(parts0[0]), float(parts0[1])\nN = int(input().strip())\n\nxe_list = []\nfor _ in range(N):\n p = input().split()\n ten = p[0]\n xi, yi, vi = float(p[1]), float(p[2]), float(p[3])\n d = abs(xi - x0) + abs(yi - y0)\n t_phut = (d / vi) * 60.0\n xe_list.append((t_phut, d, ten))\n\n# Uu tien: t_phut tang dan, d tang dan, ten tang dan\nxe_list.sort(key=lambda item: (item[0], item[1], item[2]))\nchon = xe_list[0]\nprint(f\"{chon[2]} {chon[0]:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 5\n3\nXeA 1 2 40\nXeB 4 6 30\nXeC 10 10 60",
+            "expected": "XeB 4.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 0\n2\nAmb1 3 4 50\nAmb2 0 7 50",
+            "expected": "Amb1 8.40",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 319,
+        "title": "Cân bằng tải cụm máy chủ đám mây (Cloud Load Balancer)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một hệ thống máy chủ đám mây gồm $K$1$1$1$K$). Ban đầu, cả $K$1$N$1$i$1$w_i$.\nThuật toán cân bằng tải hoạt động như sau: mỗi khi có tác vụ mới, bộ điều phối sẽ gán tác vụ đó cho máy chủ hiện có tổng tải nhỏ nhất; nếu có nhiều máy chủ cùng tải nhỏ nhất thì ưu tiên máy có chỉ số nhỏ hơn.\nHãy xác định thời gian hoàn thành tác vụ cuối cùng (makespan - tải lớn nhất trong các máy) sau khi phân bổ xong $N$1$K$1$N$ ($1 \\le K \\le 100; 1 \\le N \\le 10^5$).\n- Dòng 2: $N$1$w_1, w_2, ..., w_N$ ($1 \\le w_i \\le 1000$).\nDữ liệu ra: Một số nguyên duy nhất là thời gian hoàn thành toàn bộ hệ thống.",
+        "templateCode": "import heapq\n\nline1 = input().split()\nK, N = int(line1[0]), int(line1[1])\nw = list(map(int, input().split()))\n\n# Dung priority queue luu cap (tong_tai, id_may)\nheap = [(0, i) for i in range(1, K + 1)]\nheapq.heapify(heap)\n\nfor task in w:\n tai, server_id = heapq.heappop(heap)\n heapq.heappush(heap, (tai + task, server_id))\n\nmax_load = max(tai for tai, _ in heap)\nprint(max_load)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 6\n5 8 2 4 7 3",
+            "expected": "11",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 4\n10 10 10 10",
+            "expected": "20",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 320,
+        "title": "Giải mã và kiểm tra tính hợp lệ của số Căn cước công dân (CCCD)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số Căn cước công dân (CCCD) Việt Nam gồm đúng 12 chữ số $C_1 C_2 ... C_{12}$ có cấu trúc:\n- 3 chữ số đầu ($C_1 C_2 C_3$): Mã tỉnh/thành phố nơi đăng ký khai sinh (từ 001 đến 096).\n- Chữ số thứ 4 ($C_4$): Mã thế kỷ và giới tính:\n + Thế kỷ 20 (sinh năm 1900 - 1999): '0' (Nam), '1' (Nữ)\n + Thế kỷ 21 (sinh năm 2000 - 2099): '2' (Nam), '3' (Nữ)\n- 2 chữ số tiếp theo ($C_5 C_6$): 2 chữ số cuối của năm sinh.\n- 6 chữ số cuối ($C_7 ... C_{12}$): Dãy số ngẫu nhiên.\nHãy kiểm tra xem số CCCD nhập vào có hợp lệ về mặt định dạng không (đúng 12 ký tự chữ số, $C_4 \\in \\{0, 1, 2, 3\\}$, năm sinh hợp lệ). Nếu hợp lệ, hãy in ra Giới tính ('Nam'/'Nu') và Năm sinh đầy đủ gồm 4 chữ số; nếu không hợp lệ in \"INVALID\".\n\nDữ liệu vào: Một chuỗi ký tự $S$.\nDữ liệu ra: Kết quả dạng \"GioiTinh NamSinh\" (ví dụ: \"Nam 2008\") hoặc \"INVALID\".",
+        "templateCode": "s = input().strip()\n\nif len(s) == 12 and s.isdigit():\n c4 = int(s[3])\n nam_cuoi = int(s[4:6])\n if c4 in [0, 1, 2, 3]:\n gioi_tinh = \"Nam\" if c4 in [0, 2] else \"Nu\"\n the_ky = 1900 if c4 in [0, 1] else 2000\n nam_sinh = the_ky + nam_cuoi\n print(f\"{gioi_tinh} {nam_sinh}\")\n else:\n print(\"INVALID\")\nelse:\n print(\"INVALID\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "037208001234",
+            "expected": "Nam 2008",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "001198005678",
+            "expected": "Nu 1998",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 321,
+        "title": "Mô phỏng quầy giao dịch dịch vụ công (Thời gian chờ trung bình)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một bộ phận Một cửa có một nhân viên duy nhất phục vụ liên tục. Có $N$1$i$1$a_i$1$t_i$1$a_i$.\nNếu nhân viên đang bận tiếp người trước, người đến sau phải ngồi chờ. Nếu nhân viên rảnh, người đến sẽ được phục vụ ngay.\nHãy tính thời gian chờ đợi trung bình của $N$1$N$ ($1 \\le N \\le 10^4$).\n- $N$1$a_i, t_i$ ($0 \\le a_i \\le 10^6; 1 \\le t_i \\le 1000$).\nDữ liệu ra: Một số thực là thời gian chờ trung bình làm tròn 2 chữ số thập phân.",
+        "templateCode": "N = int(input().strip())\nkhach = [tuple(map(int, input().split())) for _ in range(N)]\n\ntong_cho = 0\nthoi_diem_ranh = 0\n\nfor a, t in khach:\n if thoi_diem_ranh <= a:\n thoi_diem_ranh = a + t\n else:\n tong_cho += (thoi_diem_ranh - a)\n thoi_diem_ranh += t\n\ntb_cho = tong_cho / N\nprint(f\"{tb_cho:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n1 5\n2 3\n10 2",
+            "expected": "1.33",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n0 10\n5 5",
+            "expected": "2.50",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 322,
+        "title": "Cắt phôi nhôm tối ưu giảm lãng phí (Quay lui đệ quy)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một xưởng cơ khí có một thanh nhôm nguyên khối dài chuẩn $L$1$N$1$c_1, c_2, ..., c_N$1$L$, xưởng có thể chọn ra một tập hợp các đoạn nhôm cần cắt sao cho tổng chiều dài cắt được là lớn nhất có thể (nhỏ hơn hoặc bằng $L$) hay không? Hãy tìm độ dài nhôm còn thừa ít nhất (lãng phí ít nhất).\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $L$1$N$ ($1 \\le L \\le 10^5; 1 \\le N \\le 22$).\n- Dòng 2: $N$1$c_1, c_2, ..., c_N$ ($1 \\le c_i \\le L$).\nDữ liệu ra: Một số nguyên duy nhất là độ dài đoạn nhôm còn thừa tối thiểu.",
+        "templateCode": "L, N = map(int, input().split())\nc = list(map(int, input().split()))\nc.sort(reverse=True)\n\nmin_thua = L\n\ndef backtrack(idx, sum_len):\n global min_thua\n if sum_len > L:\n return\n con_lai = L - sum_len\n if con_lai < min_thua:\n min_thua = con_lai\n if min_thua == 0 or idx == N:\n return\n for i in range(idx, N):\n if sum_len + c[i] <= L:\n backtrack(i + 1, sum_len + c[i])\n\nbacktrack(0, 0)\nprint(min_thua)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 4\n30 40 50 25",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50 3\n20 20 20",
+            "expected": "10",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 323,
+        "title": "Lọc dữ liệu cảm biến IoT và phát hiện sốc nhiệt độ (Cửa sổ trượt)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một cảm biến nhiệt độ nhà kính thông minh truyền dữ liệu liên tục gồm $N$1$T_1, T_2, ..., T_N$. Một hiện tượng được cảnh báo là \"SỐC NHIỆT\" nếu trong bất kỳ khoảng thời gian liên tiếp gồm đúng $K$1$\\Delta$ ($Max - Min > \\Delta$).\nHãy đếm số lượng cửa sổ độ dài $K$1$N, K, \\Delta$ ($1 \\le K \\le N \\le 10^5; \\Delta > 0$, trong đó $\\Delta$1$N$ số thực biểu diễn các giá trị nhiệt độ theo thời gian.\nDữ liệu ra: Một số nguyên duy nhất là số lượng khoảng thời gian bị sốc nhiệt.",
+        "templateCode": "from collections import deque\n\nparts = input().split()\nN, K = int(parts[0]), int(parts[1])\ndelta = float(parts[2])\na = list(map(float, input().split()))\n\n# Deque de duy tri max va min trong cua so K\nq_max = deque()\nq_min = deque()\nans = 0\n\nfor i in range(N):\n # Xoa phan tu ra khoi cua so K\n while q_max and q_max[0] <= i - K:\n q_max.popleft()\n while q_min and q_min[0] <= i - K:\n q_min.popleft()\n \n # Them phan tu hien tai vao\n while q_max and a[q_max[-1]] <= a[i]:\n q_max.pop()\n q_max.append(i)\n \n while q_min and a[q_min[-1]] >= a[i]:\n q_min.pop()\n q_min.append(i)\n \n if i >= K - 1:\n if a[q_max[0]] - a[q_min[0]] > delta:\n ans += 1\n\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 3 4.0\n25.0 26.5 30.5 28.0 24.0 23.5",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2 2.0\n20.0 21.0 22.0 23.0",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 324,
+        "title": "Bù trừ điện mặt trời áp mái hai chiều (Net Metering)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hộ gia đình lắp điện mặt trời có công tơ hai chiều ghi nhận sản lượng điện tiêu thụ từ lưới ($E_{in}$) và lượng điện phát ngược lên lưới ($E_{out}$) trong $T$1$E_{in} \\ge E_{out}$: Điện năng ròng phải trả là $E_{net} = E_{in} - E_{out}$, giá mua từ lưới là 2,500 đ/kWh.\n- Nếu $E_{in} < E_{out}$: Hộ gia đình dùng thừa và phát dư ra lưới $E_{du} = E_{out} - E_{in}$, công ty điện lực sẽ mua lại với giá 1,800 đ/kWh.\nHãy tính tổng số tiền hộ gia đình phải trả hoặc được công ty điện lực chi trả sau $T$1$T$ ($1 \\le T \\le 365$).\n- $T$1$E_{in}$1$E_{out}$ ($0 \\le E_{in}, E_{out} \\le 1000$).\nDữ liệu ra: In \"PHAI TRA X\" (nếu tổng thanh toán là âm đối với người dân, tức người dân phải nộp) hoặc \"DUOC NHAN Y\" (nếu người dân có lãi), với $X, Y$ là số tiền nguyên dương làm tròn.",
+        "templateCode": "T = int(input().strip())\ntong_tien = 0.0\n\nfor _ in range(T):\n ein, eout = map(float, input().split())\n if ein >= eout:\n tong_tien += (ein - eout) * 2500\n else:\n tong_tien -= (eout - ein) * 1800\n\ntien_int = round(tong_tien)\nif tien_int >= 0:\n print(f\"PHAI TRA {tien_int}\")\nelse:\n print(f\"DUOC NHAN {-tien_int}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2\n20.0 5.0\n10.0 15.0",
+            "expected": "PHAI TRA 28500",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1\n5.0 20.0",
+            "expected": "DUOC NHAN 27000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 325,
+        "title": "Khớp lệnh tự động sàn giao dịch hàng hóa (Order Matching)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một sàn giao dịch ghi nhận $N$1$M$1$Gia_{Mua} \\ge Gia_{Ban}$. Khi khớp lệnh, giá thực hiện là giá trung bình cộng của 2 lệnh $\\frac{Gia_{Mua} + Gia_{Ban}}{2}$. Sàn ưu tiên khớp các lệnh MUA có giá cao nhất với lệnh BÁN có giá thấp nhất trước (ưu tiên về giá).\nHãy tính tổng khối lượng nông sản khớp lệnh thành công và tổng giá trị giao dịch (làm tròn số nguyên).\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$1$M$ ($1 \\le N, M \\le 1000$).\n- $N$1$M$ dòng tiếp theo: Giá bán và khối lượng bán (số nguyên dương).\nDữ liệu ra: Hai số nguyên là Tổng khối lượng và Tổng giá trị giao dịch cách nhau một dấu cách.",
+        "templateCode": "line1 = input().split()\nN, M = int(line1[0]), int(line1[1])\n\nbuys = []\nfor _ in range(N):\n p, q = map(int, input().split())\n buys.append([p, q])\n\nsells = []\nfor _ in range(M):\n p, q = map(int, input().split())\n sells.append([p, q])\n\n# Uu tien mua gia cao giam dan, ban gia thap tang dan\nbuys.sort(key=lambda x: -x[0])\nsells.sort(key=lambda x: x[0])\n\ni, j = 0, 0\ntong_khoi_luong = 0\ntong_gia_tri = 0.0\n\nwhile i < N and j < M:\n if buys[i][0] >= sells[j][0]:\n kl_khop = min(buys[i][1], sells[j][1])\n gia_khop = (buys[i][0] + sells[j][0]) / 2.0\n tong_khoi_luong += kl_khop\n tong_gia_tri += kl_khop * gia_khop\n buys[i][1] -= kl_khop\n sells[j][1] -= kl_khop\n if buys[i][1] == 0:\n i += 1\n if sells[j][1] == 0:\n j += 1\n else:\n break\n\nprint(f\"{tong_khoi_luong} {round(tong_gia_tri)}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 2\n50 10\n45 20\n40 15\n48 10",
+            "expected": "15 675",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 1\n30 5\n40 5",
+            "expected": "0 0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 326,
+        "title": "Truy vết chuỗi hành lý thất lạc tại sân bay (Tìm kiếm chu trình/đồ thị)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hệ thống phân loại hành lý tại sân bay kết nối $N$1$1$1$N$. Mỗi băng chuyền $i$1$next_i$. Một kiện hành lý bắt đầu chạy từ băng chuyền $S$. Sau một thời gian, kiện hàng có thể bị chạy luẩn quẩn trong một vòng lặp kín.\nHãy xác định sau $K$1$N, S, K$ ($1 \\le N \\le 10^5; 1 \\le S \\le N; 1 \\le K \\le 10^{18}$).\n- Dòng 2: $N$1$next_1, next_2, ..., next_N$ ($1 \\le next_i \\le N$).\nDữ liệu ra: Một số nguyên duy nhất là số hiệu băng chuyền kiện hàng đang dừng lại.",
+        "templateCode": "line1 = input().split()\nN, S, K = int(line1[0]), int(line1[1]), int(line1[2])\nnxt = [0] + list(map(int, input().split()))\n\n# Tim chu trinh vi K rat lon (10^18)\nvisited = {}\npath = []\ncur = S\nstep = 0\n\nwhile step < K:\n if cur in visited:\n chu_ky_start = visited[cur]\n chu_ky_len = step - chu_ky_start\n k_con_lai = (K - step) % chu_ky_len\n cur = path[chu_ky_start + k_con_lai]\n step = K\n break\n visited[cur] = step\n path.append(cur)\n cur = nxt[cur]\n step += 1\n\nprint(cur)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 1 5\n2 3 4 2",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1 1000000000000\n2 3 1",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 327,
+        "title": "Mô phỏng hành trình thang máy phục vụ đa tầng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một thang máy của tòa nhà chung cư xuất phát từ tầng 1. Trong một đợt phục vụ, thang nhận danh sách gồm $N$1$F_1, F_2, ..., F_N$. Biết thời gian thang máy di chuyển giữa hai tầng liên tiếp là 2 giây. Mỗi lần dừng tại một tầng bất kỳ (kể cả đón hay trả khách) thang mất 5 giây mở/đóng cửa. Thang máy chạy theo thuật toán gom tầng: trước tiên đi lên phục vụ tất cả các tầng có trong danh sách từ thấp đến cao, sau đó nếu còn yêu cầu nào khác (hoặc quay về tầng 1) thì di chuyển xuống.\nHãy tính tổng thời gian để thang máy xuất phát từ tầng 1, phục vụ tất cả các tầng yêu cầu rồi quay trở lại tầng 1.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$ ($1 \\le N \\le 100$).\n- Dòng 2: $N$ số nguyên dương biểu thị các tầng cần phục vụ ($1 \\le F_i \\le 100$).\nDữ liệu ra: Một số nguyên duy nhất là tổng thời gian tính bằng giây.",
+        "templateCode": "N = int(input().strip())\ntang = list(set(map(int, input().split())))\ntang_cao_nhat = max(tang)\n\n# Di tu 1 len tang_cao_nhat roi ve 1: quang duong = 2 * (tang_cao_nhat - 1)\n# Moi tang duy nhat can dung mo cua 5s (neu tang 1 co trong list thi cung dung)\ntong_quang_duong = 2 * (tang_cao_nhat - 1)\nthoi_gian_chay = tong_quang_duong * 2\nthoi_gian_dung = len(tang) * 5\n\nprint(thoi_gian_chay + thoi_gian_dung)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n3 5 3",
+            "expected": "26",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1\n10",
+            "expected": "41",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 328,
+        "title": "Chọn danh mục dự án đầu tư sinh lời tối đa (Quy hoạch động)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một quỹ đầu tư khởi nghiệp có ngân sách tối đa $V$1$N$1$i$1$c_i$1$p_i$1$V$1$N$1$V$ ($1 \\le N \\le 100; 1 \\le V \\le 1000$).\n- $N$1$c_i, p_i$ ($1 \\le c_i, p_i \\le 1000$).\nDữ liệu ra: Một số nguyên duy nhất là lợi nhuận kỳ vọng tối đa.",
+        "templateCode": "N, V = map(int, input().split())\ndp = [0] * (V + 1)\n\nfor _ in range(N):\n c, p = map(int, input().split())\n for j in range(V, c - 1, -1):\n if dp[j - c] + p > dp[j]:\n dp[j] = dp[j - c] + p\n\nprint(max(dp))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 10\n4 30\n5 40\n7 60",
+            "expected": "70",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 5\n6 50\n7 60",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 329,
+        "title": "Khoanh vùng tiếp xúc dịch tễ F0, F1 (Xử lý tập hợp Set)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cơ quan y tế dự phòng ghi nhận $M$1$u$1$v$. Ban đầu phát hiện một ca nhiễm gốc $F_0$.\n- Những người từng tiếp xúc trực tiếp với $F_0$1$F_1$.\n- Những người từng tiếp xúc với $F_1$1$F_0$1$F_1$1$F_2$.\nHãy xác định số lượng người thuộc diện $F_1$1$F_2$1$M$ ($1 \\le M \\le 10^5$) và mã định danh của bệnh nhân gốc $F_0$1$M$1$F_1$1$F_2$ cách nhau một khoảng trắng.",
+        "templateCode": "parts = input().split()\nM = int(parts[0])\nf0 = parts[1]\n\nadj = {}\nfor _ in range(M):\n u, v = input().split()\n if u not in adj: adj[u] = set()\n if v not in adj: adj[v] = set()\n adj[u].add(v)\n adj[v].add(u)\n\nf1_set = set(adj.get(f0, set()))\n\nf2_set = set()\nfor person in f1_set:\n for neighbor in adj.get(person, set()):\n if neighbor != f0 and neighbor not in f1_set:\n f2_set.add(neighbor)\n\nprint(f\"{len(f1_set)} {len(f2_set)}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 P1\nP1 P2\nP1 P3\nP2 P4\nP3 P5",
+            "expected": "2 2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 A\nA B\nB C\nC A",
+            "expected": "2 0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 330,
+        "title": "Lập lịch ca trực tuần tra bệnh viện (Quay lui không trùng lặp)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một bệnh viện cần phân công ca trực đêm cho $D$1$D$) từ một nhóm gồm $N$ bác sĩ ($N \\ge D$). Quy tắc an toàn sức khỏe y tế:\n- Mỗi ngày có đúng 1 bác sĩ trực.\n- Không bác sĩ nào được trực 2 ngày liên tiếp.\n- Mỗi bác sĩ trực tối đa 2 ngày trong tuần.\nCho danh sách $D$1$D$1$N$ ($1 \\le D \\le 7; 1 \\le N \\le 10$).\n- $D$ dòng tiếp theo, mỗi dòng gồm số lượng bác sĩ rảnh và danh sách ID của họ trong ngày đó.\nDữ liệu ra: In \"YES\" hoặc \"NO\".",
+        "templateCode": "D, N = map(int, input().split())\navail = []\nfor _ in range(D):\n p = input().split()\n avail.append(p[1:])\n\ncnt = {}\nfound = False\n\ndef backtrack(day, prev):\n global found\n if day == D:\n found = True\n return\n for doc in avail[day]:\n if doc != prev and cnt.get(doc, 0) < 2:\n cnt[doc] = cnt.get(doc, 0) + 1\n backtrack(day + 1, doc)\n if found: return\n cnt[doc] -= 1\n\nbacktrack(0, \"\")\nprint(\"YES\" if found else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3\n2 BS1 BS2\n2 BS2 BS3\n2 BS1 BS3",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 1\n1 BS1\n1 BS1",
+            "expected": "NO",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 331,
+        "title": "Nén gói tin truyền thông vệ tinh RLE cải tiến",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Để tiết kiệm băng thông khi truyền tin qua vệ tinh, tín hiệu số dạng chuỗi ký tự được nén bằng thuật toán Run-Length Encoding (RLE):\n- Chuỗi các ký tự giống nhau liên tiếp có độ dài $k \\ge 2$1$k$1$S$1$10^5$).\nDữ liệu ra: Chuỗi sau khi nén.",
+        "templateCode": "s = input().strip()\nif not s:\n print(\"\")\nelse:\n res = []\n i = 0\n n = len(s)\n while i < n:\n j = i\n while j < n and s[j] == s[i]:\n j += 1\n count = j - i\n if count > 1:\n res.append(f\"{count}{s[i]}\")\n else:\n res.append(s[i])\n i = j\n print(\"\".join(res))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "AAABBBCCCCD",
+            "expected": "3A3B4CD",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "XYZ",
+            "expected": "XYZ",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 332,
+        "title": "Xử phạt vi phạm tốc độ trung bình theo camera đoạn đường",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hệ thống camera giao thông thông minh lắp đặt 2 camera tại đầu và cuối một đoạn đường cao tốc có chiều dài $L$1$V_{max}$1$h_1$1$m_1$1$s_1$1$h_2$1$m_2$1$s_2$1$V_{tb} = \\frac{L}{\\Delta t}$1$L$1$V_{max}$ ($L > 0; V_{max} > 0$).\n- Dòng 2: Ba số nguyên $h_1, m_1, s_1$.\n- Dòng 3: Ba số nguyên $h_2, m_2, s_2$.\nDữ liệu ra: Thông báo xử lý tương ứng.",
+        "templateCode": "parts = input().split()\nL, Vmax = float(parts[0]), float(parts[1])\nh1, m1, s1 = map(int, input().split())\nh2, m2, s2 = map(int, input().split())\n\nt1 = h1 * 3600 + m1 * 60 + s1\nt2 = h2 * 3600 + m2 * 60 + s2\ndt_gio = (t2 - t1) / 3600.0\n\nv_tb = L / dt_gio\nvuot = v_tb - Vmax\n\nif vuot <= 0:\n print(\"DUNG TOC DO\")\nelif vuot < 5:\n print(\"NHAC NHO\")\nelif vuot < 10:\n print(\"PHAT 900000\")\nelif vuot <= 20:\n print(\"PHAT 4500000\")\nelse:\n print(\"PHAT 11000000\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12.0 80.0\n8 0 0\n8 7 30",
+            "expected": "PHAT 4500000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10.0 60.0\n7 0 0\n7 10 0",
+            "expected": "DUNG TOC DO",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 333,
+        "title": "Mô phỏng cơ chế đấu giá giá thứ hai (Vickrey Auction)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trong một phiên đấu giá Vickrey (đấu giá phong bì kín giá thứ hai), có $N$1$i$1$b_i$. Giá sàn của tài sản là $R$.\nQuy tắc đấu giá Vickrey:\n- Chỉ những người trả giá $\\ge R$1$\\ge R$, phiên đấu giá thất bại (\"FAIL\").\n- Người thắng đấu giá là người trả giá cao nhất $b_{max}$.\n- Giá thanh toán thực tế của người thắng là mức giá hợp lệ cao thứ hai. Nếu chỉ có duy nhất 1 người trả giá hợp lệ, giá thanh toán chính là giá sàn $R$.\nHãy tìm ID người thắng đấu giá và số tiền người đó phải thanh toán.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$1$R$ ($1 \\le N \\le 10^4; 1 \\le R \\le 10^9$).\n- $N$1$b_i$.\nDữ liệu ra: In \"Mã_người_thắng Giá_thanh_toán\" hoặc \"FAIL\".",
+        "templateCode": "parts = input().split()\nN, R = int(parts[0]), int(parts[1])\n\nhop_le = []\nfor _ in range(N):\n line = input().split()\n nguoi, gia = line[0], int(line[1])\n if gia >= R:\n hop_le.append((gia, nguoi))\n\nif not hop_le:\n print(\"FAIL\")\nelse:\n hop_le.sort(key=lambda x: -x[0])\n nguoi_thang = hop_le[0][1]\n if len(hop_le) == 1:\n gia_tra = R\n else:\n gia_tra = hop_le[1][0]\n print(f\"{nguoi_thang} {gia_tra}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 100\nUserA 150\nUserB 120\nUserC 90",
+            "expected": "UserA 120",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 200\nUserA 100\nUserB 150",
+            "expected": "FAIL",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 334,
+        "title": "Chia sẻ chi phí chuyến đi dã ngoại công bằng (Debt Simplification)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một nhóm gồm $N$1$M$1$j$1$P_j$1$A_j$1$N$1$N$1$M$ ($2 \\le N \\le 50; 1 \\le M \\le 100$).\n- Dòng 2: $N$1$N$1$M$1$P_j$1$A_j$ ($A_j$1$N$).\nDữ liệu ra: Danh sách từng bạn theo thứ tự từ điển và số tiền chênh lệch (dấu '+' nếu được nhận lại, dấu '-' nếu phải trả, '0' nếu hòa vốn).",
+        "templateCode": "line1 = input().split()\nN, M = int(line1[0]), int(line1[1])\nten_list = input().split()\n\nchi = {t: 0 for t in ten_list}\ntong_chi = 0\n\nfor _ in range(M):\n p, a = input().split()\n a = int(a)\n chi[p] += a\n tong_chi += a\n\nphan_moi_nguoi = tong_chi // N\nten_list.sort()\n\nfor t in ten_list:\n chenh = chi[t] - phan_moi_nguoi\n if chenh > 0:\n print(f\"{t} +{chenh}\")\n elif chenh < 0:\n print(f\"{t} {chenh}\")\n else:\n print(f\"{t} 0\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 2\nAn Binh Cuong\nAn 300000\nBinh 150000",
+            "expected": "An +150000\nBinh 0\nCuong -150000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 1\nNam Viet\nNam 100000",
+            "expected": "Nam +50000\nViet -50000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 335,
+        "title": "Tối ưu hóa hành trình xe buýt học sinh (Xử lý mảng và đồ thị chu trình)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một tuyến xe buýt học sinh gồm $N$1$1, 2, ..., N, 1$. Thời gian di chuyển giữa trạm $i$1$i+1$1$N$1$d_i$1$S$1$E$1$N, S, E$ ($3 \\le N \\le 10^5; 1 \\le S, E \\le N$).\n- Dòng 2: $N$1$d_1, d_2, ..., d_N$ ($d_i$1$i$1$(i \\% N) + 1$).\nDữ liệu ra: Một số nguyên duy nhất là thời gian di chuyển ngắn nhất.",
+        "templateCode": "N, S, E = map(int, input().split())\nd = list(map(int, input().split()))\n\nif S == E:\n print(0)\nelse:\n u = min(S, E)\n v = max(S, E)\n # Tinh khoang cach tu u den v theo chieu thuan\n # Do u, v la chi so 1-based, cac doan tu u den v-1 nam tu index u-1 den v-2\n sum_direct = sum(d[u - 1 : v - 1])\n total_sum = sum(d)\n sum_reverse = total_sum - sum_direct\n print(min(sum_direct, sum_reverse))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 1 3\n10 20 30 15",
+            "expected": "30",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1 2\n5 10 20",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 336,
+        "title": "Bảo vệ đê biển: Dự báo thời điểm triều cường dâng vượt ngưỡng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trạm hải văn ghi nhận mực nước triều cường theo từng giờ trong $N$1$H_1, H_2, ..., H_N$1$H_{de}$1$H_{de}$. Nếu sau toàn bộ $N$1$H_{de}$, hãy in ra \"AN TOAN\" kèm theo khoảng an toàn nhỏ nhất ($H_{de} - Max(H)$).\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$1$H_{de}$ ($1 \\le N \\le 10^5; 100 \\le H_{de} \\le 1000$).\n- Dòng 2: $N$ số nguyên biểu thị mực nước từng giờ ($H_i \\ge 0$).\nDữ liệu ra: In số thứ tự giờ vi phạm đầu tiên (tính từ 1), hoặc \"AN TOAN d\" với $d$ là khoảng an toàn nhỏ nhất.",
+        "templateCode": "parts = input().split()\nN, H_de = int(parts[0]), int(parts[1])\nh = list(map(int, input().split()))\n\nidx_vi_pham = -1\nfor i in range(N):\n if h[i] >= H_de:\n idx_vi_pham = i + 1\n break\n\nif idx_vi_pham != -1:\n print(idx_vi_pham)\nelse:\n max_h = max(h)\n print(f\"AN TOAN {H_de - max_h}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 200\n150 170 195 205 210",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 250\n180 190 200 210",
+            "expected": "AN TOAN 40",
             "point": 5,
             "is_hidden": false
           }
