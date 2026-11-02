@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:52:47.507Z",
+    "updatedAt": "2026-11-02T14:53:20.245Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài toán cổ: Trăm trâu trăm cỏ"
+    "action": "Admin lưu bài tập: Bài toán mua quả chia phần (Phương trình nghiệm nguyên)"
   },
   "data": {
     "registeredUsers": [
@@ -8151,7 +8151,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một người đem đúng $M$1$K$1$a$1$b$1$M$1$K$1$K, M, a, b$ ($1 \\le K \\le 10^6, 1 \\le M \\le 10^9, 1 \\le a, b \\le 10^5, a \\ne b$).\nDữ liệu ra: Hai số nguyên là số quả cam và số quả quýt, hoặc \"KHONG THE\".",
-        "templateCode": "K, M, a, b = map(int, input().split())\n# x: cam, y: quýt\n# x + y = K => y = K - x\n# a*x + b*(K - x) = M => (a - b)*x = M - b*K\ntu = M - b * K\nmau = a - b\nif tu % mau == 0:\n x = tu // mau\n y = K - x\n if x >= 0 and y >= 0:\n print(f\"{x} {y}\")\n else:\n print(\"KHONG THE\")\nelse:\n print(\"KHONG THE\")",
+        "templateCode": "K, M, a, b = map(int, input().split())\n# x: cam, y: quýt\n# x + y = K => y = K - x\n# a*x + b*(K - x) = M => (a - b)*x = M - b*K\ntu = M - b * K\nmau = a - b\nif tu % mau == 0:\n    x = tu // mau\n    y = K - x\n    if x >= 0 and y >= 0:\n        print(f\"{x} {y}\")\n    else:\n        print(\"KHONG THE\")\nelse:\n    print(\"KHONG THE\")",
         "tests": [
           {
             "id": 1,
