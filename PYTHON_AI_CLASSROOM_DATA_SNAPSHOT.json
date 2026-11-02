@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:18:11.251Z",
+    "updatedAt": "2026-11-02T10:18:25.832Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 64. Connect Four"
+    "action": "Admin lưu bài tập: Bài 65. Đổi quà"
   },
   "data": {
     "registeredUsers": [
@@ -3396,7 +3396,7 @@
       },
       {
         "id": 101,
-        "title": "Đổi quà",
+        "title": "Bài 65. Đổi quà",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
