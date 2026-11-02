@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:14:22.890Z",
+    "updatedAt": "2026-11-02T16:15:17.162Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 98. Tổng các bình phương"
+    "action": "Admin lưu bài tập: Bài 99. Tính tổng phân thức"
   },
   "data": {
     "registeredUsers": [
@@ -4250,8 +4250,8 @@
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Nhập n dương. Tính S=1/2+2/3+...+n/(n+1) làm tròn 4 chữ số; tìm x lớn nhất sao cho 1+2+...+x ≤ n.",
-        "templateCode": "n=int(input()); s=sum(i/(i+1) for i in range(1,n+1)); x=0\nwhile (x+1)*(x+2)//2<=n: x+=1\nprint(f'{s:.4f}'); print(x)",
+        "description": "Nhập n dương. Tính $S=1/2+2/3+...+n/(n+1)$ làm tròn 4 chữ số; tìm x lớn nhất sao cho 1+2+...+ x ≤ n.",
+        "templateCode": "n = int(input())\ns = sum(i / (i + 1) for i in range(1, n + 1))\nx = 0\n\nwhile (x + 1) * (x + 2) // 2 <= n:\n    x += 1\n\nprint(f'{s:.4f}')\nprint(x)",
         "tests": [
           {
             "id": 1,
