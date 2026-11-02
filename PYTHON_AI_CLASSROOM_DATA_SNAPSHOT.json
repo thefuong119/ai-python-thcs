@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:14:55.474Z",
+    "updatedAt": "2026-11-02T10:15:08.251Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 54. Tính tổng phân thức"
+    "action": "Admin lưu bài tập: Bài 55. Tổng chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -3146,7 +3146,7 @@
       },
       {
         "id": 91,
-        "title": "Tổng chẵn",
+        "title": "Bài 55. Tổng chẵn",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
