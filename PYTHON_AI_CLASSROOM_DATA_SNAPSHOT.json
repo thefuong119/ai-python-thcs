@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:55:43.716Z",
+    "updatedAt": "2026-11-02T09:56:01.296Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 35. Kiểm tra số tăng dần"
+    "action": "Admin lưu bài tập: Bài 36. Tìm số cộng thêm để tạo số đối xứng"
   },
   "data": {
     "registeredUsers": [
@@ -1968,7 +1968,7 @@
       },
       {
         "id": 45,
-        "title": "Tìm số cộng thêm để tạo số đối xứng",
+        "title": "Bài 36. Tìm số cộng thêm để tạo số đối xứng",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
