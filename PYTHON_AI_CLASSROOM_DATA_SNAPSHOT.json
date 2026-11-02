@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:14:13.874Z",
+    "updatedAt": "2026-11-02T10:14:26.450Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 51. Ước chung lớn nhất"
+    "action": "Admin lưu bài tập: Bài 52. Đếm các số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -3071,7 +3071,7 @@
       },
       {
         "id": 88,
-        "title": "Đếm các số nguyên tố",
+        "title": "Bài 52. Đếm các số nguyên tố",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
