@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:06:39.753Z",
+    "updatedAt": "2026-11-02T10:06:51.119Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 34. Phân biệt"
+    "action": "Admin lưu bài tập: Bài 35. Dãy tăng liên tục dài nhất"
   },
   "data": {
     "registeredUsers": [
@@ -2646,7 +2646,7 @@
       },
       {
         "id": 71,
-        "title": "Dãy tăng liên tục dài nhất",
+        "title": "Bài 35. Dãy tăng liên tục dài nhất",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
