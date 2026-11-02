@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:05:46.556Z",
+    "updatedAt": "2026-11-02T15:06:19.594Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 2. Hóa đơn siêu thị và chiết khấu thành viên"
+    "action": "Admin lưu bài tập: Bài 3. Phí vận chuyển giao hàng trực tuyến"
   },
   "data": {
     "registeredUsers": [
@@ -7651,7 +7651,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một sàn thương mại điện tử tính phí giao hàng dựa vào trọng lượng gói hàng $w$1$d$1$V \\ge 500,000$1$w$1$d$1$V$ (giá trị đơn hàng).\nDữ liệu ra: Một số nguyên duy nhất là phí vận chuyển.",
-        "templateCode": "import math\n\nw, d, V = input().split()\nw, d, V = float(w), float(d), int(V)\n\nif V >= 500000:\n print(0)\nelse:\n phi = 15000\n if w > 2:\n phi += math.ceil(w - 2) * 5000\n if d > 5:\n phi += (d - 5) * 2000\n print(round(phi))",
+        "templateCode": "import math\n\nw, d, V = input().split()\nw, d, V = float(w), float(d), int(V)\n\nif V >= 500000:\n    print(0)\nelse:\n    phi = 15000\n    if w > 2:\n        phi += math.ceil(w - 2) * 5000\n    if d > 5:\n        phi += (d - 5) * 2000\n    print(round(phi))",
         "tests": [
           {
             "id": 1,
