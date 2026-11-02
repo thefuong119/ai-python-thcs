@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:17:23.598Z",
+    "updatedAt": "2026-11-02T16:17:54.142Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 101. Tam giác vuông"
+    "action": "Admin lưu bài tập: Bài 102. Dãy số xuất hiện k lần"
   },
   "data": {
     "registeredUsers": [
@@ -4326,7 +4326,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Nhập dãy n số nguyên dương và k. In dãy tăng dần; tìm các số xuất hiện ít nhất k lần, theo thứ tự tăng; nếu không có in KHONG.",
-        "templateCode": "from collections import Counter\nn,k=map(int,input().split()); a=list(map(int,input().split())); a.sort(); print(*a)\nc=Counter(a); r=sorted(x for x,v in c.items() if v>=k)\nprint(*r if r else ['KHONG'])",
+        "templateCode": "from collections import Counter\n\nn, k = map(int, input().split())\na = list(map(int, input().split()))\n\n# Sắp xếp danh sách a tăng dần và in ra\na.sort()\nprint(*a)\n\n# Đếm tần suất và lọc các phần tử xuất hiện ít nhất k lần\nc = Counter(a)\nr = sorted(x for x, v in c.items() if v >= k)\n\nprint(*r if r else ['KHONG'])",
         "tests": [
           {
             "id": 1,
