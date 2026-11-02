@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:01:22.749Z",
+    "updatedAt": "2026-11-02T11:01:35.212Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 106. Dãy con có tổng bằng nhau"
+    "action": "Admin lưu bài tập: Bài 107. Tổng luân phiên và tổng tích"
   },
   "data": {
     "registeredUsers": [
@@ -4446,7 +4446,7 @@
       },
       {
         "id": 143,
-        "title": "Tổng luân phiên và tổng tích",
+        "title": "Bài 107. Tổng luân phiên và tổng tích",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
