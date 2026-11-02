@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T16:11:34.897Z",
+    "updatedAt": "2026-11-02T16:12:22.695Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 94. Cắt gỗ"
+    "action": "Admin lưu bài tập: Bài 95. Thực hiện phép tính phân số"
   },
   "data": {
     "registeredUsers": [
@@ -4151,7 +4151,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập a,b,c,d dương. Tính phân số tối giản S=a/b+c/d và Q=(a/b):(c/d).",
-        "templateCode": "from fractions import Fraction\na,b,c,d=map(int,input().split())\ns=Fraction(a,b)+Fraction(c,d)\nq=Fraction(a,b)/Fraction(c,d)\nprint(f'S = {s.numerator}/{s.denominator}')\nprint(f'Q = {q.numerator}/{q.denominator}')",
+        "templateCode": "from fractions import Fraction\n\na, b, c, d = map(int, input().split())\n\ns = Fraction(a, b) + Fraction(c, d)\nq = Fraction(a, b) / Fraction(c, d)\n\nprint(f'S = {s.numerator}/{s.denominator}')\nprint(f'Q = {q.numerator}/{q.denominator}')",
         "tests": [
           {
             "id": 1,
