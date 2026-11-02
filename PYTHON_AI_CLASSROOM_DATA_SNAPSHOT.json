@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:39:03.440Z",
+    "updatedAt": "2026-11-02T08:39:15.705Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 3. Đếm số lượng số chẵn trong dãy"
+    "action": "Lưu bài tập: Bài 4. Xét số chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -396,7 +396,7 @@
       },
       {
         "id": 4,
-        "title": "Xét số chẵn lẻ",
+        "title": "Bài 4. Xét số chẵn lẻ",
         "slug": "x-t-s--ch-n-l-",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -431,7 +431,8 @@
             "point": 3,
             "is_hidden": true
           }
-        ]
+        ],
+        "classLevel": "8"
       },
       {
         "id": 5,
