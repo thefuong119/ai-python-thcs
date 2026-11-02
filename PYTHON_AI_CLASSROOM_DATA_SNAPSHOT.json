@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:39:22.128Z",
+    "updatedAt": "2026-11-02T15:39:55.631Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 42. Tắc kè hoa"
+    "action": "Admin lưu bài tập: Bài 43. Tìm số nguyên tố có tổng chữ số bằng m"
   },
   "data": {
     "registeredUsers": [
@@ -2851,7 +2851,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho hai số nguyên dương n và m. Tìm các số nguyên tố không vượt quá n có tổng chữ số bằng m.\nDữ liệu vào: Hai số n, m trên một dòng (n, m ≤ 10⁶).\nDữ liệu ra: Dòng 1 ghi số lượng số tìm được; dòng 2 ghi các số đó theo thứ tự tăng dần. Nếu không có, dòng 1 ghi 0 và dòng 2 để trống.",
-        "templateCode": "n, m = map(int, input().split())\nis_prime = [True] * (n + 1)\nif n >= 0:\n is_prime[0] = False\nif n >= 1:\n is_prime[1] = False\nfor p in range(2, int(n ** 0.5) + 1):\n if is_prime[p]:\n for x in range(p * p, n + 1, p):\n is_prime[x] = False\nans = [x for x in range(2, n + 1)\n if is_prime[x] and sum(map(int, str(x))) == m]\nprint(len(ans))\nprint(*ans)",
+        "templateCode": "n, m = map(int, input().split())\n\nis_prime = [True] * (n + 1)\nif n >= 0:\n    is_prime[0] = False\nif n >= 1:\n    is_prime[1] = False\n\nfor p in range(2, int(n**0.5) + 1):\n    if is_prime[p]:\n        for x in range(p * p, n + 1, p):\n            is_prime[x] = False\n\nans = [x for x in range(2, n + 1) if is_prime[x] and sum(map(int, str(x))) == m]\n\nprint(len(ans))\nprint(*ans)",
         "tests": [
           {
             "id": 1,
