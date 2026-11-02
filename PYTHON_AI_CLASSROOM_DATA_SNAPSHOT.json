@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:32:50.903Z",
+    "updatedAt": "2026-11-02T14:33:39.155Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 21. Tách từ và tìm từ dài nhất"
+    "action": "Admin lưu bài tập: Bài 22. Số cạnh tạo thành tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -1388,7 +1388,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho trước 2 số nguyên dương a và b.\nYêu cầu: Xác định có bao nhiêu số nguyên dương c sao cho 3 số a, b, c có thể là độ dài 3 cạnh của một tam giác không suy biến.\n\n- Dữ liệu vào: Hai số nguyên dương a và b trên cùng một dòng, cách nhau bởi một dấu cách (1 <= a, b <= 10^9).\n- Dữ liệu ra: Một số nguyên duy nhất là số lượng số c thỏa mãn yêu cầu.",
-        "templateCode": "a, b = map(int, input().split())\n# Điều kiện tam giác: |a - b| < c < a + b\n# Số lượng số nguyên c là: (a + b - 1) - (|a - b| + 1) + 1 = 2 * min(a, b) - 1\nprint(2 * min(a, b) - 1)",
+        "templateCode": "a, b = map(int, input().split())\n\n# Điều kiện tam giác: |a - b| < c < a + b\n# Số lượng số nguyên c là:\n# (a + b - 1) - (|a - b| + 1) + 1\n# = 2 * min(a, b) - 1\n\nprint(2 * min(a, b) - 1)",
         "tests": [
           {
             "id": 1,
