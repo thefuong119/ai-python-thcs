@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:17:35.232Z",
+    "updatedAt": "2026-11-02T14:18:27.577Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 6. Tính chu vi và diện tích hình chữ nhật"
+    "action": "Admin lưu bài tập: Bài 7. Chuỗi đơn điệu"
   },
   "data": {
     "registeredUsers": [
@@ -491,7 +491,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Chuỗi đơn điệu là chuỗi được tạo thành bằng cách lấy lần lượt từ trái sang phải các ký tự của chuỗi ban đầu theo quy tắc: Ký tự tiếp theo phải là chữ cái đứng sau ký tự liền trước đó trong bảng chữ cái tiếng Anh. Các ký tự không thỏa mãn điều kiện sẽ bị bỏ qua.\nCho một chuỗi ký tự S gồm các chữ cái in hoa. Hãy tìm chuỗi đơn điệu trích xuất từ chuỗi S.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra: In ra chuỗi đơn điệu tìm được.",
-        "templateCode": "s = input().strip()\nif s:\n result = s[0]\n for ch in s[1:]:\n if ch > result[-1]:\n result += ch\n print(result)",
+        "templateCode": "s = input().strip()\n\nif s:\n    result = s[0]\n\n    for ch in s[1:]:\n        if ch > result[-1]:\n            result += ch\n\n    print(result)",
         "tests": [
           {
             "id": 1,
