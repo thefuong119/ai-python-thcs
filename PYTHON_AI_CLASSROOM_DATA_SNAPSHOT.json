@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:08:50.547Z",
+    "updatedAt": "2026-11-02T11:09:06.059Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 118. Xóa chữ số bên phải"
+    "action": "Admin lưu bài tập: Bài 119. Tổng chữ số lặp"
   },
   "data": {
     "registeredUsers": [
@@ -4721,7 +4721,7 @@
       },
       {
         "id": 154,
-        "title": "Tổng chữ số lặp",
+        "title": "Bài 119. Tổng chữ số lặp",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
