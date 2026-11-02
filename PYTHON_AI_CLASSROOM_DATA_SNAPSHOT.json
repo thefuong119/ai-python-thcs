@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:05:00.787Z",
+    "updatedAt": "2026-11-02T11:07:22.136Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 114. Lũy thừa của 2"
+    "action": "Admin lưu bài tập: Bài 115. Bộ ba chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -4621,7 +4621,7 @@
       },
       {
         "id": 150,
-        "title": "Bộ ba chữ số",
+        "title": "Bài 115. Bộ ba chữ số",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
