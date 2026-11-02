@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:21:25.553Z",
+    "updatedAt": "2026-11-02T15:22:02.659Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 16. Đếm các số nguyên tố"
+    "action": "Admin lưu bài tập: Bài 17. Dãy theo quy luật tổng bình phương chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -2201,7 +2201,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Với số tự nhiên x, đặt f(x) là tổng bình phương các chữ số của x. Xây dựng dãy X1 = x và Xi = f(Xi-1) với i ≥ 2. Hãy in n phần tử đầu tiên của dãy.\nDữ liệu vào: Hai số nguyên x, n.\nDữ liệu ra: n số của dãy, cách nhau bởi dấu cách.",
-        "templateCode": "x, n = map(int, input().split())\ndef f(v):\n return sum(int(ch) ** 2 for ch in str(v))\nkq = []\nfor _ in range(n):\n kq.append(x)\n x = f(x)\nprint(*kq)",
+        "templateCode": "x, n = map(int, input().split())\n\nkq = []\nfor _ in range(n):\n    kq.append(x)\n    x = sum(int(ch) ** 2 for ch in str(x))\n\nprint(*kq)",
         "tests": [
           {
             "id": 1,
