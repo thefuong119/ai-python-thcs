@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:02:54.574Z",
+    "updatedAt": "2026-11-02T10:03:08.786Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 26. Diện tích tam giác vuông"
+    "action": "Admin lưu bài tập: Bài 27. Tính số ngày giữa hai ngày"
   },
   "data": {
     "registeredUsers": [
@@ -2446,7 +2446,7 @@
       },
       {
         "id": 63,
-        "title": "Tính số ngày giữa hai ngày",
+        "title": "Bài 27. Tính số ngày giữa hai ngày",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
