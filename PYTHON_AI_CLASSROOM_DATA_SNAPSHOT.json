@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:47:49.674Z",
+    "updatedAt": "2026-11-02T08:48:02.082Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 19. Tần suất xuất hiện ký tự"
+    "action": "Lưu bài tập: Bài 20. Kiểm tra số hoàn hảo"
   },
   "data": {
     "registeredUsers": [
@@ -1304,7 +1304,7 @@
       },
       {
         "id": 28,
-        "title": "Kiểm tra số hoàn hảo",
+        "title": "Bài 20. Kiểm tra số hoàn hảo",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
