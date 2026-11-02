@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:56:52.076Z",
+    "updatedAt": "2026-11-02T11:57:21.145Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 145. Tổng hai biểu thức"
+    "action": "Admin lưu bài tập: Bài 146. Số nguyên tố lớn nhất không vượt ai"
   },
   "data": {
     "registeredUsers": [
@@ -5396,7 +5396,7 @@
       },
       {
         "id": 181,
-        "title": "Số nguyên tố lớn nhất không vượt ai",
+        "title": "Bài 146. Số nguyên tố lớn nhất không vượt ai",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
