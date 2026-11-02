@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:03:51.316Z",
+    "updatedAt": "2026-11-02T11:04:23.803Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 112. Tổng bình phương và phân thức"
+    "action": "Admin lưu bài tập: Bài 113. Dãy số và giá trị tuyệt đối lớn nhất"
   },
   "data": {
     "registeredUsers": [
@@ -4571,7 +4571,7 @@
       },
       {
         "id": 148,
-        "title": "Dãy số và giá trị tuyệt đối lớn nhất",
+        "title": "Bài 113. Dãy số và giá trị tuyệt đối lớn nhất",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
