@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:57:28.435Z",
+    "updatedAt": "2026-11-02T14:58:07.271Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Theo dõi chuỗi ngày ô nhiễm không khí AQI"
+    "action": "Admin lưu bài tập: Lập lịch sạc xe điện tối ưu thời gian chờ"
   },
   "data": {
     "registeredUsers": [
@@ -8426,7 +8426,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một trạm sạc xe điện đơn (chỉ phục vụ được 1 xe tại một thời điểm) có $N$1$i$1$t_i$1$N$1$N$ ($1 \\le N \\le 10^4$).\n- Dòng 2: $N$1$t_1, t_2, ..., t_N$ ($1 \\le t_i \\le 1000$).\nDữ liệu ra: Một số nguyên duy nhất là tổng thời gian chờ tối thiểu.",
-        "templateCode": "N = int(input().strip())\nt = list(map(int, input().split()))\nt.sort()\n\ntong_cho = 0\nthoi_gian_da_qua = 0\n\nfor x in t:\n tong_cho += thoi_gian_da_qua\n thoi_gian_da_qua += x\n\nprint(tong_cho)",
+        "templateCode": "N = int(input().strip())\nt = list(map(int, input().split()))\nt.sort()\n\ntong_cho = 0\nthoi_gian_da_qua = 0\n\nfor x in t:\n    tong_cho += thoi_gian_da_qua\n    thoi_gian_da_qua += x\n\nprint(tong_cho)",
         "tests": [
           {
             "id": 1,
