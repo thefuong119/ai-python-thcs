@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:49:28.705Z",
+    "updatedAt": "2026-11-02T08:50:00.676Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 24. Phân loại ký tự trong chuỗi"
+    "action": "Admin lưu bài tập: Bài 25. Tổng n số lẻ đầu tiên"
   },
   "data": {
     "registeredUsers": [
@@ -1499,7 +1499,7 @@
       },
       {
         "id": 33,
-        "title": "Tổng n số lẻ đầu tiên",
+        "title": "Bài 25. Tổng n số lẻ đầu tiên",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
