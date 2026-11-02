@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:13:46.016Z",
+    "updatedAt": "2026-11-02T10:14:02.384Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 49. Xếp hàng"
+    "action": "Admin lưu bài tập: Bài 50. Kangaroo"
   },
   "data": {
     "registeredUsers": [
@@ -3021,7 +3021,7 @@
       },
       {
         "id": 86,
-        "title": "Kangaroo",
+        "title": "Bài 50. Kangaroo",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
