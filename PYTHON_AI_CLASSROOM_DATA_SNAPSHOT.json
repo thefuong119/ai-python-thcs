@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:30:28.566Z",
+    "updatedAt": "2026-11-02T09:32:42.156Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Admin lưu bài tập: Bài 5: Tính giai thừa"
   },
@@ -439,7 +439,7 @@
         "title": "Bài 5: Tính giai thừa",
         "difficulty": "easy",
         "timeLimit": 2,
-        "description": "Cho hai số nguyên dương N và a được ghi trên một dòng trong tệp input.txt.\n\nHãy tính giá trị:\n(Na)!(N^a)!(Na)!\nDữ liệu vào (input.txt)\n\nGồm một dòng chứa hai số nguyên dương N và a.\n\nKết quả ra\n\nIn ra giá trị của (N^a)!.\n\nVí dụ:\ninput.txt\n\n3 2\n\n\nTa có:\n\n32=9,9!=3628803^2 = 9,\\quad 9! = 36288032=9,9!=362880\n\nOutput:\n\n362880",
+        "description": "Cho hai số nguyên dương N và a được ghi trên một dòng trong tệp input.txt.\n\nHãy tính giá trị:\n(Na)!(N^a)!(Na)!\nDữ liệu vào (input.txt)\n\nGồm một dòng chứa hai số nguyên dương N và a.\n\nKết quả ra\n\nIn ra giá trị của (N^a)!.\n\nVí dụ:\ninput.txt\n\n3 2\n\n\nTa có:\n\n$3^2$=9, 9! = 362880\n\nOutput:\n\n362880",
         "templateCode": "with open(\"input.txt\", \"r\") as f:\n    N, a = map(int, f.read().split())\n\nk = N ** a\n\ngt = 1\nfor i in range(2, k + 1):\n    gt *= i\n\nprint(gt)",
         "tests": [
           {
