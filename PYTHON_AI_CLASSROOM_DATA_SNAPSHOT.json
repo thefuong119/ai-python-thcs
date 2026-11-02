@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:00:12.388Z",
+    "updatedAt": "2026-11-02T12:00:29.124Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 147. Đảo từ"
+    "action": "Admin lưu bài tập: Bài 148. Ước chung và bội chung"
   },
   "data": {
     "registeredUsers": [
@@ -5446,7 +5446,7 @@
       },
       {
         "id": 183,
-        "title": "Ước chung và bội chung",
+        "title": "Bài 148. Ước chung và bội chung",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
