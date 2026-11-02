@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:29:16.788Z",
+    "updatedAt": "2026-11-02T14:30:20.587Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 16. Rút gọn tối đa dãy số"
+    "action": "Admin lưu bài tập: Bài 17. Kiểm tra số Kaprekar"
   },
   "data": {
     "registeredUsers": [
@@ -1154,7 +1154,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Số Kaprekar là số tự nhiên mà khi bình phương lên, ta tách kết quả thành hai phần (phần bên phải có số chữ số bằng đúng số chữ số của số ban đầu, phần bên trái là phần còn lại), sau đó cộng hai phần lại thì bằng chính số ban đầu.\nVí dụ:\n- 45^2 = 2025: Tách thành 20 và 25, tổng 20 + 25 = 45 -> 45 là số Kaprekar.\n- 9^2 = 81: Tách thành 8 và 1, tổng 8 + 1 = 9 -> 9 là số Kaprekar.\n- 10^2 = 100: Tách thành 1 và 00, tổng 1 + 0 = 1 != 10 -> 10 không phải số Kaprekar.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số Kaprekar hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số Kaprekar, ngược lại in ra NO.",
-        "templateCode": "n = int(input().strip())\nsq = n * n\ns = str(sq)\nd = len(str(n))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif trai + phai == n:\n print(\"YES\")\nelse:\n print(\"NO\")",
+        "templateCode": "n = int(input().strip())\n\nsq = n * n\ns = str(sq)\n\nd = len(str(n))\n\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\n\nif trai + phai == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
         "tests": [
           {
             "id": 1,
