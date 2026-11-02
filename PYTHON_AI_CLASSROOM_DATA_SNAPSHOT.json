@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:58:24.537Z",
+    "updatedAt": "2026-11-02T12:58:32.897Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 7. Tìm số Fibonacci thứ n"
+    "action": "Admin lưu bài tập: Bài 8. Kiểm tra một số có thuộc dãy Fibonacci hay không"
   },
   "data": {
     "registeredUsers": [
@@ -8196,7 +8196,7 @@
       },
       {
         "id": 293,
-        "title": "Kiểm tra một số có thuộc dãy Fibonacci hay không",
+        "title": "Bài 8. Kiểm tra một số có thuộc dãy Fibonacci hay không",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
