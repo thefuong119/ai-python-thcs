@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T13:00:35.632Z",
+    "updatedAt": "2026-11-02T13:04:44.221Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 20 bài tập từ tep_mau_bai_tap_python bai tap van dung.docx"
+    "action": "Admin lưu bài tập: Bài 10. Phân loại rác tái chế và quy đổi tích điểm"
   },
   "data": {
     "registeredUsers": [
@@ -8346,7 +8346,7 @@
       },
       {
         "id": 299,
-        "title": "Phân loại rác tái chế và quy đổi tích điểm",
+        "title": "Bài 10. Phân loại rác tái chế và quy đổi tích điểm",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
