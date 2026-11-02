@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:59:43.504Z",
+    "updatedAt": "2026-11-02T11:00:10.865Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 103. Tính tiền taxi"
+    "action": "Admin lưu bài tập: Bài 104. Bộ ba số Pitago"
   },
   "data": {
     "registeredUsers": [
@@ -4371,7 +4371,7 @@
       },
       {
         "id": 140,
-        "title": "Bộ ba số Pitago",
+        "title": "Bài 104. Bộ ba số Pitago",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
