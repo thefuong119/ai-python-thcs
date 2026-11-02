@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:53:46.926Z",
+    "updatedAt": "2026-11-02T09:54:02.994Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 3. Cặp tích chẵn"
+    "action": "Admin lưu bài tập: Bài 4. Mật mã kép"
   },
   "data": {
     "registeredUsers": [
@@ -798,7 +798,7 @@
       },
       {
         "id": 15,
-        "title": "Mật mã kép",
+        "title": "Bài 4. Mật mã kép",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
