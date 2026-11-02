@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:48:16.304Z",
+    "updatedAt": "2026-11-02T08:48:26.547Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 21. Tách từ và tìm từ dài nhất"
+    "action": "Lưu bài tập: Bài 22. Số cạnh tạo thành tam giác"
   },
   "data": {
     "registeredUsers": [
@@ -1382,7 +1382,7 @@
       },
       {
         "id": 30,
-        "title": "Số cạnh tạo thành tam giác",
+        "title": "Bài 22. Số cạnh tạo thành tam giác",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
