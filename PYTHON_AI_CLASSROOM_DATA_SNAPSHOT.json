@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:06:43.156Z",
+    "updatedAt": "2026-11-02T12:06:57.455Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 164. Số Armstrong"
+    "action": "Admin lưu bài tập: Bài 165. Viết ngược từng từ"
   },
   "data": {
     "registeredUsers": [
@@ -5871,7 +5871,7 @@
       },
       {
         "id": 200,
-        "title": "Viết ngược từng từ",
+        "title": "Bài 165. Viết ngược từng từ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
