@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:56:06.834Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Đăng ký học sinh mới: Nguyễn Phú Lộc"
+    "updatedAt": "2026-11-02T12:58:24.537Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Admin lưu bài tập: Bài 7. Tìm số Fibonacci thứ n"
   },
   "data": {
     "registeredUsers": [
@@ -269,19 +269,6 @@
         "className": "Khối 8",
         "phone": "0989682045",
         "role": "teacher",
-        "status": "active",
-        "loginCount": 1
-      },
-      {
-        "id": 1793624165388,
-        "name": "Nguyễn Phú Lộc",
-        "username": "nguyenphuloc",
-        "identifier": "nguyenphuloc",
-        "password": "madeinviet",
-        "school": "THCS Thành Đông",
-        "className": "8a2",
-        "phone": "---",
-        "role": "student",
         "status": "active",
         "loginCount": 1
       }
@@ -7806,6 +7793,506 @@
             "is_hidden": false
           }
         ]
+      },
+      {
+        "id": 277,
+        "title": "Bài 4. Kiểm tra tam giác và xác định loại tam giác",
+        "classLevel": "7",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho ba số thực dương $a, b, c$1$\\epsilon = 10^{-6}$).\n\nDữ liệu vào: Một dòng gồm ba số thực $a, b, c$ ($0 < a, b, c \\le 10^4$).\nDữ liệu ra: Một xâu thông báo loại tam giác.",
+        "templateCode": "a, b, c = map(float, input().split())\neps = 1e-6\nif a + b > c + eps and a + c > b + eps and b + c > a + eps:\n can = (abs(a - b) < eps) or (abs(b - c) < eps) or (abs(c - a) < eps)\n deu = (abs(a - b) < eps) and (abs(b - c) < eps)\n sides = sorted([a, b, c])\n vuong = abs(sides[0]**2 + sides[1]**2 - sides[2]**2) < 1e-4\n if deu:\n print(\"TAM GIAC DEU\")\n elif vuong and can:\n print(\"TAM GIAC VUONG CAN\")\n elif vuong:\n print(\"TAM GIAC VUONG\")\n elif can:\n print(\"TAM GIAC CAN\")\n else:\n print(\"TAM GIAC THUONG\")\nelse:\n print(\"KHONG PHAI TAM GIAC\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "TAM GIAC VUONG",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 2 5",
+            "expected": "KHONG PHAI TAM GIAC",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 278,
+        "title": "Bài 5. Chu vi và diện tích tam giác theo công thức Heron",
+        "classLevel": "7",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số thực dương $a, b, c$1$P$1$S$1$P$1$S$1$a, b, c$ ($0 < a, b, c \\le 10^4$). Dữ liệu đảm bảo luôn tạo thành tam giác.\nDữ liệu ra: Gồm hai số thực $P$1$S$ làm tròn 2 chữ số thập phân.",
+        "templateCode": "import math\n\na, b, c = map(float, input().split())\np_val = a + b + c\np_half = p_val / 2\ns_val = math.sqrt(p_half * (p_half - a) * (p_half - b) * (p_half - c))\nprint(f\"{p_val:.2f} {s_val:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "12.00 6.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6 8 10",
+            "expected": "24.00 24.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 279,
+        "title": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho một tứ giác $ABCD$1$AB=a, BC=b, CD=c, DA=d$1$AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$1$a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.",
+        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n if abs(a - b) < eps:\n print(\"HINH VUONG\")\n else:\n print(\"HINH CHU NHAT\")\nelse:\n print(\"HINH KHAC\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 3 4 5",
+            "expected": "HINH CHU NHAT",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 5 5 5 7.071068",
+            "expected": "HINH VUONG",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 280,
+        "title": "Chu vi và diện tích hình thang cân",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho một hình thang cân có đáy lớn $a$, đáy nhỏ $b$ ($a > b$) và cạnh bên $c$. Giả sử $c > \\frac{a - b}{2}$1$P$1$S$1$a, b, c$ ($a > b > 0, c > 0$).\nDữ liệu ra: Hai số $P$1$S$ cách nhau một dấu cách.",
+        "templateCode": "import math\n\na, b, c = map(float, input().split())\np_val = a + b + 2 * c\nx = (a - b) / 2\nh = math.sqrt(c**2 - x**2)\ns_val = ((a + b) * h) / 2\nprint(f\"{p_val:.2f} {s_val:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 4 5",
+            "expected": "24.00 28.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 2 5",
+            "expected": "20.00 20.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 281,
+        "title": "Bán kính đường tròn nội tiếp và ngoại tiếp tam giác vuông",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai cạnh góc vuông của một tam giác vuông là hai số thực $a$1$b$.\nHãy tính:\n- Bán kính đường tròn ngoại tiếp $R = \\frac{\\sqrt{a^2 + b^2}}{2}$.\n- Bán kính đường tròn nội tiếp $r = \\frac{a + b - \\sqrt{a^2 + b^2}}{2}$.\nIn $R$1$r$1$a, b$ ($a, b > 0$).\nDữ liệu ra: Hai số thực $R$1$r$ cách nhau một dấu cách.",
+        "templateCode": "import math\n\na, b = map(float, input().split())\nc = math.sqrt(a**2 + b**2)\nR = c / 2\nr = (a + b - c) / 2\nprint(f\"{R:.2f} {r:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4",
+            "expected": "2.50 1.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6 8",
+            "expected": "5.00 2.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 282,
+        "title": "Ước chung lớn nhất và bội chung nhỏ nhất",
+        "classLevel": "6",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $a$1$b$. Hãy tìm ước chung lớn nhất (UCLN) và bội chung nhỏ nhất (BCNN) của hai số đó.\n\nDữ liệu vào: Một dòng chứa hai số nguyên dương $a, b$ ($1 \\le a, b \\le 10^9$).\nDữ liệu ra: Hai số nguyên lần lượt là $\\text{UCLN}(a, b)$1$\\text{BCNN}(a, b)$ cách nhau một khoảng trắng.",
+        "templateCode": "import math\n\na, b = map(int, input().split())\nucln = math.gcd(a, b)\nbcnn = (a * b) // ucln\nprint(f\"{ucln} {bcnn}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 18",
+            "expected": "6 36",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "17 23",
+            "expected": "1 391",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 283,
+        "title": "Rút gọn phân số và tìm UCLN của 3 số",
+        "classLevel": "6",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào tử số $tu$1$mau$ của một phân số ($mau \\ne 0$). Hãy rút gọn phân số này về dạng tối giản sao cho mẫu số luôn dương. Nếu tử số chia hết cho mẫu số thì in ra một số nguyên duy nhất.\n\nDữ liệu vào: Một dòng gồm hai số nguyên $tu$1$mau$ ($-10^9 \\le tu, mau \\le 10^9, mau \\ne 0$).\nDữ liệu ra: Phân số tối giản dạng `tu/mau` hoặc số nguyên nếu mẫu số bằng 1.",
+        "templateCode": "import math\n\ntu, mau = map(int, input().split())\nif mau < 0:\n tu = -tu\n mau = -mau\n\nu = math.gcd(abs(tu), abs(mau))\ntu //= u\nmau //= u\n\nif mau == 1:\n print(tu)\nelse:\n print(f\"{tu}/{mau}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 18",
+            "expected": "2/3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-15 -5",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 284,
+        "title": "Đếm số lượng ước và tính tổng các ước nguyên dương",
+        "classLevel": "6",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$. Hãy đếm số lượng ước số nguyên dương của $N$1$N$ ($1 \\le N \\le 10^{12}$).\nDữ liệu ra: Hai số nguyên lần lượt là số lượng ước và tổng các ước, cách nhau một dấu cách.",
+        "templateCode": "import math\n\nN = int(input().strip())\ndem = 0\ntong = 0\ncan = int(math.isqrt(N))\n\nfor i in range(1, can + 1):\n if N % i == 0:\n dem += 1\n tong += i\n j = N // i\n if j != i:\n dem += 1\n tong += j\n\nprint(f\"{dem} {tong}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12",
+            "expected": "6 28",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "16",
+            "expected": "5 31",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 285,
+        "title": "Kiểm tra số nguyên tố và số nguyên tố kế tiếp",
+        "classLevel": "6",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$. Hãy kiểm tra $N$1$N$.\n\nDữ liệu vào: Một số nguyên dương $N$ ($1 \\le N \\le 10^7$).\nDữ liệu ra: Dòng 1 in \"YES\" hoặc \"NO\". Dòng 2 in số nguyên tố nhỏ nhất lớn hơn $N$.",
+        "templateCode": "import math\n\ndef is_prime(x):\n if x < 2:\n return False\n for i in range(2, math.isqrt(x) + 1):\n if x % i == 0:\n return False\n return True\n\nN = int(input().strip())\nif is_prime(N):\n print(\"YES\")\nelse:\n print(\"NO\")\n\ncur = N + 1\nwhile not is_prime(cur):\n cur += 1\nprint(cur)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7",
+            "expected": "YES\n11",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "NO\n11",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 286,
+        "title": "Bài 6. Đếm số nguyên tố trong đoạn [L, R]",
+        "classLevel": "7",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $L$1$R$ ($L \\le R$). Hãy đếm xem có bao nhiêu số nguyên tố nằm trong đoạn $[L, R]$.\n\nDữ liệu vào: Một dòng gồm hai số nguyên $L, R$ ($1 \\le L \\le R \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số lượng số nguyên tố tìm được.",
+        "templateCode": "L, R = map(int, input().split())\nprime = [True] * (R + 1)\nprime[0] = prime[1] = False\n\np = 2\nwhile p * p <= R:\n if prime[p]:\n for i in range(p * p, R + 1, p):\n prime[i] = False\n p += 1\n\ncnt = sum(1 for i in range(L, R + 1) if prime[i])\nprint(cnt)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 20",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 287,
+        "title": "Kiểm tra số hoàn thiện (số hoàn hảo)",
+        "classLevel": "6",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Số hoàn thiện là số nguyên dương bằng tổng của tất cả các ước nguyên dương thực sự của nó (các ước khác chính nó). Cho số nguyên dương $N$, kiểm tra $N$1$N$ ($1 \\le N \\le 10^9$).\nDữ liệu ra: In \"YES\" hoặc \"NO\".",
+        "templateCode": "import math\n\nN = int(input().strip())\nif N <= 1:\n print(\"NO\")\nelse:\n tong = 1\n can = int(math.isqrt(N))\n for i in range(2, can + 1):\n if N % i == 0:\n tong += i\n j = N // i\n if j != i:\n tong += j\n if tong == N:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "28",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 288,
+        "title": "Phân tích một số ra thừa số nguyên tố",
+        "classLevel": "6",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$. Hãy phân tích $N$1$p_1^{k_1} \\times p_2^{k_2} \\times ... \\times p_m^{k_m}$, viết dưới dạng chuẩn: `p1^k1 * p2^k2 * ...` (nếu $k_i = 1$1$k > 1$, ngược lại in `p`.\n\nDữ liệu vào: Một số nguyên dương $N$ ($2 \\le N \\le 10^9$).\nDữ liệu ra: Biểu diễn phân tích thừa số nguyên tố, các thừa số cách nhau bởi ký hiệu `*`.",
+        "templateCode": "N = int(input().strip())\nfactors = []\nd = 2\nwhile d * d <= N:\n if N % d == 0:\n cnt = 0\n while N % d == 0:\n cnt += 1\n N //= d\n if cnt > 1:\n factors.append(f\"{d}^{cnt}\")\n else:\n factors.append(f\"{d}\")\n d += 1\nif N > 1:\n factors.append(f\"{N}\")\n\nprint(\" * \".join(factors))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "60",
+            "expected": "2^2 * 3 * 5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "84",
+            "expected": "2^2 * 3 * 7",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 289,
+        "title": "Bài toán cổ: Vừa gà vừa chó",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bài toán cổ Việt Nam:\n\"Vừa gà vừa chó\nBó lại cho tròn\n$m$1$n$1$m$1$n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên hợp lệ (số con không âm), in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$1$n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
+        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n cho = (n - 2 * m) // 2\n ga = m - cho\n if ga >= 0 and cho >= 0:\n print(f\"{ga} {cho}\")\n else:\n print(\"VO NGHIEM\")\nelse:\n print(\"VO NGHIEM\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 290,
+        "title": "Bài toán cổ: Trăm trâu trăm cỏ",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Bài toán dân gian:\n\"Trăm trâu trăm cỏ\nTrâu đứng ăn năm\nTrâu nằm ăn ba\nLụ khụ trâu già\nBa con một bó\".\nTổng quát: Cho $N$1$N$1$(đứng, nằm, già)$1$N$ ($10 \\le N \\le 10^4$).\nDữ liệu ra: Số lượng phương án thỏa mãn. Nếu có ít nhất một phương án, in tiếp mỗi phương án trên một dòng theo thứ tự tăng dần của số trâu đứng.",
+        "templateCode": "N = int(input().strip())\nres = []\n# d + n + g = N\n# 5*d + 3*n + g/3 = N => 15*d + 9*n + g = 3*N\n# Tru di: 14*d + 8*n = 2*N => 7*d + 4*n = N\nfor d in range(1, N):\n con_lai = N - 7 * d\n if con_lai <= 0:\n break\n if con_lai % 4 == 0:\n n = con_lai // 4\n g = N - d - n\n if g > 0 and g % 3 == 0:\n res.append((d, n, g))\n\nprint(len(res))\nfor d, n, g in res:\n print(f\"{d} {n} {g}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "1\n4 18 78",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "200",
+            "expected": "3\n4 43 153\n8 36 156\n12 29 159",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 291,
+        "title": "Bài toán mua quả chia phần (Phương trình nghiệm nguyên)",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một người đem đúng $M$1$K$1$a$1$b$1$M$1$K$1$K, M, a, b$ ($1 \\le K \\le 10^6, 1 \\le M \\le 10^9, 1 \\le a, b \\le 10^5, a \\ne b$).\nDữ liệu ra: Hai số nguyên là số quả cam và số quả quýt, hoặc \"KHONG THE\".",
+        "templateCode": "K, M, a, b = map(int, input().split())\n# x: cam, y: quýt\n# x + y = K => y = K - x\n# a*x + b*(K - x) = M => (a - b)*x = M - b*K\ntu = M - b * K\nmau = a - b\nif tu % mau == 0:\n x = tu // mau\n y = K - x\n if x >= 0 and y >= 0:\n print(f\"{x} {y}\")\n else:\n print(\"KHONG THE\")\nelse:\n print(\"KHONG THE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 35000 4000 3000",
+            "expected": "5 5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 20000 5000 3000",
+            "expected": "KHONG THE",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 292,
+        "title": "Bài 7. Tìm số Fibonacci thứ n",
+        "classLevel": "7",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy số Fibonacci được định nghĩa như sau: $F_1 = 1, F_2 = 1, F_n = F_{n-1} + F_{n-2}$1$n \\ge 3$.\nCho số nguyên dương $n$. Hãy tìm số Fibonacci thứ $n$.\n\nDữ liệu vào: Một số nguyên dương $n$ ($1 \\le n \\le 90$).\nDữ liệu ra: Một số nguyên duy nhất là số Fibonacci thứ $n$.",
+        "templateCode": "n = int(input().strip())\nif n == 1 or n == 2:\n print(1)\nelse:\n f1, f2 = 1, 1\n for _ in range(3, n + 1):\n f1, f2 = f2, f1 + f2\n print(f2)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "55",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 293,
+        "title": "Kiểm tra một số có thuộc dãy Fibonacci hay không",
+        "classLevel": "7",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $X$. Hãy kiểm tra xem $X$ có phải là một số trong dãy số Fibonacci ($F_1 = 1, F_2 = 1, F_3 = 2, F_4 = 3, ...$) hay không. Nếu có in ra \"YES\", ngược lại in \"NO\".\n\nDữ liệu vào: Một số nguyên dương $X$ ($1 \\le X \\le 10^{15}$).\nDữ liệu ra: In \"YES\" hoặc \"NO\".",
+        "templateCode": "X = int(input().strip())\nif X == 1:\n print(\"YES\")\nelse:\n f1, f2 = 1, 1\n while f2 < X:\n f1, f2 = f2, f1 + f2\n if f2 == X:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "13",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "14",
+            "expected": "NO",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 294,
+        "title": "In ra K số nguyên tố đầu tiên và tính tổng",
+        "classLevel": "7",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $K$. Hãy in ra danh sách $K$1$K$ ($1 \\le K \\le 5000$).\nDữ liệu ra: Dòng 1 chứa $K$1$K$ số nguyên tố đó.",
+        "templateCode": "import math\n\ndef is_prime(x):\n if x < 2:\n return False\n for i in range(2, math.isqrt(x) + 1):\n if x % i == 0:\n return False\n return True\n\nK = int(input().strip())\nprimes = []\nnum = 2\nwhile len(primes) < K:\n if is_prime(num):\n primes.append(num)\n num += 1\n\nprint(*(primes))\nprint(sum(primes))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "2 3 5 7 11\n28",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "2 3 5\n10",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 295,
+        "title": "Đếm và liệt kê các số chính phương trong đoạn",
+        "classLevel": "6",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Số chính phương là bình phương của một số tự nhiên ($0, 1, 4, 9, 16, ...$). Cho hai số nguyên dương $A$1$B$ ($A \\le B$). Hãy đếm xem có bao nhiêu số chính phương trong đoạn $[A, B]$1$A, B$ ($1 \\le A \\le B \\le 10^{12}$).\nDữ liệu ra: Hai số nguyên lần lượt là số lượng số chính phương và tổng các số chính phương trong đoạn, cách nhau một khoảng trắng.",
+        "templateCode": "import math\n\nA, B = map(int, input().split())\nstart = math.isqrt(A)\nif start * start < A:\n start += 1\nend = math.isqrt(B)\n\nif start > end:\n print(\"0 0\")\nelse:\n cnt = end - start + 1\n # Tong k^2 voi k tu start den end\n # Tong k^2 tu 1 den n la n*(n+1)*(2n+1)//6\n def sum_sq(n):\n return n * (n + 1) * (2 * n + 1) // 6\n tong = sum_sq(end) - sum_sq(start - 1)\n print(f\"{cnt} {tong}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 20",
+            "expected": "4 30",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 30",
+            "expected": "2 41",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 296,
+        "title": "Đếm số tam giác tạo từ N đoạn thẳng",
+        "classLevel": "8",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một tập hợp gồm $N$1$a_1, a_2, ..., a_N$. Hãy đếm xem có bao nhiêu bộ 3 đoạn thẳng $(a_i, a_j, a_k)$1$i < j < k$1$N$ ($3 \\le N \\le 2000$).\n- Dòng 2: Gồm $N$1$a_1, a_2, ..., a_N$ ($1 \\le a_i \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số bộ 3 thỏa mãn.",
+        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\na.sort()\n\ncount = 0\nfor i in range(N - 2):\n k = i + 2\n for j in range(i + 1, N - 1):\n while k < N and a[i] + a[j] > a[k]:\n k += 1\n count += max(0, k - j - 1)\n\nprint(count)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n3 4 5 10",
+            "expected": "1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n2 3 4 5 6",
+            "expected": "7",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -8673,48 +9160,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "19:56:05 2/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "nguyenphuloc",
-        "role": "student",
-        "result": "Đăng ký thành công"
-      },
-      {
-        "time": "19:55:05 2/11/2026",
-        "name": "0939924811",
-        "identifier": "0939924811",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "19:54:56 2/11/2026",
-        "name": "0939924811",
-        "identifier": "0939924811",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "19:54:38 2/11/2026",
-        "name": "0939924811",
-        "identifier": "0939924811",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "19:53:01 2/11/2026",
-        "name": "nguyễn phú lộc",
-        "identifier": "nguyễn phú lộc",
-        "role": "student",
-        "result": "Thất bại"
-      },
-      {
-        "time": "19:52:58 2/11/2026",
-        "name": "nguyễn phú lộc",
-        "identifier": "nguyễn phú lộc",
-        "role": "student",
-        "result": "Thất bại"
-      },
       {
         "time": "15:56:40 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
