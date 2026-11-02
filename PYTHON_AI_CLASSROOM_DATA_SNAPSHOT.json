@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T12:47:34.184Z",
+    "updatedAt": "2026-11-02T12:51:35.706Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 10 bài tập từ tep_mau_bai_tap_python Bai toan thuc te.docx"
+    "action": "Admin lưu bài tập: Bài 1. Tính tiền cước taxi theo quãng đường"
   },
   "data": {
     "registeredUsers": [
@@ -7596,7 +7596,7 @@
       },
       {
         "id": 269,
-        "title": "Tính tiền cước taxi theo quãng đường",
+        "title": "Bài 1. Tính tiền cước taxi theo quãng đường",
         "classLevel": "7",
         "difficulty": "easy",
         "timeLimit": 2,
