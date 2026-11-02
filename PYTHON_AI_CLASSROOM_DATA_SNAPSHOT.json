@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:39:46.641Z",
+    "updatedAt": "2026-11-02T10:40:00.779Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 83. Bài toán gà và chó"
+    "action": "Admin lưu bài tập: Bài 84. Tổng chữ số, tổng luân phiên và bất đẳng thức"
   },
   "data": {
     "registeredUsers": [
@@ -3871,7 +3871,7 @@
       },
       {
         "id": 120,
-        "title": "Tổng chữ số, tổng luân phiên và bất đẳng thức",
+        "title": "Bài 84. Tổng chữ số, tổng luân phiên và bất đẳng thức",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
