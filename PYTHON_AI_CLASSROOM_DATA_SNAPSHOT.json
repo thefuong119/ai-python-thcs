@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:12:14.337Z",
+    "updatedAt": "2026-11-02T15:13:02.169Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)"
+    "action": "Admin lưu bài tập: Bài 2. Ghép số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -725,7 +725,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho hai số tự nhiên A và B sao cho mỗi số đều chỉ gồm các chữ số đôi một khác nhau. Lần lượt lấy các chữ số của A và B ghép lại để tạo thành số C sao cho:\n1. Số chữ số của C bằng tổng số chữ số của A và B.\n2. Thứ tự các chữ số trong A không đổi.\n3. Thứ tự các chữ số trong B không đổi.\nHãy tìm số C nhỏ nhất có thể ghép được.\n\n- Dữ liệu vào: Nhập vào hai số tự nhiên A và B (1 <= A, B <= 10^8), mỗi số được ghi trên một dòng.\n- Dữ liệu ra: Đưa ra số C thỏa mãn đề bài.",
-        "templateCode": "a = input().strip()\nb = input().strip()\ni = 0\nj = 0\nres = []\nwhile i < len(a) and j < len(b):\n if a[i:] < b[j:]:\n res.append(a[i])\n i += 1\n else:\n res.append(b[j])\n j += 1\nres.append(a[i:])\nres.append(b[j:])\nprint(\"\".join(res))",
+        "templateCode": "a = input().strip()\nb = input().strip()\ni = 0\nj = 0\nres = []\nwhile i < len(a) and j < len(b):\n    if a[i:] < b[j:]:\n        res.append(a[i])\n        i += 1\n    else:\n        res.append(b[j])\n        j += 1\nres.append(a[i:])\nres.append(b[j:])\nprint(\"\".join(res))",
         "tests": [
           {
             "id": 1,
