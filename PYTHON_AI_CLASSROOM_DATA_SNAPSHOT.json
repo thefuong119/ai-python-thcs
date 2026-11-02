@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:15:08.251Z",
+    "updatedAt": "2026-11-02T10:15:22.607Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 55. Tổng chẵn"
+    "action": "Admin lưu bài tập: Bài 56. Số thân thiện"
   },
   "data": {
     "registeredUsers": [
@@ -3171,7 +3171,7 @@
       },
       {
         "id": 92,
-        "title": "Số thân thiện",
+        "title": "Bài 56. Số thân thiện",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
