@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:56:36.680Z",
+    "updatedAt": "2026-11-02T10:56:58.834Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 95. Thực hiện phép tính phân số"
+    "action": "Admin lưu bài tập: Bài 96. Dãy số biến đổi"
   },
   "data": {
     "registeredUsers": [
@@ -4171,7 +4171,7 @@
       },
       {
         "id": 132,
-        "title": "Dãy số biến đổi",
+        "title": "Bài 96. Dãy số biến đổi",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
