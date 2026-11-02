@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:01:51.323Z",
+    "updatedAt": "2026-11-02T11:02:06.840Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 108. Dãy số tăng không giảm"
+    "action": "Admin lưu bài tập: Bài 109. Thống kê từ trong xâu"
   },
   "data": {
     "registeredUsers": [
@@ -4496,7 +4496,7 @@
       },
       {
         "id": 145,
-        "title": "Thống kê từ trong xâu",
+        "title": "Bài 109. Thống kê từ trong xâu",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
