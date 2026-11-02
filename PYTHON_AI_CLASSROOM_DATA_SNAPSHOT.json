@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:26:48.107Z",
+    "updatedAt": "2026-11-02T14:27:35.894Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 13. Giải nén xâu ký tự"
+    "action": "Admin lưu bài tập: Bài 14. Số nhỏ nhất chia hết từ 1 đến N"
   },
   "data": {
     "registeredUsers": [
@@ -959,7 +959,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho số tự nhiên n. Tìm số nguyên dương nhỏ nhất chia hết cho tất cả các số nguyên từ 1 đến n (tức là bội chung nhỏ nhất của dãy số 1, 2, 3, ..., n).\n\n- Dữ liệu vào: Nhập vào từ bàn phím một số nguyên dương n (1 <= n <= 40).\n- Dữ liệu ra: In ra màn hình số nguyên nhỏ nhất tìm được.",
-        "templateCode": "import math\n\nn = int(input().strip())\nkq = 1\nfor i in range(1, n + 1):\n kq = kq * i // math.gcd(kq, i)\nprint(kq)",
+        "templateCode": "import math\n\nn = int(input().strip())\n\nkq = 1\n\nfor i in range(1, n + 1):\n    kq = kq * i // math.gcd(kq, i)\n\nprint(kq)",
         "tests": [
           {
             "id": 1,
