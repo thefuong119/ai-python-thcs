@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:50:23.062Z",
+    "updatedAt": "2026-11-02T08:50:49.549Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 26. Lọc ký tự chữ và số của thí sinh"
+    "action": "Admin lưu bài tập: Bài 27. Đồng hồ điện tử sau 1 giây"
   },
   "data": {
     "registeredUsers": [
@@ -1616,7 +1616,7 @@
       },
       {
         "id": 36,
-        "title": "Đồng hồ điện tử sau 1 giây",
+        "title": "Bài 27. Đồng hồ điện tử sau 1 giây",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
