@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:32:12.267Z",
+    "updatedAt": "2026-11-02T14:32:50.903Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 20. Kiểm tra số hoàn hảo"
+    "action": "Admin lưu bài tập: Bài 21. Tách từ và tìm từ dài nhất"
   },
   "data": {
     "registeredUsers": [
@@ -1349,7 +1349,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập vào một chuỗi ký tự gồm các từ được phân tách bởi dấu khoảng trắng.\nHãy đếm xem chuỗi có bao nhiêu từ và tìm từ có độ dài lớn nhất trong chuỗi. Nếu có nhiều từ có cùng độ dài lớn nhất thì in ra từ đầu tiên xuất hiện.\n\n- Dữ liệu vào: Một dòng chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra:\n + Dòng 1: Số lượng từ trong chuỗi.\n + Dòng 2: Từ dài nhất tìm được.",
-        "templateCode": "s = input().strip()\nwords = s.split()\nprint(len(words))\nif words:\n max_word = max(words, key=len)\n print(max_word)",
+        "templateCode": "s = input().strip()\n\nwords = s.split()\n\nprint(len(words))\n\nif words:\n    max_word = max(words, key=len)\n    print(max_word)",
         "tests": [
           {
             "id": 1,
