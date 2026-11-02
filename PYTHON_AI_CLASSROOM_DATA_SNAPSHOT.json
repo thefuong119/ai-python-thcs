@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:02:06.840Z",
+    "updatedAt": "2026-11-02T11:02:25.328Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 109. Thống kê từ trong xâu"
+    "action": "Admin lưu bài tập: Bài 110. Số nguyên tố trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -4521,7 +4521,7 @@
       },
       {
         "id": 146,
-        "title": "Số nguyên tố trong dãy",
+        "title": "Bài 110. Số nguyên tố trong dãy",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
