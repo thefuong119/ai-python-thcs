@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:52:14.492Z",
+    "updatedAt": "2026-11-02T15:53:13.076Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 64. Connect Four"
+    "action": "Admin lưu bài tập: Bài 65. Đổi quà"
   },
   "data": {
     "registeredUsers": [
@@ -3401,7 +3401,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Mỗi lần mua hàng thứ i được cộng i điểm. Cho ngưỡng k, hãy tìm lần mua nhỏ nhất n sao cho tổng 1 + 2 + ... + n ≥ k.\nDữ liệu vào: Một số nguyên k.\nDữ liệu ra: Dòng 1 ghi n; dòng 2 ghi tổng điểm đạt được.",
-        "templateCode": "k = int(input())\nn = 0\ns = 0\nwhile s < k:\n n += 1\n s += n\nprint(n)\nprint(s)",
+        "templateCode": "k = int(input())\nn = 0\ns = 0\n\nwhile s < k:\n    n += 1\n    s += n\n\nprint(n)\nprint(s)",
         "tests": [
           {
             "id": 1,
