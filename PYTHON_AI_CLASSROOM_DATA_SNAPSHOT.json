@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:00:53.726Z",
+    "updatedAt": "2026-11-02T15:01:30.288Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Tính tiền cước di động linh hoạt theo Block giây"
+    "action": "Admin lưu bài tập: Bảng xếp hạng xét tuyển học bổng chuyên Tin"
   },
   "data": {
     "registeredUsers": [
@@ -8576,7 +8576,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Trường xét cấp học bổng cho $N$ học sinh dựa trên 3 điểm số: Toán ($T$), Tin ($I$) và Anh ($A$). Điểm xét tuyển tính theo công thức: $D = T + 2 \\times I + A$.\nQuy tắc xếp hạng ưu tiên:\n1. Thí sinh có điểm xét tuyển $D$1$D$ bằng nhau, thí sinh có điểm môn Tin ($I$) cao hơn xếp trước.\n3. Nếu vẫn bằng nhau, xếp theo tên thí sinh theo thứ tự từ điển.\nHãy in ra danh sách xếp hạng gồm Tên và Điểm xét tuyển của các bạn theo đúng thứ tự.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 100$).\n- $N$1$T, I, A$ ($0 \\le T, I, A \\le 10$).\nDữ liệu ra: $N$1$D$ làm tròn 1 chữ số thập phân.",
-        "templateCode": "N = int(input().strip())\nds = []\nfor _ in range(N):\n parts = input().split()\n ten = parts[0]\n t, tin, a = float(parts[1]), float(parts[2]), float(parts[3])\n tong = t + 2 * tin + a\n ds.append((ten, tong, tin))\n\n# Sap xep: tong giam dan (-tong), tin giam dan (-tin), ten tang dan\nds.sort(key=lambda x: (-x[1], -x[2], x[0]))\n\nfor sv in ds:\n print(f\"{sv[0]} {sv[1]:.1f}\")",
+        "templateCode": "N = int(input().strip())\nds = []\nfor _ in range(N):\n    parts = input().split()\n    ten = parts[0]\n    t, tin, a = float(parts[1]), float(parts[2]), float(parts[3])\n    tong = t + 2 * tin + a\n    ds.append((ten, tong, tin))\n\n# Sap xep: tong giam dan (-tong), tin giam dan (-tin), ten tang dan\nds.sort(key=lambda x: (-x[1], -x[2], x[0]))\n\nfor sv in ds:\n    print(f\"{sv[0]} {sv[1]:.1f}\")",
         "tests": [
           {
             "id": 1,
