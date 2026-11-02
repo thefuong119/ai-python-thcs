@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:51:55.128Z",
+    "updatedAt": "2026-11-02T14:52:47.507Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài toán cổ: Vừa gà vừa chó"
+    "action": "Admin lưu bài tập: Bài toán cổ: Trăm trâu trăm cỏ"
   },
   "data": {
     "registeredUsers": [
@@ -8126,7 +8126,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Bài toán dân gian:\n\"Trăm trâu trăm cỏ\nTrâu đứng ăn năm\nTrâu nằm ăn ba\nLụ khụ trâu già\nBa con một bó\".\nTổng quát: Cho $N$1$N$1$(đứng, nằm, già)$1$N$ ($10 \\le N \\le 10^4$).\nDữ liệu ra: Số lượng phương án thỏa mãn. Nếu có ít nhất một phương án, in tiếp mỗi phương án trên một dòng theo thứ tự tăng dần của số trâu đứng.",
-        "templateCode": "N = int(input().strip())\nres = []\n# d + n + g = N\n# 5*d + 3*n + g/3 = N => 15*d + 9*n + g = 3*N\n# Tru di: 14*d + 8*n = 2*N => 7*d + 4*n = N\nfor d in range(1, N):\n con_lai = N - 7 * d\n if con_lai <= 0:\n break\n if con_lai % 4 == 0:\n n = con_lai // 4\n g = N - d - n\n if g > 0 and g % 3 == 0:\n res.append((d, n, g))\n\nprint(len(res))\nfor d, n, g in res:\n print(f\"{d} {n} {g}\")",
+        "templateCode": "N = int(input().strip())\nres = []\n# d + n + g = N\n# 5*d + 3*n + g/3 = N => 15*d + 9*n + g = 3*N\n# Tru di: 14*d + 8*n = 2*N => 7*d + 4*n = N\nfor d in range(1, N):\n    con_lai = N - 7 * d\n    if con_lai <= 0:\n        break\n    if con_lai % 4 == 0:\n        n = con_lai // 4\n        g = N - d - n\n        if g > 0 and g % 3 == 0:\n            res.append((d, n, g))\n\nprint(len(res))\nfor d, n, g in res:\n    print(f\"{d} {n} {g}\")",
         "tests": [
           {
             "id": 1,
