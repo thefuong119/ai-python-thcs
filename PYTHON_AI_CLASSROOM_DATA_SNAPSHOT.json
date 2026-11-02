@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T13:54:11.853Z",
+    "updatedAt": "2026-11-02T14:04:53.773Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nạp 8 bài giảng từ tep_mau_bai_giang_python_v5.docx"
+    "action": "Admin lưu bài tập: Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)"
   },
   "data": {
     "registeredUsers": [
@@ -11766,6 +11766,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "21:03:09 2/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "20:35:28 2/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
