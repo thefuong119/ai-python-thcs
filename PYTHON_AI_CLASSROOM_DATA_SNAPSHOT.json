@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:52:09.967Z",
+    "updatedAt": "2026-11-02T08:52:22.525Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: 31. Đếm tần suất chữ số của tổng"
+    "action": "Lưu bài tập: Bài 31. Đếm tần suất chữ số của tổng"
   },
   "data": {
     "registeredUsers": [
@@ -1772,7 +1772,7 @@
       },
       {
         "id": 40,
-        "title": "31. Đếm tần suất chữ số của tổng",
+        "title": "Bài 31. Đếm tần suất chữ số của tổng",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
