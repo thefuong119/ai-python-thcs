@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:51:37.319Z",
+    "updatedAt": "2026-11-02T08:51:50.030Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 29. Số âm lớn nhất trong dãy"
+    "action": "Lưu bài tập: Bài 30. Số nguyên tố có tổng chữ số cho trước"
   },
   "data": {
     "registeredUsers": [
@@ -1733,7 +1733,7 @@
       },
       {
         "id": 39,
-        "title": "Số nguyên tố có tổng chữ số cho trước",
+        "title": "Bài 30. Số nguyên tố có tổng chữ số cho trước",
         "classLevel": "8",
         "difficulty": "medium",
         "timeLimit": 2,
