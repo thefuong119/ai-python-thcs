@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:31:41.436Z",
+    "updatedAt": "2026-11-02T14:32:12.267Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 19. Tần suất xuất hiện ký tự"
+    "action": "Admin lưu bài tập: Bài 20. Kiểm tra số hoàn hảo"
   },
   "data": {
     "registeredUsers": [
@@ -1310,7 +1310,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Số hoàn hảo là số nguyên dương có tổng tất cả các ước số nguyên dương nhỏ hơn nó bằng chính nó.\nVí dụ: 6 là số hoàn hảo vì các ước nhỏ hơn 6 là 1, 2, 3 và 1 + 2 + 3 = 6.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hoàn hảo hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hoàn hảo, ngược lại in ra NO.",
-        "templateCode": "n = int(input().strip())\nif n <= 1:\n print(\"NO\")\nelse:\n tong_uoc = 1\n i = 2\n while i * i <= n:\n if n % i == 0:\n tong_uoc += i\n if i * i != n:\n tong_uoc += n // i\n i += 1\n if tong_uoc == n:\n print(\"YES\")\n else:\n print(\"NO\")",
+        "templateCode": "n = int(input().strip())\n\nif n <= 1:\n    print(\"NO\")\nelse:\n    tong_uoc = 1\n    i = 2\n\n    while i * i <= n:\n        if n % i == 0:\n            tong_uoc += i\n\n            if i * i != n:\n                tong_uoc += n // i\n\n        i += 1\n\n    if tong_uoc == n:\n        print(\"YES\")\n    else:\n        print(\"NO\")",
         "tests": [
           {
             "id": 1,
