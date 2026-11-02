@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T09:58:54.780Z",
+    "updatedAt": "2026-11-02T09:59:42.556Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 18. Tính tổng phân thức"
+    "action": "Admin lưu bài tập: Bài 9. Tổng chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -2246,7 +2246,7 @@
       },
       {
         "id": 55,
-        "title": "Tổng chẵn",
+        "title": "Bài 9. Tổng chẵn",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
