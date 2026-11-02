@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:16:26.805Z",
+    "updatedAt": "2026-11-02T11:16:41.913Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 128. UCLN, BCNN và phân số"
+    "action": "Admin lưu bài tập: Bài 129. Phân tích thừa số nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -4971,7 +4971,7 @@
       },
       {
         "id": 164,
-        "title": "Phân tích thừa số nguyên tố",
+        "title": "Bài 129. Phân tích thừa số nguyên tố",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
