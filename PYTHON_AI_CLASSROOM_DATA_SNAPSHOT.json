@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:58:16.407Z",
+    "updatedAt": "2026-11-02T16:00:17.454Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 72. Ma trận con có giá trị nhỏ nhất lớn nhất"
+    "action": "Admin lưu bài tập: Bài 75. Đoạn con dài nhất gồm các phần tử đôi một khác nhau"
   },
   "data": {
     "registeredUsers": [
@@ -3651,7 +3651,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho dãy N số nguyên dương. Một đoạn con là các phần tử liên tiếp. Hãy tìm đoạn con dài nhất mà các phần tử đôi một khác nhau. Nếu có nhiều đoạn cùng độ dài, chọn đoạn có vị trí bắt đầu nhỏ nhất.\nDữ liệu vào: Dòng 1 ghi N; dòng 2 ghi N số nguyên dương.\nDữ liệu ra: Dòng 1 ghi chỉ số bắt đầu (đánh số từ 1); dòng 2 ghi độ dài đoạn con.",
-        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nseen = set()\nl = 0\nbest_l = 0\nbest_len = 0\nfor r, x in enumerate(a):\n while x in seen:\n seen.remove(a[l])\n l += 1\n seen.add(x)\n if r - l + 1 > best_len:\n best_len = r - l + 1\n best_l = l\nprint(best_l + 1)\nprint(best_len)",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\nseen = set()\nl = 0\nbest_l = 0\nbest_len = 0\n\nfor r, x in enumerate(a):\n    while x in seen:\n        seen.remove(a[l])\n        l += 1\n    seen.add(x)\n    \n    if r - l + 1 > best_len:\n        best_len = r - l + 1\n        best_l = l\n\nprint(best_l + 1)\nprint(best_len)",
         "tests": [
           {
             "id": 1,
