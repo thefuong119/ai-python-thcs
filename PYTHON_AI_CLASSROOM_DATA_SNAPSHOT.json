@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:57:16.828Z",
+    "updatedAt": "2026-11-02T10:58:03.600Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 97. Số nguyên tố"
+    "action": "Admin lưu bài tập: Bài 98. Tổng các bình phương"
   },
   "data": {
     "registeredUsers": [
@@ -4221,7 +4221,7 @@
       },
       {
         "id": 134,
-        "title": "Tổng các bình phương",
+        "title": "Bài 98. Tổng các bình phương",
         "classLevel": "9",
         "difficulty": "hard",
         "timeLimit": 2,
