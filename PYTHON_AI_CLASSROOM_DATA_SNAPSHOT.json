@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T14:27:35.894Z",
+    "updatedAt": "2026-11-02T14:28:13.422Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 14. Số nhỏ nhất chia hết từ 1 đến N"
+    "action": "Admin lưu bài tập: Bài 15. Phân số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -998,7 +998,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho ba số tự nhiên dương A, B, C. Từ ba số đó, ta có thể chọn hai số bất kỳ để tạo thành một phân số (một số làm tử số, một số làm mẫu số).\nHãy tìm phân số nhỏ nhất có thể tạo thành, sau đó rút gọn về dạng tối giản và in ra tổng của tử số và mẫu số của phân số tối giản đó.\n\n- Dữ liệu vào: Gồm 3 dòng, mỗi dòng chứa một số tự nhiên dương lần lượt là A, B, C (1 <= A, B, C <= 10^4).\n- Dữ liệu ra: In ra một số nguyên duy nhất là tổng của tử số và mẫu số của phân số tối giản nhỏ nhất.",
-        "templateCode": "import math\n\na = int(input().strip())\nb = int(input().strip())\nc = int(input().strip())\n\ntu = min(a, b, c)\nmau = max(a, b, c)\nuoc = math.gcd(tu, mau)\nprint((tu // uoc) + (mau // uoc))",
+        "templateCode": "import math\n\na = int(input().strip())\nb = int(input().strip())\nc = int(input().strip())\n\ntu = min(a, b, c)\nmau = max(a, b, c)\n\nuoc = math.gcd(tu, mau)\n\nprint((tu // uoc) + (mau // uoc))",
         "tests": [
           {
             "id": 1,
