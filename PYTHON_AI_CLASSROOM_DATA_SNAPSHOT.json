@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T08:48:48.217Z",
-    "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Lưu bài tập: Bài 23. Tìm số cộng thêm để được số nguyên tố"
+    "updatedAt": "2026-11-02T08:49:28.705Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Admin lưu bài tập: Bài 24. Phân loại ký tự trong chuỗi"
   },
   "data": {
     "registeredUsers": [
@@ -1460,7 +1460,7 @@
       },
       {
         "id": 32,
-        "title": "Phân loại ký tự trong chuỗi",
+        "title": "Bài 24. Phân loại ký tự trong chuỗi",
         "classLevel": "8",
         "difficulty": "easy",
         "timeLimit": 2,
@@ -2552,6 +2552,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "15:49:04 2/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "15:34:03 2/11/2026",
         "name": "Trần Thị Trúc Mai",
