@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T15:54:50.437Z",
+    "updatedAt": "2026-11-02T15:55:26.427Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 67. Chia kẹo"
+    "action": "Admin lưu bài tập: Bài 68. Số lượng số nguyên tố trên hàng"
   },
   "data": {
     "registeredUsers": [
@@ -3476,7 +3476,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cho ma trận gồm m hàng và n cột. Hãy tìm các hàng chứa số lượng số nguyên tố lớn nhất. Nếu toàn ma trận không có số nguyên tố, in khong.\nDữ liệu vào: Dòng 1 ghi m, n; tiếp theo là m dòng, mỗi dòng n số nguyên.\nDữ liệu ra: Số thứ tự các hàng đạt số lượng nguyên tố lớn nhất (đánh số từ 1), mỗi hàng một dòng; nếu không có số nguyên tố thì in khong.",
-        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\ndef la_nguyen_to(x):\n if x < 2:\n return False\n d = 2\n while d * d <= x:\n if x % d == 0:\n return False\n d += 1\n return True\ncnt = [sum(la_nguyen_to(x) for x in row) for row in a]\nmx = max(cnt)\nif mx == 0:\n print(\"khong\")\nelse:\n for i, v in enumerate(cnt, 1):\n if v == mx:\n print(i)",
+        "templateCode": "m, n = map(int, input().split())\na = [list(map(int, input().split())) for _ in range(m)]\n\n\ndef la_nguyen_to(x):\n    if x < 2:\n        return False\n    d = 2\n    while d * d <= x:\n        if x % d == 0:\n            return False\n        d += 1\n    return True\n\n\ncnt = [sum(la_nguyen_to(x) for x in row) for row in a]\nmx = max(cnt)\n\nif mx == 0:\n    print(\"khong\")\nelse:\n    for i, v in enumerate(cnt, 1):\n        if v == mx:\n            print(i)",
         "tests": [
           {
             "id": 1,
