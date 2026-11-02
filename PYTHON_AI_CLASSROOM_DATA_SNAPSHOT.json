@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:55:58.002Z",
+    "updatedAt": "2026-11-02T10:56:22.332Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 93. Xâu ký tự và tổng chữ số"
+    "action": "Admin lưu bài tập: Bài 94. Cắt gỗ"
   },
   "data": {
     "registeredUsers": [
@@ -4121,7 +4121,7 @@
       },
       {
         "id": 130,
-        "title": "Cắt gỗ",
+        "title": "Bài 94. Cắt gỗ",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
