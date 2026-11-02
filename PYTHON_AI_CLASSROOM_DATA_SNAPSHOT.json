@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T10:37:24.572Z",
+    "updatedAt": "2026-11-02T10:37:43.256Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 76. Chữ số lớn nhất"
+    "action": "Admin lưu bài tập: Bài 77. Tách số thành ba số"
   },
   "data": {
     "registeredUsers": [
@@ -3696,7 +3696,7 @@
       },
       {
         "id": 113,
-        "title": "Tách số thành ba số",
+        "title": "Bài 77. Tách số thành ba số",
         "classLevel": "9",
         "difficulty": "medium",
         "timeLimit": 2,
