@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T11:55:44.116Z",
+    "updatedAt": "2026-11-02T11:56:05.671Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 141. Tổng nghịch đảo và tổng bình phương"
+    "action": "Admin lưu bài tập: Bài 142. Tách từ"
   },
   "data": {
     "registeredUsers": [
@@ -5296,7 +5296,7 @@
       },
       {
         "id": 177,
-        "title": "Tách từ",
+        "title": "Bài 142. Tách từ",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
