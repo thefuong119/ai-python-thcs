@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:11:23.814Z",
+    "updatedAt": "2026-11-03T17:11:59.629Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Xóa 4 bài nộp"
+    "action": "Xóa 13 bài nộp"
   },
   "data": {
     "registeredUsers": [
@@ -10773,16 +10773,16 @@
       {
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
-        "attempts": 6,
-        "totalScore": 60,
+        "attempts": 3,
+        "totalScore": 30,
         "highestScore": 10,
-        "lastSubmit": "21:07:42 29/10/2026"
+        "lastSubmit": "20:53:07 3/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 20,
-        "totalScore": 195,
+        "attempts": 11,
+        "totalScore": 105,
         "highestScore": 10,
         "lastSubmit": "23:07:51 3/11/2026"
       },
@@ -10809,14 +10809,6 @@
         "totalScore": 10,
         "highestScore": 10,
         "lastSubmit": "08:22:53 30/10/2026"
-      },
-      {
-        "student": "Nguyễn Tấn Thanh",
-        "username": "tanthanh",
-        "attempts": 1,
-        "totalScore": 10,
-        "highestScore": 10,
-        "lastSubmit": "19:16:43 29/10/2026"
       }
     ],
     "lectures": [
@@ -11449,30 +11441,6 @@
         "timestamp": "08:25:48 30/10/2026"
       },
       {
-        "id": 1793323539678,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "08:25:39 30/10/2026"
-      },
-      {
-        "id": 1793323531972,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "08:25:31 30/10/2026"
-      },
-      {
         "id": 1793323485204,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11509,42 +11477,6 @@
         "timestamp": "07:51:19 30/10/2026"
       },
       {
-        "id": 1793321468769,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:51:08 30/10/2026"
-      },
-      {
-        "id": 1793321461222,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:51:01 30/10/2026"
-      },
-      {
-        "id": 1793321450772,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:50:50 30/10/2026"
-      },
-      {
         "id": 1793321434156,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11555,102 +11487,6 @@
         "score": 10,
         "type": "official_submission",
         "timestamp": "07:50:34 30/10/2026"
-      },
-      {
-        "id": 1793321427221,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 3,
-        "assignmentTitle": "Đếm số lượng số chẵn trong dãy",
-        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:50:27 30/10/2026"
-      },
-      {
-        "id": 1793321412248,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 3,
-        "assignmentTitle": "Đếm số lượng số chẵn trong dãy",
-        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:50:12 30/10/2026"
-      },
-      {
-        "id": 1793321393837,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 3,
-        "assignmentTitle": "Đếm số lượng số chẵn trong dãy",
-        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:49:53 30/10/2026"
-      },
-      {
-        "id": 1793320469647,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "07:34:29 30/10/2026"
-      },
-      {
-        "id": 1793282862134,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "21:07:42 29/10/2026"
-      },
-      {
-        "id": 1793282510734,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "21:01:50 29/10/2026"
-      },
-      {
-        "id": 1793280910829,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "20:35:10 29/10/2026"
-      },
-      {
-        "id": 1793276203544,
-        "student": "Nguyễn Tấn Thanh",
-        "username": "tanthanh",
-        "className": "9A2",
-        "assignmentId": 1,
-        "assignmentTitle": "Tính tổng hai số nguyên A và B",
-        "code": "# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "19:16:43 29/10/2026"
       },
       {
         "id": 1793275828405,
