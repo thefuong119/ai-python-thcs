@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T23:20:50.933Z",
+    "updatedAt": "2026-11-03T23:21:07.397Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Sửa kỳ kiểm tra: KIỂM TRA NĂNG LỰC - 04/11/2026"
   },
@@ -12035,7 +12035,7 @@
         "id": 1,
         "title": "KIỂM TRA NĂNG LỰC - 04/11/2026",
         "classLevel": "8",
-        "showSampleCode": true,
+        "showSampleCode": false,
         "duration": 60,
         "createdAt": "06:18:12 4/11/2026",
         "createdBy": "Thầy Nguyễn Thế Phương",
