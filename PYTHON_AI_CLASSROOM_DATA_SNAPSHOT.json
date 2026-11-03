@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T14:07:54.429Z",
+    "updatedAt": "2026-11-03T14:08:12.819Z",
     "updatedBy": "Nguyễn Thế Bình",
     "action": "Học sinh Nguyễn Thế Bình nộp bài"
   },
@@ -11362,6 +11362,14 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793714888710,
+        "student": "Nguyễn Thế Bình",
+        "username": "binh",
+        "assignmentTitle": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
+        "score": 10,
+        "timestamp": "21:08:08 3/11/2026"
+      },
       {
         "id": 1793714870843,
         "student": "Nguyễn Thế Bình",
