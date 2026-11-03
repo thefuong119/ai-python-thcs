@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:17:30.144Z",
+    "updatedAt": "2026-11-03T17:17:55.264Z",
     "updatedBy": "Học sinh Demo",
     "action": "Học sinh Học sinh Demo nộp bài Bài 20. Kiểm tra số hoàn hảo"
   },
@@ -10773,10 +10773,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 1,
-        "totalScore": 0,
-        "highestScore": 0,
-        "lastSubmit": "00:17:25 4/11/2026"
+        "attempts": 2,
+        "totalScore": 10,
+        "highestScore": 10,
+        "lastSubmit": "00:17:51 4/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -11313,6 +11313,16 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793726271579,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
+        "assignmentId": 28,
+        "score": 10,
+        "maxScore": 10,
+        "timestamp": "00:17:51 4/11/2026"
+      },
       {
         "id": 1793726245781,
         "student": "Học sinh Demo",
