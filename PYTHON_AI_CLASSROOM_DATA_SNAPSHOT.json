@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:51:22.137Z",
+    "updatedAt": "2026-11-03T13:53:11.848Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công"
+    "action": "Học sinh Thầy Nguyễn Thế Phương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11362,6 +11362,14 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793713987739,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "score": 10,
+        "timestamp": "20:53:07 3/11/2026"
+      },
       {
         "id": 1793713471487,
         "student": "Nguyễn Phú Lộc",
