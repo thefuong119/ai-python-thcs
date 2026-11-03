@@ -503,7 +503,10 @@
                     <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký Truy Cập
                 </button>
                 <button id="tabTeacherGradesBtn" onclick="switchTeacherTab('grades')" class="py-2.5 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
-                    <i class="ph-bold ph-chart-bar"></i> Sổ Điểm
+                    <i class="ph-bold ph-chart-bar"></i> Điểm Số Học Sinh
+                </button>
+                <button id="tabTeacherExamsBtn" onclick="switchTeacherTab('exams')" class="py-2.5 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-exam"></i> Bài Kiểm Tra
                 </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap pl-2">
                     <select id="teacherGradeFilter" onchange="onTeacherFilterChange()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
@@ -775,28 +778,62 @@
             </div>
 
             <div id="teacherTabGrades" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+                <div class="p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h4 class="font-bold text-sm text-slate-900">Bảng Tổng Hợp Điểm Số Lớp Học</h4>
-                        <p class="text-xs text-slate-500">Cập nhật thời gian thực theo lượt nộp bài của học sinh</p>
+                        <h4 class="font-bold text-sm text-slate-900">Bảng Xếp Hạng Điểm Số Học Sinh</h4>
+                        <p class="text-xs text-slate-500">Tổng điểm cộng dồn từ tất cả bài nộp</p>
                     </div>
-                    <button onclick="exportGradebookCsv()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                        <i class="ph-bold ph-file-csv"></i> Xuất Tệp CSV (Excel)
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="toggleTeacherGradeSort()" id="btnTeacherGradeSort" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i id="teacherGradeSortIcon" class="ph-bold ph-sort-descending"></i> <span id="teacherGradeSortLabel">Điểm giảm dần</span>
+                        </button>
+                        <button onclick="exportTeacherGradebookCsv()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-file-csv"></i> Xuất CSV
+                        </button>
+                    </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-xs text-left">
                         <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                             <tr>
+                                <th class="p-3 w-14 text-center">Hạng</th>
                                 <th class="p-3">Học sinh</th>
                                 <th class="p-3">Tài khoản</th>
-                                <th class="p-3 text-center">Số lần nộp</th>
+                                <th class="p-3 text-center">Số bài nộp</th>
                                 <th class="p-3 text-center">Điểm cao nhất</th>
-                                <th class="p-3 text-center">Trạng thái</th>
+                                <th class="p-3 text-center bg-indigo-50">TỔNG ĐIỂM</th>
                                 <th class="p-3 text-right">Lần nộp cuối</th>
                             </tr>
                         </thead>
-                        <tbody id="gradebookTableBody" class="divide-y divide-slate-100"></tbody>
+                        <tbody id="teacherGradesTableBody" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="teacherTabExams" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-5 space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Quản Lý Bài Kiểm Tra Trực Tuyến</h4>
+                        <p class="text-xs text-slate-500">Sửa nội dung hoặc xóa kỳ kiểm tra đã tạo.</p>
+                    </div>
+                    <button onclick="openRandomTestModal()" class="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
+                        <i class="ph-bold ph-plus"></i> Tạo Đề Mới
+                    </button>
+                </div>
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-xs text-left">
+                        <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3 w-12 text-center">ID</th>
+                                <th class="p-3">Tiêu đề kỳ kiểm tra</th>
+                                <th class="p-3 text-center">Khối</th>
+                                <th class="p-3 text-center">Số câu</th>
+                                <th class="p-3 text-center">Thời gian</th>
+                                <th class="p-3 text-center">Code mẫu</th>
+                                <th class="p-3 text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacherExamsTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
             </div>
@@ -852,6 +889,9 @@
                 </button>
                 <button id="tabAdminGradesBtn" onclick="switchAdminTab('grades')" class="py-2.5 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-chart-bar"></i> Điểm Số Học Sinh
+                </button>
+                <button id="tabAdminExamsBtn" onclick="switchAdminTab('exams')" class="py-2.5 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-exam"></i> Bài Kiểm Tra
                 </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap">
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
@@ -1201,6 +1241,34 @@
                     </table>
                 </div>
             </div>
+
+            <div id="adminTabExams" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-5 space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">Quản Lý Bài Kiểm Tra Trực Tuyến (Admin)</h4>
+                        <p class="text-xs text-slate-500">Sửa nội dung hoặc xóa kỳ kiểm tra đã tạo.</p>
+                    </div>
+                    <button onclick="openRandomTestModal()" class="px-3 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
+                        <i class="ph-bold ph-plus"></i> Tạo Đề Mới
+                    </button>
+                </div>
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-xs text-left">
+                        <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3 w-12 text-center">ID</th>
+                                <th class="p-3">Tiêu đề kỳ kiểm tra</th>
+                                <th class="p-3 text-center">Khối</th>
+                                <th class="p-3 text-center">Số câu</th>
+                                <th class="p-3 text-center">Thời gian</th>
+                                <th class="p-3 text-center">Code mẫu</th>
+                                <th class="p-3 text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminExamsTableBody" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -1292,6 +1360,60 @@
             <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
                 <button onclick="closeChangePasswordModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">Hủy</button>
                 <button onclick="executeChangePassword()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5"><i class="ph-bold ph-check"></i> Xác nhận đổi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT EXAM MODAL -->
+    <div id="editExamModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10008] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-5 bg-gradient-to-r from-purple-600 to-indigo-700 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl"><i class="ph-bold ph-pencil-simple text-amber-300"></i></div>
+                    <div>
+                        <h3 class="text-base font-bold">Chỉnh Sửa Kỳ Kiểm Tra</h3>
+                        <p class="text-xs text-purple-100">Cập nhật thông tin đề kiểm tra trực tuyến</p>
+                    </div>
+                </div>
+                <button onclick="closeEditExamModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div class="p-5 space-y-4 overflow-y-auto text-xs">
+                <input type="hidden" id="editExamId" value="">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Tiêu đề kỳ kiểm tra (*):</label>
+                    <input type="text" id="editExamTitle" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Khối:</label>
+                        <select id="editExamClassLevel" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8">Khối 8</option>
+                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Thời gian (phút):</label>
+                        <input type="number" id="editExamDuration" min="5" max="180" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-bold">
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="editExamShowSampleCode" class="w-4 h-4 accent-indigo-600">
+                    <label for="editExamShowSampleCode" class="text-xs font-bold text-indigo-900 cursor-pointer">
+                        <i class="ph-bold ph-eye"></i> Cho phép học sinh xem code mẫu trong bài kiểm tra
+                    </label>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Danh sách câu hỏi:</label>
+                    <div id="editExamQuestionList" class="space-y-1.5 max-h-64 overflow-y-auto border border-slate-200 rounded-xl p-2 bg-slate-50"></div>
+                </div>
+                <p class="text-[11px] text-slate-500 italic">Thay đổi chỉ áp dụng cho lần làm bài mới. Kết quả cũ của học sinh vẫn được giữ nguyên.</p>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
+                <button onclick="closeEditExamModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs">Hủy</button>
+                <button onclick="saveExamEdit()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
+                    <i class="ph-bold ph-check-circle"></i> Lưu Thay Đổi
+                </button>
             </div>
         </div>
     </div>
@@ -1852,6 +1974,7 @@
 
     let selectedSubmissionIds = new Set();
     let adminGradeSortDesc = true;
+    let teacherGradeSortDesc = true;
 
     let studentFlags = {};
     let flaggedAssignmentsCache = {};
@@ -2555,6 +2678,7 @@
                 renderTeacherLecturesTable(); renderManageAssignmentsTable();
                 renderTeacherSubmissionsTable(); renderTeacherLogsTable();
                 refreshAdminDashboard(); updateTeacherStats();
+                renderTeacherGrades(); renderAdminGrades();
                 return true;
             }
         } catch(e) {}
@@ -2605,6 +2729,7 @@
             renderTeacherLecturesTable(); renderManageAssignmentsTable();
             renderTeacherSubmissionsTable(); renderTeacherLogsTable();
             refreshAdminDashboard(); updateTeacherStats();
+            renderTeacherGrades(); renderAdminGrades();
             showToast("Nạp tệp .JSON thành công!", "success");
             await syncDataToGitHubDirectly(`Nạp từ ${file.name}`);
         } catch (err) { showToast("Lỗi định dạng JSON!", "error"); }
@@ -3180,6 +3305,7 @@
             selectedSubmissionIds.clear();
             updateGradebookFromSubmissions();
             renderAdminSubmissionsTable(); renderTeacherSubmissionsTable(); renderGradebook(); updateBulkDeleteBtn();
+            renderTeacherGrades(); renderAdminGrades();
             autoSaveLocalSnapshot();
             showToast(`Đã xóa ${n} bài làm!`, "success");
             await syncDataToGitHubDirectly(`Xóa ${n} bài nộp`);
@@ -3352,6 +3478,7 @@ except Exception as e: _error = str(e)
         updateGradebookFromSubmissions();
         autoSaveLocalSnapshot();
         renderTeacherSubmissionsTable(); renderAdminSubmissionsTable(); renderGradebook();
+        renderTeacherGrades(); renderAdminGrades();
         showToast(`Bạn đạt ${totalScore.toFixed(1)} điểm!`, "success");
         await pushSubmissionsCsvToGithub();
         await syncDataToGitHubDirectly(`Học sinh ${currentUser.name} nộp bài ${currentAssignment.title}`);
@@ -3390,11 +3517,11 @@ except Exception as e: _error = str(e)
     function onTeacherFilterChange() { renderTeacherLecturesTable(); renderManageAssignmentsTable(); }
 
     function switchTeacherTab(tab) {
-        ['lectures','create','manage','submissions','logs','grades'].forEach(t => {
+        ['lectures','create','manage','submissions','logs','grades','exams'].forEach(t => {
             const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Lectures','Manage','Submissions','Logs','Grades'].forEach(t => {
+        ['Lectures','Manage','Submissions','Logs','Grades','Exams'].forEach(t => {
             const btn = document.getElementById('tabTeacher' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ?
                 "py-2.5 px-4 text-xs font-bold rounded-xl bg-blue-50 text-blue-600 shadow-sm flex items-center gap-2 whitespace-nowrap" :
@@ -3404,7 +3531,8 @@ except Exception as e: _error = str(e)
         if (tab === 'manage') renderManageAssignmentsTable();
         if (tab === 'submissions') { renderTeacherSubmissionsTable(); updateBulkDeleteBtn(); }
         if (tab === 'logs') renderTeacherLogsTable();
-        if (tab === 'grades') { updateGradebookFromSubmissions(); renderGradebook(); }
+        if (tab === 'grades') { updateGradebookFromSubmissions(); renderTeacherGrades(); }
+        if (tab === 'exams') renderTeacherExamsTable();
     }
 
     function updateTeacherStats() {
@@ -3441,6 +3569,151 @@ except Exception as e: _error = str(e)
         a.href = url; a.download = filename;
         document.body.appendChild(a); a.click();
         setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+    }
+
+    // =============================================
+    // TEACHER GRADES (giống Admin)
+    // =============================================
+    function renderTeacherGrades() {
+        const tbody = document.getElementById('teacherGradesTableBody'); if (!tbody) return;
+        const map = new Map();
+        studentSubmissions.forEach(s => {
+            const key = s.username || s.student;
+            if (!map.has(key)) map.set(key, { student: s.student, username: s.username || '', attempts: 0, totalScore: 0, highestScore: 0, lastSubmit: '' });
+            const g = map.get(key);
+            g.attempts++; g.totalScore += Number(s.score) || 0;
+            g.highestScore = Math.max(g.highestScore, Number(s.score) || 0);
+            if (!g.lastSubmit || s.timestamp > g.lastSubmit) g.lastSubmit = s.timestamp;
+        });
+        let list = Array.from(map.values());
+        if (list.length === 0) { tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400 italic">Chưa có dữ liệu điểm.</td></tr>`; return; }
+        list.sort((a,b) => teacherGradeSortDesc ? b.totalScore - a.totalScore : a.totalScore - b.totalScore);
+        tbody.innerHTML = list.map((g, i) => `
+            <tr class="hover:bg-blue-50/40 transition-colors cursor-pointer" onclick="highlightTableRow(this)">
+                <td class="p-3 text-center font-bold text-lg">${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `<span class="text-slate-500 font-mono">${i+1}</span>`}</td>
+                <td class="p-3 font-bold text-slate-900">${g.student}</td>
+                <td class="p-3 font-mono text-slate-700">${g.username}</td>
+                <td class="p-3 text-center">${g.attempts} lần</td>
+                <td class="p-3 text-center font-bold text-blue-600 font-mono">${g.highestScore.toFixed(1)} đ</td>
+                <td class="p-3 text-center bg-indigo-50 font-extrabold text-indigo-700 font-mono text-sm">${g.totalScore.toFixed(1)} đ</td>
+                <td class="p-3 text-right text-slate-500 text-xs">${g.lastSubmit}</td>
+            </tr>`).join('');
+    }
+
+    function toggleTeacherGradeSort() {
+        teacherGradeSortDesc = !teacherGradeSortDesc;
+        const lbl = document.getElementById('teacherGradeSortLabel'), icon = document.getElementById('teacherGradeSortIcon');
+        if (lbl) lbl.textContent = teacherGradeSortDesc ? 'Điểm giảm dần' : 'Điểm tăng dần';
+        if (icon) icon.className = teacherGradeSortDesc ? 'ph-bold ph-sort-descending' : 'ph-bold ph-sort-ascending';
+        renderTeacherGrades();
+    }
+
+    function exportTeacherGradebookCsv() {
+        const map = new Map();
+        studentSubmissions.forEach(s => {
+            const key = s.username || s.student;
+            if (!map.has(key)) map.set(key, { student: s.student, username: s.username || '', attempts: 0, totalScore: 0, highestScore: 0, lastSubmit: '' });
+            const g = map.get(key);
+            g.attempts++; g.totalScore += Number(s.score) || 0; g.highestScore = Math.max(g.highestScore, Number(s.score) || 0);
+            if (!g.lastSubmit || s.timestamp > g.lastSubmit) g.lastSubmit = s.timestamp;
+        });
+        let list = Array.from(map.values()).sort((a,b) => teacherGradeSortDesc ? b.totalScore - a.totalScore : a.totalScore - b.totalScore);
+        let csv = "\uFEFFHạng,Học sinh,Tài khoản,Số bài,Tổng điểm,Điểm cao nhất,Lần nộp cuối\n";
+        list.forEach((g, i) => csv += `${i+1},"${g.student}","${g.username}",${g.attempts},${g.totalScore.toFixed(2)},${g.highestScore.toFixed(2)},"${g.lastSubmit}"\n`);
+        downloadBlob(csv, `BangXepHangDiem_${Date.now()}.csv`, 'text/csv;charset=utf-8;');
+        showToast("Đã xuất bảng xếp hạng!", "success");
+    }
+
+    // =============================================
+    // EXAMS MANAGEMENT (Sửa/Xóa kỳ kiểm tra)
+    // =============================================
+    function renderTeacherExamsTable() {
+        const tbody = document.getElementById('teacherExamsTableBody'); if (!tbody) return;
+        if (exams.length === 0) { tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400 italic">Chưa có kỳ kiểm tra nào.</td></tr>`; return; }
+        tbody.innerHTML = exams.map(e => `
+            <tr class="hover:bg-purple-50/40 transition-colors">
+                <td class="p-3 font-bold text-center text-slate-500 font-mono">${e.id}</td>
+                <td class="p-3 font-semibold text-slate-900">${e.title}</td>
+                <td class="p-3 text-center">${e.classLevel === 'all' ? 'Tất cả' : 'Khối ' + e.classLevel}</td>
+                <td class="p-3 text-center font-mono">${e.assignmentIds ? e.assignmentIds.length : 0}</td>
+                <td class="p-3 text-center font-mono">${e.duration || 45}p</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${e.showSampleCode ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${e.showSampleCode ? 'Có' : 'Không'}</span></td>
+                <td class="p-3 text-center">
+                    <div class="flex items-center justify-center gap-2">
+                        <button onclick="openEditExamModal(${e.id})" class="px-2 py-1 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteExam(${e.id})" class="px-2 py-1 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i> Xóa</button>
+                    </div>
+                </td>
+            </tr>`).join('');
+    }
+
+    function renderAdminExamsTable() {
+        const tbody = document.getElementById('adminExamsTableBody'); if (!tbody) return;
+        if (exams.length === 0) { tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400 italic">Chưa có kỳ kiểm tra nào.</td></tr>`; return; }
+        tbody.innerHTML = exams.map(e => `
+            <tr class="hover:bg-indigo-50/40 transition-colors">
+                <td class="p-3 font-bold text-center text-slate-500 font-mono">${e.id}</td>
+                <td class="p-3 font-semibold text-slate-900">${e.title}</td>
+                <td class="p-3 text-center">${e.classLevel === 'all' ? 'Tất cả' : 'Khối ' + e.classLevel}</td>
+                <td class="p-3 text-center font-mono">${e.assignmentIds ? e.assignmentIds.length : 0}</td>
+                <td class="p-3 text-center font-mono">${e.duration || 45}p</td>
+                <td class="p-3 text-center"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${e.showSampleCode ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${e.showSampleCode ? 'Có' : 'Không'}</span></td>
+                <td class="p-3 text-center">
+                    <div class="flex items-center justify-center gap-2">
+                        <button onclick="openEditExamModal(${e.id})" class="px-2 py-1 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteExam(${e.id})" class="px-2 py-1 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i> Xóa</button>
+                    </div>
+                </td>
+            </tr>`).join('');
+    }
+
+    function openEditExamModal(examId) {
+        const exam = exams.find(e => e.id == examId); if (!exam) return;
+        document.getElementById('editExamId').value = exam.id;
+        document.getElementById('editExamTitle').value = exam.title;
+        document.getElementById('editExamClassLevel').value = exam.classLevel || 'all';
+        document.getElementById('editExamDuration').value = exam.duration || 45;
+        document.getElementById('editExamShowSampleCode').checked = !!exam.showSampleCode;
+        const listEl = document.getElementById('editExamQuestionList');
+        listEl.innerHTML = (exam.assignmentIds || []).map((aid, i) => {
+            const a = assignments.find(x => x.id == aid);
+            return `<div class="flex items-center justify-between p-2 bg-white rounded-lg border border-slate-200">
+                <span class="text-xs font-semibold">Câu ${i+1}: ${a ? a.title : 'Bài tập #' + aid}</span>
+                <span class="text-[10px] text-slate-500 font-mono">ID: ${aid}</span>
+            </div>`;
+        }).join('') || '<div class="text-slate-400 italic p-2">Chưa có câu hỏi nào.</div>';
+        document.getElementById('editExamModal')?.classList.remove('hidden');
+    }
+
+    function closeEditExamModal() { document.getElementById('editExamModal')?.classList.add('hidden'); }
+
+    async function saveExamEdit() {
+        const id = document.getElementById('editExamId')?.value;
+        const exam = exams.find(e => e.id == id); if (!exam) return showToast("Không tìm thấy kỳ kiểm tra!", "error");
+        const title = document.getElementById('editExamTitle')?.value.trim();
+        const classLevel = document.getElementById('editExamClassLevel')?.value;
+        const duration = parseInt(document.getElementById('editExamDuration')?.value) || 45;
+        const showSampleCode = document.getElementById('editExamShowSampleCode')?.checked;
+        if (!title) return showToast("Vui lòng nhập tiêu đề!", "error");
+        exam.title = title; exam.classLevel = classLevel; exam.duration = duration; exam.showSampleCode = showSampleCode;
+        closeEditExamModal();
+        renderTeacherExamsTable(); renderAdminExamsTable(); populateExamSelect();
+        autoSaveLocalSnapshot();
+        showToast(`Đã cập nhật kỳ kiểm tra "${title}"!`, "success");
+        await syncDataToGitHubDirectly(`Sửa kỳ kiểm tra: ${title}`);
+    }
+
+    function deleteExam(examId) {
+        if (currentUser.role !== 'admin' && currentUser.role !== 'teacher') return showToast("Không có quyền xóa!", "error");
+        const exam = exams.find(e => e.id == examId); if (!exam) return;
+        requestDeleteConfirmation(`kỳ kiểm tra "${exam.title}"`, async () => {
+            exams = exams.filter(e => e.id != examId);
+            if (examProgress[examId]) delete examProgress[examId];
+            renderTeacherExamsTable(); renderAdminExamsTable(); populateExamSelect();
+            autoSaveLocalSnapshot();
+            showToast(`Đã xóa kỳ kiểm tra "${exam.title}"!`, "success");
+            await syncDataToGitHubDirectly(`Xóa kỳ kiểm tra: ${exam.title}`);
+        });
     }
 
     // =============================================
@@ -3497,7 +3770,7 @@ except Exception as e: _error = str(e)
     }
 
     // =============================================
-    // EXAMS (Bài kiểm tra trực tuyến)
+    // EXAMS (Bài kiểm tra trực tuyến - học sinh)
     // =============================================
     function populateExamSelect() {
         const sel = document.getElementById('selectExam'); if (!sel) return;
@@ -3599,6 +3872,7 @@ except Exception as e: _error = str(e)
         updateGradebookFromSubmissions();
         renderExamProgress();
         renderTeacherSubmissionsTable(); renderAdminSubmissionsTable(); renderGradebook();
+        renderTeacherGrades(); renderAdminGrades();
         autoSaveLocalSnapshot();
         showToast(`Câu "${a.title}" đạt ${totalScore.toFixed(1)}/${maxScore.toFixed(1)} điểm!`, "success");
         await pushSubmissionsCsvToGithub();
@@ -3697,7 +3971,7 @@ except Exception as e: _error = str(e)
         speakRobotText(`Đã tạo bài kiểm tra ${exam.title}`);
         closeRandomTestModal();
         autoSaveLocalSnapshot();
-        syncDataToGitHubDirectly(`Tạo bài kiểm tra: ${exam.title}`).then(() => populateExamSelect());
+        syncDataToGitHubDirectly(`Tạo bài kiểm tra: ${exam.title}`).then(() => { populateExamSelect(); renderTeacherExamsTable(); renderAdminExamsTable(); });
     }
 
     async function exportRandomTestToDocx() {
@@ -3729,11 +4003,11 @@ except Exception as e: _error = str(e)
     // ADMIN DASHBOARD
     // =============================================
     function switchAdminTab(tab) {
-        ['users','lectures','assignments','submissions','logs','grades'].forEach(t => {
+        ['users','lectures','assignments','submissions','logs','grades','exams'].forEach(t => {
             const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Users','Lectures','Assignments','Submissions','Logs','Grades'].forEach(t => {
+        ['Users','Lectures','Assignments','Submissions','Logs','Grades','Exams'].forEach(t => {
             const btn = document.getElementById('tabAdmin' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ?
                 "py-2.5 px-4 text-xs font-bold rounded-xl bg-indigo-50 text-indigo-600 shadow-sm flex items-center gap-2 whitespace-nowrap" :
@@ -3745,6 +4019,7 @@ except Exception as e: _error = str(e)
         else if (tab === 'submissions') { renderAdminSubmissionsTable(); updateBulkDeleteBtn(); }
         else if (tab === 'logs') renderAdminLogsTable();
         else if (tab === 'grades') renderAdminGrades();
+        else if (tab === 'exams') renderAdminExamsTable();
     }
 
     function switchAdminUserGroup(group) { currentAdminUserGroup = group; renderAdminUsersTable(); }
@@ -3785,7 +4060,7 @@ except Exception as e: _error = str(e)
         document.getElementById('adminStatStudents').textContent = registeredUsers.filter(u => u.role === 'student').length;
         document.getElementById('adminStatTotalLogs').textContent = loginLogs.length;
         renderAdminUsersTable(); renderTeacherLecturesTable(); renderAdminAssignmentsTable();
-        renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades();
+        renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades(); renderAdminExamsTable();
     }
 
     function deleteStudentSubmission(id) {
@@ -3797,6 +4072,7 @@ except Exception as e: _error = str(e)
             selectedSubmissionIds.delete(id);
             updateGradebookFromSubmissions();
             renderAdminSubmissionsTable(); renderTeacherSubmissionsTable(); renderGradebook(); updateBulkDeleteBtn();
+            renderTeacherGrades(); renderAdminGrades();
             autoSaveLocalSnapshot();
             showToast(`Đã xóa ${label}!`, "success");
         });
@@ -3807,6 +4083,7 @@ except Exception as e: _error = str(e)
         requestDeleteConfirmation("toàn bộ bài nộp học sinh", () => {
             studentSubmissions = []; gradebook = []; selectedSubmissionIds.clear();
             renderAdminSubmissionsTable(); renderTeacherSubmissionsTable(); renderGradebook(); updateBulkDeleteBtn();
+            renderTeacherGrades(); renderAdminGrades();
             autoSaveLocalSnapshot();
             showToast("Đã xóa toàn bộ bài nộp!", "success");
         });
