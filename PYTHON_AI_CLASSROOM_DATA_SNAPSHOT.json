@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T23:01:23.606Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Học sinh Nguyễn Phú Lộc nộp bài Bài 1. Tính tổng hai số nguyên A và B"
+    "updatedAt": "2026-11-03T23:08:54.583Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Tạo bài kiểm tra: BÀI KIỂM TRA 04-11-2026"
   },
   "data": {
     "registeredUsers": [
@@ -11585,6 +11585,13 @@
     ],
     "loginLogs": [
       {
+        "time": "06:08:14 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "05:59:15 4/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -11946,7 +11953,23 @@
         ]
       }
     },
-    "exams": [],
+    "exams": [
+      {
+        "id": 1,
+        "title": "BÀI KIỂM TRA 04-11-2026",
+        "classLevel": "8",
+        "showSampleCode": false,
+        "duration": 45,
+        "createdAt": "06:08:52 4/11/2026",
+        "createdBy": "Thầy Nguyễn Thế Phương",
+        "assignmentIds": [
+          45,
+          28,
+          275,
+          296
+        ]
+      }
+    ],
     "examProgress": {}
   }
 }
