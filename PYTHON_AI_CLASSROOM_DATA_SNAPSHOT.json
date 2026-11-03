@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:18:06.323Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Học sinh Thầy Nguyễn Thế Phương nộp bài"
+    "updatedAt": "2026-11-03T13:44:35.915Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11389,6 +11389,14 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793713471487,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
+        "score": 10,
+        "timestamp": "20:44:31 3/11/2026"
+      },
+      {
         "id": 1793711881362,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
@@ -12493,6 +12501,9 @@
     "studentFlags": {
       "086081006094": {
         "1": true
+      },
+      "loc": {
+        "4": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -12531,6 +12542,46 @@
             "input": "-500000000 -500000000",
             "expected": "-1000000000",
             "point": 2.5,
+            "is_hidden": true
+          }
+        ],
+        "classLevel": "8"
+      },
+      "4": {
+        "id": 4,
+        "title": "Bài 4. Xét số chẵn lẻ",
+        "slug": "x-t-s--ch-n-l-",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Viết code Python nhập vào số nguyên. Xuất thông báo Yes nếu là số chẵn, No nếu là số lẻ.",
+        "templateCode": "# Mã nguồn cho bài Xét số chẵn lẻ\nn = int(input())\nif n % 2 == 0:\n    print (\"Yes\")\nelse:\n   print (\"No\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "No",
+            "point": 2,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100",
+            "expected": "Yes",
+            "point": 2,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10000",
+            "expected": "Yes",
+            "point": 3,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "111111",
+            "expected": "No",
+            "point": 3,
             "is_hidden": true
           }
         ],
