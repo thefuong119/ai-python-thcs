@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T22:40:47.992Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T22:41:35.777Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Sửa bài kiểm tra: KIỂM TRA LẦN 1"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2
+        "loginCount": 3
       },
       {
         "id": 8,
@@ -176,7 +176,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2,
+        "loginCount": 1,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11"
@@ -11565,17 +11565,24 @@
     ],
     "loginLogs": [
       {
-        "time": "05:40:46 4/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
+        "time": "05:40:57 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "05:40:15 4/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Đăng xuất"
       },
       {
-        "time": "05:40:22 4/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
+        "time": "05:39:19 4/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Thành công"
       },
       {
@@ -11881,7 +11888,7 @@
         "id": 1,
         "title": "KIỂM TRA LẦN 1",
         "classLevel": "8",
-        "showSampleCode": false,
+        "showSampleCode": true,
         "duration": 45,
         "createdAt": "00:09:00 4/11/2026",
         "createdBy": "Thầy Nguyễn Thế Phương",
