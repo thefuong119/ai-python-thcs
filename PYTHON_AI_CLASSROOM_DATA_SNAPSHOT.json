@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:09:01.790Z",
+    "updatedAt": "2026-11-03T17:11:23.814Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Tạo bài kiểm tra: KIỂM TRA LẦN 1"
+    "action": "Xóa 4 bài nộp"
   },
   "data": {
     "registeredUsers": [
@@ -10773,8 +10773,8 @@
       {
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
-        "attempts": 10,
-        "totalScore": 90,
+        "attempts": 6,
+        "totalScore": 60,
         "highestScore": 10,
         "lastSubmit": "21:07:42 29/10/2026"
       },
@@ -11437,54 +11437,6 @@
         "timestamp": "09:33:45 30/10/2026"
       },
       {
-        "id": 1793324918882,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "08:48:38 30/10/2026"
-      },
-      {
-        "id": 1793323847897,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-        "score": 10,
-        "type": "official_submission",
-        "timestamp": "08:30:47 30/10/2026"
-      },
-      {
-        "id": 1793323831142,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"N0\")",
-        "score": 5,
-        "type": "official_submission",
-        "timestamp": "08:30:31 30/10/2026"
-      },
-      {
-        "id": 1793323826569,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "className": "Toàn trường & Tổ Tin",
-        "assignmentId": 2,
-        "assignmentTitle": "Kiểm tra số nguyên tố",
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"No\")",
-        "score": 5,
-        "type": "official_submission",
-        "timestamp": "08:30:26 30/10/2026"
-      },
-      {
         "id": 1793323548527,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11737,99 +11689,7 @@
         "timestamp": "19:10:17 29/10/2026"
       }
     ],
-    "loginLogs": [
-      {
-        "time": "00:04:09 4/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "00:04:00 4/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đổi MK thành công"
-      },
-      {
-        "time": "00:03:32 4/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:33:06 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "23:29:06 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:18:29 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:09:01 3/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:05:55 3/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "22:58:01 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "22:55:23 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:29:31 3/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:16:52 3/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:54:33 3/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
-        "role": "student",
-        "result": "Thành công"
-      }
-    ],
+    "loginLogs": [],
     "studentFlags": {
       "086081006094": {
         "1": true
