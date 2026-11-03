@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:14:40.308Z",
+    "updatedAt": "2026-11-03T13:15:14.491Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin xóa bài giảng ID: 74"
+    "action": "Admin xóa tài khoản: Thiều Dĩ Phụng"
   },
   "data": {
     "registeredUsers": [
@@ -16,7 +16,7 @@
         "school": "THCS Thành Đông",
         "className": "Toàn trường",
         "teacherName": "---",
-        "phone": "0908889999",
+        "phone": "0932861739",
         "email": "thuyhuong475689@gmail.com",
         "role": "admin",
         "authMethod": "Tên đăng nhập + Mật khẩu",
@@ -255,19 +255,6 @@
         "school": "THCS Thành Đông",
         "className": "Khối 8",
         "phone": "0123456799",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 1
-      },
-      {
-        "id": 1793535213586,
-        "name": "Thiều Dĩ Phụng",
-        "username": "phung",
-        "identifier": "phung",
-        "password": "phung123",
-        "school": "THCS Thành Đông",
-        "className": "Khối 8",
-        "phone": "0989682045",
         "role": "teacher",
         "status": "active",
         "loginCount": 1
