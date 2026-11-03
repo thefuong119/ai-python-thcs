@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T09:21:51.589Z",
+    "updatedAt": "2026-11-03T09:22:39.131Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công lên máy chủ"
+    "action": "Admin lưu bài giảng: 1111111"
   },
   "data": {
     "registeredUsers": [
@@ -11373,6 +11373,13 @@
         "classLevel": "9",
         "grade": "Thuật toán nâng cao thi HSG Tỉnh",
         "content": "### 1. Kiến thức trọng tâm & Phương pháp luận\n- **Duyệt đồ thị trên lưới ma trận (BFS / DFS):**\n + Tìm đường đi ngắn nhất ô bàn cờ (BFS có hàng đợi `deque`): Xe cứu hộ vượt ngập nước độ sâu $\\le H_{max}$.\n + Tìm diện tích thành phần liên thông cực đại (Loang BFS/DFS): Khoanh vùng diện tích ảnh hưởng bão lớn nhất.\n- **Cây khung nhỏ nhất (MST) - Thuật toán Kruskal:**\n + Ứng dụng nối mạng cáp quang biển giữa các trạm đảo với chi phí tối thiểu.\n + Cấu trúc dữ liệu các tập hợp rời nhau DSU (Disjoint Set Union) với nén đường đi (Path Compression) kiểm tra chu trình trong $O(\\alpha(N))$.\n- **Quy hoạch động chuyên sâu:**\n + Quy hoạch động ba lô (Knapsack): Cắt vật liệu có tính phí nhát cắt, chọn danh mục dự án đầu tư sinh lời.\n + Quy hoạch động đa trạng thái (State DP): Bài toán tối ưu nạp - xả điện trạm pin BESS $DP[k]$1$N$1$M$1$M \\times N$ gồm các ô '0' và '1'. Tìm diện tích của vùng các ô '1' liên thông 4 hướng lớn nhất. Nếu không có ô '1' nào in 0.\n**Đáp án & Mã nguồn:**\n```python\nfrom collections import deque\nM, N = map(int, input().split())\ngrid = [list(input().strip()) for _ in range(M)]\nmax_area = 0\nfor r in range(M):\n for c in range(N):\n if grid[r][c] == '1':\n area = 0\n q = deque([(r, c)])\n grid[r][c] = '0'\n while q:\n cr, cc = q.popleft()\n area += 1\n for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n nr, nc = cr + dr, cc + dc\n if 0 <= nr < M and 0 <= nc < N and grid[nr][nc] == '1':\n grid[nr][nc] = '0'\n q.append((nr, nc))\n max_area = max(max_area, area)\nprint(max_area)\n```"
+      },
+      {
+        "id": 74,
+        "title": "1111111",
+        "classLevel": "8",
+        "grade": "Tin học cơ sở",
+        "content": "efdfdfdf"
       }
     ],
     "studentSubmissions": [
@@ -11779,13 +11786,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "16:21:36 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
       {
         "time": "06:02:34 3/11/2026",
         "name": "Nguyễn Chí Thanh",
