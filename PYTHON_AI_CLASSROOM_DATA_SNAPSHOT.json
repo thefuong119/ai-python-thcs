@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T23:20:38.209Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T23:20:50.933Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Sửa kỳ kiểm tra: KIỂM TRA NĂNG LỰC - 04/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 8
+        "loginCount": 7
       },
       {
         "id": 8,
@@ -11585,17 +11585,10 @@
     ],
     "loginLogs": [
       {
-        "time": "06:20:36 4/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "06:20:30 4/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
+        "time": "06:20:41 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -12042,7 +12035,7 @@
         "id": 1,
         "title": "KIỂM TRA NĂNG LỰC - 04/11/2026",
         "classLevel": "8",
-        "showSampleCode": false,
+        "showSampleCode": true,
         "duration": 60,
         "createdAt": "06:18:12 4/11/2026",
         "createdBy": "Thầy Nguyễn Thế Phương",
