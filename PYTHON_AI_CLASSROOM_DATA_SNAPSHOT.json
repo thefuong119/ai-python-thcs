@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:15:14.491Z",
+    "updatedAt": "2026-11-03T13:17:24.588Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin xóa tài khoản: Thiều Dĩ Phụng"
+    "action": "Học sinh Thầy Nguyễn Thế Phương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11389,11 +11389,12 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793610325344,
+        "id": 1793711840492,
         "student": "Thầy Nguyễn Thế Phương",
-        "assignmentTitle": "Mật mã kép",
-        "score": 0,
-        "timestamp": "16:05:25 2/11/2026"
+        "username": "086081006094",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "score": 10,
+        "timestamp": "20:17:20 3/11/2026"
       },
       {
         "id": 1793610153045,
@@ -12474,7 +12475,9 @@
       }
     ],
     "studentFlags": {
-      "086081006094": {}
+      "086081006094": {
+        "1": true
+      }
     },
     "flaggedAssignmentsCache": {
       "1": {
