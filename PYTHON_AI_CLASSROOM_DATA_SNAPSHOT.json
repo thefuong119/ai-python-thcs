@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-02T23:02:36.649Z",
-    "updatedBy": "Nguyễn Chí Thanh",
-    "action": "Đăng ký học sinh mới: Nguyễn Chí Thanh"
+    "updatedAt": "2026-11-03T09:21:51.589Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Đẩy dữ liệu thủ công lên máy chủ"
   },
   "data": {
     "registeredUsers": [
@@ -11779,6 +11779,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "16:21:36 3/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "06:02:34 3/11/2026",
         "name": "Nguyễn Chí Thanh",
