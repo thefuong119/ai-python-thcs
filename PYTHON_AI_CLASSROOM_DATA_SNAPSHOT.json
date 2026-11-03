@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T14:42:55.403Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Đếm số tam giác tạo từ N đoạn thẳng"
+    "updatedAt": "2026-11-03T14:55:23.353Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -164,7 +164,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2
+        "loginCount": 3
       },
       {
         "id": 10,
@@ -10767,6 +10767,31 @@
             "is_hidden": false
           }
         ]
+      },
+      {
+        "id": 397,
+        "title": "Bài 397. fđf",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "đf",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -11337,6 +11362,14 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793717719496,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "score": 10,
+        "timestamp": "21:55:19 3/11/2026"
+      },
       {
         "id": 1793715966234,
         "student": "Lê Nguyễn Quang Minh",
@@ -11967,10 +12000,10 @@
     ],
     "loginLogs": [
       {
-        "time": "21:42:03 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "21:29:31 3/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
         "result": "Thành công"
       },
       {
@@ -11996,7 +12029,7 @@
         "4": true
       },
       "minh": {
-        "4": true
+        "1": true
       }
     },
     "flaggedAssignmentsCache": {
