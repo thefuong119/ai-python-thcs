@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:04:06.878Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T17:04:33.597Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Xóa kỳ kiểm tra: Kiểm tra ngẫu nhiên - 3/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -11729,6 +11729,13 @@
     ],
     "loginLogs": [
       {
+        "time": "00:04:09 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "00:04:00 4/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -12015,37 +12022,7 @@
         "classLevel": "8"
       }
     },
-    "exams": [
-      {
-        "id": 1,
-        "title": "Kiểm tra ngẫu nhiên - 3/11/2026",
-        "classLevel": "8",
-        "showSampleCode": true,
-        "duration": 45,
-        "createdAt": "22:57:29 3/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          20,
-          36,
-          297,
-          296
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Kiểm tra ngẫu nhiên - 3/11/2026",
-        "classLevel": "8",
-        "showSampleCode": true,
-        "duration": 45,
-        "createdAt": "23:10:01 3/11/2026",
-        "createdBy": "Nguyễn Thế Bình",
-        "assignmentIds": [
-          21,
-          297,
-          296
-        ]
-      }
-    ],
+    "exams": [],
     "examProgress": {}
   }
 }
