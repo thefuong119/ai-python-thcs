@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:14:27.987Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T17:17:30.144Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Học sinh Học sinh Demo nộp bài Bài 20. Kiểm tra số hoàn hảo"
   },
   "data": {
     "registeredUsers": [
@@ -204,7 +204,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "phone": "Zalo cá nhân"
       },
       {
@@ -10771,6 +10771,14 @@
     ],
     "gradebook": [
       {
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "attempts": 1,
+        "totalScore": 0,
+        "highestScore": 0,
+        "lastSubmit": "00:17:25 4/11/2026"
+      },
+      {
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
         "attempts": 3,
@@ -11306,6 +11314,16 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793726245781,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
+        "assignmentId": 28,
+        "score": 0,
+        "maxScore": 10,
+        "timestamp": "00:17:25 4/11/2026"
+      },
+      {
         "id": 1793725578480,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
@@ -11525,7 +11543,15 @@
         "timestamp": "19:10:17 29/10/2026"
       }
     ],
-    "loginLogs": [],
+    "loginLogs": [
+      {
+        "time": "00:16:06 4/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      }
+    ],
     "studentFlags": {
       "086081006094": {
         "1": true
@@ -11539,6 +11565,9 @@
         "3": true,
         "4": true,
         "5": true
+      },
+      "hocsinh": {
+        "28": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -11761,6 +11790,45 @@
             "id": 4,
             "input": "1000000000000000",
             "expected": "25819888",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "28": {
+        "id": 28,
+        "title": "Bài 20. Kiểm tra số hoàn hảo",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Số hoàn hảo là số nguyên dương có tổng tất cả các ước số nguyên dương nhỏ hơn nó bằng chính nó.\nVí dụ: 6 là số hoàn hảo vì các ước nhỏ hơn 6 là 1, 2, 3 và 1 + 2 + 3 = 6.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hoàn hảo hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hoàn hảo, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\n\nif n <= 1:\n    print(\"NO\")\nelse:\n    tong_uoc = 1\n    i = 2\n\n    while i * i <= n:\n        if n % i == 0:\n            tong_uoc += i\n\n            if i * i != n:\n                tong_uoc += n // i\n\n        i += 1\n\n    if tong_uoc == n:\n        print(\"YES\")\n    else:\n        print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "28",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "496",
+            "expected": "YES",
             "point": 2.5,
             "is_hidden": true
           }
