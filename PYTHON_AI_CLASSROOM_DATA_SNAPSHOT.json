@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:47:05.486Z",
+    "updatedAt": "2026-11-03T13:47:20.124Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin xóa tài khoản: Nguyễn Chí Thanh"
+    "action": "Admin cập nhật tài khoản: Bùi Hoàng Gia Bảo"
   },
   "data": {
     "registeredUsers": [
@@ -267,7 +267,7 @@
         "password": "bao9a1",
         "school": "THCS Thành Đông",
         "className": "9A1",
-        "phone": "---",
+        "phone": "Zalo cá nhân",
         "role": "student",
         "status": "active",
         "loginCount": 0
