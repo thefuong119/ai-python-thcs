@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:50:55.298Z",
+    "updatedAt": "2026-11-03T13:51:05.639Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin cập nhật tài khoản: Nguyễn Phú Cường"
+    "action": "Admin xóa tài khoản: Nguyễn Phú Cường"
   },
   "data": {
     "registeredUsers": [
@@ -206,19 +206,6 @@
         "status": "active",
         "loginCount": 0,
         "phone": "0123456789"
-      },
-      {
-        "id": 1793525699379,
-        "name": "Nguyễn Phú Cường",
-        "username": "cuong",
-        "identifier": "cuong",
-        "password": "123456",
-        "school": "THCS Thành Đông",
-        "className": "6a2",
-        "phone": "Zalo cá nhân",
-        "role": "student",
-        "status": "active",
-        "loginCount": 1
       },
       {
         "id": 1793526930010,
