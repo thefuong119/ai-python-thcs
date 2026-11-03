@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T14:24:18.246Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "updatedAt": "2026-11-03T14:25:12.350Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0
+        "loginCount": 1
       },
       {
         "id": 8,
@@ -11363,12 +11363,12 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793715853963,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
+        "id": 1793715908380,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
         "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
-        "score": 0,
-        "timestamp": "21:24:13 3/11/2026"
+        "score": 10,
+        "timestamp": "21:25:08 3/11/2026"
       },
       {
         "id": 1793715676608,
@@ -11983,6 +11983,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "21:23:22 3/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "21:16:52 3/11/2026",
         "name": "Lê Nguyễn Quang Minh",
