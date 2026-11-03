@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:53:11.848Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Học sinh Thầy Nguyễn Thế Phương nộp bài"
+    "updatedAt": "2026-11-03T13:57:31.607Z",
+    "updatedBy": "Nguyễn Thế Bình",
+    "action": "Học sinh Nguyễn Thế Bình nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -176,7 +176,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0,
+        "loginCount": 1,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11"
@@ -11363,6 +11363,14 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793714247806,
+        "student": "Nguyễn Thế Bình",
+        "username": "binh",
+        "assignmentTitle": "Bài 23. Tìm số đường khép kín",
+        "score": 5,
+        "timestamp": "20:57:27 3/11/2026"
+      },
+      {
         "id": 1793713987739,
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
@@ -11718,13 +11726,38 @@
         "timestamp": "19:10:17 29/10/2026"
       }
     ],
-    "loginLogs": [],
+    "loginLogs": [
+      {
+        "time": "20:56:09 3/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "20:56:01 3/11/2026",
+        "name": "binh",
+        "identifier": "binh",
+        "role": "student",
+        "result": "Thất bại"
+      },
+      {
+        "time": "20:55:56 3/11/2026",
+        "name": "binh",
+        "identifier": "binh",
+        "role": "student",
+        "result": "Thất bại"
+      }
+    ],
     "studentFlags": {
       "086081006094": {
         "1": true
       },
       "loc": {
         "4": true
+      },
+      "binh": {
+        "59": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -11807,6 +11840,31 @@
           }
         ],
         "classLevel": "8"
+      },
+      "59": {
+        "id": 59,
+        "title": "Bài 23. Tìm số đường khép kín",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Quy ước: các chữ số 1, 2, 3, 5, 7 có 0 đường khép kín; các chữ số 0, 4, 6, 9 có 1 đường; chữ số 8 có 2 đường. Cho số nguyên dương N, hãy tính tổng số đường khép kín của các chữ số.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Tổng số đường khép kín.",
+        "templateCode": "n = input().strip()\ndem = 0\nfor ch in n:\n    if ch in \"0469\":\n        dem += 1\n    elif ch == \"8\":\n        dem += 2\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2369524",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8801",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
       }
     }
   }
