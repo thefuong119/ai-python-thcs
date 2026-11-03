@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T17:17:55.264Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài Bài 20. Kiểm tra số hoàn hảo"
+    "updatedAt": "2026-11-03T17:20:40.432Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài Bài 4. Xét số chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1
+        "loginCount": 2
       },
       {
         "id": 8,
@@ -10771,6 +10771,14 @@
     ],
     "gradebook": [
       {
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "attempts": 12,
+        "totalScore": 115,
+        "highestScore": 10,
+        "lastSubmit": "23:07:51 3/11/2026"
+      },
+      {
         "student": "Học sinh Demo",
         "username": "hocsinh",
         "attempts": 2,
@@ -10785,14 +10793,6 @@
         "totalScore": 30,
         "highestScore": 10,
         "lastSubmit": "20:53:07 3/11/2026"
-      },
-      {
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "attempts": 11,
-        "totalScore": 105,
-        "highestScore": 10,
-        "lastSubmit": "23:07:51 3/11/2026"
       },
       {
         "student": "Lê Nguyễn Quang Minh",
@@ -11314,6 +11314,16 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793726435598,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
+        "assignmentId": 4,
+        "score": 10,
+        "maxScore": 10,
+        "timestamp": "00:20:35 4/11/2026"
+      },
+      {
         "id": 1793726271579,
         "student": "Học sinh Demo",
         "username": "hocsinh",
@@ -11554,6 +11564,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "00:19:19 4/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "00:16:06 4/11/2026",
         "name": "Học sinh Demo",
