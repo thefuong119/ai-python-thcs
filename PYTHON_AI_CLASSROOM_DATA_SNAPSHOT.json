@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T22:57:27.908Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T23:00:50.893Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài Bài 1. Tính tổng hai số nguyên A và B"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 3
+        "loginCount": 4
       },
       {
         "id": 8,
@@ -10773,7 +10773,7 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 12,
+        "attempts": 13,
         "totalScore": 115,
         "highestScore": 10,
         "lastSubmit": "23:07:51 3/11/2026"
@@ -11314,6 +11314,16 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793746846449,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 0,
+        "maxScore": 10,
+        "timestamp": "06:00:46 4/11/2026"
+      },
+      {
         "id": 1793726435598,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11565,6 +11575,20 @@
     ],
     "loginLogs": [
       {
+        "time": "05:59:15 4/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "05:59:08 4/11/2026",
+        "name": "loc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thất bại"
+      },
+      {
         "time": "05:57:26 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -11633,6 +11657,7 @@
         "1": true
       },
       "loc": {
+        "1": true,
         "4": true
       },
       "minh": {
