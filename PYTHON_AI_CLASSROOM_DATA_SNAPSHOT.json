@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T16:18:25.838Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T16:28:47.262Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Admin xóa bài tập: Bài 397. fđf"
   },
   "data": {
     "registeredUsers": [
@@ -10767,31 +10767,6 @@
             "is_hidden": false
           }
         ]
-      },
-      {
-        "id": 397,
-        "title": "Bài 397. fđf",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "đf",
-        "templateCode": "",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 5",
-            "expected": "8",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
       }
     ],
     "gradebook": [
@@ -11754,11 +11729,11 @@
     ],
     "loginLogs": [
       {
-        "time": "23:18:24 3/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
-        "result": "Đăng xuất"
+        "time": "23:18:29 3/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
       },
       {
         "time": "23:09:01 3/11/2026",
