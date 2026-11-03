@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T15:58:02.449Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-03T16:07:56.420Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài Bài 4. Xét số chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -128,7 +128,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0
+        "loginCount": 1
       },
       {
         "id": 8,
@@ -10796,76 +10796,52 @@
     ],
     "gradebook": [
       {
-        "id": 1,
-        "student": "Trần Văn An",
-        "username": "hs_tranvanan",
-        "attempts": 3,
-        "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:35"
-      },
-      {
-        "id": 2,
-        "student": "Mai Thị Bình",
-        "username": "hs_maithibinh",
-        "attempts": 1,
-        "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:42"
-      },
-      {
-        "id": 3,
-        "student": "Lê Hoàng Cường",
-        "username": "hs_lehoangcuong",
-        "attempts": 4,
-        "highestScore": 7.5,
-        "lastSubmit": "Hôm nay 08:50"
-      },
-      {
-        "id": 4,
-        "student": "Nguyễn Thị Diệu",
-        "username": "hs_nguyenthidieu",
-        "attempts": 2,
-        "highestScore": 10,
-        "lastSubmit": "Hôm nay 09:10"
-      },
-      {
-        "id": 5,
-        "student": "Phạm Hải Đăng",
-        "username": "hs_phamhaidang",
-        "attempts": 0,
-        "highestScore": 0,
-        "lastSubmit": "---"
-      },
-      {
-        "id": 6,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "attempts": 8,
-        "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:48"
-      },
-      {
-        "id": 7,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 21,
+        "attempts": 20,
+        "totalScore": 195,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 10:58"
+        "lastSubmit": "23:07:51 3/11/2026"
       },
       {
-        "id": 8,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "attempts": 39,
+        "totalScore": 60,
+        "highestScore": 10,
+        "lastSubmit": "22:15:28 3/11/2026"
+      },
+      {
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "attempts": 9,
+        "totalScore": 80,
+        "highestScore": 10,
+        "lastSubmit": "21:07:42 29/10/2026"
+      },
+      {
+        "student": "Trần Thị Trúc Mai",
+        "username": "",
+        "attempts": 1,
+        "totalScore": 10,
+        "highestScore": 10,
+        "lastSubmit": "15:34:46 2/11/2026"
+      },
+      {
+        "student": "Nguyễn Thế Bình",
+        "username": "binh",
+        "attempts": 1,
+        "totalScore": 10,
+        "highestScore": 10,
+        "lastSubmit": "08:22:53 30/10/2026"
+      },
+      {
         "student": "Nguyễn Tấn Thanh",
         "username": "tanthanh",
         "attempts": 1,
+        "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "Hôm nay 19:16"
-      },
-      {
-        "id": 9,
-        "student": "Nguyễn Thế Bình",
-        "username": "binh",
-        "attempts": 6,
-        "highestScore": 10,
-        "lastSubmit": "Hôm nay 08:22"
+        "lastSubmit": "19:16:43 29/10/2026"
       }
     ],
     "lectures": [
@@ -11362,6 +11338,16 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793722071956,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
+        "assignmentId": 4,
+        "score": 10,
+        "maxScore": 10,
+        "timestamp": "23:07:51 3/11/2026"
+      },
       {
         "id": 1793718928758,
         "student": "Lê Nguyễn Quang Minh",
@@ -12031,6 +12017,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:05:55 3/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "22:58:01 3/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
