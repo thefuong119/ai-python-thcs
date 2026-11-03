@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T14:59:43.259Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài"
+    "updatedAt": "2026-11-03T15:03:36.295Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -164,7 +164,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2
+        "loginCount": 3
       },
       {
         "id": 10,
@@ -204,7 +204,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 0,
         "phone": "Zalo cá nhân"
       },
       {
@@ -10767,6 +10767,31 @@
             "is_hidden": false
           }
         ]
+      },
+      {
+        "id": 397,
+        "title": "Bài 397. fđf",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "đf",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -11338,12 +11363,20 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793717979129,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
+        "id": 1793718212999,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "score": 10,
+        "timestamp": "22:03:32 3/11/2026"
+      },
+      {
+        "id": 1793717719496,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
         "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "score": 0,
-        "timestamp": "21:59:39 3/11/2026"
+        "score": 10,
+        "timestamp": "21:55:19 3/11/2026"
       },
       {
         "id": 1793715966234,
@@ -11975,17 +12008,10 @@
     ],
     "loginLogs": [
       {
-        "time": "21:43:44 3/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
+        "time": "21:29:31 3/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:42:03 3/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -12011,10 +12037,8 @@
         "4": true
       },
       "minh": {
-        "4": true
-      },
-      "hocsinh": {
-        "1": true
+        "1": true,
+        "2": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -12052,6 +12076,46 @@
             "id": 4,
             "input": "-500000000 -500000000",
             "expected": "-1000000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ],
+        "classLevel": "8"
+      },
+      "2": {
+        "id": 2,
+        "title": "Bài 2. Kiểm tra số nguyên tố",
+        "slug": "ki-m-tra-s--nguy-n-t-",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "### Đề bài\nNhập vào số nguyên dương N. Hãy kiểm tra N có phải là số nguyên tố hay không?\n\n### Dữ liệu vào (input.txt)\nMột dòng chứa số nguyên dương $N$ (1 < N < 10^6).\n\n### Dữ liệu ra (output.txt)\nIn ra \"YES\" nếu N là số nguyên tố, ngược lại in \"NO\".",
+        "templateCode": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "997",
+            "expected": "YES",
             "point": 2.5,
             "is_hidden": true
           }
