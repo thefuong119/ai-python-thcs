@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T09:22:39.131Z",
+    "updatedAt": "2026-11-03T13:02:39.958Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: 1111111"
+    "action": "Admin lưu bài tập: Bài 397. fđf"
   },
   "data": {
     "registeredUsers": [
@@ -10806,6 +10806,31 @@
             "is_hidden": false
           }
         ]
+      },
+      {
+        "id": 397,
+        "title": "Bài 397. fđf",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "đf",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
       }
     ],
     "gradebook": [
@@ -11787,6 +11812,13 @@
     ],
     "loginLogs": [
       {
+        "time": "19:58:47 3/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "06:02:34 3/11/2026",
         "name": "Nguyễn Chí Thanh",
         "identifier": "0134567890",
@@ -12453,6 +12485,51 @@
         "authMethod": "Thoát & Đồng bộ Drive",
         "result": "Đã lưu an toàn"
       }
-    ]
+    ],
+    "studentFlags": {
+      "086081006094": {}
+    },
+    "flaggedAssignmentsCache": {
+      "1": {
+        "id": 1,
+        "title": "Bài 1. Tính tổng hai số nguyên A và B",
+        "slug": "t-nh-t-ng-hai-s--nguy-n-a-v--b",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "### Đề bài\nCho hai số nguyên A và B. Hãy viết chương trình tính và in ra tổng A + B.\n\n### Dữ liệu vào (input.txt)\nGồm một dòng chứa hai số nguyên A, B cách nhau bởi dấu cách (-10^9 < A, B < 10^9).\n\n### Dữ liệu ra (output.txt)\nIn ra một số nguyên duy nhất là kết quả của phép cộng A + B.",
+        "templateCode": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ],
+        "classLevel": "8"
+      }
+    }
   }
 }
