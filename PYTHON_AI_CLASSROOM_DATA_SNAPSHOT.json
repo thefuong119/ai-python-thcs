@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T13:57:31.607Z",
+    "updatedAt": "2026-11-03T13:58:03.129Z",
     "updatedBy": "Nguyễn Thế Bình",
     "action": "Học sinh Nguyễn Thế Bình nộp bài"
   },
@@ -11362,6 +11362,14 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793714279213,
+        "student": "Nguyễn Thế Bình",
+        "username": "binh",
+        "assignmentTitle": "Bài 23. Tìm số đường khép kín",
+        "score": 0,
+        "timestamp": "20:57:59 3/11/2026"
+      },
       {
         "id": 1793714247806,
         "student": "Nguyễn Thế Bình",
