@@ -1,471 +1,474 @@
+# -*- coding: utf-8 -*-
 """
-WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON
-Tác giả: Thầy Nguyễn Thế Phương - Trường THCS Thành Đông, Tân Quới, Vĩnh Long
-Năm học: 2025 - 2027
-Mô tả: Nền tảng học trực tuyến, thực hành lập trình Python & Chấm điểm tự động với trợ lý AI.
+HỆ THỐNG TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON - STREAMLIT APP
+Tác giả nguyên bản: Thầy Nguyễn Thế Phương (THCS Thành Đông, Tân Quới, Vĩnh Long)
+Chuyển đổi sang Python Streamlit
 """
 
 import streamlit as st
-import io
 import sys
-import json
+import io
 import time
+import datetime
 import pandas as pd
-from datetime import datetime
+import json
 
-# ==============================================================================
-# 1. CẤU HÌNH TRANG VÀ GIAO DIỆN CHÍNH
-# ==============================================================================
+# Cấu hình trang Streamlit
 st.set_page_config(
-    page_title="WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON",
+    page_title="Trợ Lý Dạy Học Lập Trình Python",
     page_icon="🐍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS cho giao diện hiện đại
-st.markdown("""
-<style>
-    .main-header {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        padding: 1.5rem;
-        border-radius: 1rem;
-        color: white;
-        text-align: center;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-    .banner-award {
-        background-color: #0f172a;
-        color: #fbbf24;
-        padding: 0.5rem;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-    }
-    .author-card {
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        border: 1px solid #e2e8f0;
-        border-radius: 1rem;
-        padding: 1.5rem;
-        margin-top: 1rem;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-    }
-    .stButton>button {
-        border-radius: 0.75rem;
-        font-weight: 600;
-    }
-    .lecture-card {
-        background-color: #f8fafc;
-        border-left: 4px solid #3b82f6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-    }
-</style>
-""", unsafe_allow_html=True)
+# ----------------------------------------------------
+# KHỞI TẠO DỮ LIỆU BAN ĐẦU TRONG SESSION STATE
+# ----------------------------------------------------
+DEFAULT_LECTURES = [
+    {"id": 1, "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python", "classLevel": "8", "grade": "Lớp 8 - Tin học cơ sở", "content": "### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```"},
+    {"id": 2, "title": "Bài 2. Biến và lệnh gán và biểu thức số học", "classLevel": "8", "grade": "Lớp 8 - Tin học cơ sở", "content": "### 1. Biến\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ.\n- **Quy tắc đặt tên biến**: Bắt đầu bằng chữ cái hoặc `_`; không chứa khoảng trắng; không trùng từ khóa.\n\n### 2. Lệnh gán và biểu thức số học\n- Cú pháp: `tên_biến = giá_trị`\n- Phép toán: `+`, `-`, `*`, `/`, `//`, `%`, `**`\n\n```python\na = 10\nb = 3\ntong = a + b\n```"},
+    {"id": 3, "title": "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu", "classLevel": "8", "grade": "Lớp 8 - Tin học cơ sở", "content": "### 1. Lệnh vào / ra\n- `print()`: Xuất dữ liệu\n- `input()`: Nhập dữ liệu từ bàn phím\n\n### 2. Kiểu dữ liệu cơ bản\n- `int`: Số nguyên, `float`: Số thực, `str`: Xâu, `bool`: Logic\n\n```python\nho_ten = input('Nhập họ tên: ')\nprint('Xin chào', ho_ten)\n```"},
+    {"id": 4, "title": "Bài 4. Cấu trúc rẽ nhánh", "classLevel": "8", "grade": "Lớp 8 - Tin học cơ sở", "content": "### 1. Ý nghĩa\nDùng để điều khiển luồng dựa trên điều kiện logic.\n\n### 2. Cú pháp\n```python\nif điều_kiện_1:\n    pass\nelif điều_kiện_2:\n    pass\nelse:\n    pass\n```"},
+    {"id": 5, "title": "Bài 5. Cấu trúc lặp", "classLevel": "8", "grade": "Lớp 8 - Tin học cơ sở", "content": "### 1. Vòng lặp `for`\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\n### 2. Vòng lặp `while`\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\n```"}
+]
 
-# ==============================================================================
-# 2. KHỞI TẠO STATE & DỮ LIỆU BAN ĐẦU
-# ==============================================================================
-if "user" not in st.session_state:
-    st.session_state.user = {"is_logged_in": False, "username": "", "name": "", "role": "guest", "class_name": ""}
+DEFAULT_ASSIGNMENTS = [
+    {
+        "id": 1,
+        "title": "Bài 1. Tính tổng hai số nguyên A và B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2.0,
+        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
+        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
+        "tests": [
+            {"id": 1, "input": "3 5", "expected": "8", "point": 5.0, "is_hidden": False},
+            {"id": 2, "input": "-10 25", "expected": "15", "point": 5.0, "is_hidden": True}
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Bài 2. Kiểm tra tính chẵn lẻ",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2.0,
+        "description": "### Đề bài\nNhập số nguyên $N$. In `CHAN` nếu chẵn, `LE` nếu lẻ.\n\n### Dữ liệu vào\nMột số nguyên $N$.\n\n### Dữ liệu ra\nIn ra `CHAN` hoặc `LE`.",
+        "templateCode": "n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')\n",
+        "tests": [
+            {"id": 1, "input": "4", "expected": "CHAN", "point": 5.0, "is_hidden": False},
+            {"id": 2, "input": "7", "expected": "LE", "point": 5.0, "is_hidden": True}
+        ]
+    }
+]
+
+DEFAULT_USERS = [
+    {"id": 1, "name": "Thầy Nguyễn Thế Phương", "username": "086081006094", "password": "Admin#999", "school": "THCS Thành Đông", "className": "Toàn trường", "phone": "0908889999", "role": "admin", "loginCount": 45},
+    {"id": 2, "name": "Cô Trần Thị Trúc Mai", "username": "comai", "password": "GiaoVien#123", "school": "THCS - THPT Mỹ Thuận", "className": "11A1", "phone": "0912345678", "role": "teacher", "loginCount": 34},
+    {"id": 3, "name": "Giáo viên Dùng Thử", "username": "giaovien", "password": "Giaovien@123", "school": "THCS Thành Đông", "className": "Khối 8", "phone": "0932861739", "role": "teacher", "loginCount": 10},
+    {"id": 4, "name": "Học sinh Dùng Thử", "username": "hocsinh", "password": "Hocsinh@123", "school": "THCS Thành Đông", "className": "8A1", "phone": "---", "role": "student", "loginCount": 15}
+]
 
 if "lectures" not in st.session_state:
-    st.session_state.lectures = [
-        {
-            "id": 1,
-            "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python",
-            "class_level": "8",
-            "grade": "Lớp 8 - Tin học cơ sở",
-            "content": """### 1. Ngôn ngữ lập trình bậc cao là gì?
-- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.
-- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên (tiếng Anh) và biểu thức toán học, giúp con người dễ đọc, dễ viết.
-
-### 2. Giới thiệu về ngôn ngữ lập trình Python
-- Python do nhà khoa học máy tính **Guido van Rossum** phát triển năm 1991.
-- **Ưu điểm**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.
-
-### 3. Chương trình đầu tiên
-```python
-print('Xin chào thế giới lập trình Python!')
-```"""
-        },
-        {
-            "id": 2,
-            "title": "Bài 2. Biến và lệnh gán và biểu thức số học",
-            "class_level": "8",
-            "grade": "Lớp 8 - Tin học cơ sở",
-            "content": """### 1. Biến (Variable)
-- Biến dùng để lưu trữ giá trị trong bộ nhớ.
-- **Quy tắc**: Bắt đầu bằng chữ cái hoặc `_`, không chứa khoảng trắng, không trùng từ khóa.
-
-### 2. Phép toán số học
-- Cộng `+`, Trừ `-`, Nhân `*`, Chia `/`
-- Chia lấy nguyên `//`, Chia lấy dư `%`, Lũy thừa `**`
-
-```python
-a = 10
-b = 3
-print("Chia nguyên:", a // b) # Kết quả: 3
-print("Chia dư:", a % b)     # Kết quả: 1
-```"""
-        },
-        {
-            "id": 3,
-            "title": "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu",
-            "class_level": "8",
-            "grade": "Lớp 8 - Tin học cơ sở",
-            "content": """### 1. Lệnh Vào / Ra
-- `print()`: Xuất dữ liệu ra màn hình.
-- `input()`: Nhập dữ liệu dạng chuỗi (`str`). Ép kiểu số nguyên dùng `int(input())`.
-
-### 2. Các kiểu dữ liệu cơ bản
-- `int`: Số nguyên
-- `float`: Số thực
-- `str`: Chuỗi ký tự
-- `bool`: Logic (`True`/`False`)"""
-        }
-    ]
+    st.session_state.lectures = DEFAULT_LECTURES
 
 if "assignments" not in st.session_state:
-    st.session_state.assignments = [
-        {
-            "id": 1,
-            "title": "Tính tổng hai số nguyên A và B",
-            "class_level": "8",
-            "difficulty": "Dễ",
-            "description": "Cho hai số nguyên $A$ và $B$. Hãy viết chương trình tính và in ra tổng $A + B$.\n\n**Input:** Nhập 2 số cách nhau bởi khoảng trắng.\n**Output:** In ra kết quả tổng.",
-            "template_code": "# Nhập 2 số từ dữ liệu vào\na, b = map(int, input().split())\nprint(a + b)",
-            "tests": [
-                {"input": "3 5", "expected": "8", "point": 5.0, "is_hidden": False},
-                {"input": "-10 25", "expected": "15", "point": 5.0, "is_hidden": True}
-            ]
-        },
-        {
-            "id": 2,
-            "title": "Kiểm tra tính chẵn lẻ",
-            "class_level": "8",
-            "difficulty": "Dễ",
-            "description": "Nhập vào một số nguyên $N$. In ra `CHAN` nếu $N$ là số chẵn, ngược lại in ra `LE`.",
-            "template_code": "n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')",
-            "tests": [
-                {"input": "4", "expected": "CHAN", "point": 5.0, "is_hidden": False},
-                {"input": "7", "expected": "LE", "point": 5.0, "is_hidden": True}
-            ]
-        }
-    ]
+    st.session_state.assignments = DEFAULT_ASSIGNMENTS
 
-if "registered_users" not in st.session_state:
-    st.session_state.registered_users = [
-        {"id": 1, "name": "Thầy Nguyễn Thế Phương", "username": "admin", "password": "Admin#999", "role": "admin", "school": "THCS Thành Đông", "className": "Toàn trường", "phone": "0932861739", "loginCount": 50},
-        {"id": 2, "name": "Cô Trần Thị Trúc Mai", "username": "comai", "password": "GiaoVien#123", "role": "teacher", "school": "THCS Thành Đông", "className": "Khối 8", "phone": "0912345678", "loginCount": 20},
-        {"id": 3, "name": "Trần Ngọc Hân", "username": "han", "password": "HocSinh#123", "role": "student", "school": "THCS Thành Đông", "className": "8A1", "phone": "---", "loginCount": 5}
-    ]
+if "users" not in st.session_state:
+    st.session_state.users = DEFAULT_USERS
 
 if "submissions" not in st.session_state:
     st.session_state.submissions = []
 
 if "logs" not in st.session_state:
-    st.session_state.logs = []
+    st.session_state.logs = [
+        {"time": datetime.datetime.now().strftime("%d/%m/%Y, %H:%M:%S"), "name": "Hệ thống", "identifier": "system", "role": "admin", "result": "Khởi động"}
+    ]
 
-# ==============================================================================
-# 3. HÀM XỬ LÝ LOGIC TRUNG TÂM
-# ==============================================================================
-def log_access(name, username, role, status):
-    st.session_state.logs.insert(0, {
-        "time": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
-        "name": name,
-        "username": username,
-        "role": role,
-        "status": status
-    })
+if "current_user" not in st.session_state:
+    st.session_state.current_user = None
 
-def execute_python(code, input_data=""):
-    """Thực thi mã Python trong Sandbox an toàn"""
-    old_stdout = sys.stdout
+if "ai_chat" not in st.session_state:
+    st.session_state.ai_chat = []
+
+# ----------------------------------------------------
+# TIỆN ÍCH THỰC THI CODE & CHẤM ĐIỂM
+# ----------------------------------------------------
+def execute_python_code(code: str, stdin_data: str = ""):
+    """Thực thi mã nguồn Python với dữ liệu stdin được cung cấp, trả về stdout, stderr."""
     old_stdin = sys.stdin
-    redirected_output = io.StringIO()
-    sys.stdout = redirected_output
-    sys.stdin = io.StringIO(input_data)
-    
+    old_stdout = sys.stdout
+    old_stderr = sys.stderr
+
+    sys.stdin = io.StringIO(stdin_data)
+    sys.stdout = io.StringIO()
+    sys.stderr = io.StringIO()
+
     error_msg = ""
+    start_time = time.time()
     try:
-        exec(code, {})
+        scope = {}
+        exec(code, scope)
     except Exception as e:
         error_msg = str(e)
     finally:
-        sys.stdout = old_stdout
+        stdout_res = sys.stdout.getvalue()
+        stderr_res = sys.stderr.getvalue()
         sys.stdin = old_stdin
-        
-    output = redirected_output.getvalue()
-    return output, error_msg
+        sys.stdout = old_stdout
+        sys.stderr = old_stderr
 
-# ==============================================================================
-# 4. GIAO DIỆN HEADER & BANNER
-# ==============================================================================
+    elapsed = time.time() - start_time
+    final_err = stderr_res if stderr_res else error_msg
+    return {
+        "stdout": stdout_res,
+        "stderr": final_err,
+        "is_error": bool(final_err.strip()),
+        "elapsed": elapsed
+    }
+
+def record_log(name, identifier, role, result):
+    now = datetime.datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
+    st.session_state.logs.insert(0, {
+        "time": now, "name": name, "identifier": identifier, "role": role, "result": result
+    })
+
+# ----------------------------------------------------
+# GIAO DIỆN CHÍNH & SIDEBAR
+# ----------------------------------------------------
 st.markdown("""
-<div class="banner-award">
-    🏆 Giáo viên Sáng tạo Ứng Dụng AI Trong Giáo Dục Việt Nam 2026 🌟
-</div>
-<div class="main-header">
-    <h1 style="margin:0; font-size: 2rem;">WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON</h1>
-    <p style="margin:5px 0 0 0; opacity: 0.9;">Nền tảng thực hành lập trình & Chấm điểm tự động</p>
+<div style="background-color: #0f172a; padding: 12px 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; border: 1px solid #1e293b;">
+    <h3 style="color: #f59e0b; margin: 0; font-size: 1.15rem;">🏆 Giáo viên Sáng tạo Ứng Dụng AI Trong Giáo Dục Việt Nam 2026</h3>
+    <p style="color: #94a3b8; margin: 5px 0 0 0; font-size: 0.85rem;">Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long | Thầy Nguyễn Thế Phương</p>
 </div>
 """, unsafe_allow_html=True)
 
-# ==============================================================================
-# 5. SIDEBAR: XÁC THỰC TÀI KHOẢN & ĐIỀU HƯỚNG VAI TRÒ
-# ==============================================================================
+# SIDEBAR: ĐĂNG NHẬP & TRẠNG THÁI
 with st.sidebar:
-    st.image("https://placehold.co/150x150/3b82f6/white?text=AI+Python", width=120)
-    st.title("📌 Danh Mục Hệ Thống")
+    st.title("💻 Bảng Điều Khiển")
     
-    if not st.session_state.user["is_logged_in"]:
-        st.subheader("🔑 Đăng Nhập / Đăng Ký")
-        auth_mode = st.radio("Thao tác:", ["Đăng nhập", "Đăng ký Học Sinh"])
-        role_login = st.selectbox("Vai trò đăng nhập:", ["Học Sinh", "Giáo Viên / Admin"])
+    if st.session_state.current_user is None:
+        st.subheader("🔐 Đăng Nhập Hệ Thống")
+        login_type = st.radio("Đối tượng đăng nhập:", ["Học Sinh", "Giáo Viên / Admin"], horizontal=True)
         
-        if auth_mode == "Đăng nhập":
-            username_input = st.text_input("Tên đăng nhập / Số điện thoại:")
-            password_input = st.text_input("Mật khẩu:", type="password")
+        with st.form("login_form"):
+            username = st.text_input("Tên đăng nhập / SĐT / Mã định danh")
+            password = st.text_input("Mật khẩu", type="password")
+            submitted = st.form_submit_button("Đăng Nhập", use_container_width=True)
             
-            if st.button("🚀 XÁC THỰC ĐĂNG NHẬP", use_container_width=True):
-                user_found = None
-                for u in st.session_state.registered_users:
-                    if (u["username"] == username_input or u["phone"] == username_input) and u["password"] == password_input:
-                        user_found = u
+            if submitted:
+                found_user = None
+                for u in st.session_state.users:
+                    if u["username"].lower() == username.strip().lower() and u["password"] == password.strip():
+                        found_user = u
                         break
                 
-                if user_found:
-                    st.session_state.user = {
-                        "is_logged_in": True,
-                        "username": user_found["username"],
-                        "name": user_found["name"],
-                        "role": user_found["role"],
-                        "class_name": user_found.get("className", "")
-                    }
-                    user_found["loginCount"] = user_found.get("loginCount", 0) + 1
-                    log_access(user_found["name"], user_found["username"], user_found["role"], "Thành công")
-                    st.success(f"Chào mừng {user_found['name']}!")
+                if found_user:
+                    st.session_state.current_user = found_user
+                    found_user["loginCount"] = found_user.get("loginCount", 0) + 1
+                    record_log(found_user["name"], found_user["username"], found_user["role"], "Thành công")
+                    st.success(f"Xin chào {found_user['name']}!")
                     st.rerun()
                 else:
-                    log_access(username_input, username_input, role_login, "Thất bại")
+                    record_log(username, username, "guest", "Thất bại")
                     st.error("Tên đăng nhập hoặc mật khẩu không chính xác!")
-        else:
-            st.write("**Đăng ký tài khoản Học Sinh mới:**")
-            reg_name = st.text_input("Họ và tên:")
-            reg_class = st.text_input("Lớp:", value="8A1")
-            reg_user = st.text_input("Tên đăng nhập mới:")
-            reg_pass = st.text_input("Mật khẩu mới:", type="password")
-            
-            if st.button("📝 ĐĂNG KÝ NGAY", use_container_width=True):
-                if reg_name and reg_user and reg_pass:
-                    st.session_state.registered_users.append({
-                        "id": len(st.session_state.registered_users) + 1,
-                        "name": reg_name,
-                        "username": reg_user,
-                        "password": reg_pass,
-                        "role": "student",
-                        "school": "THCS Thành Đông",
-                        "className": reg_class,
-                        "phone": "---",
-                        "loginCount": 0
-                    })
-                    st.success("Đăng ký thành công! Vui lòng chọn tab Đăng nhập.")
-                else:
-                    st.error("Vui lòng nhập đầy đủ thông tin!")
-    else:
-        st.success(f"👤 **{st.session_state.user['name']}**")
-        st.info(f"🔰 Vai trò: **{st.session_state.user['role'].upper()}** | Lớp: **{st.session_state.user['class_name']}**")
         
-        if st.button("🚪 Đăng xuất", use_container_width=True):
-            log_access(st.session_state.user["name"], st.session_state.user["username"], st.session_state.user["role"], "Đăng xuất")
-            st.session_state.user = {"is_logged_in": False, "username": "", "name": "", "role": "guest", "class_name": ""}
+        st.info("💡 **Tài khoản dùng thử:**\n- Giáo viên: `giaovien` / `Giaovien@123`\n- Học sinh: `hocsinh` / `Hocsinh@123`")
+    else:
+        user = st.session_state.current_user
+        st.success(f"👤 **{user['name']}**")
+        st.caption(f"Vai trò: **{user['role'].upper()}** | Trường: {user.get('school', 'THCS Thành Đông')}")
+        
+        if st.button("🚪 Đăng Xuất", use_container_width=True):
+            record_log(user["name"], user["username"], user["role"], "Đăng xuất")
+            st.session_state.current_user = None
             st.rerun()
 
-# ==============================================================================
-# 6. KHÔNG GIAN HIỂN THỊ CHÍNH (THEO VAI TRÒ)
-# ==============================================================================
-
-if not st.session_state.user["is_logged_in"]:
-    # MÀN HÌNH GIỚI THIỆU / CHƯA ĐĂNG NHẬP
-    st.warning("⚠️ **Hệ thống yêu cầu xác thực danh tính! Vui lòng đăng nhập tài khoản ở thanh điều hướng bên trái.**")
-    
+# ----------------------------------------------------
+# KHÔNG GIAN LÀM VIỆC DỰA TRÊN QUYỀN
+# ----------------------------------------------------
+if st.session_state.current_user is None:
+    # Màn hình giới thiệu khi chưa đăng nhập
     st.markdown("""
-    <div class="author-card">
-        <h3>📘 Giới thiệu Ứng dụng & Tác giả</h3>
-        <p>Ứng dụng do <strong>thầy Nguyễn Thế Phương</strong>, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng để giúp học sinh ôn thi học sinh giỏi Tin học và luyện tập lập trình Python.</p>
-        <ul>
-            <li><strong>Tính năng:</strong> Bài giảng theo chuẩn kiến thức, Ngân hàng đề bài phong phú, Chấm điểm tự động.</li>
-            <li><strong>Liên hệ:</strong> 📞 0932.861.739 | ✉️ thefuong119@gmail.com</li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
+    ### 👋 Chào Mừng Đến Với Web Trợ Lý Dạy Học Lập Trình Python!
+    Hệ thống hỗ trợ học sinh thực hành lập trình, tự động chấm điểm và tích hợp gia sư AI định hướng.
+    
+    Vui lòng đăng nhập từ thanh bên trái để vào không gian học tập và thực hành.
+    """)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+        #### 🌟 Tính năng nổi bật:
+        - 📚 **Học lý thuyết tương tác:** Bài giảng chuẩn hóa theo chương trình.
+        - ⚡ **Thực thi Python trực tiếp:** Chạy thử và debug mã nguồn tức thì.
+        - 🤖 **Gia sư AI:** Hỗ trợ phương pháp Socratic, gợi ý thuật toán và chỉ điểm lỗi sai.
+        - 📊 **Chấm điểm tự động:** Đánh giá độ chính xác qua nhiều bộ test case.
+        """)
+    with col2:
+        st.markdown("""
+        #### 📞 Thông tin liên hệ tác giả:
+        - **Tác giả:** Thầy Nguyễn Thế Phương
+        - **Đơn vị:** Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long
+        - **Điện thoại:** 0932.861.739
+        - **Email:** thefuong119@gmail.com
+        """)
 
 else:
-    role = st.session_state.user["role"]
-
-    # --------------------------------------------------------------------------
-    # A. PHÂN HỆ HỌC SINH (STUDENT)
-    # --------------------------------------------------------------------------
-    if role == "student":
-        tab1, tab2 = st.tabs(["📚 Bài Giảng & Lý Thuyết", "💻 Thực Hành Lập Trình & Chấm Điểm"])
+    user = st.session_state.current_user
+    user_role = user["role"]
+    
+    # Menu điều hướng các tab theo vai trò
+    if user_role == "student":
+        tab1, tab2, tab3 = st.tabs(["📚 Bài Giảng & Lý Thuyết", "💻 Thực Hành Lập Trình", "🤖 Gia Sư AI"])
         
+        # 1. BÀI GIẢNG HỌC SINH
         with tab1:
-            st.subheader(" Thư Viện Bài Giảng Python Chuẩn")
-            selected_lecture_id = st.selectbox(
-                "Chọn bài giảng:",
-                options=[l["id"] for l in st.session_state.lectures],
-                format_func=lambda x: next(l["title"] for l in st.session_state.lectures if l["id"] == x)
-            )
-            lec = next(l for l in st.session_state.lectures if l["id"] == selected_lecture_id)
-            st.markdown(f"### {lec['title']}")
-            st.caption(f"Chủ đề: {lec['grade']}")
-            st.markdown(lec["content"])
+            st.subheader("Thư Viện Bài Giảng Python Chuẩn")
+            grade_filter = st.selectbox("Lọc theo khối lớp:", ["Tất cả", "Khối 6", "Khối 7", "Khối 8", "Khối 9"], index=3)
             
-        with tab2:
-            st.subheader("⚡ Khung Thực Hành Lập Trình Python")
-            col_desc, col_code = st.columns([1, 1])
+            selected_lectures = st.session_state.lectures
+            if grade_filter != "Tất cả":
+                g_num = grade_filter.replace("Khối ", "")
+                selected_lectures = [l for l in selected_lectures if str(l.get("classLevel", "8")) == g_num]
             
-            with col_desc:
-                selected_assign_id = st.selectbox(
-                    "Chọn bài tập thực hành:",
-                    options=[a["id"] for a in st.session_state.assignments],
-                    format_func=lambda x: next(a["title"] for a in st.session_state.assignments if a["id"] == x)
-                )
-                ass = next(a for a in st.session_state.assignments if a["id"] == selected_assign_id)
-                st.markdown(f"### {ass['title']}")
-                st.write(f"**Độ khó:** {ass['difficulty']}")
-                st.markdown(ass["description"])
+            if selected_lectures:
+                lecture_titles = [f"{l['title']} (Khối {l.get('classLevel', '8')})" for l in selected_lectures]
+                sel_idx = st.selectbox("Chọn bài giảng để đọc:", range(len(lecture_titles)), format_func=lambda i: lecture_titles[i])
+                curr_lec = selected_lectures[sel_idx]
                 
-                st.write("**Ví dụ mẫu (Public Test):**")
-                for t in ass["tests"]:
-                    if not t["is_hidden"]:
-                        st.code(f"Input: {t['input']}\nOutput: {t['expected']}", language="text")
+                st.markdown("---")
+                st.markdown(f"### {curr_lec['title']}")
+                st.caption(f"Chủ đề: {curr_lec.get('grade', 'Tin học cơ sở')} | Khối {curr_lec.get('classLevel', '8')}")
+                st.markdown(curr_lec["content"])
+            else:
+                st.warning("Chưa có bài giảng nào trong khối lớp này.")
 
-            with col_code:
-                user_code = st.text_area("Viết mã Python của bạn tại đây:", value=ass["template_code"], height=250)
+        # 2. THỰC HÀNH LẬP TRÌNH HỌC SINH
+        with tab2:
+            st.subheader("Không Gian Thực Hành & Nộp Bài Chấm Điểm")
+            
+            # Chọn bài tập
+            assign_options = [f"#{a['id']}. {a['title']} ({a.get('difficulty', 'easy').upper()})" for a in st.session_state.assignments]
+            selected_assign_idx = st.selectbox("Chọn bài tập thực hành:", range(len(assign_options)), format_func=lambda i: assign_options[i])
+            curr_assign = st.session_state.assignments[selected_assign_idx]
+            
+            col_left, col_right = st.columns([1, 1.2])
+            
+            with col_left:
+                st.markdown(f"#### 📝 {curr_assign['title']}")
+                st.markdown(curr_assign["description"])
+                
+                st.markdown("##### 📌 Test mẫu công khai:")
+                public_tests = [t for t in curr_assign["tests"] if not t.get("is_hidden", False)]
+                for pt in public_tests:
+                    st.code(f"Input : {pt['input']}\nOutput: {pt['expected']}", language="text")
+                
+                if st.button("💡 Xem Code Mẫu / Gợi Ý"):
+                    st.code(curr_assign.get("templateCode", "# Chưa có mẫu"), language="python")
+
+            with col_right:
+                st.markdown("#### 💻 Trình Soạn Thảo & Chạy Thử")
+                code_input = st.text_area(
+                    "Mã Python của bạn:",
+                    value=curr_assign.get("templateCode", "# Viết mã tại đây...\n"),
+                    height=250,
+                    key="student_code_area"
+                )
+                
                 custom_in = st.text_input("Dữ liệu đầu vào thử nghiệm (stdin):", value="3 5")
                 
-                col_btn1, col_btn2 = st.columns(2)
-                with col_btn1:
-                    if st.button("▶️ CHẠY THỬ", use_container_width=True):
-                        out, err = execute_python(user_code, custom_in)
-                        st.write("**Kết quả xuất (stdout):**")
-                        if err:
-                            st.error(err)
+                btn_run, btn_submit = st.columns(2)
+                with btn_run:
+                    if st.button("▶️ Chạy Thử Nghiệm", use_container_width=True):
+                        res = execute_python_code(code_input, custom_in)
+                        if res["is_error"]:
+                            st.error(f"❌ Lỗi thực thi:\n{res['stderr']}")
                         else:
-                            st.code(out, language="text")
+                            st.success(f"✅ Kết quả (thời gian: {res['elapsed']:.3f}s):")
+                            st.code(res["stdout"], language="text")
                 
-                with col_btn2:
-                    if st.button("🚀 NỘP BÀI CHẤM ĐIỂM", type="primary", use_container_width=True):
-                        total_score = 0.0
-                        max_score = 0.0
-                        st.write("---")
-                        st.write("**Kết quả chấm chi tiết:**")
-                        for idx, t in enumerate(ass["tests"]):
-                            max_score += t["point"]
-                            out, err = execute_python(user_code, t["input"])
-                            passed = (not err) and (out.strip() == t["expected"].strip())
-                            if passed:
-                                total_score += t["point"]
-                                st.success(f"Test #{idx+1}: CHÍNH XÁC (+{t['point']}đ)")
-                            else:
-                                st.error(f"Test #{idx+1}: SAI KẾT QUẢ (0đ)")
+                with btn_submit:
+                    if st.button("📤 Nộp Bài Chấm Điểm", use_container_width=True, type="primary"):
+                        total_pts = 0
+                        max_pts = 0
+                        results_summary = []
                         
-                        st.metric("TỔNG ĐIỂM", f"{total_score} / {max_score}")
-                        st.session_state.submissions.append({
-                            "student": st.session_state.user["name"],
-                            "title": ass["title"],
-                            "score": total_score,
-                            "time": datetime.now().strftime("%d/%m/%Y %H:%M")
+                        for idx, test in enumerate(curr_assign["tests"]):
+                            p = test.get("point", 5.0)
+                            max_pts += p
+                            exec_res = execute_python_code(code_input, test["input"])
+                            
+                            is_passed = (not exec_res["is_error"]) and (exec_res["stdout"].strip() == str(test["expected"]).strip())
+                            if is_passed:
+                                total_pts += p
+                                results_summary.append(f"✅ Test #{idx+1}: ĐẠT (+{p}đ)")
+                            else:
+                                results_summary.append(f"❌ Test #{idx+1}: SAI (0đ)")
+                        
+                        st.subheader(f"🎯 Điểm số: {total_pts:.1f} / {max_pts:.1f}")
+                        for r in results_summary:
+                            st.write(r)
+                            
+                        # Lưu lịch sử nộp bài
+                        st.session_state.submissions.insert(0, {
+                            "student": user["name"],
+                            "username": user["username"],
+                            "assignmentTitle": curr_assign["title"],
+                            "score": total_pts,
+                            "timestamp": datetime.datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
                         })
+                        st.toast(f"Đã ghi nhận bài nộp: {total_pts} điểm!", icon="🎉")
 
-    # --------------------------------------------------------------------------
-    # B. PHÂN HỆ GIÁO VIÊN & ADMIN
-    # --------------------------------------------------------------------------
-    elif role in ["teacher", "admin"]:
-        st.subheader("👨‍🏫 Bảng Điều Khiển Quản Lý Dạy Học")
-        
-        menu_options = ["📚 Bài Giảng", "📝 Ngân Hàng Đề Bài", "📊 Sổ Điểm"]
-        if role == "admin":
-            menu_options.extend(["👥 Quản Lý Tài Khoản", "📜 Nhật Ký Truy Cập"])
+        # 3. GIA SƯ AI
+        with tab3:
+            st.subheader("🤖 Trợ Lý Gia Sư Trí Tuệ Nhân Tạo")
+            mode = st.radio("Chế độ hướng dẫn:", ["1. Socratic (Gợi mở câu hỏi)", "2. Hướng tiếp cận thuật toán", "3. Phân tích lỗi code"], horizontal=True)
             
-        tabs = st.tabs(menu_options)
+            user_question = st.chat_input("Nhập câu hỏi hoặc vướng mắc của em...")
+            if user_question:
+                st.session_state.ai_chat.append({"role": "user", "content": user_question})
+                
+                # Logic phản hồi trợ lý
+                if "Socratic" in mode:
+                    reply = "Thầy muốn hỏi em trước: Trong bài toán này, biến nào là đầu vào và công thức toán học cần áp dụng là gì? Hãy chia nhỏ bài toán nhé!"
+                elif "thuật toán" in mode:
+                    reply = "💡 Hướng tiếp cận: Em hãy dùng `input().split()` để đọc dữ liệu trên cùng một dòng, sau đó ép kiểu `int()` và thực hiện phép toán tương ứng."
+                else:
+                    reply = "🔍 Phân tích: Hãy kiểm tra kỹ kiểu dữ liệu khi đọc từ `input()` (mặc định là string). Nếu cần tính toán số học, em phải bọc bằng `int()` hoặc `float()`."
+                
+                st.session_state.ai_chat.append({"role": "assistant", "content": reply})
+
+            for msg in st.session_state.ai_chat:
+                with st.chat_message(msg["role"]):
+                    st.write(msg["content"])
+
+    elif user_role in ["teacher", "admin"]:
+        tabs = st.tabs(["📚 Quản Lý Bài Giảng", "📝 Ngân Hàng Đề Bài", "📊 Bài Nộp Học Sinh", "📜 Nhật Ký Hệ Thống", "👥 Quản Trị Người Dùng"] if user_role == "admin" else ["📚 Quản Lý Bài Giảng", "📝 Ngân Hàng Đề Bài", "📊 Bài Nộp Học Sinh", "📜 Nhật Ký Hệ Thống"])
         
-        # Tab 1: Quản lý bài giảng
+        # 1. QUẢN LÝ BÀI GIẢNG
         with tabs[0]:
-            st.write("### Danh sách bài giảng lý thuyết")
-            df_lec = pd.DataFrame(st.session_state.lectures)[["id", "title", "class_level", "grade"]]
-            st.dataframe(df_lec, use_container_width=True)
+            st.subheader("Thư Viện Bài Giảng")
             
-            st.write("---")
-            st.write("**Thêm bài giảng mới:**")
-            new_title = st.text_input("Tiêu đề bài giảng:")
-            new_level = st.selectbox("Khối lớp:", ["6", "7", "8", "9", "10", "11", "12"], index=2)
-            new_content = st.text_area("Nội dung bài giảng (Markdown):", height=150)
-            if st.button("➕ Thêm Bài Giảng", type="primary"):
-                if new_title and new_content:
-                    new_id = max([l["id"] for l in st.session_state.lectures], default=0) + 1
-                    st.session_state.lectures.append({
-                        "id": new_id,
-                        "title": new_title,
-                        "class_level": new_level,
-                        "grade": f"Lớp {new_level} - Tin học",
-                        "content": new_content
-                    })
-                    st.success("Đã lưu bài giảng mới!")
-                    st.rerun()
+            with st.expander("➕ Thêm Bài Giảng Mới", expanded=False):
+                with st.form("add_lecture_form"):
+                    new_l_title = st.text_input("Tiêu đề bài giảng:", placeholder="VD: Bài 6. Kiểu dữ liệu danh sách")
+                    col_k, col_cd = st.columns(2)
+                    with col_k:
+                        new_l_class = st.selectbox("Khối lớp:", ["6", "7", "8", "9", "10", "11", "12"], index=2)
+                    with col_cd:
+                        new_l_grade = st.text_input("Chủ đề:", value="Tin học cơ sở")
+                    new_l_body = st.text_area("Nội dung bài giảng (Markdown & LaTeX):", height=200)
+                    if st.form_submit_button("Lưu Bài Giảng"):
+                        if new_l_title and new_l_body:
+                            new_id = len(st.session_state.lectures) + 1
+                            st.session_state.lectures.append({
+                                "id": new_id, "title": new_l_title, "classLevel": new_l_class, "grade": new_l_grade, "content": new_l_body
+                            })
+                            st.success("Đã thêm bài giảng thành công!")
+                            st.rerun()
+                        else:
+                            st.error("Vui lòng điền đủ tiêu đề và nội dung.")
+            
+            # Danh sách bài giảng hiện tại
+            for l in st.session_state.lectures:
+                with st.expander(f"📖 #{l['id']} - {l['title']} (Khối {l.get('classLevel', '8')})"):
+                    st.markdown(l["content"])
+                    if user_role == "admin":
+                        if st.button("🗑️ Xóa bài giảng", key=f"del_lec_{l['id']}"):
+                            st.session_state.lectures = [x for x in st.session_state.lectures if x["id"] != l["id"]]
+                            st.success("Đã xóa bài giảng!")
+                            st.rerun()
 
-        # Tab 2: Ngân hàng đề bài
+        # 2. NGÂN HÀNG ĐỀ BÀI
         with tabs[1]:
-            st.write("### Danh sách bài tập chấm điểm")
-            df_ass = pd.DataFrame(st.session_state.assignments)[["id", "title", "class_level", "difficulty"]]
-            st.dataframe(df_ass, use_container_width=True)
+            st.subheader("Ngân Hàng Bài Tập & Test Cases")
             
-            st.write("---")
-            st.write("**Soạn bài tập mới:**")
-            ass_title = st.text_input("Tên bài tập:")
-            ass_diff = st.selectbox("Độ khó:", ["Dễ", "Trung bình", "Nâng cao"])
-            ass_desc = st.text_area("Mô tả đề bài:")
-            ass_sol = st.text_area("Code mẫu (Python):", value="a, b = map(int, input().split())\nprint(a+b)")
-            
-            if st.button("➕ Lưu Đề Bài Mới", type="primary"):
-                if ass_title and ass_desc:
-                    new_id = max([a["id"] for a in st.session_state.assignments], default=0) + 1
-                    st.session_state.assignments.append({
-                        "id": new_id,
-                        "title": ass_title,
-                        "class_level": "8",
-                        "difficulty": ass_diff,
-                        "description": ass_desc,
-                        "template_code": ass_sol,
-                        "tests": [{"input": "1 2", "expected": "3", "point": 10.0, "is_hidden": False}]
-                    })
-                    st.success("Đã thêm bài tập mới vào ngân hàng!")
-                    st.rerun()
+            with st.expander("➕ Soạn Thảo Đề Bài Mới", expanded=False):
+                with st.form("create_assign_form"):
+                    a_title = st.text_input("Tên bài tập:", placeholder="VD: Bài 3. Tính diện tích tam giác")
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        a_level = st.selectbox("Khối:", ["6", "7", "8", "9"], index=2)
+                    with c2:
+                        a_diff = st.selectbox("Độ khó:", ["easy", "medium", "hard"])
+                    a_desc = st.text_area("Yêu cầu đề bài (Markdown & Math):", height=150)
+                    a_sol = st.text_area("Mã nguồn mẫu Python:", height=100)
+                    
+                    st.write("**Bộ test mẫu:**")
+                    t1_in = st.text_input("Test 1 Input:", value="5")
+                    t1_out = st.text_input("Test 1 Expected Output:", value="25")
+                    
+                    if st.form_submit_button("Lưu Bài Tập Mới"):
+                        if a_title:
+                            new_aid = len(st.session_state.assignments) + 1
+                            st.session_state.assignments.append({
+                                "id": new_aid, "title": a_title, "classLevel": a_level, "difficulty": a_diff,
+                                "description": a_desc, "templateCode": a_sol,
+                                "tests": [{"id": 1, "input": t1_in, "expected": t1_out, "point": 10.0, "is_hidden": False}]
+                            })
+                            st.success("Đã tạo bài tập mới thành công!")
+                            st.rerun()
 
-        # Tab 3: Sổ điểm
+            # Hiển thị danh sách đề bài
+            df_assign = pd.DataFrame([
+                {"ID": a["id"], "Tên Bài": a["title"], "Khối": a["classLevel"], "Độ Khó": a["difficulty"], "Số Test": len(a.get("tests", []))}
+                for a in st.session_state.assignments
+            ])
+            st.dataframe(df_assign, use_container_width=True)
+
+        # 3. BÀI NỘP HỌC SINH
         with tabs[2]:
-            st.write("### Kết quả nộp bài của học sinh")
+            st.subheader("Kết Quả Nộp Bài Học Sinh")
             if st.session_state.submissions:
-                st.dataframe(pd.DataFrame(st.session_state.submissions), use_container_width=True)
+                df_sub = pd.DataFrame(st.session_state.submissions)
+                st.dataframe(df_sub, use_container_width=True)
+                
+                # Xuất CSV
+                csv_data = df_sub.to_csv(index=False).encode('utf-8-sig')
+                st.download_button("📥 Xuất Tệp CSV (Excel)", data=csv_data, file_name="ket_qua_nop_bai.csv", mime="text/csv")
             else:
                 st.info("Chưa có lượt nộp bài nào.")
 
-        # Tab Admin
-        if role == "admin":
-            with tabs[3]:
-                st.write("### Quản lý danh sách tài khoản")
-                st.dataframe(pd.DataFrame(st.session_state.registered_users)[["id", "name", "username", "role", "className"]], use_container_width=True)
-                
-            with tabs[4]:
-                st.write("### Lịch sử truy cập hệ thống")
-                st.dataframe(pd.DataFrame(st.session_state.logs), use_container_width=True)
+        # 4. NHẬT KÝ HỆ THỐNG
+        with tabs[3]:
+            st.subheader("Nhật Ký Truy Cập")
+            if st.session_state.logs:
+                df_logs = pd.DataFrame(st.session_state.logs)
+                st.dataframe(df_logs, use_container_width=True)
+            else:
+                st.info("Nhật ký trống.")
 
-# Footer
+        # 5. QUẢN TRỊ NGƯỜI DÙNG (CHỈ ADMIN)
+        if user_role == "admin" and len(tabs) > 4:
+            with tabs[4]:
+                st.subheader("Quản Trị Danh Sách Người Dùng")
+                df_users = pd.DataFrame(st.session_state.users)[["id", "name", "username", "role", "school", "className", "loginCount"]]
+                st.dataframe(df_users, use_container_width=True)
+                
+                with st.expander("➕ Tạo Tài Khoản Mới"):
+                    with st.form("new_user_form"):
+                        nu_name = st.text_input("Họ và tên:")
+                        nu_uname = st.text_input("Tên đăng nhập:")
+                        nu_pass = st.text_input("Mật khẩu:", value="123456")
+                        nu_role = st.selectbox("Vai trò:", ["student", "teacher", "admin"])
+                        nu_class = st.text_input("Lớp / Khối:", value="Khối 8")
+                        if st.form_submit_button("Thêm Tài Khoản"):
+                            if nu_name and nu_uname:
+                                new_uid = len(st.session_state.users) + 1
+                                st.session_state.users.append({
+                                    "id": new_uid, "name": nu_name, "username": nu_uname, "password": nu_pass,
+                                    "role": nu_role, "school": "THCS Thành Đông", "className": nu_class, "phone": "---", "loginCount": 0
+                                })
+                                st.success("Đã thêm người dùng thành công!")
+                                st.rerun()
+
+# ----------------------------------------------------
+# CHÂN TRANG
+# ----------------------------------------------------
 st.markdown("---")
-st.caption("Bản quyền © 2026 Thầy Nguyễn Thế Phương - THCS Thành Đông, Tân Quới, Vĩnh Long.")
+st.markdown("""
+<div style="text-align: center; color: #64748b; font-size: 0.85rem;">
+    Bản quyền © 2026 Giáo viên: Nguyễn Thế Phương, Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long.
+</div>
+""", unsafe_allow_html=True)
