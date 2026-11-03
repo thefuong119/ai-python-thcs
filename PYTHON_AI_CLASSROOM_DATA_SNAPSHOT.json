@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T14:09:45.388Z",
+    "updatedAt": "2026-11-03T14:10:39.506Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -11362,6 +11362,14 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793715036359,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
+        "score": 0,
+        "timestamp": "21:10:36 3/11/2026"
+      },
       {
         "id": 1793714982510,
         "student": "Lê Nguyễn Quang Minh",
