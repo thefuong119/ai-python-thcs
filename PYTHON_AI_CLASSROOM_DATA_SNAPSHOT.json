@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-03T23:21:07.397Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Sửa kỳ kiểm tra: KIỂM TRA NĂNG LỰC - 04/11/2026"
+    "updatedAt": "2026-11-03T23:21:41.906Z",
+    "updatedBy": "Khách",
+    "action": "Đồng bộ khi đăng xuất"
   },
   "data": {
     "registeredUsers": [
@@ -11584,6 +11584,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "06:21:40 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
       {
         "time": "06:20:41 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
