@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:07:31.658Z",
+    "updatedAt": "2026-11-04T11:07:40.317Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 79. Tìm số nguyên tố có tổng chữ số bằng m"
+    "action": "Lưu bài tập: Bài 143. Dãy con nguyên tố"
   },
   "data": {
     "registeredUsers": [
@@ -5297,7 +5297,7 @@
         "id": 178,
         "title": "Bài 143. Dãy con nguyên tố",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập dãy số nguyên dương, sắp xếp giảm dần. In dãy con nguyên tố liên tiếp dài nhất; hòa chọn dãy đầu tiên.",
         "templateCode": "n=int(input()); a=sorted(map(int,input().split()),reverse=True)\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nbest=[]; cur=[]\nfor x in a+[1]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best): best=cur[:]\n cur=[]\nprint(*a); print(*best)",
