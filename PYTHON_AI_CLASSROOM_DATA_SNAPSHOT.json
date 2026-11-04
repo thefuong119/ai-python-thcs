@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T16:55:54.218Z",
+    "updatedAt": "2026-11-04T16:57:23.579Z",
     "updatedBy": "Trần Ngọc Hân",
     "action": "HS Trần Ngọc Hân nộp bài"
   },
@@ -10821,9 +10821,9 @@
       {
         "student": "Trần Ngọc Hân",
         "username": "han",
-        "attempts": 1,
+        "attempts": 2,
         "highestScore": 10,
-        "lastSubmit": "23:55:52 4/11/2026"
+        "lastSubmit": "23:57:21 4/11/2026"
       }
     ],
     "lectures": [
@@ -11320,6 +11320,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793811441238,
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "assignmentTitle": "Bài 34. Kiểm tra số Armstrong",
+        "assignmentId": 43,
+        "score": 10,
+        "timestamp": "23:57:21 4/11/2026",
+        "date": "2026-11-04",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "153",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "125",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1634",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "9",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "n = int(input().strip())\ns = str(n)\nk = len(s)\ntong = sum(int(d) ** k for d in s)\nif tong == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      },
       {
         "id": 1793811352891,
         "student": "Trần Ngọc Hân",
