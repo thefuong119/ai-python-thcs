@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:58:40.951Z",
+    "updatedAt": "2026-11-04T10:59:05.907Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bảng xếp hạng xét tuyển học bổng chuyên Tin"
+    "action": "Admin lưu bài tập: Quản lý xuất nhập kho hàng theo nguyên tắc FIFO"
   },
   "data": {
     "registeredUsers": [
@@ -8597,7 +8597,7 @@
         "id": 310,
         "title": "Quản lý xuất nhập kho hàng theo nguyên tắc FIFO",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "timeLimit": 2,
         "description": "Một cửa hàng tạp hóa quản lý xuất nhập hàng hóa theo phương pháp FIFO (Nhập trước, Xuất trước). Các thao tác trong ngày gồm:\n- \"NHAP s g\": Nhập vào kho $s$1$g$1$k$1$k$1$M$ là số lượng thao tác trong ngày ($1 \\le M \\le 1000$).\n- $M$ dòng tiếp theo, mỗi dòng là một thao tác dạng \"NHAP s g\" hoặc \"XUAT k\".\nDữ liệu ra: Một số nguyên duy nhất là tổng giá vốn của toàn bộ số hàng đã xuất.",
         "templateCode": "from collections import deque\n\nM = int(input().strip())\nkho = deque()\ntong_von = 0\n\nfor _ in range(M):\n    lenh = input().split()\n    if lenh[0] == \"NHAP\":\n        sl, gia = int(lenh[1]), int(lenh[2])\n        kho.append([sl, gia])\n    else:\n        xuat = int(lenh[1])\n        while xuat > 0 and kho:\n            if kho[0][0] <= xuat:\n                tong_von += kho[0][0] * kho[0][1]\n                xuat -= kho[0][0]\n                kho.popleft()\n            else:\n                tong_von += xuat * kho[0][1]\n                kho[0][0] -= xuat\n                xuat = 0\n\nprint(tong_von)",
