@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:07:24.104Z",
+    "updatedAt": "2026-11-04T11:07:31.658Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 131. Dãy số và cặp số"
+    "action": "Lưu bài tập: Bài 79. Tìm số nguyên tố có tổng chữ số bằng m"
   },
   "data": {
     "registeredUsers": [
@@ -3722,7 +3722,7 @@
         "id": 115,
         "title": "Bài 79. Tìm số nguyên tố có tổng chữ số bằng m",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho hai số nguyên dương n và m. Tìm các số nguyên tố không vượt quá n có tổng chữ số bằng m.\nDữ liệu vào: Hai số n, m trên một dòng (n, m ≤ 10⁶).\nDữ liệu ra: Dòng 1 ghi số lượng số tìm được; dòng 2 ghi các số đó theo thứ tự tăng dần. Nếu không có, dòng 1 ghi 0 và dòng 2 để trống.",
         "templateCode": "n, m = map(int, input().split())\n\nis_prime = [True] * (n + 1)\nif n >= 0:\n    is_prime[0] = False\nif n >= 1:\n    is_prime[1] = False\n\nfor p in range(2, int(n ** 0.5) + 1):\n    if is_prime[p]:\n        for x in range(p * p, n + 1, p):\n            is_prime[x] = False\n\nans = [\n    x for x in range(2, n + 1)\n    if is_prime[x] and sum(map(int, str(x))) == m\n]\n\nprint(len(ans))\nprint(*ans)",
