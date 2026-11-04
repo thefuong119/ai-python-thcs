@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:04:18.101Z",
+    "updatedAt": "2026-11-04T11:04:29.922Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 19. Xác định vị trí số đẹp"
+    "action": "Lưu bài tập: Bài 14. Kangaroo"
   },
   "data": {
     "registeredUsers": [
@@ -2097,7 +2097,7 @@
         "id": 50,
         "title": "Bài 14. Kangaroo",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một chú Kangaroo cần đi đúng quãng đường n dm. Mỗi bước nhảy có độ dài a hoặc b dm, với 1 ≤ a < b. Hãy tìm số bước nhảy ít nhất để tổng độ dài đúng bằng n. Dữ liệu bảo đảm luôn có cách nhảy.\nDữ liệu vào: Ba số nguyên dương n, a, b trên một dòng.\nDữ liệu ra: Số bước nhảy ít nhất.",
         "templateCode": "n, a, b = map(int, input().split())\nans = n + 1\nfor so_nhay_dai in range(n // b + 1):\n    con_lai = n - so_nhay_dai * b\n    if con_lai % a == 0:\n        ans = min(ans, so_nhay_dai + con_lai // a)\nprint(ans)",
