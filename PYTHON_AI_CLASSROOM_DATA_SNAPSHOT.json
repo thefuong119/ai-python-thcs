@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T13:30:29.385Z",
+    "updatedAt": "2026-11-04T13:30:47.175Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài Bài 6. Tính chu vi và diện tích hình chữ nhật"
   },
@@ -10773,8 +10773,8 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 10,
-        "totalScore": 100,
+        "attempts": 11,
+        "totalScore": 110,
         "highestScore": 10,
         "lastSubmit": "22:15:28 3/11/2026"
       },
@@ -11313,6 +11313,16 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793799043817,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
+        "assignmentId": 6,
+        "score": 10,
+        "maxScore": 10,
+        "timestamp": "20:30:43 4/11/2026"
+      },
       {
         "id": 1793799026115,
         "student": "Lê Nguyễn Quang Minh",
