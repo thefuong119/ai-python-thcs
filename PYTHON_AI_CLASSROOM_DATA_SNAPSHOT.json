@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:11:51.103Z",
+    "updatedAt": "2026-11-04T11:12:21.231Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Sửa trực tiếp bài tập: Bài 115. Bộ ba chữ số"
+    "action": "Lưu bài tập: Bài 115. Bộ ba chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -4597,7 +4597,7 @@
         "id": 150,
         "title": "Bài 115. Bộ ba chữ số",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập số tự nhiên N. Xóa các chữ số trùng nhau chỉ giữ lần xuất hiện đầu; tìm các bộ ba chữ số khác nhau a,b,c sao cho a=b+c; nếu không có in KHONG CO.",
         "templateCode": "s=input().strip(); u=''.join(dict.fromkeys(s)); print(u)\nd=list(dict.fromkeys(map(int,u)))\nr=[]\nfor a in d:\n    for b in d:\n        for c in d:\n            if len({a,b,c})==3 and a==b+c: r.append((a,b,c))\nprint('; '.join(f'{a}{b}{c}' for a,b,c in r) if r else 'KHONG CO')",
