@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T16:47:57.619Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đăng xuất: Thầy Nguyễn Thế Phương"
+    "updatedAt": "2026-11-04T16:55:54.218Z",
+    "updatedBy": "Trần Ngọc Hân",
+    "action": "HS Trần Ngọc Hân nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -59,7 +59,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 7
+        "loginCount": 8
       },
       {
         "id": 4,
@@ -10817,6 +10817,13 @@
         "totalScore": 10,
         "highestScore": 10,
         "lastSubmit": "08:22:53 30/10/2026"
+      },
+      {
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "23:55:52 4/11/2026"
       }
     ],
     "lectures": [
@@ -11314,6 +11321,51 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793811352891,
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "assignmentTitle": "Bài 34. Kiểm tra số Armstrong",
+        "assignmentId": 43,
+        "score": 10,
+        "timestamp": "23:55:52 4/11/2026",
+        "date": "2026-11-04",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "153",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "125",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1634",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "9",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "n = int(input().strip())\ns = str(n)\nk = len(s)\ntong = sum(int(d) ** k for d in s)\nif tong == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      },
+      {
         "id": 1793799289641,
         "student": "Học sinh Demo",
         "username": "hocsinh",
@@ -11574,6 +11626,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:49:51 4/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "23:47:55 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
@@ -11887,6 +11946,9 @@
       "hocsinh": {
         "1": true,
         "28": true
+      },
+      "han": {
+        "43": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -12152,6 +12214,45 @@
             "is_hidden": true
           }
         ]
+      },
+      "43": {
+        "id": 43,
+        "title": "Bài 34. Kiểm tra số Armstrong",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương n gồm k chữ số được gọi là số Armstrong nếu tổng các lũy thừa bậc k của từng chữ số bằng chính số đó.\nVí dụ: 153 là số Armstrong vì có 3 chữ số và $1^3$1$5^3$1$3^3$1$(1 <= n <= 10^9)$.\n- Dữ liệu ra: In ra YES nếu n là số Armstrong, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\ns = str(n)\nk = len(s)\ntong = sum(int(d) ** k for d in s)\nif tong == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "153",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "125",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1634",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "9",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
       }
     },
     "testSets": [
@@ -12187,7 +12288,8 @@
       }
     ],
     "studentCodeCache": {
-      "086081006094__Bài 1. Tính tổng hai số nguyên A và B": " # Mã nguồn cho bài Tính tổng hai số nguyên A và B\n # Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      "086081006094__Bài 1. Tính tổng hai số nguyên A và B": " # Mã nguồn cho bài Tính tổng hai số nguyên A và B\n # Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
+      "han__Bài 34. Kiểm tra số Armstrong": "n = int(input().strip())\ns = str(n)\nk = len(s)\ntong = sum(int(d) ** k for d in s)\nif tong == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
     }
   }
 }
