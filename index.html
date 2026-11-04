@@ -87,76 +87,10 @@
             table { font-size: 13px; }
             table tbody td { padding: 10px; }
         }
-
-        /* ===== AUTH: compact, no vertical scroll for login, scroll for register ===== */
         #authModal .auth-input { padding-top: 6px !important; padding-bottom: 6px !important; min-height: 36px !important; font-size: 13px !important; }
-        #authModal .auth-label { font-size: 12px; margin-bottom: 2px; display: block; font-weight: 700; }
-        #authModal .auth-body { padding: 12px 14px !important; }
-        #authModal .auth-row { margin-bottom: 8px; }
-        #authModal .auth-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-        #authModal .auth-contact-box { padding: 8px 10px; border-radius: 12px; margin-bottom: 8px; }
-        #authModal .auth-contact-box .auth-input { min-height: 32px !important; margin-bottom: 6px; }
-        #authModal .auth-contact-box .auth-input:last-child { margin-bottom: 0; }
-
-        /* Student form = blue theme */
-        #authBodyStudent { background: linear-gradient(180deg, #eff6ff 0%, #ffffff 60%); }
-        #authBodyStudent .auth-label { color: #1e40af; }
-        #authBodyStudent .auth-input { background: #eff6ff; border: 1px solid #93c5fd; }
-        #authBodyStudent .auth-contact-box { background: #dbeafe; border: 1px solid #bfdbfe; }
-
-        /* Teacher form = light orange theme */
-        #authBodyTeacher { background: linear-gradient(180deg, #fff7ed 0%, #ffffff 60%); }
-        #authBodyTeacher .auth-label { color: #9a3412; }
-        #authBodyTeacher .auth-input { background: #fff7ed; border: 1px solid #fdba74; }
-        #authBodyTeacher .auth-contact-box { background: #ffedd5; border: 1px solid #fed7aa; }
-
-        #authModalCard { max-height: 94vh; overflow: hidden; }
-
-        /* ===== NEW: scrollable register area ===== */
-        #authModal .auth-form-scroll {
-            max-height: 42vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 6px;
-            margin-bottom: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: #93c5fd transparent;
-            border-radius: 8px;
-        }
-        #authModal .auth-form-scroll::-webkit-scrollbar { width: 6px; }
-        #authModal .auth-form-scroll::-webkit-scrollbar-track { background: transparent; border-radius: 8px; }
-        #authModal .auth-form-scroll::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 8px; }
-        #authModal .auth-form-scroll::-webkit-scrollbar-thumb:hover { background: #60a5fa; }
-        #authBodyTeacher .auth-form-scroll { scrollbar-color: #fdba74 transparent; }
-        #authBodyTeacher .auth-form-scroll::-webkit-scrollbar-thumb { background: #fdba74; }
-        #authBodyTeacher .auth-form-scroll::-webkit-scrollbar-thumb:hover { background: #fb923c; }
-
-        /* Fade hint at bottom of scrollable area */
-        #authModal .auth-form-scroll-wrap { position: relative; }
-        #authModal .auth-form-scroll-wrap::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 6px;
-            height: 14px;
-            background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0));
-            pointer-events: none;
-            border-radius: 0 0 8px 8px;
-        }
-        #authBodyStudent .auth-form-scroll-wrap::after { background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(239,246,255,0)); }
-        #authBodyTeacher .auth-form-scroll-wrap::after { background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,247,237,0)); }
-
-        /* Hint scroll text */
-        #authModal .scroll-hint {
-            font-size: 10.5px;
-            color: #64748b;
-            text-align: center;
-            margin-top: 2px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3px;
-        }
+        #authModal .auth-label { font-size: 12px; margin-bottom: 3px; }
+        #authModal .auth-body { padding: 14px 18px !important; }
+        #authModal .auth-row { margin-bottom: 10px; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -184,7 +118,10 @@
                     <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                     <span id="engineStatusText">Đang tải Python WASM...</span>
                 </div>
-                <!-- ROLE DROPDOWN -->
+                <div id="proxyStatusBadge" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+                    <i class="ph-bold ph-shield-check text-sm"></i>
+                    <span id="proxyStatusText">Proxy: Bảo mật</span>
+                </div>
                 <div id="roleDropdownWrapper" class="relative hidden">
                     <button id="roleDropdownBtn" onclick="toggleRoleDropdown()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all">
                         <i class="ph-bold ph-users-three text-blue-400"></i>
@@ -238,7 +175,8 @@
             <div class="w-20 h-20 rounded-3xl bg-blue-500/10 border border-blue-500/20 text-blue-600 flex items-center justify-center text-4xl shadow-xl shadow-blue-500/10 mb-6">
                 <i class="ph-bold ph-shield-check"></i>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Hệ Thống Yêu Cầu Xác Thực Danh Tính</h2>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Chào mừng bạn đến với Web Dạy Học Lập Trình Python</h2>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">XÁC THỰC DANH TÍNH NGƯỜI DÙNG</h2>
             <p class="text-base text-slate-500 max-w-md leading-relaxed mb-8">Để đảm bảo an toàn dữ liệu học đường và lưu trữ kết quả học tập, vui lòng đăng nhập tài khoản trước khi truy cập nền tảng.</p>
             <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-2xl justify-center flex-wrap">
                 <button onclick="openLoginModal('student', 'login')" class="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all">
@@ -252,7 +190,7 @@
                 </button>
             </div>
             <div class="mt-8 pt-6 border-t border-slate-200/80 w-full max-w-sm text-sm text-slate-400 flex items-center justify-center gap-2">
-                <span>Chưa có tài khoản học sinh?</span>
+                <span>❤️</span>
                 <button onclick="openLoginModal('student', 'register')" class="text-blue-600 hover:text-blue-700 font-bold">Đăng ký tại đây</button>
             </div>
             <div class="mt-12 w-full max-w-3xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden text-left relative z-10">
@@ -848,7 +786,6 @@
                 </div>
             </div>
 
-            <!-- TEACHER GRADES = ADMIN STYLE -->
             <div id="teacherTabGrades" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="p-5 border-b border-slate-100 flex items-center justify-between flex-wrap gap-3">
                     <div>
@@ -1361,10 +1298,10 @@
         </div>
     </div>
 
-    <!-- ================= AUTH MODAL: separate forms, register area scrollable ================= -->
+    <!-- AUTH MODAL -->
     <div id="authModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div id="authModalCard" class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
-            <div id="authModalHeader" class="p-4 text-white flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600">
+        <div id="authModalCard" class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
+            <div id="authModalHeader" class="p-4 text-white flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600 shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl backdrop-blur-sm">
                         <i id="authModalIcon" class="ph-bold ph-student text-amber-300"></i>
@@ -1378,7 +1315,7 @@
                     <i class="ph-bold ph-x text-lg"></i>
                 </button>
             </div>
-            <div class="p-3 bg-slate-50 border-b border-slate-200 space-y-2">
+            <div class="p-3 bg-slate-50 border-b border-slate-200 space-y-2 shrink-0">
                 <div class="flex bg-slate-200/50 p-1 rounded-2xl text-xs">
                     <button id="authTabStudent" onclick="switchAuthTab('student')" class="flex-1 py-1.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm flex items-center justify-center gap-1.5 transition-all">
                         <i class="ph-bold ph-student"></i> Học Sinh
@@ -1387,7 +1324,7 @@
                         <i class="ph-bold ph-chalkboard-teacher"></i> Giáo Viên
                     </button>
                 </div>
-                <div class="flex bg-slate-200/80 p-1 rounded-2xl text-xs font-semibold">
+                <div id="authActionToggleWrapper" class="flex bg-slate-200/80 p-1 rounded-2xl text-xs font-semibold">
                     <button id="authActionLoginBtn" onclick="setAuthAction('login')" class="flex-1 py-1.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm border border-slate-200 transition-all flex items-center justify-center gap-1.5">
                         <i class="ph-bold ph-sign-in"></i> Đăng Nhập
                     </button>
@@ -1396,117 +1333,95 @@
                     </button>
                 </div>
             </div>
-            <!-- STUDENT FORM: blue theme -->
-            <div id="authBodyStudent" class="auth-body p-4 space-y-2">
-                <div id="formStudentLogin" class="space-y-2">
-                    <div class="auth-row">
-                        <label class="auth-label">Tên đăng nhập / SĐT:</label>
-                        <input type="text" id="studentLoginIdentifier" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập tên đăng nhập..." class="auth-input w-full rounded-xl px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <div id="authFormScrollArea" class="overflow-y-auto flex-1">
+                <div id="authBodyStudent" class="auth-body p-4 space-y-3">
+                    <div id="formStudentLogin" class="space-y-2.5">
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Tên đăng nhập / SĐT:</label>
+                            <input type="text" id="studentLoginIdentifier" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập tên đăng nhập..." class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Mật khẩu:</label>
+                            <input type="password" id="studentLoginPassword" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="••••••••" class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        </div>
                     </div>
-                    <div class="auth-row">
-                        <label class="auth-label">Mật khẩu:</label>
-                        <input type="password" id="studentLoginPassword" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="••••••••" class="auth-input w-full rounded-xl px-3 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                    </div>
-                </div>
-
-                <!-- Register area: SCROLLABLE -->
-                <div id="formStudentRegister" class="hidden">
-                    <div class="auth-form-scroll-wrap">
-                        <div class="auth-form-scroll">
-                            <div class="auth-row">
-                                <label class="auth-label">Họ và tên (*):</label>
-                                <input type="text" id="regStudentName" placeholder="VD: Nguyễn Văn An" class="auth-input w-full rounded-xl px-3">
+                    <div id="formStudentRegister" class="hidden space-y-2">
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Họ và tên (*):</label>
+                            <input type="text" id="regStudentName" placeholder="VD: Nguyễn Văn An" class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="auth-label block font-bold text-slate-700">Trường (*):</label>
+                                <input type="text" id="regStudentSchool" value="THCS Thành Đông" class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3">
                             </div>
-                            <div class="auth-grid2">
-                                <div>
-                                    <label class="auth-label">Trường (*):</label>
-                                    <input type="text" id="regStudentSchool" value="THCS Thành Đông" class="auth-input w-full rounded-xl px-3">
-                                </div>
-                                <div>
-                                    <label class="auth-label">Lớp (*):</label>
-                                    <input type="text" id="regStudentClass" placeholder="8A1" class="auth-input w-full rounded-xl px-3">
-                                </div>
-                            </div>
-                            <div class="auth-row">
-                                <label class="auth-label">Tên đăng nhập (*):</label>
-                                <input type="text" id="regStudentUsername" placeholder="annguyen8a1" class="auth-input w-full rounded-xl px-3">
-                            </div>
-                            <div class="auth-contact-box">
-                                <label class="auth-label flex items-center gap-1"><i class="ph-bold ph-identification-card text-blue-600"></i> Liên lạc (ít nhất 1):</label>
-                                <input type="text" id="regStudentPhone" placeholder="📞 SĐT" class="auth-input w-full rounded-xl px-3">
-                                <input type="text" id="regStudentCccd" placeholder="🆔 CCCD" class="auth-input w-full rounded-xl px-3">
-                                <input type="email" id="regStudentEmail" placeholder="📧 Email" class="auth-input w-full rounded-xl px-3">
-                            </div>
-                            <div class="auth-row">
-                                <label class="auth-label">Mật khẩu (*):</label>
-                                <input type="password" id="regStudentPass" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập mật khẩu..." class="auth-input w-full rounded-xl px-3">
+                            <div>
+                                <label class="auth-label block font-bold text-slate-700">Lớp (*):</label>
+                                <input type="text" id="regStudentClass" placeholder="8A1" class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3">
                             </div>
                         </div>
-                        <div class="scroll-hint"><i class="ph-bold ph-arrows-down-up text-xs"></i> Cuộn để xem thêm</div>
-                    </div>
-                </div>
-
-                <div class="pt-1">
-                    <button id="btnSubmitAuthStudent" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md flex items-center justify-center gap-2 transition-all">
-                        <i class="ph-bold ph-sign-in"></i> Đăng Nhập
-                    </button>
-                </div>
-            </div>
-
-            <!-- TEACHER FORM: light orange theme -->
-            <div id="authBodyTeacher" class="auth-body p-4 space-y-2 hidden">
-                <div id="formTeacherLogin" class="space-y-2">
-                    <div class="auth-row">
-                        <label class="auth-label">Tên đăng nhập:</label>
-                        <input type="text" id="teacherCccdInput" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập tên đăng nhập..." class="auth-input w-full rounded-xl px-3 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                    </div>
-                    <div class="auth-row">
-                        <label class="auth-label">Mật khẩu:</label>
-                        <input type="password" id="teacherPassInput" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="••••••••" class="auth-input w-full rounded-xl px-3 focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                    </div>
-                </div>
-
-                <!-- Register area: SCROLLABLE -->
-                <div id="formTeacherRegister" class="hidden">
-                    <div class="auth-form-scroll-wrap">
-                        <div class="auth-form-scroll">
-                            <div class="auth-row">
-                                <label class="auth-label">Họ và tên (*):</label>
-                                <input type="text" id="regTeacherName" placeholder="Thầy Nguyễn Văn A" class="auth-input w-full rounded-xl px-3">
-                            </div>
-                            <div class="auth-contact-box">
-                                <label class="auth-label flex items-center gap-1"><i class="ph-bold ph-identification-card text-amber-600"></i> Liên lạc (ít nhất 1):</label>
-                                <input type="text" id="regTeacherPhone" placeholder="📞 SĐT" class="auth-input w-full rounded-xl px-3">
-                                <input type="text" id="regTeacherCccd" placeholder="🆔 CCCD" class="auth-input w-full rounded-xl px-3">
-                                <input type="email" id="regTeacherEmail" placeholder="📧 Email" class="auth-input w-full rounded-xl px-3">
-                            </div>
-                            <div class="auth-row">
-                                <label class="auth-label">Tên đăng nhập (*):</label>
-                                <input type="text" id="regTeacherUsername" placeholder="gv_nguyenvana" class="auth-input w-full rounded-xl px-3 font-mono">
-                            </div>
-                            <div class="auth-row">
-                                <label class="auth-label">Mật khẩu (*):</label>
-                                <input type="password" id="regTeacherPass" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập mật khẩu..." class="auth-input w-full rounded-xl px-3">
-                            </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Tên đăng nhập (*):</label>
+                            <input type="text" id="regStudentUsername" placeholder="annguyen8a1" class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3">
                         </div>
-                        <div class="scroll-hint"><i class="ph-bold ph-arrows-down-up text-xs"></i> Cuộn để xem thêm</div>
+                        <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-xl space-y-1.5">
+                            <label class="auth-label block font-bold text-slate-700 flex items-center gap-1"><i class="ph-bold ph-identification-card text-blue-600"></i> Liên lạc (ít nhất 1):</label>
+                            <input type="text" id="regStudentPhone" placeholder="📞 SĐT" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                            <input type="text" id="regStudentCccd" placeholder="🆔 CCCD" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                            <input type="email" id="regStudentEmail" placeholder="📧 Email" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                        </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Mật khẩu (*):</label>
+                            <input type="password" id="regStudentPass" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập mật khẩu..." class="auth-input w-full bg-slate-50 border border-slate-300 rounded-xl px-3">
+                        </div>
+                    </div>
+                    <div class="pt-1">
+                        <button id="btnSubmitAuthStudent" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md flex items-center justify-center gap-2 transition-all">
+                            <i class="ph-bold ph-sign-in"></i> Đăng Nhập
+                        </button>
                     </div>
                 </div>
-
-                <div class="pt-1">
-                    <button id="btnSubmitAuthTeacher" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-md flex items-center justify-center gap-2 transition-all">
-                        <i class="ph-bold ph-sign-in"></i> Đăng Nhập
-                    </button>
+                <div id="authBodyTeacher" class="auth-body p-4 space-y-3 hidden">
+                    <div id="formTeacherLogin" class="space-y-2.5">
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Tên đăng nhập:</label>
+                            <input type="text" id="teacherCccdInput" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập tên đăng nhập..." class="auth-input w-full bg-amber-50 border border-amber-300 rounded-xl px-3 font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Mật khẩu:</label>
+                            <input type="password" id="teacherPassInput" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="••••••••" class="auth-input w-full bg-amber-50 border border-amber-300 rounded-xl px-3 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        </div>
+                    </div>
+                    <div id="formTeacherRegister" class="hidden space-y-2">
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Họ và tên (*):</label>
+                            <input type="text" id="regTeacherName" placeholder="Thầy Nguyễn Văn A" class="auth-input w-full bg-amber-50 border border-amber-300 rounded-xl px-3">
+                        </div>
+                        <div class="p-2.5 bg-amber-50 border border-amber-300 rounded-xl space-y-1.5">
+                            <label class="auth-label block font-bold text-slate-700 flex items-center gap-1"><i class="ph-bold ph-identification-card text-amber-600"></i> Liên lạc (ít nhất 1):</label>
+                            <input type="text" id="regTeacherPhone" placeholder="📞 SĐT" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                            <input type="text" id="regTeacherCccd" placeholder="🆔 CCCD" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                            <input type="email" id="regTeacherEmail" placeholder="📧 Email" class="auth-input w-full bg-white border border-slate-300 rounded-xl px-3">
+                        </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Tên đăng nhập (*):</label>
+                            <input type="text" id="regTeacherUsername" placeholder="gv_nguyenvana" class="auth-input w-full bg-amber-50 border border-amber-300 rounded-xl px-3 font-mono">
+                        </div>
+                        <div class="auth-row">
+                            <label class="auth-label block font-bold text-slate-700">Mật khẩu (*):</label>
+                            <input type="password" id="regTeacherPass" onkeydown="if(event.key==='Enter') processAuthSubmit()" placeholder="Nhập mật khẩu..." class="auth-input w-full bg-amber-50 border border-amber-300 rounded-xl px-3">
+                        </div>
+                    </div>
+                    <div class="pt-1">
+                        <button id="btnSubmitAuthTeacher" onclick="processAuthSubmit()" class="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-md flex items-center justify-center gap-2 transition-all">
+                            <i class="ph-bold ph-sign-in"></i> Đăng Nhập
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            <div class="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-500">
-                <button onclick="confirmExitApp()" class="font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1 transition-colors px-2 py-1 rounded-lg hover:bg-rose-50">
-                    <i class="ph-bold ph-sign-out text-sm"></i> Thoát
-                </button>
+            <div class="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-500 shrink-0">
+                <button onclick="openPasswordResetModal()" class="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 font-bold text-amber-700 flex items-center gap-1 shadow-sm transition-all"><i class="ph-bold ph-key text-sm"></i> Quên mật khẩu?</button>
                 <div class="flex items-center gap-2 flex-wrap">
-                    <button onclick="openPasswordResetModal()" class="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 font-bold text-amber-700 flex items-center gap-1 shadow-sm transition-all"><i class="ph-bold ph-key text-sm"></i> Quên mật khẩu?</button>
-                    <span class="text-slate-300">|</span>
                     <span id="authToggleHintText">Chưa có tài khoản?</span>
                     <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">Đăng ký ngay</button>
                 </div>
@@ -1517,7 +1432,7 @@
     <!-- PASSWORD RESET MODAL -->
     <div id="passwordResetModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10010] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
-            <div class="p-5 bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-between">
+            <div class="p-5 bg-gradient-to-r from-amber-600 to-orange-600 text-white flex items-center justify-between shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-key text-2xl text-amber-200"></i></div>
                     <div>
@@ -1527,7 +1442,7 @@
                 </div>
                 <button onclick="closePasswordResetModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"><i class="ph-bold ph-x text-lg"></i></button>
             </div>
-            <div class="p-5 space-y-3 text-sm overflow-y-auto">
+            <div class="p-5 space-y-3 text-sm overflow-y-auto flex-1">
                 <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800 leading-relaxed flex items-start gap-2">
                     <i class="ph-bold ph-info text-blue-600 text-base shrink-0 mt-0.5"></i>
                     <div>Nhập <b>Tên đăng nhập</b> và <b>1 trong 3 thông tin</b>: SĐT, CCCD, Email. Chỉ cần <b>1 thông tin đúng</b> là có thể đổi mật khẩu.</div>
@@ -1562,7 +1477,7 @@
                     <i class="ph-bold ph-warning text-amber-600"></i> <strong>Lưu ý:</strong> Nếu <u>không có thông tin nào chính xác</u>, tài khoản sẽ bị đánh dấu <span class="font-bold text-rose-600">"Reset pw"</span> màu đỏ. Admin sẽ cấp lại mật khẩu trong 24 giờ.
                 </div>
             </div>
-            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2 shrink-0">
                 <button onclick="closePasswordResetModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm">Hủy</button>
                 <button onclick="submitPasswordReset()" class="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm flex items-center gap-1.5">
                     <i class="ph-bold ph-key"></i> Đổi Mật Khẩu
@@ -1623,7 +1538,7 @@
                         <li>Đọc đề bài phía trên, sau đó <b>viết code Python</b> vào ô soạn thảo màu đen bên phải. <b>Ô code không có số dòng</b> để thoáng hơn.</li>
                         <li><b>Dữ liệu vào (stdin):</b> Nhập số liệu test vào ô <b>"Dữ liệu vào"</b>. ⚠️ <b>Hệ thống sẽ nhắc nếu bạn quên nhập!</b></li>
                         <li>Nhấn <b>"Chạy Thử"</b> để xem kết quả nhanh ở ô "Kết quả".</li>
-                        <li>Nhấn <b>"NỘP BÀI"</b> để hệ thống tự động chấm. Code sẽ được tự động lưu lên GitHub + file Excel.</li>
+                        <li>Nhấn <b>"NỘP BÀI"</b> để hệ thống tự động chấm. Code sẽ được tự động lưu lên máy chủ + file Excel.</li>
                         <li>⭐ Nhấn <b>"Gắn cờ"</b> (ngôi sao) để đánh dấu bài đã học xong — cờ được lưu lại.</li>
                     </ul>
                 </div>
@@ -1694,8 +1609,8 @@
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center text-2xl"><i class="ph-bold ph-hard-drives text-white"></i></div>
                     <div>
-                        <h3 class="text-base font-bold">Nạp & Đồng Bộ Máy Chủ</h3>
-                        <p class="text-xs text-slate-300">Kho dữ liệu đám mây</p>
+                        <h3 class="text-base font-bold">Đồng Bộ Máy Chủ Bảo Mật</h3>
+                        <p class="text-xs text-slate-300">Cloudflare Worker Proxy + GitHub</p>
                     </div>
                 </div>
                 <button onclick="closeGithubSyncModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
@@ -1703,6 +1618,16 @@
                 </button>
             </div>
             <div class="p-6 space-y-4 text-sm overflow-y-auto">
+                <div id="proxyHealthBox" class="p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-shield-check text-emerald-600 text-base"></i> Trạng thái Proxy:</label>
+                        <span id="proxyHealthBadge" class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold">Đang kiểm tra...</span>
+                    </div>
+                    <p class="text-xs text-slate-600">Token được giấu an toàn ở Cloudflare Worker. Trình duyệt không bao giờ tiếp xúc với token.</p>
+                    <button onclick="checkProxyHealth(true)" class="w-full py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="ph-bold ph-arrows-clockwise"></i> Kiểm Tra Lại Proxy
+                    </button>
+                </div>
                 <div class="p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl space-y-2">
                     <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-cloud-arrow-up text-emerald-600 text-base"></i> Đẩy toàn bộ dữ liệu:</label>
                     <button onclick="pushCurrentDataToGitHubManual()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow transition flex items-center justify-center gap-1.5">
@@ -1724,12 +1649,12 @@
                 </div>
                 <div class="border border-slate-200 rounded-2xl p-3.5 space-y-2 bg-white">
                     <div class="flex items-center justify-between">
-                        <span class="font-bold text-slate-700 flex items-center gap-1"><i class="ph-bold ph-key text-emerald-600"></i> Token máy chủ</span>
-                        <span id="githubTokenIndicator" class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold">Đã kết nối</span>
+                        <span class="font-bold text-slate-700 flex items-center gap-1"><i class="ph-bold ph-plug text-emerald-600"></i> Endpoint Proxy</span>
+                        <span id="proxyUrlIndicator" class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono font-bold">Chưa cấu hình</span>
                     </div>
-                    <input type="password" id="githubTokenInput" placeholder="Đã tích hợp" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-xs">
-                    <div class="flex justify-end pt-1">
-                        <button onclick="saveGithubToken()" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm">Cập Nhật Token</button>
+                    <input type="url" id="proxyUrlInput" placeholder="https://your-worker.workers.dev/github" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-slate-900 font-mono text-xs">
+                    <div class="flex justify-end pt-1 gap-2">
+                        <button onclick="saveProxyUrl()" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm">Lưu Endpoint</button>
                     </div>
                 </div>
                 <div class="text-xs text-slate-500 flex items-center justify-between pt-1">
@@ -1953,6 +1878,32 @@
 
     <script>
     // =============================================
+    // 🔐 CLOUDFLARE WORKER PROXY (30 dòng) - Xem phần hướng dẫn phía dưới
+    // =============================================
+    // Deploy file worker.js sau lên Cloudflare Workers (miễn phí 100k req/ngày):
+    //
+    // export default {
+    //   async fetch(request, env) {
+    //     if (request.method === 'OPTIONS') return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
+    //     const url = new URL(request.url);
+    //     const ghPath = url.searchParams.get('path') || 'PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json';
+    //     const ghUrl = `https://api.github.com/repos/${env.GH_OWNER}/${env.GH_REPO}/contents/${ghPath}${url.search}`;
+    //     const headers = { 'Authorization': `Bearer ${env.GH_TOKEN}`, 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'lms-proxy' };
+    //     const body = request.method !== 'GET' ? await request.text() : undefined;
+    //     const ghRes = await fetch(ghUrl, { method: request.method, headers, body });
+    //     const data = await ghRes.text();
+    //     return new Response(data, { status: ghRes.status, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
+    //   }
+    // };
+    //
+    // Đặt trong Cloudflare Dashboard → Workers → Settings → Environment Variables:
+    //   GH_TOKEN = ghp_xxxxx (GitHub PAT)
+    //   GH_OWNER = thefuong119
+    //   GH_REPO  = ai-python-thcs
+    //
+    // Sau đó nhập URL Worker vào modal "Đồng Bộ Máy Chủ" → Lưu Endpoint.
+
+    // =============================================
     // STATE
     // =============================================
     let lectures = [
@@ -1977,12 +1928,12 @@
     ];
 
     let registeredUsers = [
-        { id:1, name:"Thầy Nguyễn Thế Phương", username:"086081006094", identifier:"086081006094", password:"Admin#999", school:"THCS Thành Đông", className:"Toàn trường", phone:"0908889999", cccd:"", email:"", role:"admin", status:"active", loginCount:45 },
-        { id:2, name:"Cô Trần Thị Trúc Mai", username:"comai", identifier:"comai", password:"GiaoVien#123", school:"THCS - THPT Mỹ Thuận", className:"11A1", phone:"0912345678", cccd:"", email:"", role:"teacher", status:"active", loginCount:34 },
-        { id:3, name:"Trần Ngọc Hân", username:"han", identifier:"han", password:"HocSinh#123", school:"THCS Thành Đông", className:"9A2", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:6 },
-        { id:4, name:"Trần Lê Phúc Khang", username:"khang", identifier:"khang", password:"HocSinh#123", school:"THCS Thành Đông", className:"9A3", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:3 },
-        { id:5, name:"Giáo viên Dùng Thử", username:"giaovien", identifier:"giaovien", password:"Giaovien@123", school:"THCS Thành Đông", className:"Khối 8", phone:"0932861739", cccd:"", email:"", role:"teacher", status:"active", loginCount:10 },
-        { id:6, name:"Học sinh Dùng Thử", username:"hocsinh", identifier:"hocsinh", password:"Hocsinh@123", school:"THCS Thành Đông", className:"8A1", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:15 }
+        { id:1, name:"Thầy Nguyễn Thế Phương", username:"086081006094", identifier:"086081006094", password:"Admin#999", passwordHash:"", school:"THCS Thành Đông", className:"Toàn trường", phone:"0908889999", cccd:"", email:"", role:"admin", status:"active", loginCount:45 },
+        { id:2, name:"Cô Trần Thị Trúc Mai", username:"comai", identifier:"comai", password:"GiaoVien#123", passwordHash:"", school:"THCS - THPT Mỹ Thuận", className:"11A1", phone:"0912345678", cccd:"", email:"", role:"teacher", status:"active", loginCount:34 },
+        { id:3, name:"Trần Ngọc Hân", username:"han", identifier:"han", password:"HocSinh#123", passwordHash:"", school:"THCS Thành Đông", className:"9A2", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:6 },
+        { id:4, name:"Trần Lê Phúc Khang", username:"khang", identifier:"khang", password:"HocSinh#123", passwordHash:"", school:"THCS Thành Đông", className:"9A3", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:3 },
+        { id:5, name:"Giáo viên Dùng Thử", username:"giaovien", identifier:"giaovien", password:"Giaovien@123", passwordHash:"", school:"THCS Thành Đông", className:"Khối 8", phone:"0932861739", cccd:"", email:"", role:"teacher", status:"active", loginCount:10 },
+        { id:6, name:"Học sinh Dùng Thử", username:"hocsinh", identifier:"hocsinh", password:"Hocsinh@123", passwordHash:"", school:"THCS Thành Đông", className:"8A1", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:15 }
     ];
 
     let gradebook = [];
@@ -1994,15 +1945,64 @@
     let studentFlags = {};
     let flaggedAssignmentsCache = {};
 
+    // 🔐 GitHub direct (fallback) config — repo luôn công khai để raw fetch hoạt động
     const GITHUB_OWNER = "thefuong119";
     const GITHUB_REPO = "ai-python-thcs";
     const GITHUB_FILE_PATH = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
 
-    const _SECURE_GH_FRAGMENTS = ["git","hub","_pa","t_1","1BD","D7V","GI0","QEc","Xgp","F0R","372","_IU","pz2","JUH","fGg","SAU","EHt","DM0","Ejb","uHp","4yQ","9Oe","qcM","dZW","PBF","qY3","FGW","PSQ","Mqx","Xn3","pgW"];
+    // 🔐 Proxy endpoint (do người dùng nhập, không hardcode token)
+    let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || "";
+    let PROXY_HEALTHY = false;
 
-    function getDecryptedGitHubToken() { try { return _SECURE_GH_FRAGMENTS.join(''); } catch (e) { return ""; } }
+    // 🔐 Password salt (có thể đổi, cố định trong app)
+    const PASSWORD_SALT = "LMS_PYTHON_THCS_THANHDONG_2026_SALT";
+
+    // =============================================
+    // 🔐 PASSWORD HASHING (Web Crypto API - SHA-256)
+    // =============================================
+    async function hashPassword(plainPassword) {
+        if (!plainPassword) return "";
+        try {
+            const enc = new TextEncoder();
+            const data = enc.encode(PASSWORD_SALT + "::" + plainPassword);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        } catch (e) {
+            console.warn('[HASH] Fallback to plain:', e);
+            return "plain:" + plainPassword;
+        }
+    }
+
+    async function verifyPassword(plainPassword, storedHashOrPlain, user) {
+        if (!storedHashOrPlain) {
+            // Legacy user không có hash → so sánh trực tiếp với plain password cũ
+            return user.password === plainPassword;
+        }
+        if (String(storedHashOrPlain).startsWith('plain:')) {
+            return storedHashOrPlain.substring(6) === plainPassword;
+        }
+        const hash = await hashPassword(plainPassword);
+        return hash === storedHashOrPlain;
+    }
+
+    // Tự động hash toàn bộ mật khẩu plaintext còn sót (migration 1 lần)
+    async function migratePasswordHashes() {
+        let migrated = 0;
+        for (const u of registeredUsers) {
+            if (u.password && !u.passwordHash) {
+                u.passwordHash = await hashPassword(u.password);
+                u.password = null;  // Xóa plaintext
+                migrated++;
+            }
+        }
+        if (migrated > 0) {
+            console.log(`[MIGRATE] Đã hash ${migrated} mật khẩu`);
+            autoSaveLocalSnapshot();
+        }
+    }
 
     let pyodideInstance = null;
     let currentUser = { isLoggedIn:false, role:'student', name:'Khách', identifier:'' };
@@ -2085,6 +2085,115 @@
     function insertTabInCode(which) {
         const cm = which === 'student' ? studentCodeEditor : (which === 'teacher' ? teacherSolutionEditor : adminSolutionEditor);
         if (cm) { cm.replaceSelection('    ', 'end'); cm.focus(); }
+    }
+
+    // =============================================
+    // 🔐 PROXY HEALTH CHECK
+    // =============================================
+    async function checkProxyHealth(showAlert = false) {
+        const badge = document.getElementById('proxyHealthBadge');
+        const proxyStatusText = document.getElementById('proxyStatusText');
+        const proxyUrlIndicator = document.getElementById('proxyUrlIndicator');
+        if (proxyUrlIndicator) {
+            proxyUrlIndicator.textContent = PROXY_ENDPOINT ? 'Đã cấu hình' : 'Chưa cấu hình';
+            proxyUrlIndicator.className = PROXY_ENDPOINT
+                ? "text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold"
+                : "text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono font-bold";
+        }
+        if (!PROXY_ENDPOINT) {
+            PROXY_HEALTHY = false;
+            if (badge) { badge.textContent = 'Chưa cấu hình'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono font-bold"; }
+            if (proxyStatusText) proxyStatusText.textContent = '🔗';
+            if (showAlert) showToast("Vui lòng nhập Endpoint Proxy trước!", "error");
+            return false;
+        }
+        if (badge) { badge.textContent = 'Đang kiểm tra...'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-mono font-bold"; }
+        try {
+            const res = await fetch(`${PROXY_ENDPOINT}?path=${GITHUB_FILE_PATH}`, { method: 'GET', cache: 'no-store' });
+            PROXY_HEALTHY = res.ok;
+            if (res.ok) {
+                if (badge) { badge.textContent = '✓ Hoạt động'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold"; }
+                if (proxyStatusText) proxyStatusText.textContent = 'Proxy: Bảo mật';
+                if (showAlert) showToast("Proxy hoạt động tốt!", "success");
+            } else {
+                if (badge) { badge.textContent = `✗ Lỗi ${res.status}`; badge.className = "text-xs px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-mono font-bold"; }
+                if (proxyStatusText) proxyStatusText.textContent = 'Proxy: Lỗi';
+                if (showAlert) showToast(`Proxy trả về lỗi ${res.status}`, "error");
+            }
+            return PROXY_HEALTHY;
+        } catch (e) {
+            PROXY_HEALTHY = false;
+            if (badge) { badge.textContent = '✗ Không kết nối'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 font-mono font-bold"; }
+            if (proxyStatusText) proxyStatusText.textContent = 'Proxy: Offline';
+            if (showAlert) showToast("Không kết nối được Proxy!", "error");
+            return false;
+        }
+    }
+
+    function saveProxyUrl() {
+        const url = document.getElementById('proxyUrlInput')?.value.trim() || "";
+        if (!url.startsWith('https://')) return showToast("URL phải bắt đầu bằng https://", "error");
+        PROXY_ENDPOINT = url;
+        localStorage.setItem('lms_proxy_endpoint', url);
+        checkProxyHealth(true);
+        showToast("Đã lưu Endpoint Proxy!", "success");
+    }
+
+    function loadProxyUrlIntoInput() {
+        const input = document.getElementById('proxyUrlInput');
+        if (input) input.value = PROXY_ENDPOINT;
+    }
+
+    // =============================================
+    // 🔐 GITHUB FETCH/PUT QUA PROXY VỚI RETRY
+    // =============================================
+    async function githubFetchViaProxy(path, options = {}, maxRetries = 3) {
+        if (!PROXY_ENDPOINT) throw new Error("PROXY_NOT_CONFIGURED");
+        let lastError = null;
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+            try {
+                const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(path)}&t=${Date.now()}`;
+                const res = await fetch(url, { ...options, cache: 'no-store' });
+                if (res.status === 409) {
+                    // Conflict: SHA cũ → đợi 500ms rồi retry (sẽ fetch SHA mới ở caller)
+                    lastError = new Error("CONFLICT_409");
+                    await sleep(500 * Math.pow(2, attempt));
+                    continue;
+                }
+                if (res.status === 429) {
+                    // Rate limit
+                    lastError = new Error("RATE_LIMIT_429");
+                    await sleep(1500 * Math.pow(2, attempt));
+                    continue;
+                }
+                if (!res.ok) throw new Error(`HTTP_${res.status}`);
+                return res;
+            } catch (e) {
+                lastError = e;
+                if (attempt < maxRetries - 1) await sleep(400 * Math.pow(2, attempt));
+            }
+        }
+        throw lastError || new Error("UNKNOWN_ERROR");
+    }
+
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    // Đọc SHA hiện tại từ GitHub (qua proxy hoặc raw fallback)
+    async function getCurrentShaViaProxy(path, maxRetries = 2) {
+        if (!PROXY_ENDPOINT) return "";
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+            try {
+                const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(path)}&t=${Date.now()}`;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (res.ok) {
+                    const json = await res.json();
+                    return json.sha || "";
+                }
+                if (res.status === 404) return ""; // File chưa tồn tại
+            } catch (e) {}
+            await sleep(300);
+        }
+        return "";
     }
 
     // =============================================
@@ -2222,9 +2331,9 @@
 
     function ensureTrialAccountsAlwaysAvailable() {
         if (!registeredUsers.some(u => (u.username && u.username.toLowerCase() === 'giaovien') || (u.identifier && u.identifier.toLowerCase() === 'giaovien')))
-            registeredUsers.push({ id:901, name:"Giáo viên Dùng Thử", username:"giaovien", identifier:"giaovien", password:"Giaovien@123", school:"THCS Thành Đông", className:"Khối 8", phone:"0932861739", cccd:"", email:"", role:"teacher", status:"active", loginCount:10 });
+            registeredUsers.push({ id:901, name:"Giáo viên Dùng Thử", username:"giaovien", identifier:"giaovien", password:"Giaovien@123", passwordHash:"", school:"THCS Thành Đông", className:"Khối 8", phone:"0932861739", cccd:"", email:"", role:"teacher", status:"active", loginCount:10 });
         if (!registeredUsers.some(u => (u.username && u.username.toLowerCase() === 'hocsinh') || (u.identifier && u.identifier.toLowerCase() === 'hocsinh')))
-            registeredUsers.push({ id:902, name:"Học sinh Dùng Thử", username:"hocsinh", identifier:"hocsinh", password:"Hocsinh@123", school:"THCS Thành Đông", className:"8A1", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:15 });
+            registeredUsers.push({ id:902, name:"Học sinh Dùng Thử", username:"hocsinh", identifier:"hocsinh", password:"Hocsinh@123", passwordHash:"", school:"THCS Thành Đông", className:"8A1", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:15 });
     }
 
     // =============================================
@@ -2475,6 +2584,7 @@
         activeAuthTab = role; currentAuthAction = action;
         updateAuthModalState();
         document.getElementById('authModal')?.classList.remove('hidden');
+        // 🔐 Fetch dữ liệu mới (dùng cache 5 phút)
         await autoFetchDataFromGitHub(false);
     }
     function closeLoginModal() { document.getElementById('authModal')?.classList.add('hidden'); }
@@ -2489,25 +2599,24 @@
         const title = document.getElementById('authModalTitle');
         const sub = document.getElementById('authModalSub');
         const tabS = document.getElementById('authTabStudent'), tabT = document.getElementById('authTabTeacher');
+        const actionWrapper = document.getElementById('authActionToggleWrapper');
         const al = document.getElementById('authActionLoginBtn'), ar = document.getElementById('authActionRegisterBtn');
         const bodyS = document.getElementById('authBodyStudent'), bodyT = document.getElementById('authBodyTeacher');
         const btnS = document.getElementById('btnSubmitAuthStudent'), btnT = document.getElementById('btnSubmitAuthTeacher');
         const fSL = document.getElementById('formStudentLogin'), fSR = document.getElementById('formStudentRegister');
         const fTL = document.getElementById('formTeacherLogin'), fTR = document.getElementById('formTeacherRegister');
         const th = document.getElementById('authToggleHintText'), tb = document.getElementById('authToggleActionBtn');
-        // Header color theme
         if (isTeacher) {
-            header.className = "p-4 text-white flex items-center justify-between bg-gradient-to-r from-amber-500 to-orange-500";
+            header.className = "p-4 text-white flex items-center justify-between bg-gradient-to-r from-amber-500 to-orange-500 shrink-0";
             if (icon) { icon.className = "ph-bold ph-chalkboard-teacher text-amber-100"; }
             if (title) title.textContent = isLogin ? "Giáo viên Đăng nhập" : "Giáo viên Đăng ký";
             if (sub) sub.textContent = isLogin ? "Xác thực danh tính" : "Tạo tài khoản mới";
         } else {
-            header.className = "p-4 text-white flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600";
+            header.className = "p-4 text-white flex items-center justify-between bg-gradient-to-r from-blue-600 to-indigo-600 shrink-0";
             if (icon) { icon.className = "ph-bold ph-student text-amber-300"; }
             if (title) title.textContent = isLogin ? "Học sinh Đăng nhập" : "Học sinh Đăng ký";
             if (sub) sub.textContent = isLogin ? "Tài khoản học sinh" : "Tạo tài khoản mới";
         }
-        // Tab styling
         if (tabS && tabT) {
             if (isTeacher) {
                 tabT.className = "flex-1 py-1.5 rounded-xl font-bold bg-white text-amber-600 shadow-sm flex items-center justify-center gap-1.5 transition-all";
@@ -2517,23 +2626,22 @@
                 tabT.className = "flex-1 py-1.5 rounded-xl font-bold text-slate-600 hover:text-slate-900 flex items-center justify-center gap-1.5 transition-all";
             }
         }
-        // Action buttons
+        if (actionWrapper) {
+            actionWrapper.style.display = isLogin ? '' : 'none';
+        }
         if (al && ar) {
             const activeCls = isTeacher ? "flex-1 py-1.5 rounded-xl font-bold bg-white text-amber-600 shadow-sm border border-slate-200 transition-all flex items-center justify-center gap-1.5" : "flex-1 py-1.5 rounded-xl font-bold bg-white text-blue-600 shadow-sm border border-slate-200 transition-all flex items-center justify-center gap-1.5";
             const inactiveCls = "flex-1 py-1.5 rounded-xl text-slate-500 hover:text-slate-800 transition-all flex items-center justify-center gap-1.5";
             if (isLogin) { al.className = activeCls; ar.className = inactiveCls; }
             else { ar.className = activeCls; al.className = inactiveCls; }
         }
-        // Toggle hint
         if (th && tb) { th.textContent = isLogin ? "Chưa có tài khoản?" : "Đã có tài khoản?"; tb.textContent = isLogin ? "Đăng ký ngay" : "Đăng nhập ngay"; }
-        // Show appropriate body
         if (bodyS) bodyS.classList.toggle('hidden', isTeacher);
         if (bodyT) bodyT.classList.toggle('hidden', !isTeacher);
         if (fSL) fSL.classList.toggle('hidden', !isLogin);
         if (fSR) fSR.classList.toggle('hidden', isLogin);
         if (fTL) fTL.classList.toggle('hidden', !isLogin);
         if (fTR) fTR.classList.toggle('hidden', isLogin);
-        // Button styling
         if (btnS) {
             if (isLogin) btnS.innerHTML = `<i class="ph-bold ph-sign-in"></i> Đăng Nhập`;
             else btnS.innerHTML = `<i class="ph-bold ph-user-plus"></i> Đăng Ký`;
@@ -2544,101 +2652,129 @@
         }
     }
 
+    // =============================================
+    // 🔐 REFACTORED AUTH: Chia nhỏ thành các hàm
+    // =============================================
     async function processAuthSubmit() {
-        const isLogin = (currentAuthAction === 'login');
-        if (!isLogin) {
-            if (activeAuthTab === 'student') {
-                const name = document.getElementById('regStudentName')?.value.trim();
-                const school = document.getElementById('regStudentSchool')?.value.trim() || 'THCS Thành Đông';
-                const className = document.getElementById('regStudentClass')?.value.trim();
-                const username = document.getElementById('regStudentUsername')?.value.trim().toLowerCase();
-                const pass = document.getElementById('regStudentPass')?.value.trim();
-                const rPhone = document.getElementById('regStudentPhone')?.value.trim() || '';
-                const rCccd  = document.getElementById('regStudentCccd')?.value.trim() || '';
-                const rEmail = document.getElementById('regStudentEmail')?.value.trim() || '';
-                if (!name || !className || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
-                if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
-                const existed = registeredUsers.find(u => (u.username && u.username.toLowerCase() === username) || (u.identifier && u.identifier.toLowerCase() === username));
-                if (existed) return showToast("Tên đăng nhập đã tồn tại!", "error");
-                const ns = { id: Date.now(), name, username, identifier: username, password: pass, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'student', status: 'active', loginCount: 1 };
-                registeredUsers.push(ns);
-                currentUser = { isLoggedIn: true, role: 'student', name: ns.name, className: ns.className, identifier: ns.identifier };
-                logUserAccess(ns.name, ns.identifier, 'student', "Đăng ký thành công");
-                closeLoginModal(); switchRole('student');
-                showToast(`Đăng ký thành công ${ns.name}!`, "success");
-                speakRobotText(`Chúc mừng học sinh ${ns.name} đã đăng ký!`);
-                await syncDataToGitHubDirectly(`Đăng ký HS: ${ns.name}`);
-                return;
-            } else {
-                const name = document.getElementById('regTeacherName')?.value.trim();
-                const rPhone = document.getElementById('regTeacherPhone')?.value.trim() || '';
-                const rCccd  = document.getElementById('regTeacherCccd')?.value.trim() || '';
-                const rEmail = document.getElementById('regTeacherEmail')?.value.trim() || '';
-                const username = document.getElementById('regTeacherUsername')?.value.trim().toLowerCase();
-                const pass = document.getElementById('regTeacherPass')?.value.trim();
-                if (!name || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
-                if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
-                const existed = registeredUsers.find(u => (u.username && u.username.toLowerCase() === username) || (rPhone && u.phone && u.phone === rPhone));
-                if (existed) return showToast("Tên đăng nhập hoặc SĐT đã tồn tại!", "error");
-                const nt = { id: Date.now(), name, username, identifier: username, password: pass, school: 'THCS Thành Đông', className: 'Khối 8', phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'teacher', status: 'active', loginCount: 1 };
-                registeredUsers.push(nt);
-                currentUser = { isLoggedIn: true, role: 'teacher', name: nt.name, identifier: nt.identifier };
-                logUserAccess(nt.name, nt.identifier, 'teacher', "Đăng ký thành công");
-                closeLoginModal(); switchRole('teacher');
-                showToast(`Đăng ký thành công ${nt.name}!`, "success");
-                speakRobotText(`Chúc mừng thầy cô ${nt.name} đã đăng ký!`);
-                await syncDataToGitHubDirectly(`Đăng ký GV: ${nt.name}`);
-                return;
-            }
-        }
-        if (activeAuthTab === 'teacher') {
-            const id = document.getElementById('teacherCccdInput')?.value.trim() || '';
-            const pass = document.getElementById('teacherPassInput')?.value.trim() || '';
-            if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
-            if ((id === "086081006094" || id.toLowerCase() === "admin") && pass === "Admin#999") {
-                currentUser = { isLoggedIn: true, role: 'admin', name: "Thầy Nguyễn Thế Phương", identifier: "086081006094" };
-                logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
-                closeLoginModal(); switchRole('admin');
-                showToast("Chào mừng Quản trị viên!", "success");
-                speakRobotText("Kính chào Thầy Nguyễn Thế Phương!");
-                return;
-            }
-            const teacher = registeredUsers.find(u => (u.role === 'teacher' || u.role === 'admin') && ((u.username && u.username.toLowerCase() === id.toLowerCase()) || (u.phone && u.phone === id) || (u.identifier && u.identifier.toLowerCase() === id.toLowerCase())) && u.password === pass);
-            if (teacher) {
-                teacher.loginCount = (teacher.loginCount || 0) + 1;
-                currentUser = { isLoggedIn: true, role: teacher.role || 'teacher', name: teacher.name, identifier: teacher.identifier || id };
-                logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
-                closeLoginModal(); switchRole(teacher.role || 'teacher');
-                showToast(`Chào mừng ${teacher.name}!`, "success");
-                speakRobotText(`Kính chào thầy cô ${teacher.name}!`);
-            } else {
-                const matchedTeacher = registeredUsers.find(u => (u.role === 'teacher' || u.role === 'admin') && ((u.username && u.username.toLowerCase() === id.toLowerCase()) || (u.phone && u.phone === id) || (u.identifier && u.identifier.toLowerCase() === id.toLowerCase())));
-                const logName = matchedTeacher ? matchedTeacher.name : id;
-                const logRole = matchedTeacher ? matchedTeacher.role : 'teacher';
-                logUserAccess(logName, id, logRole, "Reset pw");
-                showToast("Tên đăng nhập hoặc mật khẩu không chính xác! Trạng thái: Reset pw", "error");
-                if (matchedTeacher) speakRobotText("Bạn vui lòng chờ Admin cấp lại mật khẩu sau 24 giờ hoặc hãy tạo mật khẩu mới!");
-            }
+        if (currentAuthAction === 'login') {
+            if (activeAuthTab === 'teacher') return await handleTeacherLogin();
+            else return await handleStudentLogin();
         } else {
-            const id = document.getElementById('studentLoginIdentifier')?.value.trim().toLowerCase() || '';
-            const pass = document.getElementById('studentLoginPassword')?.value.trim() || '';
-            if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
-            const student = registeredUsers.find(u => u.role === 'student' && ((u.identifier && u.identifier.toLowerCase() === id) || (u.username && u.username.toLowerCase() === id) || (u.phone && u.phone === id)) && u.password === pass);
-            if (student) {
-                student.loginCount = (student.loginCount || 0) + 1;
-                currentUser = { isLoggedIn: true, role: 'student', name: student.name, className: student.className, identifier: student.identifier || id };
-                logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
-                closeLoginModal(); switchRole('student');
-                showToast(`Chào mừng học sinh ${student.name}!`, "success");
-                speakRobotText(`Chào em ${student.name}!`);
-            } else {
-                const matchedStudent = registeredUsers.find(u => u.role === 'student' && ((u.identifier && u.identifier.toLowerCase() === id) || (u.username && u.username.toLowerCase() === id) || (u.phone && u.phone === id)));
-                const logName = matchedStudent ? matchedStudent.name : id;
-                logUserAccess(logName, id, 'student', "Reset pw");
-                showToast("Tài khoản hoặc mật khẩu không chính xác! Trạng thái: Reset pw", "error");
-                if (matchedStudent) speakRobotText("Bạn vui lòng chờ Admin cấp lại mật khẩu sau 24 giờ hoặc hãy tạo mật khẩu mới!");
-            }
+            if (activeAuthTab === 'teacher') return await handleTeacherRegister();
+            else return await handleStudentRegister();
         }
+    }
+
+    // ---------- Login: Học sinh ----------
+    async function handleStudentLogin() {
+        const id = (document.getElementById('studentLoginIdentifier')?.value || '').trim().toLowerCase();
+        const pass = document.getElementById('studentLoginPassword')?.value || '';
+        if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
+        const student = registeredUsers.find(u => u.role === 'student' && matchesUserIdentifier(u, id));
+        if (student && await verifyPassword(pass, student.passwordHash, student)) {
+            student.loginCount = (student.loginCount || 0) + 1;
+            currentUser = { isLoggedIn: true, role: 'student', name: student.name, className: student.className, identifier: student.identifier || id };
+            logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
+            closeLoginModal(); switchRole('student');
+            showToast(`Chào mừng học sinh ${student.name}!`, "success");
+            speakRobotText(`Chào em ${student.name}!`);
+        } else {
+            handleFailedLogin(student, id, 'student');
+        }
+    }
+
+    // ---------- Login: Giáo viên ----------
+    async function handleTeacherLogin() {
+        const id = (document.getElementById('teacherCccdInput')?.value || '').trim();
+        const pass = document.getElementById('teacherPassInput')?.value || '';
+        if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
+
+        // 🔐 Admin hardcode (giữ nguyên để tương thích)
+        if ((id === "086081006094" || id.toLowerCase() === "admin") && pass === "Admin#999") {
+            currentUser = { isLoggedIn: true, role: 'admin', name: "Thầy Nguyễn Thế Phương", identifier: "086081006094" };
+            logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
+            closeLoginModal(); switchRole('admin');
+            showToast("Chào mừng Quản trị viên!", "success");
+            speakRobotText("Kính chào Thầy Nguyễn Thế Phương!");
+            return;
+        }
+
+        const teacher = registeredUsers.find(u => (u.role === 'teacher' || u.role === 'admin') && matchesUserIdentifier(u, id));
+        if (teacher && await verifyPassword(pass, teacher.passwordHash, teacher)) {
+            teacher.loginCount = (teacher.loginCount || 0) + 1;
+            currentUser = { isLoggedIn: true, role: teacher.role || 'teacher', name: teacher.name, identifier: teacher.identifier || id };
+            logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
+            closeLoginModal(); switchRole(teacher.role || 'teacher');
+            showToast(`Chào mừng ${teacher.name}!`, "success");
+            speakRobotText(`Kính chào thầy cô ${teacher.name}!`);
+        } else {
+            handleFailedLogin(teacher, id, 'teacher');
+        }
+    }
+
+    // ---------- Đăng ký: Học sinh ----------
+    async function handleStudentRegister() {
+        const name = document.getElementById('regStudentName')?.value.trim();
+        const school = document.getElementById('regStudentSchool')?.value.trim() || 'THCS Thành Đông';
+        const className = document.getElementById('regStudentClass')?.value.trim();
+        const username = document.getElementById('regStudentUsername')?.value.trim().toLowerCase();
+        const pass = document.getElementById('regStudentPass')?.value.trim();
+        const rPhone = document.getElementById('regStudentPhone')?.value.trim() || '';
+        const rCccd  = document.getElementById('regStudentCccd')?.value.trim() || '';
+        const rEmail = document.getElementById('regStudentEmail')?.value.trim() || '';
+        if (!name || !className || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
+        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
+        const existed = registeredUsers.find(u => matchesUserIdentifier(u, username));
+        if (existed) return showToast("Tên đăng nhập đã tồn tại!", "error");
+        const passwordHash = await hashPassword(pass);
+        const ns = { id: Date.now(), name, username, identifier: username, password: null, passwordHash, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'student', status: 'active', loginCount: 1 };
+        registeredUsers.push(ns);
+        currentUser = { isLoggedIn: true, role: 'student', name: ns.name, className: ns.className, identifier: ns.identifier };
+        logUserAccess(ns.name, ns.identifier, 'student', "Đăng ký thành công");
+        closeLoginModal(); switchRole('student');
+        showToast(`Đăng ký thành công ${ns.name}!`, "success");
+        speakRobotText(`Chúc mừng học sinh ${ns.name} đã đăng ký!`);
+        await syncDataToGitHubDirectly(`Đăng ký HS: ${ns.name}`);
+    }
+
+    // ---------- Đăng ký: Giáo viên ----------
+    async function handleTeacherRegister() {
+        const name = document.getElementById('regTeacherName')?.value.trim();
+        const rPhone = document.getElementById('regTeacherPhone')?.value.trim() || '';
+        const rCccd  = document.getElementById('regTeacherCccd')?.value.trim() || '';
+        const rEmail = document.getElementById('regTeacherEmail')?.value.trim() || '';
+        const username = document.getElementById('regTeacherUsername')?.value.trim().toLowerCase();
+        const pass = document.getElementById('regTeacherPass')?.value.trim();
+        if (!name || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
+        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
+        const existed = registeredUsers.find(u => matchesUserIdentifier(u, username) || (rPhone && u.phone && u.phone === rPhone));
+        if (existed) return showToast("Tên đăng nhập hoặc SĐT đã tồn tại!", "error");
+        const passwordHash = await hashPassword(pass);
+        const nt = { id: Date.now(), name, username, identifier: username, password: null, passwordHash, school: 'THCS Thành Đông', className: 'Khối 8', phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'teacher', status: 'active', loginCount: 1 };
+        registeredUsers.push(nt);
+        currentUser = { isLoggedIn: true, role: 'teacher', name: nt.name, identifier: nt.identifier };
+        logUserAccess(nt.name, nt.identifier, 'teacher', "Đăng ký thành công");
+        closeLoginModal(); switchRole('teacher');
+        showToast(`Đăng ký thành công ${nt.name}!`, "success");
+        speakRobotText(`Chúc mừng thầy cô ${nt.name} đã đăng ký!`);
+        await syncDataToGitHubDirectly(`Đăng ký GV: ${nt.name}`);
+    }
+
+    // ---------- Helpers ----------
+    function matchesUserIdentifier(user, id) {
+        if (!user || !id) return false;
+        const lo = String(id).toLowerCase();
+        return (user.username && user.username.toLowerCase() === lo) ||
+               (user.identifier && user.identifier.toLowerCase() === lo) ||
+               (user.phone && user.phone === id);
+    }
+
+    function handleFailedLogin(matchedUser, id, role) {
+        const logName = matchedUser ? matchedUser.name : id;
+        const logRole = matchedUser ? (matchedUser.role || role) : role;
+        logUserAccess(logName, id, logRole, "Reset pw");
+        showToast("Tài khoản hoặc mật khẩu không chính xác! Trạng thái: Reset pw", "error");
+        if (matchedUser) speakRobotText("Bạn vui lòng chờ Admin cấp lại mật khẩu sau 24 giờ hoặc hãy tạo mật khẩu mới!");
     }
 
     function logUserAccess(name, identifier, role, result = "Thành công") {
@@ -2699,7 +2835,8 @@
         const matchEmail = email && user.email && String(user.email).trim().toLowerCase() === email.toLowerCase();
         const isMatch = !!(matchPhone || matchCccd || matchEmail);
         if (isMatch) {
-            user.password = newPass;
+            user.passwordHash = await hashPassword(newPass);
+            user.password = null;
             logUserAccess(user.name, user.identifier || user.username, user.role, "Đổi mật khẩu thành công");
             autoSaveLocalSnapshot();
             closePasswordResetModal();
@@ -2717,125 +2854,143 @@
         }
     }
 
-    // GITHUB SYNC
-    function saveGithubToken() {
-        const token = document.getElementById('githubTokenInput')?.value.trim() || "";
-        if (!token) return showToast("Vui lòng nhập token!", "error");
-        localStorage.setItem('github_pat_token', token);
-        updateGithubTokenIndicator();
-        showToast("Đã lưu token!", "success");
-    }
-    function updateGithubTokenIndicator() {
-        const token = (localStorage.getItem('github_pat_token') || getDecryptedGitHubToken()).trim();
-        const ind = document.getElementById('githubTokenIndicator');
-        if (ind) {
-            if (token) { ind.textContent = "Đã kết nối"; ind.className = "text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold"; }
-            else { ind.textContent = "Chưa kết nối"; ind.className = "text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono"; }
-        }
-    }
-    async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
+    // =============================================
+    // 🔐 GITHUB SYNC QUA PROXY + RETRY
+    // =============================================
+    async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
 
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
         autoSaveLocalSnapshot();
-        const token = (localStorage.getItem('github_pat_token') || getDecryptedGitHubToken()).trim();
         const syncTimeEl = document.getElementById('lastGithubSyncTime');
-        if (!token) { if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã lưu máy)"; return false; }
+        if (!PROXY_ENDPOINT) {
+            if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Chưa cấu hình Proxy)";
+            return false;
+        }
         try {
-            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
-            let fileSha = "";
-            const getRes = await fetch(apiUrl, { headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json" }, cache: 'no-store' });
-            if (getRes.ok) { const meta = await getRes.json(); fileSha = meta.sha; }
-            const payload = {
-                metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
-                data: { registeredUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache }
-            };
+            const payload = buildSnapshotPayload(actionDescription);
             const jsonStr = JSON.stringify(payload, null, 2);
-            const bytes = new TextEncoder().encode(jsonStr);
-            const binary = Array.from(bytes, b => String.fromCharCode(b)).join('');
-            const base64Data = btoa(binary);
+            const base64Data = btoa(unescape(encodeURIComponent(jsonStr)));
+            const sha = await getCurrentShaViaProxy(GITHUB_FILE_PATH);
             const body = { message: `[Sync] ${actionDescription}`, content: base64Data, branch: "main" };
-            if (fileSha) body.sha = fileSha;
-            const putRes = await fetch(apiUrl, { method: "PUT", headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json", "Content-Type": "application/json" }, body: JSON.stringify(body) });
-            if (putRes.ok) { if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã đồng bộ)"; return true; }
-        } catch (e) {}
-        return false;
+            if (sha) body.sha = sha;
+            await githubFetchViaProxy(GITHUB_FILE_PATH, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã đồng bộ)";
+            return true;
+        } catch (e) {
+            console.error('[SYNC] Error:', e);
+            if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Lỗi: " + e.message + ")";
+            return false;
+        }
+    }
+
+    function buildSnapshotPayload(actionDescription) {
+        const cleanedUsers = registeredUsers.map(u => {
+            // Không gửi passwordHash lên server công khai → chỉ gửi user info
+            // Nếu qua proxy riêng, có thể giữ hash; ở đây tạm ẩn để an toàn
+            const { password, passwordHash, ...safe } = u;
+            return { ...safe, _hasPassword: !!(passwordHash || password) };
+        });
+        return {
+            metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
+            data: {
+                registeredUsers: cleanedUsers,
+                assignments: sanitizeMathForJson(assignments),
+                gradebook,
+                lectures: sanitizeMathForJson(lectures),
+                studentSubmissions,
+                loginLogs,
+                studentFlags,
+                flaggedAssignmentsCache,
+                testSets,
+                studentCodeCache
+            }
+        };
     }
 
     async function autoFetchDataFromGitHub(showAlert = false) {
-        try {
-            const token = (localStorage.getItem('github_pat_token') || getDecryptedGitHubToken()).trim();
-            let payload = null;
-            if (token) {
-                try {
-                    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}?_t=${Date.now()}`;
-                    const apiRes = await fetch(apiUrl, { headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json" }, cache: 'no-store' });
-                    if (apiRes.ok) {
-                        const meta = await apiRes.json();
-                        if (meta && meta.content) {
-                            const binary = atob(meta.content.replace(/\s/g, ''));
-                            const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
-                            payload = JSON.parse(new TextDecoder().decode(bytes));
-                        }
-                    }
-                } catch(e) { payload = null; }
+        const syncTimeEl = document.getElementById('lastGithubSyncTime');
+        let payload = null;
+
+        // Ưu tiên 1: Proxy
+        if (PROXY_ENDPOINT) {
+            try {
+                const res = await githubFetchViaProxy(GITHUB_FILE_PATH, { method: 'GET' });
+                payload = await res.json();
+                PROXY_HEALTHY = true;
+            } catch (e) {
+                console.warn('[FETCH] Proxy failed, fallback to raw:', e.message);
             }
-            if (!payload) {
+        }
+
+        // Fallback: raw CDN công khai
+        if (!payload) {
+            try {
                 const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${GITHUB_FILE_PATH}?_t=${Date.now()}`;
                 const res = await fetch(rawUrl, { cache: 'no-store' });
                 if (res.ok) payload = await res.json();
-            }
-            if (payload && payload.data) {
-                if (payload.data.registeredUsers) registeredUsers = payload.data.registeredUsers;
-                if (payload.data.assignments) assignments = payload.data.assignments;
-                if (payload.data.gradebook) gradebook = payload.data.gradebook;
-                if (payload.data.lectures) lectures = payload.data.lectures;
-                if (payload.data.studentSubmissions) studentSubmissions = payload.data.studentSubmissions;
-                if (payload.data.loginLogs) loginLogs = payload.data.loginLogs;
-                if (payload.data.studentFlags) studentFlags = payload.data.studentFlags;
-                if (payload.data.flaggedAssignmentsCache) flaggedAssignmentsCache = payload.data.flaggedAssignmentsCache;
-                if (payload.data.testSets) testSets = payload.data.testSets;
-                if (payload.data.studentCodeCache) studentCodeCache = payload.data.studentCodeCache;
-                restoreFlaggedAssignments();
-                const syncTimeEl = document.getElementById('lastGithubSyncTime');
-                if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN');
-                if (showAlert) showToast("Đã nạp dữ liệu mới!", "success");
-                populateAssignmentSelect(); populateStudentLectures();
-                renderTeacherLecturesTable(); renderManageAssignmentsTable();
-                renderTeacherSubmissionsTable(); renderTeacherLogsTable();
-                refreshAdminDashboard(); updateTeacherStats();
-                renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
-                return true;
-            }
-        } catch(e) {}
+            } catch(e) {}
+        }
+
+        if (payload && payload.data) {
+            applySnapshotData(payload.data);
+            await migratePasswordHashes();
+            ensureTrialAccountsAlwaysAvailable();
+            if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN');
+            if (showAlert) showToast("Đã nạp dữ liệu mới!", "success");
+            renderAllAfterDataChange();
+            return true;
+        }
         if (showAlert) showToast("Không thể kết nối máy chủ.", "error");
         return false;
     }
 
+    function applySnapshotData(data) {
+        if (data.registeredUsers) registeredUsers = data.registeredUsers;
+        if (data.assignments) assignments = data.assignments;
+        if (data.gradebook) gradebook = data.gradebook;
+        if (data.lectures) lectures = data.lectures;
+        if (data.studentSubmissions) studentSubmissions = data.studentSubmissions;
+        if (data.loginLogs) loginLogs = data.loginLogs;
+        if (data.studentFlags) studentFlags = data.studentFlags;
+        if (data.flaggedAssignmentsCache) flaggedAssignmentsCache = data.flaggedAssignmentsCache;
+        if (data.testSets) testSets = data.testSets;
+        if (data.studentCodeCache) studentCodeCache = data.studentCodeCache;
+        restoreFlaggedAssignments();
+    }
+
+    function renderAllAfterDataChange() {
+        populateAssignmentSelect(); populateStudentLectures();
+        renderTeacherLecturesTable(); renderManageAssignmentsTable();
+        renderTeacherSubmissionsTable(); renderTeacherLogsTable();
+        refreshAdminDashboard(); updateTeacherStats();
+        renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
+    }
+
     async function pushSubmissionsCsvToGithub() {
-        const token = (localStorage.getItem('github_pat_token') || getDecryptedGitHubToken()).trim();
-        if (!token) return;
+        if (!PROXY_ENDPOINT) return;
         try {
             const esc = (v) => `"${String(v||'').replace(/"/g,'""')}"`;
             const rows = ['STT,Học sinh,Tài khoản,Bài tập,Điểm,Thời gian'];
             studentSubmissions.forEach((s, i) => rows.push([i+1, esc(s.student), esc(s.username||''), esc(s.assignmentTitle), s.score, esc(s.timestamp)].join(',')));
             const csv = '\uFEFF' + rows.join('\n');
-            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_SUBMISSIONS_PATH}`;
-            let sha = '';
-            const getRes = await fetch(apiUrl, { headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json" }, cache: 'no-store' });
-            if (getRes.ok) { const meta = await getRes.json(); sha = meta.sha; }
-            const bytes = new TextEncoder().encode(csv);
-            const binary = Array.from(bytes, b => String.fromCharCode(b)).join('');
-            const base64 = btoa(binary);
+            const sha = await getCurrentShaViaProxy(GITHUB_SUBMISSIONS_PATH);
+            const base64 = btoa(unescape(encodeURIComponent(csv)));
             const body = { message: `[Submissions] Cập nhật ${new Date().toLocaleString('vi-VN')}`, content: base64, branch: 'main' };
             if (sha) body.sha = sha;
-            await fetch(apiUrl, { method: 'PUT', headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json", "Content-Type": "application/json" }, body: JSON.stringify(body) });
-        } catch(e) {}
+            await githubFetchViaProxy(GITHUB_SUBMISSIONS_PATH, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+        } catch(e) { console.warn('[CSV] push error:', e); }
     }
 
     async function pushCodePythonXlsxToGithub() {
-        if (typeof XLSX === 'undefined') return;
-        const token = (localStorage.getItem('github_pat_token') || getDecryptedGitHubToken()).trim();
-        if (!token) return;
+        if (typeof XLSX === 'undefined' || !PROXY_ENDPOINT) return;
         try {
             const rows = [];
             const assignmentCols = assignments.map(a => `Bài ${a.id}: ${a.title}`);
@@ -2891,14 +3046,15 @@
             let binary = '';
             for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
             const base64 = btoa(binary);
-            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_CODE_PYTHON_PATH}`;
-            let sha = '';
-            const getRes = await fetch(apiUrl, { headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json" }, cache: 'no-store' });
-            if (getRes.ok) { const meta = await getRes.json(); sha = meta.sha; }
+            const sha = await getCurrentShaViaProxy(GITHUB_CODE_PYTHON_PATH);
             const body = { message: `[Code_python_hs] Cập nhật ${new Date().toLocaleString('vi-VN')}`, content: base64, branch: 'main' };
             if (sha) body.sha = sha;
-            await fetch(apiUrl, { method: 'PUT', headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json", "Content-Type": "application/json" }, body: JSON.stringify(body) });
-        } catch(e) {}
+            await githubFetchViaProxy(GITHUB_CODE_PYTHON_PATH, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+        } catch(e) { console.warn('[XLSX] push error:', e); }
     }
 
     async function importJsonSnapshotFile(event) {
@@ -2907,23 +3063,11 @@
             const text = await file.text();
             const parsed = JSON.parse(text);
             const data = parsed.data || parsed;
-            if (data.registeredUsers) registeredUsers = data.registeredUsers;
-            if (data.assignments) assignments = data.assignments;
-            if (data.gradebook) gradebook = data.gradebook;
-            if (data.lectures) lectures = data.lectures;
-            if (data.studentSubmissions) studentSubmissions = data.studentSubmissions;
-            if (data.loginLogs) loginLogs = data.loginLogs;
-            if (data.studentFlags) studentFlags = data.studentFlags;
-            if (data.flaggedAssignmentsCache) flaggedAssignmentsCache = data.flaggedAssignmentsCache;
-            if (data.testSets) testSets = data.testSets;
-            if (data.studentCodeCache) studentCodeCache = data.studentCodeCache;
-            restoreFlaggedAssignments();
+            applySnapshotData(data);
+            await migratePasswordHashes();
+            ensureTrialAccountsAlwaysAvailable();
             autoSaveLocalSnapshot();
-            populateAssignmentSelect(); populateStudentLectures();
-            renderTeacherLecturesTable(); renderManageAssignmentsTable();
-            renderTeacherSubmissionsTable(); renderTeacherLogsTable();
-            refreshAdminDashboard(); updateTeacherStats();
-            renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
+            renderAllAfterDataChange();
             showToast("Nạp tệp .JSON thành công!", "success");
             await syncDataToGitHubDirectly(`Nạp từ ${file.name}`);
         } catch (err) { showToast("Lỗi định dạng JSON!", "error"); }
@@ -3756,18 +3900,6 @@ except Exception as e: _error = str(e)
         showToast("Đã xuất CSV!", "success");
     }
 
-    // =============================================
-    // TEACHER GRADES (Same as Admin)
-    // =============================================
-    function toggleTeacherGradeSort() {
-        teacherGradeSortDesc = !teacherGradeSortDesc;
-        const icon = document.getElementById('teacherGradeSortIcon');
-        const label = document.getElementById('teacherGradeSortLabel');
-        if (icon) icon.className = teacherGradeSortDesc ? 'ph-bold ph-sort-descending' : 'ph-bold ph-sort-ascending';
-        if (label) label.textContent = teacherGradeSortDesc ? 'Giảm dần' : 'Tăng dần';
-        renderTeacherGrades();
-    }
-
     function getGradeRows(sortDesc) {
         const byStudent = {};
         studentSubmissions.forEach(s => {
@@ -3784,6 +3916,15 @@ except Exception as e: _error = str(e)
         });
         rows.sort((a, b) => sortDesc ? (b.total - a.total) : (a.total - b.total));
         return rows;
+    }
+
+    function toggleTeacherGradeSort() {
+        teacherGradeSortDesc = !teacherGradeSortDesc;
+        const icon = document.getElementById('teacherGradeSortIcon');
+        const label = document.getElementById('teacherGradeSortLabel');
+        if (icon) icon.className = teacherGradeSortDesc ? 'ph-bold ph-sort-descending' : 'ph-bold ph-sort-ascending';
+        if (label) label.textContent = teacherGradeSortDesc ? 'Giảm dần' : 'Tăng dần';
+        renderTeacherGrades();
     }
 
     function renderTeacherGrades() {
@@ -3814,9 +3955,6 @@ except Exception as e: _error = str(e)
         showToast("Đã xuất CSV!", "success");
     }
 
-    // =============================================
-    // XUẤT EXCEL 3 SHEET CHI TIẾT
-    // =============================================
     function exportSubmissionsXlsx() {
         if (typeof XLSX === 'undefined') return showToast("Thư viện Excel chưa tải!", "error");
         if (studentSubmissions.length === 0) return showToast("Chưa có bài làm!", "error");
@@ -3893,7 +4031,6 @@ except Exception as e: _error = str(e)
         showToast("Đã xuất JSON!", "success");
     }
 
-    // RANDOM TEST
     let currentRandomTest = null;
     function openRandomTestModal() {
         document.getElementById('randomTestModal')?.classList.remove('hidden');
@@ -4340,7 +4477,8 @@ except Exception as e: _error = str(e)
         const rCccd  = document.getElementById('newStudentCccd')?.value.trim() || '';
         const rEmail = document.getElementById('newStudentEmail')?.value.trim() || '';
         if (!username || !name) return showToast("Vui lòng điền đủ!", "error");
-        registeredUsers.push({ id: Date.now(), name, username, identifier: username, password: pass, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'student', status: 'active', loginCount: 0 });
+        const passwordHash = await hashPassword(pass);
+        registeredUsers.push({ id: Date.now(), name, username, identifier: username, password: null, passwordHash, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'student', status: 'active', loginCount: 0 });
         closeAddStudentModal(); refreshAdminDashboard(); updateTeacherStats(); autoSaveLocalSnapshot();
         showToast(`Đã thêm ${name}!`, "success");
         await syncDataToGitHubDirectly(`Admin thêm HS: ${name}`);
@@ -4357,7 +4495,8 @@ except Exception as e: _error = str(e)
         const className = document.getElementById('newTeacherClass')?.value.trim() || 'Khối 8';
         const pass = document.getElementById('newTeacherPass')?.value.trim() || 'GiaoVien#123';
         if (!username || !name) return showToast("Vui lòng điền đủ!", "error");
-        registeredUsers.push({ id: Date.now(), name, username, identifier: username, password: pass, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'teacher', status: 'active', loginCount: 0 });
+        const passwordHash = await hashPassword(pass);
+        registeredUsers.push({ id: Date.now(), name, username, identifier: username, password: null, passwordHash, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'teacher', status: 'active', loginCount: 0 });
         closeAddTeacherModal(); refreshAdminDashboard(); updateTeacherStats(); autoSaveLocalSnapshot();
         showToast(`Đã thêm ${name}!`, "success");
         await syncDataToGitHubDirectly(`Admin thêm GV: ${name}`);
@@ -4373,7 +4512,7 @@ except Exception as e: _error = str(e)
         document.getElementById('editUserSchool').value = user.school || '';
         document.getElementById('editUserClass').value = user.className || '';
         document.getElementById('editUserRole').value = user.role || 'student';
-        document.getElementById('editUserPass').value = user.password || '';
+        document.getElementById('editUserPass').value = '';  // không hiển thị hash
         document.getElementById('editUserModal')?.classList.remove('hidden');
     }
     function closeEditUserModal() { document.getElementById('editUserModal')?.classList.add('hidden'); }
@@ -4389,9 +4528,13 @@ except Exception as e: _error = str(e)
         const className = document.getElementById('editUserClass')?.value.trim();
         const role = document.getElementById('editUserRole')?.value;
         const pass = document.getElementById('editUserPass')?.value.trim();
-        if (!name || !username || !pass) return showToast("Không được để trống!", "error");
+        if (!name || !username) return showToast("Không được để trống!", "error");
         user.name = name; user.phone = phone || '---'; user.cccd = cccd || ''; user.email = email || ''; user.username = username; user.identifier = username;
-        user.school = school || 'THCS Thành Đông'; user.className = className || '---'; user.role = role; user.password = pass;
+        user.school = school || 'THCS Thành Đông'; user.className = className || '---'; user.role = role;
+        if (pass) {
+            user.passwordHash = await hashPassword(pass);
+            user.password = null;
+        }
         closeEditUserModal(); refreshAdminDashboard(); updateTeacherStats(); autoSaveLocalSnapshot();
         showToast(`Đã cập nhật "${name}"!`, "success");
         await syncDataToGitHubDirectly(`Admin cập nhật TK: ${name}`);
@@ -4905,7 +5048,7 @@ except Exception as e: _error = str(e)
         const t = "Hướng dẫn sử dụng. Nền tảng dạy học lập trình Python. Tác giả: Thầy Nguyễn Thế Phương, THCS Thành Đông.";
         speakRobotText(t); showToast("Đang đọc...", "info");
     }
-    function openGithubSyncModal() { updateGithubTokenIndicator(); document.getElementById('githubSyncModal')?.classList.remove('hidden'); }
+    function openGithubSyncModal() { loadProxyUrlIntoInput(); checkProxyHealth(false); document.getElementById('githubSyncModal')?.classList.remove('hidden'); }
     function closeGithubSyncModal() { document.getElementById('githubSyncModal')?.classList.add('hidden'); }
 
     function showToast(message, type = 'info') {
@@ -4969,9 +5112,11 @@ except Exception as e: _error = str(e)
     window.addEventListener('DOMContentLoaded', async () => {
         loadLocalSnapshotIfAvailable();
         ensureTrialAccountsAlwaysAvailable();
-        updateGithubTokenIndicator();
+        loadProxyUrlIntoInput();
+        checkProxyHealth(false);
         studentFlags = loadStudentFlagsFromLS();
         flaggedAssignmentsCache = loadFlaggedCacheFromLS();
+        await migratePasswordHashes();
         await autoFetchDataFromGitHub();
         ensureTrialAccountsAlwaysAvailable();
         restoreFlaggedAssignments();
