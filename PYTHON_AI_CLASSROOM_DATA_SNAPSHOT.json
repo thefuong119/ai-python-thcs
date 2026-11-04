@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T16:39:50.791Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đăng xuất: Thầy Nguyễn Thế Phương"
+    "updatedAt": "2026-11-04T16:41:13.651Z",
+    "updatedBy": "Trần Thị Trúc Mai",
+    "action": "Đăng xuất: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -41,7 +41,7 @@
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
-        "loginCount": 36
+        "loginCount": 37
       },
       {
         "id": 3,
@@ -11574,6 +11574,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:41:11 4/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "23:40:15 4/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "23:39:49 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
