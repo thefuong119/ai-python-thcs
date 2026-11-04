@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:24:12.431Z",
+    "updatedAt": "2026-11-04T11:24:19.580Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 53. Dãy theo quy luật tổng bình phương chữ số"
+    "action": "Lưu bài tập: Bài 77. Tách số thành ba số"
   },
   "data": {
     "registeredUsers": [
@@ -3672,7 +3672,7 @@
         "id": 113,
         "title": "Bài 77. Tách số thành ba số",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho số nguyên dương N. Đếm số bộ ba số nguyên dương có thứ tự (a, b, c) thỏa a + b + c = N, a là ước chung lớn hơn 1 của b và c, đồng thời a ≤ b và a ≤ c. Các cặp (b, c) hoán đổi vị trí được tính là hai cách khác nhau.\nDữ liệu vào: Một số nguyên dương N.\nDữ liệu ra: Số bộ ba thỏa mãn.",
         "templateCode": "n = int(input())\ndem = 0\n\nfor a in range(2, n // 3 + 1):\n    for b in range(a, n - a + 1):\n        c = n - a - b\n        if b % a == 0 and c % a == 0 and c >= a:\n            dem += 1\n\nprint(dem)",
