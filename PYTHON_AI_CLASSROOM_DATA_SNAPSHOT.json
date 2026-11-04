@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:06:39.662Z",
+    "updatedAt": "2026-11-04T11:06:47.051Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 106. Dãy con có tổng bằng nhau"
+    "action": "Lưu bài tập: Bài 85. Xử lý xâu chữ và chữ số"
   },
   "data": {
     "registeredUsers": [
@@ -3872,7 +3872,7 @@
         "id": 121,
         "title": "Bài 85. Xử lý xâu chữ và chữ số",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Xâu S gồm chữ thường và chữ số. In số a tạo bởi các chữ số trong S; xóa một số chữ số của a để được số lớn nhất chia hết cho 5 (nếu không có in KHONG); tính tổng các số xuất hiện trong S.\nInput: S. Output: a, b, T.",
         "templateCode": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key=lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
