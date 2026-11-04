@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:22:19.915Z",
+    "updatedAt": "2026-11-04T11:23:39.529Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 34. Giá trị lớn nhất trong mọi cửa sổ trượt (Monotonic Deque)"
+    "action": "Lưu bài tập: Bài 49. Xếp hàng"
   },
   "data": {
     "registeredUsers": [
@@ -2972,7 +2972,7 @@
         "id": 85,
         "title": "Bài 49. Xếp hàng",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một hàng có n học sinh, chiều cao của học sinh thứ i là a[i] (cm). Hãy tìm số lượng học sinh có cùng chiều cao nhiều nhất và chiều cao tương ứng.\nNếu có nhiều chiều cao cùng đạt tần suất lớn nhất, chọn chiều cao nhỏ nhất.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên là chiều cao.\nDữ liệu ra: Hai số: tần suất lớn nhất và chiều cao tương ứng.",
         "templateCode": "from collections import Counter\nn = int(input())\na = list(map(int, input().split()))\ndem = Counter(a)\nmax_dem = max(dem.values())\nchieu_cao = min(x for x, c in dem.items() if c == max_dem)\nprint(max_dem, chieu_cao)",
@@ -10322,10 +10322,10 @@
         "id": 379,
         "title": "Bài 23. Lập lịch trạm sạc xe điện tối ưu thời gian chờ",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một trạm sạc đơn có $N$1$i$1$t_i$1$N$1$N$ ($1 \\le N \\le 10^4$).\n- Dòng 2: $N$1$t_1, t_2, ..., t_N$ ($1 \\le t_i \\le 1000$).\nDữ liệu ra: Một số nguyên là tổng thời gian chờ tối thiểu.",
-        "templateCode": "N = int(input().strip())\nt = list(map(int, input().split()))\nt.sort()\ntong_cho, thoi_gian_qua = 0, 0\nfor x in t:\n tong_cho += thoi_gian_qua\n thoi_gian_qua += x\nprint(tong_cho)",
+        "templateCode": "N = int(input().strip())\nt = list(map(int, input().split()))\nt.sort()\ntong_cho, thoi_gian_qua = 0, 0\nfor x in t:\n    tong_cho += thoi_gian_qua\n    thoi_gian_qua += x\nprint(tong_cho)",
         "tests": [
           {
             "id": 1,
