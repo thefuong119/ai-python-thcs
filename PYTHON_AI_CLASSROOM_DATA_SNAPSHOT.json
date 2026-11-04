@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T04:49:15.478Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài giảng: Bài mở đầu: Cấu trúc đề thi HSG Tin học 9 và Chiến lược đạt giải năm học 2026 - 2027"
+    "updatedAt": "2026-11-04T05:29:08.592Z",
+    "updatedBy": "Khách",
+    "action": "Đổi mật khẩu thành công: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -11585,6 +11585,13 @@
     ],
     "loginLogs": [
       {
+        "time": "12:29:06 4/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đổi mật khẩu thành công"
+      },
+      {
         "time": "11:46:41 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -12058,36 +12065,6 @@
         ]
       }
     },
-    "exams": [
-      {
-        "id": 1,
-        "title": "KIỂM TRA NĂNG LỰC LỚP 8 - 04/11/2026",
-        "classLevel": "8",
-        "showSampleCode": false,
-        "duration": 60,
-        "createdAt": "06:18:12 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          6,
-          11,
-          296
-        ]
-      },
-      {
-        "id": 2,
-        "title": "KIỂM TRA NĂNG LỰC LỚP 9 - 04/11/2026",
-        "classLevel": "9",
-        "showSampleCode": false,
-        "duration": 60,
-        "createdAt": "11:41:29 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          211,
-          181,
-          134
-        ]
-      }
-    ],
-    "examProgress": {}
+    "testSets": []
   }
 }
