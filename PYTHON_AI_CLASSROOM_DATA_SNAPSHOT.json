@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:55:41.616Z",
+    "updatedAt": "2026-11-04T10:56:07.203Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 30. Số nguyên tố có tổng chữ số cho trước"
+    "action": "Admin lưu bài tập: Bài 32. Quyển sách có bao nhiêu tờ"
   },
   "data": {
     "registeredUsers": [
@@ -1788,7 +1788,7 @@
         "id": 41,
         "title": "Bài 32. Quyển sách có bao nhiêu tờ",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một quyển sách được đánh số trang chỉ ở các trang lẻ lần lượt là 1, 3, 5, 7, 9, 11, ... Trang cuối cùng của quyển sách được đánh số trang tối đa M gần với một giá trị N cho trước (M <= N và M là số lẻ).\nBiết rằng mỗi tờ giấy có hai trang. Hỏi quyển sách có bao nhiêu tờ giấy (T), bao nhiêu trang được đánh số (K) và số trang được đánh ở trang cuối cùng (M)?\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^18).\n- Dữ liệu ra: Ghi ba số T, K, M cách nhau bởi đúng một dấu cách.",
         "templateCode": "n = int(input().strip())\nm = n if n % 2 == 1 else n - 1\nk = (m + 1) // 2\nt = (k + 1) // 2\nprint(t, k, m)",
