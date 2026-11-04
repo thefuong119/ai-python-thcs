@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:06:47.051Z",
+    "updatedAt": "2026-11-04T11:06:52.203Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 85. Xử lý xâu chữ và chữ số"
+    "action": "Lưu bài tập: Bài 123. Dãy nguyên tố liên tiếp"
   },
   "data": {
     "registeredUsers": [
@@ -4797,7 +4797,7 @@
         "id": 158,
         "title": "Bài 123. Dãy nguyên tố liên tiếp",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập dãy số nguyên dương. In các số nguyên tố và đoạn liên tiếp có nhiều số nguyên tố nhất; hòa chọn đoạn có tổng lớn hơn.",
         "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nprint(*[x for x in a if p(x)])\nbest=[]; cur=[]\nfor x in a+[0]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best) or (len(cur)==len(best) and sum(cur)>sum(best)): best=cur[:]\n cur=[]\nprint(*best if best else ['KHONG CO'])",
