@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T13:35:37.848Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài Bài 1. Tính tổng hai số nguyên A và B"
+    "updatedAt": "2026-11-04T13:35:33.155Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Đăng xuất: Thầy Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -204,7 +204,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 2,
+        "loginCount": 1,
         "phone": "Zalo cá nhân"
       },
       {
@@ -10771,14 +10771,6 @@
     ],
     "gradebook": [
       {
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "attempts": 3,
-        "totalScore": 10,
-        "highestScore": 10,
-        "lastSubmit": "20:35:34 4/11/2026"
-      },
-      {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "attempts": 13,
@@ -10787,12 +10779,20 @@
         "lastSubmit": "23:07:51 3/11/2026"
       },
       {
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "attempts": 1,
+        "totalScore": 10,
+        "highestScore": 10,
+        "lastSubmit": "00:17:51 4/11/2026"
+      },
+      {
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
-        "attempts": 3,
+        "attempts": 4,
         "totalScore": 30,
         "highestScore": 10,
-        "lastSubmit": "20:53:07 3/11/2026"
+        "lastSubmit": "20:16:32 4/11/2026"
       },
       {
         "student": "Lê Nguyễn Quang Minh",
@@ -11314,24 +11314,12 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793799334542,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "20:35:34 4/11/2026"
-      },
-      {
-        "id": 1793799289641,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "20:34:49 4/11/2026"
+        "id": 1793798192900,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "score": 10,
+        "timestamp": "20:16:32 4/11/2026"
       },
       {
         "id": 1793746880154,
@@ -11585,10 +11573,31 @@
     ],
     "loginLogs": [
       {
-        "time": "19:54:25 4/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
+        "time": "20:35:31 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "20:27:34 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "20:17:25 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "20:12:53 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -11825,7 +11834,8 @@
     ],
     "studentFlags": {
       "086081006094": {
-        "1": true
+        "1": true,
+        "2": true
       },
       "loc": {
         "1": true,
@@ -11839,7 +11849,6 @@
         "5": true
       },
       "hocsinh": {
-        "1": true,
         "28": true
       }
     },
@@ -12108,46 +12117,6 @@
         ]
       }
     },
-    "exams": [
-      {
-        "id": 1,
-        "title": "BÀI TẬP ÔN TẬP LỚP 8 - 04/11/2026",
-        "classLevel": "8",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:42:09 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          28,
-          3,
-          27
-        ]
-      },
-      {
-        "id": 2,
-        "title": "BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026",
-        "classLevel": "9",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:43:27 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          184,
-          364,
-          110
-        ]
-      }
-    ],
-    "examProgress": {
-      "2": {
-        "han": {
-          "184": {
-            "score": 5,
-            "submitted": true,
-            "code": "n=int(input()); \nprint(sum(map(int,str(n)))); \nprint(bin(n)[2:])"
-          }
-        }
-      }
-    }
+    "testSets": []
   }
 }
