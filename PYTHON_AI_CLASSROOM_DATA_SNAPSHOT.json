@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T14:34:20.488Z",
+    "updatedAt": "2026-11-04T14:38:59.674Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "HS Thầy Nguyễn Thế Phương nộp bài"
+    "action": "Xóa 4 bài làm (teacher)"
   },
   "data": {
     "registeredUsers": [
@@ -11313,116 +11313,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1793802858585,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "21:34:18 4/11/2026",
-        "date": "2026-11-04",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": " # Mã nguồn cho bài Tính tổng hai số nguyên A và B\n # Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
-      {
-        "id": 1793802851958,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "21:34:11 4/11/2026",
-        "date": "2026-11-04",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": " # Mã nguồn cho bài Tính tổng hai số nguyên A và B\n # Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
-      {
-        "id": 1793799381293,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "20:36:21 4/11/2026"
-      },
-      {
-        "id": 1793799334542,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "20:35:34 4/11/2026"
-      },
       {
         "id": 1793799289641,
         "student": "Học sinh Demo",
