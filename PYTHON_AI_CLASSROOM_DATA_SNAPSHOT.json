@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:05:33.483Z",
+    "updatedAt": "2026-11-04T11:05:47.707Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 60. Xóa ký tự trong xâu để được số nhỏ nhất"
+    "action": "Lưu bài tập: Bài 64. Connect Four"
   },
   "data": {
     "registeredUsers": [
@@ -3347,7 +3347,7 @@
         "id": 100,
         "title": "Bài 64. Connect Four",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Bàn cờ có 6 hàng và 7 cột, mỗi ô chứa 0 (quân vàng) hoặc 1 (quân đỏ). Một màu thắng nếu có ít nhất 4 quân liên tiếp theo hàng ngang hoặc cột dọc. Nếu cả hai màu cùng thắng hoặc không màu nào thắng thì hòa.\nDữ liệu vào: 6 dòng, mỗi dòng gồm 7 ký tự 0/1 (có thể cách nhau bởi dấu cách).\nDữ liệu ra: 1 nếu đỏ thắng duy nhất; 0 nếu vàng thắng duy nhất; -1 nếu hòa.",
         "templateCode": "a = []\nfor _ in range(6):\n    line = input().strip().replace(\" \", \"\")\n    a.append(list(line))\n\nwin = {\"0\": False, \"1\": False}\n\nfor i in range(6):\n    for j in range(7):\n        color = a[i][j]\n        if j + 3 < 7 and all(a[i][j + t] == color for t in range(4)):\n            win[color] = True\n        if i + 3 < 6 and all(a[i + t][j] == color for t in range(4)):\n            win[color] = True\n\nif win[\"0\"] == win[\"1\"]:\n    print(-1)\nelif win[\"1\"]:\n    print(1)\nelse:\n    print(0)",
