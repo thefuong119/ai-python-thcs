@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:57:12.698Z",
+    "updatedAt": "2026-11-04T10:57:44.474Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Tính phí đỗ xe thông minh theo khung giờ"
+    "action": "Admin lưu bài tập: Chu vi và diện tích hình thang cân"
   },
   "data": {
     "registeredUsers": [
@@ -7847,7 +7847,7 @@
         "id": 280,
         "title": "Chu vi và diện tích hình thang cân",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho một hình thang cân có đáy lớn $a$, đáy nhỏ $b$ ($a > b$) và cạnh bên $c$. Giả sử $c > \\frac{a - b}{2}$1$P$1$S$1$a, b, c$ ($a > b > 0, c > 0$).\nDữ liệu ra: Hai số $P$1$S$ cách nhau một dấu cách.",
         "templateCode": "import math\n\na, b, c = map(float, input().split())\np_val = a + b + 2 * c\nx = (a - b) / 2\nh = math.sqrt(c**2 - x**2)\ns_val = ((a + b) * h) / 2\nprint(f\"{p_val:.2f} {s_val:.2f}\")",
