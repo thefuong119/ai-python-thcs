@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:24:40.740Z",
+    "updatedAt": "2026-11-04T11:24:46.604Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 80. Ký tự đầu tiên xuất hiện k lần"
+    "action": "Lưu bài tập: Bài 89. Thống kê xâu ký tự"
   },
   "data": {
     "registeredUsers": [
@@ -3972,7 +3972,7 @@
         "id": 125,
         "title": "Bài 89. Thống kê xâu ký tự",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập xâu S gồm chữ thường và chữ số. Tính tổng chữ số; xóa chữ số khỏi S tạo S1; trong S1 xóa các ký tự liên tiếp giống nhau, chỉ giữ một ký tự mỗi nhóm để tạo S2.",
         "templateCode": "s = input().strip()\nt = sum(int(c) for c in s if c.isdigit())\ns1 = ''.join(c for c in s if not c.isdigit())\n\ns2 = ''\nfor c in s1:\n    if not s2 or s2[-1] != c:\n        s2 += c\n\nprint(t)\nprint('S1 =', s1)\nprint('S2 =', s2)",
