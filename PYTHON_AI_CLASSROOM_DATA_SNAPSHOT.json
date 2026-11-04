@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:07:05.524Z",
+    "updatedAt": "2026-11-04T11:07:15.655Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 98. Tổng các bình phương"
+    "action": "Lưu bài tập: Bài 130. Độ bền"
   },
   "data": {
     "registeredUsers": [
@@ -4897,7 +4897,7 @@
         "id": 162,
         "title": "Bài 127. Tìm người nhận tấm bìa",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Có n tấm bìa xếp chồng, người thứ i lần lượt lấy hai tấm ở trên cùng; người n lấy tấm còn lại. Mô phỏng thứ tự lấy theo quy luật: người đầu sang hàng 2, người tiếp xuống cuối hàng 1, người tiếp xuống cuối hàng 2, lặp lại. Tìm người nhận tấm thứ k trong chồng ban đầu.",
         "templateCode": "n,k=map(int,input().split()); a=list(range(1,n+1)); row=[]\n# mô phỏng lần lượt lấy tấm đầu; hai hàng luân phiên theo đề\nwhile a:\n row.append(a.pop(0))\n if a: a.append(a.pop(0))\nprint(row.index(k)+1)",
@@ -4972,7 +4972,7 @@
         "id": 165,
         "title": "Bài 130. Độ bền",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Độ bền của số một chữ số là 0; nếu có từ 2 chữ số, độ bền bằng độ bền của tích các chữ số cộng 1. In độ bền n và số bé hơn n có độ bền lớn nhất.",
         "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n p=1\n for c in str(x): p*=int(c)\n return d(p)+1\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
