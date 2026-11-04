@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:00:52.693Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-04T11:03:33.708Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Lưu bài tập: Bài 3. Cặp tích chẵn"
   },
   "data": {
     "registeredUsers": [
@@ -735,7 +735,7 @@
         "id": 14,
         "title": "Bài 3. Cặp tích chẵn",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho một dãy a gồm n số nguyên không âm a_1, a_2, ..., a_n. Hãy viết chương trình đếm số lượng cách chọn ra trong dãy hai phần tử sao cho tích của hai phần tử đó là một số chẵn.\n\n- Dữ liệu vào:\n + Dòng 1: Chứa số nguyên n (2 <= n <= 10^6).\n + Dòng 2: Chứa n số nguyên a_1, a_2, ..., a_n (0 <= a_i <= 10^18), các số cách nhau bởi một dấu cách trống.\n- Dữ liệu ra: In ra một số nguyên duy nhất là số lượng cặp số thỏa mãn yêu cầu đề bài.",
         "templateCode": "import sys\n\ninput_data = sys.stdin.read().split()\nif input_data:\n    n = int(input_data[0])\n    dem_le = 0\n    for idx in range(1, n + 1):\n        if int(input_data[idx]) % 2 == 1:\n            dem_le += 1\n    tong_cap = n * (n - 1) // 2\n    cap_le = dem_le * (dem_le - 1) // 2\n    print(tong_cap - cap_le)",
@@ -7747,7 +7747,7 @@
         "id": 276,
         "title": "Chi phí sơn phòng học hình hộp chữ nhật",
         "classLevel": "8",
-        "difficulty": "hard",
+        "difficulty": "medium",
         "timeLimit": 2,
         "description": "Cần sơn 4 bức tường xung quanh và trần nhà của một phòng học hình hộp chữ nhật có chiều dài $a$1$b$1$h$1$S_{cua}$ ($m^2$).\n- Mỗi mét vuông cần $d$1$c$1$P_{thung}$1$a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
         "templateCode": "import math\n\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua = float(line[3])\nd = float(line[4])\nc = float(line[5])\np_thung = int(line[6])\n\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nlit_can = s_son * d\nso_thung = math.ceil(lit_can / c)\n\nprint(so_thung * p_thung)",
@@ -10771,17 +10771,9 @@
     ],
     "gradebook": [
       {
-        "student": "Trần Ngọc Hân",
-        "username": "han",
-        "attempts": 1,
-        "totalScore": 5,
-        "highestScore": 5,
-        "lastSubmit": "17:44:19 4/11/2026"
-      },
-      {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 14,
+        "attempts": 13,
         "totalScore": 125,
         "highestScore": 10,
         "lastSubmit": "23:07:51 3/11/2026"
@@ -10789,7 +10781,7 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 2,
+        "attempts": 1,
         "totalScore": 10,
         "highestScore": 10,
         "lastSubmit": "00:17:51 4/11/2026"
@@ -11322,17 +11314,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793789059431,
-        "student": "Trần Ngọc Hân",
-        "username": "han",
-        "assignmentTitle": "[KT: BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026] Bài 149. Số nhị phân",
-        "assignmentId": 184,
-        "examId": 2,
-        "score": 5,
-        "maxScore": 5,
-        "timestamp": "17:44:19 4/11/2026"
-      },
-      {
         "id": 1793746880154,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11341,16 +11322,6 @@
         "score": 10,
         "maxScore": 10,
         "timestamp": "06:01:20 4/11/2026"
-      },
-      {
-        "id": 1793746846449,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "06:00:46 4/11/2026"
       },
       {
         "id": 1793726435598,
@@ -11371,16 +11342,6 @@
         "score": 10,
         "maxScore": 10,
         "timestamp": "00:17:51 4/11/2026"
-      },
-      {
-        "id": 1793726245781,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
-        "assignmentId": 28,
-        "score": 0,
-        "maxScore": 10,
-        "timestamp": "00:17:25 4/11/2026"
       },
       {
         "id": 1793725578480,
@@ -11604,11 +11565,11 @@
     ],
     "loginLogs": [
       {
-        "time": "18:00:51 4/11/2026",
+        "time": "18:00:55 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
         "identifier": "086081006094",
         "role": "admin",
-        "result": "Đăng xuất"
+        "result": "Thành công"
       },
       {
         "time": "17:44:41 4/11/2026",
