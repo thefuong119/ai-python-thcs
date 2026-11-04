@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:06:33.855Z",
+    "updatedAt": "2026-11-04T11:06:39.662Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 82. Mua bất động sản"
+    "action": "Lưu bài tập: Bài 106. Dãy con có tổng bằng nhau"
   },
   "data": {
     "registeredUsers": [
@@ -4397,7 +4397,7 @@
         "id": 142,
         "title": "Bài 106. Dãy con có tổng bằng nhau",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho dãy số nguyên dương. Tìm tổng nhỏ nhất của các đoạn con liên tiếp sao cho có thể chia toàn bộ dãy thành các đoạn con có tổng bằng nhau; in các đoạn, ngăn cách bằng dấu *.",
         "templateCode": "n=int(input()); a=list(map(int,input().split())); total=sum(a)\nfor target in range(max(a),total+1):\n if total%target: continue\n seg=[]; cur=[]; s=0\n for x in a:\n cur.append(x); s+=x\n if s==target: seg.append(cur); cur=[]; s=0\n if not cur:\n print(total); print(' | '.join(' '.join(map(str,z)) for z in seg)); break",
