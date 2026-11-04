@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:21:25.625Z",
+    "updatedAt": "2026-11-04T11:21:57.338Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 78. Tắc kè hoa"
+    "action": "Lưu bài tập: Bài 36. Tìm kiếm mẫu xâu Rabin-Karp"
   },
   "data": {
     "registeredUsers": [
@@ -7400,7 +7400,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho xâu văn bản $T$1$P$ ($|P| \\le |T| \\le 10^5$).\nĐếm số lần mẫu $P$1$T$1$T$.\n- Dòng 2: Xâu $P$.\nKết quả ra:\n- Dòng 1: Số lần xuất hiện $K$.\n- Dòng 2: $K$1$K > 0$).",
-        "templateCode": "import sys\n\ndef main():\n lines = sys.stdin.read().split()\n if len(lines) < 2:\n return\n t, p = lines[0], lines[1]\n n, m = len(t), len(p)\n if m > n:\n print(0)\n return\n \n base = 311\n mod = 10**9 + 7\n \n h_t = [0] * (n + 1)\n p_pow = [1] * (n + 1)\n for i in range(n):\n h_t[i + 1] = (h_t[i] * base + ord(t[i])) % mod\n p_pow[i + 1] = (p_pow[i] * base) % mod\n \n h_p = 0\n for c in p:\n h_p = (h_p * base + ord(c)) % mod\n \n def get_hash(l, r):\n val = (h_t[r] - h_t[l - 1] * p_pow[r - l + 1]) % mod\n return (val + mod) % mod\n \n matches = []\n for i in range(1, n - m + 2):\n if get_hash(i, i + m - 1) == h_p:\n matches.append(str(i))\n \n print(len(matches))\n if matches:\n print(\" \".join(matches))\n\nif __name__ == '__main__':\n main()",
+        "templateCode": "import sys\n\ndef main():\n    lines = sys.stdin.read().split()\n    if len(lines) < 2:\n        return\n    t, p = lines[0], lines[1]\n    n, m = len(t), len(p)\n    if m > n:\n        print(0)\n        return\n    \n    base = 311\n    mod = 10**9 + 7\n    \n    h_t = [0] * (n + 1)\n    p_pow = [1] * (n + 1)\n    for i in range(n):\n        h_t[i + 1] = (h_t[i] * base + ord(t[i])) % mod\n        p_pow[i + 1] = (p_pow[i] * base) % mod\n    \n    h_p = 0\n    for c in p:\n        h_p = (h_p * base + ord(c)) % mod\n    \n    def get_hash(l, r):\n        val = (h_t[r] - h_t[l - 1] * p_pow[r - l + 1]) % mod\n        return (val + mod) % mod\n    \n    matches = []\n    for i in range(1, n - m + 2):\n        if get_hash(i, i + m - 1) == h_p:\n            matches.append(str(i))\n    \n    print(len(matches))\n    if matches:\n        print(\" \".join(matches))\n\nif __name__ == '__main__':\n    main()",
         "tests": [
           {
             "id": 1,
