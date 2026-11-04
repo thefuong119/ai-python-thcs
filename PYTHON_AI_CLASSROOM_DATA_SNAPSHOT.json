@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:06:10.930Z",
+    "updatedAt": "2026-11-04T11:06:18.592Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 24. Xóa ký tự trong xâu để được số nhỏ nhất"
+    "action": "Lưu bài tập: Bài 67. Chia kẹo"
   },
   "data": {
     "registeredUsers": [
@@ -3422,7 +3422,7 @@
         "id": 103,
         "title": "Bài 67. Chia kẹo",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Có n gói kẹo với số viên lần lượt a1, a2, ..., an. Chọn một vị trí cắt i (1 ≤ i < n): bạn thứ nhất nhận các gói 1..i, bạn thứ hai nhận các gói i+1..n. Tìm mọi cách chia có độ chênh lệch tổng kẹo nhỏ nhất. Không được tách gói.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên dương.\nDữ liệu ra: Với mỗi vị trí chia tối ưu, in hai dòng: các gói của bạn thứ nhất, rồi các gói của bạn thứ hai. Các phương án theo thứ tự vị trí cắt tăng dần.",
         "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\ntong = sum(a)\nchenh_lech = [abs(sum(a[:i]) - (tong - sum(a[:i]))) for i in range(1, n)]\nmin_lech = min(chenh_lech)\n\nfor i, d in enumerate(chenh_lech, start=1):\n    if d == min_lech:\n        print(*a[:i])\n        print(*a[i:])",
