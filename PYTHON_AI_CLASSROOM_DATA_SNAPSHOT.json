@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:33:19.840Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-04T13:16:36.775Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "HS Thầy Nguyễn Thế Phương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -10789,10 +10789,10 @@
       {
         "student": "Thầy Nguyễn Thế Phương",
         "username": "086081006094",
-        "attempts": 3,
+        "attempts": 4,
         "totalScore": 30,
         "highestScore": 10,
-        "lastSubmit": "20:53:07 3/11/2026"
+        "lastSubmit": "20:16:32 4/11/2026"
       },
       {
         "student": "Lê Nguyễn Quang Minh",
@@ -11314,6 +11314,14 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793798192900,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "score": 10,
+        "timestamp": "20:16:32 4/11/2026"
+      },
+      {
         "id": 1793746880154,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11565,6 +11573,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:12:53 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "18:33:18 4/11/2026",
         "name": "Giáo viên Demo",
         "identifier": "giaovien",
@@ -11798,7 +11813,8 @@
     ],
     "studentFlags": {
       "086081006094": {
-        "1": true
+        "1": true,
+        "2": true
       },
       "loc": {
         "1": true,
@@ -12080,46 +12096,6 @@
         ]
       }
     },
-    "exams": [
-      {
-        "id": 1,
-        "title": "BÀI TẬP ÔN TẬP LỚP 8 - 04/11/2026",
-        "classLevel": "8",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:42:09 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          28,
-          3,
-          27
-        ]
-      },
-      {
-        "id": 2,
-        "title": "BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026",
-        "classLevel": "9",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:43:27 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          184,
-          364,
-          110
-        ]
-      }
-    ],
-    "examProgress": {
-      "2": {
-        "han": {
-          "184": {
-            "score": 5,
-            "submitted": true,
-            "code": "n=int(input()); \nprint(sum(map(int,str(n)))); \nprint(bin(n)[2:])"
-          }
-        }
-      }
-    }
+    "testSets": []
   }
 }
