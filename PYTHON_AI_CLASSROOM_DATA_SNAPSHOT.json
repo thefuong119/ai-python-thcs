@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:56:07.203Z",
+    "updatedAt": "2026-11-04T10:56:28.796Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 32. Quyển sách có bao nhiêu tờ"
+    "action": "Admin lưu bài tập: Chương trình khuyến mãi Mua K tặng 1"
   },
   "data": {
     "registeredUsers": [
@@ -7722,7 +7722,7 @@
         "id": 275,
         "title": "Chương trình khuyến mãi Mua K tặng 1",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Khách mua $K$1$P$1$N$1$N$1$N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 500000$).\nDữ liệu ra: Một số nguyên là số tiền tối thiểu cần thanh toán.",
         "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\nso_du = N % (K + 1)\nso_quyen_phai_mua = so_nhom * K + so_du\nprint(so_quyen_phai_mua * P)",
