@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:06:52.203Z",
+    "updatedAt": "2026-11-04T11:07:00.941Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 123. Dãy nguyên tố liên tiếp"
+    "action": "Lưu bài tập: Bài 110. Số nguyên tố trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -4497,7 +4497,7 @@
         "id": 146,
         "title": "Bài 110. Số nguyên tố trong dãy",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập n số nguyên dương. In các số nguyên tố, các số song tố (là số nguyên tố và tổng chữ số cũng nguyên tố), và số nguyên tố gần nhất với từng phần tử.",
         "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\ndef near(x):\n for d in range(1,10000):\n lo=x-d; hi=x+d\n if lo>=2 and p(lo): return lo\n if p(hi): return hi\nprint(*[x for x in a if p(x)])\nprint(*[x for x in a if p(x) and p(sum(map(int,str(x))))])\nprint(*[near(x) for x in a])",
