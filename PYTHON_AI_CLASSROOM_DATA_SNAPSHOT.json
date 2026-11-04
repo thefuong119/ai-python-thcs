@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:43:38.973Z",
-    "updatedBy": "Khách",
-    "action": "Đồng bộ khi đăng xuất"
+    "updatedAt": "2026-11-04T10:44:23.205Z",
+    "updatedBy": "Trần Ngọc Hân",
+    "action": "HS Trần Ngọc Hân nộp câu KT: Bài 149. Số nhị phân"
   },
   "data": {
     "registeredUsers": [
@@ -59,7 +59,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 6
+        "loginCount": 7
       },
       {
         "id": 4,
@@ -10771,6 +10771,14 @@
     ],
     "gradebook": [
       {
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "attempts": 1,
+        "totalScore": 5,
+        "highestScore": 5,
+        "lastSubmit": "17:44:19 4/11/2026"
+      },
+      {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "attempts": 14,
@@ -11314,6 +11322,17 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793789059431,
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "assignmentTitle": "[KT: BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026] Bài 149. Số nhị phân",
+        "assignmentId": 184,
+        "examId": 2,
+        "score": 5,
+        "maxScore": 5,
+        "timestamp": "17:44:19 4/11/2026"
+      },
+      {
         "id": 1793746880154,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11584,6 +11603,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "17:43:42 4/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "17:40:39 4/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
@@ -12102,6 +12128,16 @@
         ]
       }
     ],
-    "examProgress": {}
+    "examProgress": {
+      "2": {
+        "han": {
+          "184": {
+            "score": 5,
+            "submitted": true,
+            "code": "n=int(input()); \nprint(sum(map(int,str(n)))); \nprint(bin(n)[2:])"
+          }
+        }
+      }
+    }
   }
 }
