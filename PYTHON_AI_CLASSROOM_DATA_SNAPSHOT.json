@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:23:46.122Z",
+    "updatedAt": "2026-11-04T11:23:59.794Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 54. Tính tổng phân thức"
+    "action": "Lưu bài tập: Bài 63. Tính số ngày giữa hai ngày"
   },
   "data": {
     "registeredUsers": [
@@ -3297,7 +3297,7 @@
         "id": 98,
         "title": "Bài 62. Diện tích tam giác vuông",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho ba số nguyên dương a, b, c là độ dài ba cạnh. Nếu ba số là độ dài các cạnh của một tam giác vuông, hãy tính diện tích tam giác và làm tròn đến 1 chữ số thập phân. Nếu không, in -1.\nDữ liệu vào: Ba số a, b, c trên một dòng.\nDữ liệu ra: Diện tích hoặc -1.",
         "templateCode": "a = sorted(map(int, input().split()))\nif a[0] ** 2 + a[1] ** 2 == a[2] ** 2:\n    print(f\"{a[0] * a[1] / 2:.1f}\")\nelse:\n    print(-1)",
@@ -3322,7 +3322,7 @@
         "id": 99,
         "title": "Bài 63. Tính số ngày giữa hai ngày",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho hai ngày d1/m1/y1 và d2/m2/y2 (năm từ 2012 đến 2099). Theo đề, năm nhuận trong khoảng này là năm chia hết cho 4. Tính số ngày chênh lệch giữa hai ngày, không tính gộp ngày đầu.\nDữ liệu vào: Hai dòng, mỗi dòng gồm ngày, tháng, năm.\nDữ liệu ra: Số ngày giữa hai ngày.",
         "templateCode": "from datetime import date\n\nd1, m1, y1 = map(int, input().split())\nd2, m2, y2 = map(int, input().split())\nprint((date(y2, m2, d2) - date(y1, m1, d1)).days)",
