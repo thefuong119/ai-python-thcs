@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T04:41:31.323Z",
+    "updatedAt": "2026-11-04T04:42:01.517Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Tạo bài kiểm tra: Kiểm tra ngẫu nhiên - 4/11/2026"
+    "action": "Sửa kỳ kiểm tra: KIỂM TRA NĂNG LỰC LỚP 9 - 4/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -12061,7 +12061,7 @@
       },
       {
         "id": 2,
-        "title": "Kiểm tra ngẫu nhiên - 4/11/2026",
+        "title": "KIỂM TRA NĂNG LỰC LỚP 9 - 4/11/2026",
         "classLevel": "9",
         "showSampleCode": false,
         "duration": 60,
