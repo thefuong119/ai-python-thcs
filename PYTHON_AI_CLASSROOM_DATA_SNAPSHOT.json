@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:42:49.520Z",
+    "updatedAt": "2026-11-04T10:43:29.694Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Sửa kỳ kiểm tra: BÀI TẬP ÔN TẬP 04/11/2026"
+    "action": "Tạo bài kiểm tra: BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -12085,6 +12085,20 @@
           28,
           3,
           27
+        ]
+      },
+      {
+        "id": 2,
+        "title": "BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026",
+        "classLevel": "9",
+        "showSampleCode": true,
+        "duration": 60,
+        "createdAt": "17:43:27 4/11/2026",
+        "createdBy": "Thầy Nguyễn Thế Phương",
+        "assignmentIds": [
+          184,
+          364,
+          110
         ]
       }
     ],
