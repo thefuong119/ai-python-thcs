@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:25:09.495Z",
+    "updatedAt": "2026-11-04T11:25:17.891Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 44. Ký tự đầu tiên xuất hiện k lần"
+    "action": "Lưu bài tập: Bài 88. Số bậc thang và các số chính phương"
   },
   "data": {
     "registeredUsers": [
@@ -3947,7 +3947,7 @@
         "id": 124,
         "title": "Bài 88. Số bậc thang và các số chính phương",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập a,b (10 < a ≤ b). Tính UCLN, phân số tối giản a/b, các số chính phương trong [a,b], và số lượng số bậc thang (chữ số từ trái sang phải không giảm) trong đoạn.",
         "templateCode": "import math\n\na, b = map(int, input().split())\ng = math.gcd(a, b)\n\nprint('UCLN la:', g)\nprint('Phan so toi gian la:', a // g, '/', b // g, sep='')\n\nsq = [x for x in range(a, b + 1) if math.isqrt(x)**2 == x]\nprint('Cac so chinh phuong la:', *sq)\n\ndef stair(x):\n    s = str(x)\n    return all(s[i] <= s[i + 1] for i in range(len(s) - 1))\n\nprint('Co', sum(stair(x) for x in range(a, b + 1)), 'So bac thang')",
