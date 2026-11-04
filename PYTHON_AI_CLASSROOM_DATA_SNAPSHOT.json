@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T13:36:25.375Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài Bài 1. Tính tổng hai số nguyên A và B"
+    "updatedAt": "2026-11-04T14:31:15.002Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Đẩy dữ liệu thủ công"
   },
   "data": {
     "registeredUsers": [
@@ -11595,6 +11595,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:30:53 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "19:54:25 4/11/2026",
         "name": "Học sinh Demo",
         "identifier": "hocsinh",
@@ -12118,46 +12125,7 @@
         ]
       }
     },
-    "exams": [
-      {
-        "id": 1,
-        "title": "BÀI TẬP ÔN TẬP LỚP 8 - 04/11/2026",
-        "classLevel": "8",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:42:09 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          28,
-          3,
-          27
-        ]
-      },
-      {
-        "id": 2,
-        "title": "BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026",
-        "classLevel": "9",
-        "showSampleCode": true,
-        "duration": 60,
-        "createdAt": "17:43:27 4/11/2026",
-        "createdBy": "Thầy Nguyễn Thế Phương",
-        "assignmentIds": [
-          184,
-          364,
-          110
-        ]
-      }
-    ],
-    "examProgress": {
-      "2": {
-        "han": {
-          "184": {
-            "score": 5,
-            "submitted": true,
-            "code": "n=int(input()); \nprint(sum(map(int,str(n)))); \nprint(bin(n)[2:])"
-          }
-        }
-      }
-    }
+    "testSets": [],
+    "studentCodeCache": {}
   }
 }
