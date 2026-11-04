@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:07:40.317Z",
+    "updatedAt": "2026-11-04T11:11:07.501Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 143. Dãy con nguyên tố"
+    "action": "Lưu bài tập: Độ bền và số nhỏ hơn n"
   },
   "data": {
     "registeredUsers": [
@@ -5497,7 +5497,7 @@
         "id": 186,
         "title": "Bài 151. Dãy con nguyên tố dài nhất",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập dãy số tự nhiên. Tìm đoạn liên tiếp gồm nhiều số nguyên tố nhất; hòa chọn đoạn có tổng lớn nhất.",
         "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nbest=[]; cur=[]\nfor x in a+[0]:\n if p(x): cur.append(x)\n else:\n if len(cur)>len(best) or (len(cur)==len(best) and sum(cur)>sum(best)): best=cur[:]\n cur=[]\nprint(*best if best else ['KHONG CO'])",
@@ -6000,7 +6000,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Nhập n≤1000. Tính độ bền n và tìm số bé hơn n có độ bền lớn nhất.",
-        "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n z=1\n for c in str(x):z*=int(c)\n return d(z)+1\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
+        "templateCode": "n = int(input())\ndef d(x):\n    if x < 10:\n        return 0\n    z = 1\n    for c in str(x):\n        z *= int(c)\n    return d(z) + 1\nprint(d(n)); print(max(range(n), key=lambda x: (d(x), -x)))",
         "tests": [
           {
             "id": 1,
@@ -6097,7 +6097,7 @@
         "id": 210,
         "title": "Độ bền",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Bài tương tự Đề 22 Bài 4: tính độ bền n và tìm số nhỏ hơn n có độ bền lớn nhất.",
         "templateCode": "n=int(input())\ndef d(x):\n if x<10:return 0\n z=1\n for c in str(x):z*=int(c)\n return 1+d(z)\nprint(d(n)); print(max(range(n),key=lambda x:(d(x),-x)))",
