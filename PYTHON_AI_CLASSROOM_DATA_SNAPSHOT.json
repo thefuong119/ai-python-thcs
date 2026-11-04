@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:20:00.257Z",
+    "updatedAt": "2026-11-04T11:20:33.260Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Độ bền và số nhỏ hơn n"
+    "action": "Lưu bài tập: Tính lãi vay ngân hàng theo dư nợ giảm dần"
   },
   "data": {
     "registeredUsers": [
@@ -7647,10 +7647,10 @@
         "id": 272,
         "title": "Tính lãi vay ngân hàng theo dư nợ giảm dần",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "medium",
         "timeLimit": 2,
         "description": "Một người vay ngân hàng số tiền $P$1$N$1$r$1$Goc = P / N$.\n- Tiền lãi tháng thứ $k$1$Lai_k = Dunogoc_k \\times (r / 100)$, trong đó dư nợ đầu tháng 1 là $P$, các tháng tiếp theo giảm dần sau khi trả gốc.\n- Tổng số tiền phải trả tháng thứ $k$1$Tong_k = Goc + Lai_k$.\nHãy tính và in ra tổng toàn bộ số tiền lãi người đó phải trả sau $N$1$P$ ($10^6 \\le P \\le 10^9$), số nguyên $N$ ($1 \\le N \\le 120$), và số thực $r$ ($0.1 \\le r \\le 5.0$).\nDữ liệu ra: Một số nguyên là tổng số tiền lãi sau $N$ tháng.",
-        "templateCode": "P, N, r = input().split()\nP, N, r = int(P), int(N), float(r)\n\ngoc_thang = P / N\ndu_no = float(P)\ntong_lai = 0.0\n\nfor _ in range(N):\n lai_thang = du_no * (r / 100.0)\n tong_lai += lai_thang\n du_no -= goc_thang\n\nprint(round(tong_lai))",
+        "templateCode": "P, N, r = input().split()\nP, N, r = int(P), int(N), float(r)\n\ngoc_thang = P / N\ndu_no = float(P)\ntong_lai = 0.0\n\nfor _ in range(N):\n    lai_thang = du_no * (r / 100.0)\n    tong_lai += lai_thang\n    du_no -= goc_thang\n\nprint(round(tong_lai))",
         "tests": [
           {
             "id": 1,
