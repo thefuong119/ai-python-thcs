@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:07:15.655Z",
+    "updatedAt": "2026-11-04T11:07:24.104Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 130. Độ bền"
+    "action": "Lưu bài tập: Bài 131. Dãy số và cặp số"
   },
   "data": {
     "registeredUsers": [
@@ -4997,7 +4997,7 @@
         "id": 166,
         "title": "Bài 131. Dãy số và cặp số",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập dãy số nguyên chẵn >2. Với mỗi phần tử ai, tìm cặp số nguyên tố gần nhất có tổng bằng ai và in các cặp.",
         "templateCode": "n=int(input()); a=list(map(int,input().split()))\ndef p(x): return x>=2 and all(x%d for d in range(2,int(x**0.5)+1))\nfor x in a:\n pairs=[]\n for b in range(2,x//2+1):\n c=x-b\n if p(b) and p(c): pairs.append((b,c))\n if pairs: print(*pairs)\n else: print('KHONG')",
