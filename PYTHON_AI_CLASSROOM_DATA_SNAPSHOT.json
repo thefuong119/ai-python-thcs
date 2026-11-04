@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:05:12.117Z",
+    "updatedAt": "2026-11-04T11:05:33.483Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 25. Bộ ba số"
+    "action": "Lưu bài tập: Bài 60. Xóa ký tự trong xâu để được số nhỏ nhất"
   },
   "data": {
     "registeredUsers": [
@@ -3247,7 +3247,7 @@
         "id": 96,
         "title": "Bài 60. Xóa ký tự trong xâu để được số nhỏ nhất",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho xâu gồm N ký tự chữ số và số nguyên K (0 < K < N). Xóa đúng K ký tự sao cho xâu còn lại biểu diễn số nhỏ nhất có thể. Giữ nguyên thứ tự tương đối của các chữ số còn lại.\nDữ liệu vào: Dòng 1 là xâu chữ số; dòng 2 là K.\nDữ liệu ra: Xâu số nhỏ nhất sau khi xóa.",
         "templateCode": "s = input().strip()\nk = int(input())\n\nst = []\nfor ch in s:\n    while k > 0 and st and st[-1] > ch:\n        st.pop()\n        k -= 1\n    st.append(ch)\n\nif k:\n    st = st[:-k]\n\nprint(\"\".join(st))",
