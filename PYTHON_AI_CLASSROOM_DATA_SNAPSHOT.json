@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:24:57.825Z",
+    "updatedAt": "2026-11-04T11:25:03.958Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 71. Dãy tăng liên tục dài nhất"
+    "action": "Lưu bài tập: Bài 48. Tìm số tự mãn bậc 3 trong dãy"
   },
   "data": {
     "registeredUsers": [
@@ -2947,7 +2947,7 @@
         "id": 84,
         "title": "Bài 48. Tìm số tự mãn bậc 3 trong dãy",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Số tự mãn bậc 3 là số bằng tổng lập phương các chữ số của nó. Ví dụ: 153 = 1³ + 5³ + 3³.\nCho dãy gồm n số nguyên dương. Hãy tìm các số tự mãn bậc 3 trong dãy và in theo thứ tự tăng dần. Nếu không có số nào, in KHONG.\nDữ liệu vào: Dòng 1 ghi n; dòng 2 ghi n số nguyên dương.\nDữ liệu ra: Các số tự mãn theo thứ tự tăng dần, cách nhau bởi dấu cách; nếu rỗng in KHONG.",
         "templateCode": "n = int(input())\na = list(map(int, input().split()))\n\n\ndef la_tu_man(x):\n    return x == sum(int(ch) ** 3 for ch in str(x))\n\nkq = sorted(x for x in a if la_tu_man(x))\nprint(*kq if kq else [\"KHONG\"])",
