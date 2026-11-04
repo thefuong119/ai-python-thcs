@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:44:23.205Z",
-    "updatedBy": "Trần Ngọc Hân",
-    "action": "HS Trần Ngọc Hân nộp câu KT: Bài 149. Số nhị phân"
+    "updatedAt": "2026-11-04T10:44:39.118Z",
+    "updatedBy": "Khách",
+    "action": "Đồng bộ khi đăng xuất"
   },
   "data": {
     "registeredUsers": [
@@ -11603,6 +11603,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "17:44:38 4/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Đăng xuất"
+      },
       {
         "time": "17:43:42 4/11/2026",
         "name": "Trần Ngọc Hân",
