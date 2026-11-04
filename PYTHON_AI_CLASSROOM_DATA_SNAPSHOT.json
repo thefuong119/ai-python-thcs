@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T13:30:47.175Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài Bài 6. Tính chu vi và diện tích hình chữ nhật"
+    "updatedAt": "2026-11-04T13:34:53.633Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Học sinh Học sinh Demo nộp bài Bài 1. Tính tổng hai số nguyên A và B"
   },
   "data": {
     "registeredUsers": [
@@ -164,7 +164,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 4
+        "loginCount": 3
       },
       {
         "id": 10,
@@ -204,7 +204,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "phone": "Zalo cá nhân"
       },
       {
@@ -10771,20 +10771,12 @@
     ],
     "gradebook": [
       {
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "attempts": 11,
-        "totalScore": 110,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "attempts": 2,
+        "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "22:15:28 3/11/2026"
-      },
-      {
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "attempts": 4,
-        "totalScore": 40,
-        "highestScore": 10,
-        "lastSubmit": "20:53:07 3/11/2026"
+        "lastSubmit": "20:34:49 4/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -10795,12 +10787,20 @@
         "lastSubmit": "23:07:51 3/11/2026"
       },
       {
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "attempts": 1,
-        "totalScore": 10,
+        "student": "Thầy Nguyễn Thế Phương",
+        "username": "086081006094",
+        "attempts": 3,
+        "totalScore": 30,
         "highestScore": 10,
-        "lastSubmit": "00:17:51 4/11/2026"
+        "lastSubmit": "20:53:07 3/11/2026"
+      },
+      {
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "attempts": 6,
+        "totalScore": 60,
+        "highestScore": 10,
+        "lastSubmit": "22:15:28 3/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -11314,62 +11314,14 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793799043817,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
+        "id": 1793799289641,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 0,
         "maxScore": 10,
-        "timestamp": "20:30:43 4/11/2026"
-      },
-      {
-        "id": 1793799026115,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
-        "maxScore": 10,
-        "timestamp": "20:30:26 4/11/2026"
-      },
-      {
-        "id": 1793799021445,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
-        "maxScore": 10,
-        "timestamp": "20:30:21 4/11/2026"
-      },
-      {
-        "id": 1793799016877,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
-        "maxScore": 10,
-        "timestamp": "20:30:16 4/11/2026"
-      },
-      {
-        "id": 1793799011925,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
-        "maxScore": 10,
-        "timestamp": "20:30:11 4/11/2026"
-      },
-      {
-        "id": 1793798192900,
-        "student": "Thầy Nguyễn Thế Phương",
-        "username": "086081006094",
-        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
-        "score": 10,
-        "timestamp": "20:16:32 4/11/2026"
+        "timestamp": "20:34:49 4/11/2026"
       },
       {
         "id": 1793746880154,
@@ -11623,24 +11575,10 @@
     ],
     "loginLogs": [
       {
-        "time": "20:27:26 4/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
+        "time": "19:54:25 4/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
         "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:17:25 4/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "20:12:53 4/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -11877,8 +11815,7 @@
     ],
     "studentFlags": {
       "086081006094": {
-        "1": true,
-        "2": true
+        "1": true
       },
       "loc": {
         "1": true,
@@ -11889,10 +11826,10 @@
         "2": true,
         "3": true,
         "4": true,
-        "5": true,
-        "6": true
+        "5": true
       },
       "hocsinh": {
+        "1": true,
         "28": true
       }
     },
@@ -12082,31 +12019,6 @@
         ],
         "classLevel": "8"
       },
-      "6": {
-        "id": 6,
-        "title": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "### Đề bài\nCho hai số nguyên dương $a$1$b$1$P = 2 \\times (a + b)$1$S = a \\times b$.\n\n### Dữ liệu vào (stdin)\nHai số nguyên dương $a, b$ cách nhau bởi dấu cách ($1 \\le a, b \\le 10^6$).\n\n### Dữ liệu ra (stdout)\nDòng 1 in ra chu vi $P$.\nDòng 2 in ra diện tích $S$.",
-        "templateCode": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nprint(2 * (a + b))\nprint(a * b)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 5",
-            "expected": "16\n15",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "10 20",
-            "expected": "60\n200",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
-      },
       "10": {
         "id": 10,
         "title": "Bài 10. Xếp que diêm thành tháp tam giác",
@@ -12186,7 +12098,46 @@
         ]
       }
     },
-    "exams": [],
-    "examProgress": {}
+    "exams": [
+      {
+        "id": 1,
+        "title": "BÀI TẬP ÔN TẬP LỚP 8 - 04/11/2026",
+        "classLevel": "8",
+        "showSampleCode": true,
+        "duration": 60,
+        "createdAt": "17:42:09 4/11/2026",
+        "createdBy": "Thầy Nguyễn Thế Phương",
+        "assignmentIds": [
+          28,
+          3,
+          27
+        ]
+      },
+      {
+        "id": 2,
+        "title": "BÀI TẬP ÔN TẬP LỚP 9 - 04/11/2026",
+        "classLevel": "9",
+        "showSampleCode": true,
+        "duration": 60,
+        "createdAt": "17:43:27 4/11/2026",
+        "createdBy": "Thầy Nguyễn Thế Phương",
+        "assignmentIds": [
+          184,
+          364,
+          110
+        ]
+      }
+    ],
+    "examProgress": {
+      "2": {
+        "han": {
+          "184": {
+            "score": 5,
+            "submitted": true,
+            "code": "n=int(input()); \nprint(sum(map(int,str(n)))); \nprint(bin(n)[2:])"
+          }
+        }
+      }
+    }
   }
 }
