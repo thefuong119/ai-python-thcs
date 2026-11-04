@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:19:28.895Z",
+    "updatedAt": "2026-11-04T11:20:00.257Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 4. Tổ hợp chập K của N theo Modulo"
+    "action": "Lưu bài tập: Độ bền và số nhỏ hơn n"
   },
   "data": {
     "registeredUsers": [
@@ -5997,7 +5997,7 @@
         "id": 206,
         "title": "Độ bền và số nhỏ hơn n",
         "classLevel": "9",
-        "difficulty": "hard",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập n≤1000. Tính độ bền n và tìm số bé hơn n có độ bền lớn nhất.",
         "templateCode": "n = int(input())\ndef d(x):\n    if x < 10:\n        return 0\n    z = 1\n    for c in str(x):\n        z *= int(c)\n    return d(z) + 1\nprint(d(n)); print(max(range(n), key=lambda x: (d(x), -x)))",
