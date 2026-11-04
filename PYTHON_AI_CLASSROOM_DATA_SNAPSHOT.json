@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T13:34:53.633Z",
+    "updatedAt": "2026-11-04T13:35:37.848Z",
     "updatedBy": "Học sinh Demo",
     "action": "Học sinh Học sinh Demo nộp bài Bài 1. Tính tổng hai số nguyên A và B"
   },
@@ -10773,10 +10773,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 2,
+        "attempts": 3,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "20:34:49 4/11/2026"
+        "lastSubmit": "20:35:34 4/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -11313,6 +11313,16 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793799334542,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 0,
+        "maxScore": 10,
+        "timestamp": "20:35:34 4/11/2026"
+      },
       {
         "id": 1793799289641,
         "student": "Học sinh Demo",
