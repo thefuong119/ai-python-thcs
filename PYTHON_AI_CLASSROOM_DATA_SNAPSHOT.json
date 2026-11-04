@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:51:42.484Z",
+    "updatedAt": "2026-11-04T10:52:01.214Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Cảnh báo ngập lụt theo tổng lượng mưa tích lũy (Mảng cộng dồn)"
+    "action": "Admin lưu bài tập: Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)"
   },
   "data": {
     "registeredUsers": [
@@ -8672,7 +8672,7 @@
         "id": 313,
         "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "timeLimit": 2,
         "description": "Trung tâm hội nghị có 1 hội trường duy nhất. Có $N$1$i$1$s_i$1$e_i$. Hai cuộc họp được coi là không chồng chéo nếu cuộc họp sau bắt đầu tại thời điểm lớn hơn hoặc bằng thời điểm kết thúc của cuộc họp trước ($s_j \\ge e_i$). Hãy chọn ra số lượng cuộc họp tối đa có thể bố trí vào hội trường này.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 10^5$).\n- $N$1$s_i, e_i$ ($0 \\le s_i < e_i \\le 10^9$).\nDữ liệu ra: Một số nguyên duy nhất là số cuộc họp tối đa được xếp.",
         "templateCode": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
