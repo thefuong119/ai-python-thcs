@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:21:57.338Z",
+    "updatedAt": "2026-11-04T11:22:19.915Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 36. Tìm kiếm mẫu xâu Rabin-Karp"
+    "action": "Lưu bài tập: Bài 34. Giá trị lớn nhất trong mọi cửa sổ trượt (Monotonic Deque)"
   },
   "data": {
     "registeredUsers": [
@@ -7350,7 +7350,7 @@
         "difficulty": "hard",
         "timeLimit": 2,
         "description": "Cho mảng $A$1$N$ số nguyên ($N \\le 10^5$) và số nguyên dương $K$ ($1 \\le K \\le N$).\nHãy in ra giá trị lớn nhất trong mỗi cửa sổ trượt độ dài $K$1$O(N)$1$N$1$K$.\n- Dòng 2: $N$1$A$.\nKết quả ra:\n- In ra $N - K + 1$ số nguyên là giá trị lớn nhất của từng cửa sổ cách nhau dấu cách.",
-        "templateCode": "import sys\nfrom collections import deque\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, k = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n \n dq = deque()\n res = []\n \n for i in range(n):\n if dq and dq[0] < i - k + 1:\n dq.popleft()\n while dq and arr[dq[-1]] <= arr[i]:\n dq.pop()\n dq.append(i)\n if i >= k - 1:\n res.append(str(arr[dq[0]]))\n \n sys.stdout.write(\" \".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "templateCode": "import sys\nfrom collections import deque\n\ndef main():\n    data = sys.stdin.read().split()\n    if not data:\n        return\n    n, k = int(data[0]), int(data[1])\n    arr = [int(x) for x in data[2:2+n]]\n    \n    dq = deque()\n    res = []\n    \n    for i in range(n):\n        if dq and dq[0] < i - k + 1:\n            dq.popleft()\n        while dq and arr[dq[-1]] <= arr[i]:\n            dq.pop()\n        dq.append(i)\n        if i >= k - 1:\n            res.append(str(arr[dq[0]]))\n            \n    sys.stdout.write(\" \".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n    main()",
         "tests": [
           {
             "id": 1,
