@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T10:45:00.684Z",
+    "updatedAt": "2026-11-04T10:51:42.484Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Sửa kỳ kiểm tra: BÀI TẬP ÔN TẬP LỚP 8 - 04/11/2026"
+    "action": "Admin lưu bài tập: Cảnh báo ngập lụt theo tổng lượng mưa tích lũy (Mảng cộng dồn)"
   },
   "data": {
     "registeredUsers": [
@@ -8622,7 +8622,7 @@
         "id": 311,
         "title": "Cảnh báo ngập lụt theo tổng lượng mưa tích lũy (Mảng cộng dồn)",
         "classLevel": "8",
-        "difficulty": "medium",
+        "difficulty": "hard",
         "timeLimit": 2,
         "description": "Trạm khí tượng ghi lại lượng mưa từng giờ trong $N$1$N$). Ban chỉ huy phòng chống thiên tai có $Q$1$L$1$R$. Nếu tổng lượng mưa trong khoảng đó lớn hơn ngưỡng cảnh báo $W$, hệ thống phát cảnh báo \"BAO DONG\"; ngược lại phát cảnh báo \"AN TOAN\".\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$1$Q$ ($1 \\le N, Q \\le 10^5$).\n- Dòng 2: $N$ số nguyên không âm là lượng mưa mỗi giờ ($a_i \\le 1000$).\n- $Q$1$L, R, W$ ($1 \\le L \\le R \\le N; 0 \\le W \\le 10^8$).\nDữ liệu ra: Gồm $Q$ dòng, mỗi dòng in cảnh báo tương ứng (\"BAO DONG\" hoặc \"AN TOAN\").",
         "templateCode": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    Q = int(data[1])\n    idx = 2\n    pref = [0] * (N + 1)\n    for i in range(1, N + 1):\n        pref[i] = pref[i - 1] + int(data[idx])\n        idx += 1\n\n    out = []\n    for _ in range(Q):\n        L = int(data[idx])\n        R = int(data[idx + 1])\n        W = int(data[idx + 2])\n        idx += 3\n        tong_mua = pref[R] - pref[L - 1]\n        if tong_mua > W:\n            out.append(\"BAO DONG\")\n        else:\n            out.append(\"AN TOAN\")\n    print(\"\\n\".join(out))",
