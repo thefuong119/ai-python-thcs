@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T16:41:13.651Z",
-    "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Đăng xuất: Trần Thị Trúc Mai"
+    "updatedAt": "2026-11-04T16:44:52.034Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Tạo bài kiểm tra: Đề kiểm tra ngẫu nhiên - 4/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -11575,6 +11575,13 @@
     ],
     "loginLogs": [
       {
+        "time": "23:41:45 4/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "23:41:11 4/11/2026",
         "name": "Trần Thị Trúc Mai",
         "identifier": "comai",
@@ -12140,7 +12147,23 @@
         ]
       }
     },
-    "testSets": [],
+    "testSets": [
+      {
+        "id": 1793810690109,
+        "title": "Đề kiểm tra ngẫu nhiên - 4/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          43,
+          7,
+          290,
+          297
+        ],
+        "createdAt": "23:44:50 4/11/2026",
+        "createdBy": "Thầy Nguyễn Thế Phương",
+        "active": true
+      }
+    ],
     "studentCodeCache": {
       "086081006094__Bài 1. Tính tổng hai số nguyên A và B": " # Mã nguồn cho bài Tính tổng hai số nguyên A và B\n # Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
     }
