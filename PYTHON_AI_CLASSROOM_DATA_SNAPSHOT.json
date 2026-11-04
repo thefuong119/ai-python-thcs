@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:24:46.604Z",
+    "updatedAt": "2026-11-04T11:24:51.513Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 89. Thống kê xâu ký tự"
+    "action": "Lưu bài tập: Bài 87. Phân tích số nguyên"
   },
   "data": {
     "registeredUsers": [
@@ -3922,7 +3922,7 @@
         "id": 123,
         "title": "Bài 87. Phân tích số nguyên",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Nhập n ≥ 2. In số chữ số, tổng chữ số, tổng các số nguyên tố nhỏ hơn n và số nguyên tố khác n gần n nhất (hòa chọn số nhỏ hơn).",
         "templateCode": "n = int(input())\n\ndef prime(x):\n    return x >= 2 and all(x % d for d in range(2, int(x**0.5) + 1))\n\nnear = min((x for x in range(2, n + 1) if prime(x) and x != n), key=lambda x: (abs(x - n), x))\n\nprint(len(str(n)))\nprint(sum(map(int, str(n))))\nprint(sum(x for x in range(2, n) if prime(x)))\nprint(near)",
