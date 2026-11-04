@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-04T11:23:39.529Z",
+    "updatedAt": "2026-11-04T11:23:46.122Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Lưu bài tập: Bài 49. Xếp hàng"
+    "action": "Lưu bài tập: Bài 54. Tính tổng phân thức"
   },
   "data": {
     "registeredUsers": [
@@ -3097,7 +3097,7 @@
         "id": 90,
         "title": "Bài 54. Tính tổng phân thức",
         "classLevel": "9",
-        "difficulty": "medium",
+        "difficulty": "easy",
         "timeLimit": 2,
         "description": "Cho số nguyên dương a. Tính S = 1/(1×3) + 1/(2×4) + ... + 1/(a×(a+2)). In kết quả làm tròn đến 1 chữ số thập phân.\nDữ liệu vào: Một số nguyên dương a.\nDữ liệu ra: S với đúng 1 chữ số thập phân.",
         "templateCode": "a = int(input())\ns = sum(1 / (i * (i + 2)) for i in range(1, a + 1))\nprint(f\"{s:.1f}\")",
