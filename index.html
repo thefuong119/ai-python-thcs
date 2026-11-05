@@ -2156,11 +2156,7 @@
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
 
-    // ⚠️ ĐÃ CẤU HÌNH PROXY — URL Worker Cloudflare của bạn
-const DEFAULT_PROXY_URL = "https://ai-thcs-python.thefuong119.workers.dev/github";
-let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || DEFAULT_PROXY_URL;
-// Nếu vẫn là placeholder cũ thì coi như chưa cấu hình
-if (PROXY_ENDPOINT.includes('YOUR-SUBDOMAIN')) PROXY_ENDPOINT = "";
+    let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || "";
     let PROXY_HEALTHY = false;
 
     const PASSWORD_SALT = "LMS_PYTHON_THCS_THANHDONG_2026_SALT";
