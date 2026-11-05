@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:27:50.532Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "updatedAt": "2026-11-05T17:37:53.710Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -142,7 +142,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 7,
+        "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -10804,10 +10804,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 13,
+        "attempts": 14,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "23:07:51 3/11/2026"
+        "lastSubmit": "00:37:53 6/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -11351,6 +11351,51 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1793900273644,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "00:37:53 6/11/2026",
+        "date": "2026-11-05",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      },
+      {
         "id": 1793881420292,
         "student": "Nguyễn Thanh Tuấn",
         "username": "tuan",
@@ -11747,6 +11792,13 @@
     ],
     "loginLogs": [
       {
+        "time": "00:34:12 6/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "00:22:15 6/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -12128,7 +12180,9 @@
         "active": true
       }
     ],
-    "studentCodeCache": {},
+    "studentCodeCache": {
+      "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+    },
     "questionFlags": {
       "43": true
     }
