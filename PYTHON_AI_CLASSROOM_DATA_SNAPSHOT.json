@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T12:37:24.993Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đăng xuất: Thầy Nguyễn Thế Phương"
+    "updatedAt": "2026-11-05T12:37:37.515Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -16,7 +16,7 @@
         "className": "Toàn trường",
         "teacherName": "---",
         "phone": "0932861739",
-        "email": "thuyhuong475689@gmail.com",
+        "email": "thefuong119@gmail.com",
         "role": "admin",
         "authMethod": "Tên đăng nhập + Mật khẩu",
         "status": "active",
@@ -11738,20 +11738,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "19:37:24 5/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "19:24:15 5/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
       {
         "time": "19:22:05 5/11/2026",
         "name": "Nguyễn Thanh Tuấn",
