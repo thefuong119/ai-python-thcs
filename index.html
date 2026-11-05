@@ -56,6 +56,48 @@
         @keyframes dropIn { 0% { opacity:0; transform:translateY(-8px) scale(0.96); } 100% { opacity:1; transform:translateY(0) scale(1); } }
         .dropdown-anim { animation: dropIn 0.18s ease-out; }
 
+        /* ✅ MỚI: Hiệu ứng cho ảnh robot GIF nền trong suốt */
+        #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+        #robotAvatarBtn img {
+            filter: drop-shadow(0 6px 12px rgba(37,99,235,0.55)) drop-shadow(0 0 6px rgba(59,130,246,0.35));
+            mix-blend-mode: normal;
+            background: transparent !important;
+            border-radius: 0 !important;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        #robotAvatarBtn:hover img {
+            filter: drop-shadow(0 8px 18px rgba(37,99,235,0.75)) drop-shadow(0 0 10px rgba(96,165,250,0.5));
+        }
+
+        /* ✅ MỚI: Style đẹp cho khối chào mừng */
+        .welcome-heading-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #4f46e5 40%, #7c3aed 70%, #db2777 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .auth-badge-highlight {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%);
+            color: #78350f;
+            border: 2px solid #f59e0b;
+            box-shadow: 0 4px 20px rgba(245,158,11,0.35), inset 0 1px 0 rgba(255,255,255,0.6);
+            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+        }
+        .welcome-subtitle-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 50%, #eef2ff 100%);
+            border: 1px solid #c7d2fe;
+            box-shadow: 0 2px 12px rgba(79,70,229,0.08);
+        }
+
         :root {
             --btn-h-xs: 28px; --btn-h-sm: 34px; --btn-h-md: 40px; --btn-h-lg: 44px;
             --text-body: 15px; --text-sm: 14px; --text-xs: 13px; --text-tiny: 12px;
@@ -76,7 +118,7 @@
         table tbody td { padding: 12px; font-size: var(--text-xs); }
         header { min-height: 68px; }
         header .h-16 { height: 68px; }
-        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
+        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherTestsBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminTestsBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
         [id$="Modal"] .p-4.bg-slate-50 button, .modal-footer button { height: var(--btn-h-md); padding: 0 18px; font-size: var(--text-xs); }
         #btnSubmitAuth, #btnOpenLoginStudent, #btnOpenLoginTeacher, button[onclick*="submitAndGrade"], button[onclick*="executeExitApp"] { height: 44px; font-size: var(--text-sm); font-weight: 700; }
         .text-\[10px\], .text-\[11px\] { font-size: var(--text-tiny) !important; }
@@ -91,6 +133,7 @@
         #authModal .auth-label { font-size: 12px; margin-bottom: 3px; }
         #authModal .auth-body { padding: 14px 18px !important; }
         #authModal .auth-row { margin-bottom: 10px; }
+        .test-flag { color: #f59e0b; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -172,12 +215,27 @@
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
 
         <div id="guestLockView" class="flex flex-col items-center justify-center min-h-[65vh] py-12 px-4 text-center">
-            <div class="w-20 h-20 rounded-3xl bg-blue-500/10 border border-blue-500/20 text-blue-600 flex items-center justify-center text-4xl shadow-xl shadow-blue-500/10 mb-6">
+            <div class="w-20 h-20 rounded-3xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 text-white flex items-center justify-center text-4xl shadow-2xl shadow-blue-500/40 mb-6 ring-4 ring-blue-200/50">
                 <i class="ph-bold ph-shield-check"></i>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">Chào mừng bạn đến với Web Dạy Học Lập Trình Python</h2>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">XÁC THỰC DANH TÍNH NGƯỜI DÙNG</h2>
-            <p class="text-base text-slate-500 max-w-md leading-relaxed mb-8">Để đảm bảo an toàn dữ liệu học đường và lưu trữ kết quả học tập, vui lòng đăng nhập tài khoản trước khi truy cập nền tảng.</p>
+            
+            <!-- ✅ MỚI: Khối tiêu đề được làm đẹp -->
+            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-3 welcome-heading-gradient">
+                Chào mừng bạn đến với Web Dạy Học Lập Trình Python
+            </h2>
+            <div class="mb-4">
+                <span class="inline-flex items-center gap-2 auth-badge-highlight px-5 py-2 rounded-2xl text-base sm:text-lg font-extrabold tracking-wide uppercase">
+                    <i class="ph-bold ph-seal-check text-xl"></i>
+                    Xác Thực Danh Tính Người Dùng
+                </span>
+            </div>
+            <div class="welcome-subtitle-box max-w-2xl w-full mb-8 px-5 py-3.5 rounded-2xl">
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-medium flex items-start gap-2 text-left">
+                    <i class="ph-bold ph-info text-indigo-600 text-xl shrink-0 mt-0.5"></i>
+                    <span>Để đảm bảo an toàn dữ liệu học đường và lưu trữ kết quả học tập, vui lòng đăng nhập tài khoản trước khi truy cập nền tảng.</span>
+                </p>
+            </div>
+            
             <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-2xl justify-center flex-wrap">
                 <button onclick="openLoginModal('student', 'login')" class="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all">
                     <i class="ph-bold ph-student text-lg"></i> Đăng Nhập Học Sinh
@@ -213,7 +271,7 @@
                     <p class="first-letter:text-5xl first-letter:font-extrabold first-letter:text-blue-600 first-letter:mr-2 first-letter:float-left first-letter:leading-none">
                         Đây là ứng dụng dạng web app do <strong>thầy Nguyễn Thế Phương</strong>, giáo viên Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027.
                     </p>
-                    <p class="text-center">Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: <span class="font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-100 shadow-sm inline-block my-1">Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python</span>.</p>
+                    <p class="text-center">Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: <span class="font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg border border-indigo-100 shadow-sm inline-block my-1">Trò chơi, Ngân hàng câu hỏi, Đề bài, Luyện giải đề lập trình Python</span>.</p>
                     <div class="mt-6 p-4 md:p-5 bg-gradient-to-r from-amber-50 to-orange-50/50 border-l-4 border-amber-400 rounded-r-2xl shadow-inner relative overflow-hidden">
                         <i class="ph-fill ph-quotes text-amber-400/20 text-6xl absolute -top-2 -left-2 rotate-12"></i>
                         <p class="font-semibold text-slate-800 italic relative z-10 flex gap-3 items-start pl-2">
@@ -501,16 +559,20 @@
                     <i class="ph-bold ph-book-open-text"></i> Bài Giảng
                 </button>
                 <button id="tabTeacherManageBtn" onclick="switchTeacherTab('manage')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
-                    <i class="ph-bold ph-books"></i> Ngân Hàng Đề
+                    <i class="ph-bold ph-books"></i> Ngân hàng câu hỏi
+                </button>
+                <!-- ✅ MỚI: Tab Các đề đã tạo cho Giáo viên -->
+                <button id="tabTeacherTestsBtn" onclick="switchTeacherTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
                 </button>
                 <button id="tabTeacherSubmissionsBtn" onclick="switchTeacherTab('submissions')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-file-text"></i> Bài Làm
                 </button>
-                <button id="tabTeacherLogsBtn" onclick="switchTeacherTab('logs')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
-                    <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký
-                </button>
                 <button id="tabTeacherGradesBtn" onclick="switchTeacherTab('grades')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-trophy"></i> Sổ Điểm
+                </button>
+                <button id="tabTeacherLogsBtn" onclick="switchTeacherTab('logs')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký
                 </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap pl-2">
                     <select id="teacherGradeFilter" onchange="onTeacherFilterChange()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
@@ -732,6 +794,20 @@
                 </div>
             </div>
 
+            <!-- ✅ MỚI: Tab "Các đề đã tạo" cho Giáo viên -->
+            <div id="teacherTabTests" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900">Các Đề Đã Tạo</h4>
+                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc đẩy đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng.</p>
+                    </div>
+                    <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-shuffle"></i> Tạo đề mới
+                    </button>
+                </div>
+                <div id="teacherTestsList" class="space-y-3"></div>
+            </div>
+
             <div id="teacherTabSubmissions" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -865,16 +941,20 @@
                     <i class="ph-bold ph-book-open-text"></i> Bài Giảng
                 </button>
                 <button id="tabAdminAssignmentsBtn" onclick="switchAdminTab('assignments')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
-                    <i class="ph-bold ph-books"></i> Đề Bài
+                    <i class="ph-bold ph-books"></i> Ngân hàng câu hỏi
+                </button>
+                <!-- ✅ MỚI: Tab Các đề đã tạo cho Admin -->
+                <button id="tabAdminTestsBtn" onclick="switchAdminTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
                 </button>
                 <button id="tabAdminSubmissionsBtn" onclick="switchAdminTab('submissions')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-file-text"></i> Bài Làm
                 </button>
+                <button id="tabAdminGradesBtn" onclick="switchAdminTab('grades')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-trophy"></i> Điểm số
+                </button>
                 <button id="tabAdminLogsBtn" onclick="switchAdminTab('logs')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký
-                </button>
-                <button id="tabAdminGradesBtn" onclick="switchAdminTab('grades')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
-                    <i class="ph-bold ph-trophy"></i> Sổ Điểm
                 </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap">
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
@@ -1025,7 +1105,7 @@
             <div id="adminTabAssignments" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                     <div>
-                        <h4 class="font-bold text-base text-slate-900">Ngân Hàng Đề Bài (Admin)</h4>
+                        <h4 class="font-bold text-base text-slate-900">Ngân Hàng Câu Hỏi</h4>
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
                         <input id="adminAssignmentSearch" oninput="renderAdminAssignmentsTable()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-36">
@@ -1130,6 +1210,20 @@
                         <tbody id="adminAssignmentsTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
+            </div>
+
+            <!-- ✅ MỚI: Tab "Các đề đã tạo" cho Admin -->
+            <div id="adminTabTests" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900">Các Đề Đã Tạo (Admin)</h4>
+                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc đẩy đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng câu hỏi.</p>
+                    </div>
+                    <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                        <i class="ph-bold ph-shuffle"></i> Tạo đề mới
+                    </button>
+                </div>
+                <div id="adminTestsList" class="space-y-3"></div>
             </div>
 
             <div id="adminTabSubmissions" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
@@ -1284,16 +1378,16 @@
         </div>
     </div>
 
-    <!-- ROBOT -->
+    <!-- ✅ ROBOT với GIF nền trong suốt -->
     <div id="robotVoiceWidget" draggable="false" style="z-index: 999999;" class="fixed z-[999999] flex flex-col items-center pointer-events-none select-none transition-all duration-300">
         <audio id="robotAudioPlayer" class="hidden" preload="auto" referrerpolicy="no-referrer"></audio>
         <div id="robotBubbleWrapper" class="flex flex-col items-center mb-2 pointer-events-auto transition-all duration-300 max-w-[290px] sm:max-w-xs w-max">
             <div id="robotSpeechBubbleContainer" class="flex flex-col items-center gap-2 w-full"></div>
         </div>
         <div class="pointer-events-auto flex flex-col items-center relative">
-            <button id="robotAvatarBtn" draggable="false" class="group relative w-16 h-16 rounded-3xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-400 p-1.5 shadow-2xl shadow-blue-500/40 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none ring-4 ring-white/80 cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
-                <span id="robotAudioRing" class="hidden absolute inset-0 rounded-3xl border-2 border-emerald-400 animate-ping opacity-75"></span>
-                <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/robo.png" alt="Robot AI" draggable="false" class="w-full h-full object-cover rounded-2xl drop-shadow-md bg-white/20 backdrop-blur-sm pointer-events-none">
+            <button id="robotAvatarBtn" draggable="false" class="group relative w-16 h-16 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
+                <span id="robotAudioRing" class="hidden absolute inset-0 rounded-full border-2 border-emerald-400 animate-ping opacity-75"></span>
+                <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/robo.gif" alt="Robot AI" draggable="false" class="w-full h-full object-contain pointer-events-none">
             </button>
         </div>
     </div>
@@ -1535,20 +1629,20 @@
                     <h3 class="font-extrabold text-base text-emerald-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-code text-emerald-600 text-lg"></i> 2. LÀM BÀI THỰC HÀNH</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-emerald-800">
                         <li>Chọn tab <b>"Thực Hành"</b> → chọn bài tập ở danh sách bên trái.</li>
-                        <li>Đọc đề bài phía trên, sau đó <b>viết code Python</b> vào ô soạn thảo màu đen bên phải. <b>Ô code không có số dòng</b> để thoáng hơn.</li>
-                        <li><b>Dữ liệu vào (stdin):</b> Nhập số liệu test vào ô <b>"Dữ liệu vào"</b>. ⚠️ <b>Hệ thống sẽ nhắc nếu bạn quên nhập!</b></li>
+                        <li>Đọc đề bài phía trên, sau đó <b>viết code Python</b> vào ô soạn thảo màu đen bên phải.</li>
+                        <li><b>Dữ liệu vào (stdin):</b> Nhập số liệu test vào ô <b>"Dữ liệu vào"</b>.</li>
                         <li>Nhấn <b>"Chạy Thử"</b> để xem kết quả nhanh ở ô "Kết quả".</li>
-                        <li>Nhấn <b>"NỘP BÀI"</b> để hệ thống tự động chấm. Code sẽ được tự động lưu lên máy chủ + file Excel.</li>
-                        <li>⭐ Nhấn <b>"Gắn cờ"</b> (ngôi sao) để đánh dấu bài đã học xong — cờ được lưu lại.</li>
+                        <li>Nhấn <b>"NỘP BÀI"</b> để hệ thống tự động chấm.</li>
+                        <li>⭐ Nhấn <b>"Gắn cờ"</b> để đánh dấu bài đã học xong.</li>
                     </ul>
                 </div>
 
-                <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-exam text-purple-600 text-lg"></i> 3. BÀI KIỂM TRA TRỰC TUYẾN</h3>
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-4xl p-4 shadow-sm">
+                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600 text-lg"></i> 3. QUẢN LÝ ĐỀ THI (GV & ADMIN)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
-                        <li>Chọn tab <b>"Kiểm Tra"</b> để xem các đề giáo viên đã giao.</li>
-                        <li>Nhấn <b>"Bắt Đầu Làm Bài"</b> — giao diện giống "Thực Hành".</li>
-                        <li>⚠️ Nếu giáo viên <b>KHÔNG cho phép</b>, nút <b>"Xem Code Mẫu"</b> sẽ bị ẩn.</li>
+                        <li>Vào tab <b>"Các đề đã tạo"</b> để xem toàn bộ đề đã tạo.</li>
+                        <li>Nhấn <b>"Xem"</b> để xem chi tiết đề; <b>"Sửa"</b> để chỉnh sửa câu hỏi; <b>"Đẩy cho HS"</b> để giao đề cho học sinh.</li>
+                        <li>Nhấn <b>"Xóa"</b> để xóa đề. <b>Lưu ý:</b> Xóa đề <u>không</u> ảnh hưởng đến câu hỏi trong Ngân hàng câu hỏi.</li>
                     </ul>
                 </div>
 
@@ -1556,35 +1650,16 @@
                     <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 4. SỬ DỤNG AI</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-indigo-800">
                         <li><b>Robot trợ lý:</b> Biểu tượng robot ở góc màn hình. <b>Nhấp 1 lần</b> để đọc toàn bộ văn bản đang hiển thị; <b>nhấp lần nữa</b> để dừng.</li>
-                        <li><b>Hỏi Gia Sư AI:</b> Nhấn nút <b>"Hỏi Gia Sư AI"</b> (góc phải khung đề bài) hoặc <b>"Phân tích lỗi"</b>.</li>
-                        <li>Gia sư AI có <b>3 chế độ</b>: Socratic (gợi mở), Hướng tiếp cận (gợi ý), Phân tích lỗi (debug).</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-100 border-2 border-slate-300 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-slate-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-magic-wand text-slate-700 text-lg"></i> 5. CĂN CHỈNH CODE</h3>
-                    <ul class="list-disc list-inside space-y-1.5 text-slate-800">
-                        <li><b>Tab:</b> Nhấn <b>"Tab"</b> để chèn 4 dấu cách.</li>
-                        <li><b>Format:</b> Nhấn <b>"Format"</b> để tự động căn chỉnh thụt lề thông minh theo chuẩn lập trình viên.</li>
-                        <li><b>Copy:</b> Nhấn biểu tượng copy để sao chép toàn bộ code.</li>
+                        <li><b>Hỏi Gia Sư AI:</b> Nhấn nút <b>"Hỏi Gia Sư AI"</b> hoặc <b>"Phân tích lỗi"</b>.</li>
                     </ul>
                 </div>
 
                 <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 6. XEM CODE MẪU & QUÊN MẬT KHẨU</h3>
+                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 5. QUÊN MẬT KHẨU</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-amber-800">
-                        <li><b>Xem Code Mẫu:</b> Nhấn nút <b>"Xem Code Mẫu"</b> ở khối "Robot Hướng Dẫn".</li>
-                        <li><b>Quên mật khẩu:</b> Ở form đăng nhập, nhấn <b>"Quên mật khẩu?"</b>. Nhập tên đăng nhập + <b>1 trong 3</b> (SĐT / CCCD / Email).</li>
+                        <li>Ở form đăng nhập, nhấn <b>"Quên mật khẩu?"</b>. Nhập tên đăng nhập + <b>1 trong 3</b> (SĐT / CCCD / Email).</li>
                         <li>Nếu <b>1 trong 3</b> khớp → đổi mật khẩu thành công ngay.</li>
-                        <li>Nếu <b>không có thông tin nào đúng</b> → hệ thống báo: <i>"Bạn vui lòng chờ Admin cấp lại mật khẩu sau 24 giờ hoặc hãy tạo mật khẩu mới!"</i>. Nhật ký ghi <span class="text-rose-600 font-bold">"Reset pw"</span> màu đỏ.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-teal-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-file-xls text-teal-600 text-lg"></i> 7. XUẤT EXCEL BÀI LÀM</h3>
-                    <ul class="list-disc list-inside space-y-1.5 text-teal-800">
-                        <li>Giáo viên/Admin có thể xuất <b>Excel 3 sheet</b>: chi tiết từng câu, thống kê theo ngày, tổng hợp học sinh.</li>
-                        <li>Code Python của từng học sinh được lưu tự động mỗi khi nhấn <b>NỘP BÀI</b>.</li>
+                        <li>Nếu <b>không có thông tin nào đúng</b> → Admin sẽ cấp lại mật khẩu trong 24 giờ.</li>
                     </ul>
                 </div>
 
@@ -1840,26 +1915,93 @@
                         <label class="block font-bold text-sm text-rose-700 mb-1">Số câu KHÓ:</label>
                         <input type="number" id="randomHardCount" min="0" max="20" value="1" class="w-full bg-rose-50 border border-rose-300 rounded-xl px-3 py-2 text-sm font-bold">
                     </div>
-                    <div class="flex items-end">
-                        <button onclick="generateRandomTest()" class="w-full py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm flex items-center justify-center gap-1.5 shadow">
-                            <i class="ph-bold ph-shuffle"></i> Trộn Đề
-                        </button>
-                    </div>
+                </div>
+                <div class="flex flex-wrap items-center justify-end gap-2 pt-2 border-t border-slate-200">
+                    <button onclick="generateRandomTest()" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
+                        <i class="ph-bold ph-shuffle"></i> Trộn Đề
+                    </button>
+                    <button id="btnExportRandomDocx" onclick="exportRandomTestToDocx()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
+                        <i class="ph-bold ph-file-doc"></i> Xuất Word
+                    </button>
+                    <button id="btnPublishRandomTest" onclick="saveAndPublishRandomTest()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
+                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Đẩy Cho HS
+                    </button>
                 </div>
                 <div id="randomTestResult" class="border border-slate-200 rounded-2xl p-4 bg-slate-50 min-h-[100px] text-sm space-y-2">
                     <p class="text-slate-500 italic text-center">Chưa có đề nào. Nhấn "Trộn Đề" để bắt đầu.</p>
                 </div>
-                <div id="randomTestActions" class="hidden flex flex-wrap justify-end gap-2 pt-2 border-t">
-                    <button onclick="exportRandomTestToDocx()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
-                        <i class="ph-bold ph-file-doc"></i> Xuất Word
-                    </button>
-                    <button onclick="saveAndPublishRandomTest()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
-                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Đẩy Cho HS
-                    </button>
-                </div>
             </div>
             <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
                 <button onclick="closeRandomTestModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MANAGE TESTS MODAL -->
+    <div id="manageTestsModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10011] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-5 bg-gradient-to-r from-indigo-700 to-purple-700 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-list-checks text-xl text-amber-300"></i></div>
+                    <div>
+                        <h3 class="text-base font-bold">Quản Lý Đề Thi Đã Tạo</h3>
+                        <p class="text-xs text-indigo-100">Xem, sửa, xóa hoặc đẩy đề cho học sinh</p>
+                    </div>
+                </div>
+                <button onclick="closeManageTestsModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div id="manageTestsList" class="p-5 space-y-3 overflow-y-auto flex-1"></div>
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
+                <button onclick="closeManageTestsModal()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT TEST MODAL -->
+    <div id="editTestModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10012] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-5 bg-gradient-to-r from-blue-700 to-indigo-700 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-pencil-simple text-xl text-amber-300"></i></div>
+                    <div>
+                        <h3 class="text-base font-bold">Chỉnh Sửa Đề Thi</h3>
+                        <p class="text-xs text-blue-100">Cập nhật thông tin đề và danh sách câu hỏi</p>
+                    </div>
+                </div>
+                <button onclick="closeEditTestModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div class="p-5 space-y-4 overflow-y-auto">
+                <input type="hidden" id="editTestId">
+                <div>
+                    <label class="block font-bold text-sm text-slate-700 mb-1">Tên bài kiểm tra:</label>
+                    <input type="text" id="editTestTitle" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-semibold">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
+                        <select id="editTestGrade" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            <option value="all">Tất cả</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                            <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <label class="flex items-center gap-2 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm cursor-pointer w-full">
+                            <input type="checkbox" id="editTestAllowSample" class="w-4 h-4">
+                            <span class="font-semibold text-slate-700">Cho phép xem code mẫu</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-sm text-slate-700 mb-1">Danh sách câu hỏi (tích chọn):</label>
+                    <div id="editTestQuestionList" class="space-y-2 max-h-[300px] overflow-y-auto border border-slate-200 rounded-xl p-3 bg-slate-50"></div>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
+                <button onclick="closeEditTestModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm">Hủy</button>
+                <button onclick="saveEditedTest()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-1.5">
+                    <i class="ph-bold ph-check-circle"></i> Lưu
+                </button>
             </div>
         </div>
     </div>
@@ -1878,7 +2020,7 @@
 
     <script>
     // =============================================
-    // 🔐 CLOUDFLARE WORKER PROXY (30 dòng) - Xem phần hướng dẫn phía dưới
+    // 🔐 CLOUDFLARE WORKER PROXY
     // =============================================
     // Deploy file worker.js sau lên Cloudflare Workers (miễn phí 100k req/ngày):
     //
@@ -1945,22 +2087,21 @@
     let studentFlags = {};
     let flaggedAssignmentsCache = {};
 
-    // 🔐 GitHub direct (fallback) config — repo luôn công khai để raw fetch hoạt động
+    let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
+
     const GITHUB_OWNER = "thefuong119";
     const GITHUB_REPO = "ai-python-thcs";
     const GITHUB_FILE_PATH = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
 
-    // 🔐 Proxy endpoint (do người dùng nhập, không hardcode token)
     let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || "";
     let PROXY_HEALTHY = false;
 
-    // 🔐 Password salt (có thể đổi, cố định trong app)
     const PASSWORD_SALT = "LMS_PYTHON_THCS_THANHDONG_2026_SALT";
 
     // =============================================
-    // 🔐 PASSWORD HASHING (Web Crypto API - SHA-256)
+    // 🔐 PASSWORD HASHING
     // =============================================
     async function hashPassword(plainPassword) {
         if (!plainPassword) return "";
@@ -1977,31 +2118,22 @@
     }
 
     async function verifyPassword(plainPassword, storedHashOrPlain, user) {
-        if (!storedHashOrPlain) {
-            // Legacy user không có hash → so sánh trực tiếp với plain password cũ
-            return user.password === plainPassword;
-        }
-        if (String(storedHashOrPlain).startsWith('plain:')) {
-            return storedHashOrPlain.substring(6) === plainPassword;
-        }
+        if (!storedHashOrPlain) return user.password === plainPassword;
+        if (String(storedHashOrPlain).startsWith('plain:')) return storedHashOrPlain.substring(6) === plainPassword;
         const hash = await hashPassword(plainPassword);
         return hash === storedHashOrPlain;
     }
 
-    // Tự động hash toàn bộ mật khẩu plaintext còn sót (migration 1 lần)
     async function migratePasswordHashes() {
         let migrated = 0;
         for (const u of registeredUsers) {
             if (u.password && !u.passwordHash) {
                 u.passwordHash = await hashPassword(u.password);
-                u.password = null;  // Xóa plaintext
+                u.password = null;
                 migrated++;
             }
         }
-        if (migrated > 0) {
-            console.log(`[MIGRATE] Đã hash ${migrated} mật khẩu`);
-            autoSaveLocalSnapshot();
-        }
+        if (migrated > 0) { autoSaveLocalSnapshot(); }
     }
 
     let pyodideInstance = null;
@@ -2088,6 +2220,286 @@
     }
 
     // =============================================
+    // QUẢN LÝ CỜ CÂU HỎI ĐÃ DÙNG LÀM ĐỀ
+    // =============================================
+    function saveQuestionFlags() {
+        localStorage.setItem('lms_question_flags', JSON.stringify(questionFlags));
+    }
+
+    function isQuestionFlagged(assignmentId) {
+        return !!questionFlags[assignmentId];
+    }
+
+    function toggleQuestionFlag(assignmentId) {
+        if (questionFlags[assignmentId]) delete questionFlags[assignmentId];
+        else questionFlags[assignmentId] = true;
+        saveQuestionFlags();
+    }
+
+    function openManageTestsModal() {
+        renderManageTestsList();
+        document.getElementById('manageTestsModal')?.classList.remove('hidden');
+    }
+
+    function closeManageTestsModal() {
+        document.getElementById('manageTestsModal')?.classList.add('hidden');
+    }
+
+    function renderManageTestsList() {
+        const container = document.getElementById('manageTestsList');
+        if (!container) return;
+        const activeTests = testSets.filter(t => t.active !== false);
+        if (activeTests.length === 0) {
+            container.innerHTML = '<p class="text-slate-500 italic text-center p-6">Chưa có đề thi nào được tạo.</p>';
+            return;
+        }
+        container.innerHTML = activeTests.map(t => {
+            const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
+            const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
+            return `
+                <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-2">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">${t.title}</h4>
+                            <div class="text-xs text-slate-500 mt-1">
+                                ${qCount} câu · Tạo lúc ${t.createdAt} · ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}
+                            </div>
+                            ${flaggedCount > 0 ? `<div class="text-xs text-amber-600 font-bold mt-1">⭐ ${flaggedCount} câu đã gắn cờ</div>` : ''}
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-end">
+                        <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1">
+                            <i class="ph-bold ph-eye"></i> Xem
+                        </button>
+                        <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1">
+                            <i class="ph-bold ph-pencil-simple"></i> Sửa
+                        </button>
+                        <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1">
+                            <i class="ph-bold ph-trash"></i> Xóa
+                        </button>
+                        <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
+                            <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                        </button>
+                    </div>
+                </div>`;
+        }).join('');
+    }
+
+    // ✅ MỚI: Hiển thị danh sách đề trong tab "Các đề đã tạo" của GV và Admin
+    function renderTeacherTestsList() {
+        const container = document.getElementById('teacherTestsList');
+        if (!container) return;
+        const activeTests = testSets.filter(t => t.active !== false);
+        if (activeTests.length === 0) {
+            container.innerHTML = `<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl border border-slate-200">
+                <i class="ph-bold ph-list-checks text-4xl text-slate-300 mb-2 block"></i>
+                Chưa có đề thi nào được tạo. Nhấn "Tạo đề mới" để bắt đầu.
+            </div>`;
+            return;
+        }
+        container.innerHTML = activeTests.map(t => {
+            const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
+            const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
+            return `
+                <div class="border border-slate-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition-all space-y-2">
+                    <div class="flex items-start justify-between gap-2 flex-wrap">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                <i class="ph-bold ph-list-checks text-purple-600"></i>
+                                ${t.title}
+                            </h4>
+                            <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                                <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
+                                <span><i class="ph-bold ph-calendar"></i> ${t.createdAt}</span>
+                                <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
+                                ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-eye"></i> Xem
+                            </button>
+                            <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-pencil-simple"></i> Sửa
+                            </button>
+                            <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-trash"></i> Xóa
+                            </button>
+                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        }).join('');
+    }
+
+    function renderAdminTestsList() {
+        const container = document.getElementById('adminTestsList');
+        if (!container) return;
+        const activeTests = testSets.filter(t => t.active !== false);
+        if (activeTests.length === 0) {
+            container.innerHTML = `<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl border border-slate-200">
+                <i class="ph-bold ph-list-checks text-4xl text-slate-300 mb-2 block"></i>
+                Chưa có đề thi nào được tạo. Nhấn "Tạo đề mới" để bắt đầu.
+            </div>`;
+            return;
+        }
+        container.innerHTML = activeTests.map(t => {
+            const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
+            const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
+            return `
+                <div class="border border-slate-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition-all space-y-2">
+                    <div class="flex items-start justify-between gap-2 flex-wrap">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                <i class="ph-bold ph-list-checks text-indigo-600"></i>
+                                ${t.title}
+                            </h4>
+                            <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                                <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
+                                <span><i class="ph-bold ph-calendar"></i> ${t.createdAt}</span>
+                                <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
+                                ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-eye"></i> Xem
+                            </button>
+                            <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-pencil-simple"></i> Sửa
+                            </button>
+                            <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-trash"></i> Xóa
+                            </button>
+                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
+                                <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+        }).join('');
+    }
+
+    function viewTestDetail(testId) {
+        const t = testSets.find(x => x.id == testId);
+        if (!t) return;
+        const qDetails = (t.questionIds || []).map((qid, idx) => {
+            const a = assignments.find(x => x.id == qid);
+            if (!a) return '';
+            const flag = isQuestionFlagged(qid) ? ' ⭐' : '';
+            return `<div class="flex justify-between items-start gap-2 p-2 bg-white rounded-lg border border-slate-200">
+                <span class="text-sm font-semibold">Câu ${idx + 1}: ${a.title}${flag}</span>
+                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold">Khối ${a.classLevel || '8'}</span>
+            </div>`;
+        }).join('');
+        const modal = document.getElementById('viewContentDetailModal');
+        const titleEl = document.getElementById('viewContentTitle');
+        const subEl = document.getElementById('viewContentSubtitle');
+        const bodyEl = document.getElementById('viewContentBody');
+        const audioBtn = document.getElementById('viewContentAudioBtn');
+        const editBtn = document.getElementById('viewContentEditBtn');
+        const saveBtn = document.getElementById('viewContentSaveBtn');
+        const icon = document.getElementById('viewContentIcon');
+        if (icon) icon.className = "ph-bold ph-list-checks text-amber-300";
+        if (titleEl) titleEl.textContent = t.title;
+        if (subEl) subEl.textContent = `Tạo lúc: ${t.createdAt} · ${t.questionIds?.length || 0} câu`;
+        if (bodyEl) {
+            bodyEl.innerHTML = `
+                <div class="bg-purple-50 border border-purple-200 p-3 rounded-2xl mb-3 text-sm">
+                    <p><strong>Khối:</strong> ${t.grade || 'Tất cả'}</p>
+                    <p><strong>Code mẫu:</strong> ${t.allowSampleCode ? 'Cho phép xem' : 'Không cho phép'}</p>
+                    <p><strong>Trạng thái:</strong> ${t.active !== false ? 'Đang hoạt động' : 'Đã ẩn'}</p>
+                </div>
+                <h4 class="font-bold text-sm text-slate-800 mb-2">Danh sách câu hỏi:</h4>
+                <div class="space-y-2">${qDetails || '<p class="text-slate-500 italic">Không có câu hỏi.</p>'}</div>`;
+        }
+        if (audioBtn) audioBtn.onclick = () => { speakRobotText(`Đề thi ${t.title}. Gồm ${t.questionIds?.length || 0} câu hỏi.`); };
+        if (editBtn) editBtn.classList.add('hidden');
+        if (saveBtn) saveBtn.classList.add('hidden');
+        modal?.classList.remove('hidden');
+    }
+
+    function openEditTestModal(testId) {
+        const t = testSets.find(x => x.id == testId);
+        if (!t) return;
+        document.getElementById('editTestId').value = t.id;
+        document.getElementById('editTestTitle').value = t.title || '';
+        document.getElementById('editTestGrade').value = t.grade || 'all';
+        document.getElementById('editTestAllowSample').checked = !!t.allowSampleCode;
+        const container = document.getElementById('editTestQuestionList');
+        const gradeFilter = t.grade || 'all';
+        const pool = assignments.filter(a => gradeFilter === 'all' || (a.classLevel || '8') === gradeFilter);
+        container.innerHTML = pool.map(a => {
+            const checked = (t.questionIds || []).includes(a.id);
+            const flag = isQuestionFlagged(a.id) ? ' ⭐' : '';
+            return `<label class="flex items-center gap-2 p-2 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                <input type="checkbox" value="${a.id}" ${checked ? 'checked' : ''} class="w-4 h-4">
+                <span class="text-sm font-semibold">${a.title}${flag}</span>
+                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold ml-auto">Khối ${a.classLevel || '8'}</span>
+            </label>`;
+        }).join('');
+        document.getElementById('editTestModal')?.classList.remove('hidden');
+    }
+
+    function closeEditTestModal() {
+        document.getElementById('editTestModal')?.classList.add('hidden');
+    }
+
+    function saveEditedTest() {
+        const id = parseInt(document.getElementById('editTestId').value);
+        const t = testSets.find(x => x.id === id);
+        if (!t) return showToast('Không tìm thấy đề!', 'error');
+        t.title = document.getElementById('editTestTitle').value.trim() || t.title;
+        t.grade = document.getElementById('editTestGrade').value;
+        t.allowSampleCode = document.getElementById('editTestAllowSample').checked;
+        const checkboxes = document.querySelectorAll('#editTestQuestionList input[type="checkbox"]');
+        const selectedIds = [];
+        checkboxes.forEach(cb => { if (cb.checked) selectedIds.push(parseInt(cb.value)); });
+        if (selectedIds.length === 0) return showToast('Chọn ít nhất 1 câu hỏi!', 'error');
+        t.questionIds = selectedIds;
+        autoSaveLocalSnapshot();
+        syncDataToGitHubDirectly(`Sửa đề thi: ${t.title}`);
+        closeEditTestModal();
+        renderManageTestsList();
+        renderTeacherTestsList();
+        renderAdminTestsList();
+        renderStudentTestList();
+        showToast('Đã cập nhật đề thi!', 'success');
+    }
+
+    // ✅ FIX: Xóa đề KHÔNG xóa câu hỏi trong assignments (Ngân hàng câu hỏi)
+    function deleteTestSet(testId) {
+        const t = testSets.find(x => x.id == testId);
+        if (!t) return;
+        requestDeleteConfirmation(`đề thi "${t.title}"`, () => {
+            // Chỉ xóa testSet, không đụng đến assignments
+            testSets = testSets.filter(x => x.id !== testId);
+            autoSaveLocalSnapshot();
+            syncDataToGitHubDirectly(`Xóa đề thi: ${t.title}`);
+            renderManageTestsList();
+            renderTeacherTestsList();
+            renderAdminTestsList();
+            renderStudentTestList();
+            showToast('Đã xóa đề thi! Câu hỏi trong Ngân hàng vẫn được giữ nguyên.', 'success');
+        });
+    }
+
+    async function pushTestToStudents(testId) {
+        const t = testSets.find(x => x.id == testId);
+        if (!t) return;
+        t.active = true;
+        autoSaveLocalSnapshot();
+        await syncDataToGitHubDirectly(`Đẩy đề cho HS: ${t.title}`);
+        renderManageTestsList();
+        renderTeacherTestsList();
+        renderAdminTestsList();
+        renderStudentTestList();
+        showToast(`Đã đẩy "${t.title}" cho học sinh!`, 'success');
+    }
+
+    // =============================================
     // 🔐 PROXY HEALTH CHECK
     // =============================================
     async function checkProxyHealth(showAlert = false) {
@@ -2155,13 +2567,11 @@
                 const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(path)}&t=${Date.now()}`;
                 const res = await fetch(url, { ...options, cache: 'no-store' });
                 if (res.status === 409) {
-                    // Conflict: SHA cũ → đợi 500ms rồi retry (sẽ fetch SHA mới ở caller)
                     lastError = new Error("CONFLICT_409");
                     await sleep(500 * Math.pow(2, attempt));
                     continue;
                 }
                 if (res.status === 429) {
-                    // Rate limit
                     lastError = new Error("RATE_LIMIT_429");
                     await sleep(1500 * Math.pow(2, attempt));
                     continue;
@@ -2178,7 +2588,6 @@
 
     function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-    // Đọc SHA hiện tại từ GitHub (qua proxy hoặc raw fallback)
     async function getCurrentShaViaProxy(path, maxRetries = 2) {
         if (!PROXY_ENDPOINT) return "";
         for (let attempt = 0; attempt < maxRetries; attempt++) {
@@ -2189,7 +2598,7 @@
                     const json = await res.json();
                     return json.sha || "";
                 }
-                if (res.status === 404) return ""; // File chưa tồn tại
+                if (res.status === 404) return "";
             } catch (e) {}
             await sleep(300);
         }
@@ -2469,7 +2878,7 @@
             bodyEl.innerHTML = `
                 <div class="space-y-4">
                     <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-2">
-                        <h4 class="font-bold text-sm text-slate-800 uppercase tracking-wide flex items-center gap-1.5 text-blue-600"><i class="ph-bold ph-file-text"></i> Đề bài</h4>
+                        <h4 class="font-bold text-sm text-slate-800 uppercase tracking-wide flex items-center gap-1.5 text-blue-600"><i class="ph-bold ph-file-text"></i> Ngân hàng câu hỏi</h4>
                         <div class="leading-relaxed text-slate-700 text-sm">${renderSimpleMarkdown(ass.description)}</div>
                     </div>
                     ${ass.templateCode ? `<div class="bg-slate-900 text-slate-100 p-4 rounded-2xl border border-slate-800 space-y-2 font-mono"><h4 class="font-bold text-sm text-amber-300 uppercase tracking-wide flex items-center gap-1.5"><i class="ph-bold ph-code"></i> Code mẫu</h4><pre class="overflow-x-auto text-sm whitespace-pre"><code>${ass.templateCode.replace(/</g,'&lt;')}</code></pre></div>` : ''}
@@ -2494,7 +2903,7 @@
         bodyEl.innerHTML = `
             <div class="space-y-3">
                 <div><label class="block font-bold text-sm text-slate-700 mb-1">Tên bài tập:</label><input type="text" id="viewEditAssTitle" value="${(ass.title||'').replace(/"/g,'&quot;')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div>
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Đề bài:</label><textarea id="viewEditAssDesc" rows="10" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${(ass.description||'').replace(/</g,'&lt;')}</textarea></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Ngân hàng câu hỏi:</label><textarea id="viewEditAssDesc" rows="10" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${(ass.description||'').replace(/</g,'&lt;')}</textarea></div>
                 <div><label class="block font-bold text-sm text-slate-700 mb-1">Code mẫu:</label><textarea id="viewEditAssCode" rows="6" class="w-full bg-slate-900 text-slate-100 border border-slate-800 rounded-xl p-3 text-sm font-mono">${(ass.templateCode||'').replace(/</g,'&lt;')}</textarea></div>
             </div>`;
         editBtn?.classList.add('hidden'); saveBtn?.classList.remove('hidden');
@@ -2584,7 +2993,6 @@
         activeAuthTab = role; currentAuthAction = action;
         updateAuthModalState();
         document.getElementById('authModal')?.classList.remove('hidden');
-        // 🔐 Fetch dữ liệu mới (dùng cache 5 phút)
         await autoFetchDataFromGitHub(false);
     }
     function closeLoginModal() { document.getElementById('authModal')?.classList.add('hidden'); }
@@ -2653,7 +3061,7 @@
     }
 
     // =============================================
-    // 🔐 REFACTORED AUTH: Chia nhỏ thành các hàm
+    // AUTH PROCESS
     // =============================================
     async function processAuthSubmit() {
         if (currentAuthAction === 'login') {
@@ -2665,7 +3073,6 @@
         }
     }
 
-    // ---------- Login: Học sinh ----------
     async function handleStudentLogin() {
         const id = (document.getElementById('studentLoginIdentifier')?.value || '').trim().toLowerCase();
         const pass = document.getElementById('studentLoginPassword')?.value || '';
@@ -2683,13 +3090,10 @@
         }
     }
 
-    // ---------- Login: Giáo viên ----------
     async function handleTeacherLogin() {
         const id = (document.getElementById('teacherCccdInput')?.value || '').trim();
         const pass = document.getElementById('teacherPassInput')?.value || '';
         if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
-
-        // 🔐 Admin hardcode (giữ nguyên để tương thích)
         if ((id === "086081006094" || id.toLowerCase() === "admin") && pass === "Admin#999") {
             currentUser = { isLoggedIn: true, role: 'admin', name: "Thầy Nguyễn Thế Phương", identifier: "086081006094" };
             logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
@@ -2698,7 +3102,6 @@
             speakRobotText("Kính chào Thầy Nguyễn Thế Phương!");
             return;
         }
-
         const teacher = registeredUsers.find(u => (u.role === 'teacher' || u.role === 'admin') && matchesUserIdentifier(u, id));
         if (teacher && await verifyPassword(pass, teacher.passwordHash, teacher)) {
             teacher.loginCount = (teacher.loginCount || 0) + 1;
@@ -2712,7 +3115,6 @@
         }
     }
 
-    // ---------- Đăng ký: Học sinh ----------
     async function handleStudentRegister() {
         const name = document.getElementById('regStudentName')?.value.trim();
         const school = document.getElementById('regStudentSchool')?.value.trim() || 'THCS Thành Đông';
@@ -2737,7 +3139,6 @@
         await syncDataToGitHubDirectly(`Đăng ký HS: ${ns.name}`);
     }
 
-    // ---------- Đăng ký: Giáo viên ----------
     async function handleTeacherRegister() {
         const name = document.getElementById('regTeacherName')?.value.trim();
         const rPhone = document.getElementById('regTeacherPhone')?.value.trim() || '';
@@ -2760,7 +3161,6 @@
         await syncDataToGitHubDirectly(`Đăng ký GV: ${nt.name}`);
     }
 
-    // ---------- Helpers ----------
     function matchesUserIdentifier(user, id) {
         if (!user || !id) return false;
         const lo = String(id).toLowerCase();
@@ -2855,7 +3255,7 @@
     }
 
     // =============================================
-    // 🔐 GITHUB SYNC QUA PROXY + RETRY
+    // GITHUB SYNC QUA PROXY + RETRY
     // =============================================
     async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
 
@@ -2889,8 +3289,6 @@
 
     function buildSnapshotPayload(actionDescription) {
         const cleanedUsers = registeredUsers.map(u => {
-            // Không gửi passwordHash lên server công khai → chỉ gửi user info
-            // Nếu qua proxy riêng, có thể giữ hash; ở đây tạm ẩn để an toàn
             const { password, passwordHash, ...safe } = u;
             return { ...safe, _hasPassword: !!(passwordHash || password) };
         });
@@ -2906,7 +3304,8 @@
                 studentFlags,
                 flaggedAssignmentsCache,
                 testSets,
-                studentCodeCache
+                studentCodeCache,
+                questionFlags
             }
         };
     }
@@ -2915,7 +3314,6 @@
         const syncTimeEl = document.getElementById('lastGithubSyncTime');
         let payload = null;
 
-        // Ưu tiên 1: Proxy
         if (PROXY_ENDPOINT) {
             try {
                 const res = await githubFetchViaProxy(GITHUB_FILE_PATH, { method: 'GET' });
@@ -2926,7 +3324,6 @@
             }
         }
 
-        // Fallback: raw CDN công khai
         if (!payload) {
             try {
                 const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/${GITHUB_FILE_PATH}?_t=${Date.now()}`;
@@ -2959,6 +3356,7 @@
         if (data.flaggedAssignmentsCache) flaggedAssignmentsCache = data.flaggedAssignmentsCache;
         if (data.testSets) testSets = data.testSets;
         if (data.studentCodeCache) studentCodeCache = data.studentCodeCache;
+        if (data.questionFlags) { questionFlags = data.questionFlags; saveQuestionFlags(); }
         restoreFlaggedAssignments();
     }
 
@@ -2968,6 +3366,7 @@
         renderTeacherSubmissionsTable(); renderTeacherLogsTable();
         refreshAdminDashboard(); updateTeacherStats();
         renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
+        renderTeacherTestsList(); renderAdminTestsList();
     }
 
     async function pushSubmissionsCsvToGithub() {
@@ -3075,7 +3474,7 @@
 
     function autoSaveLocalSnapshot() {
         try {
-            localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache }));
+            localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags }));
         } catch(e) {}
     }
     function loadLocalSnapshotIfAvailable() {
@@ -3093,6 +3492,7 @@
                 if (parsed.flaggedAssignmentsCache) flaggedAssignmentsCache = parsed.flaggedAssignmentsCache;
                 if (parsed.testSets) testSets = parsed.testSets;
                 if (parsed.studentCodeCache) studentCodeCache = parsed.studentCodeCache;
+                if (parsed.questionFlags) { questionFlags = parsed.questionFlags; saveQuestionFlags(); }
             }
         } catch(e) {}
     }
@@ -3356,7 +3756,8 @@
         else list.sort((a,b) => a.id - b.id);
         sel.innerHTML = list.map(a => {
             const flag = isAssignmentFlagged(a.id) ? '⭐ ' : '';
-            return `<option value="${a.id}">${flag}[Khối ${a.classLevel||'8'}] ${a.title}</option>`;
+            const qflag = isQuestionFlagged(a.id) ? '📌 ' : '';
+            return `<option value="${a.id}">${flag}${qflag}[Khối ${a.classLevel||'8'}] ${a.title}</option>`;
         }).join('');
         if (list.length > 0) loadAssignment(list[0].id);
         else {
@@ -3477,11 +3878,13 @@
         else if (sortMode === 'diff') { const o = {easy:0,medium:1,hard:2}; list.sort((a,b) => (o[a.difficulty]||0) - (o[b.difficulty]||0)); }
         else if (sortMode === 'title') list.sort((a,b) => a.title.localeCompare(b.title));
         else list.sort((a,b) => a.id - b.id);
-        tbody.innerHTML = list.map(a => `
+        tbody.innerHTML = list.map(a => {
+            const qflag = isQuestionFlagged(a.id) ? ' ⭐' : '';
+            return `
             <tr class="hover:bg-blue-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${a.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-blue-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-xs mr-2 font-bold border border-blue-100">Khối ${a.classLevel||'8'}</span>${a.title}
+                    <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-xs mr-2 font-bold border border-blue-100">Khối ${a.classLevel||'8'}</span>${a.title}${qflag}
                 </td>
                 <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
                 <td class="text-center font-mono text-slate-600">${a.timeLimit || 2.0}s</td>
@@ -3489,7 +3892,8 @@
                     <button onclick="openViewAssignmentDetail(${a.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs mr-1"><i class="ph-bold ph-eye"></i></button>
                     <button onclick="editAssignment(${a.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i></button>
                 </td>
-            </tr>`).join('');
+            </tr>`;
+        }).join('');
     }
 
     function renderAdminAssignmentsTable() {
@@ -3508,11 +3912,13 @@
         else if (sortMode === 'diff') { const o = {easy:0,medium:1,hard:2}; list.sort((a,b) => (o[a.difficulty]||0) - (o[b.difficulty]||0)); }
         else if (sortMode === 'title') list.sort((a,b) => a.title.localeCompare(b.title));
         else list.sort((a,b) => a.id - b.id);
-        tbody.innerHTML = list.map(a => `
+        tbody.innerHTML = list.map(a => {
+            const qflag = isQuestionFlagged(a.id) ? ' ⭐' : '';
+            return `
             <tr class="hover:bg-indigo-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${a.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${a.classLevel||'8'}</span>${a.title}
+                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${a.classLevel||'8'}</span>${a.title}${qflag}
                 </td>
                 <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
                 <td class="text-center">
@@ -3520,7 +3926,8 @@
                     <button onclick="editAdminAssignment(${a.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs mr-1"><i class="ph-bold ph-pencil-simple"></i></button>
                     <button onclick="deleteAssignmentAdmin(${a.id})" class="px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i></button>
                 </td>
-            </tr>`).join('');
+            </tr>`;
+        }).join('');
     }
 
     function createAdminAssignment() {
@@ -3610,7 +4017,7 @@
             testSets.forEach(t => { if (t.questionIds) t.questionIds = t.questionIds.filter(qid => qid != id); });
             testSets = testSets.filter(t => (t.questionIds || []).length > 0);
             populateAssignmentSelect(); renderManageAssignmentsTable(); renderAdminAssignmentsTable(); updateTeacherStats(); autoSaveLocalSnapshot();
-            renderStudentTestList();
+            renderStudentTestList(); renderTeacherTestsList(); renderAdminTestsList();
             showToast(`Đã xóa!`, "success");
             await syncDataToGitHubDirectly(`Admin xóa bài tập: ${title}`);
         });
@@ -3855,12 +4262,13 @@ except Exception as e: _error = str(e)
 
     function onTeacherFilterChange() { renderTeacherLecturesTable(); renderManageAssignmentsTable(); }
 
+    // ✅ CẬP NHẬT: Thêm tab 'tests' cho Giáo viên
     function switchTeacherTab(tab) {
-        ['lectures','create','manage','submissions','logs','grades'].forEach(t => {
+        ['lectures','create','manage','tests','submissions','logs','grades'].forEach(t => {
             const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Lectures','Manage','Submissions','Logs','Grades'].forEach(t => {
+        ['Lectures','Manage','Tests','Submissions','Logs','Grades'].forEach(t => {
             const btn = document.getElementById('tabTeacher' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ?
                 "py-2 px-4 text-xs font-bold rounded-xl bg-blue-50 text-blue-600 shadow-sm flex items-center gap-2 whitespace-nowrap" :
@@ -3868,6 +4276,7 @@ except Exception as e: _error = str(e)
         });
         if (tab === 'lectures') renderTeacherLecturesTable();
         if (tab === 'manage') renderManageAssignmentsTable();
+        if (tab === 'tests') renderTeacherTestsList();
         if (tab === 'submissions') renderTeacherSubmissionsTable();
         if (tab === 'logs') renderTeacherLogsTable();
         if (tab === 'grades') renderTeacherGrades();
@@ -4036,7 +4445,6 @@ except Exception as e: _error = str(e)
         document.getElementById('randomTestModal')?.classList.remove('hidden');
         document.getElementById('randomTestTitle').value = `Đề kiểm tra ngẫu nhiên - ${new Date().toLocaleDateString('vi-VN')}`;
         document.getElementById('randomTestResult').innerHTML = '<p class="text-slate-500 italic text-center text-sm">Chưa có đề nào. Nhấn "Trộn Đề" để bắt đầu.</p>';
-        document.getElementById('randomTestActions')?.classList.add('hidden');
     }
     function closeRandomTestModal() { document.getElementById('randomTestModal')?.classList.add('hidden'); }
 
@@ -4059,7 +4467,6 @@ except Exception as e: _error = str(e)
         const selected = [...pickEasy, ...pickMed, ...pickHard];
         if (selected.length === 0) {
             document.getElementById('randomTestResult').innerHTML = '<p class="text-rose-600 italic text-center text-sm">Không có bài tập phù hợp!</p>';
-            document.getElementById('randomTestActions')?.classList.add('hidden');
             return showToast("Không tìm thấy câu hỏi phù hợp!", "error");
         }
         currentRandomTest = { title, grade, allowSample, questions: selected };
@@ -4072,17 +4479,23 @@ except Exception as e: _error = str(e)
                     Tổng <b>${selected.length} câu</b> · Dễ: <b>${pickEasy.length}/${nEasy}</b> · TB: <b>${pickMed.length}/${nMed}</b> · Khó: <b>${pickHard.length}/${nHard}</b>
                     · Code mẫu: <b class="${allowSample ? 'text-emerald-600' : 'text-rose-600'}">${allowSample ? 'CHO PHÉP' : 'KHÔNG CHO PHÉP'}</b>
                 </div>
-                ${selected.map((a, i) => `
+                ${selected.map((a, i) => {
+                    const qflag = isQuestionFlagged(a.id) ? ' ⭐' : '';
+                    return `
                     <div class="p-3 bg-white rounded-xl border border-slate-200 flex justify-between items-start gap-2">
                         <div>
-                            <div class="font-bold text-slate-900 text-sm">Câu ${i+1}: ${a.title}</div>
+                            <div class="font-bold text-slate-900 text-sm">Câu ${i+1}: ${a.title}${qflag}</div>
                             <div class="text-xs text-slate-500 mt-1">Khối ${a.classLevel||'8'} · <span class="font-bold ${diffColor(a.difficulty)}">${diffLabel(a.difficulty)}</span></div>
                         </div>
-                    </div>
-                `).join('')}
+                        <div class="flex items-center gap-1">
+                            <button onclick="toggleQuestionFlag(${a.id}); generateRandomTest();" class="px-2 py-1 rounded-lg ${isQuestionFlagged(a.id) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600'} font-bold text-xs" title="${isQuestionFlagged(a.id) ? 'Bỏ gắn cờ' : 'Gắn cờ câu này'}">
+                                <i class="ph-bold ph-star"></i>
+                            </button>
+                        </div>
+                    </div>`;
+                }).join('')}
             </div>`;
         document.getElementById('randomTestResult').innerHTML = html;
-        document.getElementById('randomTestActions')?.classList.remove('hidden');
         const missing = [];
         if (pickEasy.length < nEasy) missing.push(`${pickEasy.length}/${nEasy} dễ`);
         if (pickMed.length < nMed)  missing.push(`${pickMed.length}/${nMed} TB`);
@@ -4107,134 +4520,8 @@ except Exception as e: _error = str(e)
         showToast(`Đã đẩy "${newTest.title}" đến HS!`, "success");
         speakRobotText(`Đã tạo bài kiểm tra: ${newTest.title}. HS vào mục "Kiểm Tra" để làm bài.`);
         renderStudentTestList();
-    }
-
-    // LATEX → OMML
-    function latexToOmml(latex) {
-        const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        const mRun = t => `<m:r><m:t xml:space="preserve">${esc(t)}</m:t></m:r>`;
-        const mFrac = (n, d) => `<m:f><m:num>${n}</m:num><m:den>${d}</m:den></m:f>`;
-        const mSup = (b, s) => `<m:sSup><m:e>${b}</m:e><m:sup>${s}</m:sup></m:sSup>`;
-        const mSub = (b, s) => `<m:sSub><m:e>${b}</m:e><m:sub>${s}</m:sub></m:sSub>`;
-        const mRad = (body, deg) => deg
-            ? `<m:rad><m:radPr><m:degHide m:val="0"/></m:radPr><m:deg>${deg}</m:deg><m:e>${body}</m:e></m:rad>`
-            : `<m:rad><m:radPr><m:degHide m:val="1"/></m:radPr><m:deg/><m:e>${body}</m:e></m:rad>`;
-        const SYM = { '\\le': '≤', '\\leq': '≤', '\\ge': '≥', '\\geq': '≥', '\\ne': '≠', '\\neq': '≠', '\\pm': '±', '\\times': '×', '\\div': '÷', '\\infty': '∞', '\\pi': 'π', '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ', '\\delta': 'δ', '\\theta': 'θ', '\\lambda': 'λ', '\\mu': 'μ', '\\sigma': 'σ', '\\phi': 'φ', '\\omega': 'ω', '\\Delta': 'Δ', '\\Sigma': 'Σ', '\\Omega': 'Ω', '\\Rightarrow': '⇒', '\\Leftarrow': '⇐', '\\Leftrightarrow': '⇔', '\\rightarrow': '→', '\\leftarrow': '←', '\\in': '∈', '\\notin': '∉', '\\subset': '⊂', '\\supset': '⊃', '\\cup': '∪', '\\cap': '∩', '\\forall': '∀', '\\exists': '∃', '\\sum': '∑', '\\prod': '∏', '\\int': '∫', '\\cdot': '·', '\\ldots': '…', '\\dots': '…', '\\circ': '°', '\\angle': '∠', '\\perp': '⊥', '\\parallel': '∥', '\\equiv': '≡', '\\approx': '≈', '\\sim': '∼', '\\cong': '≅', '\\sin': 'sin', '\\cos': 'cos', '\\tan': 'tan', '\\log': 'log', '\\ln': 'ln', '\\lim': 'lim', '\\max': 'max', '\\min': 'min', '\\left': '', '\\right': '', '\\(': '', '\\)': '', '\\[': '', '\\]': '' };
-        const readBraced = (s, start) => {
-            if (s[start] !== '{') return [null, start];
-            let depth = 0, i = start;
-            while (i < s.length) {
-                if (s[i] === '{') depth++;
-                else if (s[i] === '}') { depth--; if (depth === 0) return [s.substring(start + 1, i), i + 1]; }
-                i++;
-            }
-            return [null, start];
-        };
-        const readArg = (s, start) => start >= s.length ? [null, start] : (s[start] === '{' ? readBraced(s, start) : [s[start], start + 1]);
-        const popLastBase = out => {
-            const runRe = /<m:r><m:t xml:space="preserve">([^<]*)<\/m:t><\/m:r>$/;
-            const m = out.match(runRe);
-            if (m && m[1].length > 0) {
-                const txt = m[1];
-                if (txt.length === 1) return { base: out, rest: out.substring(0, out.length - m[0].length), singleChar: txt };
-                const last = txt.slice(-1);
-                const restText = txt.slice(0, -1);
-                const restXml = out.substring(0, out.length - m[0].length) + `<m:r><m:t xml:space="preserve">${esc(restText)}</m:t></m:r>`;
-                return { base: out, rest: restXml, singleChar: last };
-            }
-            return { base: '', rest: out };
-        };
-        const parse = str => {
-            let out = '', i = 0;
-            while (i < str.length) {
-                if (str.substr(i, 5) === '\\frac') { const [a, ni] = readBraced(str, i + 5); if (a !== null) { const [b, nj] = readBraced(str, ni); if (b !== null) { out += mFrac(parse(a), parse(b)); i = nj; continue; } } }
-                if (str.substr(i, 5) === '\\sqrt') {
-                    let j = i + 5, deg = null;
-                    if (str[j] === '[') { const end = str.indexOf(']', j); if (end !== -1) { deg = str.substring(j + 1, end); j = end + 1; } }
-                    const [body, nj] = readBraced(str, j);
-                    if (body !== null) { out += mRad(parse(body), deg ? parse(deg) : null); i = nj; continue; }
-                }
-                if (str[i] === '^' || str[i] === '_') {
-                    const [val, ni] = readArg(str, i + 1);
-                    if (val !== null) {
-                        const p = popLastBase(out);
-                        const lastChar = p.singleChar || '';
-                        const baseXml = lastChar ? `<m:r><m:t>${esc(lastChar)}</m:t></m:r>` : '';
-                        const rest = p.rest;
-                        if (str[i] === '^') out = rest + mSup(baseXml, parse(val));
-                        else out = rest + mSub(baseXml, parse(val));
-                        i = ni;
-                        continue;
-                    }
-                }
-                if (str[i] === '\\') { let j = i + 1; while (j < str.length && /[a-zA-Z]/.test(str[j])) j++; const cmd = str.substring(i, j); if (SYM[cmd] !== undefined) { out += mRun(SYM[cmd]); i = j; continue; } out += mRun(cmd); i = j; continue; }
-                if (str[i] === '{') { const [v, ni] = readBraced(str, i); if (v !== null) { out += parse(v); i = ni; continue; } }
-                let j = i, buf = '';
-                while (j < str.length && !/[_^{}\\]/.test(str[j])) { buf += str[j]; j++; }
-                if (buf) { out += mRun(buf); i = j; } else i++;
-            }
-            return out;
-        };
-        return parse(String(latex).trim());
-    }
-
-    function buildDocxParagraphWithMath(text, baseOpts = {}) {
-        if (!text) return '';
-        const lines = String(text).split('\n');
-        const out = [];
-        for (const line of lines) {
-            if (!line.trim()) { out.push('<w:p/>'); continue; }
-            let trimmed = line;
-            let bold = !!baseOpts.bold, italic = !!baseOpts.italic, size = baseOpts.size || 22, color = baseOpts.color || '1E293B', align = baseOpts.align || 'left', mono = !!baseOpts.mono;
-            const hM = trimmed.match(/^(#{1,6})\s+(.*)$/);
-            if (hM) { const lvl = hM[1].length; trimmed = hM[2]; bold = true; size = Math.max(size, 30 - lvl * 2); }
-            if (/^[-*]\s+/.test(trimmed)) trimmed = '• ' + trimmed.replace(/^[-*]\s+/, '');
-            const segments = [];
-            let idx = 0;
-            while (idx < trimmed.length) {
-                const d = trimmed.indexOf('$', idx);
-                if (d === -1) { segments.push({ t: 'text', c: trimmed.substring(idx) }); break; }
-                if (d > idx) segments.push({ t: 'text', c: trimmed.substring(idx, d) });
-                if (trimmed.substr(d, 2) === '$$') {
-                    const e = trimmed.indexOf('$$', d + 2);
-                    if (e !== -1) { segments.push({ t: 'math', c: trimmed.substring(d + 2, e), display: true }); idx = e + 2; continue; }
-                }
-                const e = trimmed.indexOf('$', d + 1);
-                if (e !== -1) { segments.push({ t: 'math', c: trimmed.substring(d + 1, e), display: false }); idx = e + 1; continue; }
-                segments.push({ t: 'text', c: trimmed.substring(d) }); break;
-            }
-            let pXml = `<w:p>`;
-            const pPr = [];
-            if (align && align !== 'left') pPr.push(`<w:jc w:val="${align}"/>`);
-            if (pPr.length) pXml += `<w:pPr>${pPr.join('')}</w:pPr>`;
-            for (const seg of segments) {
-                if (seg.t === 'math') { pXml += `<m:oMath>${latexToOmml(seg.c)}</m:oMath>`; }
-                else {
-                    let rem = seg.c;
-                    while (rem.length > 0) {
-                        const bM = rem.match(/\*\*(.+?)\*\*/);
-                        const cM = rem.match(/`([^`]+)`/);
-                        let fm = null, fi = Infinity, ft = null;
-                        if (bM && bM.index < fi) { fi = bM.index; fm = bM; ft = 'bold'; }
-                        if (cM && cM.index < fi) { fi = cM.index; fm = cM; ft = 'code'; }
-                        const emit = (txt, b, m) => {
-                            let rPr = '';
-                            if (b || bold) rPr += '<w:b/>';
-                            if (italic) rPr += '<w:i/>';
-                            if (color) rPr += `<w:color w:val="${color}"/>`;
-                            if (size) rPr += `<w:sz w:val="${size}"/>`;
-                            if (m || mono) rPr += '<w:rFonts w:ascii="Consolas" w:hAnsi="Consolas"/>';
-                            pXml += `<w:r>${rPr ? `<w:rPr>${rPr}</w:rPr>` : ''}<w:t xml:space="preserve">${xmlEscapeDocx(txt)}</w:t></w:r>`;
-                        };
-                        if (fm) { if (fi > 0) emit(rem.substring(0, fi), false, false); emit(fm[1], ft === 'bold', ft === 'code'); rem = rem.substring(fi + fm[0].length); }
-                        else { emit(rem, false, false); break; }
-                    }
-                }
-            }
-            pXml += `</w:p>`;
-            out.push(pXml);
-        }
-        return out.join('');
+        renderTeacherTestsList();
+        renderAdminTestsList();
     }
 
     function renderStudentTestList() {
@@ -4307,12 +4594,13 @@ except Exception as e: _error = str(e)
     }
 
     // ADMIN DASHBOARD
+    // ✅ CẬP NHẬT: Thêm tab 'tests' cho Admin
     function switchAdminTab(tab) {
-        ['users','lectures','assignments','submissions','logs','grades'].forEach(t => {
+        ['users','lectures','assignments','tests','submissions','logs','grades'].forEach(t => {
             const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Users','Lectures','Assignments','Submissions','Logs','Grades'].forEach(t => {
+        ['Users','Lectures','Assignments','Tests','Submissions','Logs','Grades'].forEach(t => {
             const btn = document.getElementById('tabAdmin' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ?
                 "py-2 px-4 text-xs font-bold rounded-xl bg-indigo-50 text-indigo-600 shadow-sm flex items-center gap-2 whitespace-nowrap" :
@@ -4321,6 +4609,7 @@ except Exception as e: _error = str(e)
         if (tab === 'users') renderAdminUsersTable();
         else if (tab === 'lectures') renderTeacherLecturesTable();
         else if (tab === 'assignments') renderAdminAssignmentsTable();
+        else if (tab === 'tests') renderAdminTestsList();
         else if (tab === 'submissions') renderAdminSubmissionsTable();
         else if (tab === 'logs') renderAdminLogsTable();
         else if (tab === 'grades') renderAdminGrades();
@@ -4365,6 +4654,7 @@ except Exception as e: _error = str(e)
         document.getElementById('adminStatTotalLogs').textContent = loginLogs.length;
         renderAdminUsersTable(); renderTeacherLecturesTable(); renderAdminAssignmentsTable();
         renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades();
+        renderAdminTestsList();
     }
 
     function renderAdminSubmissionsTable() {
@@ -4512,7 +4802,7 @@ except Exception as e: _error = str(e)
         document.getElementById('editUserSchool').value = user.school || '';
         document.getElementById('editUserClass').value = user.className || '';
         document.getElementById('editUserRole').value = user.role || 'student';
-        document.getElementById('editUserPass').value = '';  // không hiển thị hash
+        document.getElementById('editUserPass').value = '';
         document.getElementById('editUserModal')?.classList.remove('hidden');
     }
     function closeEditUserModal() { document.getElementById('editUserModal')?.classList.add('hidden'); }
@@ -4715,6 +5005,133 @@ except Exception as e: _error = str(e)
         const safeName = title.replace(/[^\w\s\-]/g, '').substring(0, 50).trim().replace(/\s+/g, '_');
         await generateDocxFile(`${safeName}_${Date.now()}.docx`, paragraphs);
         showToast("Đã xuất đề Word!", "success");
+    }
+
+    function buildDocxParagraphWithMath(text, baseOpts = {}) {
+        if (!text) return '';
+        const lines = String(text).split('\n');
+        const out = [];
+        for (const line of lines) {
+            if (!line.trim()) { out.push('<w:p/>'); continue; }
+            let trimmed = line;
+            let bold = !!baseOpts.bold, italic = !!baseOpts.italic, size = baseOpts.size || 22, color = baseOpts.color || '1E293B', align = baseOpts.align || 'left', mono = !!baseOpts.mono;
+            const hM = trimmed.match(/^(#{1,6})\s+(.*)$/);
+            if (hM) { const lvl = hM[1].length; trimmed = hM[2]; bold = true; size = Math.max(size, 30 - lvl * 2); }
+            if (/^[-*]\s+/.test(trimmed)) trimmed = '• ' + trimmed.replace(/^[-*]\s+/, '');
+            const segments = [];
+            let idx = 0;
+            while (idx < trimmed.length) {
+                const d = trimmed.indexOf('$', idx);
+                if (d === -1) { segments.push({ t: 'text', c: trimmed.substring(idx) }); break; }
+                if (d > idx) segments.push({ t: 'text', c: trimmed.substring(idx, d) });
+                if (trimmed.substr(d, 2) === '$$') {
+                    const e = trimmed.indexOf('$$', d + 2);
+                    if (e !== -1) { segments.push({ t: 'math', c: trimmed.substring(d + 2, e), display: true }); idx = e + 2; continue; }
+                }
+                const e = trimmed.indexOf('$', d + 1);
+                if (e !== -1) { segments.push({ t: 'math', c: trimmed.substring(d + 1, e), display: false }); idx = e + 1; continue; }
+                segments.push({ t: 'text', c: trimmed.substring(d) }); break;
+            }
+            let pXml = `<w:p>`;
+            const pPr = [];
+            if (align && align !== 'left') pPr.push(`<w:jc w:val="${align}"/>`);
+            if (pPr.length) pXml += `<w:pPr>${pPr.join('')}</w:pPr>`;
+            for (const seg of segments) {
+                if (seg.t === 'math') { pXml += `<m:oMath>${latexToOmml(seg.c)}</m:oMath>`; }
+                else {
+                    let rem = seg.c;
+                    while (rem.length > 0) {
+                        const bM = rem.match(/\*\*(.+?)\*\*/);
+                        const cM = rem.match(/`([^`]+)`/);
+                        let fm = null, fi = Infinity, ft = null;
+                        if (bM && bM.index < fi) { fi = bM.index; fm = bM; ft = 'bold'; }
+                        if (cM && cM.index < fi) { fi = cM.index; fm = cM; ft = 'code'; }
+                        const emit = (txt, b, m) => {
+                            let rPr = '';
+                            if (b || bold) rPr += '<w:b/>';
+                            if (italic) rPr += '<w:i/>';
+                            if (color) rPr += `<w:color w:val="${color}"/>`;
+                            if (size) rPr += `<w:sz w:val="${size}"/>`;
+                            if (m || mono) rPr += '<w:rFonts w:ascii="Consolas" w:hAnsi="Consolas"/>';
+                            pXml += `<w:r>${rPr ? `<w:rPr>${rPr}</w:rPr>` : ''}<w:t xml:space="preserve">${xmlEscapeDocx(txt)}</w:t></w:r>`;
+                        };
+                        if (fm) { if (fi > 0) emit(rem.substring(0, fi), false, false); emit(fm[1], ft === 'bold', ft === 'code'); rem = rem.substring(fi + fm[0].length); }
+                        else { emit(rem, false, false); break; }
+                    }
+                }
+            }
+            pXml += `</w:p>`;
+            out.push(pXml);
+        }
+        return out.join('');
+    }
+
+    function latexToOmml(latex) {
+        const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        const mRun = t => `<m:r><m:t xml:space="preserve">${esc(t)}</m:t></m:r>`;
+        const mFrac = (n, d) => `<m:f><m:num>${n}</m:num><m:den>${d}</m:den></m:f>`;
+        const mSup = (b, s) => `<m:sSup><m:e>${b}</m:e><m:sup>${s}</m:sup></m:sSup>`;
+        const mSub = (b, s) => `<m:sSub><m:e>${b}</m:e><m:sub>${s}</m:sub></m:sSub>`;
+        const mRad = (body, deg) => deg
+            ? `<m:rad><m:radPr><m:degHide m:val="0"/></m:radPr><m:deg>${deg}</m:deg><m:e>${body}</m:e></m:rad>`
+            : `<m:rad><m:radPr><m:degHide m:val="1"/></m:radPr><m:deg/><m:e>${body}</m:e></m:rad>`;
+        const SYM = { '\\le': '≤', '\\leq': '≤', '\\ge': '≥', '\\geq': '≥', '\\ne': '≠', '\\neq': '≠', '\\pm': '±', '\\times': '×', '\\div': '÷', '\\infty': '∞', '\\pi': 'π', '\\alpha': 'α', '\\beta': 'β', '\\gamma': 'γ', '\\delta': 'δ', '\\theta': 'θ', '\\lambda': 'λ', '\\mu': 'μ', '\\sigma': 'σ', '\\phi': 'φ', '\\omega': 'ω', '\\Delta': 'Δ', '\\Sigma': 'Σ', '\\Omega': 'Ω', '\\Rightarrow': '⇒', '\\Leftarrow': '⇐', '\\Leftrightarrow': '⇔', '\\rightarrow': '→', '\\leftarrow': '←', '\\in': '∈', '\\notin': '∉', '\\subset': '⊂', '\\supset': '⊃', '\\cup': '∪', '\\cap': '∩', '\\forall': '∀', '\\exists': '∃', '\\sum': '∑', '\\prod': '∏', '\\int': '∫', '\\cdot': '·', '\\ldots': '…', '\\dots': '…', '\\circ': '°', '\\angle': '∠', '\\perp': '⊥', '\\parallel': '∥', '\\equiv': '≡', '\\approx': '≈', '\\sim': '∼', '\\cong': '≅', '\\sin': 'sin', '\\cos': 'cos', '\\tan': 'tan', '\\log': 'log', '\\ln': 'ln', '\\lim': 'lim', '\\max': 'max', '\\min': 'min', '\\left': '', '\\right': '', '\\(': '', '\\)': '', '\\[': '', '\\]': '' };
+        const readBraced = (s, start) => {
+            if (s[start] !== '{') return [null, start];
+            let depth = 0, i = start;
+            while (i < s.length) {
+                if (s[i] === '{') depth++;
+                else if (s[i] === '}') { depth--; if (depth === 0) return [s.substring(start + 1, i), i + 1]; }
+                i++;
+            }
+            return [null, start];
+        };
+        const readArg = (s, start) => start >= s.length ? [null, start] : (s[start] === '{' ? readBraced(s, start) : [s[start], start + 1]);
+        const popLastBase = out => {
+            const runRe = /<m:r><m:t xml:space="preserve">([^<]*)<\/m:t><\/m:r>$/;
+            const m = out.match(runRe);
+            if (m && m[1].length > 0) {
+                const txt = m[1];
+                if (txt.length === 1) return { base: out, rest: out.substring(0, out.length - m[0].length), singleChar: txt };
+                const last = txt.slice(-1);
+                const restText = txt.slice(0, -1);
+                const restXml = out.substring(0, out.length - m[0].length) + `<m:r><m:t xml:space="preserve">${esc(restText)}</m:t></m:r>`;
+                return { base: out, rest: restXml, singleChar: last };
+            }
+            return { base: '', rest: out };
+        };
+        const parse = str => {
+            let out = '', i = 0;
+            while (i < str.length) {
+                if (str.substr(i, 5) === '\\frac') { const [a, ni] = readBraced(str, i + 5); if (a !== null) { const [b, nj] = readBraced(str, ni); if (b !== null) { out += mFrac(parse(a), parse(b)); i = nj; continue; } } }
+                if (str.substr(i, 5) === '\\sqrt') {
+                    let j = i + 5, deg = null;
+                    if (str[j] === '[') { const end = str.indexOf(']', j); if (end !== -1) { deg = str.substring(j + 1, end); j = end + 1; } }
+                    const [body, nj] = readBraced(str, j);
+                    if (body !== null) { out += mRad(parse(body), deg ? parse(deg) : null); i = nj; continue; }
+                }
+                if (str[i] === '^' || str[i] === '_') {
+                    const [val, ni] = readArg(str, i + 1);
+                    if (val !== null) {
+                        const p = popLastBase(out);
+                        const lastChar = p.singleChar || '';
+                        const baseXml = lastChar ? `<m:r><m:t>${esc(lastChar)}</m:t></m:r>` : '';
+                        const rest = p.rest;
+                        if (str[i] === '^') out = rest + mSup(baseXml, parse(val));
+                        else out = rest + mSub(baseXml, parse(val));
+                        i = ni;
+                        continue;
+                    }
+                }
+                if (str[i] === '\\') { let j = i + 1; while (j < str.length && /[a-zA-Z]/.test(str[j])) j++; const cmd = str.substring(i, j); if (SYM[cmd] !== undefined) { out += mRun(SYM[cmd]); i = j; continue; } out += mRun(cmd); i = j; continue; }
+                if (str[i] === '{') { const [v, ni] = readBraced(str, i); if (v !== null) { out += parse(v); i = ni; continue; } }
+                let j = i, buf = '';
+                while (j < str.length && !/[_^{}\\]/.test(str[j])) { buf += str[j]; j++; }
+                if (buf) { out += mRun(buf); i = j; } else i++;
+            }
+            return out;
+        };
+        return parse(String(latex).trim());
     }
 
     function parseLecturesFromDocxText(text) {
@@ -4942,9 +5359,6 @@ except Exception as e: _error = str(e)
         if (isRobotSpeaking) { stopRobotVoice(); showToast("Đã dừng đọc", "info"); return; }
         RobotTTS.speakFullPage();
     }
-    function speakAuthorIntro() {
-        speakIntroFullText();
-    }
     function stopRobotVoice() { RobotTTS.stop(); }
     function updateRobotSpeakingUi(s) { const r = document.getElementById('robotAudioRing'); if (s) r?.classList.remove('hidden'); else r?.classList.add('hidden'); }
 
@@ -5125,6 +5539,7 @@ except Exception as e: _error = str(e)
         renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
         renderTestCaseEditor(); renderAdminTestCaseEditor();
         renderTeacherLecturesTable(); renderManageAssignmentsTable();
+        renderTeacherTestsList(); renderAdminTestsList();
         renderTeacherSubmissionsTable(); renderTeacherLogsTable();
         initPyodide();
         currentUser.isLoggedIn = false;
