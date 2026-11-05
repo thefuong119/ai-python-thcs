@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:48:24.056Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Đăng xuất: Học sinh Demo"
+    "updatedAt": "2026-11-05T16:48:35.991Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -226,7 +226,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 2,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -243,7 +243,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "password": null
@@ -10822,10 +10822,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 5,
+        "attempts": 4,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "23:48:04 5/11/2026"
+        "lastSubmit": "20:36:21 4/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -11377,51 +11377,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793897284204,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "23:48:04 5/11/2026",
-        "date": "2026-11-05",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
-      {
         "id": 1793881420292,
         "student": "Nguyễn Thanh Tuấn",
         "username": "tuan",
@@ -11818,17 +11773,17 @@
     ],
     "loginLogs": [
       {
-        "time": "23:48:24 5/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
+        "time": "23:46:27 5/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "23:47:30 5/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
+        "time": "23:46:23 5/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
         "result": "Thành công"
       },
       {
@@ -12653,9 +12608,7 @@
       }
     },
     "testSets": [],
-    "studentCodeCache": {
-      "hocsinh__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-    },
+    "studentCodeCache": {},
     "questionFlags": {}
   }
 }
