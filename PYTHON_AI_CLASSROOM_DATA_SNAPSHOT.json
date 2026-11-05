@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:53:59.900Z",
-    "updatedBy": "Nguyễn Thế Bình",
+    "updatedAt": "2026-11-05T22:54:05.474Z",
+    "updatedBy": "Khách",
     "action": "Đăng xuất: Nguyễn Thế Bình"
   },
   "data": {
@@ -202,7 +202,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 4,
+        "loginCount": 3,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
@@ -11804,20 +11804,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "05:53:59 6/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "05:53:57 6/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
-        "result": "Thành công"
-      },
       {
         "time": "05:50:32 6/11/2026",
         "name": "Trần Thị Trúc Mai",
