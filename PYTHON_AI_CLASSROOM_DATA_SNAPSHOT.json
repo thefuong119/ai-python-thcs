@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:55:03.989Z",
+    "updatedAt": "2026-11-05T22:55:11.719Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Phất đề cho học sinh: KIỂM TRA LẦN 2 - 06/11/2026"
+    "action": "Sửa đề thi: KIỂM TRA LẦN 2 - 06/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -12239,7 +12239,7 @@
         "id": 1793898206970,
         "title": "KIỂM TRA LẦN 2 - 06/11/2026",
         "grade": "8",
-        "allowSampleCode": true,
+        "allowSampleCode": false,
         "questionIds": [
           24,
           33,
