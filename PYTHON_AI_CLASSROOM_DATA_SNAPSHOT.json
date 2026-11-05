@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:53:22.737Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-05T22:53:43.876Z",
+    "updatedBy": "Nguyễn Tấn Thanh",
+    "action": "Đăng xuất: Nguyễn Tấn Thanh"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 50,
+        "loginCount": 49,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -35,7 +35,7 @@
         "school": "Trường THCS - THPT Mỹ Thuận",
         "className": "11A1",
         "teacherName": "---",
-        "phone": "0932861739",
+        "phone": "Zalo cá nhân",
         "email": "",
         "role": "teacher",
         "authMethod": "Tên đăng nhập + Mật khẩu",
@@ -120,7 +120,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0,
+        "loginCount": 1,
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
@@ -11805,17 +11805,17 @@
     ],
     "loginLogs": [
       {
-        "time": "05:53:22 6/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "05:53:43 6/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "05:50:43 6/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "05:53:39 6/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
         "result": "Thành công"
       },
       {
