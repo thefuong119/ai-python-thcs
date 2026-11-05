@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T14:34:42.073Z",
+    "updatedAt": "2026-11-05T14:35:00.916Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Đẩy dữ liệu thủ công"
   },
@@ -11757,13 +11757,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "21:34:40 5/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
       {
         "time": "21:17:22 5/11/2026",
         "name": "Học sinh Demo",
