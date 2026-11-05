@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:39:00.990Z",
+    "updatedAt": "2026-11-05T22:40:27.959Z",
     "updatedBy": "Nguyễn Thế Bình",
-    "action": "Sửa đề thi: ĐỀ KIỂM TRA LẦN 1 - 03/11/2026"
+    "action": "Sửa đề thi: Đề kiểm tra ngẫu nhiên - 6/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -12179,9 +12179,10 @@
         "grade": "8",
         "allowSampleCode": true,
         "questionIds": [
-          44,
           24,
-          310
+          33,
+          42,
+          290
         ],
         "createdAt": "00:03:26 6/11/2026",
         "createdBy": "Nguyễn Thế Phương",
