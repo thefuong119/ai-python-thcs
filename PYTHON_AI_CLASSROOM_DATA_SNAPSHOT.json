@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:51:04.527Z",
-    "updatedBy": "Nguyễn Thế Bình",
-    "action": "Đăng xuất: Nguyễn Thế Bình"
+    "updatedAt": "2026-11-05T16:56:04.393Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Đăng xuất: Nguyễn Phú Lộc"
   },
   "data": {
     "registeredUsers": [
@@ -139,7 +139,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 7,
+        "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -194,7 +194,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2,
+        "loginCount": 1,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
@@ -11773,17 +11773,17 @@
     ],
     "loginLogs": [
       {
-        "time": "23:51:04 5/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
+        "time": "23:56:04 5/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Đăng xuất"
       },
       {
-        "time": "23:50:53 5/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
+        "time": "23:51:19 5/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Thành công"
       },
       {
