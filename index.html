@@ -56,7 +56,7 @@
         @keyframes dropIn { 0% { opacity:0; transform:translateY(-8px) scale(0.96); } 100% { opacity:1; transform:translateY(0) scale(1); } }
         .dropdown-anim { animation: dropIn 0.18s ease-out; }
 
-        /* ✅ MỚI: Hiệu ứng cho ảnh robot GIF nền trong suốt */
+        /* ✅ Hiệu ứng cho ảnh robot GIF nền trong suốt */
         #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
         #robotAvatarBtn img {
             filter: drop-shadow(0 6px 12px rgba(37,99,235,0.55)) drop-shadow(0 0 6px rgba(59,130,246,0.35));
@@ -71,7 +71,7 @@
             filter: drop-shadow(0 8px 18px rgba(37,99,235,0.75)) drop-shadow(0 0 10px rgba(96,165,250,0.5));
         }
 
-        /* ✅ MỚI: Style đẹp cho khối chào mừng */
+        /* ✅ Style đẹp cho khối chào mừng */
         .welcome-heading-gradient {
             background: linear-gradient(135deg, #1e40af 0%, #4f46e5 40%, #7c3aed 70%, #db2777 100%);
             -webkit-background-clip: text;
@@ -201,6 +201,10 @@
                         <i class="ph-bold ph-book-open text-base text-amber-300"></i>
                         <span class="hidden sm:inline font-bold">Hướng Dẫn</span>
                     </button>
+                    <button id="btnFullscreenToggle" onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 hover:text-white border border-cyan-500/40 font-semibold text-xs flex items-center gap-1.5 shadow-sm transition-all" title="Bật/Tắt toàn màn hình (F11)">
+                        <i id="fullscreenIcon" class="ph-bold ph-arrows-out text-base"></i>
+                        <span id="fullscreenLabel" class="hidden sm:inline font-bold">Toàn Màn Hình</span>
+                    </button>
                     <button id="btnGuestExit" onclick="confirmExitApp()" class="px-3 py-1.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 font-semibold text-xs flex items-center gap-1.5 transition-all" title="Thoát ứng dụng">
                         <i class="ph-bold ph-sign-out"></i> Thoát
                     </button>
@@ -219,7 +223,6 @@
                 <i class="ph-bold ph-shield-check"></i>
             </div>
             
-            <!-- ✅ MỚI: Khối tiêu đề được làm đẹp -->
             <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-3 welcome-heading-gradient">
                 Chào mừng bạn đến với Web Dạy Học Lập Trình Python
             </h2>
@@ -561,7 +564,6 @@
                 <button id="tabTeacherManageBtn" onclick="switchTeacherTab('manage')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-books"></i> Ngân hàng câu hỏi
                 </button>
-                <!-- ✅ MỚI: Tab Các đề đã tạo cho Giáo viên -->
                 <button id="tabTeacherTestsBtn" onclick="switchTeacherTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
                 </button>
@@ -794,7 +796,6 @@
                 </div>
             </div>
 
-            <!-- ✅ MỚI: Tab "Các đề đã tạo" cho Giáo viên -->
             <div id="teacherTabTests" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -943,7 +944,6 @@
                 <button id="tabAdminAssignmentsBtn" onclick="switchAdminTab('assignments')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-books"></i> Ngân hàng câu hỏi
                 </button>
-                <!-- ✅ MỚI: Tab Các đề đã tạo cho Admin -->
                 <button id="tabAdminTestsBtn" onclick="switchAdminTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
                 </button>
@@ -1212,7 +1212,6 @@
                 </div>
             </div>
 
-            <!-- ✅ MỚI: Tab "Các đề đã tạo" cho Admin -->
             <div id="adminTabTests" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -1378,7 +1377,7 @@
         </div>
     </div>
 
-    <!-- ✅ ROBOT với GIF nền trong suốt -->
+    <!-- ROBOT GIF nền trong suốt -->
     <div id="robotVoiceWidget" draggable="false" style="z-index: 999999;" class="fixed z-[999999] flex flex-col items-center pointer-events-none select-none transition-all duration-300">
         <audio id="robotAudioPlayer" class="hidden" preload="auto" referrerpolicy="no-referrer"></audio>
         <div id="robotBubbleWrapper" class="flex flex-col items-center mb-2 pointer-events-auto transition-all duration-300 max-w-[290px] sm:max-w-xs w-max">
@@ -1582,14 +1581,22 @@
 
     <!-- CONFIRM EXIT -->
     <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner"><i class="ph-bold ph-sign-out"></i></div>
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+                <i class="ph-bold ph-sign-out"></i>
+            </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Thoát</h3>
-            <p class="text-sm text-slate-600 mb-6 font-medium">Bạn có muốn thoát chương trình?</p>
+            <p class="text-sm text-slate-600 mb-3 font-medium leading-relaxed">
+                Hệ thống sẽ <b>lưu dữ liệu</b>, <b>thoát toàn màn hình</b> và <b>đóng tab ứng dụng</b>.
+            </p>
+            <div class="p-2.5 bg-amber-50 border border-amber-300 rounded-xl text-xs text-amber-800 mb-5 leading-relaxed text-left">
+                <i class="ph-bold ph-info text-amber-600"></i>
+                <b>Lưu ý:</b> Trình duyệt chỉ cho phép đóng tab khi được mở từ liên kết. Nếu tab không tự đóng, vui lòng nhấn <kbd class="px-1 bg-white border border-amber-300 rounded font-mono">Ctrl</kbd>+<kbd class="px-1 bg-white border border-amber-300 rounded font-mono">W</kbd> (Windows) hoặc <kbd class="px-1 bg-white border border-amber-300 rounded font-mono">Cmd</kbd>+<kbd class="px-1 bg-white border border-amber-300 rounded font-mono">W</kbd> (Mac) để đóng tab.
+            </div>
             <div class="flex gap-3 justify-center">
                 <button onclick="closeConfirmExitAppModal()" class="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition-all flex-1">Hủy</button>
                 <button onclick="executeExitApp()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-md transition-all flex-1 flex items-center justify-center gap-1.5">
-                    <i class="ph-bold ph-check"></i> Thoát
+                    <i class="ph-bold ph-check"></i> Đồng Ý Thoát
                 </button>
             </div>
         </div>
@@ -1637,7 +1644,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-purple-50 border-2 border-purple-200 rounded-4xl p-4 shadow-sm">
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 shadow-sm">
                     <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600 text-lg"></i> 3. QUẢN LÝ ĐỀ THI (GV & ADMIN)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
                         <li>Vào tab <b>"Các đề đã tạo"</b> để xem toàn bộ đề đã tạo.</li>
@@ -1654,8 +1661,17 @@
                     </ul>
                 </div>
 
+                <div class="bg-cyan-50 border-2 border-cyan-200 rounded-2xl p-4 shadow-sm">
+                    <h3 class="font-extrabold text-base text-cyan-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-arrows-out text-cyan-600 text-lg"></i> 5. TOÀN MÀN HÌNH & THOÁT ỨNG DỤNG</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-cyan-800">
+                        <li>Nhấn nút <b>"Toàn Màn Hình"</b> trên header để phóng to (tương đương F11). Nhấn lại hoặc nhấn <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Esc</kbd> để thoát.</li>
+                        <li>Nhấn nút <b>"Thoát"</b> đỏ → xác nhận → hệ thống sẽ lưu dữ liệu, thoát toàn màn hình và đóng tab (nếu được phép).</li>
+                        <li><b>Lưu ý:</b> Trình duyệt bảo mật <u>không cho phép</u> trang web tự đóng tab. Nếu tab không đóng, hãy nhấn <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Ctrl</kbd>+<kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">W</kbd> / <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Cmd</kbd>+<kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">W</kbd>.</li>
+                    </ul>
+                </div>
+
                 <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 5. QUÊN MẬT KHẨU</h3>
+                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 6. QUÊN MẬT KHẨU</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-amber-800">
                         <li>Ở form đăng nhập, nhấn <b>"Quên mật khẩu?"</b>. Nhập tên đăng nhập + <b>1 trong 3</b> (SĐT / CCCD / Email).</li>
                         <li>Nếu <b>1 trong 3</b> khớp → đổi mật khẩu thành công ngay.</li>
@@ -2020,33 +2036,78 @@
 
     <script>
     // =============================================
-    // 🔐 CLOUDFLARE WORKER PROXY
+    // 🖥️ FULLSCREEN API (tương đương F11)
     // =============================================
-    // Deploy file worker.js sau lên Cloudflare Workers (miễn phí 100k req/ngày):
-    //
-    // export default {
-    //   async fetch(request, env) {
-    //     if (request.method === 'OPTIONS') return new Response(null, { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
-    //     const url = new URL(request.url);
-    //     const ghPath = url.searchParams.get('path') || 'PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json';
-    //     const ghUrl = `https://api.github.com/repos/${env.GH_OWNER}/${env.GH_REPO}/contents/${ghPath}${url.search}`;
-    //     const headers = { 'Authorization': `Bearer ${env.GH_TOKEN}`, 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'lms-proxy' };
-    //     const body = request.method !== 'GET' ? await request.text() : undefined;
-    //     const ghRes = await fetch(ghUrl, { method: request.method, headers, body });
-    //     const data = await ghRes.text();
-    //     return new Response(data, { status: ghRes.status, headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' } });
-    //   }
-    // };
-    //
-    // Đặt trong Cloudflare Dashboard → Workers → Settings → Environment Variables:
-    //   GH_TOKEN = ghp_xxxxx (GitHub PAT)
-    //   GH_OWNER = thefuong119
-    //   GH_REPO  = ai-python-thcs
-    //
-    // Sau đó nhập URL Worker vào modal "Đồng Bộ Máy Chủ" → Lưu Endpoint.
+    function isFullscreen() {
+        return !!(document.fullscreenElement ||
+                  document.webkitFullscreenElement ||
+                  document.msFullscreenElement);
+    }
+
+    async function toggleFullscreen() {
+        try {
+            if (!isFullscreen()) {
+                const el = document.documentElement;
+                if (el.requestFullscreen) {
+                    await el.requestFullscreen();
+                } else if (el.webkitRequestFullscreen) {
+                    el.webkitRequestFullscreen();
+                } else if (el.msRequestFullscreen) {
+                    el.msRequestFullscreen();
+                } else {
+                    showToast("Trình duyệt không hỗ trợ toàn màn hình. Nhấn F11 thủ công.", "info");
+                    return;
+                }
+                showToast("Đã bật toàn màn hình", "success");
+            } else {
+                if (document.exitFullscreen) {
+                    await document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                showToast("Đã thoát toàn màn hình", "info");
+            }
+        } catch(e) {
+            console.warn('[FULLSCREEN]', e);
+            showToast("Không thể chuyển chế độ toàn màn hình: " + e.message, "error");
+        }
+        updateFullscreenButtonUi();
+    }
+
+    function updateFullscreenButtonUi() {
+        const icon = document.getElementById('fullscreenIcon');
+        const label = document.getElementById('fullscreenLabel');
+        const btn = document.getElementById('btnFullscreenToggle');
+        if (!icon || !label || !btn) return;
+
+        if (isFullscreen()) {
+            icon.className = 'ph-bold ph-arrows-in text-base';
+            label.textContent = 'Thoát Toàn Màn Hình';
+            btn.className = 'px-3 py-1.5 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 hover:text-white border border-amber-500/40 font-semibold text-xs flex items-center gap-1.5 shadow-sm transition-all';
+            btn.title = 'Thoát chế độ toàn màn hình';
+        } else {
+            icon.className = 'ph-bold ph-arrows-out text-base';
+            label.textContent = 'Toàn Màn Hình';
+            btn.className = 'px-3 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 hover:text-white border border-cyan-500/40 font-semibold text-xs flex items-center gap-1.5 shadow-sm transition-all';
+            btn.title = 'Bật chế độ toàn màn hình (giống F11)';
+        }
+    }
+
+    ['fullscreenchange', 'webkitfullscreenchange', 'msfullscreenchange'].forEach(evt => {
+        document.addEventListener(evt, () => {
+            updateFullscreenButtonUi();
+            setTimeout(() => {
+                if (typeof hasDraggedRobot !== 'undefined' && !hasDraggedRobot) {
+                    centerRobotOnScreen();
+                }
+            }, 200);
+        });
+    });
 
     // =============================================
-    // STATE
+    // 🔐 CLOUDFLARE WORKER PROXY
     // =============================================
     let lectures = [
         { id:1, title:"Bài 1. Ngôn ngữ lập trình bậc cao và python", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```" },
@@ -2220,7 +2281,7 @@
     }
 
     // =============================================
-    // QUẢN LÝ CỜ CÂU HỎI ĐÃ DÙNG LÀM ĐỀ
+    // QUẢN LÝ CỜ CÂU HỎI
     // =============================================
     function saveQuestionFlags() {
         localStorage.setItem('lms_question_flags', JSON.stringify(questionFlags));
@@ -2285,7 +2346,6 @@
         }).join('');
     }
 
-    // ✅ MỚI: Hiển thị danh sách đề trong tab "Các đề đã tạo" của GV và Admin
     function renderTeacherTestsList() {
         const container = document.getElementById('teacherTestsList');
         if (!container) return;
@@ -2469,12 +2529,10 @@
         showToast('Đã cập nhật đề thi!', 'success');
     }
 
-    // ✅ FIX: Xóa đề KHÔNG xóa câu hỏi trong assignments (Ngân hàng câu hỏi)
     function deleteTestSet(testId) {
         const t = testSets.find(x => x.id == testId);
         if (!t) return;
         requestDeleteConfirmation(`đề thi "${t.title}"`, () => {
-            // Chỉ xóa testSet, không đụng đến assignments
             testSets = testSets.filter(x => x.id !== testId);
             autoSaveLocalSnapshot();
             syncDataToGitHubDirectly(`Xóa đề thi: ${t.title}`);
@@ -2556,9 +2614,6 @@
         if (input) input.value = PROXY_ENDPOINT;
     }
 
-    // =============================================
-    // 🔐 GITHUB FETCH/PUT QUA PROXY VỚI RETRY
-    // =============================================
     async function githubFetchViaProxy(path, options = {}, maxRetries = 3) {
         if (!PROXY_ENDPOINT) throw new Error("PROXY_NOT_CONFIGURED");
         let lastError = null;
@@ -2605,9 +2660,6 @@
         return "";
     }
 
-    // =============================================
-    // ROLE DROPDOWN
-    // =============================================
     function toggleRoleDropdown() {
         const menu = document.getElementById('roleDropdownMenu');
         if (menu) menu.classList.toggle('hidden');
@@ -2621,9 +2673,6 @@
         if (wrapper && !wrapper.contains(e.target)) closeRoleDropdown();
     });
 
-    // =============================================
-    // AUTO-FORMAT THÔNG MINH (Python-style)
-    // =============================================
     function autoFormatPython(code) {
         if (!code) return '';
         const lines = code.replace(/\t/g, '    ').split('\n');
@@ -2745,16 +2794,12 @@
             registeredUsers.push({ id:902, name:"Học sinh Dùng Thử", username:"hocsinh", identifier:"hocsinh", password:"Hocsinh@123", passwordHash:"", school:"THCS Thành Đông", className:"8A1", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:15 });
     }
 
-    // =============================================
-    // INTRO FULL TEXT (Robot đọc)
-    // =============================================
     function speakIntroFullText() {
         const intro = `Đây là ứng dụng dạng web app do thầy Nguyễn Thế Phương, giáo viên Trường Trung học cơ sở Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp. Tài khoản dùng thử. Dùng thử ngay. Sử dụng thông tin bên dưới để trải nghiệm. Một, Giáo viên. Tên đăng nhập: giaovien. Mật khẩu: Giaovien a còng 123. Đăng nhập ngay. Hai, Học sinh. Tên đăng nhập: hocsinh. Mật khẩu: Hocsinh a còng 123. Đăng nhập ngay. Ba, Admin. Quản trị. Admin có thể: Thêm, sửa, xóa toàn bộ dữ liệu nguồn. Điện thoại: không chín ba hai, tám sáu một, bảy ba chín. Email: thefuong119 a còng gờ meo chấm com.`;
         speakRobotText(intro);
         showToast("🤖 Robot đang đọc toàn bộ phần giới thiệu...", "info");
     }
 
-    // STUDENT FLAGS
     function loadStudentFlagsFromLS() { try { return JSON.parse(localStorage.getItem('py_student_flags') || '{}'); } catch(e) { return {}; } }
     function saveStudentFlagsToLS() { localStorage.setItem('py_student_flags', JSON.stringify(studentFlags)); }
     function loadFlaggedCacheFromLS() { try { return JSON.parse(localStorage.getItem('py_flagged_cache') || '{}'); } catch(e) { return {}; } }
@@ -2795,7 +2840,6 @@
         Object.values(flaggedAssignmentsCache).forEach(a => { if (a && a.id && !assignments.find(x => x.id == a.id)) assignments.push(a); });
     }
 
-    // VIEW LECTURE / ASSIGNMENT DETAIL
     function openViewLectureDetail(id) {
         const lec = lectures.find(l => l.id == id); if (!lec) return;
         viewModalEditingType = 'lecture'; viewModalEditingId = lec.id;
@@ -2930,7 +2974,6 @@
         viewModalEditingType = null; viewModalEditingId = null;
     }
 
-    // ROLE SWITCHING
     function switchRole(role) {
         const guestLockView = document.getElementById('guestLockView');
         const studentView = document.getElementById('studentView');
@@ -2988,7 +3031,6 @@
         }
     }
 
-    // AUTH
     async function openLoginModal(role = 'student', action = 'login') {
         activeAuthTab = role; currentAuthAction = action;
         updateAuthModalState();
@@ -3060,9 +3102,6 @@
         }
     }
 
-    // =============================================
-    // AUTH PROCESS
-    // =============================================
     async function processAuthSubmit() {
         if (currentAuthAction === 'login') {
             if (activeAuthTab === 'teacher') return await handleTeacherLogin();
@@ -3186,11 +3225,92 @@
     function closeConfirmExitAppModal() { document.getElementById('confirmExitAppModal')?.classList.add('hidden'); }
 
     async function executeExitApp() {
-        closeConfirmExitAppModal(); closeLoginModal(); stopRobotVoice();
+        // 1. Thoát fullscreen nếu đang bật
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+            try {
+                if (document.exitFullscreen) await document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            } catch(e) { console.warn('[FULLSCREEN EXIT]', e); }
+        }
+
+        // 2. Đóng modal + dừng robot
+        closeConfirmExitAppModal();
+        closeLoginModal();
+        stopRobotVoice();
+
+        // 3. Lưu dữ liệu local
         autoSaveLocalSnapshot();
-        showToast("Đang đồng bộ dữ liệu...", "info");
+
+        // 4. Đồng bộ lên máy chủ (best-effort)
+        showToast("Đang lưu dữ liệu và đồng bộ...", "info");
         try { await syncDataToGitHubDirectly("Thoát ứng dụng - Đồng bộ cuối phiên"); } catch(e) {}
-        showToast("Đã thoát ứng dụng!", "success");
+
+        // 5. Đăng xuất khỏi session (nếu có)
+        if (currentUser.isLoggedIn) {
+            try { logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Đăng xuất"); } catch(e) {}
+        }
+
+        // 6. Thử đóng tab ứng dụng
+        showToast("Đang thoát ứng dụng...", "success");
+
+        setTimeout(() => {
+            let closed = false;
+            try {
+                window.opener = null;
+                window.open('', '_self', '');
+                window.close();
+                closed = true;
+            } catch(e) {
+                console.warn('[WINDOW CLOSE]', e);
+            }
+
+            setTimeout(() => {
+                if (!document.hidden && !closed) {
+                    showExitFallbackOverlay();
+                }
+            }, 400);
+        }, 600);
+    }
+
+    function showExitFallbackOverlay() {
+        if (document.getElementById('exitFallbackOverlay')) return;
+        const overlay = document.createElement('div');
+        overlay.id = 'exitFallbackOverlay';
+        overlay.className = 'fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[99999] flex items-center justify-center p-4';
+        overlay.innerHTML = `
+            <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+                    <i class="ph-bold ph-check-circle"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Đã Lưu & Đăng Xuất Thành Công</h3>
+                <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                    Trình duyệt <b>không cho phép</b> trang web tự đóng tab vì lý do bảo mật.
+                    Vui lòng đóng tab thủ công bằng phím tắt sau:
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <div class="text-xs text-slate-500 font-bold mb-1">Windows / Linux</div>
+                        <div class="font-mono font-bold text-slate-800 text-sm">
+                            <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Ctrl</kbd> +
+                            <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <div class="text-xs text-slate-500 font-bold mb-1">macOS</div>
+                        <div class="font-mono font-bold text-slate-800 text-sm">
+                            <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Cmd</kbd> +
+                            <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 mb-4">Hoặc nhấn nút bên dưới để quay lại ứng dụng.</p>
+                <button onclick="document.getElementById('exitFallbackOverlay').remove()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm">
+                    <i class="ph-bold ph-arrow-left"></i> Quay Lại Ứng Dụng
+                </button>
+            </div>
+        `;
+        document.body.appendChild(overlay);
     }
 
     async function logout() {
@@ -3209,7 +3329,6 @@
         showToast("Đã đăng xuất và đồng bộ dữ liệu!", "success");
     }
 
-    // PASSWORD RESET
     function openPasswordResetModal() {
         ['resetUsername','resetPhone','resetCccd','resetEmail','resetNewPass','resetConfirmPass'].forEach(id => { const e = document.getElementById(id); if (e) e.value = ''; });
         document.getElementById('passwordResetModal')?.classList.remove('hidden');
@@ -3254,9 +3373,6 @@
         }
     }
 
-    // =============================================
-    // GITHUB SYNC QUA PROXY + RETRY
-    // =============================================
     async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
 
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
@@ -3497,7 +3613,6 @@
         } catch(e) {}
     }
 
-    // LECTURES
     function populateStudentLectures() {
         const sel = document.getElementById('selectStudentLecture');
         const filterEl = document.getElementById('studentGradeFilter');
@@ -3736,7 +3851,6 @@
         } catch(e) { showToast("Lỗi đọc tệp!", "error"); }
     }
 
-    // ASSIGNMENTS
     function populateAssignmentSelect() {
         const sel = document.getElementById('selectAssignment'); if (!sel) return;
         if (currentTestSession) return;
@@ -4023,7 +4137,6 @@
         });
     }
 
-    // SUBMISSIONS / LOGS
     function toggleSubmissionSelect(table, id, checked) {
         if (checked) selectedSubmissions[table].add(id);
         else selectedSubmissions[table].delete(id);
@@ -4091,7 +4204,6 @@
         rowElement.classList.add('table-row-selected');
     }
 
-    // PYODIDE
     async function initPyodide() {
         const badge = document.getElementById('engineStatusBadge'), st = document.getElementById('engineStatusText');
         try {
@@ -4262,7 +4374,6 @@ except Exception as e: _error = str(e)
 
     function onTeacherFilterChange() { renderTeacherLecturesTable(); renderManageAssignmentsTable(); }
 
-    // ✅ CẬP NHẬT: Thêm tab 'tests' cho Giáo viên
     function switchTeacherTab(tab) {
         ['lectures','create','manage','tests','submissions','logs','grades'].forEach(t => {
             const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
@@ -4593,8 +4704,6 @@ except Exception as e: _error = str(e)
         showToast("Đã thoát bài kiểm tra", "info");
     }
 
-    // ADMIN DASHBOARD
-    // ✅ CẬP NHẬT: Thêm tab 'tests' cho Admin
     function switchAdminTab(tab) {
         ['users','lectures','assignments','tests','submissions','logs','grades'].forEach(t => {
             const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
@@ -4841,7 +4950,6 @@ except Exception as e: _error = str(e)
         });
     }
 
-    // OMML → LATEX
     function ommlNodeToLatex(node) {
         if (!node) return "";
         if (node.nodeType === 3) return node.textContent || "";
@@ -5224,7 +5332,6 @@ except Exception as e: _error = str(e)
         event.target.value = "";
     }
 
-    // ROBOT TTS
     let isRobotSpeaking = false;
 
     const RobotTTS = {
@@ -5416,7 +5523,6 @@ except Exception as e: _error = str(e)
         updateBubbleOrientation();
     }
 
-    // AI
     function openAiAssistant(mode = 'socratic') { setAiMode(mode); document.getElementById('aiModal')?.classList.remove('hidden'); }
     function closeAiModal() { document.getElementById('aiModal')?.classList.add('hidden'); }
     function setAiMode(mode) {
@@ -5455,7 +5561,6 @@ except Exception as e: _error = str(e)
         }, 600);
     }
 
-    // MISC
     function openGuideModal() { document.getElementById('guideModal')?.classList.remove('hidden'); }
     function closeGuideModal() { document.getElementById('guideModal')?.classList.add('hidden'); }
     function speakGuideContentAloud() {
@@ -5487,7 +5592,6 @@ except Exception as e: _error = str(e)
         bubble.onmouseleave = () => { t = setTimeout(() => dismiss(), 2000); };
     }
 
-    // MARKDOWN / KATEX
     function renderMathInText(str) {
         if (!str) return str;
         if (typeof katex === 'undefined') return str;
@@ -5522,7 +5626,6 @@ except Exception as e: _error = str(e)
         } catch(e) { return String(text || ""); }
     }
 
-    // BOOT
     window.addEventListener('DOMContentLoaded', async () => {
         loadLocalSnapshotIfAvailable();
         ensureTrialAccountsAlwaysAvailable();
@@ -5544,6 +5647,7 @@ except Exception as e: _error = str(e)
         initPyodide();
         currentUser.isLoggedIn = false;
         updateUserHeaderUi();
+        updateFullscreenButtonUi();
         openLoginModal('student', 'login');
         setTimeout(centerRobotOnScreen, 150);
         setTimeout(() => renderKaTeXFormulas(document.body), 300);
