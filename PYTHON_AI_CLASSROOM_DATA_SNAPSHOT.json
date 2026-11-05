@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:34:59.514Z",
-    "updatedBy": "Khách",
-    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-05T16:36:00.558Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Đẩy dữ liệu thủ công"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 45,
+        "loginCount": 46,
         "_hasPassword": true,
         "passwordHash": "60c0a4fbf2162547bfadb73b8ebf8bbe94513766c7859b6dc2a3c37827a70c78",
         "password": null
@@ -11763,6 +11763,34 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:35:43 5/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "23:35:18 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:35:15 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:35:07 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
       {
         "time": "23:34:59 5/11/2026",
         "name": "Nguyễn Thế Phương",
