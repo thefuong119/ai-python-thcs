@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:52:14.714Z",
+    "updatedAt": "2026-11-05T22:53:10.325Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin cập nhật TK: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -35,7 +35,7 @@
         "school": "Trường THCS - THPT Mỹ Thuận",
         "className": "11A1",
         "teacherName": "---",
-        "phone": "Zalo cá nhân",
+        "phone": "0932861739",
         "email": "",
         "role": "teacher",
         "authMethod": "Tên đăng nhập + Mật khẩu",
