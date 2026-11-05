@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:27:24.036Z",
+    "updatedAt": "2026-11-05T17:27:50.532Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Nộp dữ liệu thủ công"
   },
@@ -65,8 +65,7 @@
         "lastLogin": "2026-10-25 08:35",
         "loginCount": 8,
         "_hasPassword": true,
-        "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
-        "cccd": "",
+        "passwordHash": "10402a73c6523b0f691896c995d5a9635b35d1b1a5a39d8308f4fe4be1af4afc",
         "password": null
       },
       {
@@ -86,8 +85,7 @@
         "lastLogin": "2026-10-25 08:42",
         "loginCount": 3,
         "_hasPassword": true,
-        "passwordHash": "2163b766c2ba53b6e45996281cd4e2c016cbb21c1a9376c2567a1dc98134417f",
-        "cccd": "",
+        "passwordHash": "10402a73c6523b0f691896c995d5a9635b35d1b1a5a39d8308f4fe4be1af4afc",
         "password": null
       },
       {
@@ -107,8 +105,7 @@
         "lastLogin": "2026-10-25 08:50",
         "loginCount": 5,
         "_hasPassword": true,
-        "passwordHash": "fbdc9a142a86c7b7024c40df0fdfd2d2288f0b93ce3d28e343d3bf6b70a75aa3",
-        "cccd": "",
+        "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "password": null
       },
       {
@@ -148,7 +145,6 @@
         "loginCount": 7,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
-        "cccd": "",
         "password": null
       },
       {
@@ -169,7 +165,6 @@
         "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
-        "cccd": "",
         "password": null
       },
       {
@@ -181,7 +176,7 @@
         "className": "8A8",
         "teacherName": "Thầy Nguyễn Thế Phương",
         "phone": "0987654321",
-        "email": "",
+        "email": "---",
         "role": "student",
         "authMethod": "Tên đăng nhập",
         "status": "active",
@@ -191,7 +186,6 @@
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
-        "cccd": "",
         "password": null
       },
       {
