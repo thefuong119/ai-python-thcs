@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:24:27.255Z",
+    "updatedAt": "2026-11-05T17:24:35.138Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin xóa TK: Nguyễn Thanh Tùng"
+    "action": "Admin xóa TK: Nguyễn Thanh Tuấn"
   },
   "data": {
     "registeredUsers": [
@@ -267,22 +267,6 @@
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
         "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
-        "password": null
-      },
-      {
-        "id": 1793881325557,
-        "name": "Nguyễn Thanh Tuấn",
-        "username": "tuan",
-        "identifier": "tuan",
-        "school": "THCS Thành Đông",
-        "className": "Khối 8",
-        "phone": "0123455555",
-        "cccd": "",
-        "email": "",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 1,
-        "_hasPassword": false,
         "password": null
       }
     ],
