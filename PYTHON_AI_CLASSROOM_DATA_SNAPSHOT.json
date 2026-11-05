@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T13:47:30.474Z",
+    "updatedAt": "2026-11-05T13:49:26.107Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin cập nhật TK: Lê Nguyễn Quang Minh"
+    "action": "Đẩy dữ liệu thủ công"
   },
   "data": {
     "registeredUsers": [
@@ -157,7 +157,7 @@
         "className": "8A8",
         "teacherName": "Thầy Nguyễn Thế Phương",
         "phone": "0987654321",
-        "email": "",
+        "email": "---",
         "role": "student",
         "authMethod": "Tên đăng nhập",
         "status": "active",
@@ -165,8 +165,7 @@
         "lastLogin": "Chưa ĐN",
         "loginCount": 3,
         "_hasPassword": true,
-        "contact": "0987654321",
-        "cccd": ""
+        "contact": "0987654321"
       },
       {
         "id": 10,
@@ -11742,6 +11741,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "20:49:16 5/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "20:38:34 5/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
