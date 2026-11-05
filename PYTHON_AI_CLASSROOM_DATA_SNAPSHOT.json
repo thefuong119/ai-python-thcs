@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T12:23:46.934Z",
-    "updatedBy": "Nguyễn Thanh Tuấn",
-    "action": "Đăng xuất: Nguyễn Thanh Tuấn"
+    "updatedAt": "2026-11-05T12:23:56.065Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -259,7 +259,7 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
-        "_hasPassword": true
+        "_hasPassword": false
       }
     ],
     "assignments": [
@@ -11738,13 +11738,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "19:23:46 5/11/2026",
-        "name": "Nguyễn Thanh Tuấn",
-        "identifier": "tuan",
-        "role": "teacher",
-        "result": "Đăng xuất"
-      },
       {
         "time": "19:22:05 5/11/2026",
         "name": "Nguyễn Thanh Tuấn",
