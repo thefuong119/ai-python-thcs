@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:41:07.808Z",
-    "updatedBy": "Nguyễn Thế Bình",
-    "action": "Đăng xuất: Nguyễn Thế Bình"
+    "updatedAt": "2026-11-05T22:42:08.942Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Đăng xuất: Nguyễn Phú Lộc"
   },
   "data": {
     "registeredUsers": [
@@ -142,7 +142,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 8,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -11792,11 +11792,25 @@
     ],
     "loginLogs": [
       {
-        "time": "05:41:07 6/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
+        "time": "05:42:08 6/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Đăng xuất"
+      },
+      {
+        "time": "05:42:05 6/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "05:41:49 6/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Reset pw"
       },
       {
         "time": "05:36:22 6/11/2026",
