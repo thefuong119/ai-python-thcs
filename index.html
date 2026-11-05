@@ -56,7 +56,6 @@
         @keyframes dropIn { 0% { opacity:0; transform:translateY(-8px) scale(0.96); } 100% { opacity:1; transform:translateY(0) scale(1); } }
         .dropdown-anim { animation: dropIn 0.18s ease-out; }
 
-        /* ✅ Hiệu ứng cho ảnh robot GIF nền trong suốt */
         #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
         #robotAvatarBtn img {
             filter: drop-shadow(0 6px 12px rgba(37,99,235,0.55)) drop-shadow(0 0 6px rgba(59,130,246,0.35));
@@ -71,7 +70,6 @@
             filter: drop-shadow(0 8px 18px rgba(37,99,235,0.75)) drop-shadow(0 0 10px rgba(96,165,250,0.5));
         }
 
-        /* ✅ Style đẹp cho khối chào mừng */
         .welcome-heading-gradient {
             background: linear-gradient(135deg, #1e40af 0%, #4f46e5 40%, #7c3aed 70%, #db2777 100%);
             -webkit-background-clip: text;
@@ -2156,8 +2154,14 @@
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
 
-    let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || "";
+    // 🔧 SỬA: Endpoint Proxy mặc định (Cloudflare Worker của bạn)
+    const DEFAULT_PROXY_ENDPOINT = "https://ai-thcs-python.thefuong119.workers.dev";
+    let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || DEFAULT_PROXY_ENDPOINT;
     let PROXY_HEALTHY = false;
+    // 🔧 MỚI: Cache SHA để push nhanh khi đóng app (keepalive)
+    let lastKnownSha = "";
+    let lastKeepaliveTime = 0;
+    let lastAutoSyncTime = 0;
 
     const PASSWORD_SALT = "LMS_PYTHON_THCS_THANHDONG_2026_SALT";
 
@@ -2579,7 +2583,7 @@
         }
         if (badge) { badge.textContent = 'Đang kiểm tra...'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-mono font-bold"; }
         try {
-            const res = await fetch(`${PROXY_ENDPOINT}?path=${GITHUB_FILE_PATH}`, { method: 'GET', cache: 'no-store' });
+            const res = await fetch(`${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_FILE_PATH)}&t=${Date.now()}`, { method: 'GET', cache: 'no-store' });
             PROXY_HEALTHY = res.ok;
             if (res.ok) {
                 if (badge) { badge.textContent = '✓ Hoạt động'; badge.className = "text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-mono font-bold"; }
@@ -2651,7 +2655,10 @@
                 const res = await fetch(url, { cache: 'no-store' });
                 if (res.ok) {
                     const json = await res.json();
-                    return json.sha || "";
+                    const sha = json.sha || "";
+                    // 🔧 MỚI: cache SHA của file snapshot chính để push nhanh khi đóng app
+                    if (path === GITHUB_FILE_PATH) lastKnownSha = sha;
+                    return sha;
                 }
                 if (res.status === 404) return "";
             } catch (e) {}
@@ -3375,6 +3382,7 @@
 
     async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
 
+    // 🔧 SỬA: Refactor retry — re-fetch SHA mỗi lần retry (tránh dùng SHA lỗi thời)
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
         autoSaveLocalSnapshot();
         const syncTimeEl = document.getElementById('lastGithubSyncTime');
@@ -3386,16 +3394,28 @@
             const payload = buildSnapshotPayload(actionDescription);
             const jsonStr = JSON.stringify(payload, null, 2);
             const base64Data = btoa(unescape(encodeURIComponent(jsonStr)));
-            const sha = await getCurrentShaViaProxy(GITHUB_FILE_PATH);
-            const body = { message: `[Sync] ${actionDescription}`, content: base64Data, branch: "main" };
-            if (sha) body.sha = sha;
-            await githubFetchViaProxy(GITHUB_FILE_PATH, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            });
-            if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã đồng bộ)";
-            return true;
+            let lastErr = null;
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    // Re-fetch SHA mỗi lần retry
+                    const sha = await getCurrentShaViaProxy(GITHUB_FILE_PATH);
+                    const body = { message: `[Sync] ${actionDescription}`, content: base64Data, branch: "main" };
+                    if (sha) body.sha = sha;
+                    const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_FILE_PATH)}&t=${Date.now()}`;
+                    const res = await fetch(url, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body),
+                        cache: 'no-store'
+                    });
+                    if (res.status === 409) { lastErr = new Error("CONFLICT_409"); await sleep(600 * Math.pow(2, attempt)); continue; }
+                    if (res.status === 429) { lastErr = new Error("RATE_LIMIT_429"); await sleep(1500 * Math.pow(2, attempt)); continue; }
+                    if (!res.ok) throw new Error(`HTTP_${res.status}`);
+                    if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã đồng bộ)";
+                    return true;
+                } catch(e) { lastErr = e; await sleep(500 * Math.pow(2, attempt)); }
+            }
+            throw lastErr || new Error("UNKNOWN");
         } catch (e) {
             console.error('[SYNC] Error:', e);
             if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Lỗi: " + e.message + ")";
@@ -3403,10 +3423,34 @@
         }
     }
 
+    // 🔧 MỚI: Push dữ liệu khi đóng tab — dùng fetch keepalive, dựa vào SHA cache
+    function pushDataWithKeepalive() {
+        if (!PROXY_ENDPOINT) return;
+        const now = Date.now();
+        if (now - lastKeepaliveTime < 5000) return; // throttle 5s
+        lastKeepaliveTime = now;
+        try {
+            autoSaveLocalSnapshot();
+            const payload = buildSnapshotPayload("Đóng ứng dụng - Đồng bộ cuối phiên");
+            const jsonStr = JSON.stringify(payload);
+            const base64Data = btoa(unescape(encodeURIComponent(jsonStr)));
+            const body = { message: `[Auto-Sync] Đóng ứng dụng - ${new Date().toLocaleString('vi-VN')}`, content: base64Data, branch: "main" };
+            if (lastKnownSha) body.sha = lastKnownSha;
+            const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_FILE_PATH)}&t=${Date.now()}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+                keepalive: true
+            }).catch(() => {});
+        } catch(e) { console.warn('[KEEPALIVE]', e); }
+    }
+
+    // 🔧 SỬA: Giữ passwordHash (chỉ strip password plaintext) để user đăng nhập được sau sync
     function buildSnapshotPayload(actionDescription) {
         const cleanedUsers = registeredUsers.map(u => {
-            const { password, passwordHash, ...safe } = u;
-            return { ...safe, _hasPassword: !!(passwordHash || password) };
+            const { password, ...safe } = u;
+            return { ...safe, password: null, _hasPassword: !!(u.passwordHash || u.password) };
         });
         return {
             metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
@@ -5634,6 +5678,7 @@ except Exception as e: _error = str(e)
         studentFlags = loadStudentFlagsFromLS();
         flaggedAssignmentsCache = loadFlaggedCacheFromLS();
         await migratePasswordHashes();
+        // 📥 Nạp dữ liệu khi mở app
         await autoFetchDataFromGitHub();
         ensureTrialAccountsAlwaysAvailable();
         restoreFlaggedAssignments();
@@ -5654,7 +5699,29 @@ except Exception as e: _error = str(e)
     });
 
     window.addEventListener('resize', () => { if (!hasDraggedRobot) centerRobotOnScreen(); });
-    window.addEventListener('beforeunload', () => { try { autoSaveLocalSnapshot(); } catch(e) {} });
+
+    // 📤 ĐẨY DỮ LIỆU KHI ĐÓNG APP
+    // (1) pagehide: dùng keepalive fetch (chạy được khi tab đóng)
+    window.addEventListener('pagehide', (e) => {
+        try { autoSaveLocalSnapshot(); } catch(err) {}
+        if (!e.persisted) pushDataWithKeepalive();
+    });
+
+    // (2) beforeunload: backup local + keepalive
+    window.addEventListener('beforeunload', () => {
+        try { autoSaveLocalSnapshot(); } catch(err) {}
+        pushDataWithKeepalive();
+    });
+
+    // (3) visibilitychange: khi ẩn tab → sync async với throttle 30s
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            const now = Date.now();
+            if (now - lastAutoSyncTime < 30000) return;
+            lastAutoSyncTime = now;
+            try { syncDataToGitHubDirectly("Ẩn trang - Đồng bộ tự động").catch(() => {}); } catch(err) {}
+        }
+    });
     </script>
 </body>
 </html>
