@@ -802,7 +802,7 @@
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
                         <h4 class="font-bold text-base text-slate-900">Các Đề Đã Tạo</h4>
-                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc đẩy đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng.</p>
+                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc giao đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng.</p>
                     </div>
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
                         <i class="ph-bold ph-shuffle"></i> Tạo đề mới
@@ -977,16 +977,16 @@
                     </div>
                     <div class="flex items-center gap-2 flex-wrap">
                         <button onclick="pushCurrentDataToGitHubManual()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-cloud-arrow-up"></i> Đẩy Lên
+                            <i class="ph-bold ph-cloud-arrow-up"></i> Nộp lên Server
                         </button>
                         <button onclick="openGithubSyncModal()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/40 font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-cloud-arrow-down"></i> Nạp
+                            <i class="ph-bold ph-cloud-arrow-down"></i> Nạp dữ liệu
                         </button>
                         <button id="adminBtnAddStudent" onclick="openAddStudentModal()" class="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-plus"></i> Thêm HS
+                            <i class="ph-bold ph-user-plus"></i> Thêm học sinh
                         </button>
                         <button id="adminBtnAddTeacher" onclick="openAddTeacherModal()" class="hidden px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                            <i class="ph-bold ph-user-plus"></i> Thêm GV
+                            <i class="ph-bold ph-user-plus"></i> Thêm giáo viên
                         </button>
                     </div>
                 </div>
@@ -1218,7 +1218,7 @@
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
                         <h4 class="font-bold text-base text-slate-900">Các Đề Đã Tạo (Admin)</h4>
-                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc đẩy đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng câu hỏi.</p>
+                        <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc phát đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng câu hỏi.</p>
                     </div>
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
                         <i class="ph-bold ph-shuffle"></i> Tạo đề mới
@@ -1231,7 +1231,7 @@
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
                         <h4 class="font-bold text-base text-slate-900">Quản Lý Bài Làm</h4>
-                        <p class="text-sm text-slate-500">Tích chọn để xóa hàng loạt. Xuất Excel để xem chi tiết từng câu + code HS.</p>
+                        <p class="text-sm text-slate-500">Tích chọn để xóa hàng loạt. Xuất Excel để xem chi tiết từng câu + code học sinh.</p>
                     </div>
                     <div class="flex items-center gap-2 flex-wrap">
                         <button onclick="exportSubmissionsXlsx()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
@@ -1517,7 +1517,7 @@
             <div class="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between flex-wrap gap-2 text-xs text-slate-500 shrink-0">
                 <button onclick="openPasswordResetModal()" class="px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 font-bold text-amber-700 flex items-center gap-1 shadow-sm transition-all"><i class="ph-bold ph-key text-sm"></i> Quên mật khẩu?</button>
                 <div class="flex items-center gap-2 flex-wrap">
-                    <span id="authToggleHintText">Chưa có tài khoản?</span>
+                    <span id="authToggleHintText">👉</span>
                     <button id="authToggleActionBtn" onclick="toggleAuthAction()" class="font-bold text-blue-600 hover:text-blue-700">Đăng ký ngay</button>
                 </div>
             </div>
@@ -1650,7 +1650,7 @@
                     <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600 text-lg"></i> 3. QUẢN LÝ ĐỀ THI (GV & ADMIN)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
                         <li>Vào tab <b>"Các đề đã tạo"</b> để xem toàn bộ đề đã tạo.</li>
-                        <li>Nhấn <b>"Xem"</b> để xem chi tiết đề; <b>"Sửa"</b> để chỉnh sửa câu hỏi; <b>"Đẩy cho HS"</b> để giao đề cho học sinh.</li>
+                        <li>Nhấn <b>"Xem"</b> để xem chi tiết đề; <b>"Sửa"</b> để chỉnh sửa câu hỏi; <b>"Phát đề cho HS"</b>để giao đề cho học sinh.</li>
                         <li>Nhấn <b>"Xóa"</b> để xóa đề. <b>Lưu ý:</b> Xóa đề <u>không</u> ảnh hưởng đến câu hỏi trong Ngân hàng câu hỏi.</li>
                     </ul>
                 </div>
@@ -1722,9 +1722,9 @@
                     </button>
                 </div>
                 <div class="p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl space-y-2">
-                    <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-cloud-arrow-up text-emerald-600 text-base"></i> Đẩy toàn bộ dữ liệu:</label>
+                    <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-cloud-arrow-up text-emerald-600 text-base"></i> Nộp toàn bộ dữ liệu:</label>
                     <button onclick="pushCurrentDataToGitHubManual()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow transition flex items-center justify-center gap-1.5">
-                        <i class="ph-bold ph-cloud-arrow-up"></i> Đẩy Lên Ngay
+                        <i class="ph-bold ph-cloud-arrow-up"></i> Nộp lên Server
                     </button>
                 </div>
                 <div class="p-3.5 bg-blue-50 border border-blue-200 rounded-2xl space-y-2">
@@ -1895,7 +1895,7 @@
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-shuffle text-xl text-amber-300"></i></div>
                     <div>
                         <h3 class="text-base font-bold">Tạo Đề Kiểm Tra Ngẫu Nhiên</h3>
-                        <p class="text-xs text-purple-100">Chọn số câu Dễ / TB / Khó → Trộn → Xuất Word hoặc Đẩy cho HS</p>
+                        <p class="text-xs text-purple-100">Chọn số câu Dễ / Trung bình / Khó → Trộn → Xuất Word hoặc Phát cho học sinh</p>
                     </div>
                 </div>
                 <button onclick="closeRandomTestModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
@@ -1942,7 +1942,7 @@
                         <i class="ph-bold ph-file-doc"></i> Xuất Word
                     </button>
                     <button id="btnPublishRandomTest" onclick="saveAndPublishRandomTest()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
-                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Đẩy Cho HS
+                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Phát Cho HS
                     </button>
                 </div>
                 <div id="randomTestResult" class="border border-slate-200 rounded-2xl p-4 bg-slate-50 min-h-[100px] text-sm space-y-2">
@@ -1963,7 +1963,7 @@
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-list-checks text-xl text-amber-300"></i></div>
                     <div>
                         <h3 class="text-base font-bold">Quản Lý Đề Thi Đã Tạo</h3>
-                        <p class="text-xs text-indigo-100">Xem, sửa, xóa hoặc đẩy đề cho học sinh</p>
+                        <p class="text-xs text-indigo-100">Xem, sửa, xóa hoặc phát đề cho học sinh</p>
                     </div>
                 </div>
                 <button onclick="closeManageTestsModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
@@ -2393,7 +2393,7 @@
                             <i class="ph-bold ph-trash"></i> Xóa
                         </button>
                         <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
-                            <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                            <i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh
                         </button>
                     </div>
                 </div>`;
@@ -2440,7 +2440,7 @@
                                 <i class="ph-bold ph-trash"></i> Xóa
                             </button>
                             <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
-                                <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                                <i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh
                             </button>
                         </div>
                     </div>
@@ -2488,7 +2488,7 @@
                                 <i class="ph-bold ph-trash"></i> Xóa
                             </button>
                             <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1">
-                                <i class="ph-bold ph-paper-plane-tilt"></i> Đẩy cho HS
+                                <i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh
                             </button>
                         </div>
                     </div>
@@ -2603,12 +2603,12 @@
         if (!t) return;
         t.active = true;
         autoSaveLocalSnapshot();
-        await syncDataToGitHubDirectly(`Đẩy đề cho HS: ${t.title}`);
+        await syncDataToGitHubDirectly(`Phất đề cho học sinh: ${t.title}`);
         renderManageTestsList();
         renderTeacherTestsList();
         renderAdminTestsList();
         renderStudentTestList();
-        showToast(`Đã đẩy "${t.title}" cho học sinh!`, 'success');
+        showToast(`Đã phát đề "${t.title}" cho học sinh!`, 'success');
     }
 
     // =============================================
@@ -3141,7 +3141,7 @@
             if (isLogin) { al.className = activeCls; ar.className = inactiveCls; }
             else { ar.className = activeCls; al.className = inactiveCls; }
         }
-        if (th && tb) { th.textContent = isLogin ? "Chưa có tài khoản?" : "Đã có tài khoản?"; tb.textContent = isLogin ? "Đăng ký ngay" : "Đăng nhập ngay"; }
+        if (th && tb) { th.textContent = isLogin ? "👉" : "❤️"; tb.textContent = isLogin ? "Đăng ký ngay" : "Đăng nhập ngay"; }
         if (bodyS) bodyS.classList.toggle('hidden', isTeacher);
         if (bodyT) bodyT.classList.toggle('hidden', !isTeacher);
         if (fSL) fSL.classList.toggle('hidden', !isLogin);
@@ -3149,12 +3149,12 @@
         if (fTL) fTL.classList.toggle('hidden', !isLogin);
         if (fTR) fTR.classList.toggle('hidden', isLogin);
         if (btnS) {
-            if (isLogin) btnS.innerHTML = `<i class="ph-bold ph-sign-in"></i> Đăng Nhập`;
-            else btnS.innerHTML = `<i class="ph-bold ph-user-plus"></i> Đăng Ký`;
+            if (isLogin) btnS.innerHTML = `<i class="ph-bold ph-sign-in"></i> ❤️Đăng Nhập`;
+            else btnS.innerHTML = `<i class="ph-bold ph-user-plus"></i> 👉 Đăng Ký`;
         }
         if (btnT) {
-            if (isLogin) btnT.innerHTML = `<i class="ph-bold ph-sign-in"></i> Đăng Nhập`;
-            else btnT.innerHTML = `<i class="ph-bold ph-user-plus"></i> Đăng Ký`;
+            if (isLogin) btnT.innerHTML = `<i class="ph-bold ph-sign-in"></i> ❤️Đăng Nhập`;
+            else btnT.innerHTML = `<i class="ph-bold ph-user-plus"></i> 👉Đăng Ký`;
         }
     }
 
@@ -3231,7 +3231,7 @@
         closeLoginModal(); switchRole('student');
         showToast(`Đăng ký thành công ${ns.name}!`, "success");
         speakRobotText(`Chúc mừng học sinh ${ns.name} đã đăng ký!`);
-        await syncDataToGitHubDirectly(`Đăng ký HS: ${ns.name}`);
+        await syncDataToGitHubDirectly(`Đăng ký: ${ns.name}`);
     }
 
     async function handleTeacherRegister() {
@@ -3423,7 +3423,7 @@
         }
     }
 
-    async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
+    async function pushCurrentDataToGitHubManual() { showToast("Đang gửi dữ liệu qua máy chủ...", "info"); await syncDataToGitHubDirectly("Nộp dữ liệu thủ công"); }
 
     // ✅ FIX #10: isSyncing guard để tránh race condition
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
@@ -4472,7 +4472,7 @@ except Exception as e: _error = str(e)
         await Promise.all([
             pushSubmissionsCsvToGithub(),
             pushCodePythonXlsxToGithub(),
-            syncDataToGitHubDirectly(`HS ${currentUser.name} nộp bài`)
+            syncDataToGitHubDirectly(`Học sinh ${currentUser.name} nộp bài`)
         ]);
     }
 
@@ -4676,7 +4676,7 @@ except Exception as e: _error = str(e)
             ws3['!cols'] = [{wch:20},{wch:15},{wch:10},{wch:14},{wch:12},{wch:10},{wch:12}];
             XLSX.utils.book_append_sheet(wb, ws1, 'Chi tiết câu');
             XLSX.utils.book_append_sheet(wb, ws2, 'Thống kê theo ngày');
-            XLSX.utils.book_append_sheet(wb, ws3, 'Tổng hợp HS');
+            XLSX.utils.book_append_sheet(wb, ws3, 'Tổng hợp học sinh');
             XLSX.writeFile(wb, `BaiLam_HS_${new Date().toISOString().slice(0,10)}_${Date.now()}.xlsx`);
             showToast("Đã xuất Excel 3 sheet!", "success");
         } catch(e) { console.error(e); showToast("Lỗi xuất Excel!", "error"); }
@@ -4777,8 +4777,8 @@ except Exception as e: _error = str(e)
         autoSaveLocalSnapshot();
         await syncDataToGitHubDirectly(`Tạo bài kiểm tra: ${newTest.title}`);
         closeRandomTestModal();
-        showToast(`Đã đẩy "${newTest.title}" đến HS!`, "success");
-        speakRobotText(`Đã tạo bài kiểm tra: ${newTest.title}. HS vào mục "Kiểm Tra" để làm bài.`);
+        showToast(`Đã phát "${newTest.title}" đến học sinh!`, "success");
+        speakRobotText(`Đã tạo bài kiểm tra: ${newTest.title}. Học sinh vào mục "Kiểm Tra" để làm bài.`);
         renderStudentTestList();
         renderTeacherTestsList();
         renderAdminTestsList();
@@ -4944,7 +4944,7 @@ except Exception as e: _error = str(e)
 
     function clearAllSubmissionsAdmin() {
         if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền xóa!", "error");
-        requestDeleteConfirmation("toàn bộ bài nộp HS", () => {
+        requestDeleteConfirmation("toàn bộ bài nộp của học sinh", () => {
             studentSubmissions = []; gradebook = []; studentCodeCache = {};
             selectedSubmissions.admin.clear(); selectedSubmissions.teacher.clear();
             renderAdminSubmissionsTable(); renderTeacherSubmissionsTable(); renderGradebook(); renderAdminGrades(); renderTeacherGrades(); autoSaveLocalSnapshot();
@@ -5029,7 +5029,7 @@ except Exception as e: _error = str(e)
         registeredUsers.push({ id: Date.now(), name, username, identifier: username, password: null, passwordHash, school, className, phone: rPhone || '---', cccd: rCccd || '', email: rEmail || '', role: 'student', status: 'active', loginCount: 0 });
         closeAddStudentModal(); refreshAdminDashboard(); updateTeacherStats(); autoSaveLocalSnapshot();
         showToast(`Đã thêm ${name}!`, "success");
-        await syncDataToGitHubDirectly(`Admin thêm HS: ${name}`);
+        await syncDataToGitHubDirectly(`Admin thêm học sinh: ${name}`);
     }
     function openAddTeacherModal() { document.getElementById('addTeacherModal')?.classList.remove('hidden'); }
     function closeAddTeacherModal() { document.getElementById('addTeacherModal')?.classList.add('hidden'); }
