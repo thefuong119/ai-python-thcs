@@ -1,17 +1,17 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:44:39.604Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-05T16:46:07.010Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Đăng xuất: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
       {
         "id": 1,
         "name": "Nguyễn Thế Phương",
-        "username": "admin",
-        "identifier": "admin",
+        "username": "086081006094",
+        "identifier": "086081006094",
         "school": "THCS Thành Đông",
         "className": "Toàn trường",
         "teacherName": "---",
@@ -22,10 +22,9 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 47,
+        "loginCount": 46,
         "_hasPassword": true,
-        "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
-        "cccd": "086081006094",
+        "passwordHash": "60c0a4fbf2162547bfadb73b8ebf8bbe94513766c7859b6dc2a3c37827a70c78",
         "password": null
       },
       {
@@ -244,7 +243,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "password": null
@@ -11774,32 +11773,18 @@
     ],
     "loginLogs": [
       {
-        "time": "23:44:39 5/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "23:46:06 5/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "23:42:59 5/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:42:44 5/11/2026",
-        "name": "admin",
-        "identifier": "admin",
+        "time": "23:45:57 5/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
         "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "23:42:30 5/11/2026",
-        "name": "comai",
-        "identifier": "comai",
-        "role": "student",
-        "result": "Reset pw"
+        "result": "Thành công"
       },
       {
         "time": "23:35:43 5/11/2026",
