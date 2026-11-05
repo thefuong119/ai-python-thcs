@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T12:09:26.108Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công"
+    "updatedAt": "2026-11-05T12:22:05.640Z",
+    "updatedBy": "Nguyễn Thanh Tuấn",
+    "action": "Đăng ký GV: Nguyễn Thanh Tuấn"
   },
   "data": {
     "registeredUsers": [
@@ -23,7 +23,7 @@
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
         "loginCount": 45,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 2,
@@ -41,7 +41,7 @@
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
         "loginCount": 37,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 3,
@@ -59,7 +59,7 @@
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
         "loginCount": 8,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 4,
@@ -77,7 +77,7 @@
         "firstLogin": "2026-10-22 09:15",
         "lastLogin": "2026-10-25 08:42",
         "loginCount": 3,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 5,
@@ -95,7 +95,7 @@
         "firstLogin": "2026-10-23 10:00",
         "lastLogin": "2026-10-25 08:50",
         "loginCount": 5,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 6,
@@ -110,7 +110,7 @@
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 7,
@@ -128,7 +128,7 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 7,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 8,
@@ -146,7 +146,7 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 0,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 9,
@@ -164,7 +164,7 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 3,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 10,
@@ -179,7 +179,7 @@
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 1793433198849,
@@ -192,7 +192,7 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 1793526930010,
@@ -205,7 +205,7 @@
         "status": "active",
         "loginCount": 2,
         "phone": "Zalo cá nhân",
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 1793526960586,
@@ -218,7 +218,7 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 1793532336435,
@@ -231,7 +231,7 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
-        "_hasPassword": true
+        "_hasPassword": false
       },
       {
         "id": 1793713586591,
@@ -244,6 +244,21 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
+        "_hasPassword": false
+      },
+      {
+        "id": 1793881325557,
+        "name": "Nguyễn Thanh Tuấn",
+        "username": "tuan",
+        "identifier": "tuan",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "0123455555",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 1,
         "_hasPassword": true
       }
     ],
@@ -11671,6 +11686,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "19:22:05 5/11/2026",
+        "name": "Nguyễn Thanh Tuấn",
+        "identifier": "tuan",
+        "role": "teacher",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "00:03:12 5/11/2026",
         "name": "Trần Ngọc Hân",
