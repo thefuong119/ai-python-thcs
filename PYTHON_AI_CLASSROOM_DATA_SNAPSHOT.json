@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:40:16.899Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Đăng xuất: Nguyễn Phú Lộc"
+    "updatedAt": "2026-11-05T17:40:32.879Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -10804,10 +10804,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 15,
+        "attempts": 14,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "00:39:43 6/11/2026"
+        "lastSubmit": "00:37:53 6/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -11351,51 +11351,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1793900383575,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 35. Kiểm tra số tăng dần",
-        "assignmentId": 44,
-        "score": 10,
-        "timestamp": "00:39:43 6/11/2026",
-        "date": "2026-11-05",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "1234",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "91",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "459",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "112",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "s = input().strip()\nis_increasing = all(s[i] < s[i + 1] for i in range(len(s) - 1))\nif is_increasing:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
-      },
-      {
         "id": 1793900273644,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -11837,13 +11792,6 @@
     ],
     "loginLogs": [
       {
-        "time": "00:40:16 6/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
         "time": "00:34:12 6/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -11878,8 +11826,7 @@
       },
       "loc": {
         "1": true,
-        "4": true,
-        "44": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -12201,45 +12148,6 @@
             "is_hidden": true
           }
         ]
-      },
-      "44": {
-        "id": 44,
-        "title": "Bài 35. Kiểm tra số tăng dần",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Một số nguyên dương được gọi là số tăng dần nếu các chữ số của nó tăng ngặt từ trái sang phải.\nVí dụ: 1234, 459 là số tăng dần; còn 91, 112 không phải là số tăng dần.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số tăng dần hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số tăng dần, ngược lại in ra NO.",
-        "templateCode": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "1234",
-            "expected": "YES",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "91",
-            "expected": "NO",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "459",
-            "expected": "YES",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "112",
-            "expected": "NO",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
       }
     },
     "testSets": [
@@ -12273,8 +12181,7 @@
       }
     ],
     "studentCodeCache": {
-      "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "loc__Bài 35. Kiểm tra số tăng dần": "s = input().strip()\nis_increasing = all(s[i] < s[i + 1] for i in range(len(s) - 1))\nif is_increasing:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
     },
     "questionFlags": {
       "43": true
