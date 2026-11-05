@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:40:57.592Z",
+    "updatedAt": "2026-11-05T22:41:07.808Z",
     "updatedBy": "Nguyễn Thế Bình",
-    "action": "Phất đề cho học sinh: Đề kiểm tra ngẫu nhiên - 6/11/2026"
+    "action": "Đăng xuất: Nguyễn Thế Bình"
   },
   "data": {
     "registeredUsers": [
@@ -11791,6 +11791,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "05:41:07 6/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
       {
         "time": "05:36:22 6/11/2026",
         "name": "Nguyễn Thế Bình",
