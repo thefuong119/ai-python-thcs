@@ -127,12 +127,20 @@ Tóm tắt các nâng cấp đã thực hiện:
 NÂNG CẤP TÍNH NĂNG BẢO MẬT:
 ------------------------------
 ☑ Worker Cloudflare chạy → có URL Proxy
+
 ☑ App có DEFAULT_PROXY_URL → tự động kết nối
+
 ☑ Nạp dữ liệu khi mở app (Proxy retry 3 → fallback raw retry 3)
+
 ☑ Đẩy dữ liệu mỗi thao tác (retry 3, xử lý 409/429/5xx, queue tuần tự)
+
 ☑ Đẩy dữ liệu khi đóng app (timeout 6s + sendBeacon fallback)
+
 ☑ Auto-save local 20s + auto-push server 90s
+
 ☑ Token GitHub được giấu an toàn trong Cloudflare
+
 ☑ Hash mật khẩu SHA-256 (đã có sẵn từ trước)
 
-Upgrade by Nguyễn Thế Phương
+------------------------------
+Nâng cấp 05/11/2026 19:34 bởi tác giả Nguyễn Thế Phương.
