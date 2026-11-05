@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:59:49.352Z",
-    "updatedBy": "Khách",
-    "action": "Đăng xuất: Giáo viên Demo"
+    "updatedAt": "2026-11-05T23:00:18.463Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Đăng xuất: Học sinh Demo"
   },
   "data": {
     "registeredUsers": [
@@ -238,7 +238,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 2,
+        "loginCount": 3,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -11804,6 +11804,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "06:00:18 6/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "06:00:00 6/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "05:55:52 6/11/2026",
         "name": "Trần Thị Trúc Mai",
