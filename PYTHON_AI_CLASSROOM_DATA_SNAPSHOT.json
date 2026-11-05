@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:56:04.393Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Đăng xuất: Nguyễn Phú Lộc"
+    "updatedAt": "2026-11-05T17:00:21.876Z",
+    "updatedBy": "Khách",
+    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -24,7 +24,7 @@
         "lastLogin": "02:54:55 31/10/2026",
         "loginCount": 46,
         "_hasPassword": true,
-        "passwordHash": "60c0a4fbf2162547bfadb73b8ebf8bbe94513766c7859b6dc2a3c37827a70c78",
+        "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
       },
       {
@@ -139,7 +139,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 8,
+        "loginCount": 7,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -194,7 +194,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 2,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
@@ -11773,17 +11773,80 @@
     ],
     "loginLogs": [
       {
-        "time": "23:56:04 5/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
+        "time": "00:00:21 6/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đổi mật khẩu thành công"
+      },
+      {
+        "time": "23:59:01 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:58:59 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:58:47 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:58:37 5/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:58:10 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:58:08 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:57:48 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:57:06 5/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:51:04 5/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "23:51:19 5/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
+        "time": "23:50:53 5/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
         "result": "Thành công"
       },
       {
