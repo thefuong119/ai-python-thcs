@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:54:05.474Z",
-    "updatedBy": "Khách",
-    "action": "Đăng xuất: Nguyễn Thế Bình"
+    "updatedAt": "2026-11-05T22:54:36.255Z",
+    "updatedBy": "Trần Thị Trúc Mai",
+    "action": "Sửa đề thi: Đề kiểm tra ngẫu nhiên - 06/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -42,7 +42,7 @@
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
-        "loginCount": 37,
+        "loginCount": 38,
         "_hasPassword": true,
         "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
         "cccd": "",
@@ -11805,6 +11805,13 @@
     ],
     "loginLogs": [
       {
+        "time": "05:54:16 6/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "05:50:32 6/11/2026",
         "name": "Trần Thị Trúc Mai",
         "identifier": "comai",
@@ -12230,7 +12237,7 @@
       },
       {
         "id": 1793898206970,
-        "title": "Đề kiểm tra ngẫu nhiên - 6/11/2026",
+        "title": "Đề kiểm tra ngẫu nhiên - 06/11/2026",
         "grade": "8",
         "allowSampleCode": true,
         "questionIds": [
