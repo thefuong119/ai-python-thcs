@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:55:14.065Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-05T22:39:00.990Z",
+    "updatedBy": "Nguyễn Thế Bình",
+    "action": "Sửa đề thi: ĐỀ KIỂM TRA LẦN 1 - 03/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -197,7 +197,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 2,
+        "loginCount": 3,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
@@ -11792,6 +11792,13 @@
     ],
     "loginLogs": [
       {
+        "time": "05:36:22 6/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "00:34:12 6/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -12153,13 +12160,14 @@
     "testSets": [
       {
         "id": 1793898204956,
-        "title": "Đề kiểm tra ngẫu nhiên - 6/11/2026",
+        "title": "ĐỀ KIỂM TRA LẦN 1 - 03/11/2026",
         "grade": "8",
         "allowSampleCode": true,
         "questionIds": [
-          44,
-          24,
-          310
+          1,
+          28,
+          267,
+          280
         ],
         "createdAt": "00:03:24 6/11/2026",
         "createdBy": "Nguyễn Thế Phương",
