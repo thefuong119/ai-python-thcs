@@ -19,6 +19,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- ✅ THÊM: DOMPurify để chống XSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
@@ -468,12 +470,14 @@
                             </div>
                             <div class="bg-slate-950 p-3 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
                                 <div class="flex items-center gap-2">
-                                    <button onclick="runSingleTest()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center gap-2 transition-all">
+                                    <!-- ✅ SỬA #11: Thêm id để disable khi Pyodide chưa sẵn sàng -->
+                                    <button id="btnRunSingleTest" onclick="runSingleTest()" disabled class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center gap-2 transition-all">
                                         <i class="ph-bold ph-play text-emerald-400"></i> Chạy Thử
                                     </button>
                                     <span id="executionBadge" class="text-xs text-slate-400"></span>
                                 </div>
-                                <button onclick="submitAndGrade()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
+                                <!-- ✅ SỬA #11 -->
+                                <button id="btnSubmitAndGrade" onclick="submitAndGrade()" disabled class="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
                                     <i class="ph-bold ph-paper-plane-tilt"></i> NỘP BÀI
                                 </button>
                             </div>
@@ -1361,7 +1365,7 @@
     <!-- CONFIRM DELETE MODAL -->
     <div id="confirmDeleteModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10006] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+            <div class="w-24 h-24 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
                 <i class="ph-bold ph-trash"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Xóa</h3>
@@ -1382,7 +1386,7 @@
             <div id="robotSpeechBubbleContainer" class="flex flex-col items-center gap-2 w-full"></div>
         </div>
         <div class="pointer-events-auto flex flex-col items-center relative">
-            <button id="robotAvatarBtn" draggable="false" class="group relative w-16 h-16 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
+            <button id="robotAvatarBtn" draggable="false" class="group relative w-24 h-24 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
                 <span id="robotAudioRing" class="hidden absolute inset-0 rounded-full border-2 border-emerald-400 animate-ping opacity-75"></span>
                 <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/robo.gif" alt="Robot AI" draggable="false" class="w-full h-full object-contain pointer-events-none">
             </button>
@@ -1580,7 +1584,7 @@
     <!-- CONFIRM EXIT -->
     <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-16 h-16 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+            <div class="w-24 h-24 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
                 <i class="ph-bold ph-sign-out"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Thoát</h3>
@@ -2034,7 +2038,49 @@
 
     <script>
     // =============================================
-    // 🖥️ FULLSCREEN API (tương đương F11)
+    // ✅ FIX #3: ESCAPE HTML
+    // =============================================
+    function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+    // sanitize an toàn với DOMPurify
+    function sanitizeHtml(html) {
+        if (typeof DOMPurify !== 'undefined' && DOMPurify.sanitize) {
+            return DOMPurify.sanitize(html, {
+                ADD_TAGS: ['span', 'div', 'pre', 'code', 'br', 'strong', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'li', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+                ADD_ATTR: ['class', 'style']
+            });
+        }
+        return html;
+    }
+
+    // =============================================
+    // ✅ FIX #4: BASE64 CHUẨN (TextEncoder)
+    // =============================================
+    function utf8ToBase64(str) {
+        const bytes = new TextEncoder().encode(str);
+        let binary = '';
+        const chunkSize = 0x8000;
+        for (let i = 0; i < bytes.length; i += chunkSize) {
+            binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+        }
+        return btoa(binary);
+    }
+    function base64ToUtf8(b64) {
+        const binary = atob(b64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        return new TextDecoder('utf-8').decode(bytes);
+    }
+
+    // =============================================
+    // 🖥️ FULLSCREEN API
     // =============================================
     function isFullscreen() {
         return !!(document.fullscreenElement ||
@@ -2128,8 +2174,9 @@
         { id:2, title:"Bài 2. Kiểm tra tính chẵn lẻ", classLevel:"8", difficulty:"easy", timeLimit:2.0, description:"### Đề bài\nNhập số nguyên $N$. In `CHAN` nếu chẵn, `LE` nếu lẻ.\n\n### Dữ liệu vào\nMột số nguyên $N$.", templateCode:"n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')\n", tests:[{id:1,input:"4",expected:"CHAN",point:5.0,is_hidden:false},{id:2,input:"7",expected:"LE",point:5.0,is_hidden:true}] }
     ];
 
+    // ✅ FIX #2: Admin hash password thay vì hardcode
     let registeredUsers = [
-        { id:1, name:"Thầy Nguyễn Thế Phương", username:"086081006094", identifier:"086081006094", password:"Admin#999", passwordHash:"", school:"THCS Thành Đông", className:"Toàn trường", phone:"0908889999", cccd:"", email:"", role:"admin", status:"active", loginCount:45 },
+        { id:1, name:"Thầy Nguyễn Thế Phương", username:"086081006094", identifier:"086081006094", password:null, passwordHash:"", school:"THCS Thành Đông", className:"Toàn trường", phone:"0908889999", cccd:"", email:"", role:"admin", status:"active", loginCount:45 },
         { id:2, name:"Cô Trần Thị Trúc Mai", username:"comai", identifier:"comai", password:"GiaoVien#123", passwordHash:"", school:"THCS - THPT Mỹ Thuận", className:"11A1", phone:"0912345678", cccd:"", email:"", role:"teacher", status:"active", loginCount:34 },
         { id:3, name:"Trần Ngọc Hân", username:"han", identifier:"han", password:"HocSinh#123", passwordHash:"", school:"THCS Thành Đông", className:"9A2", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:6 },
         { id:4, name:"Trần Lê Phúc Khang", username:"khang", identifier:"khang", password:"HocSinh#123", passwordHash:"", school:"THCS Thành Đông", className:"9A3", phone:"---", cccd:"", email:"", role:"student", status:"active", loginCount:3 },
@@ -2154,14 +2201,16 @@
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
 
-    // 🔧 SỬA: Endpoint Proxy mặc định (Cloudflare Worker của bạn)
     const DEFAULT_PROXY_ENDPOINT = "https://ai-thcs-python.thefuong119.workers.dev";
     let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || DEFAULT_PROXY_ENDPOINT;
     let PROXY_HEALTHY = false;
-    // 🔧 MỚI: Cache SHA để push nhanh khi đóng app (keepalive)
     let lastKnownSha = "";
     let lastKeepaliveTime = 0;
     let lastAutoSyncTime = 0;
+
+    // ✅ FIX #10: Cờ đồng bộ
+    let isSyncing = false;
+    let pendingSyncRequest = null;
 
     const PASSWORD_SALT = "LMS_PYTHON_THCS_THANHDONG_2026_SALT";
 
@@ -2202,6 +2251,7 @@
     }
 
     let pyodideInstance = null;
+    let pyodideReady = false; // ✅ FIX #11
     let currentUser = { isLoggedIn:false, role:'student', name:'Khách', identifier:'' };
     let currentRole = 'student';
     let currentAuthAction = 'login';
@@ -2325,9 +2375,9 @@
                 <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-2">
                     <div class="flex items-start justify-between gap-2">
                         <div>
-                            <h4 class="font-bold text-sm text-slate-900">${t.title}</h4>
+                            <h4 class="font-bold text-sm text-slate-900">${escapeHtml(t.title)}</h4>
                             <div class="text-xs text-slate-500 mt-1">
-                                ${qCount} câu · Tạo lúc ${t.createdAt} · ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}
+                                ${qCount} câu · Tạo lúc ${escapeHtml(t.createdAt)} · ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}
                             </div>
                             ${flaggedCount > 0 ? `<div class="text-xs text-amber-600 font-bold mt-1">⭐ ${flaggedCount} câu đã gắn cờ</div>` : ''}
                         </div>
@@ -2370,11 +2420,11 @@
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                 <i class="ph-bold ph-list-checks text-purple-600"></i>
-                                ${t.title}
+                                ${escapeHtml(t.title)}
                             </h4>
                             <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
                                 <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
-                                <span><i class="ph-bold ph-calendar"></i> ${t.createdAt}</span>
+                                <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
                                 <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
                                 ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
                             </div>
@@ -2418,11 +2468,11 @@
                         <div class="flex-1">
                             <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                 <i class="ph-bold ph-list-checks text-indigo-600"></i>
-                                ${t.title}
+                                ${escapeHtml(t.title)}
                             </h4>
                             <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
                                 <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
-                                <span><i class="ph-bold ph-calendar"></i> ${t.createdAt}</span>
+                                <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
                                 <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
                                 ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
                             </div>
@@ -2454,8 +2504,8 @@
             if (!a) return '';
             const flag = isQuestionFlagged(qid) ? ' ⭐' : '';
             return `<div class="flex justify-between items-start gap-2 p-2 bg-white rounded-lg border border-slate-200">
-                <span class="text-sm font-semibold">Câu ${idx + 1}: ${a.title}${flag}</span>
-                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold">Khối ${a.classLevel || '8'}</span>
+                <span class="text-sm font-semibold">Câu ${idx + 1}: ${escapeHtml(a.title)}${flag}</span>
+                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold">Khối ${escapeHtml(a.classLevel || '8')}</span>
             </div>`;
         }).join('');
         const modal = document.getElementById('viewContentDetailModal');
@@ -2472,7 +2522,7 @@
         if (bodyEl) {
             bodyEl.innerHTML = `
                 <div class="bg-purple-50 border border-purple-200 p-3 rounded-2xl mb-3 text-sm">
-                    <p><strong>Khối:</strong> ${t.grade || 'Tất cả'}</p>
+                    <p><strong>Khối:</strong> ${escapeHtml(t.grade || 'Tất cả')}</p>
                     <p><strong>Code mẫu:</strong> ${t.allowSampleCode ? 'Cho phép xem' : 'Không cho phép'}</p>
                     <p><strong>Trạng thái:</strong> ${t.active !== false ? 'Đang hoạt động' : 'Đã ẩn'}</p>
                 </div>
@@ -2500,8 +2550,8 @@
             const flag = isQuestionFlagged(a.id) ? ' ⭐' : '';
             return `<label class="flex items-center gap-2 p-2 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
                 <input type="checkbox" value="${a.id}" ${checked ? 'checked' : ''} class="w-4 h-4">
-                <span class="text-sm font-semibold">${a.title}${flag}</span>
-                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold ml-auto">Khối ${a.classLevel || '8'}</span>
+                <span class="text-sm font-semibold">${escapeHtml(a.title)}${flag}</span>
+                <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold ml-auto">Khối ${escapeHtml(a.classLevel || '8')}</span>
             </label>`;
         }).join('');
         document.getElementById('editTestModal')?.classList.remove('hidden');
@@ -2656,7 +2706,6 @@
                 if (res.ok) {
                     const json = await res.json();
                     const sha = json.sha || "";
-                    // 🔧 MỚI: cache SHA của file snapshot chính để push nhanh khi đóng app
                     if (path === GITHUB_FILE_PATH) lastKnownSha = sha;
                     return sha;
                 }
@@ -2778,7 +2827,7 @@
         const msgEl = document.getElementById('confirmDeleteMessage');
         const btnConfirm = document.getElementById('btnExecuteConfirmDelete');
         if (!modal || !msgEl || !btnConfirm) { if (confirm(`Bạn có chắc muốn xóa [${contentName}]?`)) callback(); return; }
-        msgEl.innerHTML = `Bạn có chắc muốn xóa <strong>${contentName}</strong> hay không?`;
+        msgEl.innerHTML = `Bạn có chắc muốn xóa <strong>${escapeHtml(contentName)}</strong> hay không?`;
         pendingDeleteCallback = callback;
         btnConfirm.onclick = () => { const fn = pendingDeleteCallback; closeConfirmDeleteModal(); if (fn) fn(); };
         modal.classList.remove('hidden');
@@ -2865,7 +2914,7 @@
         if (bodyEl) {
             bodyEl.innerHTML = `
                 <div class="bg-blue-50/70 border border-blue-200 p-3 rounded-2xl mb-4 font-semibold text-blue-900 text-sm flex items-center justify-between">
-                    <span>Chủ đề: ${lec.grade || 'Tin học'} (Khối ${lec.classLevel || '8'})</span>
+                    <span>Chủ đề: ${escapeHtml(lec.grade || 'Tin học')} (Khối ${escapeHtml(lec.classLevel || '8')})</span>
                     <span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">Mã bài: #${lec.id}</span>
                 </div>
                 <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 leading-relaxed text-sm">${renderSimpleMarkdown(lec.content)}</div>`;
@@ -2884,8 +2933,8 @@
         const saveBtn = document.getElementById('viewContentSaveBtn');
         bodyEl.innerHTML = `
             <div class="space-y-3">
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Tiêu đề:</label><input type="text" id="viewEditLectureTitle" value="${(lec.title||'').replace(/"/g,'&quot;')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div>
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Nội dung:</label><textarea id="viewEditLectureContent" rows="14" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${(lec.content||'').replace(/</g,'&lt;')}</textarea></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Tiêu đề:</label><input type="text" id="viewEditLectureTitle" value="${escapeHtml(lec.title||'')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Nội dung:</label><textarea id="viewEditLectureContent" rows="14" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${escapeHtml(lec.content||'')}</textarea></div>
             </div>`;
         editBtn?.classList.add('hidden'); saveBtn?.classList.remove('hidden');
         saveBtn.onclick = () => saveLectureFromView();
@@ -2923,7 +2972,7 @@
         if (bodyEl) {
             const sampleTestsHtml = (ass.tests || []).map(t => `
                 <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-mono text-xs flex justify-between items-center">
-                    <div><span class="text-blue-600 font-bold">Input:</span> ${t.input || '(Trống)'} | <span class="text-emerald-600 font-bold">Output:</span> ${t.expected}</div>
+                    <div><span class="text-blue-600 font-bold">Input:</span> ${escapeHtml(t.input || '(Trống)')} | <span class="text-emerald-600 font-bold">Output:</span> ${escapeHtml(t.expected)}</div>
                     <span class="text-xs px-2 py-0.5 rounded-md ${t.is_hidden ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'} font-bold">${t.is_hidden ? 'Test ẩn' : 'Công khai'} (${t.point}đ)</span>
                 </div>`).join('');
             bodyEl.innerHTML = `
@@ -2932,7 +2981,7 @@
                         <h4 class="font-bold text-sm text-slate-800 uppercase tracking-wide flex items-center gap-1.5 text-blue-600"><i class="ph-bold ph-file-text"></i> Ngân hàng câu hỏi</h4>
                         <div class="leading-relaxed text-slate-700 text-sm">${renderSimpleMarkdown(ass.description)}</div>
                     </div>
-                    ${ass.templateCode ? `<div class="bg-slate-900 text-slate-100 p-4 rounded-2xl border border-slate-800 space-y-2 font-mono"><h4 class="font-bold text-sm text-amber-300 uppercase tracking-wide flex items-center gap-1.5"><i class="ph-bold ph-code"></i> Code mẫu</h4><pre class="overflow-x-auto text-sm whitespace-pre"><code>${ass.templateCode.replace(/</g,'&lt;')}</code></pre></div>` : ''}
+                    ${ass.templateCode ? `<div class="bg-slate-900 text-slate-100 p-4 rounded-2xl border border-slate-800 space-y-2 font-mono"><h4 class="font-bold text-sm text-amber-300 uppercase tracking-wide flex items-center gap-1.5"><i class="ph-bold ph-code"></i> Code mẫu</h4><pre class="overflow-x-auto text-sm whitespace-pre"><code>${escapeHtml(ass.templateCode)}</code></pre></div>` : ''}
                     <div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-2">
                         <h4 class="font-bold text-sm text-slate-800 uppercase tracking-wide flex items-center gap-1.5 text-indigo-600"><i class="ph-bold ph-brackets-curly"></i> Bộ test (${ass.tests ? ass.tests.length : 0})</h4>
                         <div class="space-y-1.5">${sampleTestsHtml}</div>
@@ -2953,9 +3002,9 @@
         const saveBtn = document.getElementById('viewContentSaveBtn');
         bodyEl.innerHTML = `
             <div class="space-y-3">
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Tên bài tập:</label><input type="text" id="viewEditAssTitle" value="${(ass.title||'').replace(/"/g,'&quot;')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div>
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Ngân hàng câu hỏi:</label><textarea id="viewEditAssDesc" rows="10" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${(ass.description||'').replace(/</g,'&lt;')}</textarea></div>
-                <div><label class="block font-bold text-sm text-slate-700 mb-1">Code mẫu:</label><textarea id="viewEditAssCode" rows="6" class="w-full bg-slate-900 text-slate-100 border border-slate-800 rounded-xl p-3 text-sm font-mono">${(ass.templateCode||'').replace(/</g,'&lt;')}</textarea></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Tên bài tập:</label><input type="text" id="viewEditAssTitle" value="${escapeHtml(ass.title||'')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Ngân hàng câu hỏi:</label><textarea id="viewEditAssDesc" rows="10" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${escapeHtml(ass.description||'')}</textarea></div>
+                <div><label class="block font-bold text-sm text-slate-700 mb-1">Code mẫu:</label><textarea id="viewEditAssCode" rows="6" class="w-full bg-slate-900 text-slate-100 border border-slate-800 rounded-xl p-3 text-sm font-mono">${escapeHtml(ass.templateCode||'')}</textarea></div>
             </div>`;
         editBtn?.classList.add('hidden'); saveBtn?.classList.remove('hidden');
         saveBtn.onclick = () => saveAssignmentFromView();
@@ -3136,26 +3185,26 @@
         }
     }
 
+    // ✅ FIX #2: Bỏ admin hardcode, dùng registeredUsers + hash
     async function handleTeacherLogin() {
         const id = (document.getElementById('teacherCccdInput')?.value || '').trim();
         const pass = document.getElementById('teacherPassInput')?.value || '';
         if (!id || !pass) return showToast("Vui lòng nhập đầy đủ!", "error");
-        if ((id === "086081006094" || id.toLowerCase() === "admin") && pass === "Admin#999") {
-            currentUser = { isLoggedIn: true, role: 'admin', name: "Thầy Nguyễn Thế Phương", identifier: "086081006094" };
-            logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
-            closeLoginModal(); switchRole('admin');
-            showToast("Chào mừng Quản trị viên!", "success");
-            speakRobotText("Kính chào Thầy Nguyễn Thế Phương!");
-            return;
-        }
+
+        // Tìm trong registeredUsers (bao gồm admin)
         const teacher = registeredUsers.find(u => (u.role === 'teacher' || u.role === 'admin') && matchesUserIdentifier(u, id));
         if (teacher && await verifyPassword(pass, teacher.passwordHash, teacher)) {
             teacher.loginCount = (teacher.loginCount || 0) + 1;
             currentUser = { isLoggedIn: true, role: teacher.role || 'teacher', name: teacher.name, identifier: teacher.identifier || id };
             logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Thành công");
             closeLoginModal(); switchRole(teacher.role || 'teacher');
-            showToast(`Chào mừng ${teacher.name}!`, "success");
-            speakRobotText(`Kính chào thầy cô ${teacher.name}!`);
+            if (teacher.role === 'admin') {
+                showToast("Chào mừng Quản trị viên!", "success");
+                speakRobotText(`Kính chào thầy ${teacher.name}!`);
+            } else {
+                showToast(`Chào mừng ${teacher.name}!`, "success");
+                speakRobotText(`Kính chào thầy cô ${teacher.name}!`);
+            }
         } else {
             handleFailedLogin(teacher, id, 'teacher');
         }
@@ -3232,7 +3281,6 @@
     function closeConfirmExitAppModal() { document.getElementById('confirmExitAppModal')?.classList.add('hidden'); }
 
     async function executeExitApp() {
-        // 1. Thoát fullscreen nếu đang bật
         if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
             try {
                 if (document.exitFullscreen) await document.exitFullscreen();
@@ -3241,24 +3289,19 @@
             } catch(e) { console.warn('[FULLSCREEN EXIT]', e); }
         }
 
-        // 2. Đóng modal + dừng robot
         closeConfirmExitAppModal();
         closeLoginModal();
         stopRobotVoice();
 
-        // 3. Lưu dữ liệu local
         autoSaveLocalSnapshot();
 
-        // 4. Đồng bộ lên máy chủ (best-effort)
         showToast("Đang lưu dữ liệu và đồng bộ...", "info");
         try { await syncDataToGitHubDirectly("Thoát ứng dụng - Đồng bộ cuối phiên"); } catch(e) {}
 
-        // 5. Đăng xuất khỏi session (nếu có)
         if (currentUser.isLoggedIn) {
             try { logUserAccess(currentUser.name, currentUser.identifier, currentUser.role, "Đăng xuất"); } catch(e) {}
         }
 
-        // 6. Thử đóng tab ứng dụng
         showToast("Đang thoát ứng dụng...", "success");
 
         setTimeout(() => {
@@ -3287,7 +3330,7 @@
         overlay.className = 'fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[99999] flex items-center justify-center p-4';
         overlay.innerHTML = `
             <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-                <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+                <div class="w-24 h-24 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
                     <i class="ph-bold ph-check-circle"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 mb-2">Đã Lưu & Đăng Xuất Thành Công</h3>
@@ -3382,22 +3425,29 @@
 
     async function pushCurrentDataToGitHubManual() { showToast("Đang đẩy dữ liệu qua Proxy...", "info"); await syncDataToGitHubDirectly("Đẩy dữ liệu thủ công"); }
 
-    // 🔧 SỬA: Refactor retry — re-fetch SHA mỗi lần retry (tránh dùng SHA lỗi thời)
+    // ✅ FIX #10: isSyncing guard để tránh race condition
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
+        // Nếu đang sync, ghi lại request mới nhất và return
+        if (isSyncing) {
+            pendingSyncRequest = actionDescription;
+            return false;
+        }
+        isSyncing = true;
         autoSaveLocalSnapshot();
         const syncTimeEl = document.getElementById('lastGithubSyncTime');
         if (!PROXY_ENDPOINT) {
             if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Chưa cấu hình Proxy)";
+            isSyncing = false;
             return false;
         }
         try {
             const payload = buildSnapshotPayload(actionDescription);
             const jsonStr = JSON.stringify(payload, null, 2);
-            const base64Data = btoa(unescape(encodeURIComponent(jsonStr)));
+            // ✅ FIX #4: UTF-8 base64 chuẩn
+            const base64Data = utf8ToBase64(jsonStr);
             let lastErr = null;
             for (let attempt = 0; attempt < 3; attempt++) {
                 try {
-                    // Re-fetch SHA mỗi lần retry
                     const sha = await getCurrentShaViaProxy(GITHUB_FILE_PATH);
                     const body = { message: `[Sync] ${actionDescription}`, content: base64Data, branch: "main" };
                     if (sha) body.sha = sha;
@@ -3412,6 +3462,13 @@
                     if (res.status === 429) { lastErr = new Error("RATE_LIMIT_429"); await sleep(1500 * Math.pow(2, attempt)); continue; }
                     if (!res.ok) throw new Error(`HTTP_${res.status}`);
                     if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Đã đồng bộ)";
+                    isSyncing = false;
+                    // Nếu có pending request thì chạy tiếp
+                    if (pendingSyncRequest) {
+                        const pending = pendingSyncRequest;
+                        pendingSyncRequest = null;
+                        setTimeout(() => syncDataToGitHubDirectly(pending), 500);
+                    }
                     return true;
                 } catch(e) { lastErr = e; await sleep(500 * Math.pow(2, attempt)); }
             }
@@ -3419,34 +3476,47 @@
         } catch (e) {
             console.error('[SYNC] Error:', e);
             if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN') + " (Lỗi: " + e.message + ")";
+            isSyncing = false;
             return false;
         }
     }
 
-    // 🔧 MỚI: Push dữ liệu khi đóng tab — dùng fetch keepalive, dựa vào SHA cache
+    // ✅ FIX #9: keepalive với check size, fallback sendBeacon
     function pushDataWithKeepalive() {
         if (!PROXY_ENDPOINT) return;
         const now = Date.now();
-        if (now - lastKeepaliveTime < 5000) return; // throttle 5s
+        if (now - lastKeepaliveTime < 5000) return;
         lastKeepaliveTime = now;
         try {
             autoSaveLocalSnapshot();
             const payload = buildSnapshotPayload("Đóng ứng dụng - Đồng bộ cuối phiên");
             const jsonStr = JSON.stringify(payload);
-            const base64Data = btoa(unescape(encodeURIComponent(jsonStr)));
+            const base64Data = utf8ToBase64(jsonStr);
             const body = { message: `[Auto-Sync] Đóng ứng dụng - ${new Date().toLocaleString('vi-VN')}`, content: base64Data, branch: "main" };
             if (lastKnownSha) body.sha = lastKnownSha;
             const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_FILE_PATH)}&t=${Date.now()}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body),
-                keepalive: true
-            }).catch(() => {});
+            const bodyStr = JSON.stringify(body);
+
+            // ✅ FIX #9: Browser giới hạn keepalive ~64KB, nếu vượt thì fallback sendBeacon
+            const KEEPALIVE_LIMIT = 60 * 1024;
+            if (bodyStr.length < KEEPALIVE_LIMIT) {
+                fetch(url, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: bodyStr,
+                    keepalive: true
+                }).catch(() => {});
+            } else {
+                console.warn('[KEEPALIVE] Body too large, fallback to sendBeacon');
+                if (navigator.sendBeacon) {
+                    // sendBeacon giới hạn POST, dùng blob để gửi
+                    const blob = new Blob([bodyStr], { type: 'application/json' });
+                    navigator.sendBeacon(url, blob);
+                }
+            }
         } catch(e) { console.warn('[KEEPALIVE]', e); }
     }
 
-    // 🔧 SỬA: Giữ passwordHash (chỉ strip password plaintext) để user đăng nhập được sau sync
     function buildSnapshotPayload(actionDescription) {
         const cleanedUsers = registeredUsers.map(u => {
             const { password, ...safe } = u;
@@ -3505,18 +3575,35 @@
         return false;
     }
 
+    // ✅ FIX #1: Merge passwordHash (giữ local nếu server trả rỗng)
+    // ✅ FIX #7: Validate Array.isArray() trước khi gán state
     function applySnapshotData(data) {
-        if (data.registeredUsers) registeredUsers = data.registeredUsers;
-        if (data.assignments) assignments = data.assignments;
-        if (data.gradebook) gradebook = data.gradebook;
-        if (data.lectures) lectures = data.lectures;
-        if (data.studentSubmissions) studentSubmissions = data.studentSubmissions;
-        if (data.loginLogs) loginLogs = data.loginLogs;
-        if (data.studentFlags) studentFlags = data.studentFlags;
-        if (data.flaggedAssignmentsCache) flaggedAssignmentsCache = data.flaggedAssignmentsCache;
-        if (data.testSets) testSets = data.testSets;
-        if (data.studentCodeCache) studentCodeCache = data.studentCodeCache;
-        if (data.questionFlags) { questionFlags = data.questionFlags; saveQuestionFlags(); }
+        if (!data || typeof data !== 'object') return;
+
+        // ✅ FIX #1: Merge users với logic giữ passwordHash nếu server đã strip
+        if (Array.isArray(data.registeredUsers)) {
+            const serverUsers = data.registeredUsers;
+            const localMap = new Map(registeredUsers.map(u => [String(u.id), u]));
+            const merged = serverUsers.map(su => {
+                const local = localMap.get(String(su.id));
+                // Nếu server không có passwordHash nhưng local có → giữ local
+                if ((!su.passwordHash || su.passwordHash === '') && local && local.passwordHash) {
+                    return { ...su, passwordHash: local.passwordHash };
+                }
+                return su;
+            });
+            registeredUsers = merged;
+        }
+        if (Array.isArray(data.assignments)) assignments = data.assignments;
+        if (Array.isArray(data.gradebook)) gradebook = data.gradebook;
+        if (Array.isArray(data.lectures)) lectures = data.lectures;
+        if (Array.isArray(data.studentSubmissions)) studentSubmissions = data.studentSubmissions;
+        if (Array.isArray(data.loginLogs)) loginLogs = data.loginLogs;
+        if (data.studentFlags && typeof data.studentFlags === 'object') studentFlags = data.studentFlags;
+        if (data.flaggedAssignmentsCache && typeof data.flaggedAssignmentsCache === 'object') flaggedAssignmentsCache = data.flaggedAssignmentsCache;
+        if (Array.isArray(data.testSets)) testSets = data.testSets;
+        if (data.studentCodeCache && typeof data.studentCodeCache === 'object') studentCodeCache = data.studentCodeCache;
+        if (data.questionFlags && typeof data.questionFlags === 'object') { questionFlags = data.questionFlags; saveQuestionFlags(); }
         restoreFlaggedAssignments();
     }
 
@@ -3537,7 +3624,7 @@
             studentSubmissions.forEach((s, i) => rows.push([i+1, esc(s.student), esc(s.username||''), esc(s.assignmentTitle), s.score, esc(s.timestamp)].join(',')));
             const csv = '\uFEFF' + rows.join('\n');
             const sha = await getCurrentShaViaProxy(GITHUB_SUBMISSIONS_PATH);
-            const base64 = btoa(unescape(encodeURIComponent(csv)));
+            const base64 = utf8ToBase64(csv);
             const body = { message: `[Submissions] Cập nhật ${new Date().toLocaleString('vi-VN')}`, content: base64, branch: 'main' };
             if (sha) body.sha = sha;
             await githubFetchViaProxy(GITHUB_SUBMISSIONS_PATH, {
@@ -3642,17 +3729,17 @@
             const str = localStorage.getItem('pyclassroom_db_snapshot');
             if (str) {
                 const parsed = JSON.parse(str);
-                if (parsed.registeredUsers) registeredUsers = parsed.registeredUsers;
-                if (parsed.assignments) assignments = parsed.assignments;
-                if (parsed.gradebook) gradebook = parsed.gradebook;
-                if (parsed.lectures) lectures = parsed.lectures;
-                if (parsed.studentSubmissions) studentSubmissions = parsed.studentSubmissions;
-                if (parsed.loginLogs) loginLogs = parsed.loginLogs;
-                if (parsed.studentFlags) studentFlags = parsed.studentFlags;
-                if (parsed.flaggedAssignmentsCache) flaggedAssignmentsCache = parsed.flaggedAssignmentsCache;
-                if (parsed.testSets) testSets = parsed.testSets;
-                if (parsed.studentCodeCache) studentCodeCache = parsed.studentCodeCache;
-                if (parsed.questionFlags) { questionFlags = parsed.questionFlags; saveQuestionFlags(); }
+                if (Array.isArray(parsed.registeredUsers)) registeredUsers = parsed.registeredUsers;
+                if (Array.isArray(parsed.assignments)) assignments = parsed.assignments;
+                if (Array.isArray(parsed.gradebook)) gradebook = parsed.gradebook;
+                if (Array.isArray(parsed.lectures)) lectures = parsed.lectures;
+                if (Array.isArray(parsed.studentSubmissions)) studentSubmissions = parsed.studentSubmissions;
+                if (Array.isArray(parsed.loginLogs)) loginLogs = parsed.loginLogs;
+                if (parsed.studentFlags && typeof parsed.studentFlags === 'object') studentFlags = parsed.studentFlags;
+                if (parsed.flaggedAssignmentsCache && typeof parsed.flaggedAssignmentsCache === 'object') flaggedAssignmentsCache = parsed.flaggedAssignmentsCache;
+                if (Array.isArray(parsed.testSets)) testSets = parsed.testSets;
+                if (parsed.studentCodeCache && typeof parsed.studentCodeCache === 'object') studentCodeCache = parsed.studentCodeCache;
+                if (parsed.questionFlags && typeof parsed.questionFlags === 'object') { questionFlags = parsed.questionFlags; saveQuestionFlags(); }
             }
         } catch(e) {}
     }
@@ -3667,7 +3754,7 @@
         const filterVal = filterEl ? filterEl.value : 'all';
         const q = (searchEl?.value || '').toLowerCase();
         const filtered = lectures.filter(l => (filterVal === 'all' || (l.classLevel || '8') === filterVal) && (!q || l.title.toLowerCase().includes(q)));
-        sel.innerHTML = filtered.map(l => `<option value="${l.id}">Khối ${l.classLevel || '8'} - ${l.title}</option>`).join('');
+        sel.innerHTML = filtered.map(l => `<option value="${l.id}">Khối ${escapeHtml(l.classLevel || '8')} - ${escapeHtml(l.title)}</option>`).join('');
         const area = document.getElementById('studentLectureContentArea');
         if (filtered.length > 0) renderStudentLectureDetail(filtered[0].id);
         else if (area) area.innerHTML = '<div class="text-center p-8 text-slate-500 text-base font-medium bg-white rounded-2xl border border-slate-200 shadow-inner">Không tìm thấy bài giảng nào.</div>';
@@ -3686,8 +3773,8 @@
         area.innerHTML = `
             <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between shadow-sm">
                 <div>
-                    <h4 class="font-bold text-base text-indigo-950">${lec.title}</h4>
-                    <span class="text-sm text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${lec.classLevel || '8'} - ${lec.grade || 'Tin học'}</span>
+                    <h4 class="font-bold text-base text-indigo-950">${escapeHtml(lec.title)}</h4>
+                    <span class="text-sm text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${escapeHtml(lec.classLevel || '8')} - ${escapeHtml(lec.grade || 'Tin học')}</span>
                 </div>
                 <button onclick="speakStudentLecture(${lec.id})" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
                     <i class="ph-bold ph-speaker-high"></i> AI Đọc
@@ -3710,9 +3797,9 @@
             <tr class="hover:bg-blue-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${l.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-blue-600 hover:underline" onclick="openViewLectureDetail(${l.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${l.classLevel || '8'}</span>${l.title}
+                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}
                 </td>
-                <td class="text-slate-600">${l.grade || 'Tin học'}</td>
+                <td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td>
                 <td class="text-center">
                     <div class="flex items-center justify-center gap-2">
                         <button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i> Xem</button>
@@ -3725,9 +3812,9 @@
             <tr class="hover:bg-indigo-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${l.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewLectureDetail(${l.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${l.classLevel || '8'}</span>${l.title}
+                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}
                 </td>
-                <td class="text-slate-600">${l.grade || 'Tin học'}</td>
+                <td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td>
                 <td class="text-center">
                     <div class="flex items-center justify-center gap-2">
                         <button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i></button>
@@ -3915,7 +4002,7 @@
         sel.innerHTML = list.map(a => {
             const flag = isAssignmentFlagged(a.id) ? '⭐ ' : '';
             const qflag = isQuestionFlagged(a.id) ? '📌 ' : '';
-            return `<option value="${a.id}">${flag}${qflag}[Khối ${a.classLevel||'8'}] ${a.title}</option>`;
+            return `<option value="${a.id}">${flag}${qflag}[Khối ${escapeHtml(a.classLevel||'8')}] ${escapeHtml(a.title)}</option>`;
         }).join('');
         if (list.length > 0) loadAssignment(list[0].id);
         else {
@@ -3941,7 +4028,7 @@
         const sc = document.getElementById('sampleTestContainer');
         if (sc) sc.innerHTML = found.tests.filter(t => !t.is_hidden).map(t => `
             <div class="bg-slate-50 p-2 rounded-xl text-xs font-mono border border-slate-200">
-                <span class="text-blue-600 font-bold">Input:</span> ${t.input} | <span class="text-emerald-600 font-bold">Output:</span> ${t.expected}
+                <span class="text-blue-600 font-bold">Input:</span> ${escapeHtml(t.input)} | <span class="text-emerald-600 font-bold">Output:</span> ${escapeHtml(t.expected)}
             </div>`).join('');
         renderKaTeXFormulas(document.getElementById('assignmentDescription'));
     }
@@ -3958,8 +4045,8 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Input:</label><textarea rows="2" oninput="editingTestCases[${i}].input=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${tc.input}</textarea></div>
-                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Output:</label><textarea rows="2" oninput="editingTestCases[${i}].expected=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${tc.expected}</textarea></div>
+                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Input:</label><textarea rows="2" oninput="editingTestCases[${i}].input=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${escapeHtml(tc.input)}</textarea></div>
+                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Output:</label><textarea rows="2" oninput="editingTestCases[${i}].expected=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${escapeHtml(tc.expected)}</textarea></div>
                 </div>
             </div>`).join('');
     }
@@ -4042,9 +4129,9 @@
             <tr class="hover:bg-blue-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${a.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-blue-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-xs mr-2 font-bold border border-blue-100">Khối ${a.classLevel||'8'}</span>${a.title}${qflag}
+                    <span class="px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 text-xs mr-2 font-bold border border-blue-100">Khối ${escapeHtml(a.classLevel||'8')}</span>${escapeHtml(a.title)}${qflag}
                 </td>
-                <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
+                <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${escapeHtml(a.difficulty || 'easy')}</td>
                 <td class="text-center font-mono text-slate-600">${a.timeLimit || 2.0}s</td>
                 <td class="text-center">
                     <button onclick="openViewAssignmentDetail(${a.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs mr-1"><i class="ph-bold ph-eye"></i></button>
@@ -4076,9 +4163,9 @@
             <tr class="hover:bg-indigo-50/40 transition-colors">
                 <td class="font-bold text-center text-slate-500 font-mono">${a.id}</td>
                 <td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})">
-                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${a.classLevel||'8'}</span>${a.title}${qflag}
+                    <span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(a.classLevel||'8')}</span>${escapeHtml(a.title)}${qflag}
                 </td>
-                <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${a.difficulty || 'easy'}</td>
+                <td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${escapeHtml(a.difficulty || 'easy')}</td>
                 <td class="text-center">
                     <button onclick="openViewAssignmentDetail(${a.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs mr-1"><i class="ph-bold ph-eye"></i></button>
                     <button onclick="editAdminAssignment(${a.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs mr-1"><i class="ph-bold ph-pencil-simple"></i></button>
@@ -4118,8 +4205,8 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Input:</label><textarea rows="2" oninput="adminEditingTestCases[${i}].input=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${tc.input}</textarea></div>
-                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Output:</label><textarea rows="2" oninput="adminEditingTestCases[${i}].expected=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${tc.expected}</textarea></div>
+                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Input:</label><textarea rows="2" oninput="adminEditingTestCases[${i}].input=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${escapeHtml(tc.input)}</textarea></div>
+                    <div><label class="block text-xs font-bold text-slate-600 mb-0.5">Output:</label><textarea rows="2" oninput="adminEditingTestCases[${i}].expected=this.value" class="w-full p-2 border rounded-xl font-mono text-sm bg-slate-50">${escapeHtml(tc.expected)}</textarea></div>
                 </div>
             </div>`).join('');
     }
@@ -4216,10 +4303,10 @@
         tbody.innerHTML = studentSubmissions.map(s => `
             <tr class="hover:bg-blue-50/50 transition-colors">
                 <td class="text-center"><input type="checkbox" onchange="toggleSubmissionSelect('teacher', ${s.id}, this.checked)" ${selectedSubmissions.teacher.has(s.id) ? 'checked' : ''} class="w-4 h-4 cursor-pointer"></td>
-                <td class="font-bold text-slate-900">${s.student}</td>
-                <td class="text-slate-700">${s.assignmentTitle}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(s.student)}</td>
+                <td class="text-slate-700">${escapeHtml(s.assignmentTitle)}</td>
                 <td class="text-center font-bold font-mono text-blue-600">${s.score} đ</td>
-                <td class="text-center text-slate-500 text-xs">${s.timestamp}</td>
+                <td class="text-center text-slate-500 text-xs">${escapeHtml(s.timestamp)}</td>
             </tr>`).join('');
         updateSubmissionSelectionCount('teacher');
     }
@@ -4232,11 +4319,11 @@
             const isReset = isResetResult(l.result);
             const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu');
             return `<tr class="${isReset ? 'bg-rose-50/80 border-l-4 border-rose-500' : ''} hover:bg-blue-50/50 transition-colors cursor-pointer" onclick="highlightTableRow(this)">
-                <td class="text-slate-500 font-mono text-xs">${l.time}</td>
-                <td class="font-bold text-slate-900">${l.name}</td>
-                <td class="font-mono text-slate-700">${l.identifier}</td>
-                <td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${l.role}</td>
-                <td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + l.result + '</span>'}</td>
+                <td class="text-slate-500 font-mono text-xs">${escapeHtml(l.time)}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(l.name)}</td>
+                <td class="font-mono text-slate-700">${escapeHtml(l.identifier)}</td>
+                <td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${escapeHtml(l.role)}</td>
+                <td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + escapeHtml(l.result) + '</span>'}</td>
             </tr>`;
         }).join('');
     }
@@ -4253,16 +4340,34 @@
         try {
             if (typeof loadPyodide === 'function') {
                 pyodideInstance = await loadPyodide({ indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.1/full/" });
+                pyodideReady = true; // ✅ FIX #11
                 if (badge) { badge.classList.replace('bg-amber-500/10', 'bg-emerald-500/10'); badge.classList.replace('text-amber-300', 'text-emerald-300'); }
                 if (st) st.textContent = "Python 3.12 (WASM)";
+                enableCodeButtons(); // ✅ FIX #11
             }
         } catch (err) { if (st) st.textContent = "Python Sandbox"; }
     }
 
+    // ✅ FIX #11: Enable/disable nút code
+    function enableCodeButtons() {
+        const btnRun = document.getElementById('btnRunSingleTest');
+        const btnSubmit = document.getElementById('btnSubmitAndGrade');
+        if (btnRun) { btnRun.disabled = false; btnRun.classList.remove('opacity-50', 'cursor-not-allowed'); }
+        if (btnSubmit) { btnSubmit.disabled = false; btnSubmit.classList.remove('opacity-50', 'cursor-not-allowed'); }
+    }
+    function disableCodeButtons() {
+        const btnRun = document.getElementById('btnRunSingleTest');
+        const btnSubmit = document.getElementById('btnSubmitAndGrade');
+        if (btnRun) { btnRun.disabled = true; btnRun.classList.add('opacity-50', 'cursor-not-allowed'); }
+        if (btnSubmit) { btnSubmit.disabled = true; btnSubmit.classList.add('opacity-50', 'cursor-not-allowed'); }
+    }
+
     async function executePythonCode(code, stdinData = "") {
-        if (pyodideInstance) {
-            try {
-                const runnerScript = `
+        if (!pyodideReady || !pyodideInstance) {
+            return { stdout: "", stderr: "Python WASM đang tải. Vui lòng thử lại sau 2-3 giây...", isError: true };
+        }
+        try {
+            const runnerScript = `
 import sys, io
 _input_data = ${JSON.stringify(stdinData)}
 sys.stdin = io.StringIO(_input_data)
@@ -4275,14 +4380,13 @@ try:
 except Exception as e: _error = str(e)
 [_stdout_res, _stderr_res] = [sys.stdout.getvalue(), sys.stderr.getvalue() or _error]
 [_stdout_res, _stderr_res]`;
-                const res = await pyodideInstance.runPythonAsync(runnerScript);
-                return { stdout: res.get(0), stderr: res.get(1), isError: !!res.get(1).trim() };
-            } catch(e) { return { stdout: "", stderr: e.toString(), isError: true }; }
-        }
-        return { stdout: "Python WASM đang tải...", stderr: "", isError: false };
+            const res = await pyodideInstance.runPythonAsync(runnerScript);
+            return { stdout: res.get(0), stderr: res.get(1), isError: !!res.get(1).trim() };
+        } catch(e) { return { stdout: "", stderr: e.toString(), isError: true }; }
     }
 
     async function runSingleTest() {
+        if (!pyodideReady) return showToast("Python WASM đang tải, vui lòng đợi...", "info"); // ✅ FIX #11
         const code = getStudentCode();
         const inputVal = document.getElementById('customInput')?.value || "";
         if (!inputVal.trim() && currentAssignment && currentAssignment.tests.some(t => t.input && t.input.trim())) {
@@ -4303,6 +4407,7 @@ except Exception as e: _error = str(e)
     }
 
     async function submitAndGrade() {
+        if (!pyodideReady) return showToast("Python WASM đang tải, vui lòng đợi...", "info"); // ✅ FIX #11
         if (!currentAssignment) return showToast("Chưa chọn bài tập!", "error");
         const code = getStudentCode();
         const hasInputTest = currentAssignment.tests.some(t => t.input && t.input.trim());
@@ -4448,12 +4553,12 @@ except Exception as e: _error = str(e)
         if (gradebook.length === 0) { tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-slate-400 italic text-sm">Chưa có dữ liệu điểm.</td></tr>`; return; }
         tbody.innerHTML = gradebook.map(g => `
             <tr class="hover:bg-slate-50 cursor-pointer" onclick="highlightTableRow(this)">
-                <td class="font-bold">${g.student}</td>
-                <td class="font-mono">${g.username}</td>
+                <td class="font-bold">${escapeHtml(g.student)}</td>
+                <td class="font-mono">${escapeHtml(g.username)}</td>
                 <td class="text-center">${g.attempts} lần</td>
                 <td class="text-center font-bold text-blue-600 font-mono">${g.highestScore} đ</td>
                 <td class="text-center"><span class="px-2 py-0.5 rounded-full text-xs ${g.highestScore >= 5 ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'} font-bold">${g.highestScore >= 5 ? 'Đạt' : 'Chưa đạt'}</span></td>
-                <td class="text-right text-slate-400">${g.lastSubmit}</td>
+                <td class="text-right text-slate-400">${escapeHtml(g.lastSubmit)}</td>
             </tr>`).join('');
     }
 
@@ -4500,9 +4605,9 @@ except Exception as e: _error = str(e)
             const rankClass = i < 3 ? 'text-amber-600 font-bold' : 'text-slate-500';
             return `<tr class="hover:bg-indigo-50/40 transition-colors">
                 <td class="text-center font-bold ${rankClass}">${medal || (i + 1)}</td>
-                <td class="font-bold text-slate-900">${r.name}</td>
-                <td class="font-mono text-slate-700">${r.username || '---'}</td>
-                <td class="text-slate-600">${r.school} - ${r.className}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(r.name)}</td>
+                <td class="font-mono text-slate-700">${escapeHtml(r.username || '---')}</td>
+                <td class="text-slate-600">${escapeHtml(r.school)} - ${escapeHtml(r.className)}</td>
                 <td class="text-center font-mono">${r.count}</td>
                 <td class="text-center font-bold text-blue-600 font-mono text-base">${r.total.toFixed(1)}</td>
                 <td class="text-center font-mono">${r.avg.toFixed(1)}</td>
@@ -4629,7 +4734,7 @@ except Exception as e: _error = str(e)
         const diffColor = d => d === 'hard' ? 'text-rose-600' : (d === 'medium' ? 'text-amber-600' : 'text-emerald-600');
         const html = `
             <div class="space-y-2">
-                <div class="font-bold text-sm text-purple-800">📝 ${title}</div>
+                <div class="font-bold text-sm text-purple-800">📝 ${escapeHtml(title)}</div>
                 <div class="text-xs text-slate-600 bg-purple-50 p-2 rounded-lg border border-purple-200">
                     Tổng <b>${selected.length} câu</b> · Dễ: <b>${pickEasy.length}/${nEasy}</b> · TB: <b>${pickMed.length}/${nMed}</b> · Khó: <b>${pickHard.length}/${nHard}</b>
                     · Code mẫu: <b class="${allowSample ? 'text-emerald-600' : 'text-rose-600'}">${allowSample ? 'CHO PHÉP' : 'KHÔNG CHO PHÉP'}</b>
@@ -4639,8 +4744,8 @@ except Exception as e: _error = str(e)
                     return `
                     <div class="p-3 bg-white rounded-xl border border-slate-200 flex justify-between items-start gap-2">
                         <div>
-                            <div class="font-bold text-slate-900 text-sm">Câu ${i+1}: ${a.title}${qflag}</div>
-                            <div class="text-xs text-slate-500 mt-1">Khối ${a.classLevel||'8'} · <span class="font-bold ${diffColor(a.difficulty)}">${diffLabel(a.difficulty)}</span></div>
+                            <div class="font-bold text-slate-900 text-sm">Câu ${i+1}: ${escapeHtml(a.title)}${qflag}</div>
+                            <div class="text-xs text-slate-500 mt-1">Khối ${escapeHtml(a.classLevel||'8')} · <span class="font-bold ${diffColor(a.difficulty)}">${diffLabel(a.difficulty)}</span></div>
                         </div>
                         <div class="flex items-center gap-1">
                             <button onclick="toggleQuestionFlag(${a.id}); generateRandomTest();" class="px-2 py-1 rounded-lg ${isQuestionFlagged(a.id) ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 text-slate-600'} font-bold text-xs" title="${isQuestionFlagged(a.id) ? 'Bỏ gắn cờ' : 'Gắn cờ câu này'}">
@@ -4697,8 +4802,8 @@ except Exception as e: _error = str(e)
                 <div class="bg-white border border-slate-200 rounded-2xl p-4 hover:shadow-lg hover:border-purple-300 transition-all space-y-2">
                     <div class="flex items-start justify-between gap-2">
                         <div class="flex-1">
-                            <h4 class="font-bold text-sm text-slate-900">${t.title}</h4>
-                            <div class="text-xs text-slate-500 mt-1"><i class="ph-bold ph-calendar"></i> ${t.createdAt} · ${qCount} câu</div>
+                            <h4 class="font-bold text-sm text-slate-900">${escapeHtml(t.title)}</h4>
+                            <div class="text-xs text-slate-500 mt-1"><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)} · ${qCount} câu</div>
                         </div>
                         <span class="px-2 py-0.5 rounded-md text-xs font-bold ${t.allowSampleCode ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}">
                             ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}
@@ -4726,7 +4831,7 @@ except Exception as e: _error = str(e)
         loadAssignment(qIds[0]);
         const sel = document.getElementById('selectAssignment');
         if (sel) {
-            sel.innerHTML = qIds.map((qid, i) => { const a = assignments.find(x => x.id == qid); return a ? `<option value="${a.id}">Câu ${i+1}: ${a.title}</option>` : ''; }).join('');
+            sel.innerHTML = qIds.map((qid, i) => { const a = assignments.find(x => x.id == qid); return a ? `<option value="${a.id}">Câu ${i+1}: ${escapeHtml(a.title)}</option>` : ''; }).join('');
             sel.value = qIds[0];
             sel.onchange = () => loadAssignment(sel.value);
         }
@@ -4785,11 +4890,11 @@ except Exception as e: _error = str(e)
         }
         tbody.innerHTML = filtered.map(u => `
             <tr class="hover:bg-slate-50 transition-colors cursor-pointer" onclick="highlightTableRow(this)">
-                <td class="font-bold text-slate-900">${u.name}</td>
-                <td class="text-slate-600">${u.school || 'THCS Thành Đông'} - ${u.className || '---'}</td>
-                <td class="text-slate-600 text-xs">${u.phone || '---'}${u.cccd ? '<br>CCCD: ' + u.cccd : ''}${u.email ? '<br>Email: ' + u.email : ''}</td>
-                <td class="font-mono font-medium text-slate-700">${u.identifier || u.username}</td>
-                <td class="text-center uppercase text-xs font-bold ${u.role === 'admin' ? 'text-amber-600' : (u.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${u.role}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(u.name)}</td>
+                <td class="text-slate-600">${escapeHtml(u.school || 'THCS Thành Đông')} - ${escapeHtml(u.className || '---')}</td>
+                <td class="text-slate-600 text-xs">${escapeHtml(u.phone || '---')}${u.cccd ? '<br>CCCD: ' + escapeHtml(u.cccd) : ''}${u.email ? '<br>Email: ' + escapeHtml(u.email) : ''}</td>
+                <td class="font-mono font-medium text-slate-700">${escapeHtml(u.identifier || u.username)}</td>
+                <td class="text-center uppercase text-xs font-bold ${u.role === 'admin' ? 'text-amber-600' : (u.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${escapeHtml(u.role)}</td>
                 <td class="text-center font-bold text-slate-700">${u.loginCount || 1}</td>
                 <td class="text-center">
                     <div class="flex items-center justify-center gap-2">
@@ -4816,10 +4921,10 @@ except Exception as e: _error = str(e)
         tbody.innerHTML = studentSubmissions.map(s => `
             <tr class="hover:bg-slate-50 transition-colors">
                 <td class="text-center"><input type="checkbox" onchange="toggleSubmissionSelect('admin', ${s.id}, this.checked)" ${selectedSubmissions.admin.has(s.id) ? 'checked' : ''} class="w-4 h-4 cursor-pointer"></td>
-                <td class="font-bold text-slate-900">${s.student}</td>
-                <td class="text-slate-700">${s.assignmentTitle}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(s.student)}</td>
+                <td class="text-slate-700">${escapeHtml(s.assignmentTitle)}</td>
                 <td class="text-center font-bold font-mono text-blue-600">${s.score} đ</td>
-                <td class="text-center text-slate-500 text-xs">${s.timestamp}</td>
+                <td class="text-center text-slate-500 text-xs">${escapeHtml(s.timestamp)}</td>
                 <td class="text-center"><button onclick="deleteStudentSubmission(${s.id})" class="px-2 py-1 rounded bg-rose-50 text-rose-600 font-bold"><i class="ph-bold ph-trash"></i></button></td>
             </tr>`).join('');
         updateSubmissionSelectionCount('admin');
@@ -4855,11 +4960,11 @@ except Exception as e: _error = str(e)
             const isReset = isResetResult(l.result);
             const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu');
             return `<tr class="${isReset ? 'bg-rose-50/80 border-l-4 border-rose-500' : ''} hover:bg-slate-50 transition-colors cursor-pointer" onclick="highlightTableRow(this)">
-                <td class="text-slate-500 font-mono text-xs">${l.time}</td>
-                <td class="font-bold text-slate-900">${l.name}</td>
-                <td class="font-mono text-slate-700">${l.identifier}</td>
-                <td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${l.role}</td>
-                <td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + l.result + '</span>'}</td>
+                <td class="text-slate-500 font-mono text-xs">${escapeHtml(l.time)}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(l.name)}</td>
+                <td class="font-mono text-slate-700">${escapeHtml(l.identifier)}</td>
+                <td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${escapeHtml(l.role)}</td>
+                <td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + escapeHtml(l.result) + '</span>'}</td>
             </tr>`;
         }).join('');
     }
@@ -4881,9 +4986,9 @@ except Exception as e: _error = str(e)
             const rankClass = i < 3 ? 'text-amber-600 font-bold' : 'text-slate-500';
             return `<tr class="hover:bg-indigo-50/40 transition-colors">
                 <td class="text-center font-bold ${rankClass}">${medal || (i + 1)}</td>
-                <td class="font-bold text-slate-900">${r.name}</td>
-                <td class="font-mono text-slate-700">${r.username || '---'}</td>
-                <td class="text-slate-600">${r.school} - ${r.className}</td>
+                <td class="font-bold text-slate-900">${escapeHtml(r.name)}</td>
+                <td class="font-mono text-slate-700">${escapeHtml(r.username || '---')}</td>
+                <td class="text-slate-600">${escapeHtml(r.school)} - ${escapeHtml(r.className)}</td>
                 <td class="text-center font-mono">${r.count}</td>
                 <td class="text-center font-bold text-blue-600 font-mono text-base">${r.total.toFixed(1)}</td>
                 <td class="text-center font-mono">${r.avg.toFixed(1)}</td>
@@ -5578,7 +5683,7 @@ except Exception as e: _error = str(e)
         const box = document.getElementById('aiChatBox');
         if (box && box.children.length === 0) {
             const isTA = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
-            const msg = isTA ? `Tôi là Trợ lý AI. Hỗ trợ thầy cô về "${currentAssignment?.title || 'lập trình'}"!` : `Thầy là Gia sư AI. Em hỏi thầy về "${currentAssignment?.title || 'lập trình'}" nhé!`;
+            const msg = isTA ? `Tôi là Trợ lý AI. Hỗ trợ thầy cô về "${escapeHtml(currentAssignment?.title || 'lập trình')}"!` : `Thầy là Gia sư AI. Em hỏi thầy về "${escapeHtml(currentAssignment?.title || 'lập trình')}" nhé!`;
             appendAiChatMessage('assistant', msg);
         }
     }
@@ -5587,7 +5692,7 @@ except Exception as e: _error = str(e)
         const div = document.createElement('div');
         const isU = sender === 'user';
         div.className = `flex ${isU ? 'justify-end' : 'justify-start'}`;
-        div.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl ${isU ? 'bg-blue-600 text-white rounded-br-none' : 'bg-slate-100 text-slate-800 rounded-bl-none'} leading-relaxed space-y-1"><div class="font-bold text-xs ${isU ? 'text-blue-100' : 'text-slate-500'}">${isU ? 'Em' : 'Gia Sư AI'}</div><div class="text-sm whitespace-pre-wrap">${text}</div></div>`;
+        div.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl ${isU ? 'bg-blue-600 text-white rounded-br-none' : 'bg-slate-100 text-slate-800 rounded-bl-none'} leading-relaxed space-y-1"><div class="font-bold text-xs ${isU ? 'text-blue-100' : 'text-slate-500'}">${isU ? 'Em' : 'Gia Sư AI'}</div><div class="text-sm whitespace-pre-wrap">${escapeHtml(text)}</div></div>`;
         box.appendChild(div); box.scrollTop = box.scrollHeight;
     }
     function quickAskAi(text) { const i = document.getElementById('aiUserInput'); if (i) { i.value = text; sendAiMessage(); } }
@@ -5617,7 +5722,7 @@ except Exception as e: _error = str(e)
     function showToast(message, type = 'info') {
         const cleanMsg = String(message).replace(/github/gi, "máy chủ");
         const bc = document.getElementById('robotSpeechBubbleContainer');
-        if (!bc) { const fc = document.getElementById('toastContainer'); if (!fc) return; const t = document.createElement('div'); t.className = `bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold`; t.innerHTML = `<span>${cleanMsg}</span>`; fc.appendChild(t); setTimeout(() => t.remove(), 3500); return; }
+        if (!bc) { const fc = document.getElementById('toastContainer'); if (!fc) return; const t = document.createElement('div'); t.className = `bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl text-sm font-semibold`; t.innerHTML = `<span>${escapeHtml(cleanMsg)}</span>`; fc.appendChild(t); setTimeout(() => t.remove(), 3500); return; }
         const isNearTop = updateBubbleOrientation();
         while (bc.children.length >= 2) bc.removeChild(bc.firstChild);
         let bc2 = 'border-blue-500/40 shadow-blue-950/60', ib = 'bg-blue-500/20 text-sky-400 border border-blue-500/30', ic = 'ph-robot', hc = 'text-sky-300', tb = isNearTop ? 'border-t border-l border-blue-500/40' : 'border-b border-r border-blue-500/40';
@@ -5626,7 +5731,7 @@ except Exception as e: _error = str(e)
         const tp = isNearTop ? '-top-1.5' : '-bottom-1.5';
         const bubble = document.createElement('div');
         bubble.className = `relative group/bubble px-3.5 py-2.5 rounded-2xl shadow-2xl backdrop-blur-md bg-slate-900/95 text-slate-100 border ${bc2} transition-all duration-300 transform scale-90 opacity-0 flex items-start gap-2.5 max-w-[280px] sm:max-w-[320px] text-left cursor-pointer select-none pointer-events-auto`;
-        bubble.innerHTML = `<div class="w-6 h-6 rounded-xl ${ib} flex items-center justify-center shrink-0 mt-0.5"><i class="ph-bold ${ic} text-sm"></i></div><div class="flex-1 pr-1"><div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider ${hc} mb-0.5"><span class="flex items-center gap-1"><i class="ph-bold ph-chats-circle text-xs"></i> Robot Trợ Lý</span></div><div class="text-sm font-medium text-slate-100 leading-snug break-words">${cleanMsg}</div></div><div class="bubble-tail absolute ${tp} left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-slate-900 ${tb}"></div>`;
+        bubble.innerHTML = `<div class="w-6 h-6 rounded-xl ${ib} flex items-center justify-center shrink-0 mt-0.5"><i class="ph-bold ${ic} text-sm"></i></div><div class="flex-1 pr-1"><div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider ${hc} mb-0.5"><span class="flex items-center gap-1"><i class="ph-bold ph-chats-circle text-xs"></i> Robot Trợ Lý</span></div><div class="text-sm font-medium text-slate-100 leading-snug break-words">${escapeHtml(cleanMsg)}</div></div><div class="bubble-tail absolute ${tp} left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-slate-900 ${tb}"></div>`;
         bc.appendChild(bubble);
         requestAnimationFrame(() => { bubble.classList.remove('scale-90', 'opacity-0'); bubble.classList.add('scale-100', 'opacity-100'); });
         let t = setTimeout(() => dismiss(), 4000);
@@ -5652,25 +5757,30 @@ except Exception as e: _error = str(e)
     }
     window.renderKaTeXFormulas = renderKaTeXFormulas;
 
+    // ✅ FIX #8: DOMPurify sanitize markdown output
     function renderSimpleMarkdown(text) {
         if (!text) return "";
         try {
             let html = String(text);
             const cb = [];
-            html = html.replace(/```([a-zA-Z0-9_]*)\n([\s\S]*?)```/g, (m, lang, code) => { const ph = `@@@CB_${cb.length}@@@`; cb.push(`<pre class="bg-slate-900 text-slate-100 p-3 rounded-xl font-mono text-sm overflow-x-auto my-2 border border-slate-800"><code>${code.trim().replace(/</g,'&lt;')}</code></pre>`); return ph; });
+            html = html.replace(/```([a-zA-Z0-9_]*)\n([\s\S]*?)```/g, (m, lang, code) => { const ph = `@@@CB_${cb.length}@@@`; cb.push(`<pre class="bg-slate-900 text-slate-100 p-3 rounded-xl font-mono text-sm overflow-x-auto my-2 border border-slate-800"><code>${escapeHtml(code.trim())}</code></pre>`); return ph; });
             const ic = [];
-            html = html.replace(/`([^`\n]+?)`/g, (m, code) => { const ph = `@@@IC_${ic.length}@@@`; ic.push(`<code class="bg-slate-100 text-blue-700 px-1 py-0.5 rounded font-mono text-sm border border-slate-200">${code}</code>`); return ph; });
+            html = html.replace(/`([^`\n]+?)`/g, (m, code) => { const ph = `@@@IC_${ic.length}@@@`; ic.push(`<code class="bg-slate-100 text-blue-700 px-1 py-0.5 rounded font-mono text-sm border border-slate-200">${escapeHtml(code)}</code>`); return ph; });
             html = renderMathInText(html);
-            const lines = html.split('\n').map(line => { const t = line.trim(); if (t.startsWith('### ')) return `<h3 class="text-base font-bold text-slate-900 mt-2 mb-1">${t.substring(4)}</h3>`; if (t.startsWith('## ')) return `<h2 class="text-lg font-bold text-slate-900 mt-3 mb-1.5">${t.substring(3)}</h2>`; if (t.startsWith('# ')) return `<h1 class="text-xl font-extrabold text-slate-900 mt-4 mb-2">${t.substring(2)}</h1>`; return line; });
+            const lines = html.split('\n').map(line => { const t = line.trim(); if (t.startsWith('### ')) return `<h3 class="text-base font-bold text-slate-900 mt-2 mb-1">${escapeHtml(t.substring(4))}</h3>`; if (t.startsWith('## ')) return `<h2 class="text-lg font-bold text-slate-900 mt-3 mb-1.5">${escapeHtml(t.substring(3))}</h2>`; if (t.startsWith('# ')) return `<h1 class="text-xl font-extrabold text-slate-900 mt-4 mb-2">${escapeHtml(t.substring(2))}</h1>`; return line; });
             html = lines.join('<br>');
             if (html.indexOf('**') !== -1) { const parts = html.split('**'); html = parts.map((p, i) => i % 2 === 1 ? `<strong>${p}</strong>` : p).join(''); }
             ic.forEach((h, i) => { html = html.replace(`@@@IC_${i}@@@`, h); });
             cb.forEach((h, i) => { html = html.replace(`@@@CB_${i}@@@`, h); });
-            return html;
-        } catch(e) { return String(text || ""); }
+            // ✅ FIX #8: Sanitize với DOMPurify
+            return sanitizeHtml(html);
+        } catch(e) { return escapeHtml(text || ""); }
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
+        // ✅ FIX #11: Disable nút code trước
+        disableCodeButtons();
+
         loadLocalSnapshotIfAvailable();
         ensureTrialAccountsAlwaysAvailable();
         loadProxyUrlIntoInput();
@@ -5678,7 +5788,6 @@ except Exception as e: _error = str(e)
         studentFlags = loadStudentFlagsFromLS();
         flaggedAssignmentsCache = loadFlaggedCacheFromLS();
         await migratePasswordHashes();
-        // 📥 Nạp dữ liệu khi mở app
         await autoFetchDataFromGitHub();
         ensureTrialAccountsAlwaysAvailable();
         restoreFlaggedAssignments();
@@ -5700,20 +5809,16 @@ except Exception as e: _error = str(e)
 
     window.addEventListener('resize', () => { if (!hasDraggedRobot) centerRobotOnScreen(); });
 
-    // 📤 ĐẨY DỮ LIỆU KHI ĐÓNG APP
-    // (1) pagehide: dùng keepalive fetch (chạy được khi tab đóng)
+    // ✅ FIX #10: Gộp 3 event sync thành 1 với cờ isSyncing (đã xử lý trong syncDataToGitHubDirectly)
+    // ✅ FIX #9: pagehide dùng keepalive có check size + sendBeacon fallback
     window.addEventListener('pagehide', (e) => {
         try { autoSaveLocalSnapshot(); } catch(err) {}
         if (!e.persisted) pushDataWithKeepalive();
     });
-
-    // (2) beforeunload: backup local + keepalive
     window.addEventListener('beforeunload', () => {
         try { autoSaveLocalSnapshot(); } catch(err) {}
         pushDataWithKeepalive();
     });
-
-    // (3) visibilitychange: khi ẩn tab → sync async với throttle 30s
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'hidden') {
             const now = Date.now();
