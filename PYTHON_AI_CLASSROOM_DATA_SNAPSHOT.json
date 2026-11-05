@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T15:02:27.308Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-05T15:26:07.594Z",
+    "updatedBy": "Thầy Nguyễn Thế Phương",
+    "action": "Đẩy dữ liệu thủ công"
   },
   "data": {
     "registeredUsers": [
@@ -11757,6 +11757,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "22:26:03 5/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "22:02:22 5/11/2026",
         "name": "Trần Thị Trúc Mai",
