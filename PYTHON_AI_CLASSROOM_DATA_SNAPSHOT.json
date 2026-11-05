@@ -1,17 +1,17 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T16:36:00.558Z",
+    "updatedAt": "2026-11-05T16:44:26.623Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đẩy dữ liệu thủ công"
+    "action": "Admin cập nhật TK: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
       {
         "id": 1,
         "name": "Nguyễn Thế Phương",
-        "username": "086081006094",
-        "identifier": "086081006094",
+        "username": "admin",
+        "identifier": "admin",
         "school": "THCS Thành Đông",
         "className": "Toàn trường",
         "teacherName": "---",
@@ -22,9 +22,10 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 46,
+        "loginCount": 47,
         "_hasPassword": true,
-        "passwordHash": "60c0a4fbf2162547bfadb73b8ebf8bbe94513766c7859b6dc2a3c37827a70c78",
+        "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
+        "cccd": "086081006094",
         "password": null
       },
       {
@@ -140,7 +141,8 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 7,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
       },
       {
@@ -159,7 +161,8 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 0,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "password": null
       },
       {
@@ -178,8 +181,9 @@
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
         "loginCount": 3,
-        "_hasPassword": false,
+        "_hasPassword": true,
         "contact": "0987654321",
+        "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
         "password": null
       },
       {
@@ -195,7 +199,8 @@
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "170cde191e0cfa2ee703c7d514fa1d4bcee399b09f018bacef47376acbb50ec9",
         "password": null
       },
       {
@@ -209,7 +214,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
         "password": null
       },
       {
@@ -223,8 +229,9 @@
         "status": "active",
         "loginCount": 2,
         "phone": "Zalo cá nhân",
-        "_hasPassword": false,
+        "_hasPassword": true,
         "contact": "Zalo cá nhân",
+        "passwordHash": "b2708c4e7776c7c57b56fbb8de31e7662418f123bec87f7810282c9858ad69c9",
         "password": null
       },
       {
@@ -238,7 +245,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "password": null
       },
       {
@@ -252,7 +260,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "1efc31ed5ee53bb3890df347d1a7caafaf6f97740d8d288d63e6ab0d8374c264",
         "password": null
       },
       {
@@ -266,8 +275,9 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "_hasPassword": false,
+        "_hasPassword": true,
         "contact": "Zalo cá nhân",
+        "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
         "password": null
       },
       {
@@ -11763,6 +11773,27 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:42:59 5/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "23:42:44 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:42:30 5/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "23:35:43 5/11/2026",
         "name": "Nguyễn Thế Phương",
