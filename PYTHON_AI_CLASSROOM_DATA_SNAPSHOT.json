@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:49:14.727Z",
+    "updatedAt": "2026-11-05T22:50:32.654Z",
     "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "action": "Yêu cầu Admin cấp lại mật khẩu: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -11804,6 +11804,34 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "05:50:32 6/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "05:49:53 6/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "05:49:47 6/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "05:49:40 6/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "05:43:04 6/11/2026",
         "name": "Nguyễn Thế Phương",
