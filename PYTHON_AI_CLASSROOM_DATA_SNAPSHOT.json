@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:55:28.528Z",
+    "updatedAt": "2026-11-05T22:55:52.475Z",
     "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Phất đề cho học sinh: ĐỀ KIỂM TRA LẦN 1 - 03/11/2026"
+    "action": "Đăng xuất: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -11804,6 +11804,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "05:55:52 6/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
       {
         "time": "05:54:16 6/11/2026",
         "name": "Trần Thị Trúc Mai",
