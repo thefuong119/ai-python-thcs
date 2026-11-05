@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T14:45:54.920Z",
+    "updatedAt": "2026-11-05T15:02:27.308Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -11757,6 +11757,27 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "22:02:22 5/11/2026",
+        "name": "Trần Thị Trúc Mai",
+        "identifier": "comai",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "22:02:13 5/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "22:02:12 5/11/2026",
+        "name": "comai",
+        "identifier": "comai",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "21:36:51 5/11/2026",
         "name": "Học sinh Demo",
