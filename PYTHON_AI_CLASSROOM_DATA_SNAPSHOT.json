@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:47:46.376Z",
-    "updatedBy": "Trần Ngọc Hân",
-    "action": "Đăng xuất: Trần Ngọc Hân"
+    "updatedAt": "2026-11-05T22:48:21.120Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Sửa đề thi: ĐỀ KIỂM TRA LẦN 2 - 06/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 49,
+        "loginCount": 50,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -63,7 +63,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 9,
+        "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
         "cccd": "",
@@ -11805,17 +11805,10 @@
     ],
     "loginLogs": [
       {
-        "time": "05:47:46 6/11/2026",
-        "name": "Trần Ngọc Hân",
-        "identifier": "han",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "05:47:32 6/11/2026",
-        "name": "Trần Ngọc Hân",
-        "identifier": "han",
-        "role": "student",
+        "time": "05:47:55 6/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -12216,7 +12209,7 @@
       },
       {
         "id": 1793898206970,
-        "title": "Đề kiểm tra ngẫu nhiên - 6/11/2026",
+        "title": "ĐỀ KIỂM TRA LẦN 2 - 06/11/2026",
         "grade": "8",
         "allowSampleCode": true,
         "questionIds": [
