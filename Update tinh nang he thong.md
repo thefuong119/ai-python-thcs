@@ -5,7 +5,6 @@
 2\) Kéo thả để đọc (Drag-to-Read): Khi người dùng kéo và thả Robot vào bất kỳ vị trí nào trên màn hình, Robot sẽ tự động dò tìm phần tử văn bản nằm ngay bên dưới và đọc to nội dung đó lên.
 
 
-
 3\) Nhấp vào Robot để đọc tại chỗ: Nếu người dùng nhấp trực tiếp vào Robot (khi Robot đang đứng yên), Robot sẽ đọc nội dung văn bản ngay tại vị trí hiện tại của nó hoặc dừng phát nếu đang đọc dở.
 
 
@@ -125,16 +124,15 @@ Tóm tắt các nâng cấp đã thực hiện:
 3\) Thuyết minh bài học thông minh: Robot AI tự động nhận diện và đọc tự nhiên các công thức toán như phân số ("phân số a trên b"), căn thức ("căn bậc hai của x"), lũy thừa ("x bình phương").
 
 
+NÂNG CẤP TÍNH NĂNG BẢO MẬT:
+------------------------------
+☑ Worker Cloudflare chạy → có URL Proxy
+☑ App có DEFAULT_PROXY_URL → tự động kết nối
+☑ Nạp dữ liệu khi mở app (Proxy retry 3 → fallback raw retry 3)
+☑ Đẩy dữ liệu mỗi thao tác (retry 3, xử lý 409/429/5xx, queue tuần tự)
+☑ Đẩy dữ liệu khi đóng app (timeout 6s + sendBeacon fallback)
+☑ Auto-save local 20s + auto-push server 90s
+☑ Token GitHub được giấu an toàn trong Cloudflare
+☑ Hash mật khẩu SHA-256 (đã có sẵn từ trước)
 
-
-
-
-
-
-
-
-
-.
-
-.
-
+Upgrade by Nguyễn Thế Phương
