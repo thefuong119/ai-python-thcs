@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T17:25:46.920Z",
+    "updatedAt": "2026-11-05T17:26:05.351Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin cập nhật TK: Bùi Lê Uyên Nhi"
+    "action": "Admin cập nhật TK: Nguyễn Phú Lộc"
   },
   "data": {
     "registeredUsers": [
@@ -148,6 +148,7 @@
         "loginCount": 7,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
+        "cccd": "",
         "password": null
       },
       {
