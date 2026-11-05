@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:57:19.634Z",
-    "updatedBy": "Khách",
-    "action": "Đăng xuất: Giáo viên Demo"
+    "updatedAt": "2026-11-05T22:59:16.338Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Đăng xuất: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 49,
+        "loginCount": 50,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -11805,95 +11805,11 @@
     ],
     "loginLogs": [
       {
-        "time": "05:55:52 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
-        "role": "teacher",
+        "time": "05:59:16 6/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Đăng xuất"
-      },
-      {
-        "time": "05:54:16 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
-        "time": "05:50:32 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
-        "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "05:49:53 6/11/2026",
-        "name": "comai",
-        "identifier": "comai",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "05:49:47 6/11/2026",
-        "name": "comai",
-        "identifier": "comai",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "05:49:40 6/11/2026",
-        "name": "comai",
-        "identifier": "comai",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "05:43:04 6/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "05:42:27 6/11/2026",
-        "name": "Trần Ngọc Hân",
-        "identifier": "han",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "05:36:22 6/11/2026",
-        "name": "Nguyễn Thế Bình",
-        "identifier": "binh",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
-        "time": "00:34:12 6/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "00:22:15 6/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "00:21:40 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
-        "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "00:21:37 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
-        "role": "teacher",
-        "result": "Reset pw"
       }
     ],
     "studentFlags": {
