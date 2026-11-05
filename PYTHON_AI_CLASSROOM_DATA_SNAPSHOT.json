@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T15:58:48.958Z",
+    "updatedAt": "2026-11-05T16:34:59.514Z",
     "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -23,7 +23,8 @@
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
         "loginCount": 45,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "60c0a4fbf2162547bfadb73b8ebf8bbe94513766c7859b6dc2a3c37827a70c78",
         "password": null
       },
       {
@@ -42,7 +43,8 @@
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
         "loginCount": 37,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "e1ec5d996a253d72e2e02ec1a30e2a564c87b75da1f063cb76ccf4fc3b72b5f3",
         "password": null
       },
       {
@@ -61,7 +63,8 @@
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
         "loginCount": 8,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "10402a73c6523b0f691896c995d5a9635b35d1b1a5a39d8308f4fe4be1af4afc",
         "password": null
       },
       {
@@ -80,7 +83,8 @@
         "firstLogin": "2026-10-22 09:15",
         "lastLogin": "2026-10-25 08:42",
         "loginCount": 3,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "10402a73c6523b0f691896c995d5a9635b35d1b1a5a39d8308f4fe4be1af4afc",
         "password": null
       },
       {
@@ -99,7 +103,8 @@
         "firstLogin": "2026-10-23 10:00",
         "lastLogin": "2026-10-25 08:50",
         "loginCount": 5,
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "password": null
       },
       {
@@ -115,7 +120,8 @@
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
-        "_hasPassword": false,
+        "_hasPassword": true,
+        "passwordHash": "b2708c4e7776c7c57b56fbb8de31e7662418f123bec87f7810282c9858ad69c9",
         "password": null
       },
       {
@@ -11757,6 +11763,34 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:34:59 5/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đổi mật khẩu thành công"
+      },
+      {
+        "time": "23:33:17 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:32:58 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:32:45 5/11/2026",
+        "name": "admin",
+        "identifier": "admin",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "22:38:47 5/11/2026",
         "name": "Học sinh Demo",
