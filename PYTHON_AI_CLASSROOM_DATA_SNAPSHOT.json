@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-05T22:55:52.475Z",
-    "updatedBy": "Trần Thị Trúc Mai",
-    "action": "Đăng xuất: Trần Thị Trúc Mai"
+    "updatedAt": "2026-11-05T22:57:10.665Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Đăng xuất: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
@@ -42,7 +42,7 @@
         "status": "active",
         "firstLogin": "2026-10-21 08:15",
         "lastLogin": "12:46:00 30/10/2026",
-        "loginCount": 38,
+        "loginCount": 37,
         "_hasPassword": true,
         "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
         "cccd": "",
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -11805,16 +11805,16 @@
     ],
     "loginLogs": [
       {
-        "time": "05:55:52 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
+        "time": "05:57:10 6/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
         "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "05:54:16 6/11/2026",
-        "name": "Trần Thị Trúc Mai",
-        "identifier": "comai",
+        "time": "05:56:17 6/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
         "role": "teacher",
         "result": "Thành công"
       },
@@ -12231,7 +12231,7 @@
         "id": 1793898204956,
         "title": "ĐỀ KIỂM TRA LẦN 1 - 03/11/2026",
         "grade": "8",
-        "allowSampleCode": false,
+        "allowSampleCode": true,
         "questionIds": [
           1,
           28,
@@ -12244,9 +12244,9 @@
       },
       {
         "id": 1793898206970,
-        "title": "KIỂM TRA LẦN 2 - 06/11/2026",
+        "title": "Đề kiểm tra ngẫu nhiên - 6/11/2026",
         "grade": "8",
-        "allowSampleCode": false,
+        "allowSampleCode": true,
         "questionIds": [
           24,
           33,
