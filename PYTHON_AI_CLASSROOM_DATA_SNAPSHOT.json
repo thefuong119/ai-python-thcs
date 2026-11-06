@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T02:38:30.079Z",
+    "updatedAt": "2026-11-06T02:43:29.325Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -10833,10 +10833,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 7,
+        "attempts": 8,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "09:33:39 6/11/2026"
+        "lastSubmit": "09:43:29 6/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -11363,6 +11363,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793933009252,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
+        "assignmentId": 7,
+        "score": 0,
+        "timestamp": "09:43:29 6/11/2026",
+        "date": "2026-11-06",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\n"
+      },
       {
         "id": 1793932419360,
         "student": "Lê Nguyễn Quang Minh",
@@ -11946,7 +11991,8 @@
         "3": true,
         "4": true,
         "5": true,
-        "6": true
+        "6": true,
+        "7": true
       },
       "hocsinh": {
         "1": true,
@@ -12170,6 +12216,45 @@
           }
         ]
       },
+      "7": {
+        "id": 7,
+        "title": "Bài 7. Chuỗi đơn điệu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Chuỗi đơn điệu là chuỗi được tạo thành bằng cách lấy lần lượt từ trái sang phải các ký tự của chuỗi ban đầu theo quy tắc: Ký tự tiếp theo phải là chữ cái đứng sau ký tự liền trước đó trong bảng chữ cái tiếng Anh. Các ký tự không thỏa mãn điều kiện sẽ bị bỏ qua.\nCho một chuỗi ký tự S gồm các chữ cái in hoa. Hãy tìm chuỗi đơn điệu trích xuất từ chuỗi S.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra: In ra chuỗi đơn điệu tìm được.",
+        "templateCode": "s = input().strip()\n\nif s:\n    result = s[0]\n\n    for ch in s[1:]:\n        if ch > result[-1]:\n            result += ch\n\n    print(result)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "10": {
         "id": 10,
         "title": "Bài 10. Xếp que diêm thành tháp tam giác",
@@ -12322,7 +12407,8 @@
     ],
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)"
+      "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
+      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n"
     },
     "questionFlags": {
       "43": true
