@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T06:42:02.293Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Đăng xuất: Học sinh Demo"
+    "updatedAt": "2026-11-06T06:42:26.762Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -238,7 +238,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 4,
+        "loginCount": 3,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -11878,20 +11878,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "13:42:02 6/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "13:41:49 6/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Thành công"
-      },
       {
         "time": "10:43:15 6/11/2026",
         "name": "Nguyễn Thế Phương",
