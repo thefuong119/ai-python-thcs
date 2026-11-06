@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T06:41:19.649Z",
-    "updatedBy": "Giáo viên Demo",
-    "action": "Đăng xuất: Giáo viên Demo"
+    "updatedAt": "2026-11-06T06:41:40.276Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Đăng xuất: Học sinh Demo"
   },
   "data": {
     "registeredUsers": [
@@ -238,7 +238,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 2,
+        "loginCount": 1,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -10867,13 +10867,6 @@
         "attempts": 1,
         "highestScore": 10,
         "lastSubmit": "19:23:40 5/11/2026"
-      },
-      {
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "attempts": 1,
-        "highestScore": 10,
-        "lastSubmit": "13:39:59 6/11/2026"
       }
     ],
     "lectures": [
@@ -11370,51 +11363,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1793947199356,
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "13:39:59 6/11/2026",
-        "date": "2026-11-06",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
       {
         "id": 1793933009252,
         "student": "Lê Nguyễn Quang Minh",
@@ -11931,17 +11879,17 @@
     ],
     "loginLogs": [
       {
-        "time": "13:41:19 6/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
+        "time": "13:41:40 6/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
         "result": "Đăng xuất"
       },
       {
-        "time": "13:37:55 6/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
+        "time": "13:41:36 6/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
         "result": "Thành công"
       },
       {
@@ -12109,9 +12057,6 @@
       },
       "tuan": {
         "43": true
-      },
-      "giaovien": {
-        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -12517,8 +12462,7 @@
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
-      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n",
-      "giaovien__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n"
     },
     "questionFlags": {
       "43": true
