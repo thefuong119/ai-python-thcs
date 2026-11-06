@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T13:05:20.238Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-06T13:06:12.461Z",
+    "updatedBy": "Phan Trọng Khương",
+    "action": "Đăng ký: Phan Trọng Khương"
   },
   "data": {
     "registeredUsers": [
@@ -281,6 +281,23 @@
         "cccd": "",
         "email": "",
         "password": null
+      },
+      {
+        "id": 1793970372175,
+        "name": "Phan Trọng Khương",
+        "username": "trongkhuong8a4",
+        "identifier": "trongkhuong8a4",
+        "passwordHash": "694da80fec54cb781722b80aabc16db6a8c005d79317b41d78914083ee54e6c6",
+        "school": "THCS Thành Đông",
+        "className": "8a4",
+        "phone": "---",
+        "cccd": "",
+        "email": "phantrongkhuong3@Gmail.com",
+        "role": "student",
+        "status": "active",
+        "loginCount": 1,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -12843,6 +12860,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "20:06:12 6/11/2026",
+        "name": "Phan Trọng Khương",
+        "identifier": "trongkhuong8a4",
+        "role": "student",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "18:36:12 6/11/2026",
         "name": "Trần Ngọc Hân",
