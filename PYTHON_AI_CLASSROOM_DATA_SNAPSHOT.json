@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T11:35:52.480Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Đăng xuất: Học sinh Demo"
+    "updatedAt": "2026-11-06T11:37:00.661Z",
+    "updatedBy": "Trần Ngọc Hân",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -63,7 +63,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 8,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
         "cccd": "",
@@ -11687,10 +11687,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 8,
+        "attempts": 7,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "18:35:34 6/11/2026"
+        "lastSubmit": "18:35:09 6/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -12241,35 +12241,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1793964934152,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
-        "assignmentId": 394,
-        "score": 0,
-        "timestamp": "18:35:34 6/11/2026",
-        "date": "2026-11-06",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3\n900 1100\n1000 1200\n1100 1300",
-            "expected": "2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "3\n1 4\n2 5\n3 6",
-            "expected": "3",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N = int(data[0])\n    events = []\n    idx = 1\n    for _ in range(N):\n        events.append((int(data[idx]), 1))\n        events.append((int(data[idx + 1]), - 1))\n        idx + = 2\n        events.sort(key = lambda x: (x[0], x[1]))\n        cur, ans = 0, 0\n        for t, val in events:\n            cur + = val\n            if cur > ans: ans = cur\n            print(ans)"
-      },
       {
         "id": 1793964909597,
         "student": "Học sinh Demo",
@@ -12873,11 +12844,11 @@
     ],
     "loginLogs": [
       {
-        "time": "18:35:52 6/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
+        "time": "18:36:12 6/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
         "role": "student",
-        "result": "Đăng xuất"
+        "result": "Thành công"
       },
       {
         "time": "18:31:36 6/11/2026",
@@ -13552,7 +13523,7 @@
       "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
       "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n",
       "hocsinh__Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N, M = int(data[0]), int(data[1])\n    edges = []\n    idx = 2\n    for _ in range(M):\n        edges.append((int(data[idx + 2]), int(data[idx]), int(data[idx + 1]))); idx + = 3\n        edges.sort()\n        parent = list(range(N + 1))\n        def find(i):\n            path = []\n            while parent[i] != i: path.append(i); i = parent[i]\n            for node in path: parent[node] = i\n            return i\n            cost, cnt = 0, 0\n            for w, u, v in edges:\n                ru, rv = find(u), find(v)\n                if ru != rv:\n                    parent[ru] = rv; cost + = w; cnt + = 1\n                    if cnt == N - 1: break\nprint(cost)",
-      "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N = int(data[0])\n    events = []\n    idx = 1\n    for _ in range(N):\n        events.append((int(data[idx]), 1))\n        events.append((int(data[idx + 1]), - 1))\n        idx + = 2\n        events.sort(key = lambda x: (x[0], x[1]))\n        cur, ans = 0, 0\n        for t, val in events:\n            cur + = val\n            if cur > ans: ans = cur\n            print(ans)"
+      "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)"
     },
     "questionFlags": {
       "43": true
