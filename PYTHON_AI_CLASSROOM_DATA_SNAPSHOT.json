@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T13:31:17.436Z",
+    "updatedAt": "2026-11-06T13:31:52.026Z",
     "updatedBy": "Phan Trọng Khương",
     "action": "Học sinh Phan Trọng Khương nộp bài"
   },
@@ -11766,9 +11766,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 6,
+        "attempts": 7,
         "highestScore": 10,
-        "lastSubmit": "20:31:17 6/11/2026"
+        "lastSubmit": "20:31:51 6/11/2026"
       }
     ],
     "lectures": [
@@ -12265,6 +12265,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793971911918,
+        "student": "Phan Trọng Khương",
+        "username": "trongkhuong8a4",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "assignmentId": 2,
+        "score": 10,
+        "timestamp": "20:31:51 6/11/2026",
+        "date": "2026-11-06",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "997",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")"
+      },
       {
         "id": 1793971877361,
         "student": "Phan Trọng Khương",
@@ -13829,7 +13874,7 @@
       "hocsinh__Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N, M = int(data[0]), int(data[1])\n    edges = []\n    idx = 2\n    for _ in range(M):\n        edges.append((int(data[idx + 2]), int(data[idx]), int(data[idx + 1]))); idx + = 3\n        edges.sort()\n        parent = list(range(N + 1))\n        def find(i):\n            path = []\n            while parent[i] != i: path.append(i); i = parent[i]\n            for node in path: parent[node] = i\n            return i\n            cost, cnt = 0, 0\n            for w, u, v in edges:\n                ru, rv = find(u), find(v)\n                if ru != rv:\n                    parent[ru] = rv; cost + = w; cnt + = 1\n                    if cnt == N - 1: break\nprint(cost)",
       "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
       "trongkhuong8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na,b=map(int,input().split())\nprint(a + b)",
-      "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"N\")"
+      "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")"
     },
     "questionFlags": {
       "43": true
