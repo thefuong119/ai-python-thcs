@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T07:50:17.733Z",
+    "updatedAt": "2026-11-06T07:50:37.481Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Nạp 4 bài tập"
   },
@@ -11514,6 +11514,169 @@
             "id": 5,
             "input": "8\n2 3 5 8 11 13 17 7",
             "expected": "11 13 17 7",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 413,
+        "title": "Lát gạch",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào 2 kích thước nền nhà hình chữ nhật $a$ (mét), $b$ (mét), và kích thước viên gạch hình vuông có cạnh $c$ (mét). Tính số lượng viên gạch cần lát trong 2 trường hợp:\na) Sử dụng lại phần gạch đã cắt.\nb) Gạch có hoa văn, nên không sử dụng phần gạch thừa đã cắt.",
+        "templateCode": "import math\na = float(input(\"Nhập chiều dài a (m): \"))\nb = float(input(\"Nhập chiều rộng b (m): \"))\nc = float(input(\"Nhập cạnh viên gạch c (m): \"))\n\nso_gach_a = int(round((a * b) / (c * c)))\nso_gach_b = math.ceil(a / c) * math.ceil(b / c)\n\nprint(f\"a) {so_gach_a} vien gach\")\nprint(f\"b) {so_gach_b} vien gach\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Nhập chiều dài a (m): 5\nNhập chiều rộng b (m): 20\nNhập cạnh viên gạch c (m): 0.5",
+            "expected": "a) 400 vien gach\nb) 400 vien gach",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nhập chiều dài a (m): 4.7\nNhập chiều rộng b (m): 20.4\nNhập cạnh viên gạch c (m): 0.5",
+            "expected": "a) 384 vien gach\nb) 410 vien gach",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Nhập chiều dài a (m): 4.9\nNhập chiều rộng b (m): 19.5\nNhập cạnh viên gạch c (m): 0.6",
+            "expected": "a) 265 vien gach\nb) 297 vien gach",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Nhập chiều dài a (m): 4\nNhập chiều rộng b (m): 16.5\nNhập cạnh viên gạch c (m): 0.4",
+            "expected": "a) 412 vien gach\nb) 420 vien gach",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 414,
+        "title": "Sắp xếp dãy số",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho dãy số gồm $n$ số nguyên. Hãy sắp xếp dãy số theo quy tắc:\n- So sánh hai phần tử dựa vào các chữ số từ trái sang phải (chữ số đầu tiên, chữ số thứ hai,...).\n- Nếu các chữ số giống nhau, số có ít chữ số hơn xếp đứng trước.\nIn dãy số đã sắp xếp ra màn hình (mỗi số trên một dòng).",
+        "templateCode": "n = int(input(\"Nhập số lượng phần tử n: \"))\narr = list(map(int, input(\"Nhập dãy số: \").split()))\n\narr_sorted = sorted(arr, key=lambda x: ([int(ch) for ch in str(x)], len(str(x))))\n\nfor num in arr_sorted:\n print(num)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Nhập số lượng phần tử n: 3\nNhập dãy số: 10 2 19",
+            "expected": "10\n19\n2",
+            "point": 2,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nhập số lượng phần tử n: 5\nNhập dãy số: 3 10 2 19 11",
+            "expected": "10\n11\n19\n2\n3",
+            "point": 2,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Nhập số lượng phần tử n: 7\n17 251 99 25 13 5 3",
+            "expected": "13\n17\n25\n251\n3\n5\n99",
+            "point": 2,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 415,
+        "title": "Can - Chi",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Xác định CAN và CHI của một năm $X$ nhập từ tệp `canchi.inp`:\n- CAN dựa vào số dư $r = X \\bmod 10$ (0: Canh, 1: Tân, 2: Nhâm, 3: Quý, 4: Giáp, 5: Ất, 6: Bính, 7: Đinh, 8: Mậu, 9: Kỷ).\n- CHI dựa vào số dư $s = X \\bmod 12$ (0: Thân, 1: Dậu, 2: Tuất, 3: Hợi, 4: Tí, 5: Sửu, 6: Dần, 7: Mẹo, 8: Thìn, 9: Tỵ, 10: Ngọ, 11: Mùi).\nGhi tên CAN CHI tương ứng ra tệp `canchi.out`.",
+        "templateCode": "CAN = [\"Canh\", \"Tân\", \"Nhâm\", \"Quý\", \"Giáp\", \"Ất\", \"Bính\", \"Đinh\", \"Mậu\", \"Kỷ\"]\nCHI = [\"Thân\", \"Dậu\", \"Tuất\", \"Hợi\", \"Tí\", \"Sửu\", \"Dần\", \"Mẹo\", \"Thìn\", \"Tỵ\", \"Ngọ\", \"Mùi\"]\n\nwith open(\"canchi.inp\", \"r\", encoding=\"utf-8\") as f:\n nam = int(f.read().strip())\n\nr = nam % 10\ns = nam % 12\nket_qua = CAN[r] + \" \" + CHI[s]\n\nwith open(\"canchi.out\", \"w\", encoding=\"utf-8\") as f:\n f.write(ket_qua)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2026",
+            "expected": "Bính Ngọ",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2020",
+            "expected": "Canh Tí",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2000",
+            "expected": "Canh Thìn",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2050",
+            "expected": "Canh Ngọ",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "3000",
+            "expected": "Canh Thân",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 416,
+        "title": "Số siêu nguyên tố",
+        "classLevel": "THCS",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Số siêu nguyên tố là số nguyên tố mà khi bỏ một số tùy ý các chữ số bên phải của nó thì phần còn lại vẫn tạo thành số nguyên tố.\nĐọc số nguyên $N$ ($1 \\le N \\le 8$) từ tệp `snto.inp`.\nLiệt kê tất cả các số siêu nguyên tố có $N$ chữ số và thông báo số lượng số siêu nguyên tố tìm được ra tệp `snto.out`.",
+        "templateCode": "def is_prime(n):\n if n < 2:\n return False\n if n == 2:\n return True\n if n % 2 == 0:\n return False\n i = 3\n while i * i <= n:\n if n % i == 0:\n return False\n i += 2\n return True\n\nwith open(\"snto.inp\", \"r\", encoding=\"utf-8\") as f:\n N = int(f.read().strip())\n\nket_qua = []\nfor num in range(10**(N-1), 10**N):\n if is_prime(num):\n ok = True\n s = str(num)\n for i in range(1, len(s)):\n if not is_prime(int(s[:i])):\n ok = False\n break\n if ok:\n ket_qua.append(num)\n\nwith open(\"snto.out\", \"w\", encoding=\"utf-8\") as f:\n f.write(\" \".join(map(str, ket_qua)) + \"\\n\")\n f.write(f\"Co {len(ket_qua)} so sieu nguyen to co {N} chu so\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1",
+            "expected": "2 3 5 7\nCo 4 so sieu nguyen to co 1 chu so",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "23 29 31 37 53 59 71 73 79\nCo 9 so sieu nguyen to co 2 chu so",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3",
+            "expected": "233 239 293 311 313 317 373 379 593 599 719 733 739 797\nCo 14 so sieu nguyen to co 3 chu so",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4",
+            "expected": "2333 2339 2393 2399 2939 3119 3137 3733 3739 3793 3797 5939 7193 7331 7333 7393\nCo 16 so sieu nguyen to co 4 chu so",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "5",
+            "expected": "23333 23339 23399 23993 29399 31193 31379 37337 37339 37397 59393 59399 71933 73331 73939\nCo 15 so sieu nguyen to co 5 chu so",
             "point": 1,
             "is_hidden": false
           }
