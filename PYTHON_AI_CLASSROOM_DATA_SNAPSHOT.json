@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T13:30:25.363Z",
+    "updatedAt": "2026-11-06T13:30:45.740Z",
     "updatedBy": "Phan Trọng Khương",
     "action": "Học sinh Phan Trọng Khương nộp bài"
   },
@@ -11766,9 +11766,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 4,
+        "attempts": 5,
         "highestScore": 10,
-        "lastSubmit": "20:30:25 6/11/2026"
+        "lastSubmit": "20:30:45 6/11/2026"
       }
     ],
     "lectures": [
@@ -12265,6 +12265,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1793971845663,
+        "student": "Phan Trọng Khương",
+        "username": "trongkhuong8a4",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "assignmentId": 2,
+        "score": 0,
+        "timestamp": "20:30:45 6/11/2026",
+        "date": "2026-11-06",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7",
+            "expected": "YES",
+            "actual": "yes",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "no",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "NO",
+            "actual": "no",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "997",
+            "expected": "YES",
+            "actual": "yes",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nif is_prime(n):\n    print(\"yes\")\nelse:\n    print(\"no\")"
+      },
       {
         "id": 1793971825269,
         "student": "Phan Trọng Khương",
