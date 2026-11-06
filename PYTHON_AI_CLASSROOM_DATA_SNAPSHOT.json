@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-06T03:08:02.782Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-06T03:09:24.618Z",
+    "updatedBy": "Nguyễn Tấn Thanh",
+    "action": "Đăng xuất: Nguyễn Tấn Thanh"
   },
   "data": {
     "registeredUsers": [
@@ -120,7 +120,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 0,
+        "loginCount": 1,
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
@@ -11878,6 +11878,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:09:24 6/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "10:01:19 6/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "09:31:56 6/11/2026",
         "name": "Lê Nguyễn Quang Minh",
