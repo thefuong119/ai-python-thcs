@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:02:31.970Z",
-    "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Đăng xuất: Thầy Nguyễn Thế Phương"
+    "updatedAt": "2026-11-07T11:02:41.428Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -227,23 +227,6 @@
         "loginCount": 0,
         "_hasPassword": true,
         "password": null
-      },
-      {
-        "id": 1794049317280,
-        "name": "Nguyễn Thế Bình",
-        "username": "binh",
-        "identifier": "binh",
-        "passwordHash": "170cde191e0cfa2ee703c7d514fa1d4bcee399b09f018bacef47376acbb50ec9",
-        "school": "THCS Thành Đông",
-        "className": "Khối 11",
-        "phone": "---",
-        "cccd": "",
-        "email": "",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -394,13 +377,6 @@
     ],
     "studentSubmissions": [],
     "loginLogs": [
-      {
-        "time": "18:02:31 7/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
       {
         "time": "17:50:38 7/11/2026",
         "name": "Thầy Nguyễn Thế Phương",
