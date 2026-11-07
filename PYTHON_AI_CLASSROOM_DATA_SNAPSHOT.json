@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:24:12.533Z",
+    "updatedAt": "2026-11-07T11:24:17.655Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Nạp 4 bài tập"
   },
@@ -643,6 +643,190 @@
             "id": 4,
             "input": "!!!@@@###$$$",
             "expected": "0",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Dãy số Mersenne",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho dãy số tăng dần theo quy luật toán học: $1, 3, 7, 15, 31, \\dots$\nYêu cầu: Tìm quy luật để tính số thứ $n$ của dãy ($n \\le 10^3$).",
+        "templateCode": "n = int(input(\"Nhập số nguyên N: \"))\nket_qua = 2**n - 1\nprint(ket_qua)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "7",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "63",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10",
+            "expected": "1023",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "50",
+            "expected": "1125899906842623",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "100",
+            "expected": "1267650600228229401496703205375",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Hợp số",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hợp số là số có nhiều hơn 2 ước số nguyên. \nNhập vào số nguyên $N$ ($N \\le 10^9$), kiểm tra và xuất ra màn hình \"$N$ là hợp số\" hoặc \"$N$ không là hợp số\".",
+        "templateCode": "N = int(input(\"Nhập số nguyên N: \"))\nif N <= 1:\n print(f\"{N} không là hợp số\")\nelse:\n la_hop_so = False\n for i in range(2, int(N**0.5) + 1):\n if N % i == 0:\n la_hop_so = True\n break\n if la_hop_so:\n print(f\"{N} là hợp số\")\n else:\n print(f\"{N} không là hợp số\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1",
+            "expected": "1 không là hợp số",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4",
+            "expected": "4 là hợp số",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "6",
+            "expected": "6 là hợp số",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7",
+            "expected": "7 không là hợp số",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "9",
+            "expected": "9 là hợp số",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 6,
+            "input": "11",
+            "expected": "11 không là hợp số",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Đảo từ",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Viết chương trình đọc xâu ký tự từ tệp `input.txt` (có ít nhất 2 từ), đảo ngược thứ tự các từ (giữa các từ cách nhau bởi một khoảng trắng) và ghi kết quả ra tệp `output.txt`.",
+        "templateCode": "with open(\"input.txt\", \"r\", encoding=\"utf-8\") as f:\n s = f.read()\nco_dau_cach_cuoi = s.endswith(\" \")\ntu = s.split()\ntu_dao = tu[::-1]\nket_qua = \" \".join(tu_dao)\nif co_dau_cach_cuoi:\n ket_qua += \" \"\nwith open(\"output.txt\", \"w\", encoding=\"utf-8\") as f:\n f.write(ket_qua)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "con ga",
+            "expected": "ga con",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "choi di xe dap",
+            "expected": "di xe dap choi",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "gioi hoc tin",
+            "expected": "tin hoc gioi",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "nguyen thanh truong",
+            "expected": "truong thanh nguyen",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "khong co gi quy hon doc lap tu do",
+            "expected": "do tu lap doc hon quy gi co khong",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Tổng các chữ số",
+        "classLevel": "THCS",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Viết chương trình nhập số nguyên dương $n$ từ tệp `input.txt` ($n < 10^{100}$). \nThực hiện tính tổng các chữ số của $n$ (gọi là $n_1$), tiếp tục tính tổng các chữ số của $n_1$ (gọi là $n_2$),... cho đến khi thu được số có 1 chữ số. Ghi kết quả gồm các số $n_1; n_2; \\dots; n_k$ phân cách bởi dấu chấm phẩy ra tệp `output.txt`.",
+        "templateCode": "with open(\"input.txt\", \"r\", encoding=\"utf-8\") as f:\n n = f.read().strip()\nket_qua = []\nwhile len(n) > 1:\n tong = 0\n for ch in n:\n tong += int(ch)\n ket_qua.append(str(tong))\n n = str(tong)\nwith open(\"output.txt\", \"w\", encoding=\"utf-8\") as f:\n f.write(\"; \".join(ket_qua))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "456789",
+            "expected": "39; 12; 3",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "98721",
+            "expected": "27; 9",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "123456789",
+            "expected": "45; 9",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "12345678910",
+            "expected": "46; 10; 1",
             "point": 1,
             "is_hidden": false
           }
