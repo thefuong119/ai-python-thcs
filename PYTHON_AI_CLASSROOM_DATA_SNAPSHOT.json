@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:23:26.478Z",
+    "updatedAt": "2026-11-07T11:23:53.012Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -281,7 +281,15 @@
         ]
       }
     ],
-    "gradebook": [],
+    "gradebook": [
+      {
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "attempts": 1,
+        "highestScore": 0,
+        "lastSubmit": "18:23:52 7/11/2026"
+      }
+    ],
     "lectures": [
       {
         "id": 1,
@@ -375,7 +383,37 @@
         "content": "### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```"
       }
     ],
-    "studentSubmissions": [],
+    "studentSubmissions": [
+      {
+        "id": 1794050632971,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 0,
+        "timestamp": "18:23:52 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(a+b)"
+      }
+    ],
     "loginLogs": [
       {
         "time": "18:19:49 7/11/2026",
@@ -421,7 +459,9 @@
       }
     ],
     "studentFlags": {
-      "loc": {}
+      "loc": {
+        "1": true
+      }
     },
     "flaggedAssignmentsCache": {
       "1": {
@@ -451,7 +491,9 @@
       }
     },
     "testSets": [],
-    "studentCodeCache": {},
+    "studentCodeCache": {
+      "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(a+b)"
+    },
     "questionFlags": {
       "43": true
     }
