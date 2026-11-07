@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T15:20:54.024Z",
+    "updatedAt": "2026-11-07T15:20:59.378Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Xóa đề thi: BÀI TẬP ÔN THI  LỚP 8 - Tối 07/11/2026"
+    "action": "Xóa đề thi: BÀI TẬP ÔN THI  LỚP 9 - Tối 07/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -5595,22 +5595,7 @@
         ]
       }
     },
-    "testSets": [
-      {
-        "id": 1794051956579,
-        "title": "BÀI TẬP ÔN THI  LỚP 9 - Tối 07/11/2026",
-        "grade": "9",
-        "allowSampleCode": true,
-        "questionIds": [
-          25,
-          133,
-          134
-        ],
-        "createdAt": "18:45:56 7/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      }
-    ],
+    "testSets": [],
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )",
       "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)",
