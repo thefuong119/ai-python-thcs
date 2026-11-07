@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T15:28:24.745Z",
+    "updatedAt": "2026-11-07T15:31:11.230Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin lưu bài tập: Bài 1. Tính tổng hai số nguyên A và B"
+    "action": "Admin lưu bài tập: Bài 2. Kiểm tra tính chẵn lẻ"
   },
   "data": {
     "registeredUsers": [
@@ -275,6 +275,20 @@
             "id": 2,
             "input": "7",
             "expected": "LE",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 1794065393759,
+            "input": "1111",
+            "expected": "LE",
+            "point": 5,
+            "is_hidden": true
+          },
+          {
+            "id": 1794065450709,
+            "input": "8888",
+            "expected": "CHAN",
             "point": 5,
             "is_hidden": true
           }
