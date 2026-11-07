@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:00:03.689Z",
+    "updatedAt": "2026-11-07T11:01:21.353Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin thêm GV: Nguyễn Thế Bình"
   },
   "data": {
     "registeredUsers": [
@@ -227,6 +227,23 @@
         "loginCount": 0,
         "_hasPassword": true,
         "password": null
+      },
+      {
+        "id": 1794049281344,
+        "name": "Nguyễn Thế Bình",
+        "username": "binh",
+        "identifier": "binh",
+        "passwordHash": "170cde191e0cfa2ee703c7d514fa1d4bcee399b09f018bacef47376acbb50ec9",
+        "school": "THCS Thành Đông",
+        "className": "Khối 11",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 0,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -376,22 +393,7 @@
       }
     ],
     "studentSubmissions": [],
-    "loginLogs": [
-      {
-        "time": "17:50:38 7/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "16:54:18 7/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      }
-    ],
+    "loginLogs": [],
     "studentFlags": {},
     "flaggedAssignmentsCache": {},
     "testSets": [],
