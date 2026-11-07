@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T14:07:50.631Z",
+    "updatedAt": "2026-11-07T14:09:22.222Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 4,
+        "attempts": 5,
         "highestScore": 10,
-        "lastSubmit": "21:00:12 7/11/2026"
+        "lastSubmit": "21:09:22 7/11/2026"
       }
     ],
     "lectures": [
@@ -5098,6 +5098,35 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1794060562180,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Chương trình khuyến mãi Mua K tặng 1",
+        "assignmentId": 51,
+        "score": 10,
+        "timestamp": "21:09:22 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10 4 20000",
+            "expected": "160000",
+            "actual": "160000",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "14 3 50000",
+            "expected": "550000",
+            "actual": "550000",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)"
+      },
+      {
         "id": 1794060012989,
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
@@ -5323,7 +5352,8 @@
         "1": true,
         "2": true,
         "43": true,
-        "44": true
+        "44": true,
+        "51": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5426,6 +5456,31 @@
             "is_hidden": false
           }
         ]
+      },
+      "51": {
+        "id": 51,
+        "title": "Chương trình khuyến mãi Mua K tặng 1",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Khách mua $K$ quyển sách cùng loại thì được tặng thêm 1 quyển miễn phí. Giả sử giá mỗi quyển sách là $P$ đồng. Một trường học cần mua đúng $N$ quyển sách để làm phần thưởng cho học sinh giỏi.\nHỏi trường học cần phải trả ít nhất bao nhiêu tiền để có đủ ít nhất $N$ quyển sách?\n\nDữ liệu vào: Một dòng gồm 3 số nguyên dương $N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 500000$).\nDữ liệu ra: Một số nguyên là số tiền tối thiểu cần thanh toán.",
+        "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\nso_du = N % (K + 1)\nso_quyen_phai_mua = so_nhom * K + so_du\nprint(so_quyen_phai_mua * P)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 4 20000",
+            "expected": "160000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "14 3 50000",
+            "expected": "550000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
       }
     },
     "testSets": [
@@ -5463,7 +5518,8 @@
       "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)",
       "minh__Bài 2. Kiểm tra tính chẵn lẻ": "# Viết mã Python của em ở đây...\nN = int(input())\nif N % 2 == 0: print('CHAN')\nelse: print('LE')",
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
-      "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = 10*6000 + ((m3-10)*7500)\nelse: Tien = 10*6000 + 10*7500 + ((m3-20)*10000)\nprint(Tien+(Tien*10//100)+(Tien*5//100))"
+      "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = 10*6000 + ((m3-10)*7500)\nelse: Tien = 10*6000 + 10*7500 + ((m3-20)*10000)\nprint(Tien+(Tien*10//100)+(Tien*5//100))",
+      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)"
     },
     "questionFlags": {
       "43": true
