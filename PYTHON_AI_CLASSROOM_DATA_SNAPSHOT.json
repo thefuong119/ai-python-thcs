@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:42:26.252Z",
+    "updatedAt": "2026-11-07T11:42:34.366Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Nạp 1 bài tập"
   },
@@ -3533,6 +3533,24 @@
       {
         "id": 133,
         "title": "Chuyên đề 1. Cấu trúc dữ liệu Ngăn xếp (Stack) & Hàng đợi (Queue) trong bài toán mô phỏng thực tế",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 134,
+        "title": "Bài mở đầu: Phân tích cấu trúc đề thi HSG Tin học 9 và Chiến lược đạt giải năm học 2026 - 2027",
         "classLevel": "9",
         "difficulty": "easy",
         "timeLimit": 2,
