@@ -136,6 +136,7 @@
         .msg-unread { border-left: 4px solid #f59e0b; background: #fffbeb; }
         .perm-disabled { opacity: 0.5; pointer-events: none; }
 
+        /* ===== HIỆU ỨNG NÚT HỎI GIA SƯ AI NHẤP NHÁY ===== */
         @keyframes aiPulse {
             0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.8), 0 4px 14px rgba(245,158,11,0.35); }
             50%      { box-shadow: 0 0 0 10px rgba(245,158,11,0), 0 4px 14px rgba(245,158,11,0.35); }
@@ -160,6 +161,24 @@
             transform: translateY(-1px) scale(1.03);
             filter: brightness(1.1);
         }
+
+        /* Floating AI Tutor button for students */
+        #floatingAiTutorBtn {
+            position: fixed; bottom: 100px; right: 24px; z-index: 99998;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #ea580c);
+            color: #fff; font-weight: 800;
+            box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 0 rgba(245,158,11,0.7);
+            animation: floatingAiPulse 1.8s ease-in-out infinite;
+            display: none; align-items: center; justify-content: center;
+            cursor: pointer; border: 3px solid #fff;
+        }
+        @keyframes floatingAiPulse {
+            0%, 100% { box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 0 rgba(245,158,11,0.7); transform: scale(1); }
+            50%      { box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 14px rgba(245,158,11,0); transform: scale(1.06); }
+        }
+        #floatingAiTutorBtn i { font-size: 26px; }
+        #floatingAiTutorBtn:hover { transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -442,7 +461,9 @@
                                 <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                     <i class="ph-bold ph-file-text text-blue-600"></i> Nội Dung Đề Bài
                                 </h3>
-                                <!-- ĐÃ XÓA NÚT GIA SƯ AI SỐ 1 TẠI ĐÂY -->
+                                <button onclick="openAiAssistant('socratic')" class="ai-tutor-blink text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all">
+                                    <i class="ph-bold ph-sparkle text-base"></i> Hỏi Gia Sư AI
+                                </button>
                             </div>
                             <div class="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-100">
                                 <input id="studentAssignmentSearch" oninput="populateAssignmentSelect()" placeholder="🔍 Tìm bài tập..." class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none flex-1 min-w-[140px]">
@@ -483,13 +504,15 @@
                                     <span class="font-mono text-slate-400 ml-2 font-medium">solution.py</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
-                                    <button onclick="copyCurrentCode()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium" title="Sao chép code">
+                                    <button onclick="insertTabInCode('student')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Chèn Tab">
+                                        <i class="ph-bold ph-arrow-elbow-down-right"></i> Tab
+                                    </button>
+                                    <button onclick="autoFormatCode('student')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1" title="Format code thông minh">
+                                        <i class="ph-bold ph-magic-wand"></i> Format
+                                    </button>
+                                    <button onclick="copyCurrentCode()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium" title="Sao chép">
                                         <i class="ph-bold ph-copy"></i>
                                     </button>
-                                    <button onclick="explainCurrentCode()" class="px-2.5 py-1.5 rounded-lg bg-indigo-500/30 hover:bg-indigo-500/40 text-indigo-200 border border-indigo-400/40 text-xs font-bold flex items-center gap-1 transition-all" title="Giải thích code của em">
-                                        <i class="ph-bold ph-book-open-text"></i> Giải thích code
-                                    </button>
-                                    <!-- GIỮ LẠI NÚT GIA SƯ AI SỐ 2 TẠI ĐÂY -->
                                     <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1">
                                         <i class="ph-bold ph-bug"></i> Hỏi Gia Sư AI
                                     </button>
@@ -515,7 +538,7 @@
                                 <label class="block font-bold text-sm text-slate-800 flex items-center gap-1.5">
                                     <i class="ph-bold ph-sign-in text-blue-600"></i> Dữ liệu vào (stdin):
                                 </label>
-                                <textarea id="customInput" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-code text-sm text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Nhập dữ liệu cho hàm input() tại đây..."></textarea>
+                                <textarea id="customInput" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 font-code text-sm text-slate-800 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Nhập số liệu thử nghiệm..."></textarea>
                             </div>
                             <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 space-y-2">
                                 <label class="block font-bold text-sm text-slate-800 flex items-center gap-1.5">
@@ -1500,7 +1523,10 @@
 
     </main>
 
-    <!-- ĐÃ XÓA NÚT FLOATING AI TUTOR (SỐ 3) TẠI ĐÂY -->
+    <!-- FLOATING AI TUTOR BUTTON (Only for students) -->
+    <button id="floatingAiTutorBtn" onclick="openAiAssistant('socratic')" title="Hỏi Gia Sư AI - Trợ lý thông minh" aria-label="Hỏi Gia Sư AI">
+        <i class="ph-bold ph-sparkle"></i>
+    </button>
 
     <!-- VIEW CONTENT MODAL -->
     <div id="viewContentDetailModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10005] hidden flex items-center justify-center p-4">
@@ -1812,11 +1838,10 @@
                     <ul class="list-disc list-inside space-y-1.5 text-emerald-800">
                         <li>Chọn tab <b>"Thực Hành"</b> → chọn bài tập ở danh sách bên trái.</li>
                         <li>Đọc đề bài phía trên, sau đó <b>viết code Python</b> vào ô soạn thảo màu đen bên phải.</li>
-                        <li><b>Dữ liệu vào (stdin):</b> Khi code của em có dùng hàm <code>input()</code> không có tham số (ví dụ: <code>a = int(input())</code>), hãy nhập dữ liệu tương ứng vào ô <b>"Dữ liệu vào (stdin)"</b> trước khi bấm <b>"Chạy Thử"</b> hoặc <b>"NỘP BÀI"</b>.</li>
+                        <li><b>Dữ liệu vào (stdin):</b> Nhập số liệu test vào ô <b>"Dữ liệu vào"</b>.</li>
                         <li>Nhấn <b>"Chạy Thử"</b> để xem kết quả nhanh ở ô "Kết quả".</li>
                         <li>Nhấn <b>"NỘP BÀI"</b> để hệ thống tự động chấm.</li>
                         <li>⭐ Nhấn <b>"Gắn cờ"</b> để đánh dấu bài đã học xong.</li>
-                        <li>📖 Nhấn <b>"Giải thích code"</b> để AI giải thích chi tiết code em đã viết.</li>
                     </ul>
                 </div>
 
@@ -1844,10 +1869,10 @@
                 <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 shadow-sm">
                     <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 5. SỬ DỤNG GIA SƯ AI</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-indigo-800">
-                        <li><b>Nút "Hỏi Gia Sư AI"</b> nằm trong thanh công cụ của trình soạn thảo code.</li>
+                        <li><b>Nút nổi bật nhấp nháy "Hỏi Gia Sư AI"</b> ở góc phải dưới màn hình (chỉ hiện khi học sinh đăng nhập).</li>
                         <li>Gõ câu hỏi vào ô chat → Gia sư AI sẽ giải thích, hướng dẫn code Python mẫu chi tiết.</li>
-                        <li><b>Giải thích code:</b> Nhấn nút <b>"Giải thích code"</b> trong khung soạn thảo → AI phân tích code em viết, giải thích biến, kiểu dữ liệu, thuật toán.</li>
                         <li><b>Robot trợ lý:</b> Biểu tượng robot ở góc màn hình. <b>Nhấp 1 lần</b> để đọc toàn bộ văn bản đang hiển thị; <b>nhấp lần nữa</b> để dừng.</li>
+                        <li>Nút <b>"Hỏi Gia Sư AI"</b> trong khung làm bài để hỏi lỗi code cụ thể.</li>
                     </ul>
                 </div>
 
@@ -1962,7 +1987,7 @@
             <div class="px-3 py-2 bg-slate-100/80 border-t border-slate-200 flex gap-2 overflow-x-auto text-xs shrink-0">
                 <button onclick="quickAskAi('Hãy kiểm tra lỗi trong đoạn code hiện tại.')" class="px-2.5 py-1 bg-white hover:bg-blue-50 text-blue-700 rounded-lg border border-blue-200 font-medium shadow-sm">Soi lỗi code</button>
                 <button onclick="quickAskAi('Tại sao kết quả sai?')" class="px-2.5 py-1 bg-white hover:bg-blue-50 text-blue-700 rounded-lg border border-blue-200 font-medium shadow-sm">Tại sao sai?</button>
-                <button onclick="explainCurrentCodeFromModal()" class="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg border border-indigo-200 font-bold shadow-sm">📖 Giải thích code</button>
+                <button onclick="quickAskAi('Giải thích thuật toán và code mẫu')" class="px-2.5 py-1 bg-white hover:bg-blue-50 text-blue-700 rounded-lg border border-blue-200 font-medium shadow-sm">Thuật toán + Code</button>
             </div>
             <div class="p-3 bg-white border-t border-slate-200 flex gap-2">
                 <input id="aiUserInput" type="text" placeholder="Đặt câu hỏi về bài tập Python..." class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" onkeydown="if(event.key==='Enter') sendAiMessage()">
@@ -2385,6 +2410,7 @@
     let flaggedAssignmentsCache = {};
     let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
 
+    // ===== TÍNH NĂNG MỚI: PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN =====
     let systemPermissions = {
         teacherCanAdd: true,
         teacherCanEdit: true,
@@ -2400,7 +2426,7 @@
     const GITHUB_FILE_PATH = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
-    const GITHUB_MESSAGES_PATH = "MESSAGE.json";
+    const GITHUB_MESSAGES_PATH = "MESSAGE.json"; // Tệp tin nhắn thời gian thực
 
     const DEFAULT_PROXY_ENDPOINT = "https://ai-thcs-python.thefuong119.workers.dev";
     let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || DEFAULT_PROXY_ENDPOINT;
@@ -2470,6 +2496,7 @@
     function getAdminSolution() { return adminSolutionEditor ? adminSolutionEditor.getValue() : (document.getElementById('adminNewSolutionCode')?.value || ""); }
     function setAdminSolution(v) { if (adminSolutionEditor) adminSolutionEditor.setValue(v || ''); else { const e = document.getElementById('adminNewSolutionCode'); if (e) e.value = v || ''; } }
 
+    // ===== ÁP DỤNG PHÂN QUYỀN & ĐỒNG BỘ NGAY =====
     async function applyPermissionsAndPush() {
         if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền thao tác!", "error");
         const btn = document.getElementById('btnApplyPermissions');
@@ -2491,6 +2518,7 @@
         }
     }
 
+    // ===== GỌI API AI MIỄN PHÍ (Pollinations.ai) =====
     async function callFreeAiApi(prompt, systemMsg = "") {
         const sys = systemMsg || "Bạn là gia sư AI chuyên bồi dưỡng học sinh giỏi môn lập trình Python cấp THCS tại Việt Nam. Trả lời bằng tiếng Việt dễ hiểu, súc tích (để robot có thể đọc thành tiếng). Hướng dẫn chi tiết cách viết code, cách dùng biến, kiểu dữ liệu và thuật toán. Kèm theo code Python đáp án hoàn chỉnh có chú thích từng bước. Tránh dùng nhiều ký hiệu markdown phức tạp.";
         const tryPost = async () => {
@@ -2527,6 +2555,7 @@
         return null;
     }
 
+    // ===== TÍNH NĂNG MỚI: HÀM PHÂN QUYỀN =====
     function hasPermission(action) {
         if (currentUser.role === 'admin') return true;
         if (currentUser.role !== 'teacher') return false;
@@ -2558,6 +2587,7 @@
         showToast(`Đã ${value ? 'bật' : 'tắt'} quyền: ${key}. Nhấn "Áp dụng & Đồng bộ ngay" để đẩy lên máy chủ.`, value ? 'success' : 'info');
     }
 
+    // ===== MULTI-DELETE ADMIN =====
     function toggleAdminItemSelection(type, id, checked) {
         if (!selectedAdminItems[type]) selectedAdminItems[type] = new Set();
         if (checked) selectedAdminItems[type].add(id);
@@ -2607,6 +2637,9 @@
         });
     }
 
+    // =============================================
+    // 📨 TÍNH NĂNG MỚI: MESSAGE.json - CHAT THỜI GIAN THỰC
+    // =============================================
     async function pushMessagesToGithubDirectly(actionDescription = "Cập nhật tin nhắn") {
         if (!PROXY_ENDPOINT) return false;
         try {
@@ -2645,6 +2678,7 @@
             const payload = await res.json();
             if (payload && Array.isArray(payload.studentMessages)) {
                 const localMap = new Map(studentMessages.map(m => [String(m.id), m]));
+                // Merge replies: ưu tiên bản có nhiều replies hơn (mới hơn)
                 payload.studentMessages.forEach(sm => {
                     const lm = localMap.get(String(sm.id));
                     if (lm) {
@@ -2662,6 +2696,7 @@
         } catch(e) { return false; }
     }
 
+    // ===== LỜI NHẮN =====
     async function sendStudentMessage() {
         if (!currentUser.isLoggedIn || currentUser.role !== 'student') return showToast("Vui lòng đăng nhập!", "error");
         const ta = document.getElementById('studentMessageInput');
@@ -2684,6 +2719,7 @@
         autoSaveLocalSnapshot();
         renderStudentMessages();
         showToast("Đang gửi tin nhắn lên máy chủ...", "info");
+        // Đẩy NGAY MESSAGE.json để chat gần như thời gian thực
         try {
             const [msgOk] = await Promise.all([
                 pushMessagesToGithubDirectly(`HS ${currentUser.name} gửi tin nhắn`),
@@ -2774,6 +2810,7 @@
         m.read = true;
         autoSaveLocalSnapshot();
         renderTeacherMessages(); renderAdminMessages();
+        // Đẩy MESSAGE.json để đồng bộ tức thì
         pushMessagesToGithubDirectly("Đánh dấu tin nhắn đã đọc").catch(() => {});
         enqueueSync(`Đánh dấu tin nhắn đã đọc`);
     }
@@ -2803,6 +2840,7 @@
         autoSaveLocalSnapshot();
         renderTeacherMessages(); renderAdminMessages(); renderStudentMessages();
         showToast("Đã gửi phản hồi! Đang đồng bộ...", "info");
+        // Đẩy MESSAGE.json ngay để học sinh thấy tức thì
         try {
             await Promise.all([
                 pushMessagesToGithubDirectly(`GV/Admin phản hồi tin nhắn`),
@@ -3379,9 +3417,11 @@
         const studentView = document.getElementById('studentView');
         const teacherView = document.getElementById('teacherView');
         const adminView = document.getElementById('adminView');
+        const floatingBtn = document.getElementById('floatingAiTutorBtn');
         if (!currentUser.isLoggedIn) {
             guestLockView?.classList.remove('hidden');
             studentView?.classList.add('hidden'); teacherView?.classList.add('hidden'); adminView?.classList.add('hidden');
+            if (floatingBtn) floatingBtn.style.display = 'none';
             openLoginModal(role === 'admin' || role === 'teacher' ? 'teacher' : 'student', 'login');
             return;
         }
@@ -3391,12 +3431,15 @@
         studentView?.classList.add('hidden'); teacherView?.classList.add('hidden'); adminView?.classList.add('hidden');
         if (role === 'student' && studentView) {
             studentView.classList.remove('hidden'); switchStudentTab('lectures');
+            if (floatingBtn) floatingBtn.style.display = 'flex';
         }
         else if (role === 'teacher' && teacherView) {
             teacherView.classList.remove('hidden'); updateTeacherStats(); switchTeacherTab('lectures'); enforceTeacherUiPermissions();
+            if (floatingBtn) floatingBtn.style.display = 'none';
         }
         else if (role === 'admin' && adminView) {
             adminView.classList.remove('hidden'); refreshAdminDashboard();
+            if (floatingBtn) floatingBtn.style.display = 'none';
         }
         updateUserHeaderUi();
     }
@@ -3412,6 +3455,7 @@
         const roleWrapper = document.getElementById('roleDropdownWrapper');
         const roleLabel = document.getElementById('currentRoleLabel');
         const dropdownAdminBtn = document.getElementById('dropdownAdminBtn');
+        const floatingBtn = document.getElementById('floatingAiTutorBtn');
         if (currentUser.isLoggedIn) {
             profileBadge?.classList.replace('hidden', 'flex');
             if (nameDisplay) nameDisplay.textContent = currentUser.name;
@@ -3427,11 +3471,13 @@
             } else {
                 roleWrapper?.classList.add('hidden');
                 if (roleBadge) { roleBadge.textContent = `Học sinh (${currentUser.className || 'Lớp 8'})`; roleBadge.className = 'text-xs text-emerald-400 font-medium'; }
+                if (floatingBtn) floatingBtn.style.display = 'flex';
             }
             if (roleLabel) roleLabel.textContent = currentRole === 'student' ? 'Học Sinh' : (currentRole === 'teacher' ? 'Giáo Viên' : 'Admin');
         } else {
             profileBadge?.classList.add('hidden'); btnLogout?.classList.add('hidden'); roleWrapper?.classList.add('hidden');
             btnOpenTeacher?.classList.remove('hidden'); btnOpenStudent?.classList.remove('hidden'); btnGuestExit?.classList.remove('hidden');
+            if (floatingBtn) floatingBtn.style.display = 'none';
         }
     }
 
@@ -3645,6 +3691,8 @@
         currentRole = 'student'; currentTestSession = null;
         ['studentView','teacherView','adminView'].forEach(v => document.getElementById(v)?.classList.add('hidden'));
         document.getElementById('guestLockView')?.classList.remove('hidden');
+        const floatingBtn = document.getElementById('floatingAiTutorBtn');
+        if (floatingBtn) floatingBtn.style.display = 'none';
         updateUserHeaderUi(); openLoginModal('student', 'login');
         showToast("Đã đăng xuất và đồng bộ dữ liệu!", "success");
     }
@@ -3782,6 +3830,7 @@
             applySnapshotData(payload.data);
             await migratePasswordHashes();
             ensureTrialAccountsAlwaysAvailable();
+            // Nạp MESSAGE.json để đảm bảo tin nhắn mới nhất
             try { await fetchMessagesFromGithub(); } catch(e) {}
             if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN');
             if (showAlert) showToast("Đã nạp dữ liệu mới!", "success");
@@ -4174,9 +4223,6 @@
         const sc = document.getElementById('sampleTestContainer');
         if (sc) sc.innerHTML = found.tests.filter(t => !t.is_hidden).map(t => `<div class="bg-slate-50 p-2 rounded-xl text-xs font-mono border border-slate-200"><span class="text-blue-600 font-bold">Input:</span> ${escapeHtml(t.input)} | <span class="text-emerald-600 font-bold">Output:</span> ${escapeHtml(t.expected)}</div>`).join('');
         renderKaTeXFormulas(document.getElementById('assignmentDescription'));
-        // XÓA NỘI DUNG AI CHAT khi chuyển bài tập mới (ngữ cảnh mới)
-        const aiBox = document.getElementById('aiChatBox');
-        if (aiBox) aiBox.innerHTML = '';
     }
 
     function renderTestCaseEditor() {
@@ -5554,16 +5600,7 @@
         robotWidget.style.left = cx + 'px'; robotWidget.style.top = cy + 'px'; updateBubbleOrientation();
     }
 
-    // =============================================
-    // 🧠 AI MODAL
-    // =============================================
-    function openAiAssistant(mode = 'socratic') {
-        // XÓA TOÀN BỘ NỘI DUNG CHAT CŨ khi mở hộp thoại mới
-        const box = document.getElementById('aiChatBox');
-        if (box) box.innerHTML = '';
-        setAiMode(mode);
-        document.getElementById('aiModal')?.classList.remove('hidden');
-    }
+    function openAiAssistant(mode = 'socratic') { setAiMode(mode); document.getElementById('aiModal')?.classList.remove('hidden'); }
     function closeAiModal() { document.getElementById('aiModal')?.classList.add('hidden'); }
     function setAiMode(mode) {
         currentAiMode = mode;
@@ -5586,123 +5623,8 @@
     function quickAskAi(text) { const i = document.getElementById('aiUserInput'); if (i) { i.value = text; sendAiMessage(); } }
 
     // =============================================
-    // 📖 TÍNH NĂNG MỚI: GIẢI THÍCH CODE TỪ VÙNG SOẠN THẢO
+    // 🧠 GIA SƯ AI THÔNG MINH - TRẢ LỜI VĂN BẢN + CODE PYTHON
     // =============================================
-    async function explainCurrentCode() {
-        const code = getStudentCode();
-        const cleanCode = (code || '').trim();
-        if (!cleanCode || cleanCode.startsWith('# Viết mã Python của em')) {
-            showToast("⚠️ Chưa có code để giải thích! Hãy viết code trước rồi nhấn lại.", "info");
-            speakRobotText("Em hãy viết code trước rồi thầy sẽ giải thích.");
-            return;
-        }
-        // Mở AI modal - sẽ xóa chat cũ
-        openAiAssistant('socratic');
-        // Ghi đè tin nhắn welcome bằng yêu cầu giải thích
-        const box = document.getElementById('aiChatBox');
-        if (box) box.innerHTML = '';
-        appendAiChatMessage('user', '📖 Hãy giải thích chi tiết code của em');
-
-        // Hiển thị loading
-        const loadingDiv = document.createElement('div');
-        loadingDiv.id = 'aiLoadingIndicator';
-        loadingDiv.className = 'flex justify-start';
-        loadingDiv.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl bg-slate-100 text-slate-800 rounded-bl-none"><div class="font-bold text-xs text-slate-500">Gia Sư AI</div><div class="text-sm flex items-center gap-2"><i class="ph-bold ph-spinner animate-spin text-blue-600"></i> Đang phân tích code và soạn giải thích chi tiết...</div></div>`;
-        box?.appendChild(loadingDiv);
-        if (box) box.scrollTop = box.scrollHeight;
-
-        // Xây dựng prompt chuyên sâu
-        const currentQuestion = currentAssignment?.title || 'bài tập lập trình Python';
-        const fullPrompt = `Thầy cô là giảng viên chuyên bồi dưỡng học sinh giỏi môn lập trình Python. Học sinh đang làm bài "${currentQuestion}".
-
-Hãy GIẢI THÍCH CHI TIẾT đoạn code Python sau để học sinh hiểu rõ:
-
-\`\`\`python
-${cleanCode}
-\`\`\`
-
-YÊU CẦU BẮT BUỘC:
-1. Giải thích MỤC ĐÍCH TỔNG QUÁT của đoạn code (chương trình làm gì?).
-2. Giải thích CHI TIẾT TỪNG DÒNG hoặc nhóm dòng code làm gì.
-3. Giải thích CÁC BIẾN được sử dụng: tên biến, kiểu dữ liệu (int, float, str, list...), giá trị.
-4. Giải thích THUẬT TOÁN/LOGIC chính: cách xử lý dữ liệu vào, tính toán, xuất kết quả.
-5. CHỈ RA ƯU ĐIỂM và ĐIỂM CẦN CẢI THIỆN (nếu có).
-6. Nếu code có LỖI, chỉ rõ lỗi ở đâu và cách sửa.
-7. Nếu có thể, đưa ra CODE MẪU TỐI ƯU hơn (đặt giữa \`\`\`python và \`\`\`).
-
-QUAN TRỌNG: Trả lời bằng VĂN BẢN SUÔNG tiếng Việt dễ hiểu, dùng câu ngắn gọn để robot có thể đọc thành tiếng. Không dùng nhiều ký hiệu markdown phức tạp.`;
-
-        let reply = null;
-        try { reply = await callFreeAiApi(fullPrompt); } catch(e) { console.warn('[AI-EXPLAIN]', e); }
-
-        // Fallback chất lượng cao
-        if (!reply) {
-            const lines = cleanCode.split('\n').filter(l => l.trim());
-            const hasInput = cleanCode.includes('input');
-            const hasPrint = cleanCode.includes('print');
-            const hasIf = /\bif\b|\belse\b|\belif\b/.test(cleanCode);
-            const hasFor = /\bfor\b/.test(cleanCode);
-            const hasWhile = /\bwhile\b/.test(cleanCode);
-            const hasDef = /\bdef\b/.test(cleanCode);
-            const hasImport = /\bimport\b/.test(cleanCode);
-            const vars = [...new Set((cleanCode.match(/\b[a-z_][a-z0-9_]*\s*=/g) || []).map(v => v.replace(/\s*=/g, '')))];
-            reply = `📖 Thầy đã xem code của em cho bài "${currentQuestion}".\n\n` +
-                `📌 Tổng quan: Code có ${lines.length} dòng.\n\n` +
-                (hasInput ? `✓ Có đọc dữ liệu bằng input() - tốt!\n` : `⚠️ Chưa có input() để đọc dữ liệu!\n`) +
-                (hasPrint ? `✓ Có xuất kết quả bằng print() - tốt!\n` : `⚠️ Chưa có print() để in kết quả!\n`) +
-                (hasIf ? `✓ Có dùng cấu trúc rẽ nhánh if/else.\n` : ``) +
-                (hasFor ? `✓ Có dùng vòng lặp for.\n` : ``) +
-                (hasWhile ? `✓ Có dùng vòng lặp while.\n` : ``) +
-                (hasDef ? `✓ Có định nghĩa hàm (def).\n` : ``) +
-                (hasImport ? `✓ Có sử dụng thư viện (import).\n` : ``) +
-                (vars.length > 0 ? `\n🔤 Các biến đang dùng: ${vars.slice(0, 8).join(', ')}${vars.length > 8 ? '...' : ''}\n` : '') +
-                `\n💡 Gợi ý: Để được giải thích chi tiết từng dòng, em hãy hỏi thầy câu cụ thể hơn nhé!`;
-        }
-
-        document.getElementById('aiLoadingIndicator')?.remove();
-        appendAiChatMessage('assistant', reply);
-        speakRobotText(reply.substring(0, 600));
-    }
-
-    async function explainCurrentCodeFromModal() {
-        const code = getStudentCode();
-        const cleanCode = (code || '').trim();
-        if (!cleanCode || cleanCode.startsWith('# Viết mã Python của em')) {
-            showToast("⚠️ Chưa có code để giải thích! Hãy viết code trước.", "info");
-            return;
-        }
-        appendAiChatMessage('user', '📖 Giải thích code của em');
-        const box = document.getElementById('aiChatBox');
-        const loadingDiv = document.createElement('div');
-        loadingDiv.id = 'aiLoadingIndicator';
-        loadingDiv.className = 'flex justify-start';
-        loadingDiv.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl bg-slate-100 text-slate-800 rounded-bl-none"><div class="font-bold text-xs text-slate-500">Gia Sư AI</div><div class="text-sm flex items-center gap-2"><i class="ph-bold ph-spinner animate-spin text-blue-600"></i> Đang phân tích code...</div></div>`;
-        box?.appendChild(loadingDiv);
-        if (box) box.scrollTop = box.scrollHeight;
-
-        const currentQuestion = currentAssignment?.title || 'bài tập lập trình Python';
-        const fullPrompt = `Hãy giải thích chi tiết đoạn code Python sau cho học sinh hiểu:
-
-\`\`\`python
-${cleanCode}
-\`\`\`
-
-YÊU CẦU: Giải thích mục đích, từng dòng, các biến, thuật toán, ưu điểm, điểm cải thiện. Trả lời bằng văn bản suông tiếng Việt dễ hiểu.`;
-
-        let reply = null;
-        try { reply = await callFreeAiApi(fullPrompt); } catch(e) {}
-        if (!reply) {
-            const lines = cleanCode.split('\n').filter(l => l.trim());
-            reply = `📖 Code của em có ${lines.length} dòng. ` +
-                (cleanCode.includes('input') ? 'Có input() đọc dữ liệu ✓. ' : '⚠️ Chưa có input(). ') +
-                (cleanCode.includes('print') ? 'Có print() xuất kết quả ✓. ' : '⚠️ Chưa có print(). ') +
-                `Em hãy hỏi thầy chi tiết hơn để được giải thích từng dòng!`;
-        }
-        document.getElementById('aiLoadingIndicator')?.remove();
-        appendAiChatMessage('assistant', reply);
-        speakRobotText(reply.substring(0, 600));
-    }
-
     async function sendAiMessage() {
         const i = document.getElementById('aiUserInput');
         const text = i ? i.value.trim() : '';
@@ -5710,6 +5632,7 @@ YÊU CẦU: Giải thích mục đích, từng dòng, các biến, thuật toán
         appendAiChatMessage('user', text);
         if (i) i.value = '';
 
+        // Hiển thị trạng thái đang suy nghĩ
         const box = document.getElementById('aiChatBox');
         const loadingDiv = document.createElement('div');
         loadingDiv.id = 'aiLoadingIndicator';
@@ -5718,6 +5641,7 @@ YÊU CẦU: Giải thích mục đích, từng dòng, các biến, thuật toán
         box?.appendChild(loadingDiv);
         if (box) box.scrollTop = box.scrollHeight;
 
+        // Xây dựng prompt theo yêu cầu chính xác
         const code = getStudentCode();
         const codeBlock = code && code.trim() && !code.includes('# Viết mã Python') ? `\n\nCode hiện tại của em:\n${code.substring(0, 1500)}` : '';
         const currentQuestion = currentAssignment?.title || 'bài tập lập trình Python';
@@ -5736,6 +5660,7 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         let reply = null;
         try { reply = await callFreeAiApi(fullPrompt); } catch(e) { console.warn(e); }
 
+        // Fallback chất lượng cao nếu AI không phản hồi
         if (!reply) {
             const isTA = (currentUser.role === 'teacher' || currentUser.role === 'admin');
             if (currentAiMode === 'socratic') {
@@ -5822,13 +5747,19 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         } catch(e) { return escapeHtml(text || ""); }
     }
 
+    // =============================================
+    // ⚡ POLLING LỜI NHẮN + PHÂN QUYỀN (THỜI GIAN THỰC)
+    // =============================================
     let __msgPollTimer = null;
     let __permPollCounter = 0;
     let __lastPermsJson = "";
     function startMessagesAutoRefresh() {
         if (__msgPollTimer) return;
+        __permPollTimer = null;
         __msgPollTimer = setInterval(async () => {
             __permPollCounter++;
+
+            // Mỗi ~30 giây: Giáo viên tự động nhận cập nhật phân quyền mới
             if (__permPollCounter % 5 === 0 && currentUser.role === 'teacher' && PROXY_ENDPOINT) {
                 try {
                     const res = await githubFetchViaProxy(GITHUB_FILE_PATH, { method: 'GET' }, 1);
@@ -5843,8 +5774,10 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
                             showToast("Admin đã cập nhật quyền hạn của bạn!", "info");
                         }
                     }
-                } catch(e) { }
+                } catch(e) { /* im lặng */ }
             }
+
+            // Polling tin nhắn (khi đang ở tab messages)
             const inMsgTab = !document.getElementById('teacherTabMessages')?.classList.contains('hidden')
                           || !document.getElementById('adminTabMessages')?.classList.contains('hidden')
                           || !document.getElementById('studentMessagesSection')?.classList.contains('hidden');
@@ -5856,8 +5789,8 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
                     else if (currentUser.role === 'admin') renderAdminMessages();
                     else if (currentUser.role === 'student') renderStudentMessages();
                 }
-            } catch(e) { }
-        }, 6000);
+            } catch(e) { /* im lặng */ }
+        }, 6000); // 6 giây
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
@@ -5891,6 +5824,7 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         setTimeout(centerRobotOnScreen, 150);
         startMessagesAutoRefresh();
         setTimeout(() => renderKaTeXFormulas(document.body), 300);
+        // Khởi tạo __lastPermsJson ban đầu
         __lastPermsJson = JSON.stringify(systemPermissions);
     });
 
