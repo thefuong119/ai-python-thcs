@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T10:58:21.253Z",
+    "updatedAt": "2026-11-07T10:58:49.318Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
     "action": "Nộp dữ liệu thủ công"
   },
@@ -106,8 +106,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048726572,
@@ -123,8 +123,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048763194,
@@ -140,8 +140,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048793638,
@@ -157,8 +157,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048834223,
@@ -174,8 +174,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048895690,
@@ -191,8 +191,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794048949214,
@@ -208,8 +208,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       },
       {
         "id": 1794049051361,
@@ -225,25 +225,8 @@
         "role": "student",
         "status": "active",
         "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
-      },
-      {
-        "id": 1794049078441,
-        "name": "Nguyễn Thế Bình",
-        "username": "binh",
-        "identifier": "binh",
-        "passwordHash": "170cde191e0cfa2ee703c7d514fa1d4bcee399b09f018bacef47376acbb50ec9",
-        "school": "THCS Thành Đông",
-        "className": "Khối 11",
-        "phone": "---",
-        "cccd": "",
-        "email": "",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 0,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       }
     ],
     "assignments": [
