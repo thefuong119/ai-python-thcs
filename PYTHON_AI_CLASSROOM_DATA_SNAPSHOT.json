@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T03:23:04.537Z",
+    "updatedAt": "2026-11-07T03:24:09.204Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin cập nhật TK: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 55,
+        "loginCount": 54,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -13317,20 +13317,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "10:22:30 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "10:22:18 7/11/2026",
-        "name": "binh",
-        "identifier": "binh",
-        "role": "student",
-        "result": "Reset pw"
-      },
       {
         "time": "20:06:12 6/11/2026",
         "name": "Phan Trọng Khương",
