@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T16:18:48.772Z",
+    "updatedAt": "2026-11-07T16:23:04.855Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Học sinh Nguyễn Thế Phương nộp bài"
+    "action": "Admin phân quyền: teacherCanDelete=false"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 53,
+        "loginCount": 54,
         "_hasPassword": true,
         "password": null
       },
@@ -4595,13 +4595,6 @@
         "attempts": 7,
         "highestScore": 10,
         "lastSubmit": "21:37:14 7/11/2026"
-      },
-      {
-        "student": "Nguyễn Thế Phương",
-        "username": "086081006094",
-        "attempts": 1,
-        "highestScore": 0,
-        "lastSubmit": "23:18:48 7/11/2026"
       }
     ],
     "lectures": [
@@ -5007,35 +5000,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794068328733,
-        "student": "Nguyễn Thế Phương",
-        "username": "086081006094",
-        "assignmentTitle": "Bài 1. Tính tổng mảng siêu tốc",
-        "assignmentId": 3,
-        "score": 0,
-        "timestamp": "23:18:48 7/11/2026",
-        "date": "2026-11-07",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "5\n1 2 3 4 5",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "3\n-10 20 -5",
-            "expected": "5",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    if not data:\n        return\n        n = int(data[0])\n        arr = [int(x) for x in data[1:n + 1]]\n        sys.stdout.write(str(sum(arr)) + \"\\n\")\n\n        if __name__ == '__main__':\n            main()"
-      },
-      {
         "id": 1794062234121,
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
@@ -5270,7 +5234,35 @@
     ],
     "loginLogs": [
       {
-        "time": "23:17:04 7/11/2026",
+        "time": "23:22:50 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "23:22:32 7/11/2026",
+        "name": "Học sinh Dùng Thử",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:22:13 7/11/2026",
+        "name": "Học sinh Dùng Thử",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "23:16:55 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "23:13:22 7/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
         "role": "admin",
@@ -5386,9 +5378,6 @@
         "44": true,
         "51": true,
         "52": true
-      },
-      "086081006094": {
-        "3": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5437,31 +5426,6 @@
             "id": 2,
             "input": "7",
             "expected": "LE",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "3": {
-        "id": 3,
-        "title": "Bài 1. Tính tổng mảng siêu tốc",
-        "classLevel": "9",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Cho dãy số nguyên gồm $N$ phần tử $A_1, A_2, \\dots, A_N$ ($N \\le 10^6, |A_i| \\le 10^9$).\nHãy tính tổng của tất cả các phần tử trong dãy số.\nDữ liệu vào:\n- Dòng 1 chứa số nguyên $N$.\n- Dòng 2 chứa $N$ số nguyên cách nhau một khoảng trắng.\nKết quả ra:\n- In ra một số nguyên duy nhất là tổng các phần tử.",
-        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n sys.stdout.write(str(sum(arr)) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
-        "tests": [
-          {
-            "id": 1,
-            "input": "5\n1 2 3 4 5",
-            "expected": "15",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "3\n-10 20 -5",
-            "expected": "5",
             "point": 5,
             "is_hidden": true
           }
@@ -5576,8 +5540,7 @@
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
       "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = 10*6000 + ((m3-10)*7500)\nelse: Tien = 10*6000 + 10*7500 + ((m3-20)*10000)\nprint(Tien+(Tien*10//100)+(Tien*5//100))",
       "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)",
-      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son = ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))",
-      "086081006094__Bài 1. Tính tổng mảng siêu tốc": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    if not data:\n        return\n        n = int(data[0])\n        arr = [int(x) for x in data[1:n + 1]]\n        sys.stdout.write(str(sum(arr)) + \"\\n\")\n\n        if __name__ == '__main__':\n            main()"
+      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son = ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))"
     },
     "questionFlags": {
       "43": true
@@ -5585,7 +5548,7 @@
     "systemPermissions": {
       "teacherCanAdd": true,
       "teacherCanEdit": true,
-      "teacherCanDelete": true,
+      "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": true
     },
