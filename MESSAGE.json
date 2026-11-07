@@ -1,11 +1,22 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-07T18:29:27.260Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "GV/Admin phản hồi tin nhắn",
-    "count": 1
+    "updatedAt": "2026-11-07T21:17:16.592Z",
+    "updatedBy": "Trần Gia Hân",
+    "action": "HS Trần Gia Hân gửi tin nhắn",
+    "count": 2
   },
   "studentMessages": [
+    {
+      "id": 1794086236574,
+      "from": "han",
+      "fromName": "Trần Gia Hân",
+      "fromClass": "9A2",
+      "content": "Dạ, sáng mai học mấy giờ vậy thầy?!",
+      "timestamp": "04:17:16 8/11/2026",
+      "date": "2026-11-07",
+      "read": false,
+      "replies": []
+    },
     {
       "id": 1794069621209,
       "from": "hocsinh",
