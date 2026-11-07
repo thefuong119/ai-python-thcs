@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T03:42:45.232Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-07T03:59:19.938Z",
+    "updatedBy": "Nguyễn Thế Bình",
+    "action": "Đăng xuất: Nguyễn Thế Bình"
   },
   "data": {
     "registeredUsers": [
@@ -202,7 +202,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 3,
+        "loginCount": 4,
         "phone": "Zalo cá nhân",
         "school": "Trường THPT Tân Lược",
         "className": "11",
@@ -13317,6 +13317,27 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:59:19 7/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "10:59:14 7/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "10:59:09 7/11/2026",
+        "name": "Nguyễn Thế Bình",
+        "identifier": "binh",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
       {
         "time": "20:06:12 6/11/2026",
         "name": "Phan Trọng Khương",
