@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:47:24.850Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "updatedAt": "2026-11-07T07:47:42.255Z",
+    "updatedBy": "Khách",
+    "action": "Đăng xuất: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -35,7 +35,7 @@
         "school": "Trường THCS - THPT Mỹ Thuận",
         "className": "11A1",
         "teacherName": "---",
-        "phone": "0932861739",
+        "phone": "Zalo cá nhân",
         "email": "",
         "role": "teacher",
         "authMethod": "Tên đăng nhập + Mật khẩu",
@@ -139,7 +139,7 @@
         "className": "8A2",
         "teacherName": "Thầy Nguyễn Thế Phương",
         "phone": "0939924811",
-        "email": "phulocsliderman@gmail.com",
+        "email": "",
         "role": "student",
         "authMethod": "Tên đăng nhập",
         "status": "active",
@@ -148,7 +148,6 @@
         "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
-        "cccd": "086213008519",
         "password": null
       },
       {
@@ -159,7 +158,7 @@
         "school": "THCS Thành Đông",
         "className": "8A4",
         "teacherName": "Thầy Nguyễn Thế Phương",
-        "phone": "0909099270",
+        "phone": "Zalo PHHS",
         "email": "",
         "role": "student",
         "authMethod": "Tên đăng nhập",
@@ -169,7 +168,7 @@
         "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
-        "cccd": "086213007224",
+        "cccd": "",
         "password": null
       },
       {
@@ -191,7 +190,7 @@
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
-        "cccd": "086213000252",
+        "cccd": "",
         "password": null
       },
       {
@@ -240,7 +239,7 @@
         "role": "student",
         "status": "active",
         "loginCount": 3,
-        "phone": "0932861739",
+        "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
         "passwordHash": "b2708c4e7776c7c57b56fbb8de31e7662418f123bec87f7810282c9858ad69c9",
@@ -255,7 +254,7 @@
         "identifier": "giaovien",
         "school": "THCS Thành Đông",
         "className": "Khối 8",
-        "phone": "0932861739",
+        "phone": "0123456789",
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
