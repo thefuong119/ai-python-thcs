@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T10:54:59.331Z",
+    "updatedAt": "2026-11-07T10:55:49.220Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin thêm GV: Lê Hoàng Ba"
   },
   "data": {
     "registeredUsers": [
@@ -185,6 +185,23 @@
         "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
         "school": "THCS Thành Đông",
         "className": "Khối 9",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 0,
+        "password": null,
+        "_hasPassword": true
+      },
+      {
+        "id": 1794048949214,
+        "name": "Lê Hoàng Ba",
+        "username": "hoangba",
+        "identifier": "hoangba",
+        "passwordHash": "8f7a098fed1a1c967171affaebea6e5cb03b83d70e2ac1e1dbc72d5b816b920f",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
         "phone": "---",
         "cccd": "",
         "email": "",
