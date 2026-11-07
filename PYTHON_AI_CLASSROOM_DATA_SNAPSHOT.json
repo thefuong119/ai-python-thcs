@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T20:00:17.010Z",
+    "updatedAt": "2026-11-07T20:28:44.621Z",
     "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -88,7 +88,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 18,
+        "loginCount": 17,
         "_hasPassword": true,
         "password": null
       },
@@ -5205,13 +5205,6 @@
     ],
     "loginLogs": [
       {
-        "time": "02:52:30 8/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "02:32:02 8/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -5443,171 +5436,8 @@
         "result": "Thành công"
       }
     ],
-    "studentFlags": {
-      "loc": {
-        "1": true
-      },
-      "minh": {
-        "1": true,
-        "2": true,
-        "43": true,
-        "44": true,
-        "51": true,
-        "52": true
-      }
-    },
-    "flaggedAssignmentsCache": {
-      "1": {
-        "id": 1,
-        "title": "Bài 1. Tính tổng hai số nguyên A và B",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
-        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 5",
-            "expected": "8",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "2": {
-        "id": 2,
-        "title": "Bài 2. Kiểm tra tính chẵn lẻ",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "### Đề bài\nNhập số nguyên $N$. In `CHAN` nếu chẵn, `LE` nếu lẻ.\n\n### Dữ liệu vào\nMột số nguyên $N$.",
-        "templateCode": "n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')\n",
-        "tests": [
-          {
-            "id": 1,
-            "input": "4",
-            "expected": "CHAN",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "7",
-            "expected": "LE",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "43": {
-        "id": 43,
-        "title": "Tính tiền điện bậc thang sinh hoạt",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$ và chỉ số mới là $new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$ và $new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
-        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n tien = kwh * 1800\nelif kwh <= 100:\n tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "120 160",
-            "expected": "77760",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "100 240",
-            "expected": "300240",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "44": {
-        "id": 44,
-        "title": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ của một hộ gia đình là $m$ ($m$ là số nguyên dương). Giá nước sinh hoạt theo bậc thang quy định như sau:\n- Mức 1 (đến 10 $m^3$ đầu tiên): 6000 đ/$m^3$\n- Mức 2 (từ $m^3$ thứ 11 đến 20): 7500 đ/$m^3$\n- Mức 3 (từ $m^3$ thứ 21 trở lên): 10000 đ/$m^3$\nNgoài ra, hộ gia đình phải nộp thêm 10% phí bảo vệ môi trường trên tổng tiền nước trước thuế và 5% thuế VAT (tính trên tổng tiền nước trước thuế).\nHãy tính tổng số tiền hộ gia đình phải nộp (kết quả làm tròn đến hàng đơn vị).\n\nDữ liệu vào: Một số nguyên dương $m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả.",
-        "templateCode": "m = int(input().strip())\nif m <= 10:\n tien = m * 6000\nelif m <= 20:\n tien = 10 * 6000 + (m - 10) * 7500\nelse:\n tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "8",
-            "expected": "55200",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "25",
-            "expected": "212750",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "51": {
-        "id": 51,
-        "title": "Chương trình khuyến mãi Mua K tặng 1",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Khách mua $K$ quyển sách cùng loại thì được tặng thêm 1 quyển miễn phí. Giả sử giá mỗi quyển sách là $P$ đồng. Một trường học cần mua đúng $N$ quyển sách để làm phần thưởng cho học sinh giỏi.\nHỏi trường học cần phải trả ít nhất bao nhiêu tiền để có đủ ít nhất $N$ quyển sách?\n\nDữ liệu vào: Một dòng gồm 3 số nguyên dương $N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 500000$).\nDữ liệu ra: Một số nguyên là số tiền tối thiểu cần thanh toán.",
-        "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\nso_du = N % (K + 1)\nso_quyen_phai_mua = so_nhom * K + so_du\nprint(so_quyen_phai_mua * P)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "10 4 20000",
-            "expected": "160000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "14 3 50000",
-            "expected": "550000",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "52": {
-        "id": 52,
-        "title": "Chi phí sơn phòng học hình hộp chữ nhật",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Cần sơn 4 bức tường xung quanh và trần nhà của một phòng học hình hộp chữ nhật có chiều dài $a$ (m), chiều rộng $b$ (m) và chiều cao $h$ (m). Biết diện tích các cửa đi và cửa sổ không cần sơn là $S_{cua}$ ($m^2$).\n- Mỗi mét vuông cần $d$ lít sơn.\n- Mỗi thùng sơn chứa được $c$ lít sơn và có giá là $P_{thung}$ đồng. Cửa hàng chỉ bán nguyên thùng (không bán lẻ lít).\nHãy tính tổng số tiền tối thiểu để mua sơn hoàn thành công việc.\n\nDữ liệu vào: Một dòng gồm 6 số: ba số thực $a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
-        "templateCode": "import math\n\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua = float(line[3])\nd = float(line[4])\nc = float(line[5])\np_thung = int(line[6])\n\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nlit_can = s_son * d\nso_thung = math.ceil(lit_can / c)\n\nprint(so_thung * p_thung)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      }
-    },
+    "studentFlags": {},
+    "flaggedAssignmentsCache": {},
     "testSets": [],
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )",
