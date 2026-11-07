@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:21:58.068Z",
-    "updatedBy": "Nguyễn Thế Phương",
+    "updatedAt": "2026-11-07T11:23:26.478Z",
+    "updatedBy": "Nguyễn Phú Lộc",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 47,
+        "loginCount": 46,
         "_hasPassword": true,
         "password": null
       },
@@ -139,7 +139,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "password": null
       },
@@ -378,11 +378,25 @@
     "studentSubmissions": [],
     "loginLogs": [
       {
-        "time": "18:21:34 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "18:19:49 7/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
         "result": "Thành công"
+      },
+      {
+        "time": "18:19:22 7/11/2026",
+        "name": "Học sinh Dùng Thử",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Reset pw"
+      },
+      {
+        "time": "18:19:19 7/11/2026",
+        "name": "Học sinh Dùng Thử",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Reset pw"
       },
       {
         "time": "18:13:14 7/11/2026",
@@ -406,8 +420,36 @@
         "result": "Thành công"
       }
     ],
-    "studentFlags": {},
-    "flaggedAssignmentsCache": {},
+    "studentFlags": {
+      "loc": {}
+    },
+    "flaggedAssignmentsCache": {
+      "1": {
+        "id": 1,
+        "title": "Bài 1. Tính tổng hai số nguyên A và B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
+        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      }
+    },
     "testSets": [],
     "studentCodeCache": {},
     "questionFlags": {
