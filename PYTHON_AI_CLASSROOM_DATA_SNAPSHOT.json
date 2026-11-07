@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T16:46:21.930Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-07T16:46:35.605Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 56,
+        "loginCount": 55,
         "_hasPassword": true,
         "password": null
       },
@@ -5234,20 +5234,6 @@
     ],
     "loginLogs": [
       {
-        "time": "23:46:21 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "23:44:30 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "23:40:30 7/11/2026",
         "name": "Học sinh Dùng Thử",
         "identifier": "hocsinh",
@@ -5603,19 +5589,8 @@
         "content": "Chào thầy, mai học lúc mấy giờ ạ!",
         "timestamp": "23:40:21 7/11/2026",
         "date": "2026-11-07",
-        "read": true,
-        "replies": [
-          {
-            "by": "Nguyễn Thế Phương",
-            "content": "Sáng mai, chúng ta học lúc 7 giờ 30 tại phòng Tin học 1",
-            "timestamp": "23:45:12 7/11/2026"
-          },
-          {
-            "by": "Nguyễn Thế Phương",
-            "content": "Thầy Phương nhắn ngày mai học lúc 7h30",
-            "timestamp": "23:46:13 7/11/2026"
-          }
-        ]
+        "read": false,
+        "replies": []
       }
     ]
   }
