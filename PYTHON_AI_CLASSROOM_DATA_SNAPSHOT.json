@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:41:13.525Z",
+    "updatedAt": "2026-11-07T11:41:35.226Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nạp 16 bài giảng"
+    "action": "Nạp 40 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -275,6 +275,1006 @@
             "id": 2,
             "input": "7",
             "expected": "LE",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Bài 1. Tính tổng mảng siêu tốc",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho dãy số nguyên gồm $N$ phần tử $A_1, A_2, \\dots, A_N$ ($N \\le 10^6, |A_i| \\le 10^9$).\nHãy tính tổng của tất cả các phần tử trong dãy số.\nDữ liệu vào:\n- Dòng 1 chứa số nguyên $N$.\n- Dòng 2 chứa $N$ số nguyên cách nhau một khoảng trắng.\nKết quả ra:\n- In ra một số nguyên duy nhất là tổng các phần tử.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n sys.stdout.write(str(sum(arr)) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n-10 20 -5",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Bài 2. Truy vấn tần suất siêu tốc",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên và $Q$ truy vấn ($N, Q \\le 2 \\times 10^5$). Mỗi truy vấn là một số $X$.\nHãy in ra số lần xuất hiện của $X$ trong mảng $A$.\nDữ liệu vào:\n- Dòng 1: Gồm 2 số $N$ và $Q$.\n- Dòng 2: Gồm $N$ số nguyên của mảng $A$.\n- Dòng 3 đến dòng $Q+2$: Mỗi dòng chứa một số nguyên $X$.\nKết quả ra:\n- Gồm $Q$ dòng, mỗi dòng là số lần xuất hiện của $X$.",
+        "templateCode": "import sys\nfrom collections import Counter\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n q = int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n freq = Counter(arr)\n idx = 2 + n\n res = []\n for _ in range(q):\n x = int(data[idx])\n idx += 1\n res.append(str(freq.get(x, 0)))\n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 2 3 2\n2\n4\n1",
+            "expected": "3\n0\n1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n10 10 10 10\n10\n5",
+            "expected": "4\n0",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Bài 3. Lũy thừa nhị phân theo Modulo",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $A$ và $B$ ($A, B \\le 10^{18}$). Hãy tính giá trị $A^B \\pmod{10^9+7}$.\nDữ liệu vào:\n- Gồm 1 dòng duy nhất chứa 2 số nguyên $A$ và $B$.\nKết quả ra:\n- In ra giá trị của $A^B \\pmod{10^9+7}$.",
+        "templateCode": "import sys\n\ndef fast_pow(a, b, mod):\n res = 1\n a %= mod\n while b > 0:\n if b % 2 == 1:\n res = (res * a) % mod\n a = (a * a) % mod\n b //= 2\n return res\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n a, b = int(data[0]), int(data[1])\n mod = 10**9 + 7\n print(fast_pow(a, b, mod))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 10",
+            "expected": "1024",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 13",
+            "expected": "1594323",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Bài 4. Tổ hợp chập K của N theo Modulo",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $N$ và $K$ ($0 \\le K \\le N \\le 10^6$). Hãy tính $C_N^K = \\frac{N!}{K!(N-K)!} \\pmod{10^9+7}$.\nDữ liệu vào:\n- Gồm một dòng chứa hai số nguyên $N$ và $K$.\nKết quả ra:\n- In ra giá trị tổ hợp chia lấy dư cho $10^9+7$.",
+        "templateCode": "import sys\n\nMOD = 10**9 + 7\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, k = int(data[0]), int(data[1])\n if k < 0 or k > n:\n print(0)\n return\n \n fact = [1] * (n + 1)\n for i in range(1, n + 1):\n fact[i] = (fact[i - 1] * i) % MOD\n \n tu = fact[n]\n mau = (fact[k] * fact[n - k]) % MOD\n ans = (tu * pow(mau, MOD - 2, MOD)) % MOD\n print(ans)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2",
+            "expected": "10",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 3",
+            "expected": "120",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Bài 5. Đếm số lượng số nguyên tố (Sàng Eratosthenes)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$ ($N \\le 10^6$). Đếm số lượng số nguyên tố không vượt quá $N$.\nDữ liệu vào:\n- Một số nguyên dương $N$.\nKết quả ra:\n- In ra số lượng số nguyên tố nhỏ hơn hoặc bằng $N$.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n if n < 2:\n print(0)\n return\n \n prime = bytearray([1]) * (n + 1)\n prime[0] = prime[1] = 0\n for i in range(2, int(n**0.5) + 1):\n if prime[i]:\n prime[i*i : n+1 : i] = bytearray([0]) * len(prime[i*i : n+1 : i])\n \n print(sum(prime))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "20",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Bài 6. Phân tích thừa số nguyên tố siêu tốc (Sàng SPF)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho $T$ truy vấn ($T \\le 10^5$), mỗi truy vấn là một số nguyên dương $X$ ($2 \\le X \\le 10^6$).\nHãy phân tích $X$ ra tích các thừa số nguyên tố theo thứ tự tăng dần.\nDữ liệu vào:\n- Dòng 1: Số nguyên $T$.\n- $T$ dòng tiếp theo: Mỗi dòng chứa một số nguyên $X$.\nKết quả ra:\n- Với mỗi số $X$, in ra các thừa số nguyên tố của $X$ cách nhau dấu cách.",
+        "templateCode": "import sys\n\nMAX_VAL = 1000000\n\ndef main():\n spf = list(range(MAX_VAL + 1))\n for i in range(2, int(MAX_VAL**0.5) + 1):\n if spf[i] == i:\n for j in range(i * i, MAX_VAL + 1, i):\n if spf[j] == j:\n spf[j] = i\n \n data = sys.stdin.read().split()\n if not data:\n return\n t = int(data[0])\n res = []\n for i in range(1, t + 1):\n x = int(data[i])\n factors = []\n while x > 1:\n factors.append(str(spf[x]))\n x //= spf[x]\n res.append(\" \".join(factors))\n \n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2\n12\n100",
+            "expected": "2 2 3\n2 2 5 5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1\n37",
+            "expected": "37",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Bài 7. Phương trình Bézout và Euclid mở rộng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $A$ và $B$ ($A, B \\le 10^9$). Tìm cặp số nguyên $(x, y)$ thỏa mãn $A \\cdot x + B \\cdot y = \\gcd(A, B)$.\nDữ liệu vào:\n- Gồm hai số nguyên $A$ và $B$.\nKết quả ra:\n- In ra ba số $\\gcd(A, B)$, $x$, $y$ cách nhau dấu cách.",
+        "templateCode": "import sys\n\ndef ext_gcd(a, b):\n if b == 0:\n return a, 1, 0\n g, x1, y1 = ext_gcd(b, a % b)\n x = y1\n y = x1 - (a // b) * y1\n return g, x, y\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n a, b = int(data[0]), int(data[1])\n g, x, y = ext_gcd(a, b)\n print(f\"{g} {x} {y}\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "30 20",
+            "expected": "10 1 -1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "35 15",
+            "expected": "5 1 -2",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Bài 8. Đổi tiền xu tối ưu số lượng đồng xu",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có hai loại đồng xu mệnh giá $A$ đồng và $B$ đồng ($A, B \\le 10^9$). Cần trả đúng số tiền $S$ đồng.\nHãy tìm số đồng xu loại $A$ là $x$ và loại $B$ là $y$ sao cho $A \\cdot x + B \\cdot y = S$ ($x \\ge 0, y \\ge 0$) và tổng số đồng xu $x + y$ là nhỏ nhất. Nếu không đổi được in `-1`.\nDữ liệu vào:\n- Một dòng chứa 3 số nguyên $A, B, S$.\nKết quả ra:\n- In ra hai số $x, y$ hoặc `-1` nếu vô nghiệm.",
+        "templateCode": "import sys\nimport math\n\ndef ext_gcd(a, b):\n if b == 0:\n return a, 1, 0\n g, x1, y1 = ext_gcd(b, a % b)\n return g, y1, x1 - (a // b) * y1\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n a, b, s = int(data[0]), int(data[1]), int(data[2])\n g, x0, y0 = ext_gcd(a, b)\n if s % g != 0:\n print(-1)\n return\n \n mult = s // g\n x0 *= mult\n y0 *= mult\n step_x = b // g\n step_y = a // g\n \n k_min = math.ceil(-x0 / step_x)\n k_max = math.floor(y0 / step_y)\n \n if k_min > k_max:\n print(-1)\n return\n \n best_sum = float('inf')\n best_x, best_y = -1, -1\n \n for k in (k_min, k_max):\n x = x0 + k * step_x\n y = y0 - k * step_y\n if x >= 0 and y >= 0 and x + y < best_sum:\n best_sum = x + y\n best_x, best_y = x, y\n \n print(f\"{best_x} {best_y}\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5 19",
+            "expected": "3 2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 6 7",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Bài 9. Truy vấn tổng đoạn con liên tiếp (Prefix Sum 1D)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên ($N \\le 10^5$) và $Q$ truy vấn ($Q \\le 10^5$). Mỗi truy vấn gồm hai chỉ số $L, R$ ($1 \\le L \\le R \\le N$).\nHãy tính tổng các phần tử từ vị trí $L$ đến vị trí $R$.\nDữ liệu vào:\n- Dòng 1: Gồm 2 số $N$ và $Q$.\n- Dòng 2: Gồm $N$ số nguyên của mảng $A$.\n- $Q$ dòng tiếp theo: Mỗi dòng gồm hai số $L, R$.\nKết quả ra:\n- In ra $Q$ dòng là kết quả của từng truy vấn.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, q = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n pref = [0] * (n + 1)\n for i in range(1, n + 1):\n pref[i] = pref[i - 1] + arr[i - 1]\n \n idx = 2 + n\n res = []\n for _ in range(q):\n l, r = int(data[idx]), int(data[idx+1])\n idx += 2\n res.append(str(pref[r] - pref[l - 1]))\n \n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2\n1 3 5 7 9\n1 3\n2 4",
+            "expected": "9\n15",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1\n10 20 30\n1 3",
+            "expected": "60",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Bài 10. Đếm số đoạn con có tổng chia hết cho K",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên ($N \\le 10^5$) và số nguyên dương $K$ ($K \\le 10^5$).\nĐếm số lượng đoạn con liên tiếp có tổng các phần tử chia hết cho $K$.\nDữ liệu vào:\n- Dòng 1: Chứa hai số nguyên $N$ và $K$.\n- Dòng 2: Chứa $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In ra số lượng đoạn con thỏa mãn.",
+        "templateCode": "import sys\nfrom collections import defaultdict\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, k = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n \n count_rem = defaultdict(int)\n count_rem[0] = 1\n pref = 0\n ans = 0\n \n for x in arr:\n pref = (pref + x) % k\n pref = (pref + k) % k\n ans += count_rem[pref]\n count_rem[pref] += 1\n \n print(ans)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 3 4 5",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n2 4 6 8",
+            "expected": "10",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Bài 11. Cập nhật đoạn với mảng hiệu (Difference Array)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho mảng gồm $N$ số 0 ($N \\le 10^5$). Có $Q$ thao tác cộng ($Q \\le 10^5$), mỗi thao tác gồm $L, R, V$ yêu cầu cộng giá trị $V$ vào tất cả các phần tử từ chỉ số $L$ đến $R$ ($1 \\le L \\le R \\le N$).\nHãy in ra mảng sau khi hoàn thành tất cả các thao tác.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $Q$.\n- $Q$ dòng tiếp theo: Mỗi dòng gồm 3 số $L, R, V$.\nKết quả ra:\n- In ra $N$ số của mảng kết quả cách nhau dấu cách.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, q = int(data[0]), int(data[1])\n diff = [0] * (n + 2)\n idx = 2\n for _ in range(q):\n l = int(data[idx])\n r = int(data[idx+1])\n v = int(data[idx+2])\n idx += 3\n diff[l] += v\n diff[r + 1] -= v\n \n res = []\n cur = 0\n for i in range(1, n + 1):\n cur += diff[i]\n res.append(str(cur))\n \n sys.stdout.write(\" \".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2\n1 3 10\n2 5 5",
+            "expected": "10 15 15 5 5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1\n1 3 7",
+            "expected": "7 7 7",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Bài 12. Chiều dài phủ đoạn trên trục tọa độ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trên trục số có đoạn thẳng $[0, L]$ ($L \\le 10^6$). Có $N$ bóng đèn ($N \\le 10^5$), bóng đèn thứ $i$ đặt tại vị trí $x_i$ với bán kính chiếu sáng $r_i$ (chiếu sáng đoạn $[\\max(0, x_i - r_i), \\min(L, x_i + r_i)]$).\nHãy tính tổng độ dài của đoạn $[0, L]$ được chiếu sáng bởi ít nhất 1 bóng đèn.\nDữ liệu vào:\n- Dòng 1: Gồm 2 số $N$ và $L$.\n- $N$ dòng tiếp theo: Mỗi dòng chứa 2 số $x_i, r_i$.\nKết quả ra:\n- In ra tổng độ dài được chiếu sáng.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, l = int(data[0]), int(data[1])\n diff = [0] * (l + 2)\n idx = 2\n for _ in range(n):\n x = int(data[idx])\n r = int(data[idx+1])\n idx += 2\n left = max(0, x - r)\n right = min(l, x + r)\n diff[left] += 1\n diff[right] -= 1\n \n sang = 0\n cur = 0\n for i in range(l):\n cur += diff[i]\n if cur > 0:\n sang += 1\n \n print(sang)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 10\n3 2\n7 2",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 5\n2 3",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Bài 13. Trộn hai dãy đã sắp xếp (Two Pointers)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai dãy số nguyên $A$ ($N$ phần tử) và $B$ ($M$ phần tử) đã được sắp xếp tăng dần ($N, M \\le 10^5$).\nHãy trộn hai dãy thành dãy mới $C$ tăng dần trong thời gian $O(N + M)$ mà không dùng hàm sắp xếp `sort()`.\nDữ liệu vào:\n- Dòng 1: Gồm $N$ và $M$.\n- Dòng 2: Gồm $N$ số của dãy $A$.\n- Dòng 3: Gồm $M$ số của dãy $B$.\nKết quả ra:\n- In ra dãy $C$ sau khi trộn.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n a = [int(x) for x in data[2:2+n]]\n b = [int(x) for x in data[2+n:2+n+m]]\n \n i = j = 0\n c = []\n while i < n and j < m:\n if a[i] <= b[j]:\n c.append(str(a[i]))\n i += 1\n else:\n c.append(str(b[j]))\n j += 1\n \n while i < n:\n c.append(str(a[i]))\n i += 1\n while j < m:\n c.append(str(b[j]))\n j += 1\n \n sys.stdout.write(\" \".join(c) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4\n1 4 7\n2 3 8 9",
+            "expected": "1 2 3 4 7 8 9",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2\n5 10\n1 6",
+            "expected": "1 5 6 10",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "title": "Bài 14. Đếm cặp số có tổng bằng S (Two Pointers)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho dãy số nguyên $A$ gồm $N$ phần tử phân biệt đã được sắp xếp tăng dần ($N \\le 10^5$) và số nguyên $S$.\nĐếm số cặp chỉ số $(i, j)$ với $i < j$ sao cho $A_i + A_j = S$ bằng kỹ thuật hai con trỏ trong $O(N)$.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $S$.\n- Dòng 2: $N$ số nguyên tăng dần của dãy $A$.\nKết quả ra:\n- In ra số lượng cặp thỏa mãn.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, s = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n \n l, r = 0, n - 1\n dem = 0\n while l < r:\n tong = arr[l] + arr[r]\n if tong == s:\n dem += 1\n l += 1\n r -= 1\n elif tong < s:\n l += 1\n else:\n r -= 1\n \n print(dem)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 20\n2 5 8 12 15 18",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 10\n1 3 7 9",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "title": "Bài 15. Tổng lớn nhất đoạn con độ dài K (Sliding Window)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên ($N \\le 10^5$) và số nguyên dương $K$ ($1 \\le K \\le N$).\nHãy tìm tổng lớn nhất của một đoạn con liên tiếp có độ dài đúng bằng $K$.\nDữ liệu vào:\n- Dòng 1: Gồm 2 số $N$ và $K$.\n- Dòng 2: Gồm $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In ra tổng lớn nhất tìm được.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, k = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n \n cur_sum = sum(arr[:k])\n max_sum = cur_sum\n \n for i in range(k, n):\n cur_sum += arr[i] - arr[i - k]\n if cur_sum > max_sum:\n max_sum = cur_sum\n \n print(max_sum)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "9 4\n1 4 2 10 23 3 1 0 20",
+            "expected": "39",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n-5 10 20 -3",
+            "expected": "30",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "title": "Bài 16. Độ dài xâu con dài nhất không lặp ký tự",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho một xâu ký tự $S$ có độ dài không vượt quá $10^5$.\nHãy tìm độ dài của xâu con liên tiếp dài nhất mà trong đó không có bất kỳ ký tự nào bị lặp lại.\nDữ liệu vào:\n- Một dòng duy nhất chứa xâu ký tự $S$.\nKết quả ra:\n- In ra độ dài lớn nhất tìm được.",
+        "templateCode": "import sys\n\ndef main():\n s = sys.stdin.read().strip()\n if not s:\n print(0)\n return\n \n last_pos = {}\n left = 0\n max_len = 0\n \n for right, c in enumerate(s):\n if c in last_pos and last_pos[c] >= left:\n left = last_pos[c] + 1\n last_pos[c] = right\n cur_len = right - left + 1\n if cur_len > max_len:\n max_len = cur_len\n \n print(max_len)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "abcabcbb",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "bbbbb",
+            "expected": "1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "title": "Bài 17. Chặt nhị phân kết quả - Bài toán cưa gỗ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có $N$ cái cây có chiều cao $H_1, H_2, \\dots, H_N$ ($N \\le 10^5, H_i \\le 10^9$). Cần thu hoạch ít nhất $M$ mét gỗ.\nMáy cưa đặt ở độ cao $H$. Mọi cây có độ cao lớn hơn $H$ sẽ bị cắt phần ngọn phía trên $H$. Tìm độ cao $H$ nguyên lớn nhất để thu được ít nhất $M$ mét gỗ.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $M$.\n- Dòng 2: $N$ số nguyên là chiều cao các cây.\nKết quả ra:\n- In ra độ cao $H$ lớn nhất.",
+        "templateCode": "import sys\n\ndef check(h, trees, m):\n go = sum(x - h for x in trees if x > h)\n return go >= m\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n trees = [int(x) for x in data[2:2+n]]\n \n low = 0\n high = max(trees)\n ans = 0\n \n while low <= high:\n mid = (low + high) // 2\n if check(mid, trees, m):\n ans = mid\n low = mid + 1\n else:\n high = mid - 1\n \n print(ans)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 7\n20 15 10 17",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 20\n4 42 40 26 46",
+            "expected": "36",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "title": "Bài 18. Xếp bò vào chuồng - Khoảng cách lớn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $N$ chuồng bò tại các vị trí tọa độ $x_1, x_2, \\dots, x_N$ ($N \\le 10^5, x_i \\le 10^9$).\nCần xếp $C$ con bò ($2 \\le C \\le N$) vào các chuồng sao cho khoảng cách nhỏ nhất giữa hai con bò bất kỳ là lớn nhất có thể.\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$ và $C$.\n- Dòng 2: $N$ số nguyên là tọa độ các chuồng bò.\nKết quả ra:\n- In ra khoảng cách nhỏ nhất lớn nhất có thể.",
+        "templateCode": "import sys\n\ndef check(d, pos, c):\n count = 1\n last = pos[0]\n for p in pos[1:]:\n if p - last >= d:\n count += 1\n last = p\n if count >= c:\n return True\n return False\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, c = int(data[0]), int(data[1])\n pos = sorted([int(x) for x in data[2:2+n]])\n \n low = 1\n high = pos[-1] - pos[0]\n ans = 0\n \n while low <= high:\n mid = (low + high) // 2\n if check(mid, pos, c):\n ans = mid\n low = mid + 1\n else:\n high = mid - 1\n \n print(ans)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 8 4 9",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n5 17 100 1",
+            "expected": "99",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "title": "Bài 19. Đổi tiền tham lam (Greedy Change)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Hệ thống tiền tệ có các mệnh giá: 500, 200, 100, 50, 20, 10, 5, 2, 1 nghìn đồng.\nCho số tiền $S$ nghìn đồng ($S \\le 10^9$). Hãy tìm tổng số tờ tiền ít nhất để chi trả số tiền $S$ theo thuật toán tham lam.\nDữ liệu vào:\n- Một số nguyên dương $S$.\nKết quả ra:\n- In ra số lượng tờ tiền ít nhất cần dùng.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n s = int(data[0])\n denominations = [500, 200, 100, 50, 20, 10, 5, 2, 1]\n count = 0\n for d in denominations:\n if s >= d:\n count += s // d\n s %= d\n print(count)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "789",
+            "expected": "7",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "title": "Bài 20. Nối các thanh kim loại chi phí nhỏ nhất (Min-Heap)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có $N$ thanh kim loại với độ dài $L_1, L_2, \\dots, L_N$ ($N \\le 10^5, L_i \\le 10^6$).\nChi phí để nối 2 thanh có độ dài $X$ và $Y$ thành 1 thanh mới là $X + Y$. Tìm chi phí tối thiểu để nối toàn bộ $N$ thanh thành một thanh duy nhất.\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$.\n- Dòng 2: $N$ số nguyên biểu thị độ dài các thanh kim loại.\nKết quả ra:\n- In ra tổng chi phí tối thiểu.",
+        "templateCode": "import sys\nimport heapq\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n heap = [int(x) for x in data[1:n+1]]\n heapq.heapify(heap)\n \n total_cost = 0\n while len(heap) > 1:\n x = heapq.heappop(heap)\n y = heapq.heappop(heap)\n cost = x + y\n total_cost += cost\n heapq.heappush(heap, cost)\n \n print(total_cost)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n4 3 2 6",
+            "expected": "29",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "9",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "title": "Bài 21. Liệt kê xâu nhị phân không có hai số 1 cạnh nhau",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$ ($1 \\le N \\le 16$). Hãy liệt kê tất cả các xâu nhị phân độ dài $N$ sao cho không có hai ký tự '1' nào đứng cạnh nhau theo thứ tự từ điển.\nDữ liệu vào:\n- Một số nguyên dương $N$.\nKết quả ra:\n- In ra các xâu nhị phân thỏa mãn, mỗi xâu trên một dòng.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n res = []\n \n def backtrack(cur):\n if len(cur) == n:\n res.append(cur)\n return\n # Luôn có thể thêm '0'\n backtrack(cur + '0')\n # Chỉ thêm '1' nếu ký tự trước không phải là '1'\n if not cur or cur[-1] != '1':\n backtrack(cur + '1')\n \n backtrack(\"\")\n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "000\n001\n010\n100\n101",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "00\n01\n10",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "title": "Bài 22. Bài toán xếp N quân Hậu (N-Queens)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Đặt $N$ quân hậu trên bàn cờ $N \\times N$ ($1 \\le N \\le 12$) sao cho không có 2 quân hậu nào khống chế lẫn nhau (không cùng hàng, cùng cột hay cùng đường chéo).\nHãy đếm số cách xếp hợp lệ.\nDữ liệu vào:\n- Một số nguyên dương $N$.\nKết quả ra:\n- In ra số cách xếp quân hậu hợp lệ.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n \n cols = [False] * n\n diag1 = [False] * (2 * n) # r - c + n\n diag2 = [False] * (2 * n) # r + c\n ways = 0\n \n def backtrack(r):\n nonlocal ways\n if r == n:\n ways += 1\n return\n for c in range(n):\n if not cols[c] and not diag1[r - c + n] and not diag2[r + c]:\n cols[c] = diag1[r - c + n] = diag2[r + c] = True\n backtrack(r + 1)\n cols[c] = diag1[r - c + n] = diag2[r + c] = False\n \n backtrack(0)\n print(ways)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8",
+            "expected": "92",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "title": "Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy số Fibonacci được định nghĩa: $F_0 = 0, F_1 = 1$, $F_n = F_{n-1} + F_{n-2}$ với $n \\ge 2$.\nCho số nguyên dương $N$ ($N \\le 1000$). Hãy tính $F_N \\pmod{10^9+7}$ sử dụng phương pháp đệ quy có nhớ.\nDữ liệu vào:\n- Một số nguyên dương $N$.\nKết quả ra:\n- In ra giá trị $F_N \\pmod{10^9+7}$.",
+        "templateCode": "import sys\n\nsys.setrecursionlimit(2000)\nMOD = 10**9 + 7\nmemo = {}\n\ndef fib(n):\n if n == 0:\n return 0\n if n == 1:\n return 1\n if n in memo:\n return memo[n]\n memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n return memo[n]\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n print(fib(n))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "55",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50",
+            "expected": "586268941",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "title": "Bài 24. Đổi xu ít nhất (Coin Change DP)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho $N$ mệnh giá đồng xu $c_1, c_2, \\dots, c_N$ ($N \\le 100, c_i \\le 10^4$) và số tiền $S$ ($S \\le 10^4$). Số lượng mỗi loại xu là không giới hạn.\nHãy tìm số đồng xu ít nhất để đổi đúng số tiền $S$. Nếu không thể đổi được in `-1`.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $S$.\n- Dòng 2: $N$ số nguyên là mệnh giá các đồng xu.\nKết quả ra:\n- In ra số lượng đồng xu ít nhất hoặc `-1`.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, s = int(data[0]), int(data[1])\n coins = [int(x) for x in data[2:2+n]]\n \n dp = [float('inf')] * (s + 1)\n dp[0] = 0\n \n for i in range(1, s + 1):\n for c in coins:\n if i >= c and dp[i - c] + 1 < dp[i]:\n dp[i] = dp[i - c] + 1\n \n print(dp[s] if dp[s] != float('inf') else -1)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 11\n1 2 5",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 7\n2 4",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "title": "Bài 25. Dãy con tăng dài nhất LIS bằng QHĐ O(N^2)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho mảng số nguyên $A$ gồm $N$ phần tử ($N \\le 2000$).\nHãy tìm độ dài của dãy con tăng nghiêm ngặt dài nhất bằng quy hoạch động.\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$.\n- Dòng 2: $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In ra độ dài lớn nhất của dãy con tăng.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n if n == 0:\n print(0)\n return\n \n dp = [1] * n\n for i in range(n):\n for j in range(i):\n if arr[j] < arr[i] and dp[j] + 1 > dp[i]:\n dp[i] = dp[j] + 1\n \n print(max(dp))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n10 20 10 30 20 50",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n5 4 3 2 1",
+            "expected": "1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "title": "Bài 26. Dãy con tăng dài nhất LIS tối ưu O(N log N) và truy vết",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho mảng số nguyên $A$ gồm $N$ phần tử ($N \\le 10^5$).\nTìm độ dài dãy con tăng dài nhất và in ra một dãy con tăng dài nhất cụ thể.\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$.\n- Dòng 2: $N$ số nguyên của mảng $A$.\nKết quả ra:\n- Dòng 1: Độ dài $L$ của dãy con tăng dài nhất.\n- Dòng 2: $L$ số nguyên tạo nên dãy con tăng đó.",
+        "templateCode": "import sys\nimport bisect\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n if n == 0:\n print(0)\n return\n \n tails = []\n tail_indices = []\n parent = [-1] * n\n \n for i, x in enumerate(arr):\n idx = bisect.bisect_left(tails, x)\n if idx == len(tails):\n tails.append(x)\n tail_indices.append(i)\n else:\n tails[idx] = x\n tail_indices[idx] = i\n if idx > 0:\n parent[i] = tail_indices[idx - 1]\n \n print(len(tails))\n \n # Truy vết dãy con\n lis = []\n curr = tail_indices[-1]\n while curr != -1:\n lis.append(str(arr[curr]))\n curr = parent[curr]\n sys.stdout.write(\" \".join(lis[::-1]) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n3 10 2 1 20",
+            "expected": "3\n3 10 20",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6\n50 3 10 7 40 80",
+            "expected": "4\n3 7 40 80",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 29,
+        "title": "Bài 27. Bài toán Ba lô 0/1 tối ưu mảng 1 chiều",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Có $N$ đồ vật ($N \\le 1000$), đồ vật thứ $i$ có trọng lượng $W_i$ và giá trị $V_i$. Cái túi chịu tải tối đa trọng lượng $M$ ($M \\le 10^4$). Mỗi đồ vật chỉ được chọn tối đa 1 lần.\nHãy tìm giá trị lớn nhất có thể bỏ vào túi.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $M$.\n- $N$ dòng tiếp theo: Mỗi dòng gồm hai số $W_i, V_i$.\nKết quả ra:\n- In ra tổng giá trị lớn nhất.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n dp = [0] * (m + 1)\n \n idx = 2\n for _ in range(n):\n w = int(data[idx])\n v = int(data[idx+1])\n idx += 2\n for j in range(m, w - 1, -1):\n if dp[j - w] + v > dp[j]:\n dp[j] = dp[j - w] + v\n \n print(dp[m])\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 5\n2 3\n3 4\n4 5\n5 6",
+            "expected": "7",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 10\n4 30\n5 40\n7 60",
+            "expected": "70",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 30,
+        "title": "Bài 28. Chia tập số thành hai phần có tổng bằng nhau (Subset Sum)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho tập hợp gồm $N$ số nguyên dương $A_1, A_2, \\dots, A_N$ ($N \\le 100, A_i \\le 100$).\nKiểm tra xem có thể chia tập hợp thành hai tập con rời nhau sao cho tổng các phần tử của hai tập con bằng nhau hay không.\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$.\n- Dòng 2: $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In `YES` nếu chia được, ngược lại in `NO`.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n total = sum(arr)\n if total % 2 != 0:\n print(\"NO\")\n return\n \n target = total // 2\n dp = [False] * (target + 1)\n dp[0] = True\n \n for x in arr:\n for j in range(target, x - 1, -1):\n if dp[j - x]:\n dp[j] = True\n \n print(\"YES\" if dp[target] else \"NO\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n1 5 11 5",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 3 5",
+            "expected": "NO",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 31,
+        "title": "Bài 29. Xâu con chung dài nhất (LCS)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai xâu ký tự $S_1$ và $S_2$ có độ dài không quá 1000 ký tự.\nHãy tìm độ dài của xâu con chung dài nhất (không nhất thiết liên tiếp) của hai xâu.\nDữ liệu vào:\n- Dòng 1: Xâu $S_1$.\n- Dòng 2: Xâu $S_2$.\nKết quả ra:\n- In ra độ dài của xâu con chung dài nhất.",
+        "templateCode": "import sys\n\ndef main():\n lines = sys.stdin.read().split()\n if len(lines) < 2:\n return\n s1, s2 = lines[0], lines[1]\n n, m = len(s1), len(s2)\n \n dp = [[0] * (m + 1) for _ in range(n + 1)]\n for i in range(1, n + 1):\n for j in range(1, m + 1):\n if s1[i - 1] == s2[j - 1]:\n dp[i][j] = dp[i - 1][j - 1] + 1\n else:\n dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n \n print(dp[n][m])\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "AGGTAB\nGXTXAYB",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "ABC\nDEF",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 32,
+        "title": "Bài 30. Độ dài dãy con đối xứng dài nhất (LPS)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho xâu ký tự $S$ độ dài không quá 1000 ký tự.\nHãy tìm độ dài của dãy con đối xứng dài nhất (Longest Palindromic Subsequence) của $S$.\nDữ liệu vào:\n- Một dòng duy nhất chứa xâu ký tự $S$.\nKết quả ra:\n- In ra độ dài lớn nhất của dãy con đối xứng.",
+        "templateCode": "import sys\n\ndef main():\n s = sys.stdin.read().strip()\n if not s:\n print(0)\n return\n \n s_rev = s[::-1]\n n = len(s)\n dp = [[0] * (n + 1) for _ in range(n + 1)]\n \n for i in range(1, n + 1):\n for j in range(1, n + 1):\n if s[i - 1] == s_rev[j - 1]:\n dp[i][j] = dp[i - 1][j - 1] + 1\n else:\n dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])\n \n print(dp[n][n])\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "BBABCBCAB",
+            "expected": "7",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "cbbd",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 33,
+        "title": "Bài 31. Kiểm tra dãy ngoặc hợp lệ (Stack)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho xâu ký tự $S$ gồm các dấu ngoặc tròn `()`, ngoặc vuông `[]`, ngoặc nhọn `{}`.\nKiểm tra xem xâu ngoặc có hợp lệ hay không.\nDữ liệu vào:\n- Một dòng chứa xâu $S$ ($|S| \\le 10^5$).\nKết quả ra:\n- In `YES` nếu hợp lệ, ngược lại in `NO`.",
+        "templateCode": "import sys\n\ndef main():\n s = sys.stdin.read().strip()\n if not s:\n print(\"YES\")\n return\n \n stack = []\n mapping = {')': '(', ']': '[', '}': '{'}\n \n for c in s:\n if c in \"([{\":\n stack.append(c)\n elif c in \")]}\":\n if not stack or stack[-1] != mapping[c]:\n print(\"NO\")\n return\n stack.pop()\n \n print(\"YES\" if len(stack) == 0 else \"NO\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "{[()]}",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "([)]",
+            "expected": "NO",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 34,
+        "title": "Bài 32. Phần tử lớn hơn đầu tiên bên phải (Next Greater Element)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên ($N \\le 10^5$). Với mỗi phần tử $A_i$, tìm giá trị của phần tử đầu tiên đứng sau nó mà lớn hơn nó trong thời gian $O(N)$ bằng Monotonic Stack. Nếu không có, gán `-1`.\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$.\n- Dòng 2: $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In ra kết quả tương ứng cho $N$ phần tử cách nhau dấu cách.",
+        "templateCode": "import sys\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n arr = [int(x) for x in data[1:n+1]]\n \n res = [-1] * n\n stack = []\n \n for i in range(n):\n while stack and arr[i] > arr[stack[-1]]:\n idx = stack.pop()\n res[idx] = arr[i]\n stack.append(i)\n \n sys.stdout.write(\" \".join(str(x) for x in res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n4 5 2 25",
+            "expected": "5 25 25 -1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n13 7 6 12",
+            "expected": "-1 12 12 -1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 35,
+        "title": "Bài 33. Mô phỏng hàng đợi phục vụ (Queue Simulation)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Có $Q$ thao tác với hàng đợi:\n- `1 X`: Đưa khách hàng mang số định danh $X$ vào cuối hàng đợi.\n- `2`: Phục vụ khách hàng ở đầu hàng đợi và in ra số định danh của khách hàng đó (nếu hàng đợi rỗng, in `-1`).\nDữ liệu vào:\n- Dòng 1: Số nguyên $Q$ ($Q \\le 10^5$).\n- $Q$ dòng tiếp theo: Mỗi dòng mô tả một thao tác.\nKết quả ra:\n- In ra kết quả của các thao tác loại 2.",
+        "templateCode": "import sys\nfrom collections import deque\n\ndef main():\n input_data = sys.stdin.read().split()\n if not input_data:\n return\n q = int(input_data[0])\n idx = 1\n queue = deque()\n res = []\n \n while idx < len(input_data):\n op = input_data[idx]\n idx += 1\n if op == '1':\n x = input_data[idx]\n idx += 1\n queue.append(x)\n elif op == '2':\n if queue:\n res.append(queue.popleft())\n else:\n res.append(\"-1\")\n \n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n1 10\n1 20\n2\n1 30\n2",
+            "expected": "10\n20",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n2\n1 99\n2",
+            "expected": "-1\n99",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "title": "Bài 34. Giá trị lớn nhất trong mọi cửa sổ trượt (Monotonic Deque)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho mảng $A$ gồm $N$ số nguyên ($N \\le 10^5$) và số nguyên dương $K$ ($1 \\le K \\le N$).\nHãy in ra giá trị lớn nhất trong mỗi cửa sổ trượt độ dài $K$ khi trượt từ đầu đến cuối mảng trong thời gian $O(N)$ dùng Deque đơn điệu.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $K$.\n- Dòng 2: $N$ số nguyên của mảng $A$.\nKết quả ra:\n- In ra $N - K + 1$ số nguyên là giá trị lớn nhất của từng cửa sổ cách nhau dấu cách.",
+        "templateCode": "import sys\nfrom collections import deque\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, k = int(data[0]), int(data[1])\n arr = [int(x) for x in data[2:2+n]]\n \n dq = deque()\n res = []\n \n for i in range(n):\n if dq and dq[0] < i - k + 1:\n dq.popleft()\n while dq and arr[dq[-1]] <= arr[i]:\n dq.pop()\n dq.append(i)\n if i >= k - 1:\n res.append(str(arr[dq[0]]))\n \n sys.stdout.write(\" \".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8 3\n1 3 -1 -3 5 3 6 7",
+            "expected": "3 3 5 5 6 7",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n4 3 2 1",
+            "expected": "4 3 2",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 37,
+        "title": "Bài 35. So sánh hai xâu con bằng Băm xâu (Rolling Hash)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho xâu $S$ độ dài không quá $10^5$ và $Q$ truy vấn ($Q \\le 10^5$). Mỗi truy vấn gồm 4 số $a, b, c, d$ (chỉ số tính từ 1). Kiểm tra xem hai xâu con $S[a..b]$ và $S[c..d]$ có giống nhau hay không.\nDữ liệu vào:\n- Dòng 1: Xâu $S$.\n- Dòng 2: Số nguyên $Q$.\n- $Q$ dòng tiếp theo: Mỗi dòng gồm 4 số $a, b, c, d$.\nKết quả ra:\n- Với mỗi truy vấn, in `YES` nếu hai xâu con giống nhau, ngược lại in `NO`.",
+        "templateCode": "import sys\n\ndef main():\n lines = sys.stdin.read().split()\n if not lines:\n return\n s = lines[0]\n q = int(lines[1])\n n = len(s)\n \n base = 311\n mod = 10**9 + 7\n h = [0] * (n + 1)\n p = [1] * (n + 1)\n \n for i in range(n):\n h[i + 1] = (h[i] * base + ord(s[i])) % mod\n p[i + 1] = (p[i] * base) % mod\n \n def get_hash(l, r):\n val = (h[r] - h[l - 1] * p[r - l + 1]) % mod\n return (val + mod) % mod\n \n idx = 2\n res = []\n for _ in range(q):\n a, b, c, d = int(lines[idx]), int(lines[idx+1]), int(lines[idx+2]), int(lines[idx+3])\n idx += 4\n if (b - a) != (d - c):\n res.append(\"NO\")\n else:\n res.append(\"YES\" if get_hash(a, b) == get_hash(c, d) else \"NO\")\n \n sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "abacaba\n2\n1 3 5 7\n1 2 2 3",
+            "expected": "YES\nNO",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "aaaa\n1\n1 2 3 4",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "title": "Bài 36. Tìm kiếm mẫu xâu Rabin-Karp",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho xâu văn bản $T$ và xâu mẫu $P$ ($|P| \\le |T| \\le 10^5$).\nĐếm số lần mẫu $P$ xuất hiện trong $T$ và in ra các vị trí xuất hiện (chỉ số bắt đầu từ 1).\nDữ liệu vào:\n- Dòng 1: Xâu $T$.\n- Dòng 2: Xâu $P$.\nKết quả ra:\n- Dòng 1: Số lần xuất hiện $K$.\n- Dòng 2: $K$ vị trí xuất hiện cách nhau dấu cách (nếu $K > 0$).",
+        "templateCode": "import sys\n\ndef main():\n lines = sys.stdin.read().split()\n if len(lines) < 2:\n return\n t, p = lines[0], lines[1]\n n, m = len(t), len(p)\n if m > n:\n print(0)\n return\n \n base = 311\n mod = 10**9 + 7\n \n h_t = [0] * (n + 1)\n p_pow = [1] * (n + 1)\n for i in range(n):\n h_t[i + 1] = (h_t[i] * base + ord(t[i])) % mod\n p_pow[i + 1] = (p_pow[i] * base) % mod\n \n h_p = 0\n for c in p:\n h_p = (h_p * base + ord(c)) % mod\n \n def get_hash(l, r):\n val = (h_t[r] - h_t[l - 1] * p_pow[r - l + 1]) % mod\n return (val + mod) % mod\n \n matches = []\n for i in range(1, n - m + 2):\n if get_hash(i, i + m - 1) == h_p:\n matches.append(str(i))\n \n print(len(matches))\n if matches:\n print(\" \".join(matches))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "aabaacaadaabaa\naabaa",
+            "expected": "2\n1 10",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "abcdef\ngh",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "title": "Bài 37. Đếm số thành phần liên thông của đồ thị (DFS)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho đồ thị vô hướng gồm $N$ đỉnh và $M$ cạnh ($N \\le 10^5, M \\le 2 \\times 10^5$).\nHãy đếm số lượng thành phần liên thông của đồ thị bằng thuật toán DFS.\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$ và $M$.\n- $M$ dòng tiếp theo: Mỗi dòng gồm hai số $u, v$ là một cạnh của đồ thị.\nKết quả ra:\n- In ra số thành phần liên thông của đồ thị.",
+        "templateCode": "import sys\n\n# Tăng giới hạn đệ quy\nsys.setrecursionlimit(200000)\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n adj = [[] for _ in range(n + 1)]\n idx = 2\n for _ in range(m):\n u = int(data[idx])\n v = int(data[idx+1])\n idx += 2\n adj[u].append(v)\n adj[v].append(u)\n \n visited = [False] * (n + 1)\n \n def dfs(u):\n visited[u] = True\n for v in adj[u]:\n if not visited[v]:\n dfs(v)\n \n count = 0\n for i in range(1, n + 1):\n if not visited[i]:\n count += 1\n dfs(i)\n \n print(count)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2\n2 3\n4 5",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 0",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "title": "Bài 38. Tìm đường đi ngắn nhất trên lưới mê cung (BFS)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho bảng mê cung kích thước $N \\times M$ ($N, M \\le 1000$). Ô `0` là đường đi, ô `1` là vật cản.\nTìm số bước đi ngắn nhất từ ô $(1, 1)$ đến ô $(N, M)$. Mỗi bước chỉ đi sang 4 ô kề cạnh. Nếu không có đường đi in `-1`.\nDữ liệu vào:\n- Dòng 1: Hai số $N$ và $M$.\n- $N$ dòng tiếp theo: Mỗi dòng gồm $M$ số biểu diễn lưới mê cung.\nKết quả ra:\n- In ra số bước đi ngắn nhất hoặc `-1`.",
+        "templateCode": "import sys\nfrom collections import deque\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n grid = []\n idx = 2\n for _ in range(n):\n grid.append([int(x) for x in data[idx:idx+m]])\n idx += m\n \n if grid[0][0] == 1 or grid[n-1][m-1] == 1:\n print(-1)\n return\n \n dist = [[-1] * m for _ in range(n)]\n dist[0][0] = 0\n q = deque([(0, 0)])\n \n dr = [-1, 1, 0, 0]\n dc = [0, 0, -1, 1]\n \n while q:\n r, c = q.popleft()\n if r == n - 1 and c == m - 1:\n print(dist[r][c])\n return\n for d in range(4):\n nr, nc = r + dr[d], c + dc[d]\n if 0 <= nr < n and 0 <= nc < m and grid[nr][nc] == 0:\n if dist[nr][nc] == -1:\n dist[nr][nc] = dist[r][c] + 1\n q.append((nr, nc))\n \n print(-1)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4\n0 0 1 0\n1 0 1 0\n0 0 0 0",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2\n0 1\n1 0",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 41,
+        "title": "Bài 39. Tìm đường đi ngắn nhất đồ thị có trọng số (Dijkstra)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho đồ thị có hướng gồm $N$ đỉnh và $M$ cạnh ($N \\le 10^5, M \\le 2 \\times 10^5$). Mỗi cạnh có trọng số không âm $w$.\nTìm khoảng cách ngắn nhất từ đỉnh nguồn $S$ đến tất cả các đỉnh từ 1 đến $N$ bằng thuật toán Dijkstra với `heapq`. Nếu không đến được gán `-1`.\nDữ liệu vào:\n- Dòng 1: Ba số $N, M, S$.\n- $M$ dòng tiếp theo: Mỗi dòng gồm 3 số $u, v, w$.\nKết quả ra:\n- In ra khoảng cách từ đỉnh $S$ đến các đỉnh $1, 2, \\dots, N$ cách nhau dấu cách.",
+        "templateCode": "import sys\nimport heapq\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n, m, s = int(data[0]), int(data[1]), int(data[2])\n adj = [[] for _ in range(n + 1)]\n idx = 3\n for _ in range(m):\n u = int(data[idx])\n v = int(data[idx+1])\n w = int(data[idx+2])\n idx += 3\n adj[u].append((v, w))\n \n dist = [float('inf')] * (n + 1)\n dist[s] = 0\n pq = [(0, s)]\n \n while pq:\n d, u = heapq.heappop(pq)\n if d > dist[u]:\n continue\n for v, w in adj[u]:\n if dist[u] + w < dist[v]:\n dist[v] = dist[u] + w\n heapq.heappush(pq, (dist[v], v))\n \n res = [str(dist[i]) if dist[i] != float('inf') else \"-1\" for i in range(1, n + 1)]\n sys.stdout.write(\" \".join(res) + \"\\n\")\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 4 1\n1 2 4\n1 3 2\n3 2 1\n2 4 5",
+            "expected": "0 3 2 8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1 1\n1 2 10",
+            "expected": "0 10 -1",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 42,
+        "title": "Bài 40. Xử lý tệp chuẩn thi HSG tìm đường đi ngắn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Đề thi yêu cầu đọc dữ liệu từ tệp `ROADS.INP` và ghi kết quả ra tệp `ROADS.OUT`.\nCó $N$ thành phố ($N \\le 10^5$) và $M$ tuyến đường 2 chiều ($M \\le 2 \\times 10^5$). Tuyến đường nối $u$ và $v$ có độ dài $w$. Tìm khoảng cách ngắn nhất giữa thành phố 1 và thành phố $N$.\nDữ liệu vào:\n- Đọc từ tệp `ROADS.INP`: Dòng 1 chứa $N, M$. $M$ dòng tiếp theo mỗi dòng chứa $u, v, w$.\nKết quả ra:\n- Ghi ra tệp `ROADS.OUT`: Một số nguyên là khoảng cách ngắn nhất từ 1 đến $N$, hoặc `-1` nếu không có đường đi.",
+        "templateCode": "import sys\nimport heapq\n\ndef main():\n try:\n sys.stdin = open('ROADS.INP', 'r')\n sys.stdout = open('ROADS.OUT', 'w')\n except FileNotFoundError:\n pass\n \n data = sys.stdin.read().split()\n if not data:\n return\n n, m = int(data[0]), int(data[1])\n adj = [[] for _ in range(n + 1)]\n idx = 2\n for _ in range(m):\n u = int(data[idx])\n v = int(data[idx+1])\n w = int(data[idx+2])\n idx += 3\n adj[u].append((v, w))\n adj[v].append((u, w))\n \n dist = [float('inf')] * (n + 1)\n dist[1] = 0\n pq = [(0, 1)]\n \n while pq:\n d, u = heapq.heappop(pq)\n if d > dist[u]:\n continue\n if u == n:\n break\n for v, w in adj[u]:\n if dist[u] + w < dist[v]:\n dist[v] = dist[u] + w\n heapq.heappush(pq, (dist[v], v))\n \n ans = dist[n] if dist[n] != float('inf') else -1\n print(ans)\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 4\n1 2 2\n2 4 5\n1 3 1\n3 4 3",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1\n1 2 5",
+            "expected": "-1",
             "point": 5,
             "is_hidden": true
           }
