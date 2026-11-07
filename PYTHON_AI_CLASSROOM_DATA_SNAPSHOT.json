@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:46:05.797Z",
+    "updatedAt": "2026-11-07T07:46:47.485Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin cập nhật TK: Trần Thị Trúc Mai"
+    "action": "Admin cập nhật TK: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
@@ -255,7 +255,7 @@
         "identifier": "giaovien",
         "school": "THCS Thành Đông",
         "className": "Khối 8",
-        "phone": "0123456789",
+        "phone": "0932861739",
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
