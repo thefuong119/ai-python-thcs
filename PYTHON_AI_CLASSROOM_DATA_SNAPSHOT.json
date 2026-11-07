@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T18:22:47.321Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-07T18:27:52.744Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 55,
+        "loginCount": 56,
         "_hasPassword": true,
         "password": null
       },
@@ -5205,6 +5205,13 @@
     ],
     "loginLogs": [
       {
+        "time": "01:27:26 8/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "01:00:15 8/11/2026",
         "name": "Giáo viên Dùng Thử",
         "identifier": "giaovien",
@@ -5594,10 +5601,10 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": false,
+      "teacherCanAdd": true,
       "teacherCanEdit": true,
       "teacherCanDelete": false,
-      "teacherCanPushServer": false,
+      "teacherCanPushServer": true,
       "teacherCanLoadServer": false
     },
     "studentMessages": [
