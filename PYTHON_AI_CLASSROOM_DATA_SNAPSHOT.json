@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T13:50:05.353Z",
-    "updatedBy": "Nguyễn Thế Phương",
+    "updatedAt": "2026-11-07T13:49:58.545Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 50,
+        "loginCount": 49,
         "_hasPassword": true,
         "password": null
       },
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 2,
+        "attempts": 3,
         "highestScore": 10,
-        "lastSubmit": "20:37:22 7/11/2026"
+        "lastSubmit": "20:48:45 7/11/2026"
       }
     ],
     "lectures": [
@@ -5098,6 +5098,35 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1794059325834,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
+        "assignmentId": 43,
+        "score": 5,
+        "timestamp": "20:48:45 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "actual": "77760",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "actual": "294840",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))"
+      },
+      {
         "id": 1794058642647,
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
@@ -5187,20 +5216,6 @@
     ],
     "loginLogs": [
       {
-        "time": "20:49:33 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:49:25 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Reset pw"
-      },
-      {
         "time": "19:24:21 7/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -5277,7 +5292,8 @@
       },
       "minh": {
         "1": true,
-        "2": true
+        "2": true,
+        "43": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5330,6 +5346,31 @@
             "is_hidden": true
           }
         ]
+      },
+      "43": {
+        "id": 43,
+        "title": "Tính tiền điện bậc thang sinh hoạt",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$ và chỉ số mới là $new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$ và $new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
+        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n tien = kwh * 1800\nelif kwh <= 100:\n tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
       }
     },
     "testSets": [
@@ -5365,7 +5406,8 @@
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )",
       "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)",
-      "minh__Bài 2. Kiểm tra tính chẵn lẻ": "# Viết mã Python của em ở đây...\nN = int(input())\nif N % 2 == 0: print('CHAN')\nelse: print('LE')"
+      "minh__Bài 2. Kiểm tra tính chẵn lẻ": "# Viết mã Python của em ở đây...\nN = int(input())\nif N % 2 == 0: print('CHAN')\nelse: print('LE')",
+      "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))"
     },
     "questionFlags": {
       "43": true
