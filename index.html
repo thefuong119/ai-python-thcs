@@ -117,7 +117,7 @@
         table tbody td { padding: 12px; font-size: var(--text-xs); }
         header { min-height: 68px; }
         header .h-16 { height: 68px; }
-        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherTestsBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminTestsBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
+        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #studentTabMessagesBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherTestsBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabTeacherMessagesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminTestsBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn, #tabAdminMessagesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
         [id$="Modal"] .p-4.bg-slate-50 button, .modal-footer button { height: var(--btn-h-md); padding: 0 18px; font-size: var(--text-xs); }
         #btnSubmitAuth, #btnOpenLoginStudent, #btnOpenLoginTeacher, button[onclick*="submitAndGrade"], button[onclick*="executeExitApp"] { height: 44px; font-size: var(--text-sm); font-weight: 700; }
         .text-\[10px\], .text-\[11px\] { font-size: var(--text-tiny) !important; }
@@ -133,6 +133,34 @@
         #authModal .auth-body { padding: 14px 18px !important; }
         #authModal .auth-row { margin-bottom: 10px; }
         .test-flag { color: #f59e0b; }
+        .msg-unread { border-left: 4px solid #f59e0b; background: #fffbeb; }
+        .perm-disabled { opacity: 0.5; pointer-events: none; }
+
+        /* ===== HIỆU ỨNG NÚT HỎI GIA SƯ AI NHẤP NHÁY ===== */
+        @keyframes aiPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.8), 0 4px 14px rgba(245,158,11,0.35); }
+            50%      { box-shadow: 0 0 0 10px rgba(245,158,11,0), 0 4px 14px rgba(245,158,11,0.35); }
+        }
+        @keyframes aiIconShake {
+            0%, 100% { transform: rotate(0deg); }
+            25%      { transform: rotate(-12deg) scale(1.15); }
+            75%      { transform: rotate(12deg) scale(1.15); }
+        }
+        .ai-tutor-blink {
+            animation: aiPulse 1.6s ease-in-out infinite;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%) !important;
+            color: #fff !important;
+            font-weight: 800 !important;
+            border: 2px solid #fbbf24 !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        }
+        .ai-tutor-blink i {
+            animation: aiIconShake 1.2s ease-in-out infinite;
+        }
+        .ai-tutor-blink:hover {
+            transform: translateY(-1px) scale(1.03);
+            filter: brightness(1.1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -359,6 +387,9 @@
                     <button id="studentTabTestsBtn" onclick="switchStudentTab('tests')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all">
                         <i class="ph-bold ph-exam"></i> Kiểm Tra (<span id="studentTestCountBadge">0</span>)
                     </button>
+                    <button id="studentTabMessagesBtn" onclick="switchStudentTab('messages')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all">
+                        <i class="ph-bold ph-chat-text"></i> Lời Nhắn
+                    </button>
                 </div>
                 <div id="assignmentSelectorWrapper" class="hidden items-center gap-2 flex-wrap">
                     <select id="selectAssignment" onchange="loadAssignment(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer max-w-[260px]"></select>
@@ -412,8 +443,8 @@
                                 <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                     <i class="ph-bold ph-file-text text-blue-600"></i> Nội Dung Đề Bài
                                 </h3>
-                                <button onclick="openAiAssistant('socratic')" class="text-xs text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1 bg-blue-50 px-2.5 py-1 rounded-lg">
-                                    <i class="ph-bold ph-sparkle text-amber-500"></i> Hỏi Gia Sư AI
+                                <button onclick="openAiAssistant('socratic')" class="ai-tutor-blink text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all">
+                                    <i class="ph-bold ph-sparkle text-base"></i> Hỏi Gia Sư AI
                                 </button>
                             </div>
                             <div class="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-100">
@@ -464,8 +495,8 @@
                                     <button onclick="copyCurrentCode()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium" title="Sao chép">
                                         <i class="ph-bold ph-copy"></i>
                                     </button>
-                                    <button onclick="openAiAssistant('debug_error')" class="px-2.5 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1">
-                                        <i class="ph-bold ph-bug"></i> Phân tích lỗi
+                                    <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1">
+                                        <i class="ph-bold ph-bug"></i> Hỏi Gia Sư AI
                                     </button>
                                 </div>
                             </div>
@@ -548,6 +579,34 @@
                     <div id="studentTestListContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
                 </div>
             </div>
+
+            <div id="studentMessagesSection" class="hidden space-y-6">
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                    <div class="border-b border-slate-100 pb-3">
+                        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                            <i class="ph-bold ph-chat-text text-blue-600"></i> Lời Nhắn Với Giáo Viên
+                        </h3>
+                        <p class="text-sm text-slate-500">Gửi tin nhắn, thắc mắc đến giáo viên và Admin.</p>
+                    </div>
+                    <div class="space-y-2 bg-blue-50/50 border border-blue-200 rounded-2xl p-4">
+                        <label class="block font-bold text-sm text-slate-800">Nội dung tin nhắn:</label>
+                        <textarea id="studentMessageInput" rows="4" placeholder="Nhập tin nhắn gửi giáo viên... (Enter để gửi, Shift+Enter để xuống dòng)"
+                          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendStudentMessage();}"
+                          class="w-full bg-white border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                        <div class="flex justify-end">
+                            <button onclick="sendStudentMessage()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-2 shadow-md">
+                                <i class="ph-bold ph-paper-plane-tilt"></i> Gửi Tin Nhắn
+                            </button>
+                        </div>
+                    </div>
+                    <div class="border-t pt-4">
+                        <h4 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+                            <i class="ph-bold ph-clock-counter-clockwise"></i> Tin nhắn đã gửi
+                        </h4>
+                        <div id="studentMessagesList" class="space-y-3 max-h-[500px] overflow-y-auto"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- VIEW 2: GIÁO VIÊN -->
@@ -587,6 +646,9 @@
                 </button>
                 <button id="tabTeacherLogsBtn" onclick="switchTeacherTab('logs')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký
+                </button>
+                <button id="tabTeacherMessagesBtn" onclick="switchTeacherTab('messages')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-chat-text"></i> Lời Nhắn (<span id="teacherUnreadBadge">0</span>)
                 </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap pl-2">
                     <select id="teacherGradeFilter" onchange="syncGradeFilters(this.value, 'teacher')" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
@@ -921,6 +983,17 @@
                     </table>
                 </div>
             </div>
+
+            <div id="teacherTabMessages" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-5 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900">Lời Nhắn Từ Học Sinh</h4>
+                        <p class="text-sm text-slate-500">Phản hồi tin nhắn và xem lịch sử trao đổi.</p>
+                    </div>
+                    <input id="teacherMessageSearch" oninput="renderTeacherMessages()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
+                </div>
+                <div id="teacherMessagesList" class="space-y-3 max-h-[600px] overflow-y-auto"></div>
+            </div>
         </div>
 
         <!-- VIEW 3: ADMIN -->
@@ -977,6 +1050,9 @@
                 <button id="tabAdminLogsBtn" onclick="switchAdminTab('logs')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-clock-counter-clockwise"></i> Nhật Ký
                 </button>
+                <button id="tabAdminMessagesBtn" onclick="switchAdminTab('messages')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-chat-text"></i> Lời Nhắn (<span id="adminUnreadBadge">0</span>)
+                </button>
                 <div class="ml-auto flex items-center gap-2 flex-wrap">
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5">
                         <i class="ph-bold ph-shuffle"></i> Tạo đề
@@ -985,6 +1061,46 @@
             </div>
 
             <div id="adminTabUsers" class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 space-y-4">
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 space-y-3">
+                    <div class="flex items-center justify-between border-b border-amber-200 pb-2">
+                        <h4 class="font-bold text-sm text-amber-900 flex items-center gap-2">
+                            <i class="ph-bold ph-shield-star text-amber-600 text-lg"></i> Phân quyền cho Giáo viên
+                        </h4>
+                        <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Chỉ Admin thay đổi được</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanAdd" onchange="toggleSystemPermission('teacherCanAdd', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Thêm</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanEdit" onchange="toggleSystemPermission('teacherCanEdit', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Sửa</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanDelete" onchange="toggleSystemPermission('teacherCanDelete', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Xóa</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanPushServer" onchange="toggleSystemPermission('teacherCanPushServer', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Nộp Server</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanLoadServer" onchange="toggleSystemPermission('teacherCanLoadServer', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Nạp Server</span>
+                        </label>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-amber-200">
+                        <p class="text-xs text-amber-800 font-semibold flex items-center gap-1">
+                            <i class="ph-bold ph-info text-amber-600"></i>
+                            Nhấn <b>Áp dụng</b> để lưu & đẩy quyền lên máy chủ ngay cho Giáo viên.
+                        </p>
+                        <button onclick="applyPermissionsAndPush()" id="btnApplyPermissions" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all">
+                            <i class="ph-bold ph-check-circle"></i> Áp dụng & Đồng bộ ngay
+                        </button>
+                    </div>
+                    <p class="text-xs text-amber-700 italic">Ghi chú: Khi bỏ tích, các nút thao tác tương ứng sẽ bị ẩn khỏi giao diện Giáo viên.</p>
+                </div>
                 <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
                     <div class="flex bg-slate-100 p-1 rounded-2xl text-xs font-semibold gap-1">
                         <button id="adminSubTabStudentsBtn" onclick="switchAdminUserGroup('student')" class="px-4 py-2 rounded-xl font-bold bg-blue-600 text-white shadow-sm transition-all flex items-center gap-1.5">
@@ -1057,6 +1173,9 @@
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp
                             <input type="file" accept=".docx,.json" class="hidden" onchange="importLectureFileFromTemplate(event)">
                         </label>
+                        <button onclick="bulkDeleteAdminItems('lectures')" class="px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-trash"></i> Xóa đã chọn (<span id="adminLecturesSelectedCount">0</span>)
+                        </button>
                         <button onclick="openAdminLectureModalForCreate()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md">
                             <i class="ph-bold ph-plus"></i> Thêm
                         </button>
@@ -1118,6 +1237,7 @@
                     <table class="w-full text-left">
                         <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                             <tr>
+                                <th class="w-10 text-center"><input type="checkbox" onchange="toggleSelectAllAdminItems('lectures', this.checked)" class="w-4 h-4 cursor-pointer"></th>
                                 <th class="w-12 text-center">ID</th>
                                 <th>Tiêu đề</th>
                                 <th>Khối lớp</th>
@@ -1158,6 +1278,9 @@
                             <i class="ph-bold ph-file-arrow-up"></i> Nạp
                             <input type="file" accept=".docx,.json" class="hidden" onchange="importAssignmentFileFromTemplate(event)">
                         </label>
+                        <button onclick="bulkDeleteAdminItems('assignments')" class="px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-trash"></i> Xóa đã chọn (<span id="adminAssignmentsSelectedCount">0</span>)
+                        </button>
                         <button onclick="createAdminAssignment()" class="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-1.5">
                             <i class="ph-bold ph-plus"></i> Thêm
                         </button>
@@ -1228,6 +1351,7 @@
                     <table class="w-full text-left">
                         <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                             <tr>
+                                <th class="w-10 text-center"><input type="checkbox" onchange="toggleSelectAllAdminItems('assignments', this.checked)" class="w-4 h-4 cursor-pointer"></th>
                                 <th class="w-12 text-center">ID</th>
                                 <th>Tên Bài Tập</th>
                                 <th class="text-center">Độ Khó</th>
@@ -1245,9 +1369,14 @@
                         <h4 class="font-bold text-base text-slate-900">Các Đề Đã Tạo (Admin)</h4>
                         <p class="text-sm text-slate-500">Xem, sửa, xóa hoặc phát đề cho học sinh. Xóa đề không ảnh hưởng câu hỏi trong Ngân hàng câu hỏi.</p>
                     </div>
-                    <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
-                        <i class="ph-bold ph-shuffle"></i> Tạo đề mới
-                    </button>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button onclick="bulkDeleteAdminItems('tests')" class="px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-trash"></i> Xóa đã chọn (<span id="adminTestsSelectedCount">0</span>)
+                        </button>
+                        <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-shuffle"></i> Tạo đề mới
+                        </button>
+                    </div>
                 </div>
                 <div id="adminTestsList" class="space-y-3"></div>
             </div>
@@ -1360,6 +1489,17 @@
                         <tbody id="adminGradesTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
+            </div>
+
+            <div id="adminTabMessages" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-5 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900">Lời Nhắn Từ Học Sinh</h4>
+                        <p class="text-sm text-slate-500">Admin có thể xem và trả lời tất cả tin nhắn.</p>
+                    </div>
+                    <input id="adminMessageSearch" oninput="renderAdminMessages()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
+                </div>
+                <div id="adminMessagesList" class="space-y-3 max-h-[600px] overflow-y-auto"></div>
             </div>
         </div>
 
@@ -1682,29 +1822,30 @@
                     </ul>
                 </div>
 
+                <div class="bg-cyan-50 border-2 border-cyan-200 rounded-2xl p-4 shadow-sm">
+                    <h3 class="font-extrabold text-base text-cyan-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-chat-text text-cyan-600 text-lg"></i> 3. GỬI LỜI NHẮN CHO GIÁO VIÊN</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-cyan-800">
+                        <li>Học sinh chọn tab <b>"Lời Nhắn"</b> → nhập nội dung → nhấn <b>"Gửi Tin Nhắn"</b>.</li>
+                        <li>Giáo viên/Admin vào tab <b>"Lời Nhắn"</b> để xem và phản hồi.</li>
+                        <li>Tin nhắn chưa đọc được đánh dấu <b>viền vàng</b>. Nhấn <b>"Đã đọc"</b> để đánh dấu.</li>
+                    </ul>
+                </div>
+
                 <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600 text-lg"></i> 3. QUẢN LÝ ĐỀ THI (GV & ADMIN)</h3>
+                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-shield-star text-purple-600 text-lg"></i> 4. PHÂN QUYỀN (ADMIN)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
-                        <li>Vào tab <b>"Các đề đã tạo"</b> để xem toàn bộ đề đã tạo.</li>
-                        <li>Nhấn <b>"Xem"</b> để xem chi tiết đề; <b>"Sửa"</b> để chỉnh sửa câu hỏi; <b>"Phát đề cho HS"</b>để giao đề cho học sinh.</li>
-                        <li>Nhấn <b>"Xóa"</b> để xóa đề. <b>Lưu ý:</b> Xóa đề <u>không</u> ảnh hưởng đến câu hỏi trong Ngân hàng câu hỏi.</li>
+                        <li>Admin vào tab <b>"Tài Khoản"</b> → khu vực <b>"Phân quyền cho Giáo viên"</b>.</li>
+                        <li>Tích/bỏ tích 5 quyền: <b>Thêm - Sửa - Xóa - Nộp Server - Nạp Server</b>.</li>
+                        <li>Khi bỏ tích, Giáo viên sẽ <u>không thấy</u> các nút tương ứng.</li>
+                        <li>Admin có <b>checkbox</b> để chọn nhiều Bài giảng/Bài tập/Đề thi và nhấn <b>"Xóa đã chọn"</b>.</li>
                     </ul>
                 </div>
 
                 <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 4. SỬ DỤNG AI</h3>
+                    <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 5. SỬ DỤNG AI</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-indigo-800">
                         <li><b>Robot trợ lý:</b> Biểu tượng robot ở góc màn hình. <b>Nhấp 1 lần</b> để đọc toàn bộ văn bản đang hiển thị; <b>nhấp lần nữa</b> để dừng.</li>
-                        <li><b>Hỏi Gia Sư AI:</b> Nhấn nút <b>"Hỏi Gia Sư AI"</b> hoặc <b>"Phân tích lỗi, lưu ý Gia sư AI có thể thông minh hơn nếu tài khoản Gemini AI bạn dùng được mô hình Gemini AI Pro hoặc Flash 3.8 có mức độ tư duy cao"</b>.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-cyan-50 border-2 border-cyan-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-cyan-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-arrows-out text-cyan-600 text-lg"></i> 5. TOÀN MÀN HÌNH & THOÁT ỨNG DỤNG</h3>
-                    <ul class="list-disc list-inside space-y-1.5 text-cyan-800">
-                        <li>Nhấn nút <b>"Toàn Màn Hình"</b> trên header để phóng to (tương đương F11). Nhấn lại hoặc nhấn <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Esc</kbd> để thoát.</li>
-                        <li>Nhấn nút <b>"Thoát"</b> đỏ → xác nhận → hệ thống sẽ lưu dữ liệu, thoát toàn màn hình và đóng tab (nếu được phép).</li>
-                        <li><b>Lưu ý:</b> Trình duyệt bảo mật <u>không cho phép</u> trang web tự đóng tab. Nếu tab không đóng, hãy nhấn <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Ctrl</kbd>+<kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">W</kbd> / <kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">Cmd</kbd>+<kbd class="px-1 bg-white border border-cyan-300 rounded font-mono">W</kbd>.</li>
+                        <li><b>Hỏi Gia Sư AI:</b> Nhấn nút <b>"Hỏi Gia Sư AI"</b> hoặc <b>"Phân tích lỗi"</b>.</li>
                     </ul>
                 </div>
 
@@ -2109,8 +2250,6 @@
     // ⭐ BỘ LỌC KHỐI LỚP - ĐỒNG BỘ TOÀN CỤC
     // =============================================
     const GRADE_STORAGE_KEY = 'lms_grade_filter';
-
-    // Nhóm các select khối theo vai trò để đồng bộ
     const GRADE_SELECT_GROUPS = {
         student: ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'],
         studentPractice: ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'],
@@ -2119,70 +2258,32 @@
         admin: ['adminGradeFilter']
     };
 
-    function getStoredGrade() {
-        const g = localStorage.getItem(GRADE_STORAGE_KEY);
-        return g || '8';
-    }
-
+    function getStoredGrade() { return localStorage.getItem(GRADE_STORAGE_KEY) || '8'; }
     function applyStoredGradeToAllSelects() {
         const stored = getStoredGrade();
-        // Student filters
         ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.value = stored;
+            const el = document.getElementById(id); if (el) el.value = stored;
         });
-        // Teacher/Admin filters
-        const tg = document.getElementById('teacherGradeFilter');
-        if (tg) tg.value = stored;
-        const ag = document.getElementById('adminGradeFilter');
-        if (ag) ag.value = stored;
+        const tg = document.getElementById('teacherGradeFilter'); if (tg) tg.value = stored;
+        const ag = document.getElementById('adminGradeFilter'); if (ag) ag.value = stored;
     }
 
-    /**
-     * Đồng bộ bộ lọc khối lớp toàn cục.
-     * @param {string} grade - Giá trị khối ('all', '6', '7', ... '12')
-     * @param {string} source - Nguồn phát ('student', 'studentPractice', 'studentTest', 'teacher', 'admin')
-     */
     function syncGradeFilters(grade, source) {
         if (grade === undefined || grade === null) return;
         grade = String(grade);
-
-        // 1) Lưu vào localStorage
         localStorage.setItem(GRADE_STORAGE_KEY, grade);
-
-        // 2) Xác định nhóm select cần cập nhật
         let targetIds = GRADE_SELECT_GROUPS[source] || [];
-        // Với student, đồng bộ toàn bộ 3 select của học sinh
-        if (source.startsWith('student')) {
-            targetIds = ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'];
-        }
-        // Với teacher: chỉ cập nhật teacherGradeFilter
-        if (source === 'teacher') {
-            targetIds = ['teacherGradeFilter'];
-        }
-        // Với admin: cập nhật adminGradeFilter + các select lọc con nếu có
-        if (source === 'admin') {
-            targetIds = ['adminGradeFilter'];
-            const ag = document.getElementById('adminAssignmentGradeFilter');
-            if (ag) targetIds.push('adminAssignmentGradeFilter');
-        }
-
-        // 3) Gán giá trị cho tất cả select trong nhóm
-        targetIds.forEach(id => {
-            const el = document.getElementById(id);
-            if (el && el.value !== grade) el.value = grade;
-        });
-
-        // 4) Gọi render lại các bảng/danh sách bị ảnh hưởng ngay lập tức
+        if (source.startsWith('student')) targetIds = ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'];
+        if (source === 'teacher') targetIds = ['teacherGradeFilter'];
+        if (source === 'admin') { targetIds = ['adminGradeFilter']; }
+        targetIds.forEach(id => { const el = document.getElementById(id); if (el && el.value !== grade) el.value = grade; });
         try {
             if (source.startsWith('student')) {
-                // Học sinh: render lại bài giảng, bài thực hành, đề kiểm tra
                 if (typeof populateStudentLectures === 'function') populateStudentLectures();
                 if (typeof populateAssignmentSelect === 'function' && !currentTestSession) populateAssignmentSelect();
                 if (typeof renderStudentTestList === 'function') renderStudentTestList();
             }
             if (source === 'teacher' || source === 'admin') {
-                // Giáo viên/Admin: render lại bài giảng, ngân hàng câu hỏi, bài làm
                 if (typeof renderTeacherLecturesTable === 'function') renderTeacherLecturesTable();
                 if (typeof renderManageAssignmentsTable === 'function') renderManageAssignmentsTable();
                 if (typeof renderAdminAssignmentsTable === 'function') renderAdminAssignmentsTable();
@@ -2190,17 +2291,13 @@
                 if (typeof renderAdminSubmissionsTable === 'function') renderAdminSubmissionsTable();
                 if (typeof renderAdminUsersTable === 'function') renderAdminUsersTable();
             }
-        } catch (err) {
-            console.warn('[syncGradeFilters] render error:', err);
-        }
+        } catch (err) { console.warn('[syncGradeFilters] render error:', err); }
     }
 
     // =============================================
     // 🖥️ FULLSCREEN API
     // =============================================
-    function isFullscreen() {
-        return !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
-    }
+    function isFullscreen() { return !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement); }
     async function toggleFullscreen() {
         try {
             if (!isFullscreen()) {
@@ -2216,10 +2313,7 @@
                 else if (document.msExitFullscreen) document.msExitFullscreen();
                 showToast("Đã thoát toàn màn hình", "info");
             }
-        } catch(e) {
-            console.warn('[FULLSCREEN]', e);
-            showToast("Không thể chuyển chế độ toàn màn hình: " + e.message, "error");
-        }
+        } catch(e) { console.warn('[FULLSCREEN]', e); showToast("Không thể chuyển chế độ toàn màn hình: " + e.message, "error"); }
         updateFullscreenButtonUi();
     }
     function updateFullscreenButtonUi() {
@@ -2288,6 +2382,17 @@
     let flaggedAssignmentsCache = {};
     let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
 
+    // ===== TÍNH NĂNG MỚI: PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN =====
+    let systemPermissions = {
+        teacherCanAdd: true,
+        teacherCanEdit: true,
+        teacherCanDelete: true,
+        teacherCanPushServer: true,
+        teacherCanLoadServer: true
+    };
+    let selectedAdminItems = { lectures: new Set(), assignments: new Set(), tests: new Set() };
+    let studentMessages = [];
+
     const GITHUB_OWNER = "thefuong119";
     const GITHUB_REPO = "ai-python-thcs";
     const GITHUB_FILE_PATH = "PYTHON_AI_CLASSROOM_DATA_SNAPSHOT.json";
@@ -2313,10 +2418,7 @@
             const hashBuffer = await crypto.subtle.digest('SHA-256', data);
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        } catch (e) {
-            console.warn('[HASH] Fallback to plain:', e);
-            return "plain:" + plainPassword;
-        }
+        } catch (e) { console.warn('[HASH] Fallback to plain:', e); return "plain:" + plainPassword; }
     }
     async function verifyPassword(plainPassword, storedHashOrPlain, user) {
         if (!storedHashOrPlain) return user.password === plainPassword;
@@ -2364,6 +2466,307 @@
     function setTeacherSolution(v) { if (teacherSolutionEditor) teacherSolutionEditor.setValue(v || ''); else { const e = document.getElementById('newSolutionCode'); if (e) e.value = v || ''; } }
     function getAdminSolution() { return adminSolutionEditor ? adminSolutionEditor.getValue() : (document.getElementById('adminNewSolutionCode')?.value || ""); }
     function setAdminSolution(v) { if (adminSolutionEditor) adminSolutionEditor.setValue(v || ''); else { const e = document.getElementById('adminNewSolutionCode'); if (e) e.value = v || ''; } }
+
+    // ===== ÁP DỤNG PHÂN QUYỀN & ĐỒNG BỘ NGAY =====
+    async function applyPermissionsAndPush() {
+        if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền thao tác!", "error");
+        const btn = document.getElementById('btnApplyPermissions');
+        if (btn) { btn.disabled = true; btn.classList.add('opacity-60'); }
+        try {
+            autoSaveLocalSnapshot();
+            showToast("Đang áp dụng phân quyền và đồng bộ lên máy chủ...", "info");
+            const ok = await syncDataToGitHubDirectly("Admin áp dụng phân quyền cho Giáo viên");
+            if (ok) {
+                showToast("✅ Đã áp dụng phân quyền thành công cho Giáo viên!", "success");
+                speakRobotText("Đã áp dụng phân quyền mới cho giáo viên!");
+                logUserAccess(currentUser.name, currentUser.identifier, 'admin', "Áp dụng phân quyền");
+                autoSaveLocalSnapshot();
+            } else {
+                showToast("Đã lưu cục bộ. Hệ thống sẽ tự thử đồng bộ lại sau.", "info");
+            }
+        } finally {
+            if (btn) { btn.disabled = false; btn.classList.remove('opacity-60'); }
+        }
+    }
+
+    // ===== GỌI API AI MIỄN PHÍ (Pollinations.ai) =====
+    async function callFreeAiApi(prompt, systemMsg = "") {
+        const sys = systemMsg || "Bạn là gia sư AI chuyên bồi dưỡng học sinh giỏi môn lập trình Python. Trả lời ngắn gọn, dễ hiểu, giải thích rõ lỗi và cho code mẫu cụ thể.";
+        const tryPost = async () => {
+            const res = await fetch('https://text.pollinations.ai/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: [
+                        { role: 'system', content: sys },
+                        { role: 'user', content: prompt }
+                    ],
+                    model: 'openai',
+                    private: true,
+                    seed: Math.floor(Math.random() * 999999)
+                })
+            });
+            if (res.ok) {
+                const text = await res.text();
+                if (text && text.trim().length > 15) return text.trim();
+            }
+            return null;
+        };
+        const tryGet = async () => {
+            const url = `https://text.pollinations.ai/${encodeURIComponent(sys + "\n\n" + prompt)}?model=openai&seed=${Math.floor(Math.random()*999999)}`;
+            const res = await fetch(url);
+            if (res.ok) {
+                const text = await res.text();
+                if (text && text.trim().length > 15) return text.trim();
+            }
+            return null;
+        };
+        try { const a = await tryPost(); if (a) return a; } catch(e) { console.warn('[AI-POST]', e); }
+        try { const b = await tryGet(); if (b) return b; } catch(e) { console.warn('[AI-GET]', e); }
+        return null;
+    }
+
+    // ===== TÍNH NĂNG MỚI: HÀM PHÂN QUYỀN =====
+    function hasPermission(action) {
+        if (currentUser.role === 'admin') return true;
+        if (currentUser.role !== 'teacher') return false;
+        const map = {
+            add: systemPermissions.teacherCanAdd,
+            edit: systemPermissions.teacherCanEdit,
+            delete: systemPermissions.teacherCanDelete,
+            pushServer: systemPermissions.teacherCanPushServer,
+            loadServer: systemPermissions.teacherCanLoadServer
+        };
+        return !!map[action];
+    }
+
+    function loadSystemPermissionsIntoUi() {
+        const map = {
+            permTeacherCanAdd: systemPermissions.teacherCanAdd,
+            permTeacherCanEdit: systemPermissions.teacherCanEdit,
+            permTeacherCanDelete: systemPermissions.teacherCanDelete,
+            permTeacherCanPushServer: systemPermissions.teacherCanPushServer,
+            permTeacherCanLoadServer: systemPermissions.teacherCanLoadServer
+        };
+        Object.keys(map).forEach(id => { const el = document.getElementById(id); if (el) el.checked = map[id]; });
+    }
+
+    async function toggleSystemPermission(key, value) {
+        if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền!", "error");
+        systemPermissions[key] = value;
+        autoSaveLocalSnapshot();
+        showToast(`Đã ${value ? 'bật' : 'tắt'} quyền: ${key}. Nhấn "Áp dụng & Đồng bộ ngay" để đẩy lên máy chủ.`, value ? 'success' : 'info');
+    }
+
+    // ===== MULTI-DELETE ADMIN =====
+    function toggleAdminItemSelection(type, id, checked) {
+        if (!selectedAdminItems[type]) selectedAdminItems[type] = new Set();
+        if (checked) selectedAdminItems[type].add(id);
+        else selectedAdminItems[type].delete(id);
+        updateAdminSelectionCount(type);
+    }
+
+    function toggleSelectAllAdminItems(type, checked) {
+        if (!selectedAdminItems[type]) selectedAdminItems[type] = new Set();
+        selectedAdminItems[type].clear();
+        if (checked) {
+            if (type === 'lectures') lectures.forEach(l => selectedAdminItems[type].add(l.id));
+            else if (type === 'assignments') assignments.forEach(a => selectedAdminItems[type].add(a.id));
+            else if (type === 'tests') testSets.forEach(t => selectedAdminItems[type].add(t.id));
+        }
+        if (type === 'lectures') renderTeacherLecturesTable();
+        else if (type === 'assignments') renderAdminAssignmentsTable();
+        else if (type === 'tests') renderAdminTestsList();
+        updateAdminSelectionCount(type);
+    }
+
+    function updateAdminSelectionCount(type) {
+        const el = document.getElementById('admin' + type.charAt(0).toUpperCase() + type.slice(1) + 'SelectedCount');
+        if (el) el.textContent = (selectedAdminItems[type] || new Set()).size;
+    }
+
+    function bulkDeleteAdminItems(type) {
+        if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền!", "error");
+        const ids = selectedAdminItems[type];
+        if (!ids || ids.size === 0) return showToast("Chưa chọn mục nào!", "error");
+        const count = ids.size;
+        const labels = { lectures: 'bài giảng', assignments: 'bài tập', tests: 'đề thi' };
+        requestDeleteConfirmation(`${count} ${labels[type]} đã chọn`, async () => {
+            if (type === 'lectures') lectures = lectures.filter(l => !ids.has(l.id));
+            else if (type === 'assignments') {
+                assignments = assignments.filter(a => !ids.has(a.id));
+                testSets.forEach(t => { if (t.questionIds) t.questionIds = t.questionIds.filter(qid => !ids.has(qid)); });
+                testSets = testSets.filter(t => (t.questionIds || []).length > 0);
+            } else if (type === 'tests') testSets = testSets.filter(t => !ids.has(t.id));
+            selectedAdminItems[type].clear();
+            if (type === 'lectures') renderTeacherLecturesTable();
+            else if (type === 'assignments') { renderAdminAssignmentsTable(); renderManageAssignmentsTable(); populateAssignmentSelect(); }
+            else if (type === 'tests') { renderAdminTestsList(); renderTeacherTestsList(); renderStudentTestList(); }
+            autoSaveLocalSnapshot();
+            showToast(`Đã xóa ${count} ${labels[type]}!`, 'success');
+            enqueueSync(`Admin xóa ${count} ${labels[type]}`);
+        });
+    }
+
+    // ===== LỜI NHẮN =====
+    async function sendStudentMessage() {
+        if (!currentUser.isLoggedIn || currentUser.role !== 'student') return showToast("Vui lòng đăng nhập!", "error");
+        const ta = document.getElementById('studentMessageInput');
+        const content = (ta?.value || '').trim();
+        if (!content) return showToast("Vui lòng nhập nội dung!", "error");
+        if (content.length > 2000) return showToast("Tin nhắn quá dài (tối đa 2000 ký tự)!", "error");
+        const msg = {
+            id: Date.now(),
+            from: currentUser.identifier,
+            fromName: currentUser.name,
+            fromClass: currentUser.className || '',
+            content,
+            timestamp: new Date().toLocaleString('vi-VN'),
+            date: new Date().toISOString().slice(0, 10),
+            read: false,
+            replies: []
+        };
+        studentMessages.unshift(msg);
+        if (ta) ta.value = '';
+        autoSaveLocalSnapshot();
+        renderStudentMessages();
+        showToast("Đang gửi tin nhắn lên máy chủ...", "info");
+        // Đẩy NGAY lên GitHub để giáo viên thấy gần như tức thời
+        try {
+            const ok = await syncDataToGitHubDirectly(`HS ${currentUser.name} gửi tin nhắn`);
+            if (ok) showToast("✅ Đã gửi tin nhắn đến giáo viên!", "success");
+            else showToast("Đã lưu. Sẽ đồng bộ khi có mạng.", "info");
+        } catch(e) { showToast("Đã lưu cục bộ. Sẽ đồng bộ sau.", "info"); }
+        speakRobotText(`Đã gửi tin nhắn đến giáo viên.`);
+    }
+
+    function renderStudentMessages() {
+        const c = document.getElementById('studentMessagesList'); if (!c) return;
+        const mine = studentMessages.filter(m => m.from === currentUser.identifier);
+        if (mine.length === 0) { c.innerHTML = '<div class="text-center p-6 text-slate-500 italic text-sm bg-slate-50 rounded-2xl">Chưa có tin nhắn nào. Hãy gửi tin nhắn đầu tiên!</div>'; return; }
+        c.innerHTML = mine.map(m => {
+            const replies = (m.replies || []).map(r => `<div class="mt-2 ml-4 bg-emerald-50 border-l-4 border-emerald-400 rounded-lg p-2.5 text-sm"><div class="font-bold text-emerald-800 text-xs mb-1"><i class="ph-bold ph-chalkboard-teacher"></i> ${escapeHtml(r.by || 'Giáo viên')} · ${escapeHtml(r.timestamp)}</div><div class="text-slate-700">${escapeHtml(r.content)}</div></div>`).join('');
+            return `<div class="bg-blue-50 border border-blue-200 rounded-xl p-3.5 space-y-1">
+                <div class="flex justify-between items-start gap-2"><div class="font-bold text-sm text-blue-900"><i class="ph-bold ph-user-circle"></i> ${escapeHtml(m.fromName)} (${escapeHtml(m.fromClass || 'Học sinh')})</div><div class="text-xs text-slate-500 font-mono">${escapeHtml(m.timestamp)}</div></div>
+                <div class="text-sm text-slate-800 whitespace-pre-wrap">${escapeHtml(m.content)}</div>
+                ${replies}
+            </div>`;
+        }).join('');
+    }
+
+    function renderTeacherMessages() {
+        const c = document.getElementById('teacherMessagesList'); if (!c) return;
+        const q = (document.getElementById('teacherMessageSearch')?.value || '').toLowerCase();
+        let list = studentMessages;
+        if (q) list = list.filter(m => (m.fromName || '').toLowerCase().includes(q) || (m.content || '').toLowerCase().includes(q));
+        if (list.length === 0) { c.innerHTML = '<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl"><i class="ph-bold ph-chat-text text-4xl text-slate-300 mb-2 block"></i>Chưa có tin nhắn nào từ học sinh.</div>'; refreshMessagesBadges(); return; }
+        c.innerHTML = list.map(m => {
+            const replies = (m.replies || []).map(r => `<div class="mt-2 ml-4 bg-emerald-50 border-l-4 border-emerald-400 rounded-lg p-2.5 text-sm"><div class="font-bold text-emerald-800 text-xs mb-1"><i class="ph-bold ph-chalkboard-teacher"></i> ${escapeHtml(r.by || 'GV')} · ${escapeHtml(r.timestamp)}</div><div class="text-slate-700">${escapeHtml(r.content)}</div></div>`).join('');
+            return `<div class="border ${m.read ? 'border-slate-200 bg-white' : 'msg-unread border-amber-300'} rounded-xl p-3.5 space-y-2">
+                <div class="flex justify-between items-start gap-2 flex-wrap">
+                    <div>
+                        <div class="font-bold text-sm text-slate-900"><i class="ph-bold ph-user-circle text-blue-600"></i> ${escapeHtml(m.fromName)} <span class="text-xs text-slate-500">(${escapeHtml(m.fromClass || 'HS')})</span></div>
+                        <div class="text-xs text-slate-500 font-mono">${escapeHtml(m.timestamp)}</div>
+                    </div>
+                    <div class="flex gap-1">
+                        ${!m.read ? `<button onclick="markMessageRead(${m.id})" class="px-2 py-1 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-800 text-xs font-bold"><i class="ph-bold ph-check"></i> Đã đọc</button>` : ''}
+                        <button onclick="deleteMessage(${m.id})" class="px-2 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold"><i class="ph-bold ph-trash"></i></button>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-800 whitespace-pre-wrap bg-slate-50 rounded-lg p-2.5">${escapeHtml(m.content)}</div>
+                ${replies}
+                <div class="flex gap-2 pt-1">
+                    <input id="reply_${m.id}" type="text" placeholder="Trả lời học sinh..." class="flex-1 bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs" onkeydown="if(event.key==='Enter') replyToMessage(${m.id})">
+                    <button onclick="replyToMessage(${m.id})" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold"><i class="ph-bold ph-paper-plane-right"></i> Gửi</button>
+                </div>
+            </div>`;
+        }).join('');
+        refreshMessagesBadges();
+    }
+
+    function renderAdminMessages() {
+        const c = document.getElementById('adminMessagesList'); if (!c) return;
+        const q = (document.getElementById('adminMessageSearch')?.value || '').toLowerCase();
+        let list = studentMessages;
+        if (q) list = list.filter(m => (m.fromName || '').toLowerCase().includes(q) || (m.content || '').toLowerCase().includes(q));
+        if (list.length === 0) { c.innerHTML = '<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl">Chưa có tin nhắn nào.</div>'; refreshMessagesBadges(); return; }
+        c.innerHTML = list.map(m => {
+            const replies = (m.replies || []).map(r => `<div class="mt-2 ml-4 bg-emerald-50 border-l-4 border-emerald-400 rounded-lg p-2.5 text-sm"><div class="font-bold text-emerald-800 text-xs mb-1">${escapeHtml(r.by)} · ${escapeHtml(r.timestamp)}</div><div class="text-slate-700">${escapeHtml(r.content)}</div></div>`).join('');
+            return `<div class="border ${m.read ? 'border-slate-200 bg-white' : 'msg-unread border-amber-300'} rounded-xl p-3.5 space-y-2">
+                <div class="flex justify-between items-start gap-2 flex-wrap">
+                    <div>
+                        <div class="font-bold text-sm text-slate-900">${escapeHtml(m.fromName)} <span class="text-xs text-slate-500">(${escapeHtml(m.fromClass || 'HS')})</span></div>
+                        <div class="text-xs text-slate-500 font-mono">${escapeHtml(m.timestamp)}</div>
+                    </div>
+                    <div class="flex gap-1">
+                        ${!m.read ? `<button onclick="markMessageRead(${m.id})" class="px-2 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold"><i class="ph-bold ph-check"></i></button>` : ''}
+                        <button onclick="deleteMessage(${m.id})" class="px-2 py-1 rounded-lg bg-rose-50 text-rose-700 text-xs font-bold"><i class="ph-bold ph-trash"></i></button>
+                    </div>
+                </div>
+                <div class="text-sm text-slate-800 whitespace-pre-wrap bg-slate-50 rounded-lg p-2.5">${escapeHtml(m.content)}</div>
+                ${replies}
+                <div class="flex gap-2 pt-1">
+                    <input id="adminReply_${m.id}" type="text" placeholder="Trả lời..." class="flex-1 bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs" onkeydown="if(event.key==='Enter') replyToMessage(${m.id}, 'adminReply_${m.id}')">
+                    <button onclick="replyToMessage(${m.id}, 'adminReply_${m.id}')" class="px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-bold">Gửi</button>
+                </div>
+            </div>`;
+        }).join('');
+        refreshMessagesBadges();
+    }
+
+    async function markMessageRead(id) {
+        const m = studentMessages.find(x => x.id === id); if (!m) return;
+        m.read = true;
+        autoSaveLocalSnapshot();
+        renderTeacherMessages(); renderAdminMessages();
+        enqueueSync(`Đánh dấu tin nhắn đã đọc`);
+    }
+
+    function deleteMessage(id) {
+        if (currentUser.role !== 'teacher' && currentUser.role !== 'admin') return showToast("Không có quyền!", "error");
+        requestDeleteConfirmation("tin nhắn này", () => {
+            studentMessages = studentMessages.filter(m => m.id !== id);
+            autoSaveLocalSnapshot();
+            renderTeacherMessages(); renderAdminMessages(); renderStudentMessages();
+            showToast("Đã xóa tin nhắn!", "success");
+            enqueueSync(`Xóa tin nhắn`);
+        });
+    }
+
+    async function replyToMessage(id, inputIdOverride) {
+        const m = studentMessages.find(x => x.id === id); if (!m) return;
+        const inputId = inputIdOverride || ('reply_' + id);
+        const input = document.getElementById(inputId);
+        const content = (input?.value || '').trim();
+        if (!content) return showToast("Vui lòng nhập nội dung!", "error");
+        if (!m.replies) m.replies = [];
+        m.replies.push({ by: currentUser.name, content, timestamp: new Date().toLocaleString('vi-VN') });
+        m.read = true;
+        if (input) input.value = '';
+        autoSaveLocalSnapshot();
+        renderTeacherMessages(); renderAdminMessages(); renderStudentMessages();
+        showToast("Đã gửi phản hồi!", "success");
+        enqueueSync(`Phản hồi tin nhắn`);
+    }
+
+    function refreshMessagesBadges() {
+        const unread = studentMessages.filter(m => !m.read).length;
+        const tB = document.getElementById('teacherUnreadBadge');
+        const aB = document.getElementById('adminUnreadBadge');
+        if (tB) tB.textContent = unread;
+        if (aB) aB.textContent = unread;
+    }
+
+    function enforceTeacherUiPermissions() {
+        if (currentUser.role === 'admin') return;
+        const canAdd = hasPermission('add');
+        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"], #teacherView [onclick*="createAssignment"], #teacherView [onclick*="openRandomTestModal"]').forEach(b => {
+            b.style.display = canAdd ? '' : 'none';
+        });
+        document.querySelectorAll('#teacherView label:has(input[type="file"])').forEach(b => {
+            b.style.display = canAdd ? '' : 'none';
+        });
+    }
 
     function initCodeMirrorEditors() {
         if (!window.CodeMirror) return;
@@ -2479,31 +2882,36 @@
     function renderAdminTestsList() {
         const container = document.getElementById('adminTestsList'); if (!container) return;
         const activeTests = testSets.filter(t => t.active !== false);
-        if (activeTests.length === 0) { container.innerHTML = `<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl border border-slate-200"><i class="ph-bold ph-list-checks text-4xl text-slate-300 mb-2 block"></i>Chưa có đề thi nào được tạo. Nhấn "Tạo đề mới" để bắt đầu.</div>`; return; }
+        if (activeTests.length === 0) { container.innerHTML = `<div class="text-center p-8 text-slate-500 italic bg-slate-50 rounded-2xl border border-slate-200"><i class="ph-bold ph-list-checks text-4xl text-slate-300 mb-2 block"></i>Chưa có đề thi nào được tạo.</div>`; updateAdminSelectionCount('tests'); return; }
         container.innerHTML = activeTests.map(t => {
             const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
             const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
+            const checked = selectedAdminItems.tests.has(t.id) ? 'checked' : '';
             return `
-                <div class="border border-slate-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition-all space-y-2">
+                <div class="border ${checked ? 'border-indigo-400 bg-indigo-50' : 'border-slate-200 bg-white'} rounded-2xl p-4 shadow-sm hover:shadow-md transition-all space-y-2">
                     <div class="flex items-start justify-between gap-2 flex-wrap">
-                        <div class="flex-1">
-                            <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-indigo-600"></i>${escapeHtml(t.title)}</h4>
-                            <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
-                                <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
-                                <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
-                                <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
-                                ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
+                        <div class="flex items-start gap-2 flex-1">
+                            <input type="checkbox" ${checked} onchange="toggleAdminItemSelection('tests', ${t.id}, this.checked)" class="w-4 h-4 cursor-pointer mt-1">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-indigo-600"></i>${escapeHtml(t.title)}</h4>
+                                <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                                    <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
+                                    <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                                    <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
+                                    ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
+                                </div>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
                             <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
                             <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
-                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh</button>
+                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát đề</button>
                         </div>
                     </div>
                 </div>`;
         }).join('');
+        updateAdminSelectionCount('tests');
     }
 
     function viewTestDetail(testId) {
@@ -2567,6 +2975,7 @@
     }
 
     function deleteTestSet(testId) {
+        if (!hasPermission('delete')) return showToast("Admin chưa cấp quyền Xóa!", "error");
         const t = testSets.find(x => x.id == testId); if (!t) return;
         requestDeleteConfirmation(`đề thi "${t.title}"`, () => {
             testSets = testSets.filter(x => x.id !== testId);
@@ -2760,9 +3169,9 @@
     }
 
     function speakIntroFullText() {
-        const intro = `Đây là ứng dụng dạng web app do tác giả Nguyễn Thế Phương, giáo viên Trường Trung học cơ sở Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp. Tài khoản dùng thử. Dùng thử ngay. Sử dụng thông tin bên dưới để trải nghiệm. Một, Giáo viên. Tên đăng nhập: giaovien. Mật khẩu: Giaovien a còng 123. Đăng nhập ngay. Hai, Học sinh. Tên đăng nhập: hocsinh. Mật khẩu: Hocsinh a còng 123. Đăng nhập ngay. Ba, Admin. Quản trị. Admin có thể: Thêm, sửa, xóa toàn bộ dữ liệu nguồn. Điện thoại: không chín ba hai, tám sáu một, bảy ba chín. Email: thefuong119 a còng gờ meo chấm com.`;
+        const intro = `Đây là ứng dụng dạng web app do tác giả Nguyễn Thế Phương, giáo viên Trường Trung học cơ sở Thành Đông, xã Tân Quới, tỉnh Vĩnh Long xây dựng năm học 2025-2026 để giúp học sinh ôn thi học sinh giỏi Tin học và được tiếp tục phát triển năm học 2026-2027. Ứng dụng sẽ được tiếp tục phát triển thêm những tính năng mới như: Trò chơi, Ngân hàng đề bài, Luyện giải đề lập trình Python. Rất mong nhận được sự góp ý chân thành từ quý thầy cô, quý phụ huynh học sinh và các em học sinh. Hãy cùng chung tay phát triển và lan tỏa những điều tốt đẹp.`;
         speakRobotText(intro);
-        showToast("🤖 Robot đang đọc toàn bộ phần giới thiệu...", "info");
+        showToast("🤖 Robot đang đọc phần giới thiệu...", "info");
     }
 
     function loadStudentFlagsFromLS() { try { return JSON.parse(localStorage.getItem('py_student_flags') || '{}'); } catch(e) { return {}; } }
@@ -2918,7 +3327,7 @@
         guestLockView?.classList.add('hidden');
         studentView?.classList.add('hidden'); teacherView?.classList.add('hidden'); adminView?.classList.add('hidden');
         if (role === 'student' && studentView) { studentView.classList.remove('hidden'); switchStudentTab('lectures'); }
-        else if (role === 'teacher' && teacherView) { teacherView.classList.remove('hidden'); updateTeacherStats(); switchTeacherTab('lectures'); }
+        else if (role === 'teacher' && teacherView) { teacherView.classList.remove('hidden'); updateTeacherStats(); switchTeacherTab('lectures'); enforceTeacherUiPermissions(); }
         else if (role === 'admin' && adminView) { adminView.classList.remove('hidden'); refreshAdminDashboard(); }
         updateUserHeaderUi();
     }
@@ -2961,7 +3370,7 @@
         activeAuthTab = role; currentAuthAction = action;
         updateAuthModalState();
         document.getElementById('authModal')?.classList.remove('hidden');
-        await autoFetchDataFromGitHub(false);
+        autoFetchDataFromGitHub(false).catch(() => {});
     }
     function closeLoginModal() { document.getElementById('authModal')?.classList.add('hidden'); }
     function setAuthAction(action) { currentAuthAction = action; updateAuthModalState(); }
@@ -3211,7 +3620,11 @@
         }
     }
 
-    async function pushCurrentDataToGitHubManual() { showToast("Đang gửi dữ liệu qua máy chủ...", "info"); await syncDataToGitHubDirectly("Nộp dữ liệu thủ công"); }
+    async function pushCurrentDataToGitHubManual() {
+        if (!hasPermission('pushServer')) return showToast("Admin chưa cấp quyền Nộp Server!", "error");
+        showToast("Đang gửi dữ liệu qua máy chủ...", "info");
+        await syncDataToGitHubDirectly("Nộp dữ liệu thủ công");
+    }
 
     async function syncDataToGitHubDirectly(actionDescription = "Cập nhật dữ liệu") {
         if (isSyncing) { pendingSyncRequest = actionDescription; return false; }
@@ -3250,6 +3663,8 @@
         }
     }
 
+    function enqueueSync(actionDescription = "Cập nhật dữ liệu") { syncDataToGitHubDirectly(actionDescription).catch(() => {}); }
+
     function pushDataWithKeepalive() {
         if (!PROXY_ENDPOINT) return;
         const now = Date.now(); if (now - lastKeepaliveTime < 5000) return; lastKeepaliveTime = now;
@@ -3276,7 +3691,7 @@
         const cleanedUsers = registeredUsers.map(u => { const { password, ...safe } = u; return { ...safe, password: null, _hasPassword: !!(u.passwordHash || u.password) }; });
         return {
             metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
-            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags }
+            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages }
         };
     }
 
@@ -3328,6 +3743,11 @@
         if (Array.isArray(data.testSets)) testSets = data.testSets;
         if (data.studentCodeCache && typeof data.studentCodeCache === 'object') studentCodeCache = data.studentCodeCache;
         if (data.questionFlags && typeof data.questionFlags === 'object') { questionFlags = data.questionFlags; saveQuestionFlags(); }
+        if (data.systemPermissions && typeof data.systemPermissions === 'object') {
+            systemPermissions = { ...systemPermissions, ...data.systemPermissions };
+            loadSystemPermissionsIntoUi();
+        }
+        if (Array.isArray(data.studentMessages)) studentMessages = data.studentMessages;
         restoreFlaggedAssignments();
     }
 
@@ -3338,6 +3758,9 @@
         refreshAdminDashboard(); updateTeacherStats();
         renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
         renderTeacherTestsList(); renderAdminTestsList();
+        loadSystemPermissionsIntoUi();
+        refreshMessagesBadges();
+        renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
     }
 
     async function pushSubmissionsCsvToGithub() {
@@ -3415,7 +3838,7 @@
     }
 
     function autoSaveLocalSnapshot() {
-        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags })); } catch(e) {}
+        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages })); } catch(e) {}
     }
     function loadLocalSnapshotIfAvailable() {
         try {
@@ -3433,6 +3856,8 @@
                 if (Array.isArray(parsed.testSets)) testSets = parsed.testSets;
                 if (parsed.studentCodeCache && typeof parsed.studentCodeCache === 'object') studentCodeCache = parsed.studentCodeCache;
                 if (parsed.questionFlags && typeof parsed.questionFlags === 'object') { questionFlags = parsed.questionFlags; saveQuestionFlags(); }
+                if (parsed.systemPermissions && typeof parsed.systemPermissions === 'object') systemPermissions = parsed.systemPermissions;
+                if (Array.isArray(parsed.studentMessages)) studentMessages = parsed.studentMessages;
             }
         } catch(e) {}
     }
@@ -3476,8 +3901,13 @@
         const aSearch = (document.getElementById('adminLectureSearch')?.value || '').toLowerCase();
         const tList = lectures.filter(l => (tGrade === 'all' || (l.classLevel||'8') === tGrade) && (!tSearch || l.title.toLowerCase().includes(tSearch)));
         const aList = lectures.filter(l => (aGrade === 'all' || (l.classLevel||'8') === aGrade) && (!aSearch || l.title.toLowerCase().includes(aSearch)));
-        if (tbody) tbody.innerHTML = tList.map(l => `<tr class="hover:bg-blue-50/40 transition-colors"><td class="font-bold text-center text-slate-500 font-mono">${l.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-blue-600 hover:underline" onclick="openViewLectureDetail(${l.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}</td><td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td><td class="text-center"><div class="flex items-center justify-center gap-2"><button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i> Xem</button><button onclick="previewTeacherLectureById(${l.id})" class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold text-xs"><i class="ph-bold ph-speaker-high"></i> AI</button><button onclick="editLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i> Sửa</button></div></td></tr>`).join('');
-        if (adminTbody) adminTbody.innerHTML = aList.map(l => `<tr class="hover:bg-indigo-50/40 transition-colors"><td class="font-bold text-center text-slate-500 font-mono">${l.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewLectureDetail(${l.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}</td><td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td><td class="text-center"><div class="flex items-center justify-center gap-2"><button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i></button><button onclick="previewTeacherLectureById(${l.id})" class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold text-xs"><i class="ph-bold ph-speaker-high"></i></button><button onclick="editAdminLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i></button><button onclick="deleteAdminLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i></button></div></td></tr>`).join('');
+        const canEdit = hasPermission('edit');
+        if (tbody) tbody.innerHTML = tList.map(l => `<tr class="hover:bg-blue-50/40 transition-colors"><td class="font-bold text-center text-slate-500 font-mono">${l.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-blue-600 hover:underline" onclick="openViewLectureDetail(${l.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}</td><td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td><td class="text-center"><div class="flex items-center justify-center gap-2"><button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i> Xem</button><button onclick="previewTeacherLectureById(${l.id})" class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold text-xs"><i class="ph-bold ph-speaker-high"></i> AI</button>${canEdit ? `<button onclick="editLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>` : ''}</div></td></tr>`).join('');
+        if (adminTbody) adminTbody.innerHTML = aList.map(l => {
+            const checked = selectedAdminItems.lectures.has(l.id) ? 'checked' : '';
+            return `<tr class="hover:bg-indigo-50/40 transition-colors"><td class="text-center"><input type="checkbox" ${checked} onchange="toggleAdminItemSelection('lectures', ${l.id}, this.checked)" class="w-4 h-4 cursor-pointer"></td><td class="font-bold text-center text-slate-500 font-mono">${l.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewLectureDetail(${l.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(l.classLevel || '8')}</span>${escapeHtml(l.title)}</td><td class="text-slate-600">${escapeHtml(l.grade || 'Tin học')}</td><td class="text-center"><div class="flex items-center justify-center gap-2"><button onclick="openViewLectureDetail(${l.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs"><i class="ph-bold ph-eye"></i></button><button onclick="previewTeacherLectureById(${l.id})" class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold text-xs"><i class="ph-bold ph-speaker-high"></i></button><button onclick="editAdminLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 font-bold text-xs"><i class="ph-bold ph-pencil-simple"></i></button><button onclick="deleteAdminLecture(${l.id})" class="px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i></button></div></td></tr>`;
+        }).join('');
+        updateAdminSelectionCount('lectures');
         populateStudentLectures();
     }
 
@@ -3511,6 +3941,8 @@
         showToast(`Mở bài giảng "${lec.title}"`, "info");
     }
     async function saveOrUpdateLecture() {
+        if (!hasPermission('add') && !document.getElementById('editingLectureId')?.value) return showToast("Admin chưa cấp quyền Thêm!", "error");
+        if (!hasPermission('edit') && document.getElementById('editingLectureId')?.value) return showToast("Admin chưa cấp quyền Sửa!", "error");
         const id = document.getElementById('editingLectureId')?.value;
         const title = document.getElementById('lectureInputTitle')?.value.trim();
         const classLevel = document.getElementById('lectureInputClassLevel')?.value;
@@ -3705,6 +4137,8 @@
         showToast(`Mở bài tập "${a.title}"`, "info");
     }
     async function saveAssignment() {
+        if (!hasPermission('add') && !document.getElementById('editingAssignmentId')?.value) return showToast("Admin chưa cấp quyền Thêm!", "error");
+        if (!hasPermission('edit') && document.getElementById('editingAssignmentId')?.value) return showToast("Admin chưa cấp quyền Sửa!", "error");
         const title = document.getElementById('newTitle')?.value.trim();
         const classLevel = document.getElementById('newAssignmentClassLevel')?.value || '8';
         const difficulty = document.getElementById('newDifficulty')?.value || 'easy';
@@ -3763,8 +4197,10 @@
         else list.sort((a,b) => a.id - b.id);
         tbody.innerHTML = list.map(a => {
             const qflag = isQuestionFlagged(a.id) ? ' ⭐' : '';
-            return `<tr class="hover:bg-indigo-50/40 transition-colors"><td class="font-bold text-center text-slate-500 font-mono">${a.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(a.classLevel||'8')}</span>${escapeHtml(a.title)}${qflag}</td><td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${escapeHtml(a.difficulty || 'easy')}</td><td class="text-center"><button onclick="openViewAssignmentDetail(${a.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs mr-1"><i class="ph-bold ph-eye"></i></button><button onclick="editAdminAssignment(${a.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs mr-1"><i class="ph-bold ph-pencil-simple"></i></button><button onclick="deleteAssignmentAdmin(${a.id})" class="px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i></button></td></tr>`;
+            const checked = selectedAdminItems.assignments.has(a.id) ? 'checked' : '';
+            return `<tr class="hover:bg-indigo-50/40 transition-colors"><td class="text-center"><input type="checkbox" ${checked} onchange="toggleAdminItemSelection('assignments', ${a.id}, this.checked)" class="w-4 h-4 cursor-pointer"></td><td class="font-bold text-center text-slate-500 font-mono">${a.id}</td><td class="font-semibold text-slate-900 cursor-pointer hover:text-indigo-600 hover:underline" onclick="openViewAssignmentDetail(${a.id})"><span class="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-600 text-xs mr-2 font-bold border border-indigo-100">Khối ${escapeHtml(a.classLevel||'8')}</span>${escapeHtml(a.title)}${qflag}</td><td class="text-center uppercase text-xs font-bold ${a.difficulty === 'hard' ? 'text-rose-600' : (a.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${escapeHtml(a.difficulty || 'easy')}</td><td class="text-center"><button onclick="openViewAssignmentDetail(${a.id})" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs mr-1"><i class="ph-bold ph-eye"></i></button><button onclick="editAdminAssignment(${a.id})" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-xs mr-1"><i class="ph-bold ph-pencil-simple"></i></button><button onclick="deleteAssignmentAdmin(${a.id})" class="px-2.5 py-1 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs"><i class="ph-bold ph-trash"></i></button></td></tr>`;
         }).join('');
+        updateAdminSelectionCount('assignments');
     }
     function createAdminAssignment() {
         resetAdminAssignmentForm();
@@ -4013,40 +4449,47 @@
         const lsec = document.getElementById('studentLecturesSection');
         const psec = document.getElementById('studentPractiseSection');
         const tsec = document.getElementById('studentTestsSection');
+        const msec = document.getElementById('studentMessagesSection');
         const bl = document.getElementById('studentTabLecturesBtn');
         const bp = document.getElementById('studentTabPractiseBtn');
         const bt = document.getElementById('studentTabTestsBtn');
+        const bm = document.getElementById('studentTabMessagesBtn');
         const wrapper = document.getElementById('assignmentSelectorWrapper');
-        [lsec, psec, tsec].forEach(el => el?.classList.add('hidden'));
+        [lsec, psec, tsec, msec].forEach(el => el?.classList.add('hidden'));
         wrapper?.classList.add('hidden'); wrapper?.classList.remove('flex');
         const normalBtn = "px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all";
         if (tab === 'lectures') {
             lsec?.classList.remove('hidden');
             if (bl) bl.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm flex items-center gap-2";
-            if (bp) bp.className = normalBtn; if (bt) bt.className = normalBtn;
+            [bp, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
             populateStudentLectures();
         } else if (tab === 'practise') {
             psec?.classList.remove('hidden');
             wrapper?.classList.remove('hidden'); wrapper?.classList.add('flex');
             if (bp) bp.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm flex items-center gap-2";
-            if (bl) bl.className = normalBtn; if (bt) bt.className = normalBtn;
+            [bl, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
             if (!currentTestSession) populateAssignmentSelect();
         } else if (tab === 'tests') {
             tsec?.classList.remove('hidden');
             if (bt) bt.className = "px-4 py-2 rounded-xl text-xs font-bold bg-purple-600 text-white shadow-sm flex items-center gap-2";
-            if (bl) bl.className = normalBtn; if (bp) bp.className = normalBtn;
+            [bl, bp, bm].forEach(b => { if (b) b.className = normalBtn; });
             renderStudentTestList();
+        } else if (tab === 'messages') {
+            msec?.classList.remove('hidden');
+            if (bm) bm.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-2";
+            [bl, bp, bt].forEach(b => { if (b) b.className = normalBtn; });
+            renderStudentMessages();
         }
     }
 
     function onTeacherFilterChange() { renderTeacherLecturesTable(); renderManageAssignmentsTable(); }
 
     function switchTeacherTab(tab) {
-        ['lectures','create','manage','tests','submissions','logs','grades'].forEach(t => {
+        ['lectures','create','manage','tests','submissions','logs','grades','messages'].forEach(t => {
             const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Lectures','Manage','Tests','Submissions','Logs','Grades'].forEach(t => {
+        ['Lectures','Manage','Tests','Submissions','Logs','Grades','Messages'].forEach(t => {
             const btn = document.getElementById('tabTeacher' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ? "py-2 px-4 text-xs font-bold rounded-xl bg-blue-50 text-blue-600 shadow-sm flex items-center gap-2 whitespace-nowrap" : "py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all";
         });
@@ -4056,6 +4499,7 @@
         if (tab === 'submissions') renderTeacherSubmissionsTable();
         if (tab === 'logs') renderTeacherLogsTable();
         if (tab === 'grades') renderTeacherGrades();
+        if (tab === 'messages') renderTeacherMessages();
     }
 
     function updateTeacherStats() {
@@ -4265,21 +4709,22 @@
     }
 
     function switchAdminTab(tab) {
-        ['users','lectures','assignments','tests','submissions','logs','grades'].forEach(t => {
+        ['users','lectures','assignments','tests','submissions','logs','grades','messages'].forEach(t => {
             const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Users','Lectures','Assignments','Tests','Submissions','Logs','Grades'].forEach(t => {
+        ['Users','Lectures','Assignments','Tests','Submissions','Logs','Grades','Messages'].forEach(t => {
             const btn = document.getElementById('tabAdmin' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ? "py-2 px-4 text-xs font-bold rounded-xl bg-indigo-50 text-indigo-600 shadow-sm flex items-center gap-2 whitespace-nowrap" : "py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all";
         });
-        if (tab === 'users') renderAdminUsersTable();
+        if (tab === 'users') { renderAdminUsersTable(); loadSystemPermissionsIntoUi(); }
         else if (tab === 'lectures') renderTeacherLecturesTable();
         else if (tab === 'assignments') renderAdminAssignmentsTable();
         else if (tab === 'tests') renderAdminTestsList();
         else if (tab === 'submissions') renderAdminSubmissionsTable();
         else if (tab === 'logs') renderAdminLogsTable();
         else if (tab === 'grades') renderAdminGrades();
+        else if (tab === 'messages') renderAdminMessages();
     }
     function switchAdminUserGroup(group) { currentAdminUserGroup = group; renderAdminUsersTable(); }
 
@@ -4311,6 +4756,8 @@
         renderAdminUsersTable(); renderTeacherLecturesTable(); renderAdminAssignmentsTable();
         renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades();
         renderAdminTestsList();
+        loadSystemPermissionsIntoUi();
+        refreshMessagesBadges();
     }
 
     function renderAdminSubmissionsTable() {
@@ -5042,7 +5489,7 @@
         const box = document.getElementById('aiChatBox');
         if (box && box.children.length === 0) {
             const isTA = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
-            const msg = isTA ? `Tôi là Trợ lý AI. Hỗ trợ thầy cô về "${escapeHtml(currentAssignment?.title || 'lập trình')}"!` : `Thầy là Gia sư AI. Em hỏi thầy về "${escapeHtml(currentAssignment?.title || 'lập trình')}" nhé!`;
+            const msg = isTA ? `Tôi là Trợ lý AI. Hỗ trợ thầy cô về "${currentAssignment?.title || 'lập trình'}"!` : `Thầy là Gia sư AI. Em hỏi thầy về "${currentAssignment?.title || 'lập trình'}" nhé!`;
             appendAiChatMessage('assistant', msg);
         }
     }
@@ -5055,24 +5502,53 @@
         box.appendChild(div); box.scrollTop = box.scrollHeight;
     }
     function quickAskAi(text) { const i = document.getElementById('aiUserInput'); if (i) { i.value = text; sendAiMessage(); } }
-    function sendAiMessage() {
-        const i = document.getElementById('aiUserInput'); const text = i ? i.value.trim() : ''; if (!text) return;
-        appendAiChatMessage('user', text); i.value = '';
-        setTimeout(() => {
-            const code = getStudentCode();
-            const isTA = (currentRole === 'teacher' || currentRole === 'admin' || currentUser.role === 'teacher' || currentUser.role === 'admin');
-            let reply = "";
-            if (currentAiMode === 'socratic') reply = isTA ? "Thầy cô hãy quan sát các ràng buộc và điều kiện biên." : "Em hãy quan sát: đầu vào gồm gì? Biến nào lưu giá trị và điều kiện kết thúc ra sao?";
-            else if (currentAiMode === 'algorithm_hint') reply = "Hướng tiếp cận: Dùng `input().split()` để tách, ép kiểu sang `int`, thực hiện phép toán.";
-            else reply = code.includes('input') ? `Code đã có input. Kiểm tra test biên!` : `Cần đọc dữ liệu bằng \`input()\` trước khi tính toán.`;
-            appendAiChatMessage('assistant', reply); speakRobotText(reply);
-        }, 600);
+    async function sendAiMessage() {
+        const i = document.getElementById('aiUserInput'); 
+        const text = i ? i.value.trim() : ''; 
+        if (!text) return;
+        appendAiChatMessage('user', text); 
+        if (i) i.value = '';
+        
+        // Hiển thị trạng thái đang suy nghĩ
+        const box = document.getElementById('aiChatBox');
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'aiLoadingIndicator';
+        loadingDiv.className = 'flex justify-start';
+        loadingDiv.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl bg-slate-100 text-slate-800 rounded-bl-none"><div class="font-bold text-xs text-slate-500">Gia Sư AI</div><div class="text-sm flex items-center gap-2"><i class="ph-bold ph-spinner animate-spin text-blue-600"></i> Đang phân tích và trả lời...</div></div>`;
+        box?.appendChild(loadingDiv);
+        if (box) box.scrollTop = box.scrollHeight;
+        
+        // Xây dựng prompt theo yêu cầu
+        const code = getStudentCode();
+        const codeBlock = code && code.trim() && !code.includes('# Viết mã Python') ? `\n\nCode hiện tại của em:\n\`\`\`python\n${code.substring(0, 1500)}\n\`\`\`` : '';
+        const fullPrompt = `Thầy cô là giảng viên chuyên bồi dưỡng học sinh giỏi môn lập trình Python. Hãy giải thích những lỗi phát sinh [${text}] và hướng dẫn code Python mẫu cho [${text}].${codeBlock}`;
+        
+        let reply = null;
+        try { reply = await callFreeAiApi(fullPrompt); } catch(e) { console.warn(e); }
+        
+        if (!reply) {
+            const isTA = (currentUser.role === 'teacher' || currentUser.role === 'admin');
+            if (currentAiMode === 'socratic') {
+                reply = isTA ? "Thầy cô hãy quan sát ràng buộc dữ liệu và các điều kiện biên của bài toán." : "Em hãy quan sát: đầu vào gồm gì? Biến nào lưu giá trị và điều kiện kết thúc ra sao?";
+            } else if (currentAiMode === 'algorithm_hint') {
+                reply = "Hướng tiếp cận: Dùng `input().split()` để tách dữ liệu, ép kiểu sang `int`/`float`, thực hiện phép toán và in kết quả đúng định dạng.";
+            } else {
+                reply = code.includes('input') ? "Code đã có `input()`. Hãy kiểm tra test biên (số 0, số âm, chuỗi rỗng)." : "Cần đọc dữ liệu bằng `input()` trước khi tính toán. Sau đó `print()` kết quả.";
+            }
+        }
+        
+        document.getElementById('aiLoadingIndicator')?.remove();
+        appendAiChatMessage('assistant', reply);
+        speakRobotText(reply.substring(0, 600));
     }
 
     function openGuideModal() { document.getElementById('guideModal')?.classList.remove('hidden'); }
     function closeGuideModal() { document.getElementById('guideModal')?.classList.add('hidden'); }
     function speakGuideContentAloud() { const t = "Hướng dẫn sử dụng. Nền tảng dạy học lập trình Python. Tác giả: Nguyễn Thế Phương, THCS Thành Đông."; speakRobotText(t); showToast("Đang đọc...", "info"); }
-    function openGithubSyncModal() { loadProxyUrlIntoInput(); checkProxyHealth(false); document.getElementById('githubSyncModal')?.classList.remove('hidden'); }
+    function openGithubSyncModal() {
+        if (!hasPermission('loadServer')) return showToast("Admin chưa cấp quyền Nạp Server!", "error");
+        loadProxyUrlIntoInput(); checkProxyHealth(false); document.getElementById('githubSyncModal')?.classList.remove('hidden');
+    }
     function closeGithubSyncModal() { document.getElementById('githubSyncModal')?.classList.add('hidden'); }
 
     function showToast(message, type = 'info') {
@@ -5131,6 +5607,24 @@
         } catch(e) { return escapeHtml(text || ""); }
     }
 
+    // ===== POLLING LỜI NHẮN (gần thời gian thực) =====
+    let __msgPollTimer = null;
+    function startMessagesAutoRefresh() {
+        if (__msgPollTimer) return;
+        __msgPollTimer = setInterval(async () => {
+            const inMsgTab = !document.getElementById('teacherTabMessages')?.classList.contains('hidden')
+                          || !document.getElementById('adminTabMessages')?.classList.contains('hidden')
+                          || !document.getElementById('studentMessagesSection')?.classList.contains('hidden');
+            if (!inMsgTab) return;
+            try {
+                await autoFetchDataFromGitHub(false);
+                if (currentUser.role === 'teacher') renderTeacherMessages();
+                else if (currentUser.role === 'admin') renderAdminMessages();
+                else if (currentUser.role === 'student') renderStudentMessages();
+            } catch(e) { /* im lặng */ }
+        }, 12000); // 12 giây
+    }
+
     window.addEventListener('DOMContentLoaded', async () => {
         disableCodeButtons();
         loadLocalSnapshotIfAvailable();
@@ -5144,20 +5638,23 @@
         ensureTrialAccountsAlwaysAvailable();
         restoreFlaggedAssignments();
         initCodeMirrorEditors();
-        // Khôi phục bộ lọc khối đã lưu cho tất cả select trước khi render
         applyStoredGradeToAllSelects();
+        loadSystemPermissionsIntoUi();
+        refreshMessagesBadges();
         populateAssignmentSelect(); populateStudentLectures();
         renderStudentTestList(); renderAdminGrades(); renderTeacherGrades();
         renderTestCaseEditor(); renderAdminTestCaseEditor();
         renderTeacherLecturesTable(); renderManageAssignmentsTable();
         renderTeacherTestsList(); renderAdminTestsList();
         renderTeacherSubmissionsTable(); renderTeacherLogsTable();
+        renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
         initPyodide();
         currentUser.isLoggedIn = false;
         updateUserHeaderUi();
         updateFullscreenButtonUi();
         openLoginModal('student', 'login');
         setTimeout(centerRobotOnScreen, 150);
+        startMessagesAutoRefresh();
         setTimeout(() => renderKaTeXFormulas(document.body), 300);
     });
 
