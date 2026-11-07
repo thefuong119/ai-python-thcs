@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:52:05.046Z",
-    "updatedBy": "Trần Gia Hân",
-    "action": "Đăng xuất: Trần Gia Hân"
+    "updatedAt": "2026-11-07T07:52:25.904Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -63,7 +63,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 9,
+        "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
         "cccd": "086312011157",
@@ -12756,20 +12756,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "14:52:05 7/11/2026",
-        "name": "Trần Gia Hân",
-        "identifier": "han",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "14:52:02 7/11/2026",
-        "name": "Trần Gia Hân",
-        "identifier": "han",
-        "role": "student",
-        "result": "Thành công"
-      },
       {
         "time": "14:35:56 7/11/2026",
         "name": "Nguyễn Thế Phương",
