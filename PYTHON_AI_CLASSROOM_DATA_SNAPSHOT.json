@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:44:04.115Z",
+    "updatedAt": "2026-11-07T07:44:31.770Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin cập nhật TK: Nguyễn Phú Lộc"
   },
   "data": {
     "registeredUsers": [
@@ -139,7 +139,7 @@
         "className": "8A2",
         "teacherName": "Thầy Nguyễn Thế Phương",
         "phone": "0939924811",
-        "email": "",
+        "email": "phulocsliderman@gmail.com",
         "role": "student",
         "authMethod": "Tên đăng nhập",
         "status": "active",
@@ -148,6 +148,7 @@
         "loginCount": 8,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
+        "cccd": "086213008519",
         "password": null
       },
       {
