@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T05:36:22.265Z",
+    "updatedAt": "2026-11-07T05:40:10.076Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 52,
+        "loginCount": 53,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 2,
+        "loginCount": 1,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -12757,10 +12757,10 @@
     ],
     "loginLogs": [
       {
-        "time": "12:13:53 7/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
+        "time": "12:10:52 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -12928,9 +12928,7 @@
       },
       "hocsinh": {
         "1": true,
-        "28": true,
-        "394": true,
-        "395": true
+        "28": true
       },
       "han": {
         "43": true
@@ -13303,56 +13301,6 @@
             "expected": "YES",
             "point": 2.5,
             "is_hidden": true
-          }
-        ]
-      },
-      "394": {
-        "id": 394,
-        "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
-        "classLevel": "9",
-        "difficulty": "hard",
-        "timeLimit": 2,
-        "description": "Hãng hàng không có $N$1$i$1$S_i$1$E_i$. Nếu chuyến bay sau bắt đầu lúc $\\ge E_i$1$N$ ($1 \\le N \\le 10^5$).\n- $N$1$S_i, E_i$.\nDữ liệu ra: Một số nguyên là số tổ bay tối thiểu.",
-        "templateCode": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3\n900 1100\n1000 1200\n1100 1300",
-            "expected": "2",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "3\n1 4\n2 5\n3 6",
-            "expected": "3",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "395": {
-        "id": 395,
-        "title": "Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)",
-        "classLevel": "9",
-        "difficulty": "hard",
-        "timeLimit": 2,
-        "description": "Nối mạng cáp giữa $N$1$M$1$j$1$u_j, v_j$1$w_j$. Chọn tập các tuyến cáp để mọi đảo liên lạc được với nhau với tổng chi phí nhỏ nhất.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N, M$ ($1 \\le N \\le 10^4; N-1 \\le M \\le 10^5$).\n- $M$1$u, v, w$.\nDữ liệu ra: Một số nguyên là tổng chi phí nhỏ nhất.",
-        "templateCode": "import sys\ndata = sys.stdin.read().split()\nif data:\n N, M = int(data[0]), int(data[1])\n edges = []\n idx = 2\n for _ in range(M):\n edges.append((int(data[idx+2]), int(data[idx]), int(data[idx+1]))); idx += 3\n edges.sort()\n parent = list(range(N + 1))\n def find(i):\n path = []\n while parent[i] != i: path.append(i); i = parent[i]\n for node in path: parent[node] = i\n return i\n cost, cnt = 0, 0\n for w, u, v in edges:\n ru, rv = find(u), find(v)\n if ru != rv:\n parent[ru] = rv; cost += w; cnt += 1\n if cnt == N - 1: break\n print(cost)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "4 5\n1 2 10\n2 3 15\n1 3 5\n3 4 20\n2 4 25",
-            "expected": "35",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "3 3\n1 2 1\n2 3 2\n1 3 3",
-            "expected": "3",
-            "point": 5,
-            "is_hidden": false
           }
         ]
       }
