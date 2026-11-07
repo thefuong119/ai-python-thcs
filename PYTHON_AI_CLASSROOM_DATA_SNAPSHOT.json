@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:42:34.366Z",
+    "updatedAt": "2026-11-07T11:42:40.396Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nạp 1 bài tập"
+    "action": "Nạp 40 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -3561,6 +3561,1006 @@
             "id": 1,
             "input": "3 5",
             "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 135,
+        "title": "Bài 01. Tính tiền điện bậc thang sinh hoạt và thuế VAT",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$ và chỉ số mới là $new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1,800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1,900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2,200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị.\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$ và $new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải nộp.",
+        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n tien = kwh * 1800\nelif kwh <= 100:\n tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\nprint(round(tien * 1.08))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 136,
+        "title": "Bài 02. Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ $m$. Giá nước sinh hoạt theo bậc thang quy định:\n- Mức 1 (đến 10 $m^3$ đầu tiên): 6,000 đ/$m^3$\n- Mức 2 (từ $m^3$ thứ 11 đến 20): 7,500 đ/$m^3$\n- Mức 3 (từ $m^3$ thứ 21 trở lên): 10,000 đ/$m^3$\nHộ gia đình nộp thêm 10% phí bảo vệ môi trường và 5% thuế VAT trên tổng tiền nước trước thuế.\n\nDữ liệu vào: Một số nguyên dương $m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả (làm tròn số nguyên).",
+        "templateCode": "m = int(input().strip())\nif m <= 10:\n tien = m * 6000\nelif m <= 20:\n tien = 10 * 6000 + (m - 10) * 7500\nelse:\n tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\nprint(round(tien * 1.15))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8",
+            "expected": "55200",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "25",
+            "expected": "212750",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 137,
+        "title": "Bài 03. Tính cước taxi và chiết khấu đường dài",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Hãng taxi áp dụng bảng giá như sau:\n- 1 km đầu tiên: 12,000 đồng.\n- Từ km thứ 2 đến km thứ 30: 15,000 đồng/km.\n- Từ km thứ 31 trở đi: 12,500 đồng/km.\nNếu đi từ 50 km trở lên, khách hàng được giảm giá 10% trên tổng cước phí.\n\nDữ liệu vào: Một số thực $d$ là quãng đường đã đi ($0 < d \\le 500$).\nDữ liệu ra: Một số nguyên là số tiền cước khách phải trả (làm tròn số nguyên).",
+        "templateCode": "d = float(input().strip())\nif d <= 1:\n tien = 12000 * d\nelif d <= 30:\n tien = 12000 + (d - 1) * 15000\nelse:\n tien = 12000 + 29 * 15000 + (d - 30) * 12500\nif d >= 50:\n tien *= 0.9\nprint(round(tien))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "0.8",
+            "expected": "9600",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "52",
+            "expected": "649800",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 138,
+        "title": "Bài 04. Chiết khấu hóa đơn siêu thị và ưu đãi thẻ VIP",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một khách hàng mua hàng tại siêu thị với tổng tiền ban đầu là $S$ (đồng) và có loại thẻ $T$ ('V': VIP, 'C': Chuẩn).\nChính sách khuyến mãi:\n- Nếu $S \\ge 1,000,000$: giảm 10%.\n- Nếu $500,000 \\le S < 1,000,000$: giảm 5%.\n- Nếu có thẻ VIP ('V'), khách được giảm thêm 5% trên số tiền sau khi đã trừ giảm giá hóa đơn.\n\nDữ liệu vào: Một dòng gồm số nguyên $S$ ($0 \\le S \\le 10^9$) và ký tự $T$ ('V' hoặc 'C').\nDữ liệu ra: Một số nguyên duy nhất là số tiền thanh toán cuối cùng.",
+        "templateCode": "parts = input().split()\ns = int(parts[0])\nt = parts[1].upper()\nif s >= 1000000:\n s = s * 0.9\nelif s >= 500000:\n s = s * 0.95\nif t == 'V':\n s = s * 0.95\nprint(round(s))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1000000 V",
+            "expected": "855000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "600000 C",
+            "expected": "570000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 139,
+        "title": "Bài 05. Phí vận chuyển hàng thương mại điện tử",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một sàn thương mại điện tử tính cước giao hàng theo khối lượng gói hàng $w$ (kg), khoảng cách $d$ (km) và giá trị đơn hàng $V$ (đồng):\n- Miễn phí vận chuyển (0 đồng) nếu $V \\ge 500,000$.\n- Ngược lại: Cước cơ bản cho gói $\\le 2$ kg là 15,000 đ. Vượt quá 2 kg, mỗi kg lẻ vượt quá phụ thu 5,000 đ (làm tròn lên trần theo kg). Nếu khoảng cách $d > 5$ km, phụ thu 2,000 đ/km cho phần vượt quá.\n\nDữ liệu vào: Một dòng gồm 3 số: số thực $w$, số thực $d$, và số nguyên $V$.\nDữ liệu ra: Một số nguyên là phí vận chuyển.",
+        "templateCode": "import math\nw, d, V = input().split()\nw, d, V = float(w), float(d), int(V)\nif V >= 500000:\n print(0)\nelse:\n phi = 15000\n if w > 2:\n phi += math.ceil(w - 2) * 5000\n if d > 5:\n phi += (d - 5) * 2000\n print(round(phi))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1.5 8.0 200000",
+            "expected": "21000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3.2 12.0 600000",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 140,
+        "title": "Bài 06. Lãi đơn và lãi kép gửi tiết kiệm ngân hàng",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bác An gửi vào ngân hàng số tiền ban đầu $S$ đồng với lãi suất cố định $r$ %/năm trong thời gian $y$ năm.\n- Nếu gửi theo hình thức lãi đơn: $T_{don} = S \\times (1 + r \\times y / 100)$.\n- Nếu gửi theo hình thức lãi kép hàng năm: $T_{kep} = S \\times (1 + r / 100)^y$.\nHãy tính và in ra số tiền chênh lệch $T_{kep} - T_{don}$ (làm tròn số nguyên).\n\nDữ liệu vào: Một dòng gồm số nguyên $S$ ($10^6 \\le S \\le 10^9$), số thực $r$ ($1 \\le r \\le 15$) và số nguyên $y$ ($1 \\le y \\le 30$).\nDữ liệu ra: Một số nguyên là số tiền chênh lệch.",
+        "templateCode": "S, r, y = input().split()\nS, r, y = int(S), float(r), int(y)\nt_don = S * (1 + r * y / 100.0)\nt_kep = S * ((1 + r / 100.0) ** y)\nprint(round(t_kep - t_don))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100000000 6.0 3",
+            "expected": "191016",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50000000 7.0 2",
+            "expected": "245000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 141,
+        "title": "Bài 07. Đổi ngoại tệ và phí chuyển đổi quốc tế",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một người cần đổi $U$ đô la Mỹ (USD) sang tiền Việt Nam Đồng (VND). Ngân hàng áp dụng tỷ giá $R$ đồng/USD. Khách hàng phải trả thêm phí dịch vụ chuyển đổi là $p$ % trên tổng số tiền VND nhận được.\nHãy tính số tiền VND thực tế mà người đó nhận về sau khi trừ phí.\n\nDữ liệu vào: Một dòng gồm số thực $U$ ($0 < U \\le 10^6$), số nguyên $R$ ($20000 \\le R \\le 30000$) và số thực $p$ ($0 \\le p \\le 5$).\nDữ liệu ra: Một số nguyên là số tiền VND thực nhận (làm tròn số nguyên).",
+        "templateCode": "U, R, p = input().split()\nU, R, p = float(U), int(R), float(p)\ntien_vnd = U * R\nthuc_nhan = tien_vnd * (1 - p / 100.0)\nprint(round(thuc_nhan))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "500 25000 1.5",
+            "expected": "12312500",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1000 24500 2.0",
+            "expected": "24010000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 142,
+        "title": "Bài 08. Khuyến mãi mua văn phòng phẩm 'Mua K tặng 1'",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Mua $K$ quyển vở cùng loại được tặng thêm 1 quyển miễn phí. Giá mỗi quyển là $P$ đồng. Nhà trường cần đúng $N$ quyển vở để phát thưởng cho học sinh giỏi.\nHãy tính số tiền ít nhất nhà trường phải trả để có đủ ít nhất $N$ quyển vở.\n\nDữ liệu vào: Một dòng gồm 3 số nguyên $N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 100000$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền tối thiểu.",
+        "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\ndu = N % (K + 1)\nphai_mua = so_nhom * K + du\nprint(phai_mua * P)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 4 10000",
+            "expected": "80000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "14 3 15000",
+            "expected": "165000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 143,
+        "title": "Bài 09. Thuê xe đạp công cộng thông minh theo block phút",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trạm xe đạp công cộng tính phí như sau:\n- 30 phút đầu tiên: 5,000 đồng.\n- Sau 30 phút, cứ mỗi block 15 phút tiếp theo tính thêm 3,000 đồng (nếu lẻ dưới 15 phút vẫn tính trọn 1 block 3,000 đồng).\n- Nếu khách thuê vượt quá 240 phút (4 giờ), phụ thu thêm 20,000 đồng tiền giữ xe quá hạn.\n\nDữ liệu vào: Một số nguyên dương $M$ là số phút thuê xe ($1 \\le M \\le 1440$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền phải thanh toán.",
+        "templateCode": "import math\nm = int(input().strip())\nif m <= 30:\n phi = 5000\nelse:\n phi = 5000 + math.ceil((m - 30) / 15) * 3000\nif m > 240:\n phi += 20000\nprint(phi)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "40",
+            "expected": "8000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "250",
+            "expected": "51000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 144,
+        "title": "Bài 10. Chi phí sơn tường phòng học hình hộp chữ nhật",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một phòng học có chiều dài $a$ (m), chiều rộng $b$ (m) và chiều cao $h$ (m). Cần sơn 4 bức tường xung quanh và trần nhà, biết tổng diện tích các cửa là $S_{cua}$ ($m^2$).\n- Mỗi $m^2$ cần $d$ lít sơn.\n- Mỗi thùng sơn chứa $c$ lít và giá mỗi thùng là $P_{thung}$ đồng (chỉ bán nguyên thùng).\nHãy tính tổng số tiền mua sơn tối thiểu.\n\nDữ liệu vào: Một dòng gồm 6 số: ba số thực $a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
+        "templateCode": "import math\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua, d, c = float(line[3]), float(line[4]), float(line[5])\np_thung = int(line[6])\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nthung = math.ceil((s_son * d) / c)\nprint(thung * p_thung)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8 6 3.5 12 0.2 5 450000",
+            "expected": "2700000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 4 3 5 0.25 4 300000",
+            "expected": "2700000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 145,
+        "title": "Bài 11. Kiểm tra sự tồn tại và phân loại tam giác",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số thực dương $a, b, c$. Hãy kiểm tra xem ba số đó có tạo thành một tam giác hợp lệ hay không. Nếu có, hãy phân loại: \"TAM GIAC DEU\", \"TAM GIAC VUONG CAN\", \"TAM GIAC VUONG\", \"TAM GIAC CAN\", \"TAM GIAC THUONG\". Nếu không, in \"KHONG PHAI TAM GIAC\". (Sai số $\\epsilon = 10^{-5}$).\n\nDữ liệu vào: Một dòng gồm 3 số thực $a, b, c$ ($a, b, c > 0$).\nDữ liệu ra: Một chuỗi ký tự thông báo loại tam giác.",
+        "templateCode": "a, b, c = map(float, input().split())\neps = 1e-5\nif a + b > c + eps and a + c > b + eps and b + c > a + eps:\n can = (abs(a - b) < eps) or (abs(b - c) < eps) or (abs(c - a) < eps)\n deu = (abs(a - b) < eps) and (abs(b - c) < eps)\n sides = sorted([a, b, c])\n vuong = abs(sides[0]**2 + sides[1]**2 - sides[2]**2) < 1e-3\n if deu: print(\"TAM GIAC DEU\")\n elif vuong and can: print(\"TAM GIAC VUONG CAN\")\n elif vuong: print(\"TAM GIAC VUONG\")\n elif can: print(\"TAM GIAC CAN\")\n else: print(\"TAM GIAC THUONG\")\nelse:\n print(\"KHONG PHAI TAM GIAC\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "TAM GIAC VUONG",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 2 5",
+            "expected": "KHONG PHAI TAM GIAC",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 146,
+        "title": "Bài 12. Chu vi và diện tích tam giác theo công thức Heron",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số thực dương $a, b, c$ là độ dài ba cạnh của một tam giác hợp lệ. Hãy tính chu vi $P$ và diện tích $S$ của tam giác đó theo công thức Heron. In kết quả làm tròn đúng 2 chữ số thập phân trên một dòng, cách nhau một khoảng trắng.\n\nDữ liệu vào: Một dòng gồm 3 số thực $a, b, c$ ($0 < a, b, c \\le 10^4$).\nDữ liệu ra: Hai số thực $P$ và $S$ làm tròn 2 chữ số thập phân.",
+        "templateCode": "import math\na, b, c = map(float, input().split())\np = a + b + c\np_half = p / 2.0\ns = math.sqrt(p_half * (p_half - a) * (p_half - b) * (p_half - c))\nprint(f\"{p:.2f} {s:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "12.00 6.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6 8 10",
+            "expected": "24.00 24.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 147,
+        "title": "Bài 13. Ước chung lớn nhất và bội chung nhỏ nhất",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $a$ và $b$. Hãy tìm ước chung lớn nhất (UCLN) và bội chung nhỏ nhất (BCNN) của hai số đó.\n\nDữ liệu vào: Một dòng chứa hai số nguyên dương $a, b$ ($1 \\le a, b \\le 10^9$).\nDữ liệu ra: Hai số nguyên UCLN và BCNN cách nhau một dấu cách.",
+        "templateCode": "import math\na, b = map(int, input().split())\nucln = math.gcd(a, b)\nbcnn = (a * b) // ucln\nprint(f\"{ucln} {bcnn}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12 18",
+            "expected": "6 36",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "17 23",
+            "expected": "1 391",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 148,
+        "title": "Bài 14. Đếm số lượng ước và tổng các ước nguyên dương",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$. Hãy đếm số lượng ước số nguyên dương của $N$ và tính tổng tất cả các ước số đó.\n\nDữ liệu vào: Một số nguyên dương $N$ ($1 \\le N \\le 10^{12}$).\nDữ liệu ra: Hai số nguyên lần lượt là số lượng ước và tổng các ước.",
+        "templateCode": "import math\nN = int(input().strip())\ndem, tong = 0, 0\ncan = math.isqrt(N)\nfor i in range(1, can + 1):\n if N % i == 0:\n dem += 1\n tong += i\n j = N // i\n if j != i:\n dem += 1\n tong += j\nprint(f\"{dem} {tong}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12",
+            "expected": "6 28",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "16",
+            "expected": "5 31",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 149,
+        "title": "Bài 15. Kiểm tra số nguyên tố và số nguyên tố kế tiếp",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số nguyên dương $N$. Kiểm tra xem $N$ có phải là số nguyên tố không (in \"YES\" hoặc \"NO\"). Sau đó, tìm số nguyên tố nhỏ nhất lớn hơn $N$.\n\nDữ liệu vào: Một số nguyên dương $N$ ($1 \\le N \\le 10^7$).\nDữ liệu ra: Dòng 1 in \"YES\" hoặc \"NO\". Dòng 2 in số nguyên tố nhỏ nhất lớn hơn $N$.",
+        "templateCode": "import math\ndef is_prime(x):\n if x < 2: return False\n for i in range(2, math.isqrt(x) + 1):\n if x % i == 0: return False\n return True\n\nN = int(input().strip())\nprint(\"YES\" if is_prime(N) else \"NO\")\ncur = N + 1\nwhile not is_prime(cur):\n cur += 1\nprint(cur)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7",
+            "expected": "YES\n11",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "NO\n11",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 150,
+        "title": "Bài 16. Kiểm tra số hoàn thiện (Perfect Number)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Số hoàn thiện là số nguyên dương bằng tổng tất cả các ước nguyên dương thực sự của nó (các ước nhỏ hơn chính nó). Cho số nguyên dương $N$, kiểm tra $N$ có phải là số hoàn thiện không. Nếu có in \"YES\", ngược lại in \"NO\".\n\nDữ liệu vào: Một số nguyên dương $N$ ($1 \\le N \\le 10^9$).\nDữ liệu ra: In \"YES\" hoặc \"NO\".",
+        "templateCode": "import math\nN = int(input().strip())\nif N <= 1:\n print(\"NO\")\nelse:\n tong = 1\n can = math.isqrt(N)\n for i in range(2, can + 1):\n if N % i == 0:\n tong += i\n j = N // i\n if j != i: tong += j\n print(\"YES\" if tong == N else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "28",
+            "expected": "YES",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 151,
+        "title": "Bài 17. Đếm và tính tổng các số chính phương trong đoạn",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên dương $A$ và $B$ ($A \\le B$). Hãy đếm xem có bao nhiêu số chính phương trong đoạn $[A, B]$ và tính tổng của chúng.\n\nDữ liệu vào: Một dòng gồm 2 số nguyên $A, B$ ($1 \\le A \\le B \\le 10^{12}$).\nDữ liệu ra: Hai số nguyên là số lượng và tổng các số chính phương trong đoạn.",
+        "templateCode": "import math\nA, B = map(int, input().split())\nstart = math.isqrt(A)\nif start * start < A: start += 1\nend = math.isqrt(B)\nif start > end:\n print(\"0 0\")\nelse:\n cnt = end - start + 1\n def sum_sq(n): return n * (n + 1) * (2 * n + 1) // 6\n tong = sum_sq(end) - sum_sq(start - 1)\n print(f\"{cnt} {tong}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 20",
+            "expected": "4 30",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 30",
+            "expected": "2 41",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 152,
+        "title": "Bài 18. Bài toán cổ Việt Nam: Vừa gà vừa chó",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bài toán dân gian: \"Vừa gà vừa chó, bó lại cho tròn, $m$ con, $n$ chân chẵn\". Cho tổng số con là $m$ và tổng số chân là $n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên không âm, in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$ và $n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
+        "templateCode": "m, n = map(int, input().split())\nif (n - 2 * m) % 2 == 0:\n cho = (n - 2 * m) // 2\n ga = m - cho\n if ga >= 0 and cho >= 0:\n print(f\"{ga} {cho}\")\n else:\n print(\"VO NGHIEM\")\nelse:\n print(\"VO NGHIEM\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 153,
+        "title": "Bài 19. Bài toán cổ Việt Nam: Trăm trâu trăm cỏ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho $N$ con trâu và $N$ bó cỏ: trâu đứng ăn 5 bó, trâu nằm ăn 3 bó, và 3 trâu già ăn 1 bó. Tìm tất cả các bộ số $(đứng, nằm, già)$ nguyên dương thỏa mãn. In ra số lượng phương án và các phương án theo thứ tự tăng dần của số trâu đứng.\n\nDữ liệu vào: Một số nguyên dương $N$ ($10 \\le N \\le 10^4$).\nDữ liệu ra: Dòng 1 in số lượng phương án. Các dòng sau in mỗi bộ ba số trên một dòng.",
+        "templateCode": "N = int(input().strip())\nres = []\nfor d in range(1, N):\n con_lai = N - 7 * d\n if con_lai <= 0: break\n if con_lai % 4 == 0:\n n = con_lai // 4\n g = N - d - n\n if g > 0 and g % 3 == 0:\n res.append((d, n, g))\nprint(len(res))\nfor d, n, g in res:\n print(f\"{d} {n} {g}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "1\n4 18 78",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "200",
+            "expected": "3\n4 43 153\n8 36 156\n12 29 159",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 154,
+        "title": "Bài 20. Tìm số Fibonacci thứ n và kiểm tra số Fibonacci",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy Fibonacci: $F_1 = 1, F_2 = 1, F_n = F_{n-1} + F_{n-2}$. Cho hai số nguyên dương $n$ và $X$. Hãy in ra số Fibonacci thứ $n$ ở dòng 1 và kiểm tra xem $X$ có phải là một số trong dãy Fibonacci hay không (in \"YES\" hoặc \"NO\") ở dòng 2.\n\nDữ liệu vào: Một dòng gồm 2 số nguyên $n$ ($1 \\le n \\le 90$) và $X$ ($1 \\le X \\le 10^{18}$).\nDữ liệu ra: Dòng 1 in $F_n$. Dòng 2 in \"YES\" hoặc \"NO\".",
+        "templateCode": "n, X = map(int, input().split())\nf1, f2 = 1, 1\nfibs = {1}\nfor _ in range(3, max(n + 1, 95)):\n f1, f2 = f2, f1 + f2\n fibs.add(f2)\n if _ == n:\n ans_fn = f2\nif n == 1 or n == 2: ans_fn = 1\nprint(ans_fn)\nprint(\"YES\" if X in fibs else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 8",
+            "expected": "8\nYES",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 14",
+            "expected": "55\nNO",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 155,
+        "title": "Bài 21. Phân loại rác tái chế và quy đổi tích điểm",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một trạm thu gom rác có 3 loại rác tích điểm: Giấy ('G', 10 điểm/kg), Nhựa ('N', 15 điểm/kg), Kim loại ('K', 25 điểm/kg). Cứ mỗi 100 điểm tích lũy đổi được 1 phiếu giảm giá (voucher). Hãy tính số lượng voucher đổi được và số điểm tích lũy còn dư từ $T$ kiện rác.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $T$ ($1 \\le T \\le 1000$).\n- $T$ dòng tiếp theo, mỗi dòng gồm loại rác (ký tự) và khối lượng (số thực kg).\nDữ liệu ra: Hai số nguyên là số voucher và số điểm dư cách nhau một dấu cách.",
+        "templateCode": "bang = {'G': 10, 'N': 15, 'K': 25}\nT = int(input().strip())\ntong_diem = 0.0\nfor _ in range(T):\n loai, kg = input().split()\n tong_diem += bang.get(loai.upper(), 0) * float(kg)\npts = int(tong_diem)\nprint(f\"{pts // 100} {pts % 100}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\nG 5.0\nN 4.0\nK 2.0",
+            "expected": "1 60",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\nK 10.0\nN 10.0",
+            "expected": "4 0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 156,
+        "title": "Bài 22. Thống kê chuỗi ngày ô nhiễm không khí AQI liên tiếp",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trạm quan trắc ghi nhận chỉ số chất lượng không khí (AQI) trong $N$ ngày liên tiếp. Một ngày bị xem là ô nhiễm nếu $AQI > 150$. Hãy tìm độ dài chuỗi ngày ô nhiễm liên tiếp dài nhất và chỉ số AQI cao nhất trong cả đợt.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 10^5$).\n- Dòng 2: $N$ số nguyên dương biểu thị AQI từng ngày.\nDữ liệu ra: Hai số nguyên là độ dài chuỗi dài nhất và AQI lớn nhất.",
+        "templateCode": "N = int(input().strip())\na = list(map(int, input().split()))\nmax_len, cur_len = 0, 0\nfor x in a:\n if x > 150:\n cur_len += 1\n if cur_len > max_len: max_len = cur_len\n else: cur_len = 0\nprint(f\"{max_len} {max(a)}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n120 160 175 180 90 200 210 110",
+            "expected": "3 210",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n100 120 130 140 150",
+            "expected": "0 150",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 157,
+        "title": "Bài 23. Lập lịch trạm sạc xe điện tối ưu thời gian chờ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một trạm sạc đơn có $N$ xe chờ sạc, xe thứ $i$ cần $t_i$ phút. Thời gian chờ của một xe bằng tổng thời gian sạc của các xe xếp trước nó. Hãy tìm thứ tự phục vụ sao cho tổng thời gian chờ của cả $N$ xe là nhỏ nhất (in ra tổng thời gian chờ tối thiểu đó).\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$ ($1 \\le N \\le 10^4$).\n- Dòng 2: $N$ số nguyên dương $t_1, t_2, ..., t_N$ ($1 \\le t_i \\le 1000$).\nDữ liệu ra: Một số nguyên là tổng thời gian chờ tối thiểu.",
+        "templateCode": "N = int(input().strip())\nt = list(map(int, input().split()))\nt.sort()\ntong_cho, thoi_gian_qua = 0, 0\nfor x in t:\n tong_cho += thoi_gian_qua\n thoi_gian_qua += x\nprint(tong_cho)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n15 5 10",
+            "expected": "20",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n4 2 1 3",
+            "expected": "10",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 158,
+        "title": "Bài 24. Kiểm tra mã vạch chuẩn quốc tế EAN-13",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Mã vạch EAN-13 gồm 13 chữ số. Chữ số cuối $d_{13}$ là số kiểm tra: tính $S = \\sum_{i=1}^{12} (d_i \\times (1 \\text{ nếu } i \\text{ lẻ else } 3))$. Số kiểm tra $c = (10 - (S \\% 10)) \\% 10$. Nếu $d_{13} == c$ in \"VALID\", ngược lại in \"INVALID\" kèm số $c$ chuẩn.\n\nDữ liệu vào: Một chuỗi ký tự 13 chữ số.\nDữ liệu ra: In \"VALID\" hoặc \"INVALID c\".",
+        "templateCode": "s = input().strip()\nd = [int(c) for c in s]\ntong = sum(d[i] * (1 if (i + 1) % 2 == 1 else 3) for i in range(12))\nc = (10 - (tong % 10)) % 10\nif d[12] == c: print(\"VALID\")\nelse: print(f\"INVALID {c}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8934567890128",
+            "expected": "VALID",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8934567890123",
+            "expected": "INVALID 8",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 159,
+        "title": "Bài 25. Tìm dãy ghế trống liền kề trong rạp chiếu phim",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Rạp chiếu có $R$ hàng ghế, mỗi hàng $C$ ghế ('0' là trống, '1' là đã đặt). Nhóm $K$ học sinh muốn ngồi liền nhau trên cùng một hàng. Hãy tìm hàng nhỏ nhất và vị trí ghế đầu tiên nhỏ nhất thỏa mãn, nếu không có in \"NONE\".\n\nDữ liệu vào:\n- Dòng 1: Ba số nguyên $R, C, K$ ($1 \\le R, C \\le 100; 1 \\le K \\le C$).\n- $R$ dòng tiếp theo, mỗi dòng là một xâu nhị phân độ dài $C$.\nDữ liệu ra: Hai số nguyên là hàng và cột (bắt đầu từ 1), hoặc \"NONE\".",
+        "templateCode": "R, C, K = map(int, input().split())\ntim_thay = False\nmuc_tieu = '0' * K\nfor r in range(R):\n hang = input().strip()\n idx = hang.find(muc_tieu)\n if idx != -1 and not tim_thay:\n print(f\"{r + 1} {idx + 1}\")\n tim_thay = True\nif not tim_thay: print(\"NONE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 6 3\n110011\n000100\n001100",
+            "expected": "2 1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 4 3\n1010\n0101",
+            "expected": "NONE",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 160,
+        "title": "Bài 26. Phát hiện IP truy cập bất thường từ nhật ký mạng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hệ thống ghi nhận $M$ lượt truy cập với địa chỉ IP. Một IP bị xem là nguy cơ nếu số lần truy cập $\\ge K$. Thống kê số lượng IP vi phạm và in danh sách IP này theo thứ tự từ điển.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $M$ và $K$ ($1 \\le M \\le 10^5; 1 \\le K \\le M$).\n- $M$ dòng tiếp theo, mỗi dòng là một chuỗi địa chỉ IP.\nDữ liệu ra: Dòng 1 in số lượng IP. Các dòng tiếp theo in từng IP vi phạm.",
+        "templateCode": "M, K = map(int, input().split())\ndem = {}\nfor _ in range(M):\n ip = input().strip()\n dem[ip] = dem.get(ip, 0) + 1\nans = sorted([ip for ip, cnt in dem.items() if cnt >= K])\nprint(len(ans))\nfor ip in ans: print(ip)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2\n192.168.1.1\n10.0.0.1\n192.168.1.1\n172.16.0.2\n10.0.0.1",
+            "expected": "2\n10.0.0.1\n192.168.1.1",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n1.1.1.1\n2.2.2.2\n3.3.3.3",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 161,
+        "title": "Bài 27. Mã hóa bảo mật thông điệp Caesar xoay vòng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Mã hóa một thông điệp bằng cách dịch chuyển mỗi chữ cái tiếng Anh đi $K$ bước trong bảng chữ cái (chữ hoa biến thành chữ hoa, chữ thường thành chữ thường, các ký tự khác giữ nguyên).\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $K$ ($0 \\le K \\le 100$).\n- Dòng 2: Chuỗi ký tự $S$ (độ dài không quá 1000).\nDữ liệu ra: Chuỗi văn bản sau khi mã hóa.",
+        "templateCode": "K = int(input().strip()) % 26\ns = input()\nres = []\nfor ch in s:\n if 'A' <= ch <= 'Z': res.append(chr((ord(ch) - ord('A') + K) % 26 + ord('A')))\n elif 'a' <= ch <= 'z': res.append(chr((ord(ch) - ord('a') + K) % 26 + ord('a')))\n else: res.append(ch)\nprint(\"\".join(res))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\nHello World! 2026",
+            "expected": "Khoor Zruog! 2026",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1\nZzz Aaa",
+            "expected": "Aaa Bbb",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 162,
+        "title": "Bài 28. Bảng xếp hạng xét tuyển học bổng chuyên Tin",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Xét học bổng cho $N$ học sinh dựa trên 3 điểm Toán ($T$), Tin ($I$), Anh ($A$). Điểm xét tuyển $D = T + 2 \\times I + A$. Ưu tiên xếp hạng: điểm $D$ cao hơn xếp trước; nếu bằng nhau xét môn Tin cao hơn; nếu vẫn bằng nhau xét Tên theo thứ tự từ điển.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$ ($1 \\le N \\le 100$).\n- $N$ dòng tiếp theo: Tên và 3 điểm số thực $T, I, A$.\nDữ liệu ra: $N$ dòng, mỗi dòng in Tên và điểm $D$ làm tròn 1 chữ số thập phân.",
+        "templateCode": "N = int(input().strip())\nds = []\nfor _ in range(N):\n p = input().split()\n ten, t, i, a = p[0], float(p[1]), float(p[2]), float(p[3])\n ds.append((ten, t + 2 * i + a, i))\nds.sort(key=lambda x: (-x[1], -x[2], x[0]))\nfor sv in ds: print(f\"{sv[0]} {sv[1]:.1f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\nNam 8.0 9.0 7.5\nAn 9.0 8.5 7.5\nBinh 8.5 9.0 7.0",
+            "expected": "Nam 33.5\nAn 33.5\nBinh 33.5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\nMinh 7.0 8.0 8.0\nHoa 8.0 8.0 8.0",
+            "expected": "Hoa 32.0\nMinh 31.0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 163,
+        "title": "Bài 29. Cảnh báo lượng mưa ngập lụt bằng mảng cộng dồn",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trạm khí tượng ghi lại lượng mưa từng giờ trong $N$ giờ. Có $Q$ truy vấn kiểm tra tổng lượng mưa từ giờ $L$ đến giờ $R$. Nếu tổng lượng mưa $> W$ in \"BAO DONG\", ngược lại in \"AN TOAN\".\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N, Q$ ($1 \\le N, Q \\le 10^5$).\n- Dòng 2: $N$ số nguyên biểu thị lượng mưa mỗi giờ.\n- $Q$ dòng tiếp theo: Mỗi dòng gồm 3 số $L, R, W$.\nDữ liệu ra: $Q$ dòng in thông báo tương ứng.",
+        "templateCode": "import sys\ninput_data = sys.stdin.read().split()\nif input_data:\n N, Q = int(input_data[0]), int(input_data[1])\n pref = [0] * (N + 1)\n idx = 2\n for i in range(1, N + 1):\n pref[i] = pref[i - 1] + int(input_data[idx])\n idx += 1\n out = []\n for _ in range(Q):\n L, R, W = int(input_data[idx]), int(input_data[idx+1]), int(input_data[idx+2])\n idx += 3\n out.append(\"BAO DONG\" if pref[R] - pref[L - 1] > W else \"AN TOAN\")\n print(\"\\n\".join(out))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2\n10 20 30 15 25\n1 3 50\n2 4 70",
+            "expected": "BAO DONG\nAN TOAN",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1\n5 5 5\n1 3 20",
+            "expected": "AN TOAN",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 164,
+        "title": "Bài 30. Quản lý kho hàng xuất nhập theo nguyên tắc FIFO",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Kho hàng quản lý xuất nhập theo nguyên tắc FIFO. Gồm $M$ lệnh trong ngày:\n- \"NHAP s g\": Nhập $s$ sản phẩm giá $g$ đồng/sp.\n- \"XUAT k\": Xuất bán $k$ sản phẩm (lấy từ các lô sớm nhất).\nHãy tính tổng giá vốn của toàn bộ số hàng đã xuất trong ngày.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $M$ ($1 \\le M \\le 1000$).\n- $M$ dòng tiếp theo: Mỗi dòng là một thao tác NHAP hoặc XUAT.\nDữ liệu ra: Một số nguyên là tổng giá vốn xuất kho.",
+        "templateCode": "from collections import deque\nM = int(input().strip())\nkho = deque()\nvon = 0\nfor _ in range(M):\n cmd = input().split()\n if cmd[0] == \"NHAP\":\n kho.append([int(cmd[1]), int(cmd[2])])\n else:\n k = int(cmd[1])\n while k > 0 and kho:\n if kho[0][0] <= k:\n von += kho[0][0] * kho[0][1]\n k -= kho[0][0]; kho.popleft()\n else:\n von += k * kho[0][1]\n kho[0][0] -= k; k = 0\nprint(von)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\nNHAP 10 5000\nNHAP 20 6000\nXUAT 15",
+            "expected": "80000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\nNHAP 5 10000\nXUAT 3\nNHAP 10 12000\nXUAT 5",
+            "expected": "54000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 165,
+        "title": "Bài 31. Bốc dỡ container bến cảng theo ngăn xếp (Stack)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Ngăn xếp gồm $N$ container từ đáy lên đỉnh có mã $id_1, ..., id_N$. Muốn lấy container mã $X$, cầu bãi chuyển các container phía trên $X$ sang cọc phụ, bốc $X$ lên tàu, rồi chuyển trả lại các container từ cọc phụ về cọc chính theo thứ tự cũ. Tính tổng số lần nhấc container. Nếu không có $X$, in ra -1.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$ và $X$ ($1 \\le N \\le 10^5; 1 \\le X \\le 10^9$).\n- Dòng 2: $N$ số nguyên mã container từ đáy lên đỉnh.\nDữ liệu ra: Một số nguyên là số lần nhấc container, hoặc -1.",
+        "templateCode": "N, X = map(int, input().split())\nstack = list(map(int, input().split()))\npos = -1\nfor i in range(N - 1, -1, -1):\n if stack[i] == X:\n pos = i; break\nif pos == -1: print(-1)\nelse:\n k = N - 1 - pos\n print(2 * k + 1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 30\n10 20 30 40 50",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 99\n1 2 3 4",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 166,
+        "title": "Bài 32. Lắp đặt trạm phát sóng 5G phủ kín tuyến đường (Tham lam)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Tuyến đường từ 0 đến $L$ (m). Có $N$ vị trí cột điện: cột thứ $i$ có tọa độ $x_i$ và bán kính phát sóng $r_i$ (phủ đoạn $[x_i - r_i, x_i + r_i]$). Chọn số lượng trạm ít nhất phủ kín toàn bộ đoạn $[0, L]$. Nếu không phủ kín được in -1.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N$ và $L$ ($1 \\le N \\le 10^5; 1 \\le L \\le 10^9$).\n- $N$ dòng tiếp theo: Hai số $x_i, r_i$.\nDữ liệu ra: Một số nguyên là số trạm ít nhất, hoặc -1.",
+        "templateCode": "import sys\ndata = sys.stdin.read().split()\nif data:\n N, L = int(data[0]), int(data[1])\n intervals = []\n idx = 2\n for _ in range(N):\n x, r = int(data[idx]), int(data[idx+1]); idx += 2\n intervals.append((max(0, x - r), min(L, x + r)))\n intervals.sort(key=lambda item: item[0])\n cur_end, max_reach, count, i, n = 0, 0, 0, 0, len(intervals)\n while cur_end < L:\n while i < n and intervals[i][0] <= cur_end:\n if intervals[i][1] > max_reach: max_reach = intervals[i][1]\n i += 1\n if max_reach <= cur_end:\n count = -1; break\n count += 1; cur_end = max_reach\n print(count)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 10\n2 3\n5 4\n9 2",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 10\n1 1\n8 1",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 167,
+        "title": "Bài 33. Định tuyến xe cứu hộ vượt mê cung ngập nước (BFS)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Đô thị lưới ô vuông $R \\times C$. Xe cứu hộ xuất phát từ $(S_r, S_c)$ cần đến $(E_r, E_c)$. Mỗi ô có độ sâu nước. Xe chỉ đi qua ô kề cạnh có mức nước $\\le H_{max}$. Mỗi bước đi mất 1 phút. Tìm thời gian ngắn nhất, nếu không tới được in -1.\n\nDữ liệu vào:\n- Dòng 1: Ba số nguyên $R, C, H_{max}$ ($1 \\le R, C \\le 500; 1 \\le H_{max} \\le 200$).\n- Dòng 2: $S_r, S_c, E_r, E_c$ (chỉ số từ 1).\n- $R$ dòng tiếp theo: Ma trận độ sâu ngập nước.\nDữ liệu ra: Một số nguyên là thời gian ngắn nhất, hoặc -1.",
+        "templateCode": "from collections import deque\nimport sys\ndata = sys.stdin.read().split()\nif data:\n R, C, Hmax = int(data[0]), int(data[1]), int(data[2])\n sr, sc, er, ec = int(data[3])-1, int(data[4])-1, int(data[5])-1, int(data[6])-1\n grid = []\n idx = 7\n for _ in range(R):\n grid.append([int(data[idx + c]) for c in range(C)])\n idx += C\n if grid[sr][sc] > Hmax or grid[er][ec] > Hmax: print(-1)\n else:\n dist = [[-1] * C for _ in range(R)]\n q = deque([(sr, sc)]); dist[sr][sc] = 0\n while q:\n r, c = q.popleft()\n if r == er and c == ec: break\n for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n nr, nc = r + dr, c + dc\n if 0 <= nr < R and 0 <= nc < C and dist[nr][nc] == -1 and grid[nr][nc] <= Hmax:\n dist[nr][nc] = dist[r][c] + 1; q.append((nr, nc))\n print(dist[er][ec])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3 30\n1 1 3 3\n10 20 40\n15 25 20\n50 35 15",
+            "expected": "4",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 2 20\n1 1 2 2\n10 30\n40 10",
+            "expected": "-1",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 168,
+        "title": "Bài 34. Đánh giá tính hợp lệ và giá trị biểu thức kế toán",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Kiểm tra và tính giá trị biểu thức toán học chứa số nguyên không âm, các dấu `+`, `-`, `*` và các cặp ngoặc `(`, `)`. Nếu sai quy tắc ngoặc hoặc toán tử in \"ERROR\", ngược lại in giá trị của biểu thức.\n\nDữ liệu vào: Một chuỗi ký tự $S$ biểu thức không chứa khoảng trắng.\nDữ liệu ra: Một số nguyên là giá trị biểu thức hoặc \"ERROR\".",
+        "templateCode": "s = input().strip()\ndef solve(expr):\n cnt = 0\n for ch in expr:\n if ch == '(': cnt += 1\n elif ch == ')': cnt -= 1\n if cnt < 0: return \"ERROR\"\n if cnt != 0: return \"ERROR\"\n def apply(ops, vals):\n op = ops.pop(); b, a = vals.pop(), vals.pop()\n if op == '+': vals.append(a + b)\n elif op == '-': vals.append(a - b)\n elif op == '*': vals.append(a * b)\n prec = {'+': 1, '-': 1, '*': 2}\n vals, ops, i, n, expect = [], [], 0, len(expr), True\n try:\n while i < n:\n if expr[i] == '(':\n ops.append('('); expect = True; i += 1\n elif expr[i].isdigit():\n v = 0\n while i < n and expr[i].isdigit():\n v = v * 10 + int(expr[i]); i += 1\n vals.append(v); expect = False\n elif expr[i] == ')':\n while ops and ops[-1] != '(': apply(ops, vals)\n if not ops: return \"ERROR\"\n ops.pop(); expect = False; i += 1\n else:\n if expect: return \"ERROR\"\n while ops and prec.get(ops[-1], 0) >= prec.get(expr[i], 0): apply(ops, vals)\n ops.append(expr[i]); expect = True; i += 1\n if expect: return \"ERROR\"\n while ops: apply(ops, vals)\n return vals[0]\n except: return \"ERROR\"\nprint(solve(s))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3+5*(2+4)",
+            "expected": "33",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3+*5",
+            "expected": "ERROR",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 169,
+        "title": "Bài 35. Cắt phôi nhôm tối ưu giảm lãng phí (Quay lui)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Thanh nhôm nguyên khối dài $L$ cm. Cần chọn một tập các đoạn nhôm từ danh sách $c_1, ..., c_N$ để cắt sao cho tổng chiều dài $\\le L$ và phần nhôm còn thừa là nhỏ nhất có thể. Tìm độ dài phần nhôm thừa tối thiểu đó.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $L, N$ ($1 \\le L \\le 10^5; 1 \\le N \\le 22$).\n- Dòng 2: $N$ số nguyên độ dài cần cắt.\nDữ liệu ra: Một số nguyên là độ dài nhôm còn thừa ít nhất.",
+        "templateCode": "L, N = map(int, input().split())\nc = sorted(list(map(int, input().split())), reverse=True)\nmin_thua = L\ndef backtrack(idx, cur):\n global min_thua\n if cur > L: return\n thua = L - cur\n if thua < min_thua: min_thua = thua\n if min_thua == 0 or idx == N: return\n for i in range(idx, N):\n if cur + c[i] <= L: backtrack(i + 1, cur + c[i])\nbacktrack(0, 0)\nprint(min_thua)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 4\n30 40 50 25",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50 3\n20 20 20",
+            "expected": "10",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 170,
+        "title": "Bài 36. Khoanh vùng tâm bão có diện tích lớn nhất (Loang BFS)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Lưới bản đồ $M \\times N$ gồm các ô '1' (bị bão quét) và '0' (an toàn). Một vùng bão liên thông gồm các ô '1' chung cạnh. Hãy tìm diện tích (số ô) của vùng bão lớn nhất. Nếu toàn bộ an toàn in 0.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $M, N$ ($1 \\le M, N \\le 500$).\n- $M$ dòng tiếp theo: Chuỗi nhị phân độ dài $N$.\nDữ liệu ra: Một số nguyên là diện tích vùng bão lớn nhất.",
+        "templateCode": "from collections import deque\nimport sys\ndata = sys.stdin.read().split()\nif data:\n M, N = int(data[0]), int(data[1])\n grid = [list(data[2 + i]) for i in range(M)]\n max_area = 0\n for r in range(M):\n for c in range(N):\n if grid[r][c] == '1':\n area = 0\n q = deque([(r, c)]); grid[r][c] = '0'\n while q:\n cr, cc = q.popleft(); area += 1\n for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n nr, nc = cr + dr, cc + dc\n if 0 <= nr < M and 0 <= nc < N and grid[nr][nc] == '1':\n grid[nr][nc] = '0'; q.append((nr, nc))\n if area > max_area: max_area = area\n print(max_area)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 5\n11000\n11100\n00011\n00011",
+            "expected": "5",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n000\n000\n000",
+            "expected": "0",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 171,
+        "title": "Bài 37. Phân chia dây chuyền gia công sản phẩm (Chặt nhị phân kết quả)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $N$ lô hàng cần gia công theo thứ tự, lô thứ $i$ mất $t_i$ giờ. Chia cho $K$ dây chuyền làm việc (mỗi dây chuyền nhận một đoạn liên tiếp). Tìm cách chia sao cho thời gian dây chuyền chịu tải lớn nhất là nhỏ nhất có thể.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N, K$ ($1 \\le K \\le N \\le 10^5$).\n- Dòng 2: $N$ số nguyên thời gian gia công.\nDữ liệu ra: Một số nguyên là tải trọng lớn nhất tối thiểu.",
+        "templateCode": "N, K = map(int, input().split())\nt = list(map(int, input().split()))\ndef check(limit):\n cnt, cur = 1, 0\n for x in t:\n if x > limit: return False\n if cur + x > limit: cnt += 1; cur = x\n else: cur += x\n return cnt <= K\nlow, high, ans = max(t), sum(t), sum(t)\nwhile low <= high:\n mid = (low + high) // 2\n if check(mid): ans = mid; high = mid - 1\n else: low = mid + 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 3 4 5",
+            "expected": "6",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n10 20 30 40",
+            "expected": "60",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 172,
+        "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Hãng hàng không có $N$ chuyến bay, chuyến thứ $i$ bắt đầu lúc $S_i$ và kết thúc lúc $E_i$. Nếu chuyến bay sau bắt đầu lúc $\\ge E_i$ thì tổ bay có thể nhận tiếp. Tính số tổ bay tối thiểu cần điều động.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên $N$ ($1 \\le N \\le 10^5$).\n- $N$ dòng tiếp theo: Hai số nguyên $S_i, E_i$.\nDữ liệu ra: Một số nguyên là số tổ bay tối thiểu.",
+        "templateCode": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n900 1100\n1000 1200\n1100 1300",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 4\n2 5\n3 6",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 173,
+        "title": "Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nối mạng cáp giữa $N$ đảo bằng $M$ tuyến cáp tiềm năng, tuyến thứ $j$ nối giữa đảo $u_j, v_j$ chi phí $w_j$. Chọn tập các tuyến cáp để mọi đảo liên lạc được với nhau với tổng chi phí nhỏ nhất.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N, M$ ($1 \\le N \\le 10^4; N-1 \\le M \\le 10^5$).\n- $M$ dòng tiếp theo: Ba số $u, v, w$.\nDữ liệu ra: Một số nguyên là tổng chi phí nhỏ nhất.",
+        "templateCode": "import sys\ndata = sys.stdin.read().split()\nif data:\n N, M = int(data[0]), int(data[1])\n edges = []\n idx = 2\n for _ in range(M):\n edges.append((int(data[idx+2]), int(data[idx]), int(data[idx+1]))); idx += 3\n edges.sort()\n parent = list(range(N + 1))\n def find(i):\n path = []\n while parent[i] != i: path.append(i); i = parent[i]\n for node in path: parent[node] = i\n return i\n cost, cnt = 0, 0\n for w, u, v in edges:\n ru, rv = find(u), find(v)\n if ru != rv:\n parent[ru] = rv; cost += w; cnt += 1\n if cnt == N - 1: break\n print(cost)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 5\n1 2 10\n2 3 15\n1 3 5\n3 4 20\n2 4 25",
+            "expected": "35",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n1 2 1\n2 3 2\n1 3 3",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 174,
+        "title": "Bài 40. Tối ưu nạp - xả trạm pin lưu trữ năng lượng (Quy hoạch động)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Trạm pin dung lượng tối đa $C$ kWh (ban đầu có 0 kWh). Giá điện $N$ giờ là $P_1, ..., P_N$. Mỗi giờ có thể: Nạp 1 kWh (nếu $< C$), Xả 1 kWh (nếu $\\ge 1$), hoặc Giữ nguyên. Sau $N$ giờ pin phải rỗng. Tính lợi nhuận tối đa thu được.\n\nDữ liệu vào:\n- Dòng 1: Hai số nguyên $N, C$ ($1 \\le N \\le 1000; 1 \\le C \\le 50$).\n- Dòng 2: $N$ số nguyên giá điện từng giờ.\nDữ liệu ra: Một số nguyên là lợi nhuận lớn nhất.",
+        "templateCode": "N, C = map(int, input().split())\nP = list(map(int, input().split()))\nINF = float('inf')\ndp = [-INF] * (C + 1)\ndp[0] = 0\nfor gia in P:\n new_dp = list(dp)\n for k in range(C + 1):\n if dp[k] == -INF: continue\n if k + 1 <= C: new_dp[k + 1] = max(new_dp[k + 1], dp[k] - gia)\n if k - 1 >= 0: new_dp[k - 1] = max(new_dp[k - 1], dp[k] + gia)\n dp = new_dp\nprint(max(0, dp[0]))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 1\n10 30 15 40",
+            "expected": "45",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 2\n50 20 10",
+            "expected": "0",
             "point": 5,
             "is_hidden": false
           }
