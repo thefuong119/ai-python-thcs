@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:50:48.198Z",
+    "updatedAt": "2026-11-07T11:51:03.564Z",
     "updatedBy": "Trần Gia Hân",
     "action": "Học sinh Trần Gia Hân nộp bài"
   },
@@ -4571,9 +4571,9 @@
       {
         "student": "Trần Gia Hân",
         "username": "han",
-        "attempts": 1,
+        "attempts": 2,
         "highestScore": 0,
-        "lastSubmit": "18:50:48 7/11/2026"
+        "lastSubmit": "18:51:03 7/11/2026"
       }
     ],
     "lectures": [
@@ -5091,6 +5091,35 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1794052263529,
+        "student": "Trần Gia Hân",
+        "username": "han",
+        "assignmentTitle": "Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)",
+        "assignmentId": 25,
+        "score": 0,
+        "timestamp": "18:51:03 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "55",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "50",
+            "expected": "586268941",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "import sys\n\nsys.setrecursionlimit(2000)\nMOD = 10 ** 9 + 7\nmemo = {}\n\ndef fib(n):\n    if n == 0:\n        return 0\n        if n == 1:\n            return 1\n            if n in memo:\n                return memo[n]\n                memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n                return memo[n]\n\n                def main():\n                    data = sys.stdin.read().split()\n                    if not data:\n                        return\n                        n = int(data[0])\n                        print(fib(n))\n\n                        if __name__ == '__main__':\n                            main()"
+      },
+      {
         "id": 1794052248138,
         "student": "Trần Gia Hân",
         "username": "han",
@@ -5234,7 +5263,7 @@
       }
     ],
     "studentCodeCache": {
-      "han__Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)": "import sys\nsys.setrecursionlimit(2000)\nMOD = 10 ** 9 + 7\nmemo = {}\ndef fib(n):\n    if n == 0:\n        return 0\n        if n == 1:\n            return 1\n            if n in memo:\n                return memo[n]\n                memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n                return memo[n]\n\n                def main():\n                    data = sys.stdin.read().split()\n                    if not data:\n                        return\n                        n = int(data[0])\n                        print(fib(n))\n\n                        if __name__ == '__main__':\n                            main()"
+      "han__Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)": "import sys\n\nsys.setrecursionlimit(2000)\nMOD = 10 ** 9 + 7\nmemo = {}\n\ndef fib(n):\n    if n == 0:\n        return 0\n        if n == 1:\n            return 1\n            if n in memo:\n                return memo[n]\n                memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n                return memo[n]\n\n                def main():\n                    data = sys.stdin.read().split()\n                    if not data:\n                        return\n                        n = int(data[0])\n                        print(fib(n))\n\n                        if __name__ == '__main__':\n                            main()"
     },
     "questionFlags": {
       "43": true
