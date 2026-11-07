@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T14:53:38.853Z",
+    "updatedAt": "2026-11-07T15:03:03.634Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Tạo bài kiểm tra: Đề kiểm tra ngẫu nhiên - 7/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 50,
+        "loginCount": 51,
         "_hasPassword": true,
         "password": null
       },
@@ -5332,6 +5332,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:59:22 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "21:53:29 7/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -5607,6 +5614,21 @@
           134
         ],
         "createdAt": "18:45:56 7/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794063783610,
+        "title": "Đề kiểm tra ngẫu nhiên - 7/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          1,
+          74,
+          79,
+          72
+        ],
+        "createdAt": "22:03:03 7/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
