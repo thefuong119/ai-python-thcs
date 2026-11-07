@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T14:30:49.223Z",
+    "updatedAt": "2026-11-07T14:32:50.244Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -156,7 +156,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "password": null
       },
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 6,
+        "attempts": 5,
         "highestScore": 10,
-        "lastSubmit": "21:28:11 7/11/2026"
+        "lastSubmit": "21:09:22 7/11/2026"
       }
     ],
     "lectures": [
@@ -5098,35 +5098,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794061691438,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Chi phí sơn phòng học hình hộp chữ nhật",
-        "assignmentId": 52,
-        "score": 5,
-        "timestamp": "21:28:11 7/11/2026",
-        "date": "2026-11-07",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
-            "expected": "2700000",
-            "actual": "2700000",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
-            "expected": "2700000",
-            "actual": "1500000",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son= ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))\n"
-      },
-      {
         "id": 1794060562180,
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
@@ -5303,6 +5274,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:32:25 7/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "19:24:21 7/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -5382,8 +5360,7 @@
         "2": true,
         "43": true,
         "44": true,
-        "51": true,
-        "52": true
+        "51": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5511,31 +5488,6 @@
             "is_hidden": false
           }
         ]
-      },
-      "52": {
-        "id": 52,
-        "title": "Chi phí sơn phòng học hình hộp chữ nhật",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Cần sơn 4 bức tường xung quanh và trần nhà của một phòng học hình hộp chữ nhật có chiều dài $a$ (m), chiều rộng $b$ (m) và chiều cao $h$ (m). Biết diện tích các cửa đi và cửa sổ không cần sơn là $S_{cua}$ ($m^2$).\n- Mỗi mét vuông cần $d$ lít sơn.\n- Mỗi thùng sơn chứa được $c$ lít sơn và có giá là $P_{thung}$ đồng. Cửa hàng chỉ bán nguyên thùng (không bán lẻ lít).\nHãy tính tổng số tiền tối thiểu để mua sơn hoàn thành công việc.\n\nDữ liệu vào: Một dòng gồm 6 số: ba số thực $a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
-        "templateCode": "import math\n\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua = float(line[3])\nd = float(line[4])\nc = float(line[5])\np_thung = int(line[6])\n\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nlit_can = s_son * d\nso_thung = math.ceil(lit_can / c)\n\nprint(so_thung * p_thung)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
       }
     },
     "testSets": [
@@ -5574,8 +5526,7 @@
       "minh__Bài 2. Kiểm tra tính chẵn lẻ": "# Viết mã Python của em ở đây...\nN = int(input())\nif N % 2 == 0: print('CHAN')\nelse: print('LE')",
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
       "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = 10*6000 + ((m3-10)*7500)\nelse: Tien = 10*6000 + 10*7500 + ((m3-20)*10000)\nprint(Tien+(Tien*10//100)+(Tien*5//100))",
-      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)",
-      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son= ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))\n"
+      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)"
     },
     "questionFlags": {
       "43": true
