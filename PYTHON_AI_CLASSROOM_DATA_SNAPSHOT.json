@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T17:25:31.094Z",
+    "updatedAt": "2026-11-07T17:25:44.971Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Phản hồi tin nhắn"
+    "action": "Đăng xuất: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -5205,6 +5205,13 @@
     ],
     "loginLogs": [
       {
+        "time": "00:25:44 8/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
         "time": "00:24:42 8/11/2026",
         "name": "Học sinh Dùng Thử",
         "identifier": "hocsinh",
@@ -5594,11 +5601,6 @@
             "by": "Giáo viên Dùng Thử",
             "content": "Mai học lúc 7h 30 nhé!",
             "timestamp": "23:48:03 7/11/2026"
-          },
-          {
-            "by": "Nguyễn Thế Phương",
-            "content": "Okay",
-            "timestamp": "00:25:31 8/11/2026"
           }
         ]
       }
