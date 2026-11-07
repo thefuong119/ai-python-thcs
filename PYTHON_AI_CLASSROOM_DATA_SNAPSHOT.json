@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:42:15.274Z",
+    "updatedAt": "2026-11-07T11:42:26.252Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nạp 20 bài tập"
+    "action": "Nạp 1 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -3525,6 +3525,24 @@
             "id": 2,
             "input": "2 100\nKhu1 3 10.0 150\nKhu2 3 20.0 50",
             "expected": "Khu2 50\nKhu1 50",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 133,
+        "title": "Chuyên đề 1. Cấu trúc dữ liệu Ngăn xếp (Stack) & Hàng đợi (Queue) trong bài toán mô phỏng thực tế",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "",
+        "templateCode": "",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
             "point": 5,
             "is_hidden": false
           }
