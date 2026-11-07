@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:24:04.741Z",
+    "updatedAt": "2026-11-07T11:24:12.533Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Nạp 4 bài tập"
   },
@@ -459,6 +459,190 @@
             "id": 4,
             "input": "3489\n25577",
             "expected": "22088\n55040000",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Thí sinh",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong Hội thi HSG Tin học cấp xã năm 2026, có $n$ thí sinh tham gia được xếp thành một hàng $T$. Ban Tổ chức đánh số báo danh cho thí sinh $T_i$ ($i$ có giá trị từ 1 đến $n$) như sau: \n$T_1 = 3, T_2 = 5, T_3 = 8, T_4 = 12, T_5 = 17, T_6 = 23, \\dots, T_n$.\nHãy tính số báo danh của thí sinh ở vị trí $m$ ($m \\le n$).",
+        "templateCode": "m = int(input().strip())\nTm = 3 + (m - 1) * (m + 2) // 2\nprint(Tm)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "8",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "23",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "9",
+            "expected": "47",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "18",
+            "expected": "137",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "99",
+            "expected": "4952",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 6,
+            "input": "1000000",
+            "expected": "500000500002",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Tổng lẻ",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy các số lẻ bắt đầu từ 1: $1, 3, 5, 7, 9, 11, 13, 15, 17, 19, \\dots$\nCho số nguyên dương $n$ ($n \\le 10^9$), hãy tính tổng $n$ số lẻ đầu tiên của dãy.",
+        "templateCode": "n = int(input().strip())\nprint(n**2)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "16",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5",
+            "expected": "25",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "7",
+            "expected": "49",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "8",
+            "expected": "64",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "100",
+            "expected": "10000",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Kho hàng",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một kho hàng sắp xếp các kiện hàng thành chuỗi dài $S$ gồm các ký tự la tinh (không phân biệt chữ hoa, chữ thường). Cần tìm các loại hàng gồm 3 kiện liền kề nhau cùng loại.\nLiệt kê vị trí bắt đầu (1-indexed) và 3 kiện hàng đó, xếp theo thứ tự của chuỗi $S$.\nDữ liệu vào đọc từ tệp `input.txt` chứa chuỗi $S$.\nKết quả ghi ra tệp `output.txt` gồm nhiều dòng (mỗi dòng chứa vị trí và 3 kiện hàng). Nếu không có kiện nào thỏa mãn thì ghi `0`.",
+        "templateCode": "with open(\"input.txt\", \"r\") as f:\n S = f.read().strip()\nn = len(S)\nresults = []\nfor i in range(n - 2):\n sub = S[i:i+3]\n if sub[0].lower() == sub[1].lower() == sub[2].lower():\n results.append(f\"{i+1}{sub}\")\nwith open(\"output.txt\", \"w\") as f:\n if results:\n f.write(\"\\n\".join(results))\n else:\n f.write(\"0\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "aaBchde",
+            "expected": "0",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "aaAccCdjJJjz",
+            "expected": "1aaA\n4ccC\n8jJJ\n9JJj",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "AbBcccDDDxyz",
+            "expected": "4ccc\n7DDD",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "aaabbbcccAAAddd",
+            "expected": "1aaa\n4bbb\n7ccc\n10AAA\n13ddd",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "111@@@222aaaBBB",
+            "expected": "1111\n4@@@\n7222\n10aaa\n13BBB",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Xếp phòng thi",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho hàng thí sinh $S$ chứa các ký tự ngẫu nhiên (đọc từ tệp `input.txt`).\nHãy đếm số lượng $n$ và tách các ký tự chữ và số riêng ra thành dãy $X$.\nGhi kết quả ra tệp `output.txt`: Dòng 1 chứa số $n$, dòng 2 chứa dãy $X$.",
+        "templateCode": "with open(\"input.txt\", \"r\", encoding=\"utf-8\") as f:\n S = f.read().strip()\nX = \"\".join(ch for ch in S if ch.isalnum())\nn = len(X)\nwith open(\"output.txt\", \"w\", encoding=\"utf-8\") as f:\n f.write(str(n) + \"\\n\")\n f.write(X)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Hello123",
+            "expected": "8\nHello123",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Hi there! 2026, welcome.",
+            "expected": "17\nHithere2026welcome",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "AbC-123_xyz!",
+            "expected": "9\nAbC123xyz",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "!!!@@@###$$$",
+            "expected": "0",
             "point": 1,
             "is_hidden": false
           }
