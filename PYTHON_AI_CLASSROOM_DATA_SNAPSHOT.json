@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T14:53:55.175Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
+    "updatedAt": "2026-11-07T14:53:38.853Z",
+    "updatedBy": "Nguyễn Thế Phương",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 49,
+        "loginCount": 50,
         "_hasPassword": true,
         "password": null
       },
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 8,
+        "attempts": 7,
         "highestScore": 10,
-        "lastSubmit": "21:52:59 7/11/2026"
+        "lastSubmit": "21:37:14 7/11/2026"
       }
     ],
     "lectures": [
@@ -5098,35 +5098,6 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794063179586,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
-        "assignmentId": 55,
-        "score": 10,
-        "timestamp": "21:52:59 7/11/2026",
-        "date": "2026-11-07",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 4 3 4 5",
-            "expected": "HINH CHU NHAT",
-            "actual": "HINH CHU NHAT",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "5 5 5 5 7.071068",
-            "expected": "HINH VUONG",
-            "actual": "HINH VUONG",
-            "passed": true,
-            "points": 5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d:\n    print('HINH VUONG')\nelif (a == c)and(b == d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')"
-      },
-      {
         "id": 1794062234121,
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
@@ -5361,6 +5332,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:53:29 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "21:32:25 7/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -5448,8 +5426,7 @@
         "43": true,
         "44": true,
         "51": true,
-        "52": true,
-        "55": true
+        "52": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5602,31 +5579,6 @@
             "is_hidden": false
           }
         ]
-      },
-      "55": {
-        "id": 55,
-        "title": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Cho một tứ giác $ABCD$ có độ dài 4 cạnh liên tiếp $AB=a, BC=b, CD=c, DA=d$ và độ dài đường chéo $AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$ và $a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.",
-        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n if abs(a - b) < eps:\n print(\"HINH VUONG\")\n else:\n print(\"HINH CHU NHAT\")\nelse:\n print(\"HINH KHAC\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 4 3 4 5",
-            "expected": "HINH CHU NHAT",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "5 5 5 5 7.071068",
-            "expected": "HINH VUONG",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
       }
     },
     "testSets": [
@@ -5666,8 +5618,7 @@
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New - Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = 50*1800 + ((kwh-50)*1900)\nelse: Tien = 50*1800 + 50*1900 + ((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
       "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = 10*6000 + ((m3-10)*7500)\nelse: Tien = 10*6000 + 10*7500 + ((m3-20)*10000)\nprint(Tien+(Tien*10//100)+(Tien*5//100))",
       "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint((N//(K+1)*K*P)+N%(K+1)*P)",
-      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son = ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))",
-      "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d:\n    print('HINH VUONG')\nelif (a == c)and(b == d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')"
+      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son = ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))"
     },
     "questionFlags": {
       "43": true
