@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T10:51:22.290Z",
+    "updatedAt": "2026-11-07T10:52:06.577Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin thêm học sinh: Bùi Hoàng Gia Bảo"
+    "action": "Admin thêm học sinh: Trần Gia Hân"
   },
   "data": {
     "registeredUsers": [
@@ -117,6 +117,23 @@
         "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
         "school": "THCS Thành Đông",
         "className": "9A1",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "password": null,
+        "_hasPassword": true
+      },
+      {
+        "id": 1794048726572,
+        "name": "Trần Gia Hân",
+        "username": "han",
+        "identifier": "han",
+        "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
+        "school": "THCS Thành Đông",
+        "className": "9A2",
         "phone": "---",
         "cccd": "",
         "email": "",
