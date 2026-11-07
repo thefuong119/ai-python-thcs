@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T14:37:12.887Z",
+    "updatedAt": "2026-11-07T14:37:21.157Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 6,
+        "attempts": 7,
         "highestScore": 10,
-        "lastSubmit": "21:37:12 7/11/2026"
+        "lastSubmit": "21:37:14 7/11/2026"
       }
     ],
     "lectures": [
@@ -5097,6 +5097,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794062234121,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Chi phí sơn phòng học hình hộp chữ nhật",
+        "assignmentId": 52,
+        "score": 5,
+        "timestamp": "21:37:14 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
+            "expected": "2700000",
+            "actual": "2700000",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
+            "expected": "2700000",
+            "actual": "1500000",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nm3Son = ((a+b)*2*h+a*b-Scua)*d\nif m3Son % c == 0:\n    print(int(m3Son//c*P))\nelse: print(int((m3Son//c+1)*P))"
+      },
       {
         "id": 1794062232833,
         "student": "Lê Nguyễn Quang Minh",
