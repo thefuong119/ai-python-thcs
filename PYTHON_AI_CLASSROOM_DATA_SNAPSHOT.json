@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T13:33:59.781Z",
+    "updatedAt": "2026-11-07T13:34:12.745Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -4574,6 +4574,13 @@
         "attempts": 1,
         "highestScore": 0,
         "lastSubmit": "19:27:26 7/11/2026"
+      },
+      {
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "20:34:12 7/11/2026"
       }
     ],
     "lectures": [
@@ -5091,6 +5098,35 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1794058452692,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "20:34:12 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)"
+      },
+      {
         "id": 1794054446380,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
@@ -5195,6 +5231,9 @@
     "studentFlags": {
       "loc": {
         "1": true
+      },
+      "minh": {
+        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -5255,7 +5294,8 @@
       }
     ],
     "studentCodeCache": {
-      "loc__Bài 1. Tính tổng hai số nguyên A và B": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )"
+      "loc__Bài 1. Tính tổng hai số nguyên A và B": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )",
+      "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)"
     },
     "questionFlags": {
       "43": true
