@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:52:25.904Z",
-    "updatedBy": "Khách",
+    "updatedAt": "2026-11-07T08:55:31.038Z",
+    "updatedBy": "Nguyễn Tấn Thanh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -120,7 +120,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 2,
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
@@ -12756,6 +12756,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "15:52:28 7/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "14:35:56 7/11/2026",
         "name": "Nguyễn Thế Phương",
