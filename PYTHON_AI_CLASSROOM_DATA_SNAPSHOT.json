@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T03:24:20.595Z",
+    "updatedAt": "2026-11-07T03:24:47.374Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin cập nhật TK: Nguyễn Tấn Thanh"
+    "action": "Admin cập nhật TK: Nguyễn Thế Bình"
   },
   "data": {
     "registeredUsers": [
@@ -207,7 +207,7 @@
         "school": "Trường THPT Tân Lược",
         "className": "11",
         "_hasPassword": true,
-        "passwordHash": "170cde191e0cfa2ee703c7d514fa1d4bcee399b09f018bacef47376acbb50ec9",
+        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
         "cccd": "",
         "email": "nguyentrucbinh@gmail.com",
         "password": null
