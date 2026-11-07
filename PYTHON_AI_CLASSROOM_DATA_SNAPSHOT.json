@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:44:56.312Z",
+    "updatedAt": "2026-11-07T07:45:31.080Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Admin cập nhật TK: Học sinh Demo"
   },
@@ -240,7 +240,7 @@
         "role": "student",
         "status": "active",
         "loginCount": 3,
-        "phone": "Zalo cá nhân",
+        "phone": "0932861739",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
         "passwordHash": "b2708c4e7776c7c57b56fbb8de31e7662418f123bec87f7810282c9858ad69c9",
