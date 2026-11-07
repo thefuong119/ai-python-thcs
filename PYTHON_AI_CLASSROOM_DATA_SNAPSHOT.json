@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T05:40:10.076Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-07T05:44:25.394Z",
+    "updatedBy": "Nguyễn Dinh Khang",
+    "action": "Đăng ký: Nguyễn Dinh Khang"
   },
   "data": {
     "registeredUsers": [
@@ -281,6 +281,23 @@
         "cccd": "",
         "email": "",
         "password": null
+      },
+      {
+        "id": 1794030265274,
+        "name": "Nguyễn Dinh Khang",
+        "username": "dinhkhang",
+        "identifier": "dinhkhang",
+        "passwordHash": "432f5ab9f54266414eced7ef190dcef64a7f945ee6d9956603f671c92577ea07",
+        "school": "THCS Thành Đông",
+        "className": "9A5",
+        "phone": "khangpro",
+        "cccd": "",
+        "email": "dinhkhangnguyen2012@gmail.com",
+        "role": "student",
+        "status": "active",
+        "loginCount": 1,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -12756,6 +12773,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "12:44:25 7/11/2026",
+        "name": "Nguyễn Dinh Khang",
+        "identifier": "dinhkhang",
+        "role": "student",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "12:10:52 7/11/2026",
         "name": "Nguyễn Thế Phương",
