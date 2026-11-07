@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T17:24:20.541Z",
+    "updatedAt": "2026-11-07T17:24:42.709Z",
     "updatedBy": "Học sinh Dùng Thử",
-    "action": "HS Học sinh Dùng Thử gửi tin nhắn"
+    "action": "Đăng xuất: Học sinh Dùng Thử"
   },
   "data": {
     "registeredUsers": [
@@ -88,7 +88,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 17,
+        "loginCount": 16,
         "_hasPassword": true,
         "password": null
       },
@@ -5205,11 +5205,11 @@
     ],
     "loginLogs": [
       {
-        "time": "00:24:03 8/11/2026",
+        "time": "00:24:42 8/11/2026",
         "name": "Học sinh Dùng Thử",
         "identifier": "hocsinh",
         "role": "student",
-        "result": "Thành công"
+        "result": "Đăng xuất"
       },
       {
         "time": "23:48:23 7/11/2026",
@@ -5580,17 +5580,6 @@
       "teacherCanLoadServer": false
     },
     "studentMessages": [
-      {
-        "id": 1794072260525,
-        "from": "hocsinh",
-        "fromName": "Học sinh Dùng Thử",
-        "fromClass": "8A1",
-        "content": "Sáng mai học lúc 7h30",
-        "timestamp": "00:24:20 8/11/2026",
-        "date": "2026-11-07",
-        "read": false,
-        "replies": []
-      },
       {
         "id": 1794069621209,
         "from": "hocsinh",
