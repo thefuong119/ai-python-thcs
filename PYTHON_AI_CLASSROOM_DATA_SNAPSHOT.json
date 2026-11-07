@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T15:19:34.134Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-07T15:20:54.024Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Xóa đề thi: BÀI TẬP ÔN THI  LỚP 8 - Tối 07/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 51,
+        "loginCount": 52,
         "_hasPassword": true,
         "password": null
       },
@@ -5332,6 +5332,13 @@
     ],
     "loginLogs": [
       {
+        "time": "22:19:43 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "21:59:22 7/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -5589,20 +5596,6 @@
       }
     },
     "testSets": [
-      {
-        "id": 1794051916579,
-        "title": "BÀI TẬP ÔN THI  LỚP 8 - Tối 07/11/2026",
-        "grade": "8",
-        "allowSampleCode": true,
-        "questionIds": [
-          1,
-          2,
-          76
-        ],
-        "createdAt": "18:45:16 7/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      },
       {
         "id": 1794051956579,
         "title": "BÀI TẬP ÔN THI  LỚP 9 - Tối 07/11/2026",
