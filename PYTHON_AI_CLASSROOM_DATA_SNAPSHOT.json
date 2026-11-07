@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T13:54:41.269Z",
+    "updatedAt": "2026-11-07T13:56:02.982Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -5584,92 +5584,7 @@
         "code": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )"
       }
     ],
-    "loginLogs": [
-      {
-        "time": "20:49:33 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:49:25 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Reset pw"
-      },
-      {
-        "time": "19:24:21 7/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "19:24:10 7/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "19:23:51 7/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "18:52:10 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "18:31:08 7/11/2026",
-        "name": "Trần Gia Hân",
-        "identifier": "han",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "18:26:40 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "18:21:34 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "18:13:14 7/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "17:50:38 7/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "16:54:18 7/11/2026",
-        "name": "Thầy Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      }
-    ],
+    "loginLogs": [],
     "studentFlags": {
       "loc": {
         "1": true
