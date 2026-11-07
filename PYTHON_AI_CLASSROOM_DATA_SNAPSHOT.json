@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T07:39:28.580Z",
+    "updatedAt": "2026-11-07T07:39:54.008Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin cập nhật TK: Bùi Lê Uyên Nhi"
   },
   "data": {
     "registeredUsers": [
@@ -98,7 +98,7 @@
         "school": "THCS Thành Đông",
         "className": "9A3",
         "teacherName": "Cô Lê Thị B",
-        "phone": "Zalo cá nhân",
+        "phone": "0947470204",
         "email": "",
         "role": "student",
         "authMethod": "Tên đăng nhập",
@@ -108,7 +108,7 @@
         "loginCount": 5,
         "_hasPassword": true,
         "passwordHash": "fbdc9a142a86c7b7024c40df0fdfd2d2288f0b93ce3d28e343d3bf6b70a75aa3",
-        "cccd": "",
+        "cccd": "086312006615",
         "password": null
       },
       {
