@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:47:05.556Z",
+    "updatedAt": "2026-11-07T11:47:09.837Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Phát đề cho học sinh: BÀI TẬP ÔN THI  LỚP 9 - Tối 07/11/2026"
+    "action": "Xóa đề thi: Đề kiểm tra ngẫu nhiên - 7/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -5154,20 +5154,6 @@
           134
         ],
         "createdAt": "18:45:56 7/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      },
-      {
-        "id": 1794051960530,
-        "title": "Đề kiểm tra ngẫu nhiên - 7/11/2026",
-        "grade": "9",
-        "allowSampleCode": true,
-        "questionIds": [
-          133,
-          134,
-          25
-        ],
-        "createdAt": "18:46:00 7/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
