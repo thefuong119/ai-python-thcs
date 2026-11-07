@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T10:56:08.609Z",
+    "updatedAt": "2026-11-07T10:56:20.855Z",
     "updatedBy": "Thầy Nguyễn Thế Phương",
-    "action": "Admin cập nhật TK: Nguyễn Thế Phương"
+    "action": "Admin cập nhật TK: Trần Thị Trúc Mai"
   },
   "data": {
     "registeredUsers": [
@@ -26,7 +26,7 @@
       },
       {
         "id": 2,
-        "name": "Cô Trần Thị Trúc Mai",
+        "name": "Trần Thị Trúc Mai",
         "username": "comai",
         "identifier": "comai",
         "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
