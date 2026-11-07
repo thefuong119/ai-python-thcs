@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T18:29:46.880Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-07T18:33:16.802Z",
+    "updatedBy": "Học sinh Dùng Thử",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 56,
+        "loginCount": 55,
         "_hasPassword": true,
         "password": null
       },
@@ -88,7 +88,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 16,
+        "loginCount": 17,
         "_hasPassword": true,
         "password": null
       },
@@ -5205,24 +5205,10 @@
     ],
     "loginLogs": [
       {
-        "time": "01:29:46 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "01:27:57 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "01:27:26 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "01:30:10 8/11/2026",
+        "name": "Học sinh Dùng Thử",
+        "identifier": "hocsinh",
+        "role": "student",
         "result": "Thành công"
       },
       {
@@ -5615,10 +5601,10 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
+      "teacherCanAdd": false,
       "teacherCanEdit": true,
       "teacherCanDelete": false,
-      "teacherCanPushServer": true,
+      "teacherCanPushServer": false,
       "teacherCanLoadServer": false
     },
     "studentMessages": [
