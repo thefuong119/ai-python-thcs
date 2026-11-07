@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:23:53.012Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
+    "updatedAt": "2026-11-07T11:24:04.741Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Nạp 4 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 46,
+        "loginCount": 47,
         "_hasPassword": true,
         "password": null
       },
@@ -139,7 +139,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 2,
+        "loginCount": 1,
         "_hasPassword": true,
         "password": null
       },
@@ -279,17 +279,193 @@
             "is_hidden": true
           }
         ]
-      }
-    ],
-    "gradebook": [
+      },
       {
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "attempts": 1,
-        "highestScore": 0,
-        "lastSubmit": "18:23:52 7/11/2026"
+        "id": 3,
+        "title": "Tam giác",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho ba số $a, b, c$ là độ dài ba cạnh.\nYêu cầu:\n- Kiểm tra ba cạnh có tạo thành tam giác hay không?\n- Nếu có, xác định loại tam giác (Tam giac deu / Tam giac can / Tam giac vuong / Tam giac thuong). Nếu không tạo thành tam giác, in ra \"Khong tao thanh tam giac\".",
+        "templateCode": "a = float(input(\"Nhap canh a: \"))\nb = float(input(\"Nhap canh b: \"))\nc = float(input(\"Nhap canh c: \"))\nif a + b > c and a + c > b and b + c > a:\n if a == b == c:\n print(\"Tam giac deu\")\n elif a == b or a == c or b == c:\n print(\"Tam giac can\")\n elif a*a + b*b == c*c or a*a + c*c == b*b or b*b + c*c == a*a:\n print(\"Tam giac vuong\")\n else:\n print(\"Tam giac thuong\")\nelse:\n print(\"Khong tao thanh tam giac\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Nhap canh a: 3\nNhap canh b: 4\nNhap canh c: 5",
+            "expected": "Tam giac vuong",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nhap canh a: 7\nNhap canh b: 7\nNhap canh c: 9.9",
+            "expected": "Tam giac can",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Nhap canh a: 8\nNhap canh b: 8\nNhap canh c: 8",
+            "expected": "Tam giac deu",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Nhap canh a: 1.5\nNhap canh b: 2.75\nNhap canh c: 2.5",
+            "expected": "Tam giac thuong",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "Nhap canh a: 7.5\nNhap canh b: 8.25\nNhap canh c: 9.5",
+            "expected": "Tam giac thuong",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 6,
+            "input": "Nhap canh a: 1\nNhap canh b: 2\nNhap canh c: 7.5",
+            "expected": "Khong tao thanh tam giac",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Bán hàng",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một cửa hàng bán sản phẩm với đơn giá $X$ (đồng/sản phẩm).\n- Nếu mua từ 10 sản phẩm trở lên: giảm giá 5%\n- Nếu mua từ 20 sản phẩm trở lên: giảm giá 10%\nNhập đơn giá và số lượng, hãy tính số tiền phải trả.",
+        "templateCode": "don_gia = int(input(\"Nhập đơn giá (đồng/sản phẩm): \"))\nso_luong = int(input(\"Nhập số lượng sản phẩm: \"))\ntong_tien = don_gia * so_luong\nif so_luong >= 20:\n tong_tien = tong_tien * 0.9\nelif so_luong >= 10:\n tong_tien = tong_tien * 0.95\nprint(\"Số tiền phải trả:\", int(tong_tien))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Nhập đơn giá (đồng/sản phẩm): 105\nNhập số lượng sản phẩm: 8",
+            "expected": "Số tiền phải trả: 840",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Nhập đơn giá (đồng/sản phẩm): 299\nNhập số lượng sản phẩm: 32",
+            "expected": "Số tiền phải trả: 8611",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Nhập đơn giá (đồng/sản phẩm): 350000\nNhập số lượng sản phẩm: 64",
+            "expected": "Số tiền phải trả: 20160000",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Nhập đơn giá (đồng/sản phẩm): 18000000\nNhập số lượng sản phẩm: 6",
+            "expected": "Số tiền phải trả: 108000000",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "Nhập đơn giá (đồng/sản phẩm): 123456789\nNhập số lượng sản phẩm: 5",
+            "expected": "Số tiền phải trả: 617283945",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Thống kê điểm học sinh",
+        "classLevel": "THCS",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho số học sinh $N$ và danh sách điểm trung bình của $N$ học sinh.\nYêu cầu:\n- Tính điểm trung bình của nhóm/lớp.\n- Đếm số học sinh đạt loại Giỏi (điểm trung bình $\\ge 16.0$ theo thang điểm 20).\nDữ liệu vào đọc từ tệp `input.txt` (Dòng 1: Số nguyên $N$; Dòng 2: $N$ số thực là điểm trung bình).\nKết quả ghi ra tệp `output.txt` (Dòng 1: điểm trung bình nhóm; Dòng 2: số học sinh Giỏi).",
+        "templateCode": "with open(\"input.txt\", \"r\") as f:\n n = int(f.readline().strip())\n ds_diem = list(map(float, f.readline().split()))\n\ndtb_lop = sum(ds_diem) / n\nhs_gioi = sum(1 for diem in ds_diem if diem >= 16.0)\n\nwith open(\"output.txt\", \"w\") as f:\n f.write(f\"{dtb_lop}\\n\")\n f.write(f\"{hs_gioi}\\n\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n15 17 18.5 20",
+            "expected": "17.625\n3",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n15.5 18.5 19.0 19.5 20",
+            "expected": "18.5\n4",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "8\n11 12.5 18.25 16.25 17 16 19.5 18.75",
+            "expected": "16.15625\n6",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "11\n12 12.5 18.25 16.25 17 16 19.25 16.5 15.75 18 20",
+            "expected": "16.5\n6",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 5,
+            "input": "13\n17 16.5 18.25 16.25 17 16 18.25 16.5 15.5 18 20 12 16",
+            "expected": "17.173076923076923\n11",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Tính tiền điện",
+        "classLevel": "THCS",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Gia đình A sử dụng điện sinh hoạt, tiền điện được tính theo định mức:\n- 0–50 kWh: 1.500 đ/kWh\n- 51–100 kWh: 1.900 đ/kWh\n- Trên 100 kWh: 2.500 đ/kWh\nBiết chỉ số điện cũ và chỉ số điện mới (đọc từ tệp `input.txt`), hãy tính số kWh tiêu thụ và số tiền điện phải trả (chưa VAT), ghi ra tệp `output.txt`.",
+        "templateCode": "with open(\"input.txt\", \"r\") as f:\n chi_so_cu = int(f.readline().strip())\n chi_so_moi = int(f.readline().strip())\n\ntieu_thu = chi_so_moi - chi_so_cu\n\nif tieu_thu <= 50:\n tien = tieu_thu * 1500\nelif tieu_thu <= 100:\n tien = 50 * 1500 + (tieu_thu - 50) * 1900\nelse:\n tien = 50 * 1500 + 50 * 1900 + (tieu_thu - 100) * 2500\n\nwith open(\"output.txt\", \"w\") as f:\n f.write(f\"{tieu_thu}\\n\")\n f.write(f\"{tien}\\n\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "0\n20420",
+            "expected": "20420\n50862500",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "350\n705",
+            "expected": "355\n807500",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "120\n600",
+            "expected": "480\n1120000",
+            "point": 1,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3489\n25577",
+            "expected": "22088\n55040000",
+            "point": 1,
+            "is_hidden": false
+          }
+        ]
       }
     ],
+    "gradebook": [],
     "lectures": [
       {
         "id": 1,
@@ -383,58 +559,14 @@
         "content": "### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```"
       }
     ],
-    "studentSubmissions": [
-      {
-        "id": 1794050632971,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "timestamp": "18:23:52 7/11/2026",
-        "date": "2026-11-07",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(a+b)"
-      }
-    ],
+    "studentSubmissions": [],
     "loginLogs": [
       {
-        "time": "18:19:49 7/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
+        "time": "18:21:34 7/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
-      },
-      {
-        "time": "18:19:22 7/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "18:19:19 7/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Reset pw"
       },
       {
         "time": "18:13:14 7/11/2026",
@@ -458,42 +590,10 @@
         "result": "Thành công"
       }
     ],
-    "studentFlags": {
-      "loc": {
-        "1": true
-      }
-    },
-    "flaggedAssignmentsCache": {
-      "1": {
-        "id": 1,
-        "title": "Bài 1. Tính tổng hai số nguyên A và B",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
-        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 5",
-            "expected": "8",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "point": 5,
-            "is_hidden": true
-          }
-        ]
-      }
-    },
+    "studentFlags": {},
+    "flaggedAssignmentsCache": {},
     "testSets": [],
-    "studentCodeCache": {
-      "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(a+b)"
-    },
+    "studentCodeCache": {},
     "questionFlags": {
       "43": true
     }
