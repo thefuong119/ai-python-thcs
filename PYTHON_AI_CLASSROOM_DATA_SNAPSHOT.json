@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T15:26:57.264Z",
+    "updatedAt": "2026-11-07T15:28:24.745Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin xóa bài giảng: 50"
+    "action": "Admin lưu bài tập: Bài 1. Tính tổng hai số nguyên A và B"
   },
   "data": {
     "registeredUsers": [
@@ -237,7 +237,7 @@
         "difficulty": "easy",
         "timeLimit": 2,
         "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
-        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
+        "templateCode": "a, b = map(int, input().split())\nprint(a + b)",
         "tests": [
           {
             "id": 1,
