@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T16:23:47.809Z",
+    "updatedAt": "2026-11-07T16:24:46.876Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin phân quyền: teacherCanPushServer=false"
+    "action": "Xóa 1 bài làm (teacher)"
   },
   "data": {
     "registeredUsers": [
@@ -5201,35 +5201,6 @@
           }
         ],
         "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)"
-      },
-      {
-        "id": 1794054446380,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "timestamp": "19:27:26 7/11/2026",
-        "date": "2026-11-07",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": " # Viết mã Python của em ở đây...\na, b = map(int, input().split)\nprint(\"A + B là\", a + b )"
       }
     ],
     "loginLogs": [
