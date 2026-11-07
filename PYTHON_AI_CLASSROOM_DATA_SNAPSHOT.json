@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T05:44:25.394Z",
+    "updatedAt": "2026-11-07T05:45:01.522Z",
     "updatedBy": "Nguyễn Dinh Khang",
-    "action": "Đăng ký: Nguyễn Dinh Khang"
+    "action": "Học sinh Nguyễn Dinh Khang nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11762,6 +11762,13 @@
         "attempts": 1,
         "highestScore": 10,
         "lastSubmit": "19:23:40 5/11/2026"
+      },
+      {
+        "student": "Nguyễn Dinh Khang",
+        "username": "dinhkhang",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "12:45:01 7/11/2026"
       }
     ],
     "lectures": [
@@ -12258,6 +12265,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794030301448,
+        "student": "Nguyễn Dinh Khang",
+        "username": "dinhkhang",
+        "assignmentTitle": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
+        "assignmentId": 12,
+        "score": 10,
+        "timestamp": "12:45:01 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "4",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "8",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "21",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "999999937",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "n = int(input().strip())\nif n < 4:\n    print(\"NO\")\nelse:\n    count = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            count += 1\n            temp //= i\n            if count > 2:\n                break\n        if count > 2:\n            break\n        i += 1\n    if temp > 1:\n        count += 1\n    print(\"YES\" if count == 2 else \"NO\")"
+      },
       {
         "id": 1793933009252,
         "student": "Lê Nguyễn Quang Minh",
@@ -12959,6 +13011,9 @@
       },
       "tuan": {
         "43": true
+      },
+      "dinhkhang": {
+        "12": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -13250,6 +13305,45 @@
           }
         ]
       },
+      "12": {
+        "id": 12,
+        "title": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số bán nguyên tố là số tự nhiên có thể phân tích thành tích của đúng hai số nguyên tố (hai số nguyên tố này có thể giống hoặc khác nhau).\nVí dụ: 4 = 2 * 2; 6 = 2 * 3; 9 = 3 * 3; 21 = 3 * 7 là các số bán nguyên tố. Các số 8 (= 2^3), 12 (= 2^2 * 3), 7 (số nguyên tố) không phải là số bán nguyên tố.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số bán nguyên tố hay không.\n\n- Dữ liệu vào: Số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số bán nguyên tố, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nif n < 4:\n    print(\"NO\")\nelse:\n    count = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            count += 1\n            temp //= i\n            if count > 2:\n                break\n        if count > 2:\n            break\n        i += 1\n    if temp > 1:\n        count += 1\n    print(\"YES\" if count == 2 else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "21",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "999999937",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "28": {
         "id": 28,
         "title": "Bài 20. Kiểm tra số hoàn hảo",
@@ -13364,7 +13458,8 @@
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
-      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n"
+      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\n",
+      "dinhkhang__Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)": "n = int(input().strip())\nif n < 4:\n    print(\"NO\")\nelse:\n    count = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            count += 1\n            temp //= i\n            if count > 2:\n                break\n        if count > 2:\n            break\n        i += 1\n    if temp > 1:\n        count += 1\n    print(\"YES\" if count == 2 else \"NO\")"
     },
     "questionFlags": {
       "43": true
