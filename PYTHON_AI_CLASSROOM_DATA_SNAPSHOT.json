@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:45:16.591Z",
+    "updatedAt": "2026-11-07T11:45:56.590Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Tạo bài kiểm tra: Đề kiểm tra ngẫu nhiên - 7/11/2026"
   },
@@ -5140,6 +5140,20 @@
           76
         ],
         "createdAt": "18:45:16 7/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794051956579,
+        "title": "Đề kiểm tra ngẫu nhiên - 7/11/2026",
+        "grade": "9",
+        "allowSampleCode": true,
+        "questionIds": [
+          133,
+          134,
+          25
+        ],
+        "createdAt": "18:45:56 7/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
