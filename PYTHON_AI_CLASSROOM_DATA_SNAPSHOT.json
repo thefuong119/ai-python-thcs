@@ -1,1 +1,410 @@
-{"metadata":{"repo":"https://github.com/thefuong119/ai-python-thcs","updatedAt":"2026-11-07T11:12:42.235Z","updatedBy":"Bùi Hoàng Gia Bảo","action":"Đóng ứng dụng - Đồng bộ cuối phiên"},"data":{"registeredUsers":[{"id":1,"name":"Nguyễn Thế Phương","username":"086081006094","identifier":"086081006094","passwordHash":"311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1","school":"THCS Thành Đông","className":"Toàn trường","phone":"0908889999","cccd":"","email":"","role":"admin","status":"active","loginCount":46,"_hasPassword":true,"password":null},{"id":2,"name":"Trần Thị Trúc Mai","username":"comai","identifier":"comai","passwordHash":"efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e","school":"THCS - THPT Mỹ Thuận","className":"11A1","phone":"0912345678","cccd":"","email":"","role":"teacher","status":"active","loginCount":34,"_hasPassword":true,"password":null},{"id":4,"name":"Trần Lê Phúc Khang","username":"khang","identifier":"khang","passwordHash":"2163b766c2ba53b6e45996281cd4e2c016cbb21c1a9376c2567a1dc98134417f","school":"THCS Thành Đông","className":"9A3","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":3,"_hasPassword":true,"password":null},{"id":5,"name":"Giáo viên Dùng Thử","username":"giaovien","identifier":"giaovien","passwordHash":"712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33","school":"THCS Thành Đông","className":"Khối 8","phone":"0932861739","cccd":"","email":"","role":"teacher","status":"active","loginCount":10,"_hasPassword":true,"password":null},{"id":6,"name":"Học sinh Dùng Thử","username":"hocsinh","identifier":"hocsinh","passwordHash":"efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e","school":"THCS Thành Đông","className":"8A1","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":15,"_hasPassword":true,"password":null},{"id":1794048682286,"name":"Bùi Hoàng Gia Bảo","username":"bao","identifier":"bao","passwordHash":"c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651","school":"THCS Thành Đông","className":"9A1","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":1,"_hasPassword":true,"password":null},{"id":1794048726572,"name":"Trần Gia Hân","username":"han","identifier":"han","passwordHash":"73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1","school":"THCS Thành Đông","className":"9A2","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794048763194,"name":"Nguyễn Phú Lộc","username":"loc","identifier":"loc","passwordHash":"c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2","school":"THCS Thành Đông","className":"8A2","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794048793638,"name":"Lê Nguyễn Quang Minh","username":"minh","identifier":"minh","passwordHash":"0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0","school":"THCS Thành Đông","className":"8A8","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794048834223,"name":"Phan Trọng Khương","username":"khuong","identifier":"khuong","passwordHash":"47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94","school":"THCS Thành Đông","className":"8A4","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794048895690,"name":"Nguyễn Tấn Thanh","username":"tanthanh","identifier":"tanthanh","passwordHash":"efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e","school":"THCS Thành Đông","className":"Khối 9","phone":"---","cccd":"","email":"","role":"teacher","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794048949214,"name":"Lê Hoàng Ba","username":"hoangba","identifier":"hoangba","passwordHash":"8f7a098fed1a1c967171affaebea6e5cb03b83d70e2ac1e1dbc72d5b816b920f","school":"THCS Thành Đông","className":"Khối 8","phone":"---","cccd":"","email":"","role":"teacher","status":"active","loginCount":0,"_hasPassword":true,"password":null},{"id":1794049051361,"name":"Bùi Lê Uyên Nhi","username":"nhi","identifier":"nhi","passwordHash":"fbdc9a142a86c7b7024c40df0fdfd2d2288f0b93ce3d28e343d3bf6b70a75aa3","school":"THCS Thành Đông","className":"9A3","phone":"---","cccd":"","email":"","role":"student","status":"active","loginCount":0,"_hasPassword":true,"password":null}],"assignments":[{"id":1,"title":"Bài 1. Tính tổng hai số nguyên A và B","classLevel":"8","difficulty":"easy","timeLimit":2,"description":"### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.","templateCode":"a, b = map(int, input().split())\nprint(a + b)\n","tests":[{"id":1,"input":"3 5","expected":"8","point":5,"is_hidden":false},{"id":2,"input":"-10 25","expected":"15","point":5,"is_hidden":true}]},{"id":2,"title":"Bài 2. Kiểm tra tính chẵn lẻ","classLevel":"8","difficulty":"easy","timeLimit":2,"description":"### Đề bài\nNhập số nguyên $N$. In `CHAN` nếu chẵn, `LE` nếu lẻ.\n\n### Dữ liệu vào\nMột số nguyên $N$.","templateCode":"n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')\n","tests":[{"id":1,"input":"4","expected":"CHAN","point":5,"is_hidden":false},{"id":2,"input":"7","expected":"LE","point":5,"is_hidden":true}]}],"gradebook":[],"lectures":[{"id":1,"title":"Bài 1. Ngôn ngữ lập trình bậc cao và python","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```"},{"id":2,"title":"Bài 2. Biến và lệnh gán và biểu thức số học","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Biến\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ.\n- **Quy tắc đặt tên biến**: Bắt đầu bằng chữ cái hoặc `_`; không chứa khoảng trắng; không trùng từ khóa.\n\n### 2. Lệnh gán và biểu thức số học\n- Cú pháp: `tên_biến = giá_trị`\n- Phép toán: `+`, `-`, `*`, `/`, `//`, `%`, `**`\n\n```python\na = 10\nb = 3\ntong = a + b\n```"},{"id":3,"title":"Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Lệnh vào / ra\n- `print()`: Xuất dữ liệu\n- `input()`: Nhập dữ liệu từ bàn phím\n\n### 2. Kiểu dữ liệu cơ bản\n- `int`: Số nguyên, `float`: Số thực, `str`: Xâu, `bool`: Logic\n\n```python\nho_ten = input('Nhập họ tên: ')\nprint('Xin chào', ho_ten)\n```"},{"id":4,"title":"Bài 4. Cấu trúc rẽ nhánh","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Ý nghĩa\nDùng để điều khiển luồng dựa trên điều kiện logic.\n\n### 2. Cú pháp\n```python\nif điều_kiện_1:\n    pass\nelif điều_kiện_2:\n    pass\nelse:\n    pass\n```"},{"id":5,"title":"Bài 5. Cấu trúc lặp","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Vòng lặp `for`\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\n### 2. Vòng lặp `while`\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\n```"},{"id":6,"title":"Bài 6. Kiểu dữ liệu danh sách","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Khái niệm List\n- Tập hợp có thứ tự, đặt trong `[...]`\n\n### 2. Thao tác\n```python\nds = [12, 5, 8]\nds.append(15)\nprint(len(ds))\n```"},{"id":7,"title":"Bài 7. Kiểu dữ liệu xâu","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Xâu (String)\nDãy ký tự trong `'...'` hoặc `\"...\"`\n\n```python\ns = 'Python'\nprint(len(s))\nprint(s.upper())\n```"},{"id":8,"title":"Bài 8. Chương trình con và thư viện","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### 1. Hàm\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Thư viện `math`\n```python\nimport math\nprint(math.sqrt(16))\n```"},{"id":9,"title":"Bài 9. Tham số của hàm","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### Tham số mặc định\n```python\ndef chao(ten='bạn'):\n    print('Xin chào,', ten)\n```"},{"id":10,"title":"Bài 10. Phạm vi của biến","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### Biến cục bộ và toàn cục\n```python\nx = 100\ndef vidu():\n    y = 50\n    print(x, y)\n```"},{"id":11,"title":"Bài 11. Làm việc với file","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### Mở/đóng tệp\n```python\nwith open('kq.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm: 10')\n```"},{"id":12,"title":"Bài 12. Nhận biết lỗi trong chương trình","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### Các loại lỗi\n- **Syntax Error**: Lỗi cú pháp\n- **Runtime Error**: Lỗi thực thi\n- **Logic Error**: Lỗi ngữ nghĩa"},{"id":13,"title":"Bài 13. Kiểm thử và gỡ lỗi","classLevel":"8","grade":"Lớp 8 - Tin học cơ sở","content":"### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```"}],"studentSubmissions":[],"loginLogs":[{"time":"18:12:27 7/11/2026","name":"Bùi Hoàng Gia Bảo","identifier":"bao","role":"student","result":"Thành công"},{"time":"17:50:38 7/11/2026","name":"Thầy Nguyễn Thế Phương","identifier":"086081006094","role":"admin","result":"Thành công"},{"time":"16:54:18 7/11/2026","name":"Thầy Nguyễn Thế Phương","identifier":"086081006094","role":"admin","result":"Thành công"}],"studentFlags":{},"flaggedAssignmentsCache":{},"testSets":[],"studentCodeCache":{},"questionFlags":{"43":true}}}
+{
+  "metadata": {
+    "repo": "https://github.com/thefuong119/ai-python-thcs",
+    "updatedAt": "2026-11-07T11:14:51.603Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Ẩn trang - Đồng bộ tự động"
+  },
+  "data": {
+    "registeredUsers": [
+      {
+        "id": 1,
+        "name": "Nguyễn Thế Phương",
+        "username": "086081006094",
+        "identifier": "086081006094",
+        "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
+        "school": "THCS Thành Đông",
+        "className": "Toàn trường",
+        "phone": "0908889999",
+        "cccd": "",
+        "email": "",
+        "role": "admin",
+        "status": "active",
+        "loginCount": 46,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 2,
+        "name": "Trần Thị Trúc Mai",
+        "username": "comai",
+        "identifier": "comai",
+        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
+        "school": "THCS - THPT Mỹ Thuận",
+        "className": "11A1",
+        "phone": "0912345678",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 34,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 4,
+        "name": "Trần Lê Phúc Khang",
+        "username": "khang",
+        "identifier": "khang",
+        "passwordHash": "2163b766c2ba53b6e45996281cd4e2c016cbb21c1a9376c2567a1dc98134417f",
+        "school": "THCS Thành Đông",
+        "className": "9A3",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 3,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 5,
+        "name": "Giáo viên Dùng Thử",
+        "username": "giaovien",
+        "identifier": "giaovien",
+        "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "0932861739",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 10,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 6,
+        "name": "Học sinh Dùng Thử",
+        "username": "hocsinh",
+        "identifier": "hocsinh",
+        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
+        "school": "THCS Thành Đông",
+        "className": "8A1",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 15,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048682286,
+        "name": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "identifier": "bao",
+        "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
+        "school": "THCS Thành Đông",
+        "className": "9A1",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048726572,
+        "name": "Trần Gia Hân",
+        "username": "han",
+        "identifier": "han",
+        "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
+        "school": "THCS Thành Đông",
+        "className": "9A2",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048763194,
+        "name": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "identifier": "loc",
+        "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
+        "school": "THCS Thành Đông",
+        "className": "8A2",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 1,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048793638,
+        "name": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "identifier": "minh",
+        "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
+        "school": "THCS Thành Đông",
+        "className": "8A8",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048834223,
+        "name": "Phan Trọng Khương",
+        "username": "khuong",
+        "identifier": "khuong",
+        "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
+        "school": "THCS Thành Đông",
+        "className": "8A4",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048895690,
+        "name": "Nguyễn Tấn Thanh",
+        "username": "tanthanh",
+        "identifier": "tanthanh",
+        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
+        "school": "THCS Thành Đông",
+        "className": "Khối 9",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794048949214,
+        "name": "Lê Hoàng Ba",
+        "username": "hoangba",
+        "identifier": "hoangba",
+        "passwordHash": "8f7a098fed1a1c967171affaebea6e5cb03b83d70e2ac1e1dbc72d5b816b920f",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      },
+      {
+        "id": 1794049051361,
+        "name": "Bùi Lê Uyên Nhi",
+        "username": "nhi",
+        "identifier": "nhi",
+        "passwordHash": "fbdc9a142a86c7b7024c40df0fdfd2d2288f0b93ce3d28e343d3bf6b70a75aa3",
+        "school": "THCS Thành Đông",
+        "className": "9A3",
+        "phone": "---",
+        "cccd": "",
+        "email": "",
+        "role": "student",
+        "status": "active",
+        "loginCount": 0,
+        "_hasPassword": true,
+        "password": null
+      }
+    ],
+    "assignments": [
+      {
+        "id": 1,
+        "title": "Bài 1. Tính tổng hai số nguyên A và B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "### Đề bài\nCho hai số nguyên $A$ và $B$. Hãy tính tổng $A + B$.\n\n### Dữ liệu vào\nHai số nguyên $A, B$ cách nhau bởi dấu cách.\n\n### Dữ liệu ra\nIn ra tổng $A + B$.",
+        "templateCode": "a, b = map(int, input().split())\nprint(a + b)\n",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 5",
+            "expected": "8",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Bài 2. Kiểm tra tính chẵn lẻ",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "### Đề bài\nNhập số nguyên $N$. In `CHAN` nếu chẵn, `LE` nếu lẻ.\n\n### Dữ liệu vào\nMột số nguyên $N$.",
+        "templateCode": "n = int(input())\nif n % 2 == 0:\n    print('CHAN')\nelse:\n    print('LE')\n",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "CHAN",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "7",
+            "expected": "LE",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      }
+    ],
+    "gradebook": [],
+    "lectures": [
+      {
+        "id": 1,
+        "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```"
+      },
+      {
+        "id": 2,
+        "title": "Bài 2. Biến và lệnh gán và biểu thức số học",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Biến\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ.\n- **Quy tắc đặt tên biến**: Bắt đầu bằng chữ cái hoặc `_`; không chứa khoảng trắng; không trùng từ khóa.\n\n### 2. Lệnh gán và biểu thức số học\n- Cú pháp: `tên_biến = giá_trị`\n- Phép toán: `+`, `-`, `*`, `/`, `//`, `%`, `**`\n\n```python\na = 10\nb = 3\ntong = a + b\n```"
+      },
+      {
+        "id": 3,
+        "title": "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Lệnh vào / ra\n- `print()`: Xuất dữ liệu\n- `input()`: Nhập dữ liệu từ bàn phím\n\n### 2. Kiểu dữ liệu cơ bản\n- `int`: Số nguyên, `float`: Số thực, `str`: Xâu, `bool`: Logic\n\n```python\nho_ten = input('Nhập họ tên: ')\nprint('Xin chào', ho_ten)\n```"
+      },
+      {
+        "id": 4,
+        "title": "Bài 4. Cấu trúc rẽ nhánh",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Ý nghĩa\nDùng để điều khiển luồng dựa trên điều kiện logic.\n\n### 2. Cú pháp\n```python\nif điều_kiện_1:\n    pass\nelif điều_kiện_2:\n    pass\nelse:\n    pass\n```"
+      },
+      {
+        "id": 5,
+        "title": "Bài 5. Cấu trúc lặp",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Vòng lặp `for`\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\n### 2. Vòng lặp `while`\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\n```"
+      },
+      {
+        "id": 6,
+        "title": "Bài 6. Kiểu dữ liệu danh sách",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Khái niệm List\n- Tập hợp có thứ tự, đặt trong `[...]`\n\n### 2. Thao tác\n```python\nds = [12, 5, 8]\nds.append(15)\nprint(len(ds))\n```"
+      },
+      {
+        "id": 7,
+        "title": "Bài 7. Kiểu dữ liệu xâu",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Xâu (String)\nDãy ký tự trong `'...'` hoặc `\"...\"`\n\n```python\ns = 'Python'\nprint(len(s))\nprint(s.upper())\n```"
+      },
+      {
+        "id": 8,
+        "title": "Bài 8. Chương trình con và thư viện",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### 1. Hàm\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Thư viện `math`\n```python\nimport math\nprint(math.sqrt(16))\n```"
+      },
+      {
+        "id": 9,
+        "title": "Bài 9. Tham số của hàm",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### Tham số mặc định\n```python\ndef chao(ten='bạn'):\n    print('Xin chào,', ten)\n```"
+      },
+      {
+        "id": 10,
+        "title": "Bài 10. Phạm vi của biến",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### Biến cục bộ và toàn cục\n```python\nx = 100\ndef vidu():\n    y = 50\n    print(x, y)\n```"
+      },
+      {
+        "id": 11,
+        "title": "Bài 11. Làm việc với file",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### Mở/đóng tệp\n```python\nwith open('kq.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm: 10')\n```"
+      },
+      {
+        "id": 12,
+        "title": "Bài 12. Nhận biết lỗi trong chương trình",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### Các loại lỗi\n- **Syntax Error**: Lỗi cú pháp\n- **Runtime Error**: Lỗi thực thi\n- **Logic Error**: Lỗi ngữ nghĩa"
+      },
+      {
+        "id": 13,
+        "title": "Bài 13. Kiểm thử và gỡ lỗi",
+        "classLevel": "8",
+        "grade": "Lớp 8 - Tin học cơ sở",
+        "content": "### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```"
+      }
+    ],
+    "studentSubmissions": [],
+    "loginLogs": [
+      {
+        "time": "18:13:14 7/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "17:50:38 7/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "16:54:18 7/11/2026",
+        "name": "Thầy Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      }
+    ],
+    "studentFlags": {},
+    "flaggedAssignmentsCache": {},
+    "testSets": [],
+    "studentCodeCache": {},
+    "questionFlags": {
+      "43": true
+    }
+  }
+}
