@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T11:47:54.566Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-07T11:50:48.198Z",
+    "updatedBy": "Trần Gia Hân",
+    "action": "Học sinh Trần Gia Hân nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -122,7 +122,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "password": null
       },
@@ -4567,7 +4567,15 @@
         ]
       }
     ],
-    "gradebook": [],
+    "gradebook": [
+      {
+        "student": "Trần Gia Hân",
+        "username": "han",
+        "attempts": 1,
+        "highestScore": 0,
+        "lastSubmit": "18:50:48 7/11/2026"
+      }
+    ],
     "lectures": [
       {
         "id": 1,
@@ -5081,14 +5089,44 @@
         "content": "### 1. Kiến thức trọng tâm & Phương pháp luận\n- **Duyệt đồ thị trên lưới ma trận (BFS / DFS):**\n + Tìm đường đi ngắn nhất ô bàn cờ (BFS có hàng đợi `deque`): Xe cứu hộ vượt ngập nước độ sâu $\\le H_{max}$.\n + Tìm diện tích thành phần liên thông cực đại (Loang BFS/DFS): Khoanh vùng diện tích ảnh hưởng bão lớn nhất.\n- **Cây khung nhỏ nhất (MST) - Thuật toán Kruskal:**\n + Ứng dụng nối mạng cáp quang biển giữa các trạm đảo với chi phí tối thiểu.\n + Cấu trúc dữ liệu các tập hợp rời nhau DSU (Disjoint Set Union) với nén đường đi (Path Compression) kiểm tra chu trình trong $O(\\alpha(N))$.\n- **Quy hoạch động chuyên sâu:**\n + Quy hoạch động ba lô (Knapsack): Cắt vật liệu có tính phí nhát cắt, chọn danh mục dự án đầu tư sinh lời.\n + Quy hoạch động đa trạng thái (State DP): Bài toán tối ưu nạp - xả điện trạm pin BESS $DP[k]$ tại mỗi mốc giờ.\n- **Đệ quy quay lui có nhánh cận (Backtracking with Pruning):**\n + Bài toán cắt phôi nhôm tối ưu giảm lãng phí, bài toán xếp ca trực bệnh viện.\n\n### 2. Ví dụ minh họa\n**Bài toán:** Cây khung nhỏ nhất Kruskal: Cho đồ thị vô hướng $N$ đỉnh, $M$ cạnh có trọng số. Tìm tổng trọng số cây khung nhỏ nhất.\n```python\nimport sys\nN, M = map(int, sys.stdin.readline().split())\nedges = []\nfor _ in range(M):\n u, v, w = map(int, sys.stdin.readline().split())\n edges.append((w, u, v))\nedges.sort()\nparent = list(range(N + 1))\ndef find(i):\n if parent[i] != i: parent[i] = find(parent[i])\n return parent[i]\ntotal, count = 0, 0\nfor w, u, v in edges:\n ru, rv = find(u), find(v)\n if ru != rv:\n parent[ru] = rv\n total += w\n count += 1\n if count == N - 1: break\nprint(total)\n```\n\n### 3. Bài tập vận dụng (Có đáp án)\n**Đề bài:** Cho bảng nhị phân $M \\times N$ gồm các ô '0' và '1'. Tìm diện tích của vùng các ô '1' liên thông 4 hướng lớn nhất. Nếu không có ô '1' nào in 0.\n**Đáp án & Mã nguồn:**\n```python\nfrom collections import deque\nM, N = map(int, input().split())\ngrid = [list(input().strip()) for _ in range(M)]\nmax_area = 0\nfor r in range(M):\n for c in range(N):\n if grid[r][c] == '1':\n area = 0\n q = deque([(r, c)])\n grid[r][c] = '0'\n while q:\n cr, cc = q.popleft()\n area += 1\n for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:\n nr, nc = cr + dr, cc + dc\n if 0 <= nr < M and 0 <= nc < N and grid[nr][nc] == '1':\n grid[nr][nc] = '0'\n q.append((nr, nc))\n max_area = max(max_area, area)\nprint(max_area)\n```"
       }
     ],
-    "studentSubmissions": [],
+    "studentSubmissions": [
+      {
+        "id": 1794052248138,
+        "student": "Trần Gia Hân",
+        "username": "han",
+        "assignmentTitle": "Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)",
+        "assignmentId": 25,
+        "score": 0,
+        "timestamp": "18:50:48 7/11/2026",
+        "date": "2026-11-07",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "55",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "50",
+            "expected": "586268941",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "import sys\nsys.setrecursionlimit(2000)\nMOD = 10 ** 9 + 7\nmemo = {}\ndef fib(n):\n    if n == 0:\n        return 0\n        if n == 1:\n            return 1\n            if n in memo:\n                return memo[n]\n                memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n                return memo[n]\n\n                def main():\n                    data = sys.stdin.read().split()\n                    if not data:\n                        return\n                        n = int(data[0])\n                        print(fib(n))\n\n                        if __name__ == '__main__':\n                            main()"
+      }
+    ],
     "loginLogs": [
       {
-        "time": "18:47:54 7/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
+        "time": "18:48:28 7/11/2026",
+        "name": "Trần Gia Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Thành công"
       },
       {
         "time": "18:31:08 7/11/2026",
@@ -5133,8 +5171,38 @@
         "result": "Thành công"
       }
     ],
-    "studentFlags": {},
-    "flaggedAssignmentsCache": {},
+    "studentFlags": {
+      "han": {
+        "25": true
+      }
+    },
+    "flaggedAssignmentsCache": {
+      "25": {
+        "id": 25,
+        "title": "Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dãy số Fibonacci được định nghĩa: $F_0 = 0, F_1 = 1$, $F_n = F_{n-1} + F_{n-2}$ với $n \\ge 2$.\nCho số nguyên dương $N$ ($N \\le 1000$). Hãy tính $F_N \\pmod{10^9+7}$ sử dụng phương pháp đệ quy có nhớ.\nDữ liệu vào:\n- Một số nguyên dương $N$.\nKết quả ra:\n- In ra giá trị $F_N \\pmod{10^9+7}$.",
+        "templateCode": "import sys\n\nsys.setrecursionlimit(2000)\nMOD = 10**9 + 7\nmemo = {}\n\ndef fib(n):\n if n == 0:\n return 0\n if n == 1:\n return 1\n if n in memo:\n return memo[n]\n memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n return memo[n]\n\ndef main():\n data = sys.stdin.read().split()\n if not data:\n return\n n = int(data[0])\n print(fib(n))\n\nif __name__ == '__main__':\n main()",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "55",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50",
+            "expected": "586268941",
+            "point": 5,
+            "is_hidden": true
+          }
+        ]
+      }
+    },
     "testSets": [
       {
         "id": 1794051916579,
@@ -5165,7 +5233,9 @@
         "active": true
       }
     ],
-    "studentCodeCache": {},
+    "studentCodeCache": {
+      "han__Bài 23. Dãy số Fibonacci lớn có nhớ (Memoization)": "import sys\nsys.setrecursionlimit(2000)\nMOD = 10 ** 9 + 7\nmemo = {}\ndef fib(n):\n    if n == 0:\n        return 0\n        if n == 1:\n            return 1\n            if n in memo:\n                return memo[n]\n                memo[n] = (fib(n - 1) + fib(n - 2)) % MOD\n                return memo[n]\n\n                def main():\n                    data = sys.stdin.read().split()\n                    if not data:\n                        return\n                        n = int(data[0])\n                        print(fib(n))\n\n                        if __name__ == '__main__':\n                            main()"
+    },
     "questionFlags": {
       "43": true
     }
