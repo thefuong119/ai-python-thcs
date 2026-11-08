@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T08:57:35.667Z",
+    "updatedAt": "2026-11-08T08:58:30.791Z",
     "updatedBy": "Giáo viên Demo",
-    "action": "Tạo bài kiểm tra: BÀI TẬP TỐI LỚP 8 - 8/11/2026"
+    "action": "Tạo bài kiểm tra: Đề kiểm tra ngẫu nhiên - 8/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -14710,6 +14710,20 @@
           315
         ],
         "createdAt": "15:57:35 8/11/2026",
+        "createdBy": "Giáo viên Demo",
+        "active": true
+      },
+      {
+        "id": 1794128310756,
+        "title": "Đề kiểm tra ngẫu nhiên - 8/11/2026",
+        "grade": "9",
+        "allowSampleCode": true,
+        "questionIds": [
+          158,
+          185,
+          163
+        ],
+        "createdAt": "15:58:30 8/11/2026",
         "createdBy": "Giáo viên Demo",
         "active": true
       }
