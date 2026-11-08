@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:23:04.555Z",
+    "updatedAt": "2026-11-08T07:23:55.113Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -13791,6 +13791,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "14:23:26 8/11/2026",
+        "name": "086081006004",
+        "identifier": "086081006004",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "14:16:27 8/11/2026",
         "name": "Nguyễn Thế Phương",
