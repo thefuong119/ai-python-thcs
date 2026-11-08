@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T06:01:50.250Z",
+    "updatedAt": "2026-11-08T06:02:13.423Z",
     "updatedBy": "Phan TRọng Khương",
     "action": "Học sinh Phan TRọng Khương nộp bài"
   },
@@ -11790,9 +11790,9 @@
       {
         "student": "Phan TRọng Khương",
         "username": "trọngkhương8a4",
-        "attempts": 1,
+        "attempts": 2,
         "highestScore": 10,
-        "lastSubmit": "13:01:50 8/11/2026"
+        "lastSubmit": "13:02:13 8/11/2026"
       }
     ],
     "lectures": [
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794117733320,
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "13:02:13 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na,b=map(int,input().split())\nprint(a+b)"
+      },
       {
         "id": 1794117710124,
         "student": "Phan TRọng Khương",
