@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T06:00:35.490Z",
+    "updatedAt": "2026-11-08T06:01:50.250Z",
     "updatedBy": "Phan TRọng Khương",
-    "action": "Đăng ký: Phan TRọng Khương"
+    "action": "Học sinh Phan TRọng Khương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11786,6 +11786,13 @@
         "attempts": 10,
         "highestScore": 10,
         "lastSubmit": "20:37:52 6/11/2026"
+      },
+      {
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "13:01:50 8/11/2026"
       }
     ],
     "lectures": [
@@ -12282,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794117710124,
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "13:01:50 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na,b=map(int,input().split())\nprint(a+b)"
+      },
       {
         "id": 1793972272044,
         "student": "Phan Trọng Khương",
@@ -13575,6 +13627,9 @@
       "trongkhuong8a4": {
         "2": true,
         "3": true
+      },
+      "trọngkhương8a4": {
+        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -14035,7 +14090,8 @@
       "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
       "trongkhuong8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na,b=map(int,input().split())\nprint(a + b)",
       "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")",
-      "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)"
+      "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
+      "trọngkhương8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\na,b=map(int,input().split())\nprint(a+b)"
     },
     "questionFlags": {
       "43": true
