@@ -24,13 +24,17 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
 
+    <!-- CodeMirror core & addons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/selection/active-line.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/anyword-hint.min.js"></script>
 
     <style>
         body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; }
@@ -56,6 +60,11 @@
         .star-pop { animation: starPop 0.35s ease; }
         @keyframes dropIn { 0% { opacity:0; transform:translateY(-8px) scale(0.96); } 100% { opacity:1; transform:translateY(0) scale(1); } }
         .dropdown-anim { animation: dropIn 0.18s ease-out; }
+
+        /* CodeMirror Hint Styling */
+        .CodeMirror-hints { border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); background: white; padding: 4px; z-index: 100000 !important; }
+        .CodeMirror-hint { padding: 4px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; border-radius: 4px; }
+        li.CodeMirror-hint-active { background-color: #3b82f6; color: white; }
 
         #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
         #robotAvatarBtn img {
@@ -161,24 +170,6 @@
             transform: translateY(-1px) scale(1.03);
             filter: brightness(1.1);
         }
-
-        /* Floating AI Tutor button for students */
-        #floatingAiTutorBtn {
-            position: fixed; bottom: 100px; right: 24px; z-index: 99998;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: linear-gradient(135deg, #fbbf24, #f59e0b, #ea580c);
-            color: #fff; font-weight: 800;
-            box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 0 rgba(245,158,11,0.7);
-            animation: floatingAiPulse 1.8s ease-in-out infinite;
-            display: none; align-items: center; justify-content: center;
-            cursor: pointer; border: 3px solid #fff;
-        }
-        @keyframes floatingAiPulse {
-            0%, 100% { box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 0 rgba(245,158,11,0.7); transform: scale(1); }
-            50%      { box-shadow: 0 6px 22px rgba(245,158,11,0.55), 0 0 0 14px rgba(245,158,11,0); transform: scale(1.06); }
-        }
-        #floatingAiTutorBtn i { font-size: 26px; }
-        #floatingAiTutorBtn:hover { transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -461,9 +452,6 @@
                                 <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
                                     <i class="ph-bold ph-file-text text-blue-600"></i> Nội Dung Đề Bài
                                 </h3>
-                                <button onclick="openAiAssistant('socratic')" class="ai-tutor-blink text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all">
-                                    <i class="ph-bold ph-sparkle text-base"></i> Hỏi Gia Sư AI
-                                </button>
                             </div>
                             <div class="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-100">
                                 <input id="studentAssignmentSearch" oninput="populateAssignmentSelect()" placeholder="🔍 Tìm bài tập..." class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none flex-1 min-w-[140px]">
@@ -504,6 +492,20 @@
                                     <span class="font-mono text-slate-400 ml-2 font-medium">solution.py</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
+                                    <!-- Tải lên / Tải xuống file .py -->
+                                    <label class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 cursor-pointer" title="Tải lên tệp .py từ máy tính">
+                                        <i class="ph-bold ph-upload-simple"></i>
+                                        <input type="file" accept=".py" class="hidden" onchange="uploadPythonFile(event)">
+                                    </label>
+                                    <button onclick="downloadPythonFile()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Tải xuống tệp .py về máy">
+                                        <i class="ph-bold ph-download-simple"></i>
+                                    </button>
+                                    <button onclick="showCodeHints()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Gợi ý code thông minh">
+                                        <i class="ph-bold ph-lightbulb"></i> Gợi ý
+                                    </button>
+                                    <button onclick="explainSampleCode()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1" title="AI giải thích code hiện tại">
+                                        <i class="ph-bold ph-info"></i> Giải thích
+                                    </button>
                                     <button onclick="insertTabInCode('student')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Chèn Tab">
                                         <i class="ph-bold ph-arrow-elbow-down-right"></i> Tab
                                     </button>
@@ -513,7 +515,7 @@
                                     <button onclick="copyCurrentCode()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium" title="Sao chép">
                                         <i class="ph-bold ph-copy"></i>
                                     </button>
-                                    <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1">
+                                    <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1" title="Hỏi Gia Sư AI">
                                         <i class="ph-bold ph-bug"></i> Hỏi Gia Sư AI
                                     </button>
                                 </div>
@@ -732,6 +734,10 @@
                                 <input type="text" id="lectureInputGrade" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm">
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Link Video / Tài liệu (Youtube / Google Drive):</label>
+                        <input type="url" id="lectureInputMedia" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="VD: https://www.youtube.com/watch?v=... hoặc link Google Drive...">
                     </div>
                     <div class="space-y-1.5">
                         <label class="block font-bold text-sm text-slate-700">Nội dung (Markdown & KaTeX):</label>
@@ -1227,6 +1233,10 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Link Video / Tài liệu (Youtube / Google Drive):</label>
+                        <input type="url" id="adminLectureInputMedia" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="VD: https://www.youtube.com/watch?v=... hoặc link Google Drive...">
+                    </div>
                     <div class="space-y-1.5">
                         <label class="block font-bold text-sm text-slate-700">Nội dung:</label>
                         <div class="flex flex-wrap items-center gap-1.5 p-2 bg-white border border-slate-300 rounded-t-xl text-xs border-b-0">
@@ -1522,11 +1532,6 @@
         </div>
 
     </main>
-
-    <!-- FLOATING AI TUTOR BUTTON (Only for students) -->
-    <button id="floatingAiTutorBtn" onclick="openAiAssistant('socratic')" title="Hỏi Gia Sư AI - Trợ lý thông minh" aria-label="Hỏi Gia Sư AI">
-        <i class="ph-bold ph-sparkle"></i>
-    </button>
 
     <!-- VIEW CONTENT MODAL -->
     <div id="viewContentDetailModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10005] hidden flex items-center justify-center p-4">
@@ -1869,10 +1874,9 @@
                 <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 shadow-sm">
                     <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 5. SỬ DỤNG GIA SƯ AI</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-indigo-800">
-                        <li><b>Nút nổi bật nhấp nháy "Hỏi Gia Sư AI"</b> ở góc phải dưới màn hình (chỉ hiện khi học sinh đăng nhập).</li>
                         <li>Gõ câu hỏi vào ô chat → Gia sư AI sẽ giải thích, hướng dẫn code Python mẫu chi tiết.</li>
                         <li><b>Robot trợ lý:</b> Biểu tượng robot ở góc màn hình. <b>Nhấp 1 lần</b> để đọc toàn bộ văn bản đang hiển thị; <b>nhấp lần nữa</b> để dừng.</li>
-                        <li>Nút <b>"Hỏi Gia Sư AI"</b> trong khung làm bài để hỏi lỗi code cụ thể.</li>
+                        <li>Nút <b>"Hỏi Gia Sư AI"</b> trong khung làm bài để hỏi lỗi code cụ thể. Nút <b>"Giải thích"</b> để AI phân tích đoạn code hiện tại.</li>
                     </ul>
                 </div>
 
@@ -2372,19 +2376,19 @@
     // 📚 DỮ LIỆU MẪU
     // =============================================
     let lectures = [
-        { id:1, title:"Bài 1. Ngôn ngữ lập trình bậc cao và python", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```" },
-        { id:2, title:"Bài 2. Biến và lệnh gán và biểu thức số học", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Biến\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ.\n- **Quy tắc đặt tên biến**: Bắt đầu bằng chữ cái hoặc `_`; không chứa khoảng trắng; không trùng từ khóa.\n\n### 2. Lệnh gán và biểu thức số học\n- Cú pháp: `tên_biến = giá_trị`\n- Phép toán: `+`, `-`, `*`, `/`, `//`, `%`, `**`\n\n```python\na = 10\nb = 3\ntong = a + b\n```" },
-        { id:3, title:"Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Lệnh vào / ra\n- `print()`: Xuất dữ liệu\n- `input()`: Nhập dữ liệu từ bàn phím\n\n### 2. Kiểu dữ liệu cơ bản\n- `int`: Số nguyên, `float`: Số thực, `str`: Xâu, `bool`: Logic\n\n```python\nho_ten = input('Nhập họ tên: ')\nprint('Xin chào', ho_ten)\n```" },
-        { id:4, title:"Bài 4. Cấu trúc rẽ nhánh", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Ý nghĩa\nDùng để điều khiển luồng dựa trên điều kiện logic.\n\n### 2. Cú pháp\n```python\nif điều_kiện_1:\n    pass\nelif điều_kiện_2:\n    pass\nelse:\n    pass\n```" },
-        { id:5, title:"Bài 5. Cấu trúc lặp", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Vòng lặp `for`\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\n### 2. Vòng lặp `while`\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\n```" },
-        { id:6, title:"Bài 6. Kiểu dữ liệu danh sách", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Khái niệm List\n- Tập hợp có thứ tự, đặt trong `[...]`\n\n### 2. Thao tác\n```python\nds = [12, 5, 8]\nds.append(15)\nprint(len(ds))\n```" },
-        { id:7, title:"Bài 7. Kiểu dữ liệu xâu", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Xâu (String)\nDãy ký tự trong `'...'` hoặc `\"...\"`\n\n```python\ns = 'Python'\nprint(len(s))\nprint(s.upper())\n```" },
-        { id:8, title:"Bài 8. Chương trình con và thư viện", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Hàm\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Thư viện `math`\n```python\nimport math\nprint(math.sqrt(16))\n```" },
-        { id:9, title:"Bài 9. Tham số của hàm", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Tham số mặc định\n```python\ndef chao(ten='bạn'):\n    print('Xin chào,', ten)\n```" },
-        { id:10, title:"Bài 10. Phạm vi của biến", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Biến cục bộ và toàn cục\n```python\nx = 100\ndef vidu():\n    y = 50\n    print(x, y)\n```" },
-        { id:11, title:"Bài 11. Làm việc với file", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Mở/đóng tệp\n```python\nwith open('kq.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm: 10')\n```" },
-        { id:12, title:"Bài 12. Nhận biết lỗi trong chương trình", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Các loại lỗi\n- **Syntax Error**: Lỗi cú pháp\n- **Runtime Error**: Lỗi thực thi\n- **Logic Error**: Lỗi ngữ nghĩa" },
-        { id:13, title:"Bài 13. Kiểm thử và gỡ lỗi", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```" }
+        { id:1, title:"Bài 1. Ngôn ngữ lập trình bậc cao và python", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân $0$ và $1$.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên và biểu thức toán học.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn.\n\n### 3. Chương trình đầu tiên với Python\n```python\nprint('Xin chào thế giới lập trình Python!')\n```", mediaUrl:"" },
+        { id:2, title:"Bài 2. Biến và lệnh gán và biểu thức số học", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Biến\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ.\n- **Quy tắc đặt tên biến**: Bắt đầu bằng chữ cái hoặc `_`; không chứa khoảng trắng; không trùng từ khóa.\n\n### 2. Lệnh gán và biểu thức số học\n- Cú pháp: `tên_biến = giá_trị`\n- Phép toán: `+`, `-`, `*`, `/`, `//`, `%`, `**`\n\n```python\na = 10\nb = 3\ntong = a + b\n```", mediaUrl:"" },
+        { id:3, title:"Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Lệnh vào / ra\n- `print()`: Xuất dữ liệu\n- `input()`: Nhập dữ liệu từ bàn phím\n\n### 2. Kiểu dữ liệu cơ bản\n- `int`: Số nguyên, `float`: Số thực, `str`: Xâu, `bool`: Logic\n\n```python\nho_ten = input('Nhập họ tên: ')\nprint('Xin chào', ho_ten)\n```", mediaUrl:"" },
+        { id:4, title:"Bài 4. Cấu trúc rẽ nhánh", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Ý nghĩa\nDùng để điều khiển luồng dựa trên điều kiện logic.\n\n### 2. Cú pháp\n```python\nif điều_kiện_1:\n    pass\nelif điều_kiện_2:\n    pass\nelse:\n    pass\n```", mediaUrl:"" },
+        { id:5, title:"Bài 5. Cấu trúc lặp", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Vòng lặp `for`\n```python\nfor i in range(1, 6):\n    print(i)\n```\n\n### 2. Vòng lặp `while`\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\n```", mediaUrl:"" },
+        { id:6, title:"Bài 6. Kiểu dữ liệu danh sách", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Khái niệm List\n- Tập hợp có thứ tự, đặt trong `[...]`\n\n### 2. Thao tác\n```python\nds = [12, 5, 8]\nds.append(15)\nprint(len(ds))\n```", mediaUrl:"" },
+        { id:7, title:"Bài 7. Kiểu dữ liệu xâu", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Xâu (String)\nDãy ký tự trong `'...'` hoặc `\"...\"`\n\n```python\ns = 'Python'\nprint(len(s))\nprint(s.upper())\n```", mediaUrl:"" },
+        { id:8, title:"Bài 8. Chương trình con và thư viện", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### 1. Hàm\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Thư viện `math`\n```python\nimport math\nprint(math.sqrt(16))\n```", mediaUrl:"" },
+        { id:9, title:"Bài 9. Tham số của hàm", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Tham số mặc định\n```python\ndef chao(ten='bạn'):\n    print('Xin chào,', ten)\n```", mediaUrl:"" },
+        { id:10, title:"Bài 10. Phạm vi của biến", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Biến cục bộ và toàn cục\n```python\nx = 100\ndef vidu():\n    y = 50\n    print(x, y)\n```", mediaUrl:"" },
+        { id:11, title:"Bài 11. Làm việc với file", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Mở/đóng tệp\n```python\nwith open('kq.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm: 10')\n```", mediaUrl:"" },
+        { id:12, title:"Bài 12. Nhận biết lỗi trong chương trình", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Các loại lỗi\n- **Syntax Error**: Lỗi cú pháp\n- **Runtime Error**: Lỗi thực thi\n- **Logic Error**: Lỗi ngữ nghĩa", mediaUrl:"" },
+        { id:13, title:"Bài 13. Kiểm thử và gỡ lỗi", classLevel:"8", grade:"Lớp 8 - Tin học cơ sở", content:"### Testing & Debugging\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho 0!')\n```", mediaUrl:"" }
     ];
 
     let assignments = [
@@ -2871,6 +2875,21 @@
 
     function initCodeMirrorEditors() {
         if (!window.CodeMirror) return;
+
+        // Custom hint function for Python
+        CodeMirror.registerHelper("hint", "python", function(cm, options) {
+            const word = cm.getTokenAt(cm.getCursor()).string;
+            const list = [
+                "if  == :", "elif  == :", "else:", "for i in range():", "while  :",
+                "def ():", "print()", "input()", "int()", "float()", "str()",
+                "len()", "range()", "import math", "try:", "except:", "return",
+                "list", "dict", "set", "tuple", "True", "False", "None"
+            ];
+            let filtered = list.filter(item => item.toLowerCase().startsWith(word.toLowerCase()));
+            if (filtered.length === 0) filtered = list; // Show all if no match
+            return { list: filtered, from: CodeMirror.Pos(cm.getCursor().line, cm.getTokenAt(cm.getCursor()).start), to: CodeMirror.Pos(cm.getCursor().line, cm.getTokenAt(cm.getCursor()).end) };
+        });
+
         const opts = {
             mode: 'python', theme: 'monokai', lineNumbers: false, indentUnit: 4, tabSize: 4,
             indentWithTabs: false, matchBrackets: true, autoCloseBrackets: true, lineWrapping: true,
@@ -2881,7 +2900,8 @@
                     const cursor = cm.getCursor();
                     const line = cm.getLine(cursor.line);
                     if (line.startsWith('    ')) cm.replaceRange('', { line: cursor.line, ch: 0 }, { line: cursor.line, ch: 4 });
-                }
+                },
+                'Ctrl-Space': (cm) => cm.showHint({ hint: CodeMirror.hint.python, completeSingle: false })
             }
         };
         const codeEl = document.getElementById('codeEditor');
@@ -2900,6 +2920,13 @@
             adminSolutionEditor.on('change', () => updateLineCount('admin'));
         }
     }
+    
+    function showCodeHints() {
+        if (studentCodeEditor) {
+            studentCodeEditor.showHint({ hint: CodeMirror.hint.python, completeSingle: false });
+        }
+    }
+
     function updateLineCount(which) {
         const cm = which === 'student' ? studentCodeEditor : (which === 'teacher' ? teacherSolutionEditor : adminSolutionEditor);
         const badgeId = which === 'student' ? 'executionBadge' : null;
@@ -3327,8 +3354,15 @@
         if (icon) icon.className = "ph-bold ph-book-open-text text-amber-300";
         if (titleEl) titleEl.textContent = lec.title;
         if (subEl) subEl.textContent = `Khối ${lec.classLevel || '8'} - ${lec.grade || 'Tin học cơ sở'}`;
+        
+        let mediaHtml = '';
+        if (lec.mediaUrl) {
+            const embedUrl = getEmbedUrl(lec.mediaUrl);
+            mediaHtml = `<div class="mt-4 aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm"><iframe src="${embedUrl}" class="w-full h-full" allowfullscreen></iframe></div>`;
+        }
+
         if (bodyEl) {
-            bodyEl.innerHTML = `<div class="bg-blue-50/70 border border-blue-200 p-3 rounded-2xl mb-4 font-semibold text-blue-900 text-sm flex items-center justify-between"><span>Chủ đề: ${escapeHtml(lec.grade || 'Tin học')} (Khối ${escapeHtml(lec.classLevel || '8')})</span><span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">Mã bài: #${lec.id}</span></div><div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 leading-relaxed text-sm">${renderSimpleMarkdown(lec.content)}</div>`;
+            bodyEl.innerHTML = `<div class="bg-blue-50/70 border border-blue-200 p-3 rounded-2xl mb-4 font-semibold text-blue-900 text-sm flex items-center justify-between"><span>Chủ đề: ${escapeHtml(lec.grade || 'Tin học')} (Khối ${escapeHtml(lec.classLevel || '8')})</span><span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">Mã bài: #${lec.id}</span></div>${mediaHtml}<div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 leading-relaxed text-sm mt-4">${renderSimpleMarkdown(lec.content)}</div>`;
             renderKaTeXFormulas(bodyEl);
         }
         if (audioBtn) audioBtn.onclick = () => { speakRobotText(`Nội dung ${lec.title}. ${lec.content}`); showToast(`Robot đang thuyết minh: ${lec.title}`, "info"); };
@@ -3337,12 +3371,21 @@
         modal?.classList.remove('hidden');
     }
 
+    function getEmbedUrl(url) {
+        if (!url) return '';
+        let ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+        if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}`;
+        let driveMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+        if (driveMatch) return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+        return url;
+    }
+
     function enterLectureEditMode() {
         const lec = lectures.find(l => l.id == viewModalEditingId); if (!lec) return;
         const bodyEl = document.getElementById('viewContentBody');
         const editBtn = document.getElementById('viewContentEditBtn');
         const saveBtn = document.getElementById('viewContentSaveBtn');
-        bodyEl.innerHTML = `<div class="space-y-3"><div><label class="block font-bold text-sm text-slate-700 mb-1">Tiêu đề:</label><input type="text" id="viewEditLectureTitle" value="${escapeHtml(lec.title||'')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div><div><label class="block font-bold text-sm text-slate-700 mb-1">Nội dung:</label><textarea id="viewEditLectureContent" rows="14" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${escapeHtml(lec.content||'')}</textarea></div></div>`;
+        bodyEl.innerHTML = `<div class="space-y-3"><div><label class="block font-bold text-sm text-slate-700 mb-1">Tiêu đề:</label><input type="text" id="viewEditLectureTitle" value="${escapeHtml(lec.title||'')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold"></div><div><label class="block font-bold text-sm text-slate-700 mb-1">Link Media (Youtube/Drive):</label><input type="text" id="viewEditLectureMedia" value="${escapeHtml(lec.mediaUrl||'')}" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm"></div><div><label class="block font-bold text-sm text-slate-700 mb-1">Nội dung:</label><textarea id="viewEditLectureContent" rows="10" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono">${escapeHtml(lec.content||'')}</textarea></div></div>`;
         editBtn?.classList.add('hidden'); saveBtn?.classList.remove('hidden');
         saveBtn.onclick = () => saveLectureFromView();
         document.getElementById('viewEditLectureTitle')?.focus();
@@ -3352,8 +3395,9 @@
         const lec = lectures.find(l => l.id == viewModalEditingId); if (!lec) return;
         const t = document.getElementById('viewEditLectureTitle')?.value.trim();
         const c = document.getElementById('viewEditLectureContent')?.value;
+        const m = document.getElementById('viewEditLectureMedia')?.value.trim();
         if (!t || !c) return showToast('Vui lòng nhập đầy đủ!', 'error');
-        lec.title = t; lec.content = c;
+        lec.title = t; lec.content = c; lec.mediaUrl = m;
         renderTeacherLecturesTable(); populateStudentLectures(); autoSaveLocalSnapshot();
         showToast('Đã lưu bài giảng!', 'success');
         await syncDataToGitHubDirectly(`Sửa bài giảng: ${t}`);
@@ -3417,11 +3461,9 @@
         const studentView = document.getElementById('studentView');
         const teacherView = document.getElementById('teacherView');
         const adminView = document.getElementById('adminView');
-        const floatingBtn = document.getElementById('floatingAiTutorBtn');
         if (!currentUser.isLoggedIn) {
             guestLockView?.classList.remove('hidden');
             studentView?.classList.add('hidden'); teacherView?.classList.add('hidden'); adminView?.classList.add('hidden');
-            if (floatingBtn) floatingBtn.style.display = 'none';
             openLoginModal(role === 'admin' || role === 'teacher' ? 'teacher' : 'student', 'login');
             return;
         }
@@ -3431,15 +3473,12 @@
         studentView?.classList.add('hidden'); teacherView?.classList.add('hidden'); adminView?.classList.add('hidden');
         if (role === 'student' && studentView) {
             studentView.classList.remove('hidden'); switchStudentTab('lectures');
-            if (floatingBtn) floatingBtn.style.display = 'flex';
         }
         else if (role === 'teacher' && teacherView) {
             teacherView.classList.remove('hidden'); updateTeacherStats(); switchTeacherTab('lectures'); enforceTeacherUiPermissions();
-            if (floatingBtn) floatingBtn.style.display = 'none';
         }
         else if (role === 'admin' && adminView) {
             adminView.classList.remove('hidden'); refreshAdminDashboard();
-            if (floatingBtn) floatingBtn.style.display = 'none';
         }
         updateUserHeaderUi();
     }
@@ -3455,7 +3494,6 @@
         const roleWrapper = document.getElementById('roleDropdownWrapper');
         const roleLabel = document.getElementById('currentRoleLabel');
         const dropdownAdminBtn = document.getElementById('dropdownAdminBtn');
-        const floatingBtn = document.getElementById('floatingAiTutorBtn');
         if (currentUser.isLoggedIn) {
             profileBadge?.classList.replace('hidden', 'flex');
             if (nameDisplay) nameDisplay.textContent = currentUser.name;
@@ -3471,13 +3509,11 @@
             } else {
                 roleWrapper?.classList.add('hidden');
                 if (roleBadge) { roleBadge.textContent = `Học sinh (${currentUser.className || 'Lớp 8'})`; roleBadge.className = 'text-xs text-emerald-400 font-medium'; }
-                if (floatingBtn) floatingBtn.style.display = 'flex';
             }
             if (roleLabel) roleLabel.textContent = currentRole === 'student' ? 'Học Sinh' : (currentRole === 'teacher' ? 'Giáo Viên' : 'Admin');
         } else {
             profileBadge?.classList.add('hidden'); btnLogout?.classList.add('hidden'); roleWrapper?.classList.add('hidden');
             btnOpenTeacher?.classList.remove('hidden'); btnOpenStudent?.classList.remove('hidden'); btnGuestExit?.classList.remove('hidden');
-            if (floatingBtn) floatingBtn.style.display = 'none';
         }
     }
 
@@ -3691,8 +3727,6 @@
         currentRole = 'student'; currentTestSession = null;
         ['studentView','teacherView','adminView'].forEach(v => document.getElementById(v)?.classList.add('hidden'));
         document.getElementById('guestLockView')?.classList.remove('hidden');
-        const floatingBtn = document.getElementById('floatingAiTutorBtn');
-        if (floatingBtn) floatingBtn.style.display = 'none';
         updateUserHeaderUi(); openLoginModal('student', 'login');
         showToast("Đã đăng xuất và đồng bộ dữ liệu!", "success");
     }
@@ -4007,7 +4041,14 @@
         const lec = lectures.find(l => l.id == id);
         const area = document.getElementById('studentLectureContentArea');
         if (!lec || !area) return;
-        area.innerHTML = `<div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between shadow-sm"><div><h4 class="font-bold text-base text-indigo-950">${escapeHtml(lec.title)}</h4><span class="text-sm text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${escapeHtml(lec.classLevel || '8')} - ${escapeHtml(lec.grade || 'Tin học')}</span></div><button onclick="speakStudentLecture(${lec.id})" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1.5 shadow"><i class="ph-bold ph-speaker-high"></i> AI Đọc</button></div><div class="bg-white border border-slate-200 rounded-2xl p-6 leading-relaxed space-y-3 text-sm">${renderSimpleMarkdown(lec.content)}</div>`;
+        
+        let mediaHtml = '';
+        if (lec.mediaUrl) {
+            const embedUrl = getEmbedUrl(lec.mediaUrl);
+            mediaHtml = `<div class="mt-4 aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm"><iframe src="${embedUrl}" class="w-full h-full" allowfullscreen></iframe></div>`;
+        }
+
+        area.innerHTML = `<div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between shadow-sm"><div><h4 class="font-bold text-base text-indigo-950">${escapeHtml(lec.title)}</h4><span class="text-sm text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${escapeHtml(lec.classLevel || '8')} - ${escapeHtml(lec.grade || 'Tin học')}</span></div><button onclick="speakStudentLecture(${lec.id})" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1.5 shadow"><i class="ph-bold ph-speaker-high"></i> AI Đọc</button></div>${mediaHtml}<div class="bg-white border border-slate-200 rounded-2xl p-6 leading-relaxed space-y-3 text-sm mt-4">${renderSimpleMarkdown(lec.content)}</div>`;
         renderKaTeXFormulas(area);
     }
 
@@ -4042,6 +4083,7 @@
         const currentFilter = document.getElementById('teacherGradeFilter')?.value;
         document.getElementById('lectureInputClassLevel').value = (currentFilter && currentFilter !== 'all') ? currentFilter : '8';
         document.getElementById('lectureInputGrade').value = 'Tin học cơ sở';
+        document.getElementById('lectureInputMedia').value = '';
         document.getElementById('lectureInputBody').value = '';
         document.getElementById('lectureFormTitle').textContent = 'Thêm Bài Giảng Mới';
         document.getElementById('lectureFormContainer')?.classList.remove('hidden');
@@ -4053,6 +4095,7 @@
         document.getElementById('lectureInputTitle').value = lec.title;
         document.getElementById('lectureInputClassLevel').value = lec.classLevel || '8';
         document.getElementById('lectureInputGrade').value = lec.grade || 'Tin học cơ sở';
+        document.getElementById('lectureInputMedia').value = lec.mediaUrl || '';
         document.getElementById('lectureInputBody').value = lec.content;
         document.getElementById('lectureFormTitle').textContent = `Chỉnh Sửa Bài Giảng (ID: ${lec.id})`;
         document.getElementById('lectureFormContainer')?.classList.remove('hidden');
@@ -4066,14 +4109,15 @@
         const title = document.getElementById('lectureInputTitle')?.value.trim();
         const classLevel = document.getElementById('lectureInputClassLevel')?.value;
         const grade = document.getElementById('lectureInputGrade')?.value.trim();
+        const mediaUrl = document.getElementById('lectureInputMedia')?.value.trim();
         const body = document.getElementById('lectureInputBody')?.value.trim();
         if (!title || !body) return showToast("Vui lòng nhập đầy đủ!", "error");
         if (id) {
             const lec = lectures.find(l => l.id == id);
-            if (lec) { lec.title = title; lec.classLevel = classLevel; lec.grade = grade; lec.content = body; showToast(`Đã cập nhật!`, "success"); }
+            if (lec) { lec.title = title; lec.classLevel = classLevel; lec.grade = grade; lec.mediaUrl = mediaUrl; lec.content = body; showToast(`Đã cập nhật!`, "success"); }
         } else {
             const newId = lectures.length > 0 ? Math.max(...lectures.map(l => l.id)) + 1 : 1;
-            lectures.push({ id: newId, title, classLevel, grade, content: body });
+            lectures.push({ id: newId, title, classLevel, grade, mediaUrl, content: body });
             showToast(`Đã thêm bài giảng!`, "success");
         }
         document.getElementById('lectureFormContainer')?.classList.add('hidden');
@@ -4108,6 +4152,7 @@
         const f = document.getElementById('adminGradeFilter')?.value;
         document.getElementById('adminLectureInputClassLevel').value = (f && f !== 'all') ? f : '8';
         document.getElementById('adminLectureInputGrade').value = 'Tin học cơ sở';
+        document.getElementById('adminLectureInputMedia').value = '';
         document.getElementById('adminLectureInputBody').value = '';
         document.getElementById('adminLectureFormTitle').textContent = 'Thêm Bài Giảng (Admin)';
         document.getElementById('adminLectureFormContainer')?.classList.remove('hidden');
@@ -4119,6 +4164,7 @@
         document.getElementById('adminLectureInputTitle').value = lec.title;
         document.getElementById('adminLectureInputClassLevel').value = lec.classLevel || '8';
         document.getElementById('adminLectureInputGrade').value = lec.grade || 'Tin học cơ sở';
+        document.getElementById('adminLectureInputMedia').value = lec.mediaUrl || '';
         document.getElementById('adminLectureInputBody').value = lec.content;
         document.getElementById('adminLectureFormTitle').textContent = `Chỉnh Sửa Bài Giảng (ID: ${lec.id})`;
         document.getElementById('adminLectureFormContainer')?.classList.remove('hidden');
@@ -4129,14 +4175,15 @@
         const title = document.getElementById('adminLectureInputTitle')?.value.trim();
         const classLevel = document.getElementById('adminLectureInputClassLevel')?.value;
         const grade = document.getElementById('adminLectureInputGrade')?.value.trim();
+        const mediaUrl = document.getElementById('adminLectureInputMedia')?.value.trim();
         const body = document.getElementById('adminLectureInputBody')?.value.trim();
         if (!title || !body) return showToast("Vui lòng nhập đầy đủ!", "error");
         if (id) {
             const lec = lectures.find(l => l.id == id);
-            if (lec) { lec.title = title; lec.classLevel = classLevel; lec.grade = grade; lec.content = body; showToast(`Đã cập nhật!`, "success"); }
+            if (lec) { lec.title = title; lec.classLevel = classLevel; lec.grade = grade; lec.mediaUrl = mediaUrl; lec.content = body; showToast(`Đã cập nhật!`, "success"); }
         } else {
             const newId = lectures.length > 0 ? Math.max(...lectures.map(l => l.id)) + 1 : 1;
-            lectures.push({ id: newId, title, classLevel, grade, content: body });
+            lectures.push({ id: newId, title, classLevel, grade, mediaUrl, content: body });
             showToast(`Đã thêm mới!`, "success");
         }
         document.getElementById('adminLectureFormContainer')?.classList.add('hidden');
@@ -4562,6 +4609,26 @@
     function copyCurrentCode() {
         const code = getStudentCode();
         navigator.clipboard.writeText(code).then(() => showToast("Đã sao chép!", "success")).catch(() => showToast("Lỗi sao chép", "error"));
+    }
+
+    // Hàm Tải lên / Tải xuống file .py
+    function downloadPythonFile() {
+        const code = getStudentCode();
+        const blob = new Blob([code], { type: 'text/x-python' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'solution.py';
+        document.body.appendChild(a); a.click();
+        setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+        showToast("Đã tải xuống tệp .py!", "success");
+    }
+    function uploadPythonFile(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => { setStudentCode(e.target.result); showToast("Đã tải lên tệp .py!", "success"); };
+        reader.readAsText(file);
+        event.target.value = ''; 
     }
 
     function switchStudentTab(tab) {
@@ -5095,7 +5162,7 @@
     function sanitizeMathForJson(data) {
         if (!data) return data;
         const clean = (s) => { if (!s || typeof s !== 'string') return s; let r = s; r = r.replace(/\\\(([\s\S]+?)\\\)/g, "$$1$"); r = r.replace(/\\\[([\s\S]+?)\\\]/g, "$$$$1$$$$"); r = r.replace(/\u200B/g, "").replace(/\uFEFF/g, ""); return r; };
-        return JSON.parse(JSON.stringify(data, (k, v) => (typeof v === 'string' && (k === 'content' || k === 'description' || k === 'title')) ? clean(v) : v));
+        return JSON.parse(JSON.stringify(data, (k, v) => (typeof v === 'string' && (k === 'content' || k === 'description' || k === 'title' || k === 'mediaUrl')) ? clean(v) : v));
     }
     function xmlEscapeDocx(s) { if (!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;'); }
 
@@ -5145,6 +5212,7 @@
         p.push({ text: "[TIÊU ĐỀ]: Bài 14. Kiểu dữ liệu Dictionary", bold: true, size: 24 });
         p.push({ text: "[KHỐI LỚP]: 8", bold: true, size: 24 });
         p.push({ text: "[CHỦ ĐỀ]: Tin học cơ sở", bold: true, size: 24 });
+        p.push({ text: "[MEDIA URL]: https://www.youtube.com/watch?v=...", bold: true, size: 24 });
         p.push({ text: "[NỘI DUNG]:", bold: true, size: 24 });
         addLinesToDocx(p, `### 1. Dictionary\n\`\`\`python\nperson = {'name': 'An'}\n\`\`\``, { size: 22, color: "1E293B" });
         p.push({ text: "[HẾT BÀI GIẢNG]", bold: true, size: 24, color: "1D4ED8", bg: "EFF6FF" });
@@ -5334,13 +5402,14 @@
         for (let b of blocks) {
             if (!b.trim()) continue;
             b = b.split(/(?:\[HẾT BÀI GIẢNG\]|=== HẾT BÀI GIẢNG ===)/i)[0];
-            let title = "", classLevel = "8", grade = "Tin học cơ sở", content = "";
+            let title = "", classLevel = "8", grade = "Tin học cơ sở", mediaUrl = "", content = "";
             const tm = b.match(/(?:\[TIÊU ĐỀ\]|Tiêu đề)\s*:\s*([^\n\r]+)/i); if (tm) title = tm[1].trim();
             const cm = b.match(/(?:\[KHỐI LỚP\]|\[KHỐI\]|Khối)\s*:\s*([^\n\r]+)/i); if (cm) { const n = cm[1].match(/\d+/); classLevel = n ? n[0] : cm[1].trim(); }
             const gm = b.match(/(?:\[CHỦ ĐỀ\]|Chủ đề)\s*:\s*([^\n\r]+)/i); if (gm) grade = gm[1].trim();
+            const mm = b.match(/(?:\[MEDIA URL\]|Media URL)\s*:\s*([^\n\r]+)/i); if (mm) mediaUrl = mm[1].trim();
             const ci = b.search(/(?:\[NỘI DUNG\]|Nội dung)\s*:/i);
             if (ci !== -1) { const after = b.substring(ci); const nl = after.indexOf('\n'); content = (nl !== -1 ? after.substring(nl + 1) : after.replace(/^[^:]*:\s*/, '')).trim(); }
-            if (title && content) list.push({ title, classLevel, grade, content });
+            if (title && content) list.push({ title, classLevel, grade, mediaUrl, content });
         }
         return list;
     }
@@ -5389,7 +5458,7 @@
             else { const text = await file.text(); const parsed = JSON.parse(text); list = Array.isArray(parsed) ? parsed : (parsed.data || parsed.lectures || [parsed]); }
             let added = 0, maxId = lectures.length > 0 ? Math.max(...lectures.map(l => Number(l.id) || 0)) : 0;
             for (let item of list) {
-                if (item && item.title && item.content) { maxId++; lectures.push({ id: maxId, title: String(item.title).trim(), classLevel: String(item.classLevel || '8').trim(), grade: String(item.grade || 'Tin học cơ sở').trim(), content: String(item.content).trim() }); added++; }
+                if (item && item.title && item.content) { maxId++; lectures.push({ id: maxId, title: String(item.title).trim(), classLevel: String(item.classLevel || '8').trim(), grade: String(item.grade || 'Tin học cơ sở').trim(), mediaUrl: String(item.mediaUrl || '').trim(), content: String(item.content).trim() }); added++; }
             }
             if (added > 0) { populateStudentLectures(); renderTeacherLecturesTable(); autoSaveLocalSnapshot(); showToast(`Đã nạp ${added} bài giảng!`, "success"); await syncDataToGitHubDirectly(`Nạp ${added} bài giảng`); }
             else showToast("Không có nội dung hợp lệ!", "error");
@@ -5600,7 +5669,12 @@
         robotWidget.style.left = cx + 'px'; robotWidget.style.top = cy + 'px'; updateBubbleOrientation();
     }
 
-    function openAiAssistant(mode = 'socratic') { setAiMode(mode); document.getElementById('aiModal')?.classList.remove('hidden'); }
+    function openAiAssistant(mode = 'socratic') { 
+        const box = document.getElementById('aiChatBox');
+        if (box) box.innerHTML = ''; // Xóa toàn bộ nội dung chat cũ khi mở mới
+        setAiMode(mode); 
+        document.getElementById('aiModal')?.classList.remove('hidden'); 
+    }
     function closeAiModal() { document.getElementById('aiModal')?.classList.add('hidden'); }
     function setAiMode(mode) {
         currentAiMode = mode;
@@ -5621,6 +5695,20 @@
         box.appendChild(div); box.scrollTop = box.scrollHeight;
     }
     function quickAskAi(text) { const i = document.getElementById('aiUserInput'); if (i) { i.value = text; sendAiMessage(); } }
+
+    // Hàm Giải thích Code mẫu
+    function explainSampleCode() {
+        const code = getStudentCode();
+        if (!code || code.trim() === "" || code.trim() === "# Viết mã Python của em ở đây...") {
+            return showToast("Vui lòng nhập hoặc tải code mẫu trước khi yêu cầu giải thích!", "error");
+        }
+        openAiAssistant('algorithm_hint');
+        const input = document.getElementById('aiUserInput');
+        if (input) {
+            input.value = `Hãy giải thích chi tiết đoạn code Python sau:\n\`\`\`python\n${code}\n\`\`\`\nGiải thích từng bước, các biến, kiểu dữ liệu và thuật toán.`;
+            sendAiMessage();
+        }
+    }
 
     // =============================================
     // 🧠 GIA SƯ AI THÔNG MINH - TRẢ LỜI VĂN BẢN + CODE PYTHON
