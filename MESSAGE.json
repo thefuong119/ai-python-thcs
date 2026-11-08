@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-08T05:25:46.509Z",
+    "updatedAt": "2026-11-08T05:26:05.420Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đánh dấu tin nhắn đã đọc",
+    "action": "GV/Admin phản hồi tin nhắn",
     "count": 2
   },
   "studentMessages": [
@@ -15,7 +15,13 @@
       "timestamp": "04:17:16 8/11/2026",
       "date": "2026-11-07",
       "read": true,
-      "replies": []
+      "replies": [
+        {
+          "by": "Nguyễn Thế Phương",
+          "content": "Mai học lúc 7h 30 nhé!",
+          "timestamp": "12:26:05 8/11/2026"
+        }
+      ]
     },
     {
       "id": 1794069621209,
