@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T06:12:59.354Z",
+    "updatedAt": "2026-11-08T06:33:39.843Z",
     "updatedBy": "Phan TRọng Khương",
     "action": "Học sinh Phan TRọng Khương nộp bài"
   },
@@ -11790,9 +11790,9 @@
       {
         "student": "Phan TRọng Khương",
         "username": "trọngkhương8a4",
-        "attempts": 3,
+        "attempts": 4,
         "highestScore": 10,
-        "lastSubmit": "13:12:59 8/11/2026"
+        "lastSubmit": "13:33:39 8/11/2026"
       }
     ],
     "lectures": [
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794119619748,
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
+        "assignmentId": 28,
+        "score": 0,
+        "timestamp": "13:33:39 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "7",
+            "expected": "NO",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "28",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "496",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na=int(input().strip())\nif a<1:\n    print(\"NO\")\nelse:\n    tong_uoc=1\n    i=2\n    while i*i <=n:\n        if n*i==0\n            tong_uoc=+1\n            if i * i =/= n\n            tong_uoc=+1\n        i=+1\n    if tong_uoc==n :\n        print(\"YES\")\n    else:\n        print(\"NO\")"
+      },
       {
         "id": 1794118379257,
         "student": "Phan TRọng Khương",
@@ -13704,6 +13749,7 @@
       },
       "trọngkhương8a4": {
         "1": true,
+        "28": true,
         "280": true
       }
     },
@@ -14192,7 +14238,8 @@
       "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")",
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
       "trọngkhương8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\na,b=map(int,input().split())\nprint(a+b)",
-      "trọngkhương8a4__Chu vi và diện tích hình thang cân": "a,b,c=map(int,input())\np=a+b+c*2\ns=(a+b)*c/2\nprint(p , s)\n"
+      "trọngkhương8a4__Chu vi và diện tích hình thang cân": "a,b,c=map(int,input())\np=a+b+c*2\ns=(a+b)*c/2\nprint(p , s)\n",
+      "trọngkhương8a4__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\na=int(input().strip())\nif a<1:\n    print(\"NO\")\nelse:\n    tong_uoc=1\n    i=2\n    while i*i <=n:\n        if n*i==0\n            tong_uoc=+1\n            if i * i =/= n\n            tong_uoc=+1\n        i=+1\n    if tong_uoc==n :\n        print(\"YES\")\n    else:\n        print(\"NO\")"
     },
     "questionFlags": {
       "43": true
