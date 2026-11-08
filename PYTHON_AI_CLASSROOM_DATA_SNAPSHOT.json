@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T04:18:19.076Z",
+    "updatedAt": "2026-11-08T04:19:47.553Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -4592,9 +4592,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 7,
+        "attempts": 8,
         "highestScore": 10,
-        "lastSubmit": "21:37:14 7/11/2026"
+        "lastSubmit": "11:19:47 8/11/2026"
       },
       {
         "student": "Nguyễn Thế Phương",
@@ -5006,6 +5006,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794111587498,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "11:19:47 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)"
+      },
       {
         "id": 1794085524637,
         "student": "Nguyễn Thế Phương",
