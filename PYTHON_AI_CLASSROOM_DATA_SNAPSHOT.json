@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T08:41:42.021Z",
+    "updatedAt": "2026-11-08T08:41:46.729Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -4578,9 +4578,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 8,
+        "attempts": 9,
         "highestScore": 10,
-        "lastSubmit": "21:52:59 7/11/2026"
+        "lastSubmit": "15:41:45 8/11/2026"
       }
     ],
     "lectures": [
@@ -5097,6 +5097,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794127305142,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
+        "assignmentId": 55,
+        "score": 10,
+        "timestamp": "15:41:45 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 4 3 4 5",
+            "expected": "HINH CHU NHAT",
+            "actual": "HINH CHU NHAT",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "5 5 5 5 7.071068",
+            "expected": "HINH VUONG",
+            "actual": "HINH VUONG",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d:\n    print('HINH VUONG')\nelif (a == c)and(b == d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')"
+      },
       {
         "id": 1794063179586,
         "student": "Lê Nguyễn Quang Minh",
