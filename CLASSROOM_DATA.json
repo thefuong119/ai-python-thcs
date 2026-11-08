@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T06:50:59.106Z",
+    "updatedAt": "2026-11-08T06:53:16.809Z",
     "updatedBy": "Phan TRọng Khương",
-    "action": "Học sinh Phan TRọng Khương nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -14055,6 +14055,8 @@
         "3": true
       },
       "trọngkhương8a4": {
+        "1": true,
+        "2": true,
         "43": true
       }
     },
