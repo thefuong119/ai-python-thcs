@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T14:12:34.825Z",
-    "updatedBy": "Phan TRọng Khương",
-    "action": "Học sinh Phan TRọng Khương nộp bài"
+    "updatedAt": "2026-11-08T14:13:12.077Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 8,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 14,
+        "attempts": 18,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "00:37:53 6/11/2026"
+        "lastSubmit": "21:09:47 8/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -11790,9 +11790,9 @@
       {
         "student": "Phan TRọng Khương",
         "username": "trọngkhương8a4",
-        "attempts": 14,
+        "attempts": 13,
         "highestScore": 10,
-        "lastSubmit": "21:12:34 8/11/2026"
+        "lastSubmit": "18:20:31 8/11/2026"
       }
     ],
     "lectures": [
@@ -12290,49 +12290,184 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794147154701,
-        "student": "Phan TRọng Khương",
-        "username": "trọngkhương8a4",
-        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
-        "assignmentId": 7,
-        "score": 10,
-        "timestamp": "21:12:34 8/11/2026",
+        "id": 1794146987970,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
+        "assignmentId": 3,
+        "score": 0,
+        "timestamp": "21:09:47 8/11/2026",
         "date": "2026-11-08",
         "answers": [
           {
             "testId": 1,
-            "input": "ABACBD",
-            "expected": "ABCD",
-            "actual": "ABCD",
+            "input": "5\n1 2 3 4 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N 5",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "actual": "nhập một số nguyên dương N 4",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "actual": "nhập một số nguyên dương N 6",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "3\n0 -2 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N 3",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
+      },
+      {
+        "id": 1794146971914,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
+        "assignmentId": 3,
+        "score": 0,
+        "timestamp": "21:09:31 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "3\n0 -2 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem\nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
+      },
+      {
+        "id": 1794146789638,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
+        "assignmentId": 3,
+        "score": 0,
+        "timestamp": "21:06:29 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "3\n0 -2 5",
+            "expected": "2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\nif n >= 1000:\n    False\nfor i in range(n):\n"
+      },
+      {
+        "id": 1794146338110,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "20:58:58 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
-            "input": "BACBCD",
-            "expected": "BCD",
-            "actual": "BCD",
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 3,
-            "input": "FEDCBA",
-            "expected": "F",
-            "actual": "F",
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 4,
-            "input": "ACEGIK",
-            "expected": "ACEGIK",
-            "actual": "ACEGIK",
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
             "passed": true,
             "points": 2.5
           }
         ],
-        "code": "s=input().strip()\nif s:\n    result=s[0]\n    for kh in s[1:]:\n        if kh>result[-1]:\n            result+=kh\n    print(result)"
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
       },
       {
         "id": 1794136831404,
@@ -13972,6 +14107,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:48:31 8/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "20:10:26 8/11/2026",
         "name": "Phan TRọng Khương",
         "identifier": "trọngkhương8a4",
@@ -14006,6 +14148,7 @@
       },
       "loc": {
         "1": true,
+        "3": true,
         "4": true
       },
       "minh": {
@@ -14033,7 +14176,6 @@
       },
       "trọngkhương8a4": {
         "2": true,
-        "7": true,
         "24": true,
         "33": true,
         "43": true
@@ -14606,7 +14748,7 @@
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
       "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES.\")\nelse:\n    print(\"NO.\")",
       "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\") ",
-      "trọngkhương8a4__Bài 7. Chuỗi đơn điệu": "s=input().strip()\nif s:\n    result=s[0]\n    for kh in s[1:]:\n        if kh>result[-1]:\n            result+=kh\n    print(result)"
+      "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
     },
     "questionFlags": {
       "43": true
