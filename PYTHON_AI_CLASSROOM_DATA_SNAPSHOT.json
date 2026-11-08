@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-07T21:19:09.053Z",
-    "updatedBy": "Trần Gia Hân",
+    "updatedAt": "2026-11-08T00:40:03.350Z",
+    "updatedBy": "Nguyễn Tấn Thanh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -190,7 +190,7 @@
         "email": "",
         "role": "teacher",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "password": null
       },
@@ -5240,6 +5240,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "07:38:36 8/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "04:19:04 8/11/2026",
         "name": "Trần Gia Hân",
