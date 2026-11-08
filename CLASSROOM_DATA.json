@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T06:50:16.061Z",
+    "updatedAt": "2026-11-08T06:50:27.241Z",
     "updatedBy": "Phan TRọng Khương",
     "action": "Học sinh Phan TRọng Khương nộp bài"
   },
@@ -11790,9 +11790,9 @@
       {
         "student": "Phan TRọng Khương",
         "username": "trọngkhương8a4",
-        "attempts": 6,
+        "attempts": 7,
         "highestScore": 10,
-        "lastSubmit": "13:50:15 8/11/2026"
+        "lastSubmit": "13:50:27 8/11/2026"
       }
     ],
     "lectures": [
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794120627159,
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "assignmentTitle": "Bài 34. Kiểm tra số Armstrong",
+        "assignmentId": 43,
+        "score": 0,
+        "timestamp": "13:50:27 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "153",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "125",
+            "expected": "NO",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "1634",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "9",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES\")\nelse:\n    print(\"NO\")."
+      },
       {
         "id": 1794120615985,
         "student": "Phan TRọng Khương",
@@ -14337,7 +14382,7 @@
       "trongkhuong8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na,b=map(int,input().split())\nprint(a + b)",
       "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")",
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
-      "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES\")\nelse:\n    print(\"NO\")."
     },
     "questionFlags": {
       "43": true
