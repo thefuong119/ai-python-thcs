@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T11:21:16.852Z",
+    "updatedAt": "2026-11-08T13:07:08.650Z",
     "updatedBy": "Phan TRọng Khương",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -312,7 +312,7 @@
         "email": "phantrongkhuong3@Gmail.com",
         "role": "student",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "password": null
       }
@@ -13926,6 +13926,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "20:06:48 8/11/2026",
+        "name": "Phan TRọng Khương",
+        "identifier": "trọngkhương8a4",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "18:18:48 8/11/2026",
         "name": "Phan TRọng Khương",
