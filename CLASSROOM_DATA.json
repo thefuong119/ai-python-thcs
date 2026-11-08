@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T09:13:35.258Z",
+    "updatedAt": "2026-11-08T10:41:15.055Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "action": "Admin cập nhật TK: Phan Trọng Khương"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 55,
+        "loginCount": 56,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -287,7 +287,7 @@
         "name": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
         "identifier": "trongkhuong8a4",
-        "passwordHash": "694da80fec54cb781722b80aabc16db6a8c005d79317b41d78914083ee54e6c6",
+        "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "school": "THCS Thành Đông",
         "className": "8a4",
         "phone": "---",
@@ -13881,6 +13881,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "17:40:08 8/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "16:13:35 8/11/2026",
         "name": "Nguyễn Thế Phương",
