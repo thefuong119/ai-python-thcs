@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T05:23:41.984Z",
-    "updatedBy": "Học sinh Dùng Thử",
-    "action": "Đăng xuất: Học sinh Dùng Thử"
+    "updatedAt": "2026-11-08T05:25:46.516Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Đánh dấu tin nhắn đã đọc"
   },
   "data": {
     "registeredUsers": [
@@ -20,7 +20,7 @@
         "email": "",
         "role": "admin",
         "status": "active",
-        "loginCount": 60,
+        "loginCount": 61,
         "_hasPassword": true,
         "password": null
       },
@@ -88,7 +88,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 23,
+        "loginCount": 22,
         "_hasPassword": true,
         "password": null
       },
@@ -5270,17 +5270,10 @@
     ],
     "loginLogs": [
       {
-        "time": "12:23:41 8/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "12:22:04 8/11/2026",
-        "name": "Học sinh Dùng Thử",
-        "identifier": "hocsinh",
-        "role": "student",
+        "time": "12:24:25 8/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
@@ -5846,7 +5839,7 @@
         "content": "Dạ, sáng mai học mấy giờ vậy thầy?!",
         "timestamp": "04:17:16 8/11/2026",
         "date": "2026-11-07",
-        "read": false,
+        "read": true,
         "replies": []
       },
       {
