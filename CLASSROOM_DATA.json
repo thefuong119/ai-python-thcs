@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:07:13.413Z",
-    "updatedBy": "Phan TRọng Khương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-08T07:14:34.693Z",
+    "updatedBy": "Khách",
+    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -13791,6 +13791,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "14:14:34 8/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đổi mật khẩu thành công"
+      },
+      {
+        "time": "14:13:51 8/11/2026",
+        "name": "086081006004",
+        "identifier": "086081006004",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
       {
         "time": "13:41:44 8/11/2026",
         "name": "Phan TRọng Khương",
