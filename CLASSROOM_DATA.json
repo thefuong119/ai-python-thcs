@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:15:35.497Z",
-    "updatedBy": "Khách",
-    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-08T07:16:22.917Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 54,
+        "loginCount": 55,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -13792,38 +13792,17 @@
     ],
     "loginLogs": [
       {
-        "time": "14:15:35 8/11/2026",
+        "time": "14:16:13 8/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
         "role": "admin",
-        "result": "Đổi mật khẩu thành công"
+        "result": "Thành công"
       },
       {
-        "time": "14:14:53 8/11/2026",
+        "time": "14:15:58 8/11/2026",
         "name": "086081006004",
         "identifier": "086081006004",
-        "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "14:14:47 8/11/2026",
-        "name": "086081006004",
-        "identifier": "086081006004",
-        "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "14:14:42 8/11/2026",
-        "name": "086081006004",
-        "identifier": "086081006004",
-        "role": "teacher",
-        "result": "Reset pw"
-      },
-      {
-        "time": "14:14:42 8/11/2026",
-        "name": "086081006004",
-        "identifier": "086081006004",
-        "role": "teacher",
+        "role": "student",
         "result": "Reset pw"
       },
       {
@@ -14562,9 +14541,9 @@
     "systemPermissions": {
       "teacherCanAdd": true,
       "teacherCanEdit": true,
-      "teacherCanDelete": true,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": true
+      "teacherCanDelete": false,
+      "teacherCanPushServer": false,
+      "teacherCanLoadServer": false
     },
     "studentMessages": [
       {
