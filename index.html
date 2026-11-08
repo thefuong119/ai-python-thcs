@@ -53,7 +53,17 @@
         .CodeMirror-linenumber, .CodeMirror-linenumbers { display: none !important; }
         .CodeMirror-lines { padding: 0 14px 0 16px !important; }
         .CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like { padding-left: 4px; }
-        .CodeMirror-activeline-background { background: rgba(59,130,246,0.08) !important; }
+        
+        /* LÀM NỔI BẬT DÒNG CODE ĐANG CHỌN (ACTIVE LINE) */
+        .CodeMirror-activeline-background { 
+            background: rgba(59,130,246,0.18) !important; 
+            border-left: 3px solid #3b82f6 !important;
+            transition: background 0.2s ease-in-out;
+        }
+        .CodeMirror-activeline .CodeMirror-line { 
+            font-weight: 600;
+        }
+
         .cm-editor-sm .CodeMirror { height: 200px; }
         .flag-active { color: #f59e0b !important; }
         @keyframes starPop { 0%{transform:scale(1)} 50%{transform:scale(1.4)} 100%{transform:scale(1)} }
@@ -65,6 +75,29 @@
         .CodeMirror-hints { border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); background: white; padding: 4px; z-index: 100000 !important; }
         .CodeMirror-hint { padding: 4px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; border-radius: 4px; }
         li.CodeMirror-hint-active { background-color: #3b82f6; color: white; }
+
+        /* HIỆU ỨNG CHO TOOLBAR BUTTONS */
+        .toolbar-btn {
+            padding: 6px 10px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .toolbar-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+        .toolbar-btn:active {
+            transform: translateY(0) scale(0.95);
+            box-shadow: none;
+        }
 
         #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
         #robotAvatarBtn img {
@@ -162,12 +195,14 @@
             font-weight: 800 !important;
             border: 2px solid #fbbf24 !important;
             text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+            padding: 6px 10px !important;
+            border-radius: 8px !important;
         }
         .ai-tutor-blink i {
             animation: aiIconShake 1.2s ease-in-out infinite;
         }
         .ai-tutor-blink:hover {
-            transform: translateY(-1px) scale(1.03);
+            transform: translateY(-2px) scale(1.03);
             filter: brightness(1.1);
         }
     </style>
@@ -484,38 +519,46 @@
                     </div>
                     <div class="lg:col-span-7 space-y-4">
                         <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden flex flex-col">
+                            <!-- TOOLBAR TỐI ƯU HÓA: CHIA NHÓM VÀ THÊM HIỆU ỨNG -->
                             <div class="bg-slate-950/80 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
                                 <div class="flex items-center gap-2 text-xs text-slate-300">
                                     <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
                                     <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
                                     <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-                                    <span class="font-mono text-slate-400 ml-2 font-medium">solution.py</span>
+                                    <span class="font-mono text-slate-400 ml-2 font-medium">Bai_tap.py</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
-                                    <!-- Tải lên / Tải xuống file .py -->
-                                    <label class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1 cursor-pointer" title="Tải lên tệp .py từ máy tính">
+                                    <!-- NHÓM 1: FILE -->
+                                    <label class="toolbar-btn bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30" title="Tải lên tệp .py">
                                         <i class="ph-bold ph-upload-simple"></i>
+                                        <span class="hidden sm:inline">Open</span>
                                         <input type="file" accept=".py" class="hidden" onchange="uploadPythonFile(event)">
                                     </label>
-                                    <button onclick="downloadPythonFile()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Tải xuống tệp .py về máy">
+                                    <button onclick="downloadPythonFile()" class="toolbar-btn bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500/30" title="Tải xuống tệp .py">
                                         <i class="ph-bold ph-download-simple"></i>
+                                        <span class="hidden sm:inline">Save</span>
                                     </button>
-                                    <button onclick="showCodeHints()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Gợi ý code thông minh">
-                                        <i class="ph-bold ph-lightbulb"></i> Gợi ý
-                                    </button>
-                                    <button onclick="explainSampleCode()" class="px-2.5 py-1.5 rounded-lg bg-indigo-600/40 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/30 text-xs font-semibold flex items-center gap-1" title="AI giải thích code hiện tại">
-                                        <i class="ph-bold ph-info"></i> Giải thích
-                                    </button>
-                                    <button onclick="insertTabInCode('student')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-1" title="Chèn Tab">
-                                        <i class="ph-bold ph-arrow-elbow-down-right"></i> Tab
-                                    </button>
-                                    <button onclick="autoFormatCode('student')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1" title="Format code thông minh">
+
+                                    <div class="w-px h-4 bg-slate-700 mx-1"></div> <!-- Divider -->
+
+                                    <!-- NHÓM 2: BIÊN TẬP -->
+                                    <button onclick="autoFormatCode('student')" class="toolbar-btn bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-600/40" title="Format code thông minh">
                                         <i class="ph-bold ph-magic-wand"></i> Format
                                     </button>
-                                    <button onclick="copyCurrentCode()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium" title="Sao chép">
-                                        <i class="ph-bold ph-copy"></i>
+                                    <button onclick="copyCurrentCode()" class="toolbar-btn bg-slate-800 text-slate-300 hover:bg-slate-700" title="Sao chép">
+                                        <i class="ph-bold ph-copy"></i> <span class="hidden sm:inline">Copy</span>
                                     </button>
-                                    <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink px-2.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1" title="Hỏi Gia Sư AI">
+
+                                    <div class="w-px h-4 bg-slate-700 mx-1"></div> <!-- Divider -->
+
+                                    <!-- NHÓM 3: TRỢ GIÚP AI -->
+                                    <button onclick="showCodeHints()" class="toolbar-btn bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30" title="Gợi ý code thông minh">
+                                        <i class="ph-bold ph-lightbulb"></i> Gợi ý
+                                    </button>
+                                    <button onclick="explainSampleCode()" class="toolbar-btn bg-indigo-600/40 text-indigo-200 border border-indigo-500/30 hover:bg-indigo-600/60" title="AI giải thích code hiện tại">
+                                        <i class="ph-bold ph-info"></i> Giải thích
+                                    </button>
+                                    <button onclick="openAiAssistant('debug_error')" class="ai-tutor-blink toolbar-btn" title="Hỏi Gia Sư AI">
                                         <i class="ph-bold ph-bug"></i> Hỏi Gia Sư AI
                                     </button>
                                 </div>
@@ -610,7 +653,7 @@
                     </div>
                     <div class="space-y-2 bg-blue-50/50 border border-blue-200 rounded-2xl p-4">
                         <label class="block font-bold text-sm text-slate-800">Nội dung tin nhắn:</label>
-                        <textarea id="studentMessageInput" rows="4" placeholder="Nhập tin nhắn gửi giáo viên... (Enter để gửi, Shift+Enter để xuống dòng)"
+                        <textarea id="studentMessageInput" rows="4" placeholder="Nhập tin nhắn gửi giáo viên...🪟 + V để chèn Icon (Enter để gửi, Shift+Enter để xuống dòng)"
                           onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendStudentMessage();}"
                           class="w-full bg-white border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                         <div class="flex justify-end">
@@ -4617,7 +4660,7 @@
         const blob = new Blob([code], { type: 'text/x-python' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url; a.download = 'solution.py';
+        a.href = url; a.download = 'Bai_tap.py';
         document.body.appendChild(a); a.click();
         setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
         showToast("Đã tải xuống tệp .py!", "success");
