@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:24:25.627Z",
-    "updatedBy": "Khách",
+    "updatedAt": "2026-11-08T07:25:11.756Z",
+    "updatedBy": "Phan TRọng Khương",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 55,
+        "loginCount": 54,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -13792,34 +13792,6 @@
     ],
     "loginLogs": [
       {
-        "time": "14:23:26 8/11/2026",
-        "name": "086081006004",
-        "identifier": "086081006004",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
-        "time": "14:16:27 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "14:16:13 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "14:15:58 8/11/2026",
-        "name": "086081006004",
-        "identifier": "086081006004",
-        "role": "student",
-        "result": "Reset pw"
-      },
-      {
         "time": "13:41:44 8/11/2026",
         "name": "Phan TRọng Khương",
         "identifier": "trọngkhương8a4",
@@ -14555,9 +14527,9 @@
     "systemPermissions": {
       "teacherCanAdd": true,
       "teacherCanEdit": true,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": false,
-      "teacherCanLoadServer": false
+      "teacherCanDelete": true,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": true
     },
     "studentMessages": [
       {
