@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:47:17.409Z",
+    "updatedAt": "2026-11-08T07:48:02.489Z",
     "updatedBy": "Phan TRọng Khương",
     "action": "Học sinh Phan TRọng Khương nộp bài"
   },
@@ -11790,9 +11790,9 @@
       {
         "student": "Phan TRọng Khương",
         "username": "trọngkhương8a4",
-        "attempts": 11,
+        "attempts": 12,
         "highestScore": 10,
-        "lastSubmit": "14:47:17 8/11/2026"
+        "lastSubmit": "14:48:02 8/11/2026"
       }
     ],
     "lectures": [
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794124082404,
+        "student": "Phan TRọng Khương",
+        "username": "trọngkhương8a4",
+        "assignmentTitle": "Bài 17. Kiểm tra số Kaprekar",
+        "assignmentId": 24,
+        "score": 0,
+        "timestamp": "14:48:02 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "45",
+            "expected": "YES",
+            "actual": "kết quả:YES",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "kết quả:NO",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "297",
+            "expected": "YES",
+            "actual": "kết quả:YES",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "NO",
+            "actual": "kết quả:NO",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      },
       {
         "id": 1794124037324,
         "student": "Phan TRọng Khương",
@@ -14605,7 +14650,7 @@
       "trongkhuong8a4__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime1(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime1(n) else \"NO\")",
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
       "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES.\")\nelse:\n    print(\"NO.\")",
-      "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"nhập vào số nguyên:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
+      "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\")"
     },
     "questionFlags": {
       "43": true
