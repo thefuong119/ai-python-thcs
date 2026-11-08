@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T04:36:13.271Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-08T04:36:18.870Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -139,7 +139,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "password": null
       },
@@ -156,7 +156,7 @@
         "email": "",
         "role": "student",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "password": null
       },
@@ -4592,9 +4592,9 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 7,
+        "attempts": 8,
         "highestScore": 10,
-        "lastSubmit": "21:37:14 7/11/2026"
+        "lastSubmit": "11:19:47 8/11/2026"
       },
       {
         "student": "Nguyễn Thế Phương",
@@ -5007,6 +5007,35 @@
     ],
     "studentSubmissions": [
       {
+        "id": 1794111587498,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "11:19:47 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split()[0])\nB = int(NhapVao.split()[1])\nprint(A+B)"
+      },
+      {
         "id": 1794085524637,
         "student": "Nguyễn Thế Phương",
         "username": "086081006094",
@@ -5241,11 +5270,18 @@
     ],
     "loginLogs": [
       {
-        "time": "11:36:13 8/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
+        "time": "11:27:14 8/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "11:16:18 8/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Thành công"
       },
       {
         "time": "11:02:35 8/11/2026",
