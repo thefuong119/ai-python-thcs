@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T14:06:29.836Z",
+    "updatedAt": "2026-11-08T14:09:32.098Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 16,
+        "attempts": 17,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "21:06:29 8/11/2026"
+        "lastSubmit": "21:09:31 8/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794146971914,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
+        "assignmentId": 3,
+        "score": 0,
+        "timestamp": "21:09:31 8/11/2026",
+        "date": "2026-11-08",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "3\n0 -2 5",
+            "expected": "2",
+            "actual": "nhập một số nguyên dương N",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem\nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
+      },
       {
         "id": 1794146789638,
         "student": "Nguyễn Phú Lộc",
@@ -14658,7 +14703,7 @@
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
       "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES.\")\nelse:\n    print(\"NO.\")",
       "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\") ",
-      "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\nif n >= 1000:\n    False\nfor i in range(n):\n"
+      "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem\nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
     },
     "questionFlags": {
       "43": true
