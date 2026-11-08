@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-08T07:56:46.935Z",
-    "updatedBy": "Phan TRọng Khương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-08T08:57:30.320Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Tạo bài kiểm tra: BÀI TẬP TỐI LỚP 8 - 8/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -13882,6 +13882,13 @@
     ],
     "loginLogs": [
       {
+        "time": "15:55:31 8/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "13:41:44 8/11/2026",
         "name": "Phan TRọng Khương",
         "identifier": "trọngkhương8a4",
@@ -14676,6 +14683,20 @@
         ],
         "createdAt": "00:03:26 6/11/2026",
         "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794128250273,
+        "title": "BÀI TẬP TỐI LỚP 8 - 8/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          1,
+          8,
+          315
+        ],
+        "createdAt": "15:57:30 8/11/2026",
+        "createdBy": "Giáo viên Demo",
         "active": true
       }
     ],
