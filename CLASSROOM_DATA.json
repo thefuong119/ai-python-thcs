@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:06:56.025Z",
+    "updatedAt": "2026-11-09T13:07:09.588Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 12,
+        "attempts": 13,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:06:55 9/11/2026"
+        "lastSubmit": "20:07:09 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12289,6 +12289,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794229629522,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 5: Tính giai thừa",
+        "assignmentId": 5,
+        "score": 10,
+        "timestamp": "20:07:09 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "3628800",
+            "actual": "3628800",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)"
+      },
       {
         "id": 1794229615962,
         "student": "Lê Nguyễn Quang Minh",
@@ -14996,7 +15025,8 @@
       "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)",
       "minh__Bài 2. Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')",
       "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
-      "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')"
+      "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')",
+      "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)"
     },
     "questionFlags": {
       "43": true
