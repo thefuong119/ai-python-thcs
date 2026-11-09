@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:18:36.244Z",
+    "updatedAt": "2026-11-09T13:18:57.643Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15016,7 +15016,7 @@
       },
       {
         "id": 9,
-        "question": "Kết quả của chương trình sau là gì? x = 5\\nif x == 5:\\n print('A')\\nelse:\\n print('B')",
+        "question": "Kết quả của chương trình sau là gì? x = 5\nif x == 5:\n    print('A')\nelse:\n    print('B')",
         "options": [
           "A",
           "B",
