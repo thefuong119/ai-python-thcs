@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:36:14.987Z",
+    "updatedAt": "2026-11-09T16:36:33.538Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 5. Cấu trúc lặp"
   },
   "data": {
     "registeredUsers": [
@@ -11832,7 +11832,9 @@
         "id": 5,
         "title": "Bài 5. Cấu trúc lặp",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Vòng lặp với số lần biết trước `for`\n- Thường kết hợp với hàm `range(start, stop, step)`.\n```python\n# In các số từ 1 đến 5\nfor i in range(1, 6):\n    print(i, end=' ')\n```\n\n### 2. Vòng lặp với số lần chưa biết trước `while`\n- Lặp đi lặp lại khối lệnh khi điều kiện kiểm tra còn thỏa mãn (`True`).\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\nprint('Tổng từ 1 đến 10 là:', s)\n```"
+        "content": "### 1. Vòng lặp với số lần biết trước `for`\n- Thường kết hợp với hàm `range(start, stop, step)`.\n```python\n# In các số từ 1 đến 5\nfor i in range(1, 6):\n    print(i, end=' ')\n```\n\n### 2. Vòng lặp với số lần chưa biết trước `while`\n- Lặp đi lặp lại khối lệnh khi điều kiện kiểm tra còn thỏa mãn (`True`).\n```python\ns = 0\ni = 1\nwhile i <= 10:\n    s += i\n    i += 1\nprint('Tổng từ 1 đến 10 là:', s)\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1Em8jH6Q3_WxLceOIkD8IXb6QAnJ6qFcK/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 6,
