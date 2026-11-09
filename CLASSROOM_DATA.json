@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:36:48.040Z",
+    "updatedAt": "2026-11-09T16:37:03.054Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 6. Kiểu dữ liệu danh sách (list)"
   },
   "data": {
     "registeredUsers": [
@@ -11841,7 +11841,8 @@
         "title": "Bài 6. Kiểu dữ liệu danh sách (list)",
         "grade": "Lớp 8 - Tin học cơ sở",
         "content": "### 1. Khái niệm Danh sách (List)\n- Danh sách trong Python là tập hợp các phần tử có thứ tự, các phần tử được đặt trong cặp ngoặc vuông `[...]` và cách nhau bởi dấu phẩy.\n\n### 2. Các thao tác cơ bản với danh sách\n- Truy cập phần tử theo chỉ số (bắt đầu từ 0): `a[0]`.\n- Thêm phần tử vào cuối: `a.append(giá_trị)`.\n- Độ dài danh sách: `len(a)`.\n\n```python\nds = [12, 5, 8, 20]\nds.append(15)\nprint('Số phần tử:', len(ds))\nprint('Phần tử đầu tiên:', ds[0])\n```",
-        "classLevel": "8"
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/10rFLlCNRDIcCA1pu6fPd4GxXj4cq8dJl/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 7,
