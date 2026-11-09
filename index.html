@@ -24,7 +24,6 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
 
-    <!-- CodeMirror core & addons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/monokai.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
@@ -53,96 +52,28 @@
         .CodeMirror-linenumber, .CodeMirror-linenumbers { display: none !important; }
         .CodeMirror-lines { padding: 0 14px 0 16px !important; }
         .CodeMirror pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like { padding-left: 4px; }
-        
-        /* LÀM NỔI BẬT DÒNG CODE ĐANG CHỌN (ACTIVE LINE) */
-        .CodeMirror-activeline-background { 
-            background: rgba(59,130,246,0.18) !important; 
-            border-left: 3px solid #3b82f6 !important;
-            transition: background 0.2s ease-in-out;
-        }
-        .CodeMirror-activeline .CodeMirror-line { 
-            font-weight: 600;
-        }
-
+        .CodeMirror-activeline-background { background: rgba(59,130,246,0.18) !important; border-left: 3px solid #3b82f6 !important; transition: background 0.2s ease-in-out; }
+        .CodeMirror-activeline .CodeMirror-line { font-weight: 600; }
         .cm-editor-sm .CodeMirror { height: 200px; }
         .flag-active { color: #f59e0b !important; }
         @keyframes starPop { 0%{transform:scale(1)} 50%{transform:scale(1.4)} 100%{transform:scale(1)} }
         .star-pop { animation: starPop 0.35s ease; }
         @keyframes dropIn { 0% { opacity:0; transform:translateY(-8px) scale(0.96); } 100% { opacity:1; transform:translateY(0) scale(1); } }
         .dropdown-anim { animation: dropIn 0.18s ease-out; }
-
-        /* CodeMirror Hint Styling */
         .CodeMirror-hints { border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); background: white; padding: 4px; z-index: 100000 !important; }
         .CodeMirror-hint { padding: 4px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; border-radius: 4px; }
         li.CodeMirror-hint-active { background-color: #3b82f6; color: white; }
-
-        /* HIỆU ỨNG CHO TOOLBAR BUTTONS */
-        .toolbar-btn {
-            padding: 6px 10px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            white-space: nowrap;
-        }
-        .toolbar-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-        }
-        .toolbar-btn:active {
-            transform: translateY(0) scale(0.95);
-            box-shadow: none;
-        }
-
+        .toolbar-btn { padding: 6px 10px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; font-weight: 600; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; white-space: nowrap; }
+        .toolbar-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+        .toolbar-btn:active { transform: translateY(0) scale(0.95); box-shadow: none; }
         #robotAvatarBtn { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
-        #robotAvatarBtn img {
-            filter: drop-shadow(0 6px 12px rgba(37,99,235,0.55)) drop-shadow(0 0 6px rgba(59,130,246,0.35));
-            mix-blend-mode: normal;
-            background: transparent !important;
-            border-radius: 0 !important;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        #robotAvatarBtn:hover img {
-            filter: drop-shadow(0 8px 18px rgba(37,99,235,0.75)) drop-shadow(0 0 10px rgba(96,165,250,0.5));
-        }
-
-        .welcome-heading-gradient {
-            background: linear-gradient(135deg, #1e40af 0%, #4f46e5 40%, #7c3aed 70%, #db2777 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            background-size: 200% 200%;
-            animation: gradientShift 6s ease infinite;
-        }
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .auth-badge-highlight {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%);
-            color: #78350f;
-            border: 2px solid #f59e0b;
-            box-shadow: 0 4px 20px rgba(245,158,11,0.35), inset 0 1px 0 rgba(255,255,255,0.6);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
-        }
-        .welcome-subtitle-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 50%, #eef2ff 100%);
-            border: 1px solid #c7d2fe;
-            box-shadow: 0 2px 12px rgba(79,70,229,0.08);
-        }
-
-        :root {
-            --btn-h-xs: 28px; --btn-h-sm: 34px; --btn-h-md: 40px; --btn-h-lg: 44px;
-            --text-body: 15px; --text-sm: 14px; --text-xs: 13px; --text-tiny: 12px;
-        }
+        #robotAvatarBtn img { filter: drop-shadow(0 6px 12px rgba(37,99,235,0.55)) drop-shadow(0 0 6px rgba(59,130,246,0.35)); mix-blend-mode: normal; background: transparent !important; border-radius: 0 !important; width: 100%; height: 100%; object-fit: contain; }
+        #robotAvatarBtn:hover img { filter: drop-shadow(0 8px 18px rgba(37,99,235,0.75)) drop-shadow(0 0 10px rgba(96,165,250,0.5)); }
+        .welcome-heading-gradient { background: linear-gradient(135deg, #1e40af 0%, #4f46e5 40%, #7c3aed 70%, #db2777 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; background-size: 200% 200%; animation: gradientShift 6s ease infinite; }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .auth-badge-highlight { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%); color: #78350f; border: 2px solid #f59e0b; box-shadow: 0 4px 20px rgba(245,158,11,0.35), inset 0 1px 0 rgba(255,255,255,0.6); text-shadow: 0 1px 0 rgba(255,255,255,0.4); }
+        .welcome-subtitle-box { background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 50%, #eef2ff 100%); border: 1px solid #c7d2fe; box-shadow: 0 2px 12px rgba(79,70,229,0.08); }
+        :root { --btn-h-xs: 28px; --btn-h-sm: 34px; --btn-h-md: 40px; --btn-h-lg: 44px; --text-body: 15px; --text-sm: 14px; --text-xs: 13px; --text-tiny: 12px; }
         button { font-family: 'Inter', sans-serif; font-weight: 600; line-height: 1.2; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.18s ease; cursor: pointer; white-space: nowrap; font-size: var(--text-xs); }
         button:disabled { opacity: 0.55; cursor: not-allowed; }
         button[class*="py-1.5"]:not([class*="h-"]), button[class*="py-2"]:not([class*="h-"]):not([class*="py-2.5"]), button[class*="py-2.5"]:not([class*="h-"]), button[class*="py-3"]:not([class*="h-"]) { padding-top: 0 !important; padding-bottom: 0 !important; height: var(--btn-h-md); }
@@ -159,7 +90,7 @@
         table tbody td { padding: 12px; font-size: var(--text-xs); }
         header { min-height: 68px; }
         header .h-16 { height: 68px; }
-        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #studentTabMessagesBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherTestsBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabTeacherMessagesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminTestsBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn, #tabAdminMessagesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
+        #studentTabLecturesBtn, #studentTabPractiseBtn, #studentTabTestsBtn, #studentTabMessagesBtn, #studentTabQuizBtn, #tabTeacherLecturesBtn, #tabTeacherManageBtn, #tabTeacherTestsBtn, #tabTeacherQuizBtn, #tabTeacherSubmissionsBtn, #tabTeacherLogsBtn, #tabTeacherGradesBtn, #tabTeacherMessagesBtn, #tabAdminUsersBtn, #tabAdminLecturesBtn, #tabAdminAssignmentsBtn, #tabAdminTestsBtn, #tabAdminQuizBtn, #tabAdminSubmissionsBtn, #tabAdminLogsBtn, #tabAdminGradesBtn, #tabAdminMessagesBtn { height: 40px; padding: 0 16px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; }
         [id$="Modal"] .p-4.bg-slate-50 button, .modal-footer button { height: var(--btn-h-md); padding: 0 18px; font-size: var(--text-xs); }
         #btnSubmitAuth, #btnOpenLoginStudent, #btnOpenLoginTeacher, button[onclick*="submitAndGrade"], button[onclick*="executeExitApp"] { height: 44px; font-size: var(--text-sm); font-weight: 700; }
         .text-\[10px\], .text-\[11px\] { font-size: var(--text-tiny) !important; }
@@ -177,34 +108,26 @@
         .test-flag { color: #f59e0b; }
         .msg-unread { border-left: 4px solid #f59e0b; background: #fffbeb; }
         .perm-disabled { opacity: 0.5; pointer-events: none; }
-
-        /* ===== HIỆU ỨNG NÚT HỎI GIA SƯ AI NHẤP NHÁY ===== */
-        @keyframes aiPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.8), 0 4px 14px rgba(245,158,11,0.35); }
-            50%      { box-shadow: 0 0 0 10px rgba(245,158,11,0), 0 4px 14px rgba(245,158,11,0.35); }
-        }
-        @keyframes aiIconShake {
-            0%, 100% { transform: rotate(0deg); }
-            25%      { transform: rotate(-12deg) scale(1.15); }
-            75%      { transform: rotate(12deg) scale(1.15); }
-        }
-        .ai-tutor-blink {
-            animation: aiPulse 1.6s ease-in-out infinite;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%) !important;
-            color: #fff !important;
-            font-weight: 800 !important;
-            border: 2px solid #fbbf24 !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
-            padding: 6px 10px !important;
-            border-radius: 8px !important;
-        }
-        .ai-tutor-blink i {
-            animation: aiIconShake 1.2s ease-in-out infinite;
-        }
-        .ai-tutor-blink:hover {
-            transform: translateY(-2px) scale(1.03);
-            filter: brightness(1.1);
-        }
+        @keyframes aiPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.8), 0 4px 14px rgba(245,158,11,0.35); } 50% { box-shadow: 0 0 0 10px rgba(245,158,11,0), 0 4px 14px rgba(245,158,11,0.35); } }
+        @keyframes aiIconShake { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-12deg) scale(1.15); } 75% { transform: rotate(12deg) scale(1.15); } }
+        .ai-tutor-blink { animation: aiPulse 1.6s ease-in-out infinite; background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ea580c 100%) !important; color: #fff !important; font-weight: 800 !important; border: 2px solid #fbbf24 !important; text-shadow: 0 1px 2px rgba(0,0,0,0.25); padding: 6px 10px !important; border-radius: 8px !important; }
+        .ai-tutor-blink i { animation: aiIconShake 1.2s ease-in-out infinite; }
+        .ai-tutor-blink:hover { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); }
+        /* QUIZ STYLES */
+        .quiz-option { transition: all 0.2s ease; cursor: pointer; border: 2px solid #e2e8f0; background: #fff; }
+        .quiz-option:hover { border-color: #3b82f6; background: #eff6ff; }
+        .quiz-option.selected { border-color: #2563eb; background: #dbeafe; box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+        .quiz-option.correct { border-color: #10b981; background: #d1fae5; }
+        .quiz-option.incorrect { border-color: #ef4444; background: #fee2e2; }
+        .quiz-option .quiz-letter { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #f1f5f9; font-weight: 800; color: #475569; flex-shrink: 0; }
+        .quiz-option.selected .quiz-letter { background: #2563eb; color: white; }
+        .quiz-option.correct .quiz-letter { background: #10b981; color: white; }
+        .quiz-option.incorrect .quiz-letter { background: #ef4444; color: white; }
+        .quiz-progress-bar { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+        .quiz-history-card { transition: all 0.2s ease; }
+        .quiz-history-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        @keyframes quizFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .quiz-fade-in { animation: quizFadeIn 0.3s ease-out; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -431,6 +354,9 @@
                     <button id="studentTabTestsBtn" onclick="switchStudentTab('tests')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all">
                         <i class="ph-bold ph-exam"></i> Kiểm Tra (<span id="studentTestCountBadge">0</span>)
                     </button>
+                    <button id="studentTabQuizBtn" onclick="switchStudentTab('quiz')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all">
+                        <i class="ph-bold ph-check-square-offset"></i> Trắc Nghiệm (<span id="studentQuizCountBadge">0</span>)
+                    </button>
                     <button id="studentTabMessagesBtn" onclick="switchStudentTab('messages')" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all">
                         <i class="ph-bold ph-chat-text"></i> Lời Nhắn
                     </button>
@@ -519,7 +445,6 @@
                     </div>
                     <div class="lg:col-span-7 space-y-4">
                         <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden flex flex-col">
-                            <!-- TOOLBAR TỐI ƯU HÓA: CHIA NHÓM VÀ THÊM HIỆU ỨNG -->
                             <div class="bg-slate-950/80 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
                                 <div class="flex items-center gap-2 text-xs text-slate-300">
                                     <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
@@ -528,7 +453,6 @@
                                     <span class="font-mono text-slate-400 ml-2 font-medium">Bai_tap.py</span>
                                 </div>
                                 <div class="flex items-center gap-1.5 flex-wrap">
-                                    <!-- NHÓM 1: FILE -->
                                     <label class="toolbar-btn bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30" title="Tải lên tệp .py">
                                         <i class="ph-bold ph-upload-simple"></i>
                                         <span class="hidden sm:inline">📖Mở</span>
@@ -538,20 +462,14 @@
                                         <i class="ph-bold ph-download-simple"></i>
                                         <span class="hidden sm:inline">🪟 Lưu</span>
                                     </button>
-
-                                    <div class="w-px h-4 bg-slate-700 mx-1"></div> <!-- Divider -->
-
-                                    <!-- NHÓM 2: BIÊN TẬP -->
+                                    <div class="w-px h-4 bg-slate-700 mx-1"></div>
                                     <button onclick="autoFormatCode('student')" class="toolbar-btn bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-600/40" title="Format code thông minh">
                                         <i class="ph-bold ph-magic-wand"></i> Format
                                     </button>
                                     <button onclick="copyCurrentCode()" class="toolbar-btn bg-slate-800 text-slate-300 hover:bg-slate-700" title="Sao chép">
                                         <i class="ph-bold ph-copy"></i> <span class="hidden sm:inline">📜Sao chép</span>
                                     </button>
-
-                                    <div class="w-px h-4 bg-slate-700 mx-1"></div> <!-- Divider -->
-
-                                    <!-- NHÓM 3: TRỢ GIÚP AI -->
+                                    <div class="w-px h-4 bg-slate-700 mx-1"></div>
                                     <button onclick="showCodeHints()" class="toolbar-btn bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500/30" title="Gợi ý code thông minh">
                                         <i class="ph-bold ph-lightbulb"></i> Gợi ý
                                     </button>
@@ -643,6 +561,76 @@
                 </div>
             </div>
 
+            <!-- ============ NEW: STUDENT QUIZ SECTION ============ -->
+            <div id="studentQuizSection" class="hidden space-y-6">
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
+                    <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
+                        <div>
+                            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                                <i class="ph-bold ph-check-square-offset text-emerald-600"></i> Trắc Nghiệm Kiến Thức Python
+                            </h3>
+                            <p class="text-sm text-slate-500">Luyện tập trắc nghiệm theo khối lớp và độ khó. Kết quả được tự động lưu.</p>
+                        </div>
+                        <button onclick="renderStudentQuizHistory(); renderQuizStartForm();" class="px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center gap-1.5">
+                            <i class="ph-bold ph-arrows-clockwise"></i> Làm mới
+                        </button>
+                    </div>
+
+                    <!-- Quiz start form -->
+                    <div id="quizStartForm" class="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl p-5 space-y-4">
+                        <h4 class="font-bold text-sm text-emerald-900 flex items-center gap-2">
+                            <i class="ph-bold ph-rocket-launch text-emerald-600 text-lg"></i> Bắt Đầu Bài Trắc Nghiệm Mới
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                            <div>
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Khối lớp:</label>
+                                <select id="quizGradeSelect" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                                    <option value="all">Tất cả khối</option>
+                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                                    <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Độ khó:</label>
+                                <select id="quizDifficultySelect" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                                    <option value="all">Mọi độ khó</option>
+                                    <option value="easy">Dễ</option>
+                                    <option value="medium">Trung bình</option>
+                                    <option value="hard">Khó</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-bold text-xs text-slate-700 mb-1">Số câu hỏi:</label>
+                                <input type="number" id="quizNumQuestions" value="5" min="1" max="30" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="startStudentQuiz()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1.5">
+                                    <i class="ph-bold ph-play-circle"></i> Bắt Đầu Làm Bài
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3 text-xs text-emerald-800 bg-white/60 p-2.5 rounded-xl border border-emerald-200">
+                            <span class="flex items-center gap-1"><i class="ph-bold ph-info"></i> <b>Ngân hàng:</b> <span id="quizBankCount">0</span> câu hỏi</span>
+                            <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
+                            <span class="flex items-center gap-1"><i class="ph-bold ph-check-circle"></i> Điểm tối đa: <b>10.0</b></span>
+                            <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
+                            <span class="flex items-center gap-1"><i class="ph-bold ph-clock"></i> Lịch sử làm bài được lưu tự động</span>
+                        </div>
+                    </div>
+
+                    <!-- Active quiz area -->
+                    <div id="quizActiveArea" class="hidden"></div>
+
+                    <!-- Quiz history -->
+                    <div class="border-t border-slate-100 pt-4">
+                        <h4 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+                            <i class="ph-bold ph-clock-counter-clockwise text-blue-600"></i> Lịch Sử Làm Bài Trắc Nghiệm
+                        </h4>
+                        <div id="quizHistoryArea" class="space-y-3 max-h-[400px] overflow-y-auto"></div>
+                    </div>
+                </div>
+            </div>
+
             <div id="studentMessagesSection" class="hidden space-y-6">
                 <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
                     <div class="border-b border-slate-100 pb-3">
@@ -700,6 +688,9 @@
                 </button>
                 <button id="tabTeacherTestsBtn" onclick="switchTeacherTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
+                </button>
+                <button id="tabTeacherQuizBtn" onclick="switchTeacherTab('quiz')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-check-square-offset"></i> Trắc nghiệm
                 </button>
                 <button id="tabTeacherSubmissionsBtn" onclick="switchTeacherTab('submissions')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-file-text"></i> Bài Làm
@@ -950,6 +941,82 @@
                 <div id="teacherTestsList" class="space-y-3"></div>
             </div>
 
+            <!-- ============ NEW: TEACHER QUIZ TAB ============ -->
+            <div id="teacherTabQuiz" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900 flex items-center gap-2"><i class="ph-bold ph-check-square-offset text-emerald-600"></i> Ngân Hàng Câu Hỏi Trắc Nghiệm</h4>
+                        <p class="text-sm text-slate-500">Quản lý câu hỏi trắc nghiệm, nhập từ Word/JSON hoặc thêm thủ công.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <input id="teacherQuizSearch" oninput="renderTeacherQuizTable()" placeholder="🔍 Tìm câu hỏi..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
+                        <select id="teacherQuizGradeFilter" onchange="renderTeacherQuizTable()" class="bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-sm font-bold text-emerald-700 cursor-pointer">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                        </select>
+                        <select id="teacherQuizDifficultyFilter" onchange="renderTeacherQuizTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
+                            <option value="all">Mọi độ khó</option>
+                            <option value="easy">Dễ</option>
+                            <option value="medium">TB</option>
+                            <option value="hard">Khó</option>
+                        </select>
+                        <button onclick="exportQuizTemplateDocx()" class="px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-file-doc"></i> Mẫu Word
+                        </button>
+                        <button onclick="exportQuizDataJson()" class="px-3 py-2 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-download-simple"></i> JSON
+                        </button>
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Word/JSON
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importQuizFileFromTemplate(event)">
+                        </label>
+                        <button onclick="openQuizQuestionModal()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-plus"></i> Thêm câu hỏi
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-sm">
+                    <span class="flex items-center gap-1.5 font-bold text-emerald-800"><i class="ph-bold ph-database"></i> Tổng: <span id="teacherQuizTotalCount" class="text-emerald-900">0</span> câu</span>
+                    <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
+                    <span class="flex items-center gap-1 font-bold text-emerald-800"><i class="ph-bold ph-check-circle"></i> Bài làm HS: <span id="teacherQuizSubmissionsCount" class="text-emerald-900">0</span></span>
+                </div>
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="w-12 text-center">ID</th>
+                                <th>Câu hỏi</th>
+                                <th class="text-center">Khối</th>
+                                <th class="text-center">Độ khó</th>
+                                <th class="text-center">Đáp án</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacherQuizTableBody" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+                <div class="border-t border-slate-100 pt-4">
+                    <h4 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="ph-bold ph-file-text text-blue-600"></i> Bài Làm Trắc Nghiệm Của Học Sinh
+                    </h4>
+                    <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                                <tr>
+                                    <th>Học sinh</th>
+                                    <th>Lớp</th>
+                                    <th class="text-center">Số câu</th>
+                                    <th class="text-center">Đúng</th>
+                                    <th class="text-center">Điểm</th>
+                                    <th class="text-center">Thời gian</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teacherQuizSubmissionsTableBody" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <div id="teacherTabSubmissions" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -1107,6 +1174,9 @@
                 </button>
                 <button id="tabAdminTestsBtn" onclick="switchAdminTab('tests')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-list-checks"></i> Các đề đã tạo
+                </button>
+                <button id="tabAdminQuizBtn" onclick="switchAdminTab('quiz')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-bold ph-check-square-offset"></i> Trắc nghiệm
                 </button>
                 <button id="tabAdminSubmissionsBtn" onclick="switchAdminTab('submissions')" class="py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all">
                     <i class="ph-bold ph-file-text"></i> Bài Làm
@@ -1452,6 +1522,95 @@
                 <div id="adminTestsList" class="space-y-3"></div>
             </div>
 
+            <!-- ============ NEW: ADMIN QUIZ TAB ============ -->
+            <div id="adminTabQuiz" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
+                    <div>
+                        <h4 class="font-bold text-base text-slate-900 flex items-center gap-2"><i class="ph-bold ph-check-square-offset text-emerald-600"></i> Quản Lý Trắc Nghiệm (Admin)</h4>
+                        <p class="text-sm text-slate-500">Nhập câu hỏi từ Data_quiz.json hoặc Word_quiz.docx theo mẫu tải về.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <input id="adminQuizSearch" oninput="renderAdminQuizTable()" placeholder="🔍 Tìm câu hỏi..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
+                        <select id="adminQuizGradeFilter" onchange="renderAdminQuizTable()" class="bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-sm font-bold text-emerald-700 cursor-pointer">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                        </select>
+                        <select id="adminQuizDifficultyFilter" onchange="renderAdminQuizTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
+                            <option value="all">Mọi độ khó</option>
+                            <option value="easy">Dễ</option>
+                            <option value="medium">TB</option>
+                            <option value="hard">Khó</option>
+                        </select>
+                        <button onclick="exportQuizTemplateDocx()" class="px-3 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-file-doc"></i> Mẫu Word
+                        </button>
+                        <button onclick="exportQuizDataJson()" class="px-3 py-2 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Data_quiz.json
+                        </button>
+                        <label class="cursor-pointer px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-file-arrow-up"></i> Nạp Data_quiz.json
+                            <input type="file" accept=".docx,.json" class="hidden" onchange="importQuizFileFromTemplate(event)">
+                        </label>
+                        <button onclick="openQuizQuestionModal()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-plus"></i> Thêm câu hỏi
+                        </button>
+                        <button onclick="exportQuizSubmissionsJson()" class="px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 font-bold text-xs flex items-center gap-1.5">
+                            <i class="ph-bold ph-download-simple"></i> Xuất Hoc_sinh_quiz.json
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-center justify-between">
+                        <span class="text-sm font-bold text-emerald-800 flex items-center gap-1.5"><i class="ph-bold ph-database"></i> Ngân hàng câu hỏi</span>
+                        <span id="adminQuizTotalCount" class="text-xl font-extrabold text-emerald-700">0</span>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 flex items-center justify-between">
+                        <span class="text-sm font-bold text-blue-800 flex items-center gap-1.5"><i class="ph-bold ph-file-text"></i> Lượt làm bài</span>
+                        <span id="adminQuizSubmissionsCount" class="text-xl font-extrabold text-blue-700">0</span>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-center justify-between">
+                        <span class="text-sm font-bold text-amber-800 flex items-center gap-1.5"><i class="ph-bold ph-chart-bar"></i> Điểm TB</span>
+                        <span id="adminQuizAvgScore" class="text-xl font-extrabold text-amber-700">0.0</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                    <table class="w-full text-left">
+                        <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="w-12 text-center">ID</th>
+                                <th>Câu hỏi</th>
+                                <th class="text-center">Khối</th>
+                                <th class="text-center">Độ khó</th>
+                                <th class="text-center">Đáp án</th>
+                                <th class="text-center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminQuizTableBody" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+                <div class="border-t border-slate-100 pt-4">
+                    <h4 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="ph-bold ph-file-text text-blue-600"></i> Bài Làm Trắc Nghiệm (Hoc_sinh_quiz.json)
+                    </h4>
+                    <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
+                                <tr>
+                                    <th>Học sinh</th>
+                                    <th>Lớp</th>
+                                    <th class="text-center">Số câu</th>
+                                    <th class="text-center">Đúng</th>
+                                    <th class="text-center">Điểm</th>
+                                    <th class="text-center">Thời gian</th>
+                                    <th class="text-center">Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminQuizSubmissionsTableBody" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <div id="adminTabSubmissions" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -1576,6 +1735,76 @@
 
     </main>
 
+    <!-- ============ NEW: QUIZ QUESTION MODAL ============ -->
+    <div id="quizQuestionModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10015] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
+            <div class="p-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-check-square-offset text-xl text-amber-300"></i></div>
+                    <div>
+                        <h3 id="quizModalTitle" class="text-base font-bold">Thêm Câu Hỏi Trắc Nghiệm</h3>
+                        <p class="text-xs text-emerald-100">Soạn câu hỏi trắc nghiệm với 4 đáp án A, B, C, D</p>
+                    </div>
+                </div>
+                <button onclick="closeQuizQuestionModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div class="p-5 space-y-3 overflow-y-auto">
+                <input type="hidden" id="quizEditingId" value="">
+                <div>
+                    <label class="block font-bold text-sm text-slate-700 mb-1">Câu hỏi (*):</label>
+                    <textarea id="quizQuestionText" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="Nhập nội dung câu hỏi..."></textarea>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-3">
+                        <label class="flex items-center gap-2 font-bold text-sm text-blue-800 mb-1"><input type="radio" name="quizCorrect" value="A" class="w-4 h-4"> Đáp án A (*):</label>
+                        <input type="text" id="quizOptionA" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm">
+                    </div>
+                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-3">
+                        <label class="flex items-center gap-2 font-bold text-sm text-purple-800 mb-1"><input type="radio" name="quizCorrect" value="B" class="w-4 h-4"> Đáp án B (*):</label>
+                        <input type="text" id="quizOptionB" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm">
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                        <label class="flex items-center gap-2 font-bold text-sm text-amber-800 mb-1"><input type="radio" name="quizCorrect" value="C" class="w-4 h-4"> Đáp án C (*):</label>
+                        <input type="text" id="quizOptionC" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm">
+                    </div>
+                    <div class="bg-rose-50 border border-rose-200 rounded-xl p-3">
+                        <label class="flex items-center gap-2 font-bold text-sm text-rose-800 mb-1"><input type="radio" name="quizCorrect" value="D" class="w-4 h-4"> Đáp án D (*):</label>
+                        <input type="text" id="quizOptionD" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm">
+                    </div>
+                </div>
+                <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-800 font-semibold flex items-center gap-2">
+                    <i class="ph-bold ph-info text-emerald-600"></i> Chọn nút radio ở trên để đánh dấu đáp án ĐÚNG
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Khối lớp:</label>
+                        <select id="quizClassLevel" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Độ khó:</label>
+                        <select id="quizDifficulty" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            <option value="easy">Dễ</option>
+                            <option value="medium">Trung bình</option>
+                            <option value="hard">Khó</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-sm text-slate-700 mb-1">Giải thích (tùy chọn):</label>
+                    <textarea id="quizExplanation" rows="2" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="Giải thích đáp án..."></textarea>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
+                <button onclick="closeQuizQuestionModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm">Hủy</button>
+                <button onclick="saveQuizQuestion()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow-md">
+                    <i class="ph-bold ph-check-circle"></i> Lưu Câu Hỏi
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- VIEW CONTENT MODAL -->
     <div id="viewContentDetailModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10005] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[90vh]">
@@ -1626,7 +1855,7 @@
         </div>
     </div>
 
-    <!-- ROBOT GIF nền trong suốt -->
+    <!-- ROBOT GIF -->
     <div id="robotVoiceWidget" draggable="false" style="z-index: 999999;" class="fixed z-[999999] flex flex-col items-center pointer-events-none select-none transition-all duration-300">
         <audio id="robotAudioPlayer" class="hidden" preload="auto" referrerpolicy="no-referrer"></audio>
         <div id="robotBubbleWrapper" class="flex flex-col items-center mb-2 pointer-events-auto transition-all duration-300 max-w-[290px] sm:max-w-xs w-max">
@@ -1779,7 +2008,7 @@
                     <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-key text-2xl text-amber-200"></i></div>
                     <div>
                         <h3 class="text-base font-bold">Quên Mật Khẩu</h3>
-                        <p class="text-sm text-amber-100">Xác thực 1 trong 3 thông tin</p>
+                        <p class="text-sm text-amber-100">Xác thực thông tin</p>
                     </div>
                 </div>
                 <button onclick="closePasswordResetModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"><i class="ph-bold ph-x text-lg"></i></button>
@@ -1787,7 +2016,7 @@
             <div class="p-5 space-y-3 text-sm overflow-y-auto flex-1">
                 <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800 leading-relaxed flex items-start gap-2">
                     <i class="ph-bold ph-info text-blue-600 text-base shrink-0 mt-0.5"></i>
-                    <div>Nhập <b>Tên đăng nhập</b> và <b>1 trong 3 thông tin</b>: SĐT, CCCD, Email. Chỉ cần <b>1 thông tin đúng</b> là có thể đổi mật khẩu.</div>
+                    <div>Nhập <b>Tên đăng nhập</b> và <b> đủ thông tin</b>: SĐT, CCCD, Email. Hãy nhập <b> đúng thông tin</b> là có thể đổi mật khẩu.</div>
                 </div>
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">Tên đăng nhập (*):</label>
@@ -1876,7 +2105,7 @@
                     <ul class="list-disc list-inside space-y-1.5 text-blue-800">
                         <li>Nhấn nút <b>"Học Sinh"</b> hoặc <b>"Giáo Viên / Admin"</b> ở góc phải trên cùng.</li>
                         <li>Nhập <b>Tên đăng nhập</b> và <b>Mật khẩu</b>. Nếu chưa có tài khoản, chọn tab <b>"Đăng Ký"</b>.</li>
-                        <li>Khi đăng ký, hãy nhập <b>ít nhất 1 trong 3</b> phương thức liên lạc: SĐT, CCCD, Email.</li>
+                        <li>Khi đăng ký, hãy nhập <b> thông tin</b> phương thức liên lạc: SĐT, CCCD, Email.</li>
                         <li>Tài khoản dùng thử: <code class="bg-white px-1.5 py-0.5 rounded font-mono">hocsinh / Hocsinh@123</code> hoặc <code class="bg-white px-1.5 py-0.5 rounded font-mono">giaovien / Giaovien@123</code>.</li>
                     </ul>
                 </div>
@@ -1893,8 +2122,20 @@
                     </ul>
                 </div>
 
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-4 shadow-sm">
+                    <h3 class="font-extrabold text-base text-teal-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-check-square-offset text-teal-600 text-lg"></i> 3. LÀM BÀI TRẮC NGHIỆM</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-teal-800">
+                        <li>Học sinh chọn tab <b>"Trắc Nghiệm"</b> → chọn <b>Khối</b>, <b>Độ khó</b>, <b>Số câu</b> → nhấn <b>"Bắt Đầu Làm Bài"</b>.</li>
+                        <li>Chọn đáp án A, B, C, D. Có thể chuyển câu bằng nút <b>"Câu tiếp"</b> hoặc thanh số câu.</li>
+                        <li>Nhấn <b>"Nộp Bài"</b> → hệ thống chấm điểm tự động, hiển thị chi tiết từng câu.</li>
+                        <li>Kết quả lưu vào <code>Hoc_sinh_quiz.json</code> và nhật ký làm bài.</li>
+                        <li>Giáo viên/Admin vào tab <b>"Trắc Nghiệm"</b> để quản lý ngân hàng câu hỏi, nhập câu hỏi từ <b>Word_quiz.docx</b> hoặc <b>Data_quiz.json</b>.</li>
+                        <li>Tải <b>Mẫu Word</b> để biết cấu trúc câu hỏi chuẩn.</li>
+                    </ul>
+                </div>
+
                 <div class="bg-cyan-50 border-2 border-cyan-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-cyan-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-chat-text text-cyan-600 text-lg"></i> 3. GỬI LỜI NHẮN CHO GIÁO VIÊN (THỜI GIAN THỰC)</h3>
+                    <h3 class="font-extrabold text-base text-cyan-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-chat-text text-cyan-600 text-lg"></i> 4. GỬI LỜI NHẮN CHO GIÁO VIÊN (THỜI GIAN THỰC)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-cyan-800">
                         <li>Học sinh chọn tab <b>"Lời Nhắn"</b> → nhập nội dung → nhấn <b>"Gửi Tin Nhắn"</b> (hoặc Enter).</li>
                         <li>Tin nhắn được đẩy <b>ngay lập tức</b> lên máy chủ qua tệp <code>MESSAGE.json</code>.</li>
@@ -1904,27 +2145,25 @@
                 </div>
 
                 <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-shield-star text-purple-600 text-lg"></i> 4. PHÂN QUYỀN (ADMIN)</h3>
+                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-shield-star text-purple-600 text-lg"></i> 5. PHÂN QUYỀN (ADMIN)</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
                         <li>Admin vào tab <b>"Tài Khoản"</b> → khu vực <b>"Phân quyền cho Giáo viên"</b>.</li>
                         <li>Tích/bỏ tích 5 quyền: <b>Thêm - Sửa - Xóa - Nộp Server - Nạp Server</b>.</li>
                         <li>Nhấn nút <b>"Áp dụng & Đồng bộ ngay"</b> → quyền được lưu và đẩy lên máy chủ tức thì.</li>
                         <li>Giáo viên đang đăng nhập sẽ tự động nhận quyền mới trong vòng 30 giây.</li>
-                        <li>Admin có <b>checkbox</b> để chọn nhiều Bài giảng/Bài tập/Đề thi và nhấn <b>"Xóa đã chọn"</b>.</li>
                     </ul>
                 </div>
 
                 <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 5. SỬ DỤNG GIA SƯ AI</h3>
+                    <h3 class="font-extrabold text-base text-indigo-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-sparkle text-indigo-600 text-lg"></i> 6. SỬ DỤNG GIA SƯ AI</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-indigo-800">
                         <li>Gõ câu hỏi vào ô chat → Gia sư AI sẽ giải thích, hướng dẫn code Python mẫu chi tiết.</li>
                         <li><b>Robot trợ lý:</b> Biểu tượng robot ở góc màn hình. <b>Nhấp 1 lần</b> để đọc toàn bộ văn bản đang hiển thị; <b>nhấp lần nữa</b> để dừng.</li>
-                        <li>Nút <b>"Hỏi Gia Sư AI"</b> trong khung làm bài để hỏi lỗi code cụ thể. Nút <b>"Giải thích"</b> để AI phân tích đoạn code hiện tại.</li>
                     </ul>
                 </div>
 
                 <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 shadow-sm">
-                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 6. QUÊN MẬT KHẨU</h3>
+                    <h3 class="font-extrabold text-base text-amber-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-key text-amber-600 text-lg"></i> 7. QUÊN MẬT KHẨU</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-amber-800">
                         <li>Ở form đăng nhập, nhấn <b>"Quên mật khẩu?"</b>. Nhập tên đăng nhập + <b>1 trong 3</b> (SĐT / CCCD / Email).</li>
                         <li>Nếu <b>1 trong 3</b> khớp → đổi mật khẩu thành công ngay.</li>
@@ -2457,7 +2696,7 @@
     let flaggedAssignmentsCache = {};
     let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
 
-    // ===== TÍNH NĂNG MỚI: PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN =====
+    // ===== TÍNH NĂNG MỚI: PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN + QUIZ =====
     let systemPermissions = {
         teacherCanAdd: true,
         teacherCanEdit: true,
@@ -2468,12 +2707,20 @@
     let selectedAdminItems = { lectures: new Set(), assignments: new Set(), tests: new Set() };
     let studentMessages = [];
 
+    // ===== DỮ LIỆU QUIZ =====
+    let quizData = [];
+    let quizSubmissions = [];
+    let quizCurrentSession = null; // { questions: [...], answers: {qid: 'A'|'B'|'C'|'D'}, startedAt, currentIndex }
+    let quizSubmissionsCache = [];
+
     const GITHUB_OWNER = "thefuong119";
     const GITHUB_REPO = "ai-python-thcs";
     const GITHUB_FILE_PATH = "CLASSROOM_DATA.json";
     const GITHUB_SUBMISSIONS_PATH = "SUBMISSIONS.csv";
     const GITHUB_CODE_PYTHON_PATH = "Code_python_hs.xlsx";
-    const GITHUB_MESSAGES_PATH = "MESSAGE.json"; // Tệp tin nhắn thời gian thực
+    const GITHUB_MESSAGES_PATH = "MESSAGE.json";
+    const GITHUB_QUIZ_DATA_PATH = "Data_quiz.json";
+    const GITHUB_QUIZ_SUBMISSIONS_PATH = "Hoc_sinh_quiz.json";
 
     const DEFAULT_PROXY_ENDPOINT = "https://ai-thcs-python.thefuong119.workers.dev";
     let PROXY_ENDPOINT = localStorage.getItem('lms_proxy_endpoint') || DEFAULT_PROXY_ENDPOINT;
@@ -2543,6 +2790,746 @@
     function getAdminSolution() { return adminSolutionEditor ? adminSolutionEditor.getValue() : (document.getElementById('adminNewSolutionCode')?.value || ""); }
     function setAdminSolution(v) { if (adminSolutionEditor) adminSolutionEditor.setValue(v || ''); else { const e = document.getElementById('adminNewSolutionCode'); if (e) e.value = v || ''; } }
 
+    // ===== QUIZ HELPERS =====
+    function getNextQuizId() {
+        let maxId = 0;
+        quizData.forEach(q => { if (q.id > maxId) maxId = q.id; });
+        return maxId + 1;
+    }
+
+    function logQuizAttempt(submission) {
+        try {
+            if (!Array.isArray(quizSubmissions)) quizSubmissions = [];
+            quizSubmissions.unshift(submission);
+            // Ghi vào nhật ký chung
+            loginLogs.unshift({
+                time: submission.timestamp,
+                name: submission.student,
+                identifier: submission.username,
+                role: 'student',
+                result: `Trắc nghiệm ${submission.score.toFixed(1)}/10`
+            });
+            autoSaveLocalSnapshot();
+        } catch(e) { console.warn('[QUIZ-LOG]', e); }
+    }
+
+    // ===== QUIZ: IMPORT / EXPORT / SYNC =====
+    async function pushQuizDataToGithubDirectly(actionDescription = "Cập nhật Data_quiz.json") {
+        if (!PROXY_ENDPOINT) return false;
+        try {
+            const payload = {
+                metadata: {
+                    updatedAt: new Date().toISOString(),
+                    updatedBy: currentUser.name || "Hệ thống",
+                    count: quizData.length,
+                    action: actionDescription
+                },
+                quizData
+            };
+            const jsonStr = JSON.stringify(payload, null, 2);
+            const base64Data = utf8ToBase64(jsonStr);
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    const sha = await getCurrentShaViaProxy(GITHUB_QUIZ_DATA_PATH);
+                    const body = { message: `[QuizData] ${actionDescription}`, content: base64Data, branch: "main" };
+                    if (sha) body.sha = sha;
+                    const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_QUIZ_DATA_PATH)}&t=${Date.now()}`;
+                    const res = await fetch(url, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), cache: 'no-store' });
+                    if (res.status === 409) { await sleep(500 * Math.pow(2, attempt)); continue; }
+                    if (res.status === 429) { await sleep(1200 * Math.pow(2, attempt)); continue; }
+                    if (!res.ok) throw new Error(`HTTP_${res.status}`);
+                    return true;
+                } catch(e) { await sleep(500 * Math.pow(2, attempt)); }
+            }
+            return false;
+        } catch(e) { console.warn('[QUIZ-DATA-PUSH]', e); return false; }
+    }
+
+    async function pushQuizSubmissionsToGithubDirectly(actionDescription = "Cập nhật Hoc_sinh_quiz.json") {
+        if (!PROXY_ENDPOINT) return false;
+        try {
+            const payload = {
+                metadata: {
+                    updatedAt: new Date().toISOString(),
+                    updatedBy: currentUser.name || "Hệ thống",
+                    count: quizSubmissions.length,
+                    action: actionDescription
+                },
+                quizSubmissions
+            };
+            const jsonStr = JSON.stringify(payload, null, 2);
+            const base64Data = utf8ToBase64(jsonStr);
+            for (let attempt = 0; attempt < 3; attempt++) {
+                try {
+                    const sha = await getCurrentShaViaProxy(GITHUB_QUIZ_SUBMISSIONS_PATH);
+                    const body = { message: `[QuizSubmissions] ${actionDescription}`, content: base64Data, branch: "main" };
+                    if (sha) body.sha = sha;
+                    const url = `${PROXY_ENDPOINT}?path=${encodeURIComponent(GITHUB_QUIZ_SUBMISSIONS_PATH)}&t=${Date.now()}`;
+                    const res = await fetch(url, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), cache: 'no-store' });
+                    if (res.status === 409) { await sleep(500 * Math.pow(2, attempt)); continue; }
+                    if (res.status === 429) { await sleep(1200 * Math.pow(2, attempt)); continue; }
+                    if (!res.ok) throw new Error(`HTTP_${res.status}`);
+                    return true;
+                } catch(e) { await sleep(500 * Math.pow(2, attempt)); }
+            }
+            return false;
+        } catch(e) { console.warn('[QUIZ-SUB-PUSH]', e); return false; }
+    }
+
+    async function fetchQuizDataFromGithub() {
+        if (!PROXY_ENDPOINT) return false;
+        try {
+            const res = await githubFetchViaProxy(GITHUB_QUIZ_DATA_PATH, { method: 'GET' }, 2);
+            const payload = await res.json();
+            if (payload && Array.isArray(payload.quizData)) {
+                const localMap = new Map(quizData.map(q => [String(q.id), q]));
+                payload.quizData.forEach(sq => {
+                    if (!sq.id) sq.id = getNextQuizId();
+                    localMap.set(String(sq.id), sq);
+                });
+                quizData = Array.from(localMap.values());
+                return true;
+            }
+            return false;
+        } catch(e) { return false; }
+    }
+
+    async function fetchQuizSubmissionsFromGithub() {
+        if (!PROXY_ENDPOINT) return false;
+        try {
+            const res = await githubFetchViaProxy(GITHUB_QUIZ_SUBMISSIONS_PATH, { method: 'GET' }, 2);
+            const payload = await res.json();
+            if (payload && Array.isArray(payload.quizSubmissions)) {
+                const localMap = new Map(quizSubmissions.map(s => [String(s.id), s]));
+                payload.quizSubmissions.forEach(ss => {
+                    if (!ss.id) ss.id = Date.now() + Math.random();
+                    localMap.set(String(ss.id), ss);
+                });
+                quizSubmissions = Array.from(localMap.values()).sort((a, b) => (b.id || 0) - (a.id || 0));
+                return true;
+            }
+            return false;
+        } catch(e) { return false; }
+    }
+
+    // ===== QUIZ: RENDER STUDENT FORM =====
+    function renderQuizStartForm() {
+        const bankCount = document.getElementById('quizBankCount');
+        if (bankCount) bankCount.textContent = quizData.length;
+        const badge = document.getElementById('studentQuizCountBadge');
+        if (badge) badge.textContent = quizSubmissions.filter(s => s.username === currentUser.identifier).length;
+        // Reset form visibility
+        const active = document.getElementById('quizActiveArea');
+        if (active) active.classList.add('hidden');
+        const form = document.getElementById('quizStartForm');
+        if (form) form.classList.remove('hidden');
+    }
+
+    function renderStudentQuizHistory() {
+        const c = document.getElementById('quizHistoryArea'); if (!c) return;
+        const mine = quizSubmissions.filter(s => s.username === currentUser.identifier).sort((a, b) => (b.id || 0) - (a.id || 0));
+        const badge = document.getElementById('studentQuizCountBadge');
+        if (badge) badge.textContent = mine.length;
+        if (mine.length === 0) {
+            c.innerHTML = '<div class="text-center p-6 text-slate-500 italic text-sm bg-slate-50 rounded-2xl border border-slate-200"><i class="ph-bold ph-clock-counter-clockwise text-3xl text-slate-300 mb-2 block"></i>Bạn chưa làm bài trắc nghiệm nào.</div>';
+            return;
+        }
+        c.innerHTML = mine.map(sub => {
+            const scoreColor = sub.score >= 8 ? 'text-emerald-600' : (sub.score >= 5 ? 'text-amber-600' : 'text-rose-600');
+            const scoreBg = sub.score >= 8 ? 'from-emerald-50 to-teal-50 border-emerald-200' : (sub.score >= 5 ? 'from-amber-50 to-yellow-50 border-amber-200' : 'from-rose-50 to-pink-50 border-rose-200');
+            return `<div class="quiz-history-card bg-gradient-to-r ${scoreBg} border rounded-xl p-3.5">
+                <div class="flex items-center justify-between gap-2 flex-wrap">
+                    <div>
+                        <div class="font-bold text-sm text-slate-900">${escapeHtml(sub.quizTitle || 'Bài trắc nghiệm')}</div>
+                        <div class="text-xs text-slate-500 font-mono mt-0.5">${escapeHtml(sub.timestamp)}</div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-right">
+                            <div class="text-xs text-slate-500">Điểm</div>
+                            <div class="font-bold text-lg ${scoreColor}">${(sub.score || 0).toFixed(1)}<span class="text-xs text-slate-500">/10</span></div>
+                        </div>
+                        <div class="text-right border-l border-slate-300 pl-3">
+                            <div class="text-xs text-slate-500">Đúng</div>
+                            <div class="font-bold text-sm text-slate-800">${sub.correctCount || 0}/${sub.totalQuestions || 0}</div>
+                        </div>
+                        <button onclick="viewQuizSubmission(${sub.id})" class="px-2.5 py-1 rounded-lg bg-white/80 hover:bg-white text-blue-600 font-bold text-xs border border-slate-200 shadow-sm"><i class="ph-bold ph-eye"></i></button>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== QUIZ: START =====
+    function startStudentQuiz() {
+        if (!currentUser.isLoggedIn || currentUser.role !== 'student') return showToast('Vui lòng đăng nhập với tài khoản học sinh!', 'error');
+        if (!Array.isArray(quizData) || quizData.length === 0) return showToast('Ngân hàng câu hỏi trắc nghiệm đang trống. Vui lòng chờ giáo viên nhập câu hỏi!', 'error');
+        const grade = document.getElementById('quizGradeSelect')?.value || 'all';
+        const difficulty = document.getElementById('quizDifficultySelect')?.value || 'all';
+        const numQ = Math.max(1, parseInt(document.getElementById('quizNumQuestions')?.value || '5') || 5);
+
+        let pool = quizData.filter(q => {
+            if (grade !== 'all' && String(q.classLevel || '8') !== String(grade)) return false;
+            if (difficulty !== 'all' && q.difficulty !== difficulty) return false;
+            return true;
+        });
+        if (pool.length === 0) return showToast('Không có câu hỏi phù hợp với bộ lọc. Hãy thử đổi khối/độ khó!', 'error');
+        // Shuffle
+        pool = pool.slice().sort(() => Math.random() - 0.5);
+        const selected = pool.slice(0, Math.min(numQ, pool.length));
+        quizCurrentSession = {
+            questions: selected,
+            answers: {},
+            startedAt: Date.now(),
+            startedAtStr: new Date().toLocaleString('vi-VN')
+        };
+        document.getElementById('quizStartForm')?.classList.add('hidden');
+        renderQuizActiveSession();
+    }
+
+    function renderQuizActiveSession() {
+        const area = document.getElementById('quizActiveArea'); if (!area || !quizCurrentSession) return;
+        area.classList.remove('hidden');
+        const total = quizCurrentSession.questions.length;
+        const answeredCount = Object.keys(quizCurrentSession.answers).length;
+        const progressPct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+        const html = `
+            <div class="space-y-4 quiz-fade-in">
+                <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-4 flex items-center justify-between flex-wrap gap-2 shadow-md">
+                    <div class="flex items-center gap-2">
+                        <i class="ph-bold ph-pencil-simple text-2xl text-amber-300"></i>
+                        <div>
+                            <div class="font-bold text-sm">Bài trắc nghiệm đang làm</div>
+                            <div class="text-xs text-emerald-100">Bắt đầu: ${escapeHtml(quizCurrentSession.startedAtStr)}</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-bold"><i class="ph-bold ph-check-circle"></i> ${answeredCount}/${total}</span>
+                        <button onclick="cancelStudentQuiz()" class="px-3 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white font-bold text-xs"><i class="ph-bold ph-x"></i> Hủy</button>
+                    </div>
+                </div>
+                <div class="bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                    <div class="quiz-progress-bar h-full transition-all duration-300" style="width: ${progressPct}%"></div>
+                </div>
+                ${quizCurrentSession.questions.map((q, idx) => {
+                    const userAns = quizCurrentSession.answers[q.id];
+                    const opts = q.options || [];
+                    return `<div class="bg-white border border-slate-200 rounded-2xl p-4 space-y-3 shadow-sm quiz-fade-in" id="quizQ_${q.id}">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="font-bold text-sm text-slate-900 flex items-start gap-2">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">${idx + 1}</span>
+                                <span>${escapeHtml(q.question)}</span>
+                            </div>
+                            <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold shrink-0">Khối ${escapeHtml(q.classLevel || '8')}</span>
+                        </div>
+                        <div class="space-y-2">
+                            ${opts.map((op, oi) => {
+                                const letter = ['A','B','C','D'][oi];
+                                const selected = userAns === letter;
+                                return `<div onclick="selectQuizOption(${q.id}, '${letter}')" class="quiz-option ${selected ? 'selected' : ''} rounded-xl p-3 flex items-center gap-3">
+                                    <span class="quiz-letter">${letter}</span>
+                                    <span class="text-sm text-slate-800 flex-1">${escapeHtml(op)}</span>
+                                    ${selected ? '<i class="ph-bold ph-check-circle text-blue-600 text-lg"></i>' : ''}
+                                </div>`;
+                            }).join('')}
+                        </div>
+                    </div>`;
+                }).join('')}
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 flex items-center justify-between gap-2 flex-wrap">
+                    <div class="text-sm text-amber-900 flex items-center gap-2">
+                        <i class="ph-bold ph-info text-amber-600 text-xl"></i>
+                        <span>Đã trả lời <b>${answeredCount}/${total}</b> câu. Hãy kiểm tra lại trước khi nộp!</span>
+                    </div>
+                    <button onclick="submitStudentQuiz()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-sm shadow-md flex items-center gap-1.5">
+                        <i class="ph-bold ph-paper-plane-tilt"></i> Nộp Bài & Chấm Điểm
+                    </button>
+                </div>
+            </div>`;
+        area.innerHTML = html;
+    }
+
+    function selectQuizOption(qid, letter) {
+        if (!quizCurrentSession) return;
+        quizCurrentSession.answers[qid] = letter;
+        renderQuizActiveSession();
+    }
+
+    function cancelStudentQuiz() {
+        requestDeleteConfirmation('bài trắc nghiệm đang làm (kết quả sẽ KHÔNG được lưu)', () => {
+            quizCurrentSession = null;
+            document.getElementById('quizActiveArea')?.classList.add('hidden');
+            document.getElementById('quizStartForm')?.classList.remove('hidden');
+            showToast('Đã hủy bài làm', 'info');
+        });
+    }
+
+    async function submitStudentQuiz() {
+        if (!quizCurrentSession) return showToast('Không có bài làm để nộp!', 'error');
+        const total = quizCurrentSession.questions.length;
+        const answered = Object.keys(quizCurrentSession.answers).length;
+        if (answered < total) {
+            const ok = confirm(`Bạn mới trả lời ${answered}/${total} câu. Vẫn nộp bài?`);
+            if (!ok) return;
+        }
+        // Chấm điểm
+        let correct = 0;
+        const detailAnswers = quizCurrentSession.questions.map((q, idx) => {
+            const userAns = quizCurrentSession.answers[q.id] || '';
+            const isCorrect = userAns === q.correctAnswer;
+            if (isCorrect) correct++;
+            return {
+                questionId: q.id,
+                question: q.question,
+                options: q.options,
+                correctAnswer: q.correctAnswer,
+                userAnswer: userAns,
+                isCorrect,
+                explanation: q.explanation || ''
+            };
+        });
+        const score = total > 0 ? (correct / total) * 10 : 0;
+        const submission = {
+            id: Date.now(),
+            student: currentUser.name,
+            username: currentUser.identifier,
+            className: currentUser.className || '',
+            quizTitle: `Trắc nghiệm ${total} câu - ${new Date().toLocaleDateString('vi-VN')}`,
+            totalQuestions: total,
+            correctCount: correct,
+            score: Math.round(score * 10) / 10,
+            answers: detailAnswers,
+            timestamp: new Date().toLocaleString('vi-VN'),
+            date: new Date().toISOString().slice(0, 10),
+            startedAt: quizCurrentSession.startedAt,
+            duration: Math.round((Date.now() - quizCurrentSession.startedAt) / 1000)
+        };
+        logQuizAttempt(submission);
+        // Cập nhật gradebook tổng
+        try {
+            const key = currentUser.identifier;
+            const existing = gradebook.find(g => g.username === key);
+            if (existing) {
+                existing.attempts = (existing.attempts || 0) + 1;
+                existing.highestScore = Math.max(existing.highestScore || 0, submission.score);
+                existing.lastSubmit = submission.timestamp;
+            } else {
+                gradebook.push({ student: currentUser.name, username: key, attempts: 1, highestScore: submission.score, lastSubmit: submission.timestamp });
+            }
+        } catch(e) {}
+        // Hiển thị kết quả
+        showQuizResult(submission);
+        autoSaveLocalSnapshot();
+        // Đẩy lên máy chủ
+        showToast('Đang lưu kết quả lên máy chủ...', 'info');
+        try {
+            await Promise.all([
+                pushQuizSubmissionsToGithubDirectly(`HS ${currentUser.name} nộp bài trắc nghiệm`),
+                syncDataToGitHubDirectly(`HS ${currentUser.name} nộp bài trắc nghiệm`)
+            ]);
+            showToast('✅ Đã lưu kết quả!', 'success');
+        } catch(e) { showToast('Đã lưu cục bộ. Sẽ đồng bộ sau.', 'info'); }
+        quizCurrentSession = null;
+        setTimeout(() => {
+            renderStudentQuizHistory();
+            renderQuizStartForm();
+        }, 100);
+    }
+
+    function showQuizResult(sub) {
+        const area = document.getElementById('quizActiveArea'); if (!area) return;
+        area.classList.remove('hidden');
+        const scoreColor = sub.score >= 8 ? 'text-emerald-600' : (sub.score >= 5 ? 'text-amber-600' : 'text-rose-600');
+        const scoreBg = sub.score >= 8 ? 'from-emerald-500 to-teal-600' : (sub.score >= 5 ? 'from-amber-500 to-orange-500' : 'from-rose-500 to-pink-600');
+        const html = `
+            <div class="space-y-4 quiz-fade-in">
+                <div class="bg-gradient-to-r ${scoreBg} text-white rounded-2xl p-6 text-center shadow-lg">
+                    <div class="text-sm uppercase tracking-wide font-bold opacity-90">Kết quả bài trắc nghiệm</div>
+                    <div class="text-5xl font-extrabold mt-2">${sub.score.toFixed(1)}<span class="text-2xl opacity-80">/10</span></div>
+                    <div class="mt-2 text-base font-bold">Đúng ${sub.correctCount}/${sub.totalQuestions} câu</div>
+                    <div class="text-sm opacity-90 mt-1"><i class="ph-bold ph-clock"></i> Thời gian: ${sub.duration}s</div>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-4 space-y-3">
+                    <h4 class="font-bold text-base text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-blue-600"></i> Chi tiết từng câu</h4>
+                    ${(sub.answers || []).map((ans, idx) => {
+                        const ansColor = ans.isCorrect ? 'bg-emerald-50 border-emerald-200' : 'bg-rose-50 border-rose-200';
+                        const icon = ans.isCorrect ? 'ph-check-circle text-emerald-600' : 'ph-x-circle text-rose-600';
+                        return `<div class="${ansColor} border rounded-xl p-3 space-y-1.5">
+                            <div class="flex items-start gap-2">
+                                <i class="ph-bold ${icon} text-lg shrink-0 mt-0.5"></i>
+                                <div class="flex-1">
+                                    <div class="text-sm font-bold text-slate-900">Câu ${idx + 1}: ${escapeHtml(ans.question)}</div>
+                                    <div class="text-xs mt-1"><b>Đáp án đúng:</b> <span class="text-emerald-700 font-mono font-bold">${ans.correctAnswer}</span> | <b>Bạn chọn:</b> <span class="${ans.isCorrect ? 'text-emerald-700' : 'text-rose-700'} font-mono font-bold">${ans.userAnswer || '(bỏ trống)'}</span></div>
+                                    ${ans.explanation ? `<div class="text-xs mt-1 bg-white/60 p-2 rounded-lg text-slate-700"><i class="ph-bold ph-info text-blue-600"></i> <b>Giải thích:</b> ${escapeHtml(ans.explanation)}</div>` : ''}
+                                </div>
+                            </div>
+                        </div>`;
+                    }).join('')}
+                </div>
+                <div class="flex justify-center">
+                    <button onclick="closeQuizResultAndRestart()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-sm shadow-md flex items-center gap-1.5">
+                        <i class="ph-bold ph-arrow-clockwise"></i> Làm Bài Mới
+                    </button>
+                </div>
+            </div>`;
+        area.innerHTML = html;
+    }
+
+    function closeQuizResultAndRestart() {
+        document.getElementById('quizActiveArea')?.classList.add('hidden');
+        document.getElementById('quizStartForm')?.classList.remove('hidden');
+        renderStudentQuizHistory();
+    }
+
+    function viewQuizSubmission(subId) {
+        const sub = quizSubmissions.find(s => String(s.id) === String(subId));
+        if (!sub) return;
+        showQuizResult(sub);
+        document.getElementById('quizStartForm')?.classList.add('hidden');
+    }
+
+    // ===== QUIZ: TEACHER / ADMIN MANAGEMENT =====
+    function renderTeacherQuizTable() {
+        const tbody = document.getElementById('teacherQuizTableBody'); if (!tbody) return;
+        const totalEl = document.getElementById('teacherQuizTotalCount');
+        const subEl = document.getElementById('teacherQuizSubmissionsCount');
+        if (totalEl) totalEl.textContent = quizData.length;
+        if (subEl) subEl.textContent = quizSubmissions.length;
+        const q = (document.getElementById('teacherQuizSearch')?.value || '').toLowerCase();
+        const grade = document.getElementById('teacherQuizGradeFilter')?.value || 'all';
+        const diff = document.getElementById('teacherQuizDifficultyFilter')?.value || 'all';
+        let list = quizData.slice();
+        if (q) list = list.filter(x => (x.question || '').toLowerCase().includes(q));
+        if (grade !== 'all') list = list.filter(x => String(x.classLevel || '8') === String(grade));
+        if (diff !== 'all') list = list.filter(x => x.difficulty === diff);
+        list.sort((a, b) => (a.id || 0) - (b.id || 0));
+        if (list.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-slate-400 italic text-sm">Chưa có câu hỏi trắc nghiệm nào. Nhấn "Thêm câu hỏi" hoặc nạp từ Word/JSON.</td></tr>';
+        } else {
+            tbody.innerHTML = list.map(x => `<tr class="hover:bg-emerald-50/40 transition-colors">
+                <td class="font-bold text-center font-mono text-slate-500">${x.id}</td>
+                <td class="font-semibold text-slate-900">${escapeHtml((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
+                <td class="text-center"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">Khối ${escapeHtml(x.classLevel || '8')}</span></td>
+                <td class="text-center"><span class="text-xs font-bold ${x.difficulty === 'hard' ? 'text-rose-600' : (x.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${x.difficulty === 'hard' ? 'Khó' : (x.difficulty === 'medium' ? 'TB' : 'Dễ')}</span></td>
+                <td class="text-center font-mono font-bold text-blue-600">${escapeHtml(x.correctAnswer || '')}</td>
+                <td class="text-center">
+                    <button onclick="openQuizQuestionModal(${x.id})" class="px-2 py-1 rounded bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold mr-1"><i class="ph-bold ph-pencil-simple"></i></button>
+                    <button onclick="deleteQuizQuestion(${x.id})" class="px-2 py-1 rounded bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold"><i class="ph-bold ph-trash"></i></button>
+                </td>
+            </tr>`).join('');
+        }
+        renderTeacherQuizSubmissionsTable();
+    }
+
+    function renderTeacherQuizSubmissionsTable() {
+        const tbody = document.getElementById('teacherQuizSubmissionsTableBody'); if (!tbody) return;
+        if (!Array.isArray(quizSubmissions) || quizSubmissions.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-slate-400 italic text-sm">Chưa có bài làm trắc nghiệm nào.</td></tr>';
+            return;
+        }
+        const list = quizSubmissions.slice().sort((a, b) => (b.id || 0) - (a.id || 0)).slice(0, 100);
+        tbody.innerHTML = list.map(s => `<tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}</td>
+            <td class="text-slate-600">${escapeHtml(s.className || '')}</td>
+            <td class="text-center font-mono">${s.totalQuestions || 0}</td>
+            <td class="text-center font-mono text-emerald-600 font-bold">${s.correctCount || 0}</td>
+            <td class="text-center font-bold font-mono text-blue-600">${(s.score || 0).toFixed(1)}</td>
+            <td class="text-center text-xs text-slate-500 font-mono">${escapeHtml(s.timestamp || '')}</td>
+        </tr>`).join('');
+    }
+
+    function renderAdminQuizTable() {
+        const tbody = document.getElementById('adminQuizTableBody'); if (!tbody) return;
+        const totalEl = document.getElementById('adminQuizTotalCount');
+        const subEl = document.getElementById('adminQuizSubmissionsCount');
+        const avgEl = document.getElementById('adminQuizAvgScore');
+        if (totalEl) totalEl.textContent = quizData.length;
+        if (subEl) subEl.textContent = quizSubmissions.length;
+        if (avgEl) {
+            const avg = quizSubmissions.length > 0 ? quizSubmissions.reduce((s, x) => s + (x.score || 0), 0) / quizSubmissions.length : 0;
+            avgEl.textContent = avg.toFixed(1);
+        }
+        const q = (document.getElementById('adminQuizSearch')?.value || '').toLowerCase();
+        const grade = document.getElementById('adminQuizGradeFilter')?.value || 'all';
+        const diff = document.getElementById('adminQuizDifficultyFilter')?.value || 'all';
+        let list = quizData.slice();
+        if (q) list = list.filter(x => (x.question || '').toLowerCase().includes(q));
+        if (grade !== 'all') list = list.filter(x => String(x.classLevel || '8') === String(grade));
+        if (diff !== 'all') list = list.filter(x => x.difficulty === diff);
+        list.sort((a, b) => (a.id || 0) - (b.id || 0));
+        if (list.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-slate-400 italic text-sm">Chưa có câu hỏi trắc nghiệm nào. Nhấn "Thêm câu hỏi" hoặc nạp từ Word/JSON.</td></tr>';
+        } else {
+            tbody.innerHTML = list.map(x => `<tr class="hover:bg-emerald-50/40 transition-colors">
+                <td class="font-bold text-center font-mono text-slate-500">${x.id}</td>
+                <td class="font-semibold text-slate-900">${escapeHtml((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
+                <td class="text-center"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">Khối ${escapeHtml(x.classLevel || '8')}</span></td>
+                <td class="text-center"><span class="text-xs font-bold ${x.difficulty === 'hard' ? 'text-rose-600' : (x.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${x.difficulty === 'hard' ? 'Khó' : (x.difficulty === 'medium' ? 'TB' : 'Dễ')}</span></td>
+                <td class="text-center font-mono font-bold text-blue-600">${escapeHtml(x.correctAnswer || '')}</td>
+                <td class="text-center">
+                    <button onclick="openQuizQuestionModal(${x.id})" class="px-2 py-1 rounded bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold mr-1"><i class="ph-bold ph-pencil-simple"></i></button>
+                    <button onclick="deleteQuizQuestion(${x.id})" class="px-2 py-1 rounded bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold"><i class="ph-bold ph-trash"></i></button>
+                </td>
+            </tr>`).join('');
+        }
+        renderAdminQuizSubmissionsTable();
+    }
+
+    function renderAdminQuizSubmissionsTable() {
+        const tbody = document.getElementById('adminQuizSubmissionsTableBody'); if (!tbody) return;
+        if (!Array.isArray(quizSubmissions) || quizSubmissions.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-slate-400 italic text-sm">Chưa có bài làm trắc nghiệm nào.</td></tr>';
+            return;
+        }
+        const list = quizSubmissions.slice().sort((a, b) => (b.id || 0) - (a.id || 0)).slice(0, 100);
+        tbody.innerHTML = list.map(s => `<tr class="hover:bg-blue-50/40 transition-colors">
+            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}</td>
+            <td class="text-slate-600">${escapeHtml(s.className || '')}</td>
+            <td class="text-center font-mono">${s.totalQuestions || 0}</td>
+            <td class="text-center font-mono text-emerald-600 font-bold">${s.correctCount || 0}</td>
+            <td class="text-center font-bold font-mono text-blue-600">${(s.score || 0).toFixed(1)}</td>
+            <td class="text-center text-xs text-slate-500 font-mono">${escapeHtml(s.timestamp || '')}</td>
+            <td class="text-center"><button onclick="viewQuizSubmission(${s.id})" class="px-2 py-1 rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-100 font-bold"><i class="ph-bold ph-eye"></i></button></td>
+        </tr>`).join('');
+    }
+
+    // ===== QUIZ MODAL =====
+    function openQuizQuestionModal(id) {
+        const modal = document.getElementById('quizQuestionModal');
+        if (!modal) return;
+        const titleEl = document.getElementById('quizModalTitle');
+        if (id) {
+            const q = quizData.find(x => String(x.id) === String(id));
+            if (!q) return showToast('Không tìm thấy câu hỏi!', 'error');
+            document.getElementById('quizEditingId').value = q.id;
+            document.getElementById('quizQuestionText').value = q.question || '';
+            document.getElementById('quizOptionA').value = (q.options || [])[0] || '';
+            document.getElementById('quizOptionB').value = (q.options || [])[1] || '';
+            document.getElementById('quizOptionC').value = (q.options || [])[2] || '';
+            document.getElementById('quizOptionD').value = (q.options || [])[3] || '';
+            document.getElementById('quizClassLevel').value = q.classLevel || '8';
+            document.getElementById('quizDifficulty').value = q.difficulty || 'easy';
+            document.getElementById('quizExplanation').value = q.explanation || '';
+            document.querySelectorAll('input[name="quizCorrect"]').forEach(r => { r.checked = (r.value === q.correctAnswer); });
+            if (titleEl) titleEl.textContent = `Chỉnh Sửa Câu Hỏi (ID: ${q.id})`;
+        } else {
+            document.getElementById('quizEditingId').value = '';
+            document.getElementById('quizQuestionText').value = '';
+            document.getElementById('quizOptionA').value = '';
+            document.getElementById('quizOptionB').value = '';
+            document.getElementById('quizOptionC').value = '';
+            document.getElementById('quizOptionD').value = '';
+            document.getElementById('quizClassLevel').value = getStoredGrade() !== 'all' ? getStoredGrade() : '8';
+            document.getElementById('quizDifficulty').value = 'easy';
+            document.getElementById('quizExplanation').value = '';
+            document.querySelectorAll('input[name="quizCorrect"]').forEach(r => { r.checked = (r.value === 'A'); });
+            if (titleEl) titleEl.textContent = 'Thêm Câu Hỏi Trắc Nghiệm';
+        }
+        modal.classList.remove('hidden');
+    }
+    function closeQuizQuestionModal() { document.getElementById('quizQuestionModal')?.classList.add('hidden'); }
+
+    async function saveQuizQuestion() {
+        if (currentUser.role !== 'teacher' && currentUser.role !== 'admin') return showToast('Bạn không có quyền!', 'error');
+        const editingId = document.getElementById('quizEditingId')?.value;
+        const question = (document.getElementById('quizQuestionText')?.value || '').trim();
+        const optionA = (document.getElementById('quizOptionA')?.value || '').trim();
+        const optionB = (document.getElementById('quizOptionB')?.value || '').trim();
+        const optionC = (document.getElementById('quizOptionC')?.value || '').trim();
+        const optionD = (document.getElementById('quizOptionD')?.value || '').trim();
+        const classLevel = document.getElementById('quizClassLevel')?.value || '8';
+        const difficulty = document.getElementById('quizDifficulty')?.value || 'easy';
+        const explanation = (document.getElementById('quizExplanation')?.value || '').trim();
+        let correctAnswer = '';
+        document.querySelectorAll('input[name="quizCorrect"]').forEach(r => { if (r.checked) correctAnswer = r.value; });
+        if (!question) return showToast('Vui lòng nhập nội dung câu hỏi!', 'error');
+        if (!optionA || !optionB || !optionC || !optionD) return showToast('Vui lòng nhập đủ 4 đáp án A, B, C, D!', 'error');
+        if (!correctAnswer) return showToast('Vui lòng chọn đáp án đúng!', 'error');
+        if (editingId) {
+            const q = quizData.find(x => String(x.id) === String(editingId));
+            if (!q) return showToast('Không tìm thấy câu hỏi!', 'error');
+            q.question = question;
+            q.options = [optionA, optionB, optionC, optionD];
+            q.correctAnswer = correctAnswer;
+            q.classLevel = classLevel;
+            q.difficulty = difficulty;
+            q.explanation = explanation;
+            showToast('Đã cập nhật câu hỏi!', 'success');
+        } else {
+            quizData.push({
+                id: getNextQuizId(),
+                question, options: [optionA, optionB, optionC, optionD],
+                correctAnswer, classLevel, difficulty, explanation,
+                createdAt: new Date().toLocaleString('vi-VN'),
+                createdBy: currentUser.name || 'Hệ thống'
+            });
+            showToast('Đã thêm câu hỏi trắc nghiệm!', 'success');
+        }
+        closeQuizQuestionModal();
+        autoSaveLocalSnapshot();
+        renderTeacherQuizTable();
+        renderAdminQuizTable();
+        renderQuizStartForm();
+        await pushQuizDataToGithubDirectly(editingId ? 'Sửa câu hỏi trắc nghiệm' : 'Thêm câu hỏi trắc nghiệm');
+        try { await syncDataToGitHubDirectly(editingId ? 'Sửa câu hỏi trắc nghiệm' : 'Thêm câu hỏi trắc nghiệm'); } catch(e) {}
+    }
+
+    function deleteQuizQuestion(id) {
+        if (currentUser.role !== 'admin' && currentUser.role !== 'teacher') return showToast('Bạn không có quyền!', 'error');
+        const q = quizData.find(x => String(x.id) === String(id));
+        if (!q) return;
+        requestDeleteConfirmation(`câu hỏi trắc nghiệm "${(q.question || '').substring(0, 60)}..."`, async () => {
+            quizData = quizData.filter(x => String(x.id) !== String(id));
+            autoSaveLocalSnapshot();
+            renderTeacherQuizTable();
+            renderAdminQuizTable();
+            renderQuizStartForm();
+            showToast('Đã xóa câu hỏi!', 'success');
+            await pushQuizDataToGithubDirectly('Xóa câu hỏi trắc nghiệm');
+            try { await syncDataToGitHubDirectly('Xóa câu hỏi trắc nghiệm'); } catch(e) {}
+        });
+    }
+
+    // ===== QUIZ: TEMPLATE WORD / JSON EXPORT =====
+    async function exportQuizTemplateDocx() {
+        const p = [];
+        p.push({ text: "HƯỚNG DẪN SOẠN CÂU HỎI TRẮC NGHIỆM", bold: true, size: 32, color: "059669", align: "center", spaceAfter: 120 });
+        p.push({ text: "Mẫu câu hỏi chuẩn — nhập nhiều câu bằng cách lặp lại khối [CÂU HỎI] ... [HẾT CÂU HỎI]", italic: true, size: 20, color: "64748B", align: "center", spaceAfter: 200 });
+        p.push({ text: "[CÂU HỎI]", bold: true, size: 26, color: "047857", bg: "ECFDF5", spaceBefore: 120 });
+        p.push({ text: "Câu hỏi: Trong Python, hàm nào dùng để in ra màn hình?", bold: true, size: 22 });
+        p.push({ text: "A. print()", size: 22 });
+        p.push({ text: "B. input()", size: 22 });
+        p.push({ text: "C. len()", size: 22 });
+        p.push({ text: "D. range()", size: 22 });
+        p.push({ text: "Đáp án: A", bold: true, size: 22, color: "059669" });
+        p.push({ text: "Khối: 8", size: 22 });
+        p.push({ text: "Độ khó: Dễ", size: 22 });
+        p.push({ text: "Giải thích: print() dùng để xuất dữ liệu ra màn hình, input() để nhập, len() để đếm, range() tạo dãy số.", size: 22 });
+        p.push({ text: "[HẾT CÂU HỎI]", bold: true, size: 22, color: "047857", bg: "ECFDF5" });
+        p.push({ text: "" });
+        p.push({ text: "Ví dụ câu thứ 2 (Độ khó: Khó)", italic: true, size: 20, color: "64748B", spaceBefore: 200 });
+        p.push({ text: "[CÂU HỎI]", bold: true, size: 26, color: "047857", bg: "ECFDF5" });
+        p.push({ text: "Câu hỏi: Kết quả của đoạn code sau là gì? a = [1,2,3]; b = a; b.append(4); print(len(a))", bold: true, size: 22 });
+        p.push({ text: "A. 3", size: 22 });
+        p.push({ text: "B. 4", size: 22 });
+        p.push({ text: "C. 5", size: 22 });
+        p.push({ text: "D. Lỗi", size: 22 });
+        p.push({ text: "Đáp án: B", bold: true, size: 22, color: "059669" });
+        p.push({ text: "Khối: 8", size: 22 });
+        p.push({ text: "Độ khó: Khó", size: 22 });
+        p.push({ text: "Giải thích: b = a là gán tham chiếu, khi b.append(4) thì a cũng thay đổi, len(a) = 4.", size: 22 });
+        p.push({ text: "[HẾT CÂU HỎI]", bold: true, size: 22, color: "047857", bg: "ECFDF5" });
+        await generateDocxFile("Word_quiz_template.docx", p);
+        showToast("Đã xuất mẫu Word_quiz.docx!", "success");
+    }
+
+    function exportQuizDataJson() {
+        const payload = {
+            metadata: {
+                exportedAt: new Date().toISOString(),
+                exportedBy: currentUser.name || "Hệ thống",
+                count: quizData.length
+            },
+            quizData
+        };
+        downloadBlob(JSON.stringify(payload, null, 2), `Data_quiz.json`, 'application/json');
+        showToast("Đã xuất Data_quiz.json!", "success");
+    }
+
+    function exportQuizSubmissionsJson() {
+        const payload = {
+            metadata: {
+                exportedAt: new Date().toISOString(),
+                count: quizSubmissions.length
+            },
+            quizSubmissions
+        };
+        downloadBlob(JSON.stringify(payload, null, 2), `Hoc_sinh_quiz.json`, 'application/json');
+        showToast("Đã xuất Hoc_sinh_quiz.json!", 'success');
+    }
+
+    // ===== QUIZ: IMPORT =====
+    function parseQuizzesFromDocxText(text) {
+        const list = [];
+        const blocks = text.split(/(?:\[CÂU HỎI\]|=== CÂU HỎI ===)/i);
+        for (let b of blocks) {
+            if (!b.trim()) continue;
+            b = b.split(/(?:\[HẾT CÂU HỎI\]|=== HẾT CÂU HỎI ===)/i)[0];
+            let question = '', options = [], correctAnswer = '', classLevel = '8', difficulty = 'easy', explanation = '';
+            const qm = b.match(/(?:Câu hỏi|CÂU HỎI)\s*[:：]\s*([^\n\r]+)/i);
+            if (qm) question = qm[1].trim();
+            const aM = b.match(/(?:^|\n)\s*A[\.\)]\s*([^\n\r]+)/i); if (aM) options.push(aM[1].trim());
+            const bM = b.match(/(?:^|\n)\s*B[\.\)]\s*([^\n\r]+)/i); if (bM) options.push(bM[1].trim());
+            const cM = b.match(/(?:^|\n)\s*C[\.\)]\s*([^\n\r]+)/i); if (cM) options.push(cM[1].trim());
+            const dM = b.match(/(?:^|\n)\s*D[\.\)]\s*([^\n\r]+)/i); if (dM) options.push(dM[1].trim());
+            const anM = b.match(/(?:Đáp án|ĐÁP ÁN)\s*[:：]\s*([ABCDabcd])/i);
+            if (anM) correctAnswer = anM[1].toUpperCase();
+            const clM = b.match(/(?:Khối|KHỐI)\s*[:：]\s*(\d+)/i);
+            if (clM) classLevel = clM[1];
+            const dm = b.match(/(?:Độ khó|ĐỘ KHÓ)\s*[:：]\s*([^\n\r]+)/i);
+            if (dm) {
+                const d = dm[1].toLowerCase().trim();
+                if (d.includes('khó') || d.includes('nâng cao')) difficulty = 'hard';
+                else if (d.includes('trung bình') || d.includes('tb')) difficulty = 'medium';
+                else difficulty = 'easy';
+            }
+            const em = b.match(/(?:Giải thích|GIẢI THÍCH)\s*[:：]\s*([^\n\r]+)/i);
+            if (em) explanation = em[1].trim();
+            if (question && options.length >= 2 && correctAnswer) {
+                list.push({ question, options, correctAnswer, classLevel, difficulty, explanation });
+            }
+        }
+        return list;
+    }
+
+    async function importQuizFileFromTemplate(event) {
+        const file = event.target.files && event.target.files[0]; if (!file) return;
+        try {
+            showToast(`Đang đọc ${file.name}...`, 'info');
+            let list = [];
+            if (file.name.toLowerCase().endsWith('.docx')) {
+                const ab = await file.arrayBuffer();
+                const full = await extractDocxTextWithMath(ab);
+                list = parseQuizzesFromDocxText(full);
+            } else {
+                const text = await file.text();
+                const parsed = JSON.parse(text);
+                list = Array.isArray(parsed) ? parsed : (parsed.quizData || parsed.data || [parsed]);
+            }
+            let added = 0, maxId = quizData.length > 0 ? Math.max(...quizData.map(q => Number(q.id) || 0)) : 0;
+            for (const item of list) {
+                if (item && item.question) {
+                    maxId++;
+                    quizData.push({
+                        id: item.id && Number(item.id) > 0 ? Number(item.id) : maxId,
+                        question: String(item.question).trim(),
+                        options: Array.isArray(item.options) && item.options.length >= 2 ? item.options.map(o => String(o).trim()) : [],
+                        correctAnswer: String(item.correctAnswer || item.answer || 'A').toUpperCase(),
+                        classLevel: String(item.classLevel || item.grade || '8').replace(/\D/g, '') || '8',
+                        difficulty: ['easy', 'medium', 'hard'].includes(item.difficulty) ? item.difficulty : 'easy',
+                        explanation: String(item.explanation || '').trim(),
+                        createdAt: new Date().toLocaleString('vi-VN'),
+                        createdBy: currentUser.name || 'Import'
+                    });
+                    added++;
+                }
+            }
+            if (added > 0) {
+                autoSaveLocalSnapshot();
+                renderTeacherQuizTable();
+                renderAdminQuizTable();
+                renderQuizStartForm();
+                showToast(`Đã nạp ${added} câu hỏi trắc nghiệm!`, 'success');
+                await pushQuizDataToGithubDirectly(`Nạp ${added} câu hỏi từ file`);
+                try { await syncDataToGitHubDirectly(`Nạp ${added} câu hỏi trắc nghiệm`); } catch(e) {}
+            } else {
+                showToast('Không có câu hỏi hợp lệ trong tệp!', 'error');
+            }
+        } catch (e) {
+            console.warn(e);
+            showToast('Lỗi đọc tệp: ' + e.message, 'error');
+        }
+        event.target.value = '';
+    }
+
     // ===== ÁP DỤNG PHÂN QUYỀN & ĐỒNG BỘ NGAY =====
     async function applyPermissionsAndPush() {
         if (currentUser.role !== 'admin') return showToast("Chỉ Admin mới có quyền thao tác!", "error");
@@ -2565,7 +3552,7 @@
         }
     }
 
-    // ===== GỌI API AI MIỄN PHÍ (Pollinations.ai) =====
+    // ===== GỌI API AI =====
     async function callFreeAiApi(prompt, systemMsg = "") {
         const sys = systemMsg || "Bạn là gia sư AI chuyên bồi dưỡng học sinh giỏi môn lập trình Python cấp THCS tại Việt Nam. Trả lời bằng tiếng Việt dễ hiểu, súc tích (để robot có thể đọc thành tiếng). Hướng dẫn chi tiết cách viết code, cách dùng biến, kiểu dữ liệu và thuật toán. Kèm theo code Python đáp án hoàn chỉnh có chú thích từng bước. Tránh dùng nhiều ký hiệu markdown phức tạp.";
         const tryPost = async () => {
@@ -2602,7 +3589,7 @@
         return null;
     }
 
-    // ===== TÍNH NĂNG MỚI: HÀM PHÂN QUYỀN =====
+    // ===== PHÂN QUYỀN =====
     function hasPermission(action) {
         if (currentUser.role === 'admin') return true;
         if (currentUser.role !== 'teacher') return false;
@@ -2684,19 +3671,12 @@
         });
     }
 
-    // =============================================
-    // 📨 TÍNH NĂNG MỚI: MESSAGE.json - CHAT THỜI GIAN THỰC
-    // =============================================
+    // ===== LỜI NHẮN (giữ nguyên) =====
     async function pushMessagesToGithubDirectly(actionDescription = "Cập nhật tin nhắn") {
         if (!PROXY_ENDPOINT) return false;
         try {
             const payload = {
-                metadata: {
-                    updatedAt: new Date().toISOString(),
-                    updatedBy: currentUser.name || "Hệ thống",
-                    action: actionDescription,
-                    count: studentMessages.length
-                },
+                metadata: { updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription, count: studentMessages.length },
                 studentMessages
             };
             const jsonStr = JSON.stringify(payload, null, 2);
@@ -2725,7 +3705,6 @@
             const payload = await res.json();
             if (payload && Array.isArray(payload.studentMessages)) {
                 const localMap = new Map(studentMessages.map(m => [String(m.id), m]));
-                // Merge replies: ưu tiên bản có nhiều replies hơn (mới hơn)
                 payload.studentMessages.forEach(sm => {
                     const lm = localMap.get(String(sm.id));
                     if (lm) {
@@ -2743,7 +3722,6 @@
         } catch(e) { return false; }
     }
 
-    // ===== LỜI NHẮN =====
     async function sendStudentMessage() {
         if (!currentUser.isLoggedIn || currentUser.role !== 'student') return showToast("Vui lòng đăng nhập!", "error");
         const ta = document.getElementById('studentMessageInput');
@@ -2766,7 +3744,6 @@
         autoSaveLocalSnapshot();
         renderStudentMessages();
         showToast("Đang gửi tin nhắn lên máy chủ...", "info");
-        // Đẩy NGAY MESSAGE.json để chat gần như thời gian thực
         try {
             const [msgOk] = await Promise.all([
                 pushMessagesToGithubDirectly(`HS ${currentUser.name} gửi tin nhắn`),
@@ -2857,7 +3834,6 @@
         m.read = true;
         autoSaveLocalSnapshot();
         renderTeacherMessages(); renderAdminMessages();
-        // Đẩy MESSAGE.json để đồng bộ tức thì
         pushMessagesToGithubDirectly("Đánh dấu tin nhắn đã đọc").catch(() => {});
         enqueueSync(`Đánh dấu tin nhắn đã đọc`);
     }
@@ -2887,7 +3863,6 @@
         autoSaveLocalSnapshot();
         renderTeacherMessages(); renderAdminMessages(); renderStudentMessages();
         showToast("Đã gửi phản hồi! Đang đồng bộ...", "info");
-        // Đẩy MESSAGE.json ngay để học sinh thấy tức thì
         try {
             await Promise.all([
                 pushMessagesToGithubDirectly(`GV/Admin phản hồi tin nhắn`),
@@ -2908,7 +3883,7 @@
     function enforceTeacherUiPermissions() {
         if (currentUser.role === 'admin') return;
         const canAdd = hasPermission('add');
-        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"], #teacherView [onclick*="createAssignment"], #teacherView [onclick*="openRandomTestModal"]').forEach(b => {
+        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"], #teacherView [onclick*="createAssignment"], #teacherView [onclick*="openRandomTestModal"], #teacherView [onclick*="openQuizQuestionModal"]').forEach(b => {
             b.style.display = canAdd ? '' : 'none';
         });
         document.querySelectorAll('#teacherView label:has(input[type="file"])').forEach(b => {
@@ -2918,8 +3893,6 @@
 
     function initCodeMirrorEditors() {
         if (!window.CodeMirror) return;
-
-        // Custom hint function for Python
         CodeMirror.registerHelper("hint", "python", function(cm, options) {
             const word = cm.getTokenAt(cm.getCursor()).string;
             const list = [
@@ -2929,10 +3902,9 @@
                 "list", "dict", "set", "tuple", "True", "False", "None"
             ];
             let filtered = list.filter(item => item.toLowerCase().startsWith(word.toLowerCase()));
-            if (filtered.length === 0) filtered = list; // Show all if no match
+            if (filtered.length === 0) filtered = list;
             return { list: filtered, from: CodeMirror.Pos(cm.getCursor().line, cm.getTokenAt(cm.getCursor()).start), to: CodeMirror.Pos(cm.getCursor().line, cm.getTokenAt(cm.getCursor()).end) };
         });
-
         const opts = {
             mode: 'python', theme: 'monokai', lineNumbers: false, indentUnit: 4, tabSize: 4,
             indentWithTabs: false, matchBrackets: true, autoCloseBrackets: true, lineWrapping: true,
@@ -2948,26 +3920,15 @@
             }
         };
         const codeEl = document.getElementById('codeEditor');
-        if (codeEl) {
-            studentCodeEditor = CodeMirror.fromTextArea(codeEl, { ...opts, height: '380px' });
-            studentCodeEditor.on('change', () => updateLineCount('student'));
-        }
+        if (codeEl) { studentCodeEditor = CodeMirror.fromTextArea(codeEl, { ...opts, height: '380px' }); studentCodeEditor.on('change', () => updateLineCount('student')); }
         const t = document.getElementById('newSolutionCode');
-        if (t) {
-            teacherSolutionEditor = CodeMirror.fromTextArea(t, { ...opts, height: '180px' });
-            teacherSolutionEditor.on('change', () => updateLineCount('teacher'));
-        }
+        if (t) { teacherSolutionEditor = CodeMirror.fromTextArea(t, { ...opts, height: '180px' }); teacherSolutionEditor.on('change', () => updateLineCount('teacher')); }
         const a = document.getElementById('adminNewSolutionCode');
-        if (a) {
-            adminSolutionEditor = CodeMirror.fromTextArea(a, { ...opts, height: '180px' });
-            adminSolutionEditor.on('change', () => updateLineCount('admin'));
-        }
+        if (a) { adminSolutionEditor = CodeMirror.fromTextArea(a, { ...opts, height: '180px' }); adminSolutionEditor.on('change', () => updateLineCount('admin')); }
     }
     
     function showCodeHints() {
-        if (studentCodeEditor) {
-            studentCodeEditor.showHint({ hint: CodeMirror.hint.python, completeSingle: false });
-        }
+        if (studentCodeEditor) studentCodeEditor.showHint({ hint: CodeMirror.hint.python, completeSingle: false });
     }
 
     function updateLineCount(which) {
@@ -3001,22 +3962,21 @@
         container.innerHTML = activeTests.map(t => {
             const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
             const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
-            return `
-                <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-2">
-                    <div class="flex items-start justify-between gap-2">
-                        <div>
-                            <h4 class="font-bold text-sm text-slate-900">${escapeHtml(t.title)}</h4>
-                            <div class="text-xs text-slate-500 mt-1">${qCount} câu · Tạo lúc ${escapeHtml(t.createdAt)} · ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</div>
-                            ${flaggedCount > 0 ? `<div class="text-xs text-amber-600 font-bold mt-1">⭐ ${flaggedCount} câu đã gắn cờ</div>` : ''}
-                        </div>
+            return `<div class="border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-2">
+                <div class="flex items-start justify-between gap-2">
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-900">${escapeHtml(t.title)}</h4>
+                        <div class="text-xs text-slate-500 mt-1">${qCount} câu · Tạo lúc ${escapeHtml(t.createdAt)} · ${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</div>
+                        ${flaggedCount > 0 ? `<div class="text-xs text-amber-600 font-bold mt-1">⭐ ${flaggedCount} câu đã gắn cờ</div>` : ''}
                     </div>
-                    <div class="flex flex-wrap gap-2 justify-end">
-                        <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
-                        <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
-                        <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
-                        <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh</button>
-                    </div>
-                </div>`;
+                </div>
+                <div class="flex flex-wrap gap-2 justify-end">
+                    <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
+                    <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                    <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
+                    <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh</button>
+                </div>
+            </div>`;
         }).join('');
     }
 
@@ -3027,26 +3987,25 @@
         container.innerHTML = activeTests.map(t => {
             const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
             const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
-            return `
-                <div class="border border-slate-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition-all space-y-2">
-                    <div class="flex items-start justify-between gap-2 flex-wrap">
-                        <div class="flex-1">
-                            <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600"></i>${escapeHtml(t.title)}</h4>
-                            <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
-                                <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
-                                <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
-                                <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
-                                ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
-                            <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
-                            <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
-                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh</button>
+            return `<div class="border border-slate-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition-all space-y-2">
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-purple-600"></i>${escapeHtml(t.title)}</h4>
+                        <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                            <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
+                            <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                            <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
+                            ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
                         </div>
                     </div>
-                </div>`;
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
+                        <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
+                        <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát cho học sinh</button>
+                    </div>
+                </div>
+            </div>`;
         }).join('');
     }
 
@@ -3058,29 +4017,28 @@
             const qCount = (t.questionIds || []).filter(qid => assignments.some(a => a.id == qid)).length;
             const flaggedCount = (t.questionIds || []).filter(qid => isQuestionFlagged(qid)).length;
             const checked = selectedAdminItems.tests.has(t.id) ? 'checked' : '';
-            return `
-                <div class="border ${checked ? 'border-indigo-400 bg-indigo-50' : 'border-slate-200 bg-white'} rounded-2xl p-4 shadow-sm hover:shadow-md transition-all space-y-2">
-                    <div class="flex items-start justify-between gap-2 flex-wrap">
-                        <div class="flex items-start gap-2 flex-1">
-                            <input type="checkbox" ${checked} onchange="toggleAdminItemSelection('tests', ${t.id}, this.checked)" class="w-4 h-4 cursor-pointer mt-1">
-                            <div class="flex-1">
-                                <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-indigo-600"></i>${escapeHtml(t.title)}</h4>
-                                <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
-                                    <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
-                                    <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
-                                    <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
-                                    ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
-                                </div>
+            return `<div class="border ${checked ? 'border-indigo-400 bg-indigo-50' : 'border-slate-200 bg-white'} rounded-2xl p-4 shadow-sm hover:shadow-md transition-all space-y-2">
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                    <div class="flex items-start gap-2 flex-1">
+                        <input type="checkbox" ${checked} onchange="toggleAdminItemSelection('tests', ${t.id}, this.checked)" class="w-4 h-4 cursor-pointer mt-1">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-list-checks text-indigo-600"></i>${escapeHtml(t.title)}</h4>
+                            <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                                <span><i class="ph-bold ph-question"></i> ${qCount} câu</span>
+                                <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                                <span>${t.allowSampleCode ? '📖 Có code mẫu' : '🔒 Không code mẫu'}</span>
+                                ${flaggedCount > 0 ? `<span class="text-amber-600 font-bold">⭐ ${flaggedCount} câu đã gắn cờ</span>` : ''}
                             </div>
                         </div>
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
-                            <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
-                            <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
-                            <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát đề</button>
-                        </div>
                     </div>
-                </div>`;
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="viewTestDetail(${t.id})" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-eye"></i> Xem</button>
+                        <button onclick="openEditTestModal(${t.id})" class="px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteTestSet(${t.id})" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 hover:bg-rose-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
+                        <button onclick="pushTestToStudents(${t.id})" class="px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 hover:bg-purple-100 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát đề</button>
+                    </div>
+                </div>
+            </div>`;
         }).join('');
         updateAdminSelectionCount('tests');
     }
@@ -3397,13 +4355,11 @@
         if (icon) icon.className = "ph-bold ph-book-open-text text-amber-300";
         if (titleEl) titleEl.textContent = lec.title;
         if (subEl) subEl.textContent = `Khối ${lec.classLevel || '8'} - ${lec.grade || 'Tin học cơ sở'}`;
-        
         let mediaHtml = '';
         if (lec.mediaUrl) {
             const embedUrl = getEmbedUrl(lec.mediaUrl);
             mediaHtml = `<div class="mt-4 aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm"><iframe src="${embedUrl}" class="w-full h-full" allowfullscreen></iframe></div>`;
         }
-
         if (bodyEl) {
             bodyEl.innerHTML = `<div class="bg-blue-50/70 border border-blue-200 p-3 rounded-2xl mb-4 font-semibold text-blue-900 text-sm flex items-center justify-between"><span>Chủ đề: ${escapeHtml(lec.grade || 'Tin học')} (Khối ${escapeHtml(lec.classLevel || '8')})</span><span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">Mã bài: #${lec.id}</span></div>${mediaHtml}<div class="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 leading-relaxed text-sm mt-4">${renderSimpleMarkdown(lec.content)}</div>`;
             renderKaTeXFormulas(bodyEl);
@@ -3639,6 +4595,8 @@
             closeLoginModal(); switchRole('student');
             showToast(`Chào mừng học sinh ${student.name}!`, "success");
             speakRobotText(`Chào em ${student.name}!`);
+            renderQuizStartForm();
+            renderStudentQuizHistory();
         } else {
             handleFailedLogin(student, id, 'student');
         }
@@ -3656,6 +4614,8 @@
             closeLoginModal(); switchRole(teacher.role || 'teacher');
             if (teacher.role === 'admin') { showToast("Chào mừng Quản trị viên!", "success"); speakRobotText(`Kính chào thầy ${teacher.name}!`); }
             else { showToast(`Chào mừng ${teacher.name}!`, "success"); speakRobotText(`Kính chào thầy cô ${teacher.name}!`); }
+            renderTeacherQuizTable();
+            renderAdminQuizTable();
         } else {
             handleFailedLogin(teacher, id, 'teacher');
         }
@@ -3671,7 +4631,7 @@
         const rCccd  = document.getElementById('regStudentCccd')?.value.trim() || '';
         const rEmail = document.getElementById('regStudentEmail')?.value.trim() || '';
         if (!name || !className || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
-        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
+        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập đẩy đủ: SĐT / CCCD / Email!", "error");
         const existed = registeredUsers.find(u => matchesUserIdentifier(u, username));
         if (existed) return showToast("Tên đăng nhập đã tồn tại!", "error");
         const passwordHash = await hashPassword(pass);
@@ -3693,7 +4653,7 @@
         const username = document.getElementById('regTeacherUsername')?.value.trim().toLowerCase();
         const pass = document.getElementById('regTeacherPass')?.value.trim();
         if (!name || !username || !pass) return showToast("Vui lòng điền đầy đủ!", "error");
-        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
+        if (!rPhone && !rCccd && !rEmail) return showToast("Vui lòng nhập đủ thông tin: SĐT / CCCD / Email!", "error");
         const existed = registeredUsers.find(u => matchesUserIdentifier(u, username) || (rPhone && u.phone && u.phone === rPhone));
         if (existed) return showToast("Tên đăng nhập hoặc SĐT đã tồn tại!", "error");
         const passwordHash = await hashPassword(pass);
@@ -3788,7 +4748,7 @@
         const newPass = document.getElementById('resetNewPass')?.value.trim();
         const confirmPass = document.getElementById('resetConfirmPass')?.value.trim();
         if (!username) return showToast("Vui lòng nhập Tên đăng nhập!", "error");
-        if (!phone && !cccd && !email) return showToast("Vui lòng nhập ít nhất 1 trong 3: SĐT / CCCD / Email!", "error");
+        if (!phone && !cccd && !email) return showToast("Vui lòng nhập thông tin: SĐT / CCCD / Email!", "error");
         if (!newPass || !confirmPass) return showToast("Vui lòng nhập mật khẩu mới!", "error");
         if (newPass !== confirmPass) return showToast("Mật khẩu xác nhận không khớp!", "error");
         if (newPass.length < 6) return showToast("Mật khẩu phải từ 6 ký tự!", "error");
@@ -3885,7 +4845,7 @@
         const cleanedUsers = registeredUsers.map(u => { const { password, ...safe } = u; return { ...safe, password: null, _hasPassword: !!(u.passwordHash || u.password) }; });
         return {
             metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
-            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages }
+            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData: sanitizeMathForJson(quizData), quizSubmissions }
         };
     }
 
@@ -3907,8 +4867,9 @@
             applySnapshotData(payload.data);
             await migratePasswordHashes();
             ensureTrialAccountsAlwaysAvailable();
-            // Nạp MESSAGE.json để đảm bảo tin nhắn mới nhất
             try { await fetchMessagesFromGithub(); } catch(e) {}
+            try { await fetchQuizDataFromGithub(); } catch(e) {}
+            try { await fetchQuizSubmissionsFromGithub(); } catch(e) {}
             if (syncTimeEl) syncTimeEl.textContent = new Date().toLocaleString('vi-VN');
             if (showAlert) showToast("Đã nạp dữ liệu mới!", "success");
             renderAllAfterDataChange();
@@ -3944,6 +4905,8 @@
             loadSystemPermissionsIntoUi();
         }
         if (Array.isArray(data.studentMessages)) studentMessages = data.studentMessages;
+        if (Array.isArray(data.quizData)) quizData = data.quizData;
+        if (Array.isArray(data.quizSubmissions)) quizSubmissions = data.quizSubmissions;
         restoreFlaggedAssignments();
     }
 
@@ -3957,6 +4920,8 @@
         loadSystemPermissionsIntoUi();
         refreshMessagesBadges();
         renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
+        renderTeacherQuizTable(); renderAdminQuizTable();
+        renderQuizStartForm(); renderStudentQuizHistory();
     }
 
     async function pushSubmissionsCsvToGithub() {
@@ -4034,7 +4999,7 @@
     }
 
     function autoSaveLocalSnapshot() {
-        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages })); } catch(e) {}
+        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData, quizSubmissions })); } catch(e) {}
     }
     function loadLocalSnapshotIfAvailable() {
         try {
@@ -4054,6 +5019,8 @@
                 if (parsed.questionFlags && typeof parsed.questionFlags === 'object') { questionFlags = parsed.questionFlags; saveQuestionFlags(); }
                 if (parsed.systemPermissions && typeof parsed.systemPermissions === 'object') systemPermissions = parsed.systemPermissions;
                 if (Array.isArray(parsed.studentMessages)) studentMessages = parsed.studentMessages;
+                if (Array.isArray(parsed.quizData)) quizData = parsed.quizData;
+                if (Array.isArray(parsed.quizSubmissions)) quizSubmissions = parsed.quizSubmissions;
             }
         } catch(e) {}
     }
@@ -4084,13 +5051,11 @@
         const lec = lectures.find(l => l.id == id);
         const area = document.getElementById('studentLectureContentArea');
         if (!lec || !area) return;
-        
         let mediaHtml = '';
         if (lec.mediaUrl) {
             const embedUrl = getEmbedUrl(lec.mediaUrl);
             mediaHtml = `<div class="mt-4 aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm"><iframe src="${embedUrl}" class="w-full h-full" allowfullscreen></iframe></div>`;
         }
-
         area.innerHTML = `<div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl flex items-center justify-between shadow-sm"><div><h4 class="font-bold text-base text-indigo-950">${escapeHtml(lec.title)}</h4><span class="text-sm text-indigo-600 font-semibold bg-white px-2 py-0.5 rounded-md border border-indigo-100 shadow-sm mt-1 inline-block">Khối ${escapeHtml(lec.classLevel || '8')} - ${escapeHtml(lec.grade || 'Tin học')}</span></div><button onclick="speakStudentLecture(${lec.id})" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1.5 shadow"><i class="ph-bold ph-speaker-high"></i> AI Đọc</button></div>${mediaHtml}<div class="bg-white border border-slate-200 rounded-2xl p-6 leading-relaxed space-y-3 text-sm mt-4">${renderSimpleMarkdown(lec.content)}</div>`;
         renderKaTeXFormulas(area);
     }
@@ -4534,7 +5499,7 @@
         const isResetResult = (r) => r === 'Reset pw' || r === 'Reset lại';
         tbody.innerHTML = list.map(l => {
             const isReset = isResetResult(l.result);
-            const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu');
+            const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu') || l.result.includes('Trắc nghiệm');
             return `<tr class="${isReset ? 'bg-rose-50/80 border-l-4 border-rose-500' : ''} hover:bg-blue-50/50 transition-colors cursor-pointer" onclick="highlightTableRow(this)"><td class="text-slate-500 font-mono text-xs">${escapeHtml(l.time)}</td><td class="font-bold text-slate-900">${escapeHtml(l.name)}</td><td class="font-mono text-slate-700">${escapeHtml(l.identifier)}</td><td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${escapeHtml(l.role)}</td><td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + escapeHtml(l.result) + '</span>'}</td></tr>`;
         }).join('');
     }
@@ -4654,7 +5619,6 @@
         navigator.clipboard.writeText(code).then(() => showToast("Đã sao chép!", "success")).catch(() => showToast("Lỗi sao chép", "error"));
     }
 
-    // Hàm Tải lên / Tải xuống file .py
     function downloadPythonFile() {
         const code = getStudentCode();
         const blob = new Blob([code], { type: 'text/x-python' });
@@ -4678,35 +5642,43 @@
         const lsec = document.getElementById('studentLecturesSection');
         const psec = document.getElementById('studentPractiseSection');
         const tsec = document.getElementById('studentTestsSection');
+        const qsec = document.getElementById('studentQuizSection');
         const msec = document.getElementById('studentMessagesSection');
         const bl = document.getElementById('studentTabLecturesBtn');
         const bp = document.getElementById('studentTabPractiseBtn');
         const bt = document.getElementById('studentTabTestsBtn');
+        const bq = document.getElementById('studentTabQuizBtn');
         const bm = document.getElementById('studentTabMessagesBtn');
         const wrapper = document.getElementById('assignmentSelectorWrapper');
-        [lsec, psec, tsec, msec].forEach(el => el?.classList.add('hidden'));
+        [lsec, psec, tsec, qsec, msec].forEach(el => el?.classList.add('hidden'));
         wrapper?.classList.add('hidden'); wrapper?.classList.remove('flex');
         const normalBtn = "px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center gap-2 transition-all";
         if (tab === 'lectures') {
             lsec?.classList.remove('hidden');
             if (bl) bl.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm flex items-center gap-2";
-            [bp, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
+            [bp, bt, bq, bm].forEach(b => { if (b) b.className = normalBtn; });
             populateStudentLectures();
         } else if (tab === 'practise') {
             psec?.classList.remove('hidden');
             wrapper?.classList.remove('hidden'); wrapper?.classList.add('flex');
             if (bp) bp.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white shadow-sm flex items-center gap-2";
-            [bl, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
+            [bl, bt, bq, bm].forEach(b => { if (b) b.className = normalBtn; });
             if (!currentTestSession) populateAssignmentSelect();
         } else if (tab === 'tests') {
             tsec?.classList.remove('hidden');
             if (bt) bt.className = "px-4 py-2 rounded-xl text-xs font-bold bg-purple-600 text-white shadow-sm flex items-center gap-2";
-            [bl, bp, bm].forEach(b => { if (b) b.className = normalBtn; });
+            [bl, bp, bq, bm].forEach(b => { if (b) b.className = normalBtn; });
             renderStudentTestList();
+        } else if (tab === 'quiz') {
+            qsec?.classList.remove('hidden');
+            if (bq) bq.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-2";
+            [bl, bp, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
+            renderQuizStartForm();
+            renderStudentQuizHistory();
         } else if (tab === 'messages') {
             msec?.classList.remove('hidden');
             if (bm) bm.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-2";
-            [bl, bp, bt].forEach(b => { if (b) b.className = normalBtn; });
+            [bl, bp, bt, bq].forEach(b => { if (b) b.className = normalBtn; });
             renderStudentMessages();
         }
     }
@@ -4714,17 +5686,18 @@
     function onTeacherFilterChange() { renderTeacherLecturesTable(); renderManageAssignmentsTable(); }
 
     function switchTeacherTab(tab) {
-        ['lectures','create','manage','tests','submissions','logs','grades','messages'].forEach(t => {
+        ['lectures','create','manage','tests','quiz','submissions','logs','grades','messages'].forEach(t => {
             const el = document.getElementById('teacherTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Lectures','Manage','Tests','Submissions','Logs','Grades','Messages'].forEach(t => {
+        ['Lectures','Manage','Tests','Quiz','Submissions','Logs','Grades','Messages'].forEach(t => {
             const btn = document.getElementById('tabTeacher' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ? "py-2 px-4 text-xs font-bold rounded-xl bg-blue-50 text-blue-600 shadow-sm flex items-center gap-2 whitespace-nowrap" : "py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all";
         });
         if (tab === 'lectures') renderTeacherLecturesTable();
         if (tab === 'manage') renderManageAssignmentsTable();
         if (tab === 'tests') renderTeacherTestsList();
+        if (tab === 'quiz') renderTeacherQuizTable();
         if (tab === 'submissions') renderTeacherSubmissionsTable();
         if (tab === 'logs') renderTeacherLogsTable();
         if (tab === 'grades') renderTeacherGrades();
@@ -4938,11 +5911,11 @@
     }
 
     function switchAdminTab(tab) {
-        ['users','lectures','assignments','tests','submissions','logs','grades','messages'].forEach(t => {
+        ['users','lectures','assignments','tests','quiz','submissions','logs','grades','messages'].forEach(t => {
             const el = document.getElementById('adminTab' + t.charAt(0).toUpperCase() + t.slice(1));
             if (el) el.classList.toggle('hidden', tab !== t);
         });
-        ['Users','Lectures','Assignments','Tests','Submissions','Logs','Grades','Messages'].forEach(t => {
+        ['Users','Lectures','Assignments','Tests','Quiz','Submissions','Logs','Grades','Messages'].forEach(t => {
             const btn = document.getElementById('tabAdmin' + t + 'Btn');
             if (btn) btn.className = (t.toLowerCase() === tab) ? "py-2 px-4 text-xs font-bold rounded-xl bg-indigo-50 text-indigo-600 shadow-sm flex items-center gap-2 whitespace-nowrap" : "py-2 px-4 text-xs font-semibold rounded-xl text-slate-600 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition-all";
         });
@@ -4950,6 +5923,7 @@
         else if (tab === 'lectures') renderTeacherLecturesTable();
         else if (tab === 'assignments') renderAdminAssignmentsTable();
         else if (tab === 'tests') renderAdminTestsList();
+        else if (tab === 'quiz') renderAdminQuizTable();
         else if (tab === 'submissions') renderAdminSubmissionsTable();
         else if (tab === 'logs') renderAdminLogsTable();
         else if (tab === 'grades') renderAdminGrades();
@@ -4985,6 +5959,7 @@
         renderAdminUsersTable(); renderTeacherLecturesTable(); renderAdminAssignmentsTable();
         renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades();
         renderAdminTestsList();
+        renderAdminQuizTable();
         loadSystemPermissionsIntoUi();
         refreshMessagesBadges();
     }
@@ -5032,7 +6007,7 @@
         const isResetResult = (r) => r === 'Reset pw' || r === 'Reset lại';
         tbody.innerHTML = list.map(l => {
             const isReset = isResetResult(l.result);
-            const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu');
+            const ok = l.result === 'Thành công' || l.result.includes('thành công') || l.result.includes('Đổi mật khẩu') || l.result.includes('Trắc nghiệm');
             return `<tr class="${isReset ? 'bg-rose-50/80 border-l-4 border-rose-500' : ''} hover:bg-slate-50 transition-colors cursor-pointer" onclick="highlightTableRow(this)"><td class="text-slate-500 font-mono text-xs">${escapeHtml(l.time)}</td><td class="font-bold text-slate-900">${escapeHtml(l.name)}</td><td class="font-mono text-slate-700">${escapeHtml(l.identifier)}</td><td class="text-center uppercase text-xs font-bold ${l.role === 'admin' ? 'text-amber-600' : (l.role === 'teacher' ? 'text-indigo-600' : 'text-blue-600')}">${escapeHtml(l.role)}</td><td class="text-center">${isReset ? '<span class="px-2 py-0.5 rounded-full text-xs font-black bg-rose-600 text-white animate-pulse shadow ring-2 ring-rose-300">Reset pw</span>' : '<span class="px-2 py-0.5 rounded-full text-xs font-bold ' + (ok ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700') + '">' + escapeHtml(l.result) + '</span>'}</td></tr>`;
         }).join('');
     }
@@ -5205,7 +6180,7 @@
     function sanitizeMathForJson(data) {
         if (!data) return data;
         const clean = (s) => { if (!s || typeof s !== 'string') return s; let r = s; r = r.replace(/\\\(([\s\S]+?)\\\)/g, "$$1$"); r = r.replace(/\\\[([\s\S]+?)\\\]/g, "$$$$1$$$$"); r = r.replace(/\u200B/g, "").replace(/\uFEFF/g, ""); return r; };
-        return JSON.parse(JSON.stringify(data, (k, v) => (typeof v === 'string' && (k === 'content' || k === 'description' || k === 'title' || k === 'mediaUrl')) ? clean(v) : v));
+        return JSON.parse(JSON.stringify(data, (k, v) => (typeof v === 'string' && (k === 'content' || k === 'description' || k === 'title' || k === 'mediaUrl' || k === 'question')) ? clean(v) : v));
     }
     function xmlEscapeDocx(s) { if (!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;'); }
 
@@ -5714,7 +6689,7 @@
 
     function openAiAssistant(mode = 'socratic') { 
         const box = document.getElementById('aiChatBox');
-        if (box) box.innerHTML = ''; // Xóa toàn bộ nội dung chat cũ khi mở mới
+        if (box) box.innerHTML = '';
         setAiMode(mode); 
         document.getElementById('aiModal')?.classList.remove('hidden'); 
     }
@@ -5739,7 +6714,6 @@
     }
     function quickAskAi(text) { const i = document.getElementById('aiUserInput'); if (i) { i.value = text; sendAiMessage(); } }
 
-    // Hàm Giải thích Code mẫu
     function explainSampleCode() {
         const code = getStudentCode();
         if (!code || code.trim() === "" || code.trim() === "# Viết mã Python của em ở đây...") {
@@ -5753,9 +6727,6 @@
         }
     }
 
-    // =============================================
-    // 🧠 GIA SƯ AI THÔNG MINH - TRẢ LỜI VĂN BẢN + CODE PYTHON
-    // =============================================
     async function sendAiMessage() {
         const i = document.getElementById('aiUserInput');
         const text = i ? i.value.trim() : '';
@@ -5763,7 +6734,6 @@
         appendAiChatMessage('user', text);
         if (i) i.value = '';
 
-        // Hiển thị trạng thái đang suy nghĩ
         const box = document.getElementById('aiChatBox');
         const loadingDiv = document.createElement('div');
         loadingDiv.id = 'aiLoadingIndicator';
@@ -5772,7 +6742,6 @@
         box?.appendChild(loadingDiv);
         if (box) box.scrollTop = box.scrollHeight;
 
-        // Xây dựng prompt theo yêu cầu chính xác
         const code = getStudentCode();
         const codeBlock = code && code.trim() && !code.includes('# Viết mã Python') ? `\n\nCode hiện tại của em:\n${code.substring(0, 1500)}` : '';
         const currentQuestion = currentAssignment?.title || 'bài tập lập trình Python';
@@ -5791,7 +6760,6 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         let reply = null;
         try { reply = await callFreeAiApi(fullPrompt); } catch(e) { console.warn(e); }
 
-        // Fallback chất lượng cao nếu AI không phản hồi
         if (!reply) {
             const isTA = (currentUser.role === 'teacher' || currentUser.role === 'admin');
             if (currentAiMode === 'socratic') {
@@ -5878,9 +6846,6 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         } catch(e) { return escapeHtml(text || ""); }
     }
 
-    // =============================================
-    // ⚡ POLLING LỜI NHẮN + PHÂN QUYỀN (THỜI GIAN THỰC)
-    // =============================================
     let __msgPollTimer = null;
     let __permPollCounter = 0;
     let __lastPermsJson = "";
@@ -5889,8 +6854,6 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         __permPollTimer = null;
         __msgPollTimer = setInterval(async () => {
             __permPollCounter++;
-
-            // Mỗi ~30 giây: Giáo viên tự động nhận cập nhật phân quyền mới
             if (__permPollCounter % 5 === 0 && currentUser.role === 'teacher' && PROXY_ENDPOINT) {
                 try {
                     const res = await githubFetchViaProxy(GITHUB_FILE_PATH, { method: 'GET' }, 1);
@@ -5905,10 +6868,8 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
                             showToast("Admin đã cập nhật quyền hạn của bạn!", "info");
                         }
                     }
-                } catch(e) { /* im lặng */ }
+                } catch(e) {}
             }
-
-            // Polling tin nhắn (khi đang ở tab messages)
             const inMsgTab = !document.getElementById('teacherTabMessages')?.classList.contains('hidden')
                           || !document.getElementById('adminTabMessages')?.classList.contains('hidden')
                           || !document.getElementById('studentMessagesSection')?.classList.contains('hidden');
@@ -5920,8 +6881,8 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
                     else if (currentUser.role === 'admin') renderAdminMessages();
                     else if (currentUser.role === 'student') renderStudentMessages();
                 }
-            } catch(e) { /* im lặng */ }
-        }, 6000); // 6 giây
+            } catch(e) {}
+        }, 6000);
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
@@ -5947,6 +6908,8 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         renderTeacherTestsList(); renderAdminTestsList();
         renderTeacherSubmissionsTable(); renderTeacherLogsTable();
         renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
+        renderTeacherQuizTable(); renderAdminQuizTable();
+        renderQuizStartForm(); renderStudentQuizHistory();
         initPyodide();
         currentUser.isLoggedIn = false;
         updateUserHeaderUi();
@@ -5955,7 +6918,6 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         setTimeout(centerRobotOnScreen, 150);
         startMessagesAutoRefresh();
         setTimeout(() => renderKaTeXFormulas(document.body), 300);
-        // Khởi tạo __lastPermsJson ban đầu
         __lastPermsJson = JSON.stringify(systemPermissions);
     });
 
