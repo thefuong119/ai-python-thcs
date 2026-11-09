@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T11:48:27.764Z",
+    "updatedAt": "2026-11-09T11:48:42.387Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Ẩn/Hiện đề trắc nghiệm: Trắc nghiệm Python cơ bản - Kiến thức nhập môn"
   },
@@ -14920,7 +14920,7 @@
         ],
         "createdAt": "18:47:10 9/11/2026",
         "createdBy": "Hệ thống",
-        "active": false
+        "active": true
       }
     ],
     "quizSubmissions": []
