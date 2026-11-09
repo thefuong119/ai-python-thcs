@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:37:56.356Z",
+    "updatedAt": "2026-11-09T16:38:22.983Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 8. Chương trình con và thư viện trong python"
   },
   "data": {
     "registeredUsers": [
@@ -11856,7 +11856,9 @@
         "id": 8,
         "title": "Bài 8. Chương trình con và thư viện trong python",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Khái niệm Hàm (Chương trình con)\n- Giúp module hóa chương trình, chia bài toán lớn thành các bài toán nhỏ hơn và tái sử dụng mã nguồn.\n- Khai báo bằng từ khóa `def`:\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Sử dụng Thư viện chuẩn\n- Thư viện toán học `math`: `import math`\n- Ví dụ: `math.sqrt(16)` tính căn bậc hai (kết quả: 4.0)."
+        "content": "### 1. Khái niệm Hàm (Chương trình con)\n- Giúp module hóa chương trình, chia bài toán lớn thành các bài toán nhỏ hơn và tái sử dụng mã nguồn.\n- Khai báo bằng từ khóa `def`:\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Sử dụng Thư viện chuẩn\n- Thư viện toán học `math`: `import math`\n- Ví dụ: `math.sqrt(16)` tính căn bậc hai (kết quả: 4.0).",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1saM21-eSNrsC_cp-PD_RuW5xXeMtuwAm/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 9,
