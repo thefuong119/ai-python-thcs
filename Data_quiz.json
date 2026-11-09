@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T16:53:27.391Z",
+    "updatedAt": "2026-11-09T16:54:04.629Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1384,7 +1384,7 @@
     },
     {
       "id": 87,
-      "question": "Kết quả của chương trình sau là gì? a=[2,4,6,8]\\nprint(len(a))",
+      "question": "Kết quả của chương trình sau là gì? \na=[2,4,6,8]\nprint(len(a))",
       "options": [
         "2",
         "3",
