@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:13:17.148Z",
-    "updatedBy": "Trần Ngọc Hân",
-    "action": "Đăng xuất: Trần Ngọc Hân"
+    "updatedAt": "2026-11-09T13:15:36.242Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 63,
+        "loginCount": 64,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14107,6 +14107,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:14:19 9/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "20:13:17 9/11/2026",
         "name": "Trần Ngọc Hân",
         "identifier": "han",
@@ -14993,7 +15000,7 @@
       },
       {
         "id": 8,
-        "question": "Kết quả của chương trình sau là gì? x = -2\\nif x > 0:\\n print('Duong')\\nelse:\\n print('Am')",
+        "question": "Kết quả của chương trình sau là gì? x = -2\nif x > 0:\n    print('Duong')\nelse:\n    print('Am')",
         "options": [
           "Duong",
           "Am",
