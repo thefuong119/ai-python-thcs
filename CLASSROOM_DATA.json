@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:18:57.643Z",
+    "updatedAt": "2026-11-09T13:19:16.574Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15032,7 +15032,7 @@
       },
       {
         "id": 10,
-        "question": "Kết quả của chương trình sau là gì? x = 6\\nif x % 2 == 0:\\n print('Chan')\\nprint('Done')",
+        "question": "Kết quả của chương trình sau là gì? \nx = 6\nif x % 2 == 0:\n    print('Chan')\nprint('Done')",
         "options": [
           "Chan",
           "Done",
