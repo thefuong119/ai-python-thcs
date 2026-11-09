@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:17:17.802Z",
+    "updatedAt": "2026-11-09T13:17:41.795Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -72,7 +72,7 @@
     },
     {
       "id": 5,
-      "question": "Kết quả của chương trình sau là gì? x = 4\\nif x > 5:\\n print('Lon')\\nelse:\\n print('Nho')",
+      "question": "Kết quả của chương trình sau là gì? x = 4\nif x > 5:\n    print('Lon')\nelse:\n   print('Nho')",
       "options": [
         "Lon",
         "Nho",
