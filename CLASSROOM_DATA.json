@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:11:35.286Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-09T13:12:38.602Z",
+    "updatedBy": "Trần Ngọc Hân",
+    "action": "HS Trần Ngọc Hân nộp bài trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -63,7 +63,7 @@
         "status": "active",
         "firstLogin": "2026-10-22 09:00",
         "lastLogin": "2026-10-25 08:35",
-        "loginCount": 9,
+        "loginCount": 10,
         "_hasPassword": true,
         "passwordHash": "73571db6b3eaa073ff9a5db6f1948d3d904b6179e43c68c1c5877d21d95f0ff1",
         "cccd": "",
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 5,
+        "loginCount": 4,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 15,
+        "attempts": 8,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:08:23 9/11/2026"
+        "lastSubmit": "09:43:29 6/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -11769,9 +11769,9 @@
       {
         "student": "Trần Ngọc Hân",
         "username": "han",
-        "attempts": 2,
+        "attempts": 3,
         "highestScore": 10,
-        "lastSubmit": "23:57:21 4/11/2026"
+        "lastSubmit": "20:12:38 9/11/2026"
       },
       {
         "student": "Nguyễn Thanh Tuấn",
@@ -12289,289 +12289,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794229703771,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
-        "assignmentId": 7,
-        "score": 0,
-        "timestamp": "20:08:23 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "ABACBD",
-            "expected": "ABCD",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "BACBCD",
-            "expected": "BCD",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "FEDCBA",
-            "expected": "F",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "ACEGIK",
-            "expected": "ACEGIK",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\n"
-      },
-      {
-        "id": 1794229642720,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
-        "assignmentId": 6,
-        "score": 10,
-        "timestamp": "20:07:22 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "16\n15",
-            "actual": "16\n15",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "10 20",
-            "expected": "60\n200",
-            "actual": "60\n200",
-            "passed": true,
-            "points": 5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)"
-      },
-      {
-        "id": 1794229629522,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 5: Tính giai thừa",
-        "assignmentId": 5,
-        "score": 10,
-        "timestamp": "20:07:09 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "6",
-            "actual": "6",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "3628800",
-            "actual": "3628800",
-            "passed": true,
-            "points": 5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)"
-      },
-      {
-        "id": 1794229615962,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
-        "assignmentId": 4,
-        "score": 10,
-        "timestamp": "20:06:55 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "5",
-            "expected": "No",
-            "actual": "No",
-            "passed": true,
-            "points": 2
-          },
-          {
-            "testId": 2,
-            "input": "100",
-            "expected": "Yes",
-            "actual": "Yes",
-            "passed": true,
-            "points": 2
-          },
-          {
-            "testId": 3,
-            "input": "10000",
-            "expected": "Yes",
-            "actual": "Yes",
-            "passed": true,
-            "points": 3
-          },
-          {
-            "testId": 4,
-            "input": "111111",
-            "expected": "No",
-            "actual": "No",
-            "passed": true,
-            "points": 3
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')"
-      },
-      {
-        "id": 1794229598393,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
-        "assignmentId": 3,
-        "score": 10,
-        "timestamp": "20:06:38 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "5\n1 2 3 4 5",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "4\n1 3 5 7",
-            "expected": "0",
-            "actual": "0",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "6\n2 4 6 8 10 12",
-            "expected": "6",
-            "actual": "6",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "3\n0 -2 5",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)"
-      },
-      {
-        "id": 1794229571798,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
-        "assignmentId": 2,
-        "score": 10,
-        "timestamp": "20:06:11 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "7",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "997",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')"
-      },
-      {
-        "id": 1794229553026,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "20:05:53 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)"
-      },
       {
         "id": 1794146987970,
         "student": "Nguyễn Phú Lộc",
@@ -14390,9 +14107,16 @@
     ],
     "loginLogs": [
       {
-        "time": "20:03:30 9/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
+        "time": "20:12:38 9/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
+        "role": "student",
+        "result": "Trắc nghiệm 10.0/10"
+      },
+      {
+        "time": "20:08:38 9/11/2026",
+        "name": "Trần Ngọc Hân",
+        "identifier": "han",
         "role": "student",
         "result": "Thành công"
       },
@@ -14498,13 +14222,11 @@
         "4": true
       },
       "minh": {
-        "1": true,
         "2": true,
         "3": true,
         "4": true,
         "5": true,
-        "6": true,
-        "7": true
+        "6": true
       },
       "hocsinh": {
         "1": true,
@@ -15096,12 +14818,7 @@
       "trongkhuong8a4__Bài 3. Đếm số lượng số chẵn trong dãy": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn = int(input())\na = list(map(int, input().split()))\ncount = sum(1 for x in a if x % 2 == 0)\nprint(count)",
       "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES.\")\nelse:\n    print(\"NO.\")",
       "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\") ",
-      "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n",
-      "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)",
-      "minh__Bài 2. Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')",
-      "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
-      "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')",
-      "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)"
+      "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n"
     },
     "questionFlags": {
       "43": true
@@ -15154,7 +14871,1925 @@
         ]
       }
     ],
-    "quizData": [],
-    "quizSubmissions": []
+    "quizData": [
+      {
+        "id": 1,
+        "question": "Trong Python, cấu trúc rẽ nhánh dạng thiếu có dạng:",
+        "options": [
+          "if điều_kiện:",
+          "if điều_kiện: ... else ...",
+          "for điều_kiện:",
+          "while điều_kiện:"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Cấu trúc rẽ nhánh dạng thiếu (chỉ xét 1 trường hợp đúng) sử dụng từ khóa 'if' kèm điều kiện và dấu hai chấm ':'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 2,
+        "question": "Kết quả của chương trình sau là gì? x = 5\\nif x > 3:\\n print('A')",
+        "options": [
+          "A",
+          "5",
+          "Không in gì",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Biến x = 5. Điều kiện 5 > 3 là True, do đó khối lệnh bên trong if được thực thi, in ra chữ 'A'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 3,
+        "question": "Kết quả của chương trình sau là gì? x = 2\\nif x > 5:\\n print('Hello')\\nprint('Python')",
+        "options": [
+          "Hello",
+          "Python",
+          "Hello Python",
+          "Không in gì"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Biến x = 2. Điều kiện 2 > 5 là False, do đó bỏ qua lệnh in 'Hello'. Lệnh in 'Python' nằm ngoài if nên luôn được thực thi.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 4,
+        "question": "Kết quả của chương trình sau là gì? x = 7\\nif x % 2 == 0:\\n print('Chan')\\nelse:\\n print('Le')",
+        "options": [
+          "Chan",
+          "Le",
+          "7",
+          "Lỗi"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "7 % 2 == 1 (không bằng 0), điều kiện sai nên chạy vào khối else, in ra 'Le'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 5,
+        "question": "Kết quả của chương trình sau là gì? x = 4\\nif x > 5:\\n print('Lon')\\nelse:\\n print('Nho')",
+        "options": [
+          "Lon",
+          "Nho",
+          "4",
+          "Không in gì"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "4 > 5 là False, nên chuyển sang khối else, in ra 'Nho'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 6,
+        "question": "Kết quả của chương trình sau là gì? x = 10\\nif x >= 10:\\n print('Dat')\\nelse:\\n print('Khong dat')",
+        "options": [
+          "Dat",
+          "Khong dat",
+          "10",
+          "Lỗi"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "10 >= 10 là True, nên in ra 'Dat'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 7,
+        "question": "Chương trình sau sử dụng cấu trúc rẽ nhánh dạng nào? x = 3\\nif x > 0:\\n print('Duong')",
+        "options": [
+          "Rẽ nhánh đủ",
+          "Rẽ nhánh thiếu",
+          "Vòng lặp",
+          "Hàm"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Chỉ có 'if' mà không có 'else', đây là cấu trúc rẽ nhánh thiếu.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 8,
+        "question": "Kết quả của chương trình sau là gì? x = -2\\nif x > 0:\\n print('Duong')\\nelse:\\n print('Am')",
+        "options": [
+          "Duong",
+          "Am",
+          "-2",
+          "Không in gì"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "-2 > 0 là False, thực thi khối else, in ra 'Am'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 9,
+        "question": "Kết quả của chương trình sau là gì? x = 5\\nif x == 5:\\n print('A')\\nelse:\\n print('B')",
+        "options": [
+          "A",
+          "B",
+          "5",
+          "Không in gì"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "5 == 5 là True, in ra 'A'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 10,
+        "question": "Kết quả của chương trình sau là gì? x = 6\\nif x % 2 == 0:\\n print('Chan')\\nprint('Done')",
+        "options": [
+          "Chan",
+          "Done",
+          "Chan và Done (2 dòng)",
+          "Không in gì"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "6 % 2 == 0 là True, in 'Chan'. Sau đó thoát if, in tiếp 'Done'. Kết quả in ra cả 2 dòng.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 11,
+        "question": "Trong Python, vòng lặp for thường dùng khi:",
+        "options": [
+          "Không biết trước số lần lặp",
+          "Biết trước số lần lặp",
+          "Chỉ dùng cho chuỗi",
+          "Chỉ dùng cho số nguyên"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Vòng lặp for được thiết kế để lặp qua một chuỗi, list, hoặc một khoảng giá trị xác định trước (biết trước số lần lặp).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 12,
+        "question": "Kết quả của chương trình sau là gì? for i in range(3):\\n print(i, end=' ')",
+        "options": [
+          "1 2 3",
+          "0 1 2",
+          "0 1 2 3",
+          "1 2"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm range(3) tạo dãy số bắt đầu từ 0 đến 2 (không bao gồm 3).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 13,
+        "question": "Kết quả của chương trình sau là gì? for i in range(2,6):\\n print(i, end=' ')",
+        "options": [
+          "2 3 4 5",
+          "2 3 4 5 6",
+          "3 4 5",
+          "1 2 3 4 5"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "range(2, 6) chạy từ 2 đến 5.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 14,
+        "question": "Kết quả của chương trình sau là gì? for i in range(1,10,3):\\n print(i, end=' ')",
+        "options": [
+          "1 2 3 4",
+          "1 4 7",
+          "1 3 5 7 9",
+          "4 7 10"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "range(1, 10, 3) bắt đầu từ 1, mỗi bước nhảy 3 đơn vị: 1, 4, 7.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 15,
+        "question": "Kết quả của chương trình sau là gì? s = 0\\nfor i in range(1,5):\\n s += i\\nprint(s)",
+        "options": [
+          "10",
+          "15",
+          "5",
+          "20"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Tính tổng từ 1 đến 4: s = 1 + 2 + 3 + 4 = 10.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 16,
+        "question": "Kết quả của chương trình sau là gì? a = [2,4,6]\\nfor x in a:\\n print(x,end=' ')",
+        "options": [
+          "0 1 2",
+          "2 4 6",
+          "6 4 2",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Lặp trực tiếp qua các phần tử của list a, in ra 2, 4, 6.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 17,
+        "question": "Kết quả của chương trình sau là gì? for i in range(5):\\n if i == 3:\\n break\\n print(i,end=' ')",
+        "options": [
+          "0 1 2",
+          "0 1 2 3",
+          "1 2 3",
+          "0 1"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Khi i = 3, lệnh break sẽ dừng vòng lặp ngay lập tức. Do đó chỉ in 0 1 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 18,
+        "question": "Kết quả của chương trình sau là gì? for i in range(5):\\n if i == 2:\\n continue\\n print(i,end=' ')",
+        "options": [
+          "0 1 2 3 4",
+          "0 1 3 4",
+          "1 3 4",
+          "2 3 4"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Khi i = 2, lệnh continue bỏ qua lần lặp hiện tại, do đó không in số 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 19,
+        "question": "Kết quả của chương trình sau là gì? for i in range(3):\\n for j in range(2):\\n print('*',end='')",
+        "options": [
+          "**",
+          "******",
+          "***",
+          "****"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Vòng lặp lồng nhau: vòng ngoài chạy 3 lần, vòng trong chạy 2 lần. Tổng cộng in 3 x 2 = 6 dấu *.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 20,
+        "question": "Kết quả của chương trình sau là gì? s = 0\\nfor i in range(2,8,2):\\n s += i\\nprint(s)",
+        "options": [
+          "12",
+          "20",
+          "10",
+          "6"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "range(2, 8, 2) sinh ra 2, 4, 6. Tổng s = 2 + 4 + 6 = 12.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 21,
+        "question": "Trong Python, vòng lặp không xác định số lần lặp trước thường dùng lệnh nào?",
+        "options": [
+          "for",
+          "while",
+          "if",
+          "def"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Vòng lặp while tiếp tục thực hiện khối lệnh miễn là điều kiện kiểm tra còn đúng.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 22,
+        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 3:\\n print(i, end=' ')\\n i += 1",
+        "options": [
+          "1 2 3",
+          "1 2 3 4",
+          "0 1 2 3",
+          "1 1 1"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "i chạy từ 1, tăng 1 mỗi vòng lặp. Dừng lại khi i lớn hơn 3.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 23,
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 2\\nprint(i)",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "2"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "i tăng dần: 0 -> 2 -> 4 -> 6. Khi i=6 thì điều kiện 6<5 sai, dừng lại và in ra 6.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 24,
+        "question": "Kết quả của chương trình sau là gì? i = 1\\ns = 0\\nwhile i <= 4:\\n s += i\\n i += 1\\nprint(s)",
+        "options": [
+          "10",
+          "8",
+          "6",
+          "4"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Tính tổng i từ 1 đến 4: 1+2+3+4 = 10.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 25,
+        "question": "Kết quả của chương trình sau là gì? i = 5\\nwhile i > 0:\\n print(i, end=' ')\\n i -= 2",
+        "options": [
+          "5 4 3 2 1",
+          "5 3 1",
+          "5 2",
+          "5 3"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "i bắt đầu từ 5, giảm 2 đơn vị mỗi vòng. Sẽ in ra 5, 3, 1.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 26,
+        "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
+        "options": [
+          "In 3 lần",
+          "In 4 lần",
+          "Chạy vô hạn",
+          "Báo lỗi"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Do biến i không được cập nhật (không có i+=1) nên điều kiện 1 < 4 luôn đúng, gây ra lặp vô hạn.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 27,
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n if i == 3:\\n break\\n print(i, end=' ')\\n i += 1",
+        "options": [
+          "0 1 2",
+          "0 1 2 3",
+          "1 2 3",
+          "0 1"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Khi i đạt giá trị 3, vòng lặp dừng ngay lập tức bởi lệnh break.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 28,
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 1\\n if i == 3:\\n continue\\n print(i, end=' ')",
+        "options": [
+          "1 2 3 4 5",
+          "1 2 4 5",
+          "1 3 4 5",
+          "2 4 5"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "i được tăng trước khi kiểm tra. Các giá trị là 1,2,3,4,5. Khi i=3, continue bỏ qua lệnh print.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 29,
+        "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
+        "options": [
+          "1 2 3",
+          "3 2 1",
+          "3 3 3",
+          "2 1"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "n bắt đầu bằng 3, giảm 1 mỗi vòng lặp.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 30,
+        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 5:\\n if i % 2 == 0:\\n print(i, end=' ')\\n i += 1",
+        "options": [
+          "1 3 5",
+          "2 4",
+          "1 2 3 4 5",
+          "4"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Chỉ in ra những số chẵn (chia hết cho 2) trong khoảng từ 1 đến 5, đó là 2 và 4.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 31,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[0:4])",
+        "options": [
+          "Pyth",
+          "Pytho",
+          "Python",
+          "ytho"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Cắt chuỗi s[0:4] sẽ lấy các ký tự từ vị trí 0 đến 3: P, y, t, h.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 32,
+        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s + 'World')",
+        "options": [
+          "HelloWorld",
+          "Hello World",
+          "Hello+World",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Phép cộng chuỗi ghép nối trực tiếp không sinh thêm khoảng trắng ở giữa.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 33,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[3])",
+        "options": [
+          "t",
+          "h",
+          "o",
+          "n"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Vị trí chỉ số bắt đầu từ 0. s[0]='P', s[1]='y', s[2]='t', s[3]='h'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 34,
+        "question": "Kết quả của chương trình sau là gì? s = 'Tin hoc'\\nprint(len(s))",
+        "options": [
+          "6",
+          "7",
+          "8",
+          "5"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm len() trả về độ dài chuỗi bao gồm cả dấu cách. 'Tin hoc' có 7 ký tự.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 35,
+        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s.replace('l','x'))",
+        "options": [
+          "Hexxo",
+          "Helxo",
+          "Hexlo",
+          "Hello"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm replace('l','x') thay thế tất cả chữ 'l' thành 'x'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 36,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.split())",
+        "options": [
+          "['Python', 'Programming']",
+          "['Python Programming']",
+          "['Python','Programming','']",
+          "Python Programming"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Hàm split() mặc định tách chuỗi thành list dựa trên khoảng trắng.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 37,
+        "question": "Kết quả của chương trình sau là gì? a = ['Python','Java','C']\\nprint('-'.join(a))",
+        "options": [
+          "Python Java C",
+          "Python-Java-C",
+          "Python,Java,C",
+          "['Python-Java-C']"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Hàm join() nối các phần tử của list thành một chuỗi, ở đây dùng dấu '-' làm dải phân cách.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 38,
+        "question": "Kết quả của chương trình sau là gì? s = ' Python '\\nprint(s.strip())",
+        "options": [
+          "' Python '",
+          "'Python'",
+          "'Python '",
+          "' Python'"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm strip() dùng để xóa khoảng trắng ở cả hai đầu của chuỗi.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 39,
+        "question": "Kết quả của chương trình sau là gì? s = 'python'\\nprint(s.upper())",
+        "options": [
+          "Python",
+          "PYTHON",
+          "python",
+          "PyThOn"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm upper() chuyển đổi tất cả các ký tự thành chữ in hoa.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 40,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.find('th'))",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "-1"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Hàm find() trả về chỉ số xuất hiện đầu tiên của chuỗi con. 'th' bắt đầu tại vị trí 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 41,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.lower())",
+        "options": [
+          "python",
+          "PYTHON",
+          "Python",
+          "pyThon"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm lower() chuyển tất cả các ký tự thành chữ in thường.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 42,
+        "question": "Kết quả của chương trình sau là gì? s = 'hello world'\\nprint(s.title())",
+        "options": [
+          "Hello World",
+          "HELLO WORLD",
+          "hello world",
+          "Hello world"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm title() viết hoa chữ cái đầu tiên của mỗi từ trong chuỗi.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 43,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[1:5])",
+        "options": [
+          "ytho",
+          "yth",
+          "Pyth",
+          "thon"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Lấy ký tự từ vị trí 1 đến 4: y(1), t(2), h(3), o(4).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 44,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[-1])",
+        "options": [
+          "P",
+          "n",
+          "o",
+          "h"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Chỉ số âm dùng để đếm từ cuối chuỗi lên, -1 là ký tự cuối cùng 'n'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 45,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s*2)",
+        "options": [
+          "PythonPython",
+          "Python 2",
+          "Python*2",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Toán tử * dùng để lặp lại chuỗi nhiều lần.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 46,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint('Py' in s)",
+        "options": [
+          "True",
+          "False",
+          "Py",
+          "Lỗi"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Toán tử in kiểm tra chuỗi con có nằm trong chuỗi mẹ không, trả về boolean (True).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 47,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.count('m'))",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "0"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm count() đếm số lần xuất hiện của ký tự, chữ 'm' xuất hiện 2 lần.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 48,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.startswith('Py'))",
+        "options": [
+          "True",
+          "False",
+          "Py",
+          "2"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm startswith() kiểm tra chuỗi có bắt đầu bằng chuỗi con cho trước hay không.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 49,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.endswith('on'))",
+        "options": [
+          "True",
+          "False",
+          "on",
+          "2"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm endswith() kiểm tra chuỗi có kết thúc bằng chuỗi con cho trước hay không.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 50,
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.replace('Py','My'))",
+        "options": [
+          "Python",
+          "Mython",
+          "MyPython",
+          "PyMy"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Thay thế 'Py' bằng 'My', chuỗi mới là 'Mython'.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 51,
+        "question": "Trong Python, tuple là kiểu dữ liệu:",
+        "options": [
+          "Có thể thay đổi phần tử",
+          "Không thể thay đổi phần tử",
+          "Chỉ chứa số nguyên",
+          "Chỉ chứa chuỗi"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Tuple tương tự List nhưng mang tính chất immutable (bất biến) - không thể thêm, sửa, hay xóa các phần tử.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 52,
+        "question": "Cách khai báo một tuple đúng là:",
+        "options": [
+          "a = [1,2,3]",
+          "a = {1,2,3}",
+          "a = (1,2,3)",
+          "a = <1,2,3>"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Tuple được khai báo bằng cách đặt các phần tử bên trong dấu ngoặc tròn ( ).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 53,
+        "question": "Kết quả của chương trình sau là gì? a = (10,20,30,40)\\nprint(a[1])",
+        "options": [
+          "10",
+          "20",
+          "30",
+          "40"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Lấy phần tử ở vị trí index 1 (vị trí thứ 2), là 20.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 54,
+        "question": "Kết quả của chương trình sau là gì? a = (5,7,9)\\nprint(len(a))",
+        "options": [
+          "2",
+          "3",
+          "5",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Tuple a có 3 phần tử, nên len(a) trả về 3.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 55,
+        "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\nb = (4,5)\\nc = a + b\\nprint(c)",
+        "options": [
+          "(1,2,3,4,5)",
+          "(5,7,3)",
+          "(4,5,1,2,3)",
+          "[1,2,3,4,5]"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Toán tử + dùng để nối hai tuple lại với nhau thành một tuple mới.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 56,
+        "question": "Kết quả của chương trình sau là gì? a = (3,6,9)\\nprint(max(a))",
+        "options": [
+          "3",
+          "6",
+          "9",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm max() trả về phần tử lớn nhất trong tuple.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 57,
+        "question": "Kết quả của chương trình sau là gì? a = (4,8,2,6)\\nprint(min(a))",
+        "options": [
+          "8",
+          "4",
+          "2",
+          "6"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm min() trả về phần tử nhỏ nhất trong tuple.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 58,
+        "question": "Chương trình sau sẽ thực hiện công việc gì? a = (1,2,3)\\nfor x in a:\\n print(x,end=' ')",
+        "options": [
+          "In các phần tử của tuple",
+          "In chỉ số của tuple",
+          "In tổng các phần tử",
+          "Báo lỗi"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Vòng lặp for duyệt qua từng phần tử của tuple và in chúng ra.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 59,
+        "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\na[0] = 5",
+        "options": [
+          "(5,2,3)",
+          "(1,2,3)",
+          "Lỗi chương trình",
+          "(5,1,2,3)"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Tuple là bất biến (immutable), nên không thể gán hay thay đổi giá trị của phần tử sau khi tạo, gây ra TypeError.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 60,
+        "question": "Kết quả của chương trình sau là gì? a = (2,4,6,8)\\nprint(sum(a))",
+        "options": [
+          "12",
+          "16",
+          "20",
+          "24"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm sum() tính tổng tất cả các phần tử: 2+4+6+8 = 20.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 61,
+        "question": "Trong Python, set là kiểu dữ liệu dùng để:",
+        "options": [
+          "Lưu các phần tử theo thứ tự và cho phép trùng",
+          "Lưu các phần tử không trùng lặp",
+          "Lưu các cặp khóa-giá trị",
+          "Lưu dữ liệu dạng chuỗi"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Set (Tập hợp) dùng để lưu các phần tử không trùng lặp và không quan tâm đến thứ tự.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 62,
+        "question": "Cách khai báo một set đúng là:",
+        "options": [
+          "a = [1,2,3]",
+          "a = (1,2,3)",
+          "a = {1,2,3}",
+          "a = <1,2,3>"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Set được khởi tạo bằng dấu ngoặc nhọn { } có chứa giá trị bên trong.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 63,
+        "question": "Kết quả của chương trình sau là gì? a = {1,2,3,2,1}\\nprint(a)",
+        "options": [
+          "{1,2,3,2,1}",
+          "{1,2,3}",
+          "[1,2,3]",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Set tự động loại bỏ các phần tử trùng lặp, nên chỉ giữ lại {1, 2, 3}.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 64,
+        "question": "Chương trình sau có tác dụng gì? a={1,2,3}\\na.add(4)\\nprint(a)",
+        "options": [
+          "Xóa phần tử 4",
+          "Thêm phần tử 4 vào set",
+          "Sắp xếp set",
+          "Tạo set mới"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Phương thức add() dùng để thêm một phần tử duy nhất vào tập hợp.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 65,
+        "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? a={1,2,3,4}\\na.remove(3)\\nprint(a)",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Phương thức remove() xóa phần tử có giá trị 3 khỏi set.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 66,
+        "question": "Phép toán | cho kết quả là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a|b)",
+        "options": [
+          "{3}",
+          "{1,2,3,4,5}",
+          "{1,2}",
+          "{4,5}"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Toán tử | tính hợp của hai tập hợp (lấy tất cả các phần tử duy nhất ở cả hai bên).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 67,
+        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+        "options": [
+          "{1,2}",
+          "{3}",
+          "{4,5}",
+          "{1,2,3,4,5}"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Toán tử & tính giao của hai tập hợp (lấy các phần tử chung). Chỉ có 3 là chung.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 68,
+        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+        "options": [
+          "{1,2}",
+          "{3}",
+          "{4}",
+          "{1,2,3,4}"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Toán tử - tính hiệu của hai tập (lấy những phần tử có trong a mà không có trong b). Đó là 1 và 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 69,
+        "question": "Kết quả của chương trình sau là gì? a={5,2,8,1}\\nprint(len(a))",
+        "options": [
+          "3",
+          "4",
+          "5",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Tập hợp có 4 phần tử (không có phần tử trùng lặp), nên len = 4.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 70,
+        "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+        "options": [
+          "In các phần tử của set",
+          "In chỉ số của set",
+          "In số lượng phần tử",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 71,
+        "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+        "options": [
+          "2",
+          "5",
+          "9",
+          "7"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "max(a) tìm phần tử lớn nhất, là 9.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 72,
+        "question": "Kết quả của chương trình sau là gì? a=[3,6,9,12]\\ns=0\\nfor x in a:\\n if x%3==0:\\n s+=x\\nprint(s)",
+        "options": [
+          "12",
+          "18",
+          "30",
+          "9"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Tất cả các số trong a đều chia hết cho 3, nên tổng = 3+6+9+12 = 30.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 73,
+        "question": "Kết quả của chương trình sau là gì? a=[5,8,3,7,2]\\nprint(min(a))",
+        "options": [
+          "8",
+          "2",
+          "3",
+          "5"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "min(a) tìm phần tử nhỏ nhất, là 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 74,
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4,5]\\nc=0\\nfor x in a:\\n if x%2==0:\\n c+=1\\nprint(c)",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Đếm các số chẵn (chia hết cho 2). Có số 2 và 4 là chẵn. Vậy đếm được 2.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 75,
+        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nb=[]\\nfor x in a:\\n if x%2==0:\\n b.append(x)\\nprint(b)",
+        "options": [
+          "[2,3,4]",
+          "[2,4,6]",
+          "[3,5]",
+          "[2,6]"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Duyệt list a, số chẵn (2, 4, 6) được thêm vào mảng b mới.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 76,
+        "question": "Chương trình sau sẽ in ra gì? a=[4,1,7,3]\\na.sort()\\nprint(a[0])",
+        "options": [
+          "Số lớn nhất",
+          "Số nhỏ nhất",
+          "Tổng các phần tử",
+          "Số thứ hai"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Hàm sort() sắp xếp mảng tăng dần, vậy phần tử đầu tiên a[0] sẽ là số nhỏ nhất (là 1).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 77,
+        "question": "Kết quả của chương trình sau là gì? a=[2,3,5,8,11]\\nc=0\\nfor x in a:\\n if x>5:\\n c+=1\\nprint(c)",
+        "options": [
+          "3",
+          "2",
+          "4",
+          "1"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Đếm các số lớn hơn 5. Đó là số 8 và 11 (2 số).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 78,
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\ns=0\\nfor i in range(len(a)-1):\\n s+=a[i]+a[i+1]\\nprint(s)",
+        "options": [
+          "15",
+          "18",
+          "20",
+          "10"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "explanation": "i=0: 1+2=3. i=1: 2+3=5. i=2: 3+4=7. Tổng s = 3 + 5 + 7 = 15.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 79,
+        "question": "Kết quả của chương trình sau là gì? a=[1,3,5,7]\\nb=[2,4,6]\\nc=a+b\\nprint(len(c))",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "correctAnswer": "D",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Toán tử + nối hai mảng, tổng cộng mảng c có 4 + 3 = 7 phần tử.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 80,
+        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nk=0\\nfor x in a:\\n if x>3:\\n k+=x\\nprint(k)",
+        "options": [
+          "9",
+          "12",
+          "15",
+          "18"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "Tính tổng các phần tử lớn hơn 3. Đó là 4+5+6 = 15.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 81,
+        "question": "Trong Python, kiểu dữ liệu nào dùng để lưu một dãy các phần tử có thứ tự và có thể thay đổi?",
+        "options": [
+          "Tuple",
+          "List",
+          "Set",
+          "Dictionary"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "List là cấu trúc dữ liệu cho phép lưu trữ tuần tự, lập chỉ mục và có thể thay đổi (mutable).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 82,
+        "question": "Cách khai báo một list đúng là:",
+        "options": [
+          "a = (1,2,3)",
+          "a = {1,2,3}",
+          "a = [1,2,3]",
+          "a = <1,2,3>"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "List được khai báo bằng cặp ngoặc vuông [ ].",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 83,
+        "question": "Cho list a = [10,20,30,40], giá trị của a[2] là:",
+        "options": [
+          "10",
+          "20",
+          "30",
+          "40"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Chỉ số mảng bắt đầu từ 0. a[0]=10, a[1]=20, a[2]=30.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 84,
+        "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
+        "options": [
+          "[5,7,9]",
+          "[11,5,7,9]",
+          "[5,7,9,11]",
+          "[5,7,11]"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "append() thêm một phần tử vào cuối list.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 85,
+        "question": "Kết quả của chương trình sau là gì? a = [3,6,9]\\na.insert(1,4)\\nprint(a)",
+        "options": [
+          "[3,4,6,9]",
+          "[4,3,6,9]",
+          "[3,6,4,9]",
+          "[3,6,9,4]"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "insert(index, obj) chèn đối tượng vào vị trí index được chỉ định. Chèn 4 vào vị trí index 1.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 86,
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\na.remove(3)\\nprint(a)",
+        "options": [
+          "[1,2,3]",
+          "[1,2,4]",
+          "[3,4]",
+          "[1,3,4]"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "explanation": "remove(val) sẽ tìm và xóa phần tử có giá trị là val (số 3) đầu tiên trong list.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 87,
+        "question": "Kết quả của chương trình sau là gì? a=[2,4,6,8]\\nprint(len(a))",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "8"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm len() trả về số phần tử của list, ở đây là 4.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 88,
+        "question": "Kết quả của chương trình sau là gì? a=[5,1,8,3]\\na.sort()\\nprint(a)",
+        "options": [
+          "[8,5,3,1]",
+          "[1,3,5,8]",
+          "[5,1,3,8]",
+          "[3,5,8,1]"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Hàm sort() sắp xếp mảng theo thứ tự tăng dần.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 89,
+        "question": "Kết quả của chương trình sau là gì? a=[10,20,30]\\nfor x in a:\\n print(x,end=' ')",
+        "options": [
+          "10 20 30",
+          "0 1 2",
+          "30 20 10",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Lặp in lần lượt các phần tử của list theo đúng thứ tự.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 90,
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3]\\nb=[4,5]\\nc=a+b\\nprint(c)",
+        "options": [
+          "[1,2,3,4,5]",
+          "[5,7,3]",
+          "[4,5,1,2,3]",
+          "[1,2,3][4,5]"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "explanation": "Phép cộng + đối với 2 list sẽ ghép nối trực tiếp mảng b vào đuôi mảng a.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 91,
+        "question": "Trong Python, để mở tệp đọc dữ liệu, ta dùng chế độ nào?",
+        "options": [
+          "'w'",
+          "'r'",
+          "'a'",
+          "'x'"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "Chế độ 'r' (read) được sử dụng để mở file chỉ đọc.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 92,
+        "question": "Đoạn lệnh nào sau đây đọc toàn bộ nội dung tệp vào một chuỗi?",
+        "options": [
+          "f.read()",
+          "f.readline()",
+          "f.readlines()",
+          "f.write()"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "f.read() đọc toàn bộ nội dung file dưới dạng một chuỗi văn bản duy nhất.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 93,
+        "question": "Giả sử tệp input.txt chứa: '1 2 3 4 5'. Đoạn lệnh nào đọc dữ liệu thành mảng số nguyên?",
+        "options": [
+          "a = list(map(int, input().split()))",
+          "a = list(map(int, f.read().split()))",
+          "a = f.readline()",
+          "a = int(f.read())"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "f.read() đọc ra chuỗi, .split() tách thành mảng chuỗi, map(int) đổi sang số nguyên, và list() ép kiểu thành danh sách.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 94,
+        "question": "Kết quả của lệnh sau là gì? f = open('data.txt','r')\\nline = f.readline()",
+        "options": [
+          "Đọc toàn bộ tệp",
+          "Đọc một dòng trong tệp",
+          "Đọc từng ký tự",
+          "Ghi dữ liệu vào tệp"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "readline() dùng để đọc dòng hiện tại (đến khi gặp ký tự xuống dòng).",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 95,
+        "question": "Để ghi dữ liệu vào tệp (ghi mới/đè lên), ta dùng chế độ mở tệp nào?",
+        "options": [
+          "'r'",
+          "'w'",
+          "'t'",
+          "'read'"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "Chế độ 'w' (write) dùng để mở tệp cho mục đích ghi. Nếu tệp tồn tại, nó bị ghi đè.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 96,
+        "question": "Đoạn code nào ghi chuỗi 'Hello' vào tệp output.txt?",
+        "options": [
+          "f=open('output.txt','r')\\nf.write('Hello')",
+          "f=open('output.txt','w')\\nf.write('Hello')",
+          "f=open('output.txt','a')\\nf.read('Hello')",
+          "f=open('output.txt','w')\\nf.read('Hello')"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Cần mở tệp chế độ 'w' và gọi hàm f.write('chuỗi').",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 97,
+        "question": "Lệnh nào dùng để đóng tệp sau khi làm việc?",
+        "options": [
+          "f.stop()",
+          "f.close()",
+          "f.end()",
+          "f.finish()"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "f.close() dùng để giải phóng bộ nhớ và tài nguyên hệ thống sau khi thao tác với tệp xong.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 98,
+        "question": "Giả sử input.txt chứa dòng 1 là số 5, dòng 2 là '1 3 5 7 9'. Đoạn code nào đọc đúng n và mảng a?",
+        "options": [
+          "n=int(f.readline())\\na=list(map(int,f.readline().split()))",
+          "n=f.read()\\na=f.read()",
+          "n=list(map(int,f.readline()))",
+          "n=int(f.read())"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "explanation": "Dòng 1 dùng int(f.readline()) đọc n. Dòng 2 dùng f.readline().split() để đọc mảng số.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 99,
+        "question": "Muốn ghi nhiều dòng dữ liệu ra tệp nhanh chóng kèm định dạng in, ta có thể dùng lệnh nào?",
+        "options": [
+          "f.write()",
+          "print(..., file=f)",
+          "f.read()",
+          "input(f)"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Hàm print() có tham số file=f hỗ trợ ghi kết quả xuất thẳng vào tệp tin tiện lợi.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 100,
+        "question": "Đoạn code sau dùng để làm gì? with open('input.txt','r') as f:\\n data = f.read()",
+        "options": [
+          "Ghi dữ liệu vào tệp",
+          "Đọc dữ liệu từ tệp và tự động đóng tệp",
+          "Xóa tệp",
+          "Tạo tệp mới"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Cú pháp 'with open(...)' (Context Manager) tự động xử lý việc đóng file kể cả khi xảy ra lỗi.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 101,
+        "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+        "options": [
+          "5",
+          "25",
+          "15",
+          "Lỗi chương trình"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Đọc dòng 2 làm mảng a = [1,3,5,7,9]. Tổng của mảng = 25.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 102,
+        "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+        "options": [
+          "4",
+          "8",
+          "12",
+          "10"
+        ],
+        "correctAnswer": "C",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Tìm các số trong a chia hết cho 4: 4, 8. Tổng = 12.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 103,
+        "question": "Tệp input.txt chứa: 1 2 3 4 5. Chương trình dùng để làm gì? f=open('input.txt','r')\\na=list(map(int,f.read().split()))\\nprint(max(a))",
+        "options": [
+          "Tìm số nhỏ nhất",
+          "Tìm số lớn nhất",
+          "Tính tổng",
+          "Sắp xếp mảng"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "explanation": "Hàm max(a) được sử dụng để in ra số có giá trị lớn nhất trong tệp.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 104,
+        "question": "Tệp input.txt chứa: 6, dòng dưới: 3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\na.sort()\\nprint(a[-1]-a[0])",
+        "options": [
+          "8",
+          "7",
+          "6",
+          "9"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "explanation": "Mảng sau khi sắp xếp: 1, 2, 3, 5, 8, 9. a[-1] là 9 (max), a[0] là 1 (min). Hiệu: 9 - 1 = 8.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 105,
+        "question": "Tệp input.txt chứa: 5, dòng dưới: 2 3 5 8 11. Chương trình in ra số gì? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nc=0\\nfor x in a:\\n if x%2==1:\\n c+=1\\nprint(c)",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Đếm các số lẻ (chia 2 dư 1). Có 3 số lẻ là 3, 5, 11.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 106,
+        "question": "Tệp input.txt chứa: 1 4 6 9 10. Kết quả là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\ns=0\\nfor i in range(len(a)):\\n if a[i]>5:\\n s+=a[i]\\nprint(s)",
+        "options": [
+          "19",
+          "25",
+          "29",
+          "15"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Tính tổng các số lớn hơn 5. Là 6 + 9 + 10 = 25.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 107,
+        "question": "Tệp input.txt chứa: 4, dòng dưới: 5 2 7 1. Kết quả in ra là: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nfor i in range(n-1):\\n if a[i]>a[i+1]:\\n print(a[i],end=' ')",
+        "options": [
+          "5 7",
+          "5 2",
+          "5 7 1",
+          "7 5"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "explanation": "Tìm phần tử liền kề có số đằng trước lớn hơn đằng sau (a[i] > a[i+1]). 5 > 2 (in 5); 7 > 1 (in 7). Output: 5 7.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 108,
+        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+        "options": [
+          "8 1",
+          "1 8",
+          "6 2",
+          "8 2"
+        ],
+        "correctAnswer": "A",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "sort(reverse=True) sắp xếp giảm dần: 8, 6, 3, 2, 1. In a[0] và a[-1] tức là phần tử đầu (lớn nhất) và cuối (nhỏ nhất) -> 8 1.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 109,
+        "question": "Tệp input.txt chứa: 5, dòng dưới: 1 2 3 4 5. Kết quả: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in range(1,n,2):\\n s+=a[i]\\nprint(s)",
+        "options": [
+          "4",
+          "6",
+          "8",
+          "10"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "explanation": "range(1, 5, 2) sinh ra index 1 và 3. Tổng s = a[1] + a[3] = 2 + 4 = 6.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      },
+      {
+        "id": 110,
+        "question": "Chương trình sau sẽ làm gì? with open('input.txt') as f:\\n a=list(map(int,f.read().split()))\\nwith open('output.txt','w') as f:\\n print(sum(a),file=f)",
+        "options": [
+          "In tổng ra màn hình",
+          "Ghi tổng vào tệp output.txt",
+          "Xóa tệp input.txt",
+          "Không chạy được"
+        ],
+        "correctAnswer": "B",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "explanation": "Dùng with open 'w' và print(..., file=f) để tính tổng mảng a và ghi trực tiếp tổng đó vào file output.txt.",
+        "createdAt": "20:04:56 9/11/2026",
+        "createdBy": "Nguyễn Thế Phương"
+      }
+    ],
+    "quizSubmissions": [
+      {
+        "id": 1794229958546,
+        "student": "Trần Ngọc Hân",
+        "username": "han",
+        "className": "9A2",
+        "quizTitle": "Trắc nghiệm 10 câu - 9/11/2026",
+        "totalQuestions": 10,
+        "correctCount": 10,
+        "score": 10,
+        "answers": [
+          {
+            "questionId": 66,
+            "question": "Phép toán | cho kết quả là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a|b)",
+            "options": [
+              "{3}",
+              "{1,2,3,4,5}",
+              "{1,2}",
+              "{4,5}"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Toán tử | tính hợp của hai tập hợp (lấy tất cả các phần tử duy nhất ở cả hai bên)."
+          },
+          {
+            "questionId": 96,
+            "question": "Đoạn code nào ghi chuỗi 'Hello' vào tệp output.txt?",
+            "options": [
+              "f=open('output.txt','r')\\nf.write('Hello')",
+              "f=open('output.txt','w')\\nf.write('Hello')",
+              "f=open('output.txt','a')\\nf.read('Hello')",
+              "f=open('output.txt','w')\\nf.read('Hello')"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Cần mở tệp chế độ 'w' và gọi hàm f.write('chuỗi')."
+          },
+          {
+            "questionId": 108,
+            "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+            "options": [
+              "8 1",
+              "1 8",
+              "6 2",
+              "8 2"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "sort(reverse=True) sắp xếp giảm dần: 8, 6, 3, 2, 1. In a[0] và a[-1] tức là phần tử đầu (lớn nhất) và cuối (nhỏ nhất) -> 8 1."
+          },
+          {
+            "questionId": 68,
+            "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+            "options": [
+              "{1,2}",
+              "{3}",
+              "{4}",
+              "{1,2,3,4}"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Toán tử - tính hiệu của hai tập (lấy những phần tử có trong a mà không có trong b). Đó là 1 và 2."
+          },
+          {
+            "questionId": 99,
+            "question": "Muốn ghi nhiều dòng dữ liệu ra tệp nhanh chóng kèm định dạng in, ta có thể dùng lệnh nào?",
+            "options": [
+              "f.write()",
+              "print(..., file=f)",
+              "f.read()",
+              "input(f)"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Hàm print() có tham số file=f hỗ trợ ghi kết quả xuất thẳng vào tệp tin tiện lợi."
+          },
+          {
+            "questionId": 98,
+            "question": "Giả sử input.txt chứa dòng 1 là số 5, dòng 2 là '1 3 5 7 9'. Đoạn code nào đọc đúng n và mảng a?",
+            "options": [
+              "n=int(f.readline())\\na=list(map(int,f.readline().split()))",
+              "n=f.read()\\na=f.read()",
+              "n=list(map(int,f.readline()))",
+              "n=int(f.read())"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Dòng 1 dùng int(f.readline()) đọc n. Dòng 2 dùng f.readline().split() để đọc mảng số."
+          },
+          {
+            "questionId": 102,
+            "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+            "options": [
+              "4",
+              "8",
+              "12",
+              "10"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Tìm các số trong a chia hết cho 4: 4, 8. Tổng = 12."
+          },
+          {
+            "questionId": 101,
+            "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+            "options": [
+              "5",
+              "25",
+              "15",
+              "Lỗi chương trình"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Đọc dòng 2 làm mảng a = [1,3,5,7,9]. Tổng của mảng = 25."
+          },
+          {
+            "questionId": 67,
+            "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+            "options": [
+              "{1,2}",
+              "{3}",
+              "{4,5}",
+              "{1,2,3,4,5}"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Toán tử & tính giao của hai tập hợp (lấy các phần tử chung). Chỉ có 3 là chung."
+          },
+          {
+            "questionId": 97,
+            "question": "Lệnh nào dùng để đóng tệp sau khi làm việc?",
+            "options": [
+              "f.stop()",
+              "f.close()",
+              "f.end()",
+              "f.finish()"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "f.close() dùng để giải phóng bộ nhớ và tài nguyên hệ thống sau khi thao tác với tệp xong."
+          }
+        ],
+        "timestamp": "20:12:38 9/11/2026",
+        "date": "2026-11-09",
+        "startedAt": 1794229728993,
+        "duration": 230
+      }
+    ]
   }
 }
