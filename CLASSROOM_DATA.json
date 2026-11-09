@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:25:08.376Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-09T13:25:15.167Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -14107,13 +14107,6 @@
     ],
     "loginLogs": [
       {
-        "time": "20:25:08 9/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
         "time": "20:14:19 9/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -15247,7 +15240,7 @@
       },
       {
         "id": 23,
-        "question": "Kết quả của chương trình sau là gì? \ni = 0\nwhile i < 5:\n     i += 2\nprint(i)",
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 2\\nprint(i)",
         "options": [
           "4",
           "5",
