@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:37:03.054Z",
+    "updatedAt": "2026-11-09T16:37:44.308Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài 6. Kiểu dữ liệu danh sách (list)"
+    "action": "Admin lưu bài giảng: Bài 7. Kiểu dữ liệu xâu"
   },
   "data": {
     "registeredUsers": [
@@ -11848,7 +11848,9 @@
         "id": 7,
         "title": "Bài 7. Kiểu dữ liệu xâu",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Kiểu xâu ký tự (String)\n- Xâu là dãy các ký tự đặt trong cặp nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Một số thao tác xử lý xâu\n- Ghép xâu: `s1 + s2`\n- Lặp xâu: `s * 3`\n- Duyệt từng ký tự trong xâu: `for char in s:`\n- Độ dài xâu: `len(s)`\n\n```python\ns = 'Python'\nprint('Độ dài:', len(s))\nprint('Chữ hoa:', s.upper())\n```"
+        "content": "### 1. Kiểu xâu ký tự (String)\n- Xâu là dãy các ký tự đặt trong cặp nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Một số thao tác xử lý xâu\n- Ghép xâu: `s1 + s2`\n- Lặp xâu: `s * 3`\n- Duyệt từng ký tự trong xâu: `for char in s:`\n- Độ dài xâu: `len(s)`\n\n```python\ns = 'Python'\nprint('Độ dài:', len(s))\nprint('Chữ hoa:', s.upper())\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1dUV02mN41Ktcdcz8GAPUB-C8StJUTF0_/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 8,
