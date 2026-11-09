@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:34:54.308Z",
+    "updatedAt": "2026-11-09T16:35:10.668Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 2. Biến và lệnh gán và biểu thức số học"
   },
   "data": {
     "registeredUsers": [
@@ -11808,7 +11808,9 @@
         "id": 2,
         "title": "Bài 2. Biến và lệnh gán và biểu thức số học",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Biến (Variable)\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ máy tính. Giá trị của biến có thể thay đổi trong quá trình thực thi chương trình.\n- **Quy tắc đặt tên biến**:\n  + Bắt đầu bằng chữ cái hoặc dấu gạch dưới `_`.\n  + Không chứa khoảng trắng hoặc ký tự đặc biệt.\n  + Không trùng từ khóa của Python (như `if`, `for`, `def`).\n\n### 2. Lệnh gán và Biểu thức số học\n- Cú pháp lệnh gán: `tên_biến = giá_trị`\n- Các phép toán số học trong Python:\n  + Cộng `+`, Trừ `-`, Nhân `*`\n  + Chia số thực `/`, Chia lấy nguyên `//`, Chia lấy dư `%`, Lũy thừa `**`\n\n```python\na = 10\nb = 3\ntong = a + b\nchia_nguyen = a // b  # Kết quả: 3\nchia_du = a % b       # Kết quả: 1\n```"
+        "content": "### 1. Biến (Variable)\n- Biến là đại lượng dùng để lưu trữ giá trị trong bộ nhớ máy tính. Giá trị của biến có thể thay đổi trong quá trình thực thi chương trình.\n- **Quy tắc đặt tên biến**:\n  + Bắt đầu bằng chữ cái hoặc dấu gạch dưới `_`.\n  + Không chứa khoảng trắng hoặc ký tự đặc biệt.\n  + Không trùng từ khóa của Python (như `if`, `for`, `def`).\n\n### 2. Lệnh gán và Biểu thức số học\n- Cú pháp lệnh gán: `tên_biến = giá_trị`\n- Các phép toán số học trong Python:\n  + Cộng `+`, Trừ `-`, Nhân `*`\n  + Chia số thực `/`, Chia lấy nguyên `//`, Chia lấy dư `%`, Lũy thừa `**`\n\n```python\na = 10\nb = 3\ntong = a + b\nchia_nguyen = a // b  # Kết quả: 3\nchia_du = a % b       # Kết quả: 1\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1NuldM5YPEsvt8FAFNDzkEP-GbsLjSpd-/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 3,
