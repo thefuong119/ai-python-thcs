@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:20:15.366Z",
+    "updatedAt": "2026-11-09T13:21:00.233Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -232,7 +232,7 @@
     },
     {
       "id": 15,
-      "question": "Kết quả của chương trình sau là gì? s = 0\\nfor i in range(1,5):\\n s += i\\nprint(s)",
+      "question": "Kết quả của chương trình sau là gì? \ns = 0\nfor i in range(1,5):\n    s += i\nprint(s)",
       "options": [
         "10",
         "15",
