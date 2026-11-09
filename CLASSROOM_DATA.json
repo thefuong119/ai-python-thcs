@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:23:21.567Z",
+    "updatedAt": "2026-11-09T13:23:58.571Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15224,7 +15224,7 @@
       },
       {
         "id": 22,
-        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 3:\\n print(i, end=' ')\\n i += 1",
+        "question": "Kết quả của chương trình sau là gì?\ni = 1\nwhile i <= 3:\n    print(i, end=' ')\n    i += 1",
         "options": [
           "1 2 3",
           "1 2 3 4",
