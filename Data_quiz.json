@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:16:54.851Z",
+    "updatedAt": "2026-11-09T13:17:17.802Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -56,7 +56,7 @@
     },
     {
       "id": 4,
-      "question": "Kết quả của chương trình sau là gì? x = 7\\nif x % 2 == 0:\\n print('Chan')\\nelse:\\n print('Le')",
+      "question": "Kết quả của chương trình sau là gì? x = 7\nif x % 2 == 0:\n    print('Chan')\nelse:\n    print('Le')",
       "options": [
         "Chan",
         "Le",
