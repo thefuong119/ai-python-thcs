@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:42:46.316Z",
+    "updatedAt": "2026-11-09T16:43:00.902Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Sửa bài giảng: Bài 13. Kiểm thử và gỡ lỗi chương trình"
   },
   "data": {
     "registeredUsers": [
@@ -11890,7 +11890,8 @@
         "id": 13,
         "title": "Bài 13. Kiểm thử và gỡ lỗi chương trình",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Kiểm thử chương trình (Testing)\n- Chạy chương trình với nhiều bộ dữ liệu thử nghiệm khác nhau (Test cases), bao gồm các trường hợp thông thường và trường hợp đặc biệt (biên).\n\n### 2. Kỹ thuật gỡ lỗi (Debugging)\n- Dùng lệnh `print()` để kiểm tra giá trị trung gian của các biến.\n- Sử dụng khối lệnh `try...except` để bắt và xử lý ngoại lệ một cách linh hoạt.\n\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho số 0!')\n```"
+        "content": "### 1. Kiểm thử chương trình (Testing)\n- Chạy chương trình với nhiều bộ dữ liệu thử nghiệm khác nhau (Test cases), bao gồm các trường hợp thông thường và trường hợp đặc biệt (biên).\n\n### 2. Kỹ thuật gỡ lỗi (Debugging)\n- Dùng lệnh `print()` để kiểm tra giá trị trung gian của các biến.\n- Sử dụng khối lệnh `try...except` để bắt và xử lý ngoại lệ một cách linh hoạt.\n\n```python\ntry:\n    a = int(input())\n    print(10 / a)\nexcept ZeroDivisionError:\n    print('Không thể chia cho số 0!')\n```",
+        "mediaUrl": "https://docs.google.com/presentation/d/1-q3XCCQ7_8hAvHDVWAc7ffdeyuAcE8tp/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 14,
