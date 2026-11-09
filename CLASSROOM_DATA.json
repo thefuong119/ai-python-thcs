@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T14:51:57.153Z",
+    "updatedAt": "2026-11-09T14:52:07.043Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 23,
+        "attempts": 30,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:51:57 9/11/2026"
+        "lastSubmit": "21:52:04 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12289,6 +12289,321 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794235924406,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:04 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235923554,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:03 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235922692,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:02 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235922535,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:02 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235922436,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:02 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235922327,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:52:02 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794235919006,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "21:51:59 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
       {
         "id": 1794235917062,
         "student": "Lê Nguyễn Quang Minh",
