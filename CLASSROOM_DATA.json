@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:55:51.691Z",
-    "updatedBy": "Nguyễn Phú Lộc",
+    "updatedAt": "2026-11-09T13:57:51.024Z",
+    "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 10,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -14569,13 +14569,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "20:55:11 9/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
       {
         "time": "20:45:14 9/11/2026",
         "name": "Lê Nguyễn Quang Minh",
