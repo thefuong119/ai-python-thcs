@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "updatedAt": "2026-11-09T13:12:38.588Z",
+    "updatedBy": "Trần Ngọc Hân",
+    "count": 1,
+    "action": "HS Trần Ngọc Hân nộp bài trắc nghiệm"
+  },
+  "quizSubmissions": [
+    {
+      "id": 1794229958546,
+      "student": "Trần Ngọc Hân",
+      "username": "han",
+      "className": "9A2",
+      "quizTitle": "Trắc nghiệm 10 câu - 9/11/2026",
+      "totalQuestions": 10,
+      "correctCount": 10,
+      "score": 10,
+      "answers": [
+        {
+          "questionId": 66,
+          "question": "Phép toán | cho kết quả là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a|b)",
+          "options": [
+            "{3}",
+            "{1,2,3,4,5}",
+            "{1,2}",
+            "{4,5}"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Toán tử | tính hợp của hai tập hợp (lấy tất cả các phần tử duy nhất ở cả hai bên)."
+        },
+        {
+          "questionId": 96,
+          "question": "Đoạn code nào ghi chuỗi 'Hello' vào tệp output.txt?",
+          "options": [
+            "f=open('output.txt','r')\\nf.write('Hello')",
+            "f=open('output.txt','w')\\nf.write('Hello')",
+            "f=open('output.txt','a')\\nf.read('Hello')",
+            "f=open('output.txt','w')\\nf.read('Hello')"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Cần mở tệp chế độ 'w' và gọi hàm f.write('chuỗi')."
+        },
+        {
+          "questionId": 108,
+          "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+          "options": [
+            "8 1",
+            "1 8",
+            "6 2",
+            "8 2"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "sort(reverse=True) sắp xếp giảm dần: 8, 6, 3, 2, 1. In a[0] và a[-1] tức là phần tử đầu (lớn nhất) và cuối (nhỏ nhất) -> 8 1."
+        },
+        {
+          "questionId": 68,
+          "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+          "options": [
+            "{1,2}",
+            "{3}",
+            "{4}",
+            "{1,2,3,4}"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Toán tử - tính hiệu của hai tập (lấy những phần tử có trong a mà không có trong b). Đó là 1 và 2."
+        },
+        {
+          "questionId": 99,
+          "question": "Muốn ghi nhiều dòng dữ liệu ra tệp nhanh chóng kèm định dạng in, ta có thể dùng lệnh nào?",
+          "options": [
+            "f.write()",
+            "print(..., file=f)",
+            "f.read()",
+            "input(f)"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Hàm print() có tham số file=f hỗ trợ ghi kết quả xuất thẳng vào tệp tin tiện lợi."
+        },
+        {
+          "questionId": 98,
+          "question": "Giả sử input.txt chứa dòng 1 là số 5, dòng 2 là '1 3 5 7 9'. Đoạn code nào đọc đúng n và mảng a?",
+          "options": [
+            "n=int(f.readline())\\na=list(map(int,f.readline().split()))",
+            "n=f.read()\\na=f.read()",
+            "n=list(map(int,f.readline()))",
+            "n=int(f.read())"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Dòng 1 dùng int(f.readline()) đọc n. Dòng 2 dùng f.readline().split() để đọc mảng số."
+        },
+        {
+          "questionId": 102,
+          "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+          "options": [
+            "4",
+            "8",
+            "12",
+            "10"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Tìm các số trong a chia hết cho 4: 4, 8. Tổng = 12."
+        },
+        {
+          "questionId": 101,
+          "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+          "options": [
+            "5",
+            "25",
+            "15",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Đọc dòng 2 làm mảng a = [1,3,5,7,9]. Tổng của mảng = 25."
+        },
+        {
+          "questionId": 67,
+          "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+          "options": [
+            "{1,2}",
+            "{3}",
+            "{4,5}",
+            "{1,2,3,4,5}"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Toán tử & tính giao của hai tập hợp (lấy các phần tử chung). Chỉ có 3 là chung."
+        },
+        {
+          "questionId": 97,
+          "question": "Lệnh nào dùng để đóng tệp sau khi làm việc?",
+          "options": [
+            "f.stop()",
+            "f.close()",
+            "f.end()",
+            "f.finish()"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "f.close() dùng để giải phóng bộ nhớ và tài nguyên hệ thống sau khi thao tác với tệp xong."
+        }
+      ],
+      "timestamp": "20:12:38 9/11/2026",
+      "date": "2026-11-09",
+      "startedAt": 1794229728993,
+      "duration": 230
+    }
+  ]
+}
