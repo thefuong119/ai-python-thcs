@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:23:58.571Z",
+    "updatedAt": "2026-11-09T13:24:27.302Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15240,7 +15240,7 @@
       },
       {
         "id": 23,
-        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 2\\nprint(i)",
+        "question": "Kết quả của chương trình sau là gì? \ni = 0\nwhile i < 5:\n     i += 2\nprint(i)",
         "options": [
           "4",
           "5",
