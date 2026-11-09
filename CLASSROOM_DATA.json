@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T11:34:34.517Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-09T11:48:27.764Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Ẩn/Hiện đề trắc nghiệm: Trắc nghiệm Python cơ bản - Kiến thức nhập môn"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 61,
+        "loginCount": 62,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14107,6 +14107,13 @@
     ],
     "loginLogs": [
       {
+        "time": "18:47:32 9/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "17:44:38 9/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -14842,6 +14849,80 @@
           }
         ]
       }
-    ]
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "title": "Trắc nghiệm Python cơ bản - Kiến thức nhập môn",
+        "classLevel": "8",
+        "description": "Kiểm tra kiến thức cơ bản về Python: biến, kiểu dữ liệu, lệnh in.",
+        "questions": [
+          {
+            "id": 1,
+            "text": "Lệnh nào dùng để in ra màn hình trong Python?",
+            "options": [
+              "print()",
+              "echo()",
+              "console.log()",
+              "System.out.println()"
+            ],
+            "correctIndex": 0,
+            "points": 2
+          },
+          {
+            "id": 2,
+            "text": "Kiểu dữ liệu nào dùng để lưu số nguyên trong Python?",
+            "options": [
+              "int",
+              "float",
+              "str",
+              "bool"
+            ],
+            "correctIndex": 0,
+            "points": 2
+          },
+          {
+            "id": 3,
+            "text": "Kết quả của biểu thức 10 // 3 trong Python là?",
+            "options": [
+              "3",
+              "3.33",
+              "1",
+              "4"
+            ],
+            "correctIndex": 0,
+            "points": 2
+          },
+          {
+            "id": 4,
+            "text": "Lệnh nào dùng để nhập dữ liệu từ bàn phím?",
+            "options": [
+              "input()",
+              "read()",
+              "get()",
+              "scan()"
+            ],
+            "correctIndex": 0,
+            "points": 2
+          },
+          {
+            "id": 5,
+            "text": "Trong Python, khối lệnh con sau dấu ':' được đánh dấu bằng gì?",
+            "options": [
+              "Thụt lề (khoảng trắng đầu dòng)",
+              "Dấu ngoặc nhọn {}",
+              "Dấu ngoặc tròn ()",
+              "Dấu chấm phẩy ;"
+            ],
+            "correctIndex": 0,
+            "points": 2
+          }
+        ],
+        "createdAt": "18:47:10 9/11/2026",
+        "createdBy": "Hệ thống",
+        "active": false
+      }
+    ],
+    "quizSubmissions": []
   }
 }
