@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:15:56.149Z",
+    "updatedAt": "2026-11-09T13:16:57.827Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -14920,7 +14920,7 @@
       },
       {
         "id": 3,
-        "question": "Kết quả của chương trình sau là gì? x = 2\\nif x > 5:\\n print('Hello')\\nprint('Python')",
+        "question": "Kết quả của chương trình sau là gì? x = 2\nif x > 5:\n    print('Hello')\nprint('Python')",
         "options": [
           "Hello",
           "Python",
