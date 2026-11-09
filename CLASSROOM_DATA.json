@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:18:13.179Z",
+    "updatedAt": "2026-11-09T13:18:36.244Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -14984,7 +14984,7 @@
       },
       {
         "id": 7,
-        "question": "Chương trình sau sử dụng cấu trúc rẽ nhánh dạng nào? x = 3\\nif x > 0:\\n print('Duong')",
+        "question": "Chương trình sau sử dụng cấu trúc rẽ nhánh dạng nào? \nx = 3\nif x > 0:\n     print('Duong')",
         "options": [
           "Rẽ nhánh đủ",
           "Rẽ nhánh thiếu",
