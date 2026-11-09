@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:22:53.973Z",
+    "updatedAt": "2026-11-09T13:23:21.567Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15192,7 +15192,7 @@
       },
       {
         "id": 20,
-        "question": "Kết quả của chương trình sau là gì? s = 0\\nfor i in range(2,8,2):\\n s += i\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? \ns = 0\nfor i in range(2,8,2):\n    s += i\nprint(s)",
         "options": [
           "12",
           "20",
