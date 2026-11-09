@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T14:10:59.999Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-09T14:11:16.891Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Đăng xuất: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 63,
+        "loginCount": 64,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 20,
+        "attempts": 19,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:53:58 9/11/2026"
+        "lastSubmit": "20:35:48 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -11818,7 +11818,9 @@
         "id": 4,
         "title": "Bài 4. Cấu trúc rẽ nhánh",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Ý nghĩa cấu trúc rẽ nhánh\n- Dùng để điều khiển luồng thực hiện chương trình dựa trên một hoặc nhiều điều kiện logic.\n\n### 2. Cú pháp câu lệnh `if...elif...else`\n```python\nif điều_kiện_1:\n    # Khối lệnh 1 được thực hiện nếu điều kiện 1 đúng\nelif điều_kiện_2:\n    # Khối lệnh 2 được thực hiện nếu điều kiện 2 đúng\nelse:\n    # Khối lệnh thực hiện khi tất cả điều kiện đều sai\n```\n\n### 3. Ví dụ kiểm tra số chẵn lẻ\n```python\nn = int(input())\nif n % 2 == 0:\n    print('Số chẵn')\nelse:\n    print('Số lẻ')\n```"
+        "content": "### 1. Ý nghĩa cấu trúc rẽ nhánh\n- Dùng để điều khiển luồng thực hiện chương trình dựa trên một hoặc nhiều điều kiện logic.\n\n### 2. Cú pháp câu lệnh `if...elif...else`\n```python\nif điều_kiện_1:\n    # Khối lệnh 1 được thực hiện nếu điều kiện 1 đúng\nelif điều_kiện_2:\n    # Khối lệnh 2 được thực hiện nếu điều kiện 2 đúng\nelse:\n    # Khối lệnh thực hiện khi tất cả điều kiện đều sai\n```\n\n### 3. Ví dụ kiểm tra số chẵn lẻ\n```python\nn = int(input())\nif n % 2 == 0:\n    print('Số chẵn')\nelse:\n    print('Số lẻ')\n```\n\n### Bài tập thực hành:\n### Bài 1: Hãy nhập từ bàn phím một số nguyên bất kỳ. Kiểm tra xem số đó có chia hết cho 5 hay không, in thông báo ra màn hình.\n\n### Bài 2: Hãy nhập từ bàn phím 3 số nguyên dương bất kỳ, hãy kiểm tra xem 3 số đó có phải là 3 cạnh của tam giác hay không? In thông báo ra màn hình.\n\n### Bài 3: Hãy lập trình chức năng xếp loại học sinh theo phân loại sau:\nNếu điểm trung bình (đtb) >=9 thì xếp loại xuất sắc.\nNếu điểm trung bình >=8 thì xếp loại giỏi\nNếu điểm trung bình >=7 thì xếp loại khá\nNếu điểm trung bình >=5 thì xếp loại trung bình\nCòn lại là loại yếu kém.",
+        "classLevel": "8",
+        "mediaUrl": ""
       },
       {
         "id": 5,
@@ -12289,51 +12291,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794232438553,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
-        "assignmentId": 7,
-        "score": 10,
-        "timestamp": "20:53:58 9/11/2026",
-        "date": "2026-11-09",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "ABACBD",
-            "expected": "ABCD",
-            "actual": "ABCD",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "BACBCD",
-            "expected": "BCD",
-            "actual": "BCD",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "FEDCBA",
-            "expected": "F",
-            "actual": "F",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "ACEGIK",
-            "expected": "ACEGIK",
-            "actual": "ACEGIK",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input()\nDonDieu = S[0]\ny = S[0]\nfor i in S[1:]:\n    if i > y:\n      DonDieu += i\n      y = i\nprint(DonDieu)"
-      },
       {
         "id": 1794231348664,
         "student": "Lê Nguyễn Quang Minh",
@@ -14615,6 +14572,20 @@
     ],
     "loginLogs": [
       {
+        "time": "21:11:16 9/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "20:59:22 9/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "20:45:14 9/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -15320,7 +15291,7 @@
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
-      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\nS = input()\nDonDieu = S[0]\ny = S[0]\nfor i in S[1:]:\n    if i > y:\n      DonDieu += i\n      y = i\nprint(DonDieu)",
+      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\nS = input()\nChuoiSo = ''\nDonDieu = ''\nfor i in range(0,len(S)):\n    if S[i] == 'A': ChuoiSo += '1 '\n    elif S[i] == 'B': ChuoiSo += '2 '\n    elif S[i] == 'C': ChuoiSo += '3 '\n    elif S[i] == 'D': ChuoiSo += '4 '\n    elif S[i] == 'E': ChuoiSo += '5 '\n    elif S[i] == 'F': ChuoiSo += '6 '\n    elif S[i] == 'G': ChuoiSo += '7 '\n    elif S[i] == 'H': ChuoiSo += '8 '\n    elif S[i] == 'I': ChuoiSo += '9 '\n    elif S[i] == 'J': ChuoiSo += '10 '\n    elif S[i] == 'K': ChuoiSo += '11 '\n    elif S[i] == 'L': ChuoiSo += '12 '\n    elif S[i] == 'M': ChuoiSo += '13 '\n    elif S[i] == 'N': ChuoiSo += '14 '\n    elif S[i] == 'O': ChuoiSo += '15 '\n    elif S[i] == 'P': ChuoiSo += '16 '\n    elif S[i] == 'Q': ChuoiSo += '17 '\n    elif S[i] == 'R': ChuoiSo += '18 '\n    elif S[i] == 'S': ChuoiSo += '19 '\n    elif S[i] == 'T': ChuoiSo += '20 '\n    elif S[i] == 'U': ChuoiSo += '21 '\n    elif S[i] == 'V': ChuoiSo += '22 '\n    elif S[i] == 'W': ChuoiSo += '23 '\n    elif S[i] == 'X': ChuoiSo += '24 '\n    elif S[i] == 'Y': ChuoiSo += '25 '\n    else: ChuoiSo += '26 '\nChuoiSo = ChuoiSo[:-1]\nChuoiSo = ChuoiSo.split(' ')\nx = 0\nn = ''\nfor y in ChuoiSo:\n    if int(y) > x:\n      n = n + y\n    x = int(y)\nfor i in range(0,len(n)):\n    if n[i] == '1': DonDieu += 'A'\n    elif n[i] == '2': DonDieu += 'B'\n    elif n[i] == '3': DonDieu += 'C'\n    elif n[i] == '4': DonDieu += 'D'\n    elif n[i] == '5': DonDieu += 'E'\n    elif n[i] == '6': DonDieu += 'F'\n    elif n[i] == '7': DonDieu += 'G'\n    elif n[i] == '8': DonDieu += 'H'\n    elif n[i] == '9': DonDieu += 'I'\n    elif n[i] == '10': DonDieu += 'J'\n    elif n[i] == '11': DonDieu += 'K'\n    elif n[i] == '12': DonDieu += 'L'\n    elif n[i] == '13': DonDieu += 'M'\n    elif n[i] == '14': DonDieu += 'N'\n    elif n[i] == '15': DonDieu += 'O'\n    elif n[i] == '16': DonDieu += 'P'\n    elif n[i] == '17': DonDieu += 'Q'\n    elif n[i] == '18': DonDieu += 'R'\n    elif n[i] == '19': DonDieu += 'S'\n    elif n[i] == '20': DonDieu += 'T'\n    elif n[i] == '21': DonDieu += 'U'\n    elif n[i] == '22': DonDieu += 'V'\n    elif n[i] == '23': DonDieu += 'W'\n    elif n[i] == '24': DonDieu += 'X'\n    elif n[i] == '25': DonDieu += 'Y'\n    else: DonDieu += 'Z'\nprint(\"\".join(dict.fromkeys(DonDieu)))",
       "hocsinh__Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N, M = int(data[0]), int(data[1])\n    edges = []\n    idx = 2\n    for _ in range(M):\n        edges.append((int(data[idx + 2]), int(data[idx]), int(data[idx + 1]))); idx + = 3\n        edges.sort()\n        parent = list(range(N + 1))\n        def find(i):\n            path = []\n            while parent[i] != i: path.append(i); i = parent[i]\n            for node in path: parent[node] = i\n            return i\n            cost, cnt = 0, 0\n            for w, u, v in edges:\n                ru, rv = find(u), find(v)\n                if ru != rv:\n                    parent[ru] = rv; cost + = w; cnt + = 1\n                    if cnt == N - 1: break\nprint(cost)",
       "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
       "trongkhuong8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na,b=map(int,input().split())\nprint(a + b)",
