@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:38:54.864Z",
+    "updatedAt": "2026-11-09T16:40:54.381Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài 8. Chương trình con và thư viện trong python"
+    "action": "Admin lưu bài giảng: Bài 9. Tham số của hàm"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 64,
+        "loginCount": 65,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -11848,23 +11848,21 @@
         "id": 7,
         "title": "Bài 7. Kiểu dữ liệu xâu",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Kiểu xâu ký tự (String)\n- Xâu là dãy các ký tự đặt trong cặp nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Một số thao tác xử lý xâu\n- Ghép xâu: `s1 + s2`\n- Lặp xâu: `s * 3`\n- Duyệt từng ký tự trong xâu: `for char in s:`\n- Độ dài xâu: `len(s)`\n\n```python\ns = 'Python'\nprint('Độ dài:', len(s))\nprint('Chữ hoa:', s.upper())\n```",
-        "classLevel": "8",
-        "mediaUrl": "https://docs.google.com/presentation/d/1dUV02mN41Ktcdcz8GAPUB-C8StJUTF0_/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
+        "content": "### 1. Kiểu xâu ký tự (String)\n- Xâu là dãy các ký tự đặt trong cặp nháy đơn `'...'` hoặc nháy kép `\"...\"`.\n\n### 2. Một số thao tác xử lý xâu\n- Ghép xâu: `s1 + s2`\n- Lặp xâu: `s * 3`\n- Duyệt từng ký tự trong xâu: `for char in s:`\n- Độ dài xâu: `len(s)`\n\n```python\ns = 'Python'\nprint('Độ dài:', len(s))\nprint('Chữ hoa:', s.upper())\n```"
       },
       {
         "id": 8,
         "title": "Bài 8. Chương trình con và thư viện trong python",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Khái niệm Hàm (Chương trình con)\n- Giúp module hóa chương trình, chia bài toán lớn thành các bài toán nhỏ hơn và tái sử dụng mã nguồn.\n- Khai báo bằng từ khóa `def`:\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Sử dụng Thư viện chuẩn\n- Thư viện toán học `math`: `import math`\n- Ví dụ: `math.sqrt(16)` tính căn bậc hai (kết quả: 4.0).",
-        "classLevel": "8",
-        "mediaUrl": "https://docs.google.com/presentation/d/1saM21-eSNrsC_cp-PD_RuW5xXeMtuwAm/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
+        "content": "### 1. Khái niệm Hàm (Chương trình con)\n- Giúp module hóa chương trình, chia bài toán lớn thành các bài toán nhỏ hơn và tái sử dụng mã nguồn.\n- Khai báo bằng từ khóa `def`:\n```python\ndef tinh_tong(a, b):\n    return a + b\n```\n\n### 2. Sử dụng Thư viện chuẩn\n- Thư viện toán học `math`: `import math`\n- Ví dụ: `math.sqrt(16)` tính căn bậc hai (kết quả: 4.0)."
       },
       {
         "id": 9,
         "title": "Bài 9. Tham số của hàm",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Tham số và Đối số\n- **Tham số (Parameter)**: Được định nghĩa khi khai báo hàm.\n- **Đối số (Argument)**: Là giá trị thực tế truyền vào khi gọi hàm.\n\n### 2. Tham số mặc định\n- Cho phép gán giá trị mặc định cho tham số nếu người gọi không truyền vào:\n```python\ndef chao_mung(ten='bạn'):\n    print('Xin chào,', ten)\n\nchao_mung()          # Xin chào, bạn\nchao_mung('Phương')  # Xin chào, Phương\n```"
+        "content": "### 1. Tham số và Đối số\n- **Tham số (Parameter)**: Được định nghĩa khi khai báo hàm.\n- **Đối số (Argument)**: Là giá trị thực tế truyền vào khi gọi hàm.\n\n### 2. Tham số mặc định\n- Cho phép gán giá trị mặc định cho tham số nếu người gọi không truyền vào:\n```python\ndef chao_mung(ten='bạn'):\n    print('Xin chào,', ten)\n\nchao_mung()          # Xin chào, bạn\nchao_mung('Phương')  # Xin chào, Phương\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1AjKJZZV72HI32kU400oArAgcdVvkABlz/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 10,
@@ -14764,6 +14762,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:40:31 9/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "23:32:55 9/11/2026",
         "name": "Nguyễn Thế Phương",
