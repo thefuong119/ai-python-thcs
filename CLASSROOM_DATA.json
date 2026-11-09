@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:19:16.574Z",
+    "updatedAt": "2026-11-09T13:19:45.506Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -15064,7 +15064,7 @@
       },
       {
         "id": 12,
-        "question": "Kết quả của chương trình sau là gì? for i in range(3):\\n print(i, end=' ')",
+        "question": "Kết quả của chương trình sau là gì? \nfor i in range(3):\n    print(i, end=' ')",
         "options": [
           "1 2 3",
           "0 1 2",
