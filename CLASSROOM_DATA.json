@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T14:00:42.057Z",
+    "updatedAt": "2026-11-09T14:01:26.439Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài 4. Cấu trúc rẽ nhánh"
+    "action": "Sửa bài giảng: Bài 4. Cấu trúc rẽ nhánh"
   },
   "data": {
     "registeredUsers": [
@@ -11818,7 +11818,7 @@
         "id": 4,
         "title": "Bài 4. Cấu trúc rẽ nhánh",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Ý nghĩa cấu trúc rẽ nhánh\n- Dùng để điều khiển luồng thực hiện chương trình dựa trên một hoặc nhiều điều kiện logic.\n\n### 2. Cú pháp câu lệnh `if...elif...else`\n```python\nif điều_kiện_1:\n    # Khối lệnh 1 được thực hiện nếu điều kiện 1 đúng\nelif điều_kiện_2:\n    # Khối lệnh 2 được thực hiện nếu điều kiện 2 đúng\nelse:\n    # Khối lệnh thực hiện khi tất cả điều kiện đều sai\n```\n\n### 3. Ví dụ kiểm tra số chẵn lẻ\n```python\nn = int(input())\nif n % 2 == 0:\n    print('Số chẵn')\nelse:\n    print('Số lẻ')\n```\n\n### Bài tập thực hành:\n### Bài 1: Hãy nhập từ bàn phím một số nguyên bất kỳ. Kiểm tra xem số đó có chia hết cho 5 hay không, in thông báo ra màn hình.\n\n### Bài 2: Hãy nhập từ bàn phím 3 số nguyên dương bất kỳ, hãy kiểm tra xem 3 số đó có phải là 3 cạnh của tam giác hay không? In thông báo ra màn hình.\n\n### Bài 3: Hãy lập trình chức năng xếp loại học sinh theo phân loại sau:\n\nNếu điểm trung bình (đtb) >=9 thì xếp loại xuất sắc.\nNếu điểm trung bình >=8 thì xếp loại giỏi\nNếu điểm trung bình >=7 thì xếp loại khá\nNếu điểm trung bình >=5 thì xếp loại trung bình\nCòn lại là loại yếu kém.",
+        "content": "### 1. Ý nghĩa cấu trúc rẽ nhánh\n- Dùng để điều khiển luồng thực hiện chương trình dựa trên một hoặc nhiều điều kiện logic.\n\n### 2. Cú pháp câu lệnh `if...elif...else`\n```python\nif điều_kiện_1:\n    # Khối lệnh 1 được thực hiện nếu điều kiện 1 đúng\nelif điều_kiện_2:\n    # Khối lệnh 2 được thực hiện nếu điều kiện 2 đúng\nelse:\n    # Khối lệnh thực hiện khi tất cả điều kiện đều sai\n```\n\n### 3. Ví dụ kiểm tra số chẵn lẻ\n```python\nn = int(input())\nif n % 2 == 0:\n    print('Số chẵn')\nelse:\n    print('Số lẻ')\n```\n\n### Bài tập thực hành:\n### Bài 1: Hãy nhập từ bàn phím một số nguyên bất kỳ. Kiểm tra xem số đó có chia hết cho 5 hay không, in thông báo ra màn hình.\n\n### Bài 2: Hãy nhập từ bàn phím 3 số nguyên dương bất kỳ, hãy kiểm tra xem 3 số đó có phải là 3 cạnh của tam giác hay không? In thông báo ra màn hình.\n\n### Bài 3: Hãy lập trình chức năng xếp loại học sinh theo phân loại sau:\nNếu điểm trung bình (đtb) >=9 thì xếp loại xuất sắc.\nNếu điểm trung bình >=8 thì xếp loại giỏi\nNếu điểm trung bình >=7 thì xếp loại khá\nNếu điểm trung bình >=5 thì xếp loại trung bình\nCòn lại là loại yếu kém.",
         "classLevel": "8",
         "mediaUrl": ""
       },
