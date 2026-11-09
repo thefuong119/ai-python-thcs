@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:21:00.233Z",
+    "updatedAt": "2026-11-09T13:21:20.181Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -248,7 +248,7 @@
     },
     {
       "id": 16,
-      "question": "Kết quả của chương trình sau là gì? a = [2,4,6]\\nfor x in a:\\n print(x,end=' ')",
+      "question": "Kết quả của chương trình sau là gì? a = [2,4,6]\nfor x in a:\n    print(x,end=' ')",
       "options": [
         "0 1 2",
         "2 4 6",
