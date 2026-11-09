@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:05:57.922Z",
+    "updatedAt": "2026-11-09T13:06:11.881Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 9,
+        "attempts": 10,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:05:53 9/11/2026"
+        "lastSubmit": "20:06:11 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794229571798,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "assignmentId": 2,
+        "score": 10,
+        "timestamp": "20:06:11 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "997",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')"
+      },
       {
         "id": 1794229553026,
         "student": "Lê Nguyễn Quang Minh",
@@ -14858,7 +14903,8 @@
       "trọngkhương8a4__Bài 34. Kiểm tra số Armstrong": "n=int(input().strip())\ns=str(n)\nk=len(s)\ntong=sum(int(d)**k for d in s )\nif tong==n:\n    print(\"YES.\")\nelse:\n    print(\"NO.\")",
       "trọngkhương8a4__Bài 17. Kiểm tra số Kaprekar": "a=int(input(\"kết quả:\"))\na_mu_2=a**2\nsq=a*a\ns=str(sq)\nd=len(str(a))\nphai = int(s[-d:]) if s[-d:] != \"\" else 0\ntrai = int(s[:-d]) if s[:-d] != \"\" else 0\nif phai+trai==a:\n    print(\"YES\")\nelse:\n    print(\"NO\") ",
       "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n",
-      "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)"
+      "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)",
+      "minh__Bài 2. Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')"
     },
     "questionFlags": {
       "43": true
