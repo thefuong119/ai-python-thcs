@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:33:11.254Z",
+    "updatedAt": "2026-11-09T16:33:55.174Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 1. Ngôn ngữ lập trình bậc cao và python"
   },
   "data": {
     "registeredUsers": [
@@ -11800,7 +11800,9 @@
         "id": 1,
         "title": "Bài 1. Ngôn ngữ lập trình bậc cao và python",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân 0 và 1.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên (tiếng Anh) và biểu thức toán học, giúp con người dễ đọc, dễ viết và độc lập với phần cứng máy tính.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn và được ứng dụng mạnh mẽ trong khoa học dữ liệu và trí tuệ nhân tạo (AI).\n\n### 3. Chương trình đầu tiên với Python\n```python\n# In ra lời chào thế giới lập trình\nprint('Xin chào thế giới lập trình Python!')\n```"
+        "content": "### 1. Ngôn ngữ lập trình bậc cao là gì?\n- **Ngôn ngữ máy**: Là ngôn ngữ duy nhất máy tính hiểu trực tiếp, cấu thành từ các dãy số nhị phân 0 và 1.\n- **Ngôn ngữ bậc cao**: Là ngôn ngữ có cú pháp gần gũi với ngôn ngữ tự nhiên (tiếng Anh) và biểu thức toán học, giúp con người dễ đọc, dễ viết và độc lập với phần cứng máy tính.\n\n### 2. Giới thiệu về ngôn ngữ lập trình Python\n- Python do nhà khoa học máy tính người Hà Lan **Guido van Rossum** phát triển và phát hành lần đầu năm 1991.\n- **Ưu điểm vượt trội**: Cú pháp ngắn gọn, dễ học, mã nguồn mở, cộng đồng hỗ trợ lớn và được ứng dụng mạnh mẽ trong khoa học dữ liệu và trí tuệ nhân tạo (AI).\n\n### 3. Chương trình đầu tiên với Python\n```python\n# In ra lời chào thế giới lập trình\nprint('Xin chào thế giới lập trình Python!')\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/163N7UeNT0g4sDZUoRuoBa4BA9HQ_5DB9/edit?usp=sharing&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 2,
