@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:15:32.398Z",
+    "updatedAt": "2026-11-09T13:15:53.458Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -24,7 +24,7 @@
     },
     {
       "id": 2,
-      "question": "Kết quả của chương trình sau là gì? x = 5\\nif x > 3:\\n print('A')",
+      "question": "Kết quả của chương trình sau là gì? x = 5\nif x > 3:\n    print('A')",
       "options": [
         "A",
         "5",
