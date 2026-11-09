@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:50:57.122Z",
+    "updatedAt": "2026-11-09T16:52:31.074Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -16988,7 +16988,7 @@
       },
       {
         "id": 90,
-        "question": "Kết quả của chương trình sau là gì? a=[1,2,3]\\nb=[4,5]\\nc=a+b\\nprint(c)",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3]\nb=[4,5]\nc=a+b\nprint(c)",
         "options": [
           "[1,2,3,4,5]",
           "[5,7,3]",
