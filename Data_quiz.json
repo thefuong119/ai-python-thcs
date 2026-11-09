@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T16:53:00.589Z",
+    "updatedAt": "2026-11-09T16:53:27.391Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1400,7 +1400,7 @@
     },
     {
       "id": 88,
-      "question": "Kết quả của chương trình sau là gì? a=[5,1,8,3]\\na.sort()\\nprint(a)",
+      "question": "Kết quả của chương trình sau là gì? \na=[5,1,8,3]\na.sort()\nprint(a)",
       "options": [
         "[8,5,3,1]",
         "[1,3,5,8]",
