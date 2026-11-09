@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:04:56.160Z",
+    "updatedAt": "2026-11-09T13:15:32.398Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Nạp 110 câu hỏi từ file"
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "quizData": [
     {
@@ -120,7 +120,7 @@
     },
     {
       "id": 8,
-      "question": "Kết quả của chương trình sau là gì? x = -2\\nif x > 0:\\n print('Duong')\\nelse:\\n print('Am')",
+      "question": "Kết quả của chương trình sau là gì? x = -2\nif x > 0:\n    print('Duong')\nelse:\n    print('Am')",
       "options": [
         "Duong",
         "Am",
