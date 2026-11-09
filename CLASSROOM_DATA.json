@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:07:09.588Z",
+    "updatedAt": "2026-11-09T13:07:22.803Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 13,
+        "attempts": 14,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:07:09 9/11/2026"
+        "lastSubmit": "20:07:22 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12289,6 +12289,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794229642720,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
+        "assignmentId": 6,
+        "score": 10,
+        "timestamp": "20:07:22 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "16\n15",
+            "actual": "16\n15",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 20",
+            "expected": "60\n200",
+            "actual": "60\n200",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)"
+      },
       {
         "id": 1794229629522,
         "student": "Lê Nguyễn Quang Minh",
