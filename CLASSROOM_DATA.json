@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:41:23.485Z",
+    "updatedAt": "2026-11-09T16:41:45.813Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin lưu bài giảng: Bài 10. Phạm vi của biến"
+    "action": "Sửa bài giảng: Bài 11. Làm việc với file"
   },
   "data": {
     "registeredUsers": [
@@ -11876,7 +11876,8 @@
         "id": 11,
         "title": "Bài 11. Làm việc với file",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Mở và Đóng tệp trong Python\n- Dùng hàm `open(tên_tệp, chế_độ)`:\n  + `'r'`: Mở để đọc dữ liệu.\n  + `'w'`: Mở để ghi dữ liệu (ghi đè).\n  + `'a'`: Mở để ghi nối tiếp vào cuối tệp.\n\n### 2. Cấu trúc an toàn `with open(...)`\n```python\n# Ghi dữ liệu vào tệp\nwith open('ketqua.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm số: 10\\n')\n```"
+        "content": "### 1. Mở và Đóng tệp trong Python\n- Dùng hàm `open(tên_tệp, chế_độ)`:\n  + `'r'`: Mở để đọc dữ liệu.\n  + `'w'`: Mở để ghi dữ liệu (ghi đè).\n  + `'a'`: Mở để ghi nối tiếp vào cuối tệp.\n\n### 2. Cấu trúc an toàn `with open(...)`\n```python\n# Ghi dữ liệu vào tệp\nwith open('ketqua.txt', 'w', encoding='utf-8') as f:\n    f.write('Điểm số: 10\\n')\n```",
+        "mediaUrl": "https://docs.google.com/presentation/d/1Zl0MbmEaw7JV6BPzHjkzKF-BI9s0z8qG/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 12,
