@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:42:03.826Z",
+    "updatedAt": "2026-11-09T16:42:34.838Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Sửa bài giảng: Bài 12. Nhận biết lỗi trong chương trình"
   },
   "data": {
     "registeredUsers": [
@@ -11883,7 +11883,8 @@
         "id": 12,
         "title": "Bài 12. Nhận biết lỗi trong chương trình",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Lỗi cú pháp (Syntax Error)\n- Xảy ra khi viết sai quy tắc ngữ pháp của Python (như quên dấu hai chấm `:`, sai thụt dòng).\n\n### 2. Lỗi thực thi (Runtime Error / Exception)\n- Xảy ra khi chương trình đang chạy (như chia cho số 0 `ZeroDivisionError`, truy cập chỉ số ngoài danh sách `IndexError`).\n\n### 3. Lỗi ngữ nghĩa (Logic Error)\n- Chương trình chạy bình thường không báo lỗi nhưng cho kết quả sai so với yêu cầu bài toán."
+        "content": "### 1. Lỗi cú pháp (Syntax Error)\n- Xảy ra khi viết sai quy tắc ngữ pháp của Python (như quên dấu hai chấm `:`, sai thụt dòng).\n\n### 2. Lỗi thực thi (Runtime Error / Exception)\n- Xảy ra khi chương trình đang chạy (như chia cho số 0 `ZeroDivisionError`, truy cập chỉ số ngoài danh sách `IndexError`).\n\n### 3. Lỗi ngữ nghĩa (Logic Error)\n- Chương trình chạy bình thường không báo lỗi nhưng cho kết quả sai so với yêu cầu bài toán.",
+        "mediaUrl": "https://docs.google.com/presentation/d/1UGYUzeXU9n_8RpY0zuAXEWFJde-aoEQM/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 13,
