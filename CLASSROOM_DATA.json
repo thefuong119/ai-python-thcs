@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:43:19.576Z",
+    "updatedAt": "2026-11-09T16:43:36.871Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Sửa bài giảng: Bài 14. Nhập xuất tệp"
   },
   "data": {
     "registeredUsers": [
@@ -11897,7 +11897,8 @@
         "id": 14,
         "title": "Bài 14. Nhập xuất tệp",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "Bài giảng đang được biên soạn..."
+        "content": "Bài giảng đang được biên soạn...",
+        "mediaUrl": "https://docs.google.com/presentation/d/1Ml5_j-DHebVEmKKtxHl1EUwzzLdN2fHo/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 15,
