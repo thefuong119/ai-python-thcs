@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T13:06:48.252Z",
+    "updatedAt": "2026-11-09T13:06:56.025Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 11,
+        "attempts": 12,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:06:38 9/11/2026"
+        "lastSubmit": "20:06:55 9/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12289,6 +12289,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794229615962,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 4. Xét số chẵn lẻ",
+        "assignmentId": 4,
+        "score": 10,
+        "timestamp": "20:06:55 9/11/2026",
+        "date": "2026-11-09",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5",
+            "expected": "No",
+            "actual": "No",
+            "passed": true,
+            "points": 2
+          },
+          {
+            "testId": 2,
+            "input": "100",
+            "expected": "Yes",
+            "actual": "Yes",
+            "passed": true,
+            "points": 2
+          },
+          {
+            "testId": 3,
+            "input": "10000",
+            "expected": "Yes",
+            "actual": "Yes",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "testId": 4,
+            "input": "111111",
+            "expected": "No",
+            "actual": "No",
+            "passed": true,
+            "points": 3
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')"
+      },
       {
         "id": 1794229598393,
         "student": "Lê Nguyễn Quang Minh",
@@ -14950,7 +14995,8 @@
       "loc__Bài 3. Đếm số lượng số chẵn trong dãy": " # Viết mã Python của em ở đây...\nn = int(input(\"nhập một số nguyên dương N \"))\ndem= 0 \nif n >= 1000:\n    False\nfor i in range(n):\n    if n%2==0:\n        dem+=1\nprint(n)\n        \n     \n        \n        \n",
       "minh__Bài 1. Tính tổng hai số nguyên A và B": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)",
       "minh__Bài 2. Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('NO')\nelse:\n  if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('YES')\n  else:\n    if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('NO')\n    else: print('YES')",
-      "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)"
+      "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
+      "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')"
     },
     "questionFlags": {
       "43": true
