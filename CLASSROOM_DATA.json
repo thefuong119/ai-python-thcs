@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:35:27.867Z",
+    "updatedAt": "2026-11-09T16:35:43.553Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài giảng: Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu trong python"
   },
   "data": {
     "registeredUsers": [
@@ -11816,7 +11816,9 @@
         "id": 3,
         "title": "Bài 3. Các lệnh vào ra đơn giản và các kiểu dữ liệu trong python",
         "grade": "Lớp 8 - Tin học cơ sở",
-        "content": "### 1. Lệnh vào / ra dữ liệu\n- **Lệnh xuất dữ liệu `print()`**: Dùng để hiển thị kết quả ra màn hình.\n- **Lệnh nhập dữ liệu `input()`**: Dùng để nhận dữ liệu từ bàn phím. Mặc định `input()` trả về kiểu xâu ký tự (`str`). Để nhập số nguyên ta dùng `int(input())`.\n\n### 2. Các kiểu dữ liệu cơ bản\n- `int`: Số nguyên (ví dụ: $5$, $-12$).\n- `float`: Số thực (ví dụ: $3.14$, $-0.5$).\n- `str`: Xâu ký tự (ví dụ: `'Tin học 8'`).\n- `bool`: Kiểu logic gồm hai giá trị `True` hoặc `False`.\n\n```python\nho_ten = input('Nhập họ tên: ')\ntuoi = int(input('Nhập tuổi: '))\nprint('Xin chào', ho_ten, 'Bạn', tuoi, 'tuổi.')\n```"
+        "content": "### 1. Lệnh vào / ra dữ liệu\n- **Lệnh xuất dữ liệu `print()`**: Dùng để hiển thị kết quả ra màn hình.\n- **Lệnh nhập dữ liệu `input()`**: Dùng để nhận dữ liệu từ bàn phím. Mặc định `input()` trả về kiểu xâu ký tự (`str`). Để nhập số nguyên ta dùng `int(input())`.\n\n### 2. Các kiểu dữ liệu cơ bản\n- `int`: Số nguyên (ví dụ: $5$, $-12$).\n- `float`: Số thực (ví dụ: $3.14$, $-0.5$).\n- `str`: Xâu ký tự (ví dụ: `'Tin học 8'`).\n- `bool`: Kiểu logic gồm hai giá trị `True` hoặc `False`.\n\n```python\nho_ten = input('Nhập họ tên: ')\ntuoi = int(input('Nhập tuổi: '))\nprint('Xin chào', ho_ten, 'Bạn', tuoi, 'tuổi.')\n```",
+        "classLevel": "8",
+        "mediaUrl": "https://docs.google.com/presentation/d/1ma_WzktSegAUxDMehl3VuRn872oFqN13/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 4,
