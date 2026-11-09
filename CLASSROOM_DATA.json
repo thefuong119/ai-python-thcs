@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:45:08.694Z",
+    "updatedAt": "2026-11-09T16:45:25.851Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Sửa bài giảng: Bài 10. Phạm vi của biến"
   },
   "data": {
     "registeredUsers": [
@@ -11870,7 +11870,7 @@
         "grade": "Lớp 8 - Tin học cơ sở",
         "content": "### 1. Biến cục bộ (Local Variable)\n- Khai báo bên trong hàm và chỉ có hiệu lực bên trong phạm vi hàm đó.\n\n### 2. Biến toàn cục (Global Variable)\n- Khai báo ngoài hàm và có thể truy cập ở mọi nơi trong chương trình. Để thay đổi giá trị biến toàn cục bên trong hàm, dùng từ khóa `global`.\n\n```python\nx = 100  # Toàn cục\ndef vidu():\n    y = 50  # Cục bộ\n    print('Bên trong:', x, y)\n```",
         "classLevel": "8",
-        "mediaUrl": "https://docs.google.com/presentation/d/1K7ET2D1sGmOJLNeMNBJRgKfkm1ql1lXi/edit?usp=sharing&ouid=111061439594444614293&rtpof=true&sd=true"
+        "mediaUrl": "https://docs.google.com/presentation/d/1-q3XCCQ7_8hAvHDVWAc7ffdeyuAcE8tp/edit?usp=drive_link&ouid=111061439594444614293&rtpof=true&sd=true"
       },
       {
         "id": 11,
