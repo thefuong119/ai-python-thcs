@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:17:48.454Z",
+    "updatedAt": "2026-11-09T13:18:09.876Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -88,7 +88,7 @@
     },
     {
       "id": 6,
-      "question": "Kết quả của chương trình sau là gì? x = 10\\nif x >= 10:\\n print('Dat')\\nelse:\\n print('Khong dat')",
+      "question": "Kết quả của chương trình sau là gì? x = 10\nif x >= 10:\n    print('Dat')\nelse:\n    print('Khong dat')",
       "options": [
         "Dat",
         "Khong dat",
