@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T16:54:46.118Z",
+    "updatedAt": "2026-11-10T05:52:16.796Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -376,7 +376,7 @@
     },
     {
       "id": 24,
-      "question": "Kết quả của chương trình sau là gì? i = 1\\ns = 0\\nwhile i <= 4:\\n s += i\\n i += 1\\nprint(s)",
+      "question": "Kết quả của chương trình sau là gì?\ni = 1\ns = 0\nwhile i <= 4:\n     s += i\n     i += 1\nprint(s)",
       "options": [
         "10",
         "8",
