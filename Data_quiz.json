@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T05:56:11.563Z",
+    "updatedAt": "2026-11-10T06:26:41.133Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1416,7 +1416,7 @@
     },
     {
       "id": 89,
-      "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n print(x,end=' ')",
+      "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n    print(x,end=' ')",
       "options": [
         "10 20 30",
         "0 1 2",
@@ -1766,5 +1766,6 @@
       "createdAt": "20:04:56 9/11/2026",
       "createdBy": "Nguyễn Thế Phương"
     }
-  ]
+  ],
+  "quizTests": []
 }
