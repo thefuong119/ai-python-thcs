@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:46:17.879Z",
+    "updatedAt": "2026-11-10T10:46:26.534Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16578,7 +16578,7 @@
       },
       {
         "id": 54,
-        "question": "Kết quả của chương trình sau là gì? a = (5,7,9)\\nprint(len(a))",
+        "question": "Kết quả của chương trình sau là gì? \na = (5,7,9)\nprint(len(a))",
         "options": [
           "2",
           "3",
