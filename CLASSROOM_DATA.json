@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:46:14.513Z",
+    "updatedAt": "2026-11-10T06:48:54.663Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17051,7 +17051,7 @@
       },
       {
         "id": 77,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,5,8,11]\\nc=0\\nfor x in a:\\n if x>5:\\n c+=1\\nprint(c)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
         "options": [
           "3",
           "2",
