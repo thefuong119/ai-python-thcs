@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T11:00:26.704Z",
+    "updatedAt": "2026-11-10T11:00:49.738Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1752,7 +1752,7 @@
     },
     {
       "id": 110,
-      "question": "Chương trình sau sẽ làm gì? with open('input.txt') as f:\\n a=list(map(int,f.read().split()))\\nwith open('output.txt','w') as f:\\n print(sum(a),file=f)",
+      "question": "Chương trình sau sẽ làm gì? \nwith open('input.txt') as f:\n    a=list(map(int,f.read().split()))\nwith open('output.txt','w') as f:\n    print(sum(a),file=f)",
       "options": [
         "In tổng ra màn hình",
         "Ghi tổng vào tệp output.txt",
