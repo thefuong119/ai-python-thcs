@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:57:48.290Z",
+    "updatedAt": "2026-11-10T10:58:24.888Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1688,7 +1688,7 @@
     },
     {
       "id": 106,
-      "question": "Tệp input.txt chứa: 1 4 6 9 10. Kết quả là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\ns=0\\nfor i in range(len(a)):\\n if a[i]>5:\\n s+=a[i]\\nprint(s)",
+      "question": "Tệp input.txt chứa: 1 4 6 9 10. \nKết quả là: f=open('input.txt')\na=list(map(int,f.read().split()))\ns=0\nfor i in range(len(a)):\n    if a[i]>5:\n        s+=a[i]\n    print(s)",
       "options": [
         "19",
         "25",
