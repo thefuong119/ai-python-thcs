@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:48:37.313Z",
+    "updatedAt": "2026-11-10T10:48:54.432Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1128,7 +1128,7 @@
     },
     {
       "id": 71,
-      "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+      "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
       "options": [
         "2",
         "5",
