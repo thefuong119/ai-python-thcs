@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:29:44.115Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-10T05:31:26.937Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 11,
+        "loginCount": 12,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 23,
+        "attempts": 24,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "12:09:52 10/11/2026"
+        "lastSubmit": "12:31:26 10/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12308,6 +12308,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794288686682,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
+        "assignmentId": 267,
+        "score": 10,
+        "timestamp": "12:31:26 10/11/2026",
+        "date": "2026-11-10",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "actual": "77760",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "100 240",
+            "expected": "294840",
+            "actual": "294840",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)"
+      },
       {
         "id": 1794287392948,
         "student": "Nguyễn Phú Lộc",
@@ -14888,6 +14917,13 @@
     ],
     "loginLogs": [
       {
+        "time": "12:30:37 10/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "12:21:08 10/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -15602,7 +15638,7 @@
           {
             "id": 2,
             "input": "100 240",
-            "expected": "300240",
+            "expected": "294840",
             "point": 5,
             "is_hidden": false
           }
