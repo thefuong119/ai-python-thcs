@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:47:48.451Z",
+    "updatedAt": "2026-11-10T10:48:06.363Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1032,7 +1032,7 @@
     },
     {
       "id": 65,
-      "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? a={1,2,3,4}\\na.remove(3)\\nprint(a)",
+      "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? \na={1,2,3,4}\na.remove(3)\nprint(a)",
       "options": [
         "1",
         "2",
