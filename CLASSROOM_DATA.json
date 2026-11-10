@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:54:34.713Z",
+    "updatedAt": "2026-11-10T10:55:22.894Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17346,7 +17346,7 @@
       },
       {
         "id": 102,
-        "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+        "question": "Tệp input.txt chứa: \n4\n2 4 6 8. Kết quả in ra màn hình là? \nf=open('input.txt','r')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\ns=0\nfor i in a:\n    if i%4==0:\n       s+=i\n    print(s)",
         "options": [
           "4",
           "8",
