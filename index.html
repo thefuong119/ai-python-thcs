@@ -128,6 +128,21 @@
         .quiz-history-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
         @keyframes quizFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         .quiz-fade-in { animation: quizFadeIn 0.3s ease-out; }
+        /* === NEW: Markdown wrap cho câu hỏi trắc nghiệm === */
+        .quiz-question-content { word-break: break-word; overflow-wrap: break-word; white-space: normal; line-height: 1.6; }
+        .quiz-question-content p { margin: 0; display: inline; }
+        .quiz-question-content br { line-height: 1.6; }
+        .quiz-question-content h1 { font-size: 1rem; font-weight: 800; margin: 4px 0; display: block; }
+        .quiz-question-content h2 { font-size: 0.95rem; font-weight: 700; margin: 4px 0; display: block; }
+        .quiz-question-content h3 { font-size: 0.9rem; font-weight: 700; margin: 4px 0; display: block; }
+        .quiz-question-content pre { white-space: pre-wrap; word-break: break-word; font-size: 12px; padding: 6px; border-radius: 8px; }
+        .quiz-question-content code { word-break: break-word; }
+        .quiz-option-text { word-break: break-word; overflow-wrap: break-word; white-space: normal; line-height: 1.5; }
+        .quiz-option-text p { margin: 0; display: inline; }
+        .quiz-option-text h1, .quiz-option-text h2, .quiz-option-text h3 { font-size: 0.92rem; font-weight: 700; margin: 2px 0; display: block; }
+        .quiz-option-text pre { white-space: pre-wrap; word-break: break-word; font-size: 12px; padding: 4px 6px; border-radius: 6px; }
+        .quiz-option-text code { word-break: break-word; }
+        .quiz-option .quiz-letter { align-self: flex-start; margin-top: 2px; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -561,7 +576,7 @@
                 </div>
             </div>
 
-            <!-- ============ NEW: STUDENT QUIZ SECTION ============ -->
+            <!-- ============ STUDENT QUIZ SECTION ============ -->
             <div id="studentQuizSection" class="hidden space-y-6">
                 <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-4">
                     <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
@@ -576,10 +591,18 @@
                         </button>
                     </div>
 
-                    <!-- Quiz start form -->
+                    <!-- NEW: Quiz Tests được giao -->
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 border-2 border-purple-200 rounded-2xl p-4 space-y-3">
+                        <h4 class="font-bold text-sm text-purple-900 flex items-center gap-2">
+                            <i class="ph-bold ph-clipboard-text text-purple-600 text-lg"></i> Bài Kiểm Tra Trắc Nghiệm Được Giao
+                        </h4>
+                        <div id="studentQuizTestsList" class="space-y-2"></div>
+                    </div>
+
+                    <!-- Quiz start form (practice) -->
                     <div id="quizStartForm" class="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl p-5 space-y-4">
                         <h4 class="font-bold text-sm text-emerald-900 flex items-center gap-2">
-                            <i class="ph-bold ph-rocket-launch text-emerald-600 text-lg"></i> Bắt Đầu Bài Trắc Nghiệm Mới
+                            <i class="ph-bold ph-rocket-launch text-emerald-600 text-lg"></i> Bắt Đầu Bài Trắc Nghiệm Luyện Tập Mới
                         </h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                             <div>
@@ -941,7 +964,7 @@
                 <div id="teacherTestsList" class="space-y-3"></div>
             </div>
 
-            <!-- ============ NEW: TEACHER QUIZ TAB ============ -->
+            <!-- ============ TEACHER QUIZ TAB ============ -->
             <div id="teacherTabQuiz" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -975,6 +998,20 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- NEW: TEACHER QUIZ TESTS LIST -->
+                <div class="border-b border-slate-100 pb-4 space-y-3">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h4 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+                            <i class="ph-bold ph-clipboard-text text-indigo-600 text-lg"></i> Đề Trắc Nghiệm Đã Tạo (Phát Cho HS)
+                        </h4>
+                        <button onclick="openQuizTestCreateModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-plus"></i> Tạo Đề Từ Ngân Hàng
+                        </button>
+                    </div>
+                    <div id="teacherQuizTestsList" class="space-y-2 max-h-[320px] overflow-y-auto"></div>
+                </div>
+
                 <div class="flex flex-wrap items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-sm">
                     <span class="flex items-center gap-1.5 font-bold text-emerald-800"><i class="ph-bold ph-database"></i> Tổng: <span id="teacherQuizTotalCount" class="text-emerald-900">0</span> câu</span>
                     <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
@@ -1522,7 +1559,7 @@
                 <div id="adminTestsList" class="space-y-3"></div>
             </div>
 
-            <!-- ============ NEW: ADMIN QUIZ TAB ============ -->
+            <!-- ============ ADMIN QUIZ TAB ============ -->
             <div id="adminTabQuiz" class="hidden bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden space-y-4 p-5">
                 <div class="flex items-center justify-between border-b border-slate-100 pb-3 flex-wrap gap-2">
                     <div>
@@ -1559,6 +1596,20 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- NEW: ADMIN QUIZ TESTS LIST -->
+                <div class="border-b border-slate-100 pb-4 space-y-3">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h4 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+                            <i class="ph-bold ph-clipboard-text text-indigo-600 text-lg"></i> Đề Trắc Nghiệm Đã Tạo (Phát Cho HS)
+                        </h4>
+                        <button onclick="openQuizTestCreateModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
+                            <i class="ph-bold ph-plus"></i> Tạo Đề Từ Ngân Hàng
+                        </button>
+                    </div>
+                    <div id="adminQuizTestsList" class="space-y-2 max-h-[320px] overflow-y-auto"></div>
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 flex items-center justify-between">
                         <span class="text-sm font-bold text-emerald-800 flex items-center gap-1.5"><i class="ph-bold ph-database"></i> Ngân hàng câu hỏi</span>
@@ -1735,7 +1786,7 @@
 
     </main>
 
-    <!-- ============ NEW: QUIZ QUESTION MODAL ============ -->
+    <!-- QUIZ QUESTION MODAL -->
     <div id="quizQuestionModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10015] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
             <div class="p-5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white flex items-center justify-between">
@@ -1752,7 +1803,7 @@
                 <input type="hidden" id="quizEditingId" value="">
                 <div>
                     <label class="block font-bold text-sm text-slate-700 mb-1">Câu hỏi (*):</label>
-                    <textarea id="quizQuestionText" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="Nhập nội dung câu hỏi..."></textarea>
+                    <textarea id="quizQuestionText" rows="3" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="Nhập nội dung câu hỏi... (hỗ trợ Markdown: **bold**, \n xuống dòng, ### tiêu đề...)"></textarea>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div class="bg-blue-50 border border-blue-200 rounded-xl p-3">
@@ -1800,6 +1851,76 @@
                 <button onclick="closeQuizQuestionModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm">Hủy</button>
                 <button onclick="saveQuizQuestion()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow-md">
                     <i class="ph-bold ph-check-circle"></i> Lưu Câu Hỏi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: QUIZ TEST CREATE MODAL -->
+    <div id="quizTestCreateModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10016] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
+            <div class="p-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center"><i class="ph-bold ph-clipboard-text text-xl text-amber-300"></i></div>
+                    <div>
+                        <h3 id="quizTestModalTitle" class="text-base font-bold">Tạo Đề Trắc Nghiệm Từ Ngân Hàng</h3>
+                        <p class="text-xs text-purple-100">Chọn câu hỏi từ ngân hàng → Phát cho học sinh làm bài</p>
+                    </div>
+                </div>
+                <button onclick="closeQuizTestCreateModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><i class="ph-bold ph-x text-lg"></i></button>
+            </div>
+            <div class="p-5 space-y-3 overflow-y-auto flex-1">
+                <input type="hidden" id="quizTestEditingId" value="">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Tên đề (*):</label>
+                        <input type="text" id="quizTestTitle" placeholder="VD: Kiểm tra 15 phút - Trắc nghiệm" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-semibold">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
+                        <select id="quizTestGrade" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            <option value="all">Tất cả khối</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Độ khó:</label>
+                        <select id="quizTestDifficulty" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                            <option value="all">Mọi độ khó</option>
+                            <option value="easy">Dễ</option>
+                            <option value="medium">Trung bình</option>
+                            <option value="hard">Khó</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm text-slate-700 mb-1">Số câu hỏi (trộn ngẫu nhiên):</label>
+                        <input type="number" id="quizTestNumQuestions" value="10" min="1" max="100" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-200">
+                    <p class="text-xs text-slate-500 flex items-center gap-1"><i class="ph-bold ph-info text-blue-600"></i> Nhấn "Trộn Câu Hỏi" để chọn ngẫu nhiên, sau đó có thể tích/bỏ tích từng câu.</p>
+                    <button onclick="generateQuizTestPreview()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
+                        <i class="ph-bold ph-shuffle"></i> Trộn Câu Hỏi
+                    </button>
+                </div>
+                <div class="border border-slate-200 rounded-2xl p-3 bg-slate-50 max-h-[350px] overflow-y-auto">
+                    <h4 class="font-bold text-sm text-slate-800 mb-2 flex items-center justify-between">
+                        <span><i class="ph-bold ph-list-numbers text-indigo-600"></i> Danh sách câu hỏi (tích chọn):</span>
+                        <span id="quizTestSelectedCount" class="text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-bold">0 câu</span>
+                    </h4>
+                    <div id="quizTestQuestionPreview" class="space-y-2">
+                        <p class="text-slate-500 italic text-center text-sm">Chưa có câu hỏi nào. Nhấn "Trộn Câu Hỏi" để bắt đầu.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2 flex-wrap">
+                <button onclick="closeQuizTestCreateModal()" class="px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-sm">Hủy</button>
+                <button onclick="saveQuizTest(false)" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-1.5">
+                    <i class="ph-bold ph-floppy-disk"></i> Lưu Nháp
+                </button>
+                <button onclick="saveQuizTest(true)" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
+                    <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Phát Cho HS
                 </button>
             </div>
         </div>
@@ -2105,7 +2226,7 @@
                     <ul class="list-disc list-inside space-y-1.5 text-blue-800">
                         <li>Nhấn nút <b>"Học Sinh"</b> hoặc <b>"Giáo Viên / Admin"</b> ở góc phải trên cùng.</li>
                         <li>Nhập <b>Tên đăng nhập</b> và <b>Mật khẩu</b>. Nếu chưa có tài khoản, chọn tab <b>"Đăng Ký"</b>.</li>
-                        <li>Khi đăng ký, hãy nhập <b> thông tin</b> phương thức liên lạc: SĐT, CCCD, Email.</li>
+                        <li>Khi đăng ký, hãy nhập <b> đủ thông tin</b> phương thức liên lạc: SĐT, CCCD, Email.</li>
                         <li>Tài khoản dùng thử: <code class="bg-white px-1.5 py-0.5 rounded font-mono">hocsinh / Hocsinh@123</code> hoặc <code class="bg-white px-1.5 py-0.5 rounded font-mono">giaovien / Giaovien@123</code>.</li>
                     </ul>
                 </div>
@@ -2125,12 +2246,23 @@
                 <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-4 shadow-sm">
                     <h3 class="font-extrabold text-base text-teal-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-check-square-offset text-teal-600 text-lg"></i> 3. LÀM BÀI TRẮC NGHIỆM</h3>
                     <ul class="list-disc list-inside space-y-1.5 text-teal-800">
-                        <li>Học sinh chọn tab <b>"Trắc Nghiệm"</b> → chọn <b>Khối</b>, <b>Độ khó</b>, <b>Số câu</b> → nhấn <b>"Bắt Đầu Làm Bài"</b>.</li>
+                        <li>Học sinh chọn tab <b>"Trắc Nghiệm"</b> → xem <b>"Bài Kiểm Tra Trắc Nghiệm Được Giao"</b> (nếu có) để làm, hoặc tạo bài luyện tập riêng bằng cách chọn <b>Khối</b>, <b>Độ khó</b>, <b>Số câu</b> → nhấn <b>"Bắt Đầu Làm Bài"</b>.</li>
                         <li>Chọn đáp án A, B, C, D. Có thể chuyển câu bằng nút <b>"Câu tiếp"</b> hoặc thanh số câu.</li>
                         <li>Nhấn <b>"Nộp Bài"</b> → hệ thống chấm điểm tự động, hiển thị chi tiết từng câu.</li>
                         <li>Kết quả lưu vào <code>Hoc_sinh_quiz.json</code> và nhật ký làm bài.</li>
-                        <li>Giáo viên/Admin vào tab <b>"Trắc Nghiệm"</b> để quản lý ngân hàng câu hỏi, nhập câu hỏi từ <b>Word_quiz.docx</b> hoặc <b>Data_quiz.json</b>.</li>
+                        <li>Giáo viên/Admin vào tab <b>"Trắc Nghiệm"</b> → <b>"Tạo Đề Từ Ngân Hàng"</b> để trộn câu hỏi và phát cho học sinh.</li>
                         <li>Tải <b>Mẫu Word</b> để biết cấu trúc câu hỏi chuẩn.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-4 shadow-sm">
+                    <h3 class="font-extrabold text-base text-purple-900 mb-2 flex items-center gap-2"><i class="ph-bold ph-clipboard-text text-purple-600 text-lg"></i> 3.1. TẠO ĐỀ TRẮC NGHIỆM TỪ NGÂN HÀNG (Giáo Viên/Admin)</h3>
+                    <ul class="list-disc list-inside space-y-1.5 text-purple-800">
+                        <li>Vào tab <b>"Trắc Nghiệm"</b> → nhấn <b>"Tạo Đề Từ Ngân Hàng"</b>.</li>
+                        <li>Chọn <b>Khối</b>, <b>Độ khó</b>, <b>Số câu</b> → nhấn <b>"Trộn Câu Hỏi"</b> để chọn ngẫu nhiên.</li>
+                        <li>Có thể tích/bỏ tích từng câu trong danh sách preview.</li>
+                        <li>Nhấn <b>"Lưu Nháp"</b> (chưa phát) hoặc <b>"Lưu & Phát Cho HS"</b> (phát ngay).</li>
+                        <li>Đề đã phát sẽ hiển thị cho học sinh ở mục <b>"Bài Kiểm Tra Trắc Nghiệm Được Giao"</b>.</li>
                     </ul>
                 </div>
 
@@ -2696,7 +2828,7 @@
     let flaggedAssignmentsCache = {};
     let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
 
-    // ===== TÍNH NĂNG MỚI: PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN + QUIZ =====
+    // ===== PHÂN QUYỀN + MULTI-DELETE + LỜI NHẮN + QUIZ =====
     let systemPermissions = {
         teacherCanAdd: true,
         teacherCanEdit: true,
@@ -2710,8 +2842,12 @@
     // ===== DỮ LIỆU QUIZ =====
     let quizData = [];
     let quizSubmissions = [];
-    let quizCurrentSession = null; // { questions: [...], answers: {qid: 'A'|'B'|'C'|'D'}, startedAt, currentIndex }
+    let quizCurrentSession = null;
     let quizSubmissionsCache = [];
+
+    // ===== NEW: QUIZ TESTS (Đề trắc nghiệm từ ngân hàng) =====
+    let quizTests = [];
+    let currentQuizTestPreviewSelection = new Set();
 
     const GITHUB_OWNER = "thefuong119";
     const GITHUB_REPO = "ai-python-thcs";
@@ -2796,12 +2932,16 @@
         quizData.forEach(q => { if (q.id > maxId) maxId = q.id; });
         return maxId + 1;
     }
+    function getNextQuizTestId() {
+        let maxId = 0;
+        quizTests.forEach(t => { if (t.id > maxId) maxId = t.id; });
+        return maxId + 1;
+    }
 
     function logQuizAttempt(submission) {
         try {
             if (!Array.isArray(quizSubmissions)) quizSubmissions = [];
             quizSubmissions.unshift(submission);
-            // Ghi vào nhật ký chung
             loginLogs.unshift({
                 time: submission.timestamp,
                 name: submission.student,
@@ -2824,7 +2964,8 @@
                     count: quizData.length,
                     action: actionDescription
                 },
-                quizData
+                quizData,
+                quizTests
             };
             const jsonStr = JSON.stringify(payload, null, 2);
             const base64Data = utf8ToBase64(jsonStr);
@@ -2881,6 +3022,7 @@
         try {
             const res = await githubFetchViaProxy(GITHUB_QUIZ_DATA_PATH, { method: 'GET' }, 2);
             const payload = await res.json();
+            let ok = false;
             if (payload && Array.isArray(payload.quizData)) {
                 const localMap = new Map(quizData.map(q => [String(q.id), q]));
                 payload.quizData.forEach(sq => {
@@ -2888,9 +3030,18 @@
                     localMap.set(String(sq.id), sq);
                 });
                 quizData = Array.from(localMap.values());
-                return true;
+                ok = true;
             }
-            return false;
+            if (payload && Array.isArray(payload.quizTests)) {
+                const localMapT = new Map(quizTests.map(t => [String(t.id), t]));
+                payload.quizTests.forEach(st => {
+                    if (!st.id) st.id = getNextQuizTestId();
+                    localMapT.set(String(st.id), st);
+                });
+                quizTests = Array.from(localMapT.values());
+                ok = true;
+            }
+            return ok;
         } catch(e) { return false; }
     }
 
@@ -2918,11 +3069,293 @@
         if (bankCount) bankCount.textContent = quizData.length;
         const badge = document.getElementById('studentQuizCountBadge');
         if (badge) badge.textContent = quizSubmissions.filter(s => s.username === currentUser.identifier).length;
-        // Reset form visibility
         const active = document.getElementById('quizActiveArea');
         if (active) active.classList.add('hidden');
         const form = document.getElementById('quizStartForm');
         if (form) form.classList.remove('hidden');
+        renderStudentQuizTestsList();
+    }
+
+    // ===== NEW: RENDER STUDENT QUIZ TESTS LIST =====
+    function renderStudentQuizTestsList() {
+        const c = document.getElementById('studentQuizTestsList');
+        if (!c) return;
+        const publishedTests = quizTests.filter(t => t.active === true);
+        if (publishedTests.length === 0) {
+            c.innerHTML = '<div class="text-center p-3 text-slate-500 italic text-xs bg-white rounded-xl border border-slate-200">Chưa có đề kiểm tra trắc nghiệm nào được giao.</div>';
+            return;
+        }
+        const mySubmissions = quizSubmissions.filter(s => s.username === currentUser.identifier);
+        c.innerHTML = publishedTests.map(t => {
+            const qCount = (t.questionIds || []).length;
+            const mySubs = mySubmissions.filter(s => s.testId === t.id);
+            const bestScore = mySubs.length > 0 ? Math.max(...mySubs.map(s => s.score || 0)) : null;
+            return `<div class="bg-white border-2 ${mySubs.length > 0 ? 'border-emerald-300' : 'border-purple-200'} rounded-xl p-3 flex items-center justify-between gap-2 flex-wrap hover:shadow-md transition-all">
+                <div class="flex-1 min-w-[200px]">
+                    <div class="font-bold text-sm text-slate-900 flex items-center gap-2"><i class="ph-bold ph-clipboard-text text-purple-600"></i>${escapeHtml(t.title)}</div>
+                    <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                        <span><i class="ph-bold ph-list-numbers"></i> ${qCount} câu</span>
+                        <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                        ${mySubs.length > 0 ? `<span class="text-emerald-700 font-bold"><i class="ph-bold ph-check-circle"></i> Điểm cao nhất: ${bestScore.toFixed(1)}/10</span>` : ''}
+                    </div>
+                </div>
+                <button onclick="startQuizTest(${t.id})" class="px-4 py-2 rounded-xl ${mySubs.length > 0 ? 'bg-emerald-100 hover:bg-emerald-200 text-emerald-800' : 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white'} font-bold text-xs flex items-center gap-1.5 shadow-md whitespace-nowrap">
+                    <i class="ph-bold ph-play"></i> ${mySubs.length > 0 ? 'Làm Lại' : 'Bắt Đầu Làm'}
+                </button>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== NEW: START QUIZ TEST (from assigned test) =====
+    function startQuizTest(testId) {
+        const t = quizTests.find(x => String(x.id) === String(testId));
+        if (!t) return showToast('Không tìm thấy đề kiểm tra!', 'error');
+        const questions = (t.questionIds || []).map(qid => quizData.find(q => String(q.id) === String(qid))).filter(Boolean);
+        if (questions.length === 0) return showToast('Đề kiểm tra chưa có câu hỏi hợp lệ. Vui lòng báo giáo viên!', 'error');
+        quizCurrentSession = {
+            questions,
+            answers: {},
+            startedAt: Date.now(),
+            startedAtStr: new Date().toLocaleString('vi-VN'),
+            testId: t.id,
+            testTitle: t.title
+        };
+        document.getElementById('quizStartForm')?.classList.add('hidden');
+        renderQuizActiveSession();
+        showToast(`Bắt đầu làm đề: ${t.title}`, 'success');
+        speakRobotText(`Bắt đầu bài kiểm tra: ${t.title}. Chúc em làm bài tốt!`);
+    }
+
+    // ===== NEW: QUIZ TEST CREATE MODAL =====
+    function openQuizTestCreateModal(testId) {
+        const modal = document.getElementById('quizTestCreateModal');
+        if (!modal) return;
+        const titleEl = document.getElementById('quizTestModalTitle');
+        currentQuizTestPreviewSelection = new Set();
+        if (testId) {
+            const t = quizTests.find(x => String(x.id) === String(testId));
+            if (t) {
+                document.getElementById('quizTestEditingId').value = t.id;
+                document.getElementById('quizTestTitle').value = t.title || '';
+                document.getElementById('quizTestGrade').value = t.grade || 'all';
+                document.getElementById('quizTestDifficulty').value = t.difficulty || 'all';
+                document.getElementById('quizTestNumQuestions').value = (t.questionIds || []).length || 10;
+                (t.questionIds || []).forEach(qid => currentQuizTestPreviewSelection.add(qid));
+                if (titleEl) titleEl.textContent = `Chỉnh Sửa Đề Trắc Nghiệm (ID: ${t.id})`;
+            }
+        } else {
+            document.getElementById('quizTestEditingId').value = '';
+            document.getElementById('quizTestTitle').value = `Đề trắc nghiệm - ${new Date().toLocaleDateString('vi-VN')}`;
+            const stored = getStoredGrade();
+            document.getElementById('quizTestGrade').value = stored !== 'all' ? stored : '8';
+            document.getElementById('quizTestDifficulty').value = 'all';
+            document.getElementById('quizTestNumQuestions').value = 10;
+            if (titleEl) titleEl.textContent = 'Tạo Đề Trắc Nghiệm Từ Ngân Hàng';
+        }
+        renderQuizTestQuestionPreview();
+        modal.classList.remove('hidden');
+    }
+    function closeQuizTestCreateModal() { document.getElementById('quizTestCreateModal')?.classList.add('hidden'); }
+
+    function generateQuizTestPreview() {
+        const grade = document.getElementById('quizTestGrade')?.value || 'all';
+        const difficulty = document.getElementById('quizTestDifficulty')?.value || 'all';
+        const num = Math.max(1, parseInt(document.getElementById('quizTestNumQuestions')?.value) || 10);
+        let pool = quizData.filter(q => {
+            if (grade !== 'all' && String(q.classLevel || '8') !== String(grade)) return false;
+            if (difficulty !== 'all' && q.difficulty !== difficulty) return false;
+            return true;
+        });
+        if (pool.length === 0) {
+            showToast('Không có câu hỏi phù hợp với bộ lọc!', 'error');
+            return;
+        }
+        pool = pool.slice().sort(() => Math.random() - 0.5);
+        currentQuizTestPreviewSelection.clear();
+        pool.slice(0, Math.min(num, pool.length)).forEach(q => currentQuizTestPreviewSelection.add(q.id));
+        renderQuizTestQuestionPreview();
+        showToast(`Đã chọn ${currentQuizTestPreviewSelection.size} câu hỏi ngẫu nhiên!`, 'success');
+    }
+
+    function renderQuizTestQuestionPreview() {
+        const container = document.getElementById('quizTestQuestionPreview');
+        if (!container) return;
+        const countEl = document.getElementById('quizTestSelectedCount');
+        if (countEl) countEl.textContent = `${currentQuizTestPreviewSelection.size} câu`;
+        if (quizData.length === 0) {
+            container.innerHTML = '<p class="text-slate-500 italic text-center text-sm">Ngân hàng câu hỏi trống.</p>';
+            return;
+        }
+        const grade = document.getElementById('quizTestGrade')?.value || 'all';
+        const difficulty = document.getElementById('quizTestDifficulty')?.value || 'all';
+        let pool = quizData.filter(q => {
+            if (grade !== 'all' && String(q.classLevel || '8') !== String(grade)) return false;
+            if (difficulty !== 'all' && q.difficulty !== difficulty) return false;
+            return true;
+        });
+        pool.sort((a, b) => {
+            const aSel = currentQuizTestPreviewSelection.has(a.id) ? 0 : 1;
+            const bSel = currentQuizTestPreviewSelection.has(b.id) ? 0 : 1;
+            return aSel - bSel;
+        });
+        container.innerHTML = pool.map(q => {
+            const checked = currentQuizTestPreviewSelection.has(q.id) ? 'checked' : '';
+            const diffLabel = q.difficulty === 'hard' ? 'Khó' : (q.difficulty === 'medium' ? 'TB' : 'Dễ');
+            return `<label class="flex items-start gap-2 p-2 bg-white rounded-lg border ${checked ? 'border-indigo-400 bg-indigo-50' : 'border-slate-200'} cursor-pointer hover:bg-slate-50">
+                <input type="checkbox" ${checked} onchange="toggleQuizTestQuestion(${q.id}, this.checked)" class="w-4 h-4 mt-0.5">
+                <div class="flex-1 text-xs">
+                    <div class="font-semibold text-slate-800">[${q.id}] ${escapeHtml((q.question || '').substring(0, 100))}${(q.question || '').length > 100 ? '…' : ''}</div>
+                    <div class="flex items-center gap-2 text-slate-500 mt-0.5 flex-wrap">
+                        <span class="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">Khối ${escapeHtml(q.classLevel || '8')}</span>
+                        <span class="font-bold ${q.difficulty === 'hard' ? 'text-rose-600' : (q.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${diffLabel}</span>
+                        <span>Đáp án: <b>${escapeHtml(q.correctAnswer || '')}</b></span>
+                    </div>
+                </div>
+            </label>`;
+        }).join('');
+    }
+
+    function toggleQuizTestQuestion(qid, checked) {
+        if (checked) currentQuizTestPreviewSelection.add(qid);
+        else currentQuizTestPreviewSelection.delete(qid);
+        const countEl = document.getElementById('quizTestSelectedCount');
+        if (countEl) countEl.textContent = `${currentQuizTestPreviewSelection.size} câu`;
+    }
+
+    async function saveQuizTest(publish = false) {
+        if (currentUser.role !== 'teacher' && currentUser.role !== 'admin') return showToast('Bạn không có quyền!', 'error');
+        const title = (document.getElementById('quizTestTitle')?.value || '').trim();
+        if (!title) return showToast('Vui lòng nhập tên đề!', 'error');
+        if (currentQuizTestPreviewSelection.size === 0) return showToast('Vui lòng chọn ít nhất 1 câu hỏi!', 'error');
+        const editingId = document.getElementById('quizTestEditingId')?.value;
+        const grade = document.getElementById('quizTestGrade')?.value || 'all';
+        const difficulty = document.getElementById('quizTestDifficulty')?.value || 'all';
+        const questionIds = Array.from(currentQuizTestPreviewSelection);
+        if (editingId) {
+            const t = quizTests.find(x => String(x.id) === String(editingId));
+            if (t) {
+                t.title = title; t.grade = grade; t.difficulty = difficulty; t.questionIds = questionIds;
+                if (publish) t.active = true;
+            }
+            showToast(publish ? '✅ Đã cập nhật và phát đề cho học sinh!' : '💾 Đã cập nhật đề nháp!', 'success');
+        } else {
+            quizTests.push({
+                id: getNextQuizTestId(),
+                title, grade, difficulty, questionIds,
+                createdAt: new Date().toLocaleString('vi-VN'),
+                createdBy: currentUser.name || 'Hệ thống',
+                active: publish
+            });
+            showToast(publish ? '✅ Đã tạo và phát đề cho học sinh!' : '💾 Đã lưu đề nháp!', 'success');
+        }
+        closeQuizTestCreateModal();
+        autoSaveLocalSnapshot();
+        renderTeacherQuizTestsList();
+        renderAdminQuizTestsList();
+        renderStudentQuizTestsList();
+        try { await pushQuizDataToGithubDirectly(`Lưu đề trắc nghiệm: ${title}`); } catch(e) {}
+        try { await syncDataToGitHubDirectly(`Lưu đề trắc nghiệm: ${title}`); } catch(e) {}
+        if (publish) speakRobotText(`Đã phát đề trắc nghiệm: ${title}. Học sinh vào mục "Trắc Nghiệm" để làm bài.`);
+    }
+
+    function deleteQuizTest(id) {
+        if (currentUser.role !== 'admin' && currentUser.role !== 'teacher') return showToast('Bạn không có quyền!', 'error');
+        const t = quizTests.find(x => String(x.id) === String(id));
+        if (!t) return;
+        requestDeleteConfirmation(`đề trắc nghiệm "${t.title}"`, async () => {
+            quizTests = quizTests.filter(x => String(x.id) !== String(id));
+            autoSaveLocalSnapshot();
+            renderTeacherQuizTestsList();
+            renderAdminQuizTestsList();
+            renderStudentQuizTestsList();
+            showToast('Đã xóa đề!', 'success');
+            try { await pushQuizDataToGithubDirectly('Xóa đề trắc nghiệm'); } catch(e) {}
+            try { await syncDataToGitHubDirectly('Xóa đề trắc nghiệm'); } catch(e) {}
+        });
+    }
+
+    async function publishQuizTest(id) {
+        const t = quizTests.find(x => String(x.id) === String(id));
+        if (!t) return showToast('Không tìm thấy đề!', 'error');
+        t.active = true;
+        autoSaveLocalSnapshot();
+        renderTeacherQuizTestsList();
+        renderAdminQuizTestsList();
+        renderStudentQuizTestsList();
+        showToast(`✅ Đã phát đề "${t.title}" cho học sinh!`, 'success');
+        try { await pushQuizDataToGithubDirectly('Phát đề trắc nghiệm'); } catch(e) {}
+        try { await syncDataToGitHubDirectly(`Phát đề trắc nghiệm: ${t.title}`); } catch(e) {}
+    }
+
+    function renderTeacherQuizTestsList() {
+        const c = document.getElementById('teacherQuizTestsList');
+        if (!c) return;
+        if (quizTests.length === 0) {
+            c.innerHTML = '<div class="text-center p-4 text-slate-500 italic text-sm bg-slate-50 rounded-xl border border-slate-200">Chưa có đề trắc nghiệm nào. Nhấn "Tạo Đề Từ Ngân Hàng" để bắt đầu.</div>';
+            return;
+        }
+        c.innerHTML = quizTests.slice().sort((a,b) => (b.id||0)-(a.id||0)).map(t => {
+            const qCount = (t.questionIds || []).length;
+            const attempts = quizSubmissions.filter(s => s.testId === t.id).length;
+            const isPublished = t.active === true;
+            return `<div class="border border-slate-200 rounded-xl p-3 bg-white hover:shadow-md transition-all">
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                    <div class="flex-1 min-w-[200px]">
+                        <div class="font-bold text-sm text-slate-900 flex items-center gap-2 flex-wrap">
+                            <i class="ph-bold ph-clipboard-text text-indigo-600"></i>
+                            ${escapeHtml(t.title)}
+                            ${isPublished ? '<span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-bold border border-emerald-200"><i class="ph-bold ph-check-circle"></i> Đã phát</span>' : '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-bold border border-amber-200"><i class="ph-bold ph-pause-circle"></i> Nháp</span>'}
+                        </div>
+                        <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                            <span><i class="ph-bold ph-list-numbers"></i> ${qCount} câu</span>
+                            <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                            <span><i class="ph-bold ph-users"></i> ${attempts} lượt làm</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${!isPublished ? `<button onclick="publishQuizTest(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát</button>` : ''}
+                        <button onclick="openQuizTestCreateModal(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteQuizTest(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function renderAdminQuizTestsList() {
+        const c = document.getElementById('adminQuizTestsList');
+        if (!c) return;
+        if (quizTests.length === 0) {
+            c.innerHTML = '<div class="text-center p-4 text-slate-500 italic text-sm bg-slate-50 rounded-xl border border-slate-200">Chưa có đề trắc nghiệm nào. Nhấn "Tạo Đề Từ Ngân Hàng" để bắt đầu.</div>';
+            return;
+        }
+        c.innerHTML = quizTests.slice().sort((a,b) => (b.id||0)-(a.id||0)).map(t => {
+            const qCount = (t.questionIds || []).length;
+            const attempts = quizSubmissions.filter(s => s.testId === t.id).length;
+            const isPublished = t.active === true;
+            return `<div class="border border-slate-200 rounded-xl p-3 bg-white hover:shadow-md transition-all">
+                <div class="flex items-start justify-between gap-2 flex-wrap">
+                    <div class="flex-1 min-w-[200px]">
+                        <div class="font-bold text-sm text-slate-900 flex items-center gap-2 flex-wrap">
+                            <i class="ph-bold ph-clipboard-text text-indigo-600"></i>
+                            ${escapeHtml(t.title)}
+                            ${isPublished ? '<span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-bold border border-emerald-200"><i class="ph-bold ph-check-circle"></i> Đã phát</span>' : '<span class="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 font-bold border border-amber-200"><i class="ph-bold ph-pause-circle"></i> Nháp</span>'}
+                        </div>
+                        <div class="text-xs text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                            <span><i class="ph-bold ph-list-numbers"></i> ${qCount} câu</span>
+                            <span><i class="ph-bold ph-calendar"></i> ${escapeHtml(t.createdAt)}</span>
+                            <span><i class="ph-bold ph-users"></i> ${attempts} lượt làm</span>
+                            <span><i class="ph-bold ph-user"></i> ${escapeHtml(t.createdBy || '')}</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${!isPublished ? `<button onclick="publishQuizTest(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-paper-plane-tilt"></i> Phát</button>` : ''}
+                        <button onclick="openQuizTestCreateModal(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-pencil-simple"></i> Sửa</button>
+                        <button onclick="deleteQuizTest(${t.id})" class="px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold text-xs flex items-center gap-1"><i class="ph-bold ph-trash"></i> Xóa</button>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
     }
 
     function renderStudentQuizHistory() {
@@ -2937,10 +3370,11 @@
         c.innerHTML = mine.map(sub => {
             const scoreColor = sub.score >= 8 ? 'text-emerald-600' : (sub.score >= 5 ? 'text-amber-600' : 'text-rose-600');
             const scoreBg = sub.score >= 8 ? 'from-emerald-50 to-teal-50 border-emerald-200' : (sub.score >= 5 ? 'from-amber-50 to-yellow-50 border-amber-200' : 'from-rose-50 to-pink-50 border-rose-200');
+            const isTest = sub.testId ? `<span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-100 text-purple-700 font-bold ml-1"><i class="ph-bold ph-clipboard-text"></i> Đề giao</span>` : '';
             return `<div class="quiz-history-card bg-gradient-to-r ${scoreBg} border rounded-xl p-3.5">
                 <div class="flex items-center justify-between gap-2 flex-wrap">
-                    <div>
-                        <div class="font-bold text-sm text-slate-900">${escapeHtml(sub.quizTitle || 'Bài trắc nghiệm')}</div>
+                    <div class="flex-1 min-w-[180px]">
+                        <div class="font-bold text-sm text-slate-900">${escapeHtml(sub.quizTitle || 'Bài trắc nghiệm')}${isTest}</div>
                         <div class="text-xs text-slate-500 font-mono mt-0.5">${escapeHtml(sub.timestamp)}</div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -2959,21 +3393,19 @@
         }).join('');
     }
 
-    // ===== QUIZ: START =====
+    // ===== QUIZ: START (practice) =====
     function startStudentQuiz() {
         if (!currentUser.isLoggedIn || currentUser.role !== 'student') return showToast('Vui lòng đăng nhập với tài khoản học sinh!', 'error');
         if (!Array.isArray(quizData) || quizData.length === 0) return showToast('Ngân hàng câu hỏi trắc nghiệm đang trống. Vui lòng chờ giáo viên nhập câu hỏi!', 'error');
         const grade = document.getElementById('quizGradeSelect')?.value || 'all';
         const difficulty = document.getElementById('quizDifficultySelect')?.value || 'all';
         const numQ = Math.max(1, parseInt(document.getElementById('quizNumQuestions')?.value || '5') || 5);
-
         let pool = quizData.filter(q => {
             if (grade !== 'all' && String(q.classLevel || '8') !== String(grade)) return false;
             if (difficulty !== 'all' && q.difficulty !== difficulty) return false;
             return true;
         });
         if (pool.length === 0) return showToast('Không có câu hỏi phù hợp với bộ lọc. Hãy thử đổi khối/độ khó!', 'error');
-        // Shuffle
         pool = pool.slice().sort(() => Math.random() - 0.5);
         const selected = pool.slice(0, Math.min(numQ, pool.length));
         quizCurrentSession = {
@@ -2992,13 +3424,14 @@
         const total = quizCurrentSession.questions.length;
         const answeredCount = Object.keys(quizCurrentSession.answers).length;
         const progressPct = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+        const testLabel = quizCurrentSession.testTitle ? `📋 Đề: ${escapeHtml(quizCurrentSession.testTitle)}` : 'Bài luyện tập';
         const html = `
             <div class="space-y-4 quiz-fade-in">
                 <div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-2xl p-4 flex items-center justify-between flex-wrap gap-2 shadow-md">
                     <div class="flex items-center gap-2">
                         <i class="ph-bold ph-pencil-simple text-2xl text-amber-300"></i>
                         <div>
-                            <div class="font-bold text-sm">Bài trắc nghiệm đang làm</div>
+                            <div class="font-bold text-sm">${testLabel}</div>
                             <div class="text-xs text-emerald-100">Bắt đầu: ${escapeHtml(quizCurrentSession.startedAtStr)}</div>
                         </div>
                     </div>
@@ -3015,9 +3448,9 @@
                     const opts = q.options || [];
                     return `<div class="bg-white border border-slate-200 rounded-2xl p-4 space-y-3 shadow-sm quiz-fade-in" id="quizQ_${q.id}">
                         <div class="flex items-start justify-between gap-2">
-                            <div class="font-bold text-sm text-slate-900 flex items-start gap-2">
+                            <div class="font-bold text-sm text-slate-900 flex items-start gap-2 flex-1">
                                 <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">${idx + 1}</span>
-                                <span>${escapeHtml(q.question)}</span>
+                                <div class="quiz-question-content flex-1">${renderSimpleMarkdown(q.question)}</div>
                             </div>
                             <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-bold shrink-0">Khối ${escapeHtml(q.classLevel || '8')}</span>
                         </div>
@@ -3025,10 +3458,10 @@
                             ${opts.map((op, oi) => {
                                 const letter = ['A','B','C','D'][oi];
                                 const selected = userAns === letter;
-                                return `<div onclick="selectQuizOption(${q.id}, '${letter}')" class="quiz-option ${selected ? 'selected' : ''} rounded-xl p-3 flex items-center gap-3">
+                                return `<div onclick="selectQuizOption(${q.id}, '${letter}')" class="quiz-option ${selected ? 'selected' : ''} rounded-xl p-3 flex items-start gap-3">
                                     <span class="quiz-letter">${letter}</span>
-                                    <span class="text-sm text-slate-800 flex-1">${escapeHtml(op)}</span>
-                                    ${selected ? '<i class="ph-bold ph-check-circle text-blue-600 text-lg"></i>' : ''}
+                                    <div class="quiz-option-text text-sm text-slate-800 flex-1">${renderSimpleMarkdown(op)}</div>
+                                    ${selected ? '<i class="ph-bold ph-check-circle text-blue-600 text-lg shrink-0 mt-0.5"></i>' : ''}
                                 </div>`;
                             }).join('')}
                         </div>
@@ -3058,6 +3491,7 @@
             quizCurrentSession = null;
             document.getElementById('quizActiveArea')?.classList.add('hidden');
             document.getElementById('quizStartForm')?.classList.remove('hidden');
+            renderStudentQuizTestsList();
             showToast('Đã hủy bài làm', 'info');
         });
     }
@@ -3070,7 +3504,6 @@
             const ok = confirm(`Bạn mới trả lời ${answered}/${total} câu. Vẫn nộp bài?`);
             if (!ok) return;
         }
-        // Chấm điểm
         let correct = 0;
         const detailAnswers = quizCurrentSession.questions.map((q, idx) => {
             const userAns = quizCurrentSession.answers[q.id] || '';
@@ -3087,12 +3520,15 @@
             };
         });
         const score = total > 0 ? (correct / total) * 10 : 0;
+        const testTitle = quizCurrentSession.testTitle || null;
+        const testId = quizCurrentSession.testId || null;
         const submission = {
             id: Date.now(),
             student: currentUser.name,
             username: currentUser.identifier,
             className: currentUser.className || '',
-            quizTitle: `Trắc nghiệm ${total} câu - ${new Date().toLocaleDateString('vi-VN')}`,
+            quizTitle: testTitle ? testTitle : `Trắc nghiệm ${total} câu - ${new Date().toLocaleDateString('vi-VN')}`,
+            testId, testTitle,
             totalQuestions: total,
             correctCount: correct,
             score: Math.round(score * 10) / 10,
@@ -3103,7 +3539,6 @@
             duration: Math.round((Date.now() - quizCurrentSession.startedAt) / 1000)
         };
         logQuizAttempt(submission);
-        // Cập nhật gradebook tổng
         try {
             const key = currentUser.identifier;
             const existing = gradebook.find(g => g.username === key);
@@ -3115,10 +3550,8 @@
                 gradebook.push({ student: currentUser.name, username: key, attempts: 1, highestScore: submission.score, lastSubmit: submission.timestamp });
             }
         } catch(e) {}
-        // Hiển thị kết quả
         showQuizResult(submission);
         autoSaveLocalSnapshot();
-        // Đẩy lên máy chủ
         showToast('Đang lưu kết quả lên máy chủ...', 'info');
         try {
             await Promise.all([
@@ -3130,7 +3563,7 @@
         quizCurrentSession = null;
         setTimeout(() => {
             renderStudentQuizHistory();
-            renderQuizStartForm();
+            renderStudentQuizTestsList();
         }, 100);
     }
 
@@ -3142,7 +3575,7 @@
         const html = `
             <div class="space-y-4 quiz-fade-in">
                 <div class="bg-gradient-to-r ${scoreBg} text-white rounded-2xl p-6 text-center shadow-lg">
-                    <div class="text-sm uppercase tracking-wide font-bold opacity-90">Kết quả bài trắc nghiệm</div>
+                    <div class="text-sm uppercase tracking-wide font-bold opacity-90">${sub.testTitle ? '📋 ' + escapeHtml(sub.testTitle) : 'Kết quả bài trắc nghiệm'}</div>
                     <div class="text-5xl font-extrabold mt-2">${sub.score.toFixed(1)}<span class="text-2xl opacity-80">/10</span></div>
                     <div class="mt-2 text-base font-bold">Đúng ${sub.correctCount}/${sub.totalQuestions} câu</div>
                     <div class="text-sm opacity-90 mt-1"><i class="ph-bold ph-clock"></i> Thời gian: ${sub.duration}s</div>
@@ -3156,9 +3589,9 @@
                             <div class="flex items-start gap-2">
                                 <i class="ph-bold ${icon} text-lg shrink-0 mt-0.5"></i>
                                 <div class="flex-1">
-                                    <div class="text-sm font-bold text-slate-900">Câu ${idx + 1}: ${escapeHtml(ans.question)}</div>
+                                    <div class="text-sm font-bold text-slate-900 quiz-question-content">Câu ${idx + 1}: ${renderSimpleMarkdown(ans.question)}</div>
                                     <div class="text-xs mt-1"><b>Đáp án đúng:</b> <span class="text-emerald-700 font-mono font-bold">${ans.correctAnswer}</span> | <b>Bạn chọn:</b> <span class="${ans.isCorrect ? 'text-emerald-700' : 'text-rose-700'} font-mono font-bold">${ans.userAnswer || '(bỏ trống)'}</span></div>
-                                    ${ans.explanation ? `<div class="text-xs mt-1 bg-white/60 p-2 rounded-lg text-slate-700"><i class="ph-bold ph-info text-blue-600"></i> <b>Giải thích:</b> ${escapeHtml(ans.explanation)}</div>` : ''}
+                                    ${ans.explanation ? `<div class="text-xs mt-1 bg-white/60 p-2 rounded-lg text-slate-700"><i class="ph-bold ph-info text-blue-600"></i> <b>Giải thích:</b> <span class="quiz-question-content">${renderSimpleMarkdown(ans.explanation)}</span></div>` : ''}
                                 </div>
                             </div>
                         </div>`;
@@ -3171,12 +3604,14 @@
                 </div>
             </div>`;
         area.innerHTML = html;
+        renderKaTeXFormulas(area);
     }
 
     function closeQuizResultAndRestart() {
         document.getElementById('quizActiveArea')?.classList.add('hidden');
         document.getElementById('quizStartForm')?.classList.remove('hidden');
         renderStudentQuizHistory();
+        renderStudentQuizTestsList();
     }
 
     function viewQuizSubmission(subId) {
@@ -3206,7 +3641,7 @@
         } else {
             tbody.innerHTML = list.map(x => `<tr class="hover:bg-emerald-50/40 transition-colors">
                 <td class="font-bold text-center font-mono text-slate-500">${x.id}</td>
-                <td class="font-semibold text-slate-900">${escapeHtml((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
+                <td class="font-semibold text-slate-900 quiz-question-content">${renderSimpleMarkdown((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
                 <td class="text-center"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">Khối ${escapeHtml(x.classLevel || '8')}</span></td>
                 <td class="text-center"><span class="text-xs font-bold ${x.difficulty === 'hard' ? 'text-rose-600' : (x.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${x.difficulty === 'hard' ? 'Khó' : (x.difficulty === 'medium' ? 'TB' : 'Dễ')}</span></td>
                 <td class="text-center font-mono font-bold text-blue-600">${escapeHtml(x.correctAnswer || '')}</td>
@@ -3217,6 +3652,7 @@
             </tr>`).join('');
         }
         renderTeacherQuizSubmissionsTable();
+        renderTeacherQuizTestsList();
     }
 
     function renderTeacherQuizSubmissionsTable() {
@@ -3227,7 +3663,7 @@
         }
         const list = quizSubmissions.slice().sort((a, b) => (b.id || 0) - (a.id || 0)).slice(0, 100);
         tbody.innerHTML = list.map(s => `<tr class="hover:bg-blue-50/40 transition-colors">
-            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}</td>
+            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}${s.testTitle ? `<div class="text-[11px] text-purple-600 font-semibold mt-0.5"><i class="ph-bold ph-clipboard-text"></i> ${escapeHtml(s.testTitle)}</div>` : ''}</td>
             <td class="text-slate-600">${escapeHtml(s.className || '')}</td>
             <td class="text-center font-mono">${s.totalQuestions || 0}</td>
             <td class="text-center font-mono text-emerald-600 font-bold">${s.correctCount || 0}</td>
@@ -3260,7 +3696,7 @@
         } else {
             tbody.innerHTML = list.map(x => `<tr class="hover:bg-emerald-50/40 transition-colors">
                 <td class="font-bold text-center font-mono text-slate-500">${x.id}</td>
-                <td class="font-semibold text-slate-900">${escapeHtml((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
+                <td class="font-semibold text-slate-900 quiz-question-content">${renderSimpleMarkdown((x.question || '').substring(0, 120))}${(x.question || '').length > 120 ? '…' : ''}</td>
                 <td class="text-center"><span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">Khối ${escapeHtml(x.classLevel || '8')}</span></td>
                 <td class="text-center"><span class="text-xs font-bold ${x.difficulty === 'hard' ? 'text-rose-600' : (x.difficulty === 'medium' ? 'text-amber-600' : 'text-emerald-600')}">${x.difficulty === 'hard' ? 'Khó' : (x.difficulty === 'medium' ? 'TB' : 'Dễ')}</span></td>
                 <td class="text-center font-mono font-bold text-blue-600">${escapeHtml(x.correctAnswer || '')}</td>
@@ -3271,6 +3707,7 @@
             </tr>`).join('');
         }
         renderAdminQuizSubmissionsTable();
+        renderAdminQuizTestsList();
     }
 
     function renderAdminQuizSubmissionsTable() {
@@ -3281,7 +3718,7 @@
         }
         const list = quizSubmissions.slice().sort((a, b) => (b.id || 0) - (a.id || 0)).slice(0, 100);
         tbody.innerHTML = list.map(s => `<tr class="hover:bg-blue-50/40 transition-colors">
-            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}</td>
+            <td class="font-bold text-slate-900">${escapeHtml(s.student || '')}${s.testTitle ? `<div class="text-[11px] text-purple-600 font-semibold mt-0.5"><i class="ph-bold ph-clipboard-text"></i> ${escapeHtml(s.testTitle)}</div>` : ''}</td>
             <td class="text-slate-600">${escapeHtml(s.className || '')}</td>
             <td class="text-center font-mono">${s.totalQuestions || 0}</td>
             <td class="text-center font-mono text-emerald-600 font-bold">${s.correctCount || 0}</td>
@@ -3426,9 +3863,11 @@
             metadata: {
                 exportedAt: new Date().toISOString(),
                 exportedBy: currentUser.name || "Hệ thống",
-                count: quizData.length
+                count: quizData.length,
+                testCount: quizTests.length
             },
-            quizData
+            quizData,
+            quizTests
         };
         downloadBlob(JSON.stringify(payload, null, 2), `Data_quiz.json`, 'application/json');
         showToast("Đã xuất Data_quiz.json!", "success");
@@ -3485,6 +3924,7 @@
         try {
             showToast(`Đang đọc ${file.name}...`, 'info');
             let list = [];
+            let testList = [];
             if (file.name.toLowerCase().endsWith('.docx')) {
                 const ab = await file.arrayBuffer();
                 const full = await extractDocxTextWithMath(ab);
@@ -3493,6 +3933,7 @@
                 const text = await file.text();
                 const parsed = JSON.parse(text);
                 list = Array.isArray(parsed) ? parsed : (parsed.quizData || parsed.data || [parsed]);
+                testList = Array.isArray(parsed.quizTests) ? parsed.quizTests : [];
             }
             let added = 0, maxId = quizData.length > 0 ? Math.max(...quizData.map(q => Number(q.id) || 0)) : 0;
             for (const item of list) {
@@ -3512,16 +3953,42 @@
                     added++;
                 }
             }
-            if (added > 0) {
+            let addedTests = 0;
+            if (testList.length > 0) {
+                let maxTId = quizTests.length > 0 ? Math.max(...quizTests.map(t => Number(t.id) || 0)) : 0;
+                for (const t of testList) {
+                    if (t && t.title && Array.isArray(t.questionIds)) {
+                        maxTId++;
+                        quizTests.push({
+                            id: t.id && Number(t.id) > 0 ? Number(t.id) : maxTId,
+                            title: String(t.title).trim(),
+                            grade: String(t.grade || 'all'),
+                            difficulty: String(t.difficulty || 'all'),
+                            questionIds: t.questionIds.map(x => Number(x)),
+                            createdAt: t.createdAt || new Date().toLocaleString('vi-VN'),
+                            createdBy: t.createdBy || (currentUser.name || 'Import'),
+                            active: Boolean(t.active)
+                        });
+                        addedTests++;
+                    }
+                }
+            }
+            if (added > 0 || addedTests > 0) {
                 autoSaveLocalSnapshot();
                 renderTeacherQuizTable();
                 renderAdminQuizTable();
                 renderQuizStartForm();
-                showToast(`Đã nạp ${added} câu hỏi trắc nghiệm!`, 'success');
-                await pushQuizDataToGithubDirectly(`Nạp ${added} câu hỏi từ file`);
-                try { await syncDataToGitHubDirectly(`Nạp ${added} câu hỏi trắc nghiệm`); } catch(e) {}
+                renderTeacherQuizTestsList();
+                renderAdminQuizTestsList();
+                renderStudentQuizTestsList();
+                let msg = [];
+                if (added > 0) msg.push(`${added} câu hỏi`);
+                if (addedTests > 0) msg.push(`${addedTests} đề trắc nghiệm`);
+                showToast(`Đã nạp ${msg.join(' và ')}!`, 'success');
+                await pushQuizDataToGithubDirectly(`Nạp từ file`);
+                try { await syncDataToGitHubDirectly(`Nạp dữ liệu trắc nghiệm`); } catch(e) {}
             } else {
-                showToast('Không có câu hỏi hợp lệ trong tệp!', 'error');
+                showToast('Không có dữ liệu hợp lệ trong tệp!', 'error');
             }
         } catch (e) {
             console.warn(e);
@@ -3671,7 +4138,7 @@
         });
     }
 
-    // ===== LỜI NHẮN (giữ nguyên) =====
+    // ===== LỜI NHẮN =====
     async function pushMessagesToGithubDirectly(actionDescription = "Cập nhật tin nhắn") {
         if (!PROXY_ENDPOINT) return false;
         try {
@@ -3883,7 +4350,7 @@
     function enforceTeacherUiPermissions() {
         if (currentUser.role === 'admin') return;
         const canAdd = hasPermission('add');
-        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"], #teacherView [onclick*="createAssignment"], #teacherView [onclick*="openRandomTestModal"], #teacherView [onclick*="openQuizQuestionModal"]').forEach(b => {
+        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"], #teacherView [onclick*="createAssignment"], #teacherView [onclick*="openRandomTestModal"], #teacherView [onclick*="openQuizQuestionModal"], #teacherView [onclick*="openQuizTestCreateModal"]').forEach(b => {
             b.style.display = canAdd ? '' : 'none';
         });
         document.querySelectorAll('#teacherView label:has(input[type="file"])').forEach(b => {
@@ -4845,7 +5312,7 @@
         const cleanedUsers = registeredUsers.map(u => { const { password, ...safe } = u; return { ...safe, password: null, _hasPassword: !!(u.passwordHash || u.password) }; });
         return {
             metadata: { repo: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}`, updatedAt: new Date().toISOString(), updatedBy: currentUser.name || "Hệ thống", action: actionDescription },
-            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData: sanitizeMathForJson(quizData), quizSubmissions }
+            data: { registeredUsers: cleanedUsers, assignments: sanitizeMathForJson(assignments), gradebook, lectures: sanitizeMathForJson(lectures), studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData: sanitizeMathForJson(quizData), quizTests, quizSubmissions }
         };
     }
 
@@ -4906,6 +5373,7 @@
         }
         if (Array.isArray(data.studentMessages)) studentMessages = data.studentMessages;
         if (Array.isArray(data.quizData)) quizData = data.quizData;
+        if (Array.isArray(data.quizTests)) quizTests = data.quizTests;
         if (Array.isArray(data.quizSubmissions)) quizSubmissions = data.quizSubmissions;
         restoreFlaggedAssignments();
     }
@@ -4922,6 +5390,7 @@
         renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
         renderTeacherQuizTable(); renderAdminQuizTable();
         renderQuizStartForm(); renderStudentQuizHistory();
+        renderTeacherQuizTestsList(); renderAdminQuizTestsList(); renderStudentQuizTestsList();
     }
 
     async function pushSubmissionsCsvToGithub() {
@@ -4999,7 +5468,7 @@
     }
 
     function autoSaveLocalSnapshot() {
-        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData, quizSubmissions })); } catch(e) {}
+        try { localStorage.setItem('pyclassroom_db_snapshot', JSON.stringify({ registeredUsers, assignments, gradebook, lectures, studentSubmissions, loginLogs, studentFlags, flaggedAssignmentsCache, testSets, studentCodeCache, questionFlags, systemPermissions, studentMessages, quizData, quizTests, quizSubmissions })); } catch(e) {}
     }
     function loadLocalSnapshotIfAvailable() {
         try {
@@ -5020,6 +5489,7 @@
                 if (parsed.systemPermissions && typeof parsed.systemPermissions === 'object') systemPermissions = parsed.systemPermissions;
                 if (Array.isArray(parsed.studentMessages)) studentMessages = parsed.studentMessages;
                 if (Array.isArray(parsed.quizData)) quizData = parsed.quizData;
+                if (Array.isArray(parsed.quizTests)) quizTests = parsed.quizTests;
                 if (Array.isArray(parsed.quizSubmissions)) quizSubmissions = parsed.quizSubmissions;
             }
         } catch(e) {}
@@ -5675,6 +6145,7 @@
             [bl, bp, bt, bm].forEach(b => { if (b) b.className = normalBtn; });
             renderQuizStartForm();
             renderStudentQuizHistory();
+            renderStudentQuizTestsList();
         } else if (tab === 'messages') {
             msec?.classList.remove('hidden');
             if (bm) bm.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-2";
@@ -5697,7 +6168,7 @@
         if (tab === 'lectures') renderTeacherLecturesTable();
         if (tab === 'manage') renderManageAssignmentsTable();
         if (tab === 'tests') renderTeacherTestsList();
-        if (tab === 'quiz') renderTeacherQuizTable();
+        if (tab === 'quiz') { renderTeacherQuizTable(); renderTeacherQuizTestsList(); }
         if (tab === 'submissions') renderTeacherSubmissionsTable();
         if (tab === 'logs') renderTeacherLogsTable();
         if (tab === 'grades') renderTeacherGrades();
@@ -5923,7 +6394,7 @@
         else if (tab === 'lectures') renderTeacherLecturesTable();
         else if (tab === 'assignments') renderAdminAssignmentsTable();
         else if (tab === 'tests') renderAdminTestsList();
-        else if (tab === 'quiz') renderAdminQuizTable();
+        else if (tab === 'quiz') { renderAdminQuizTable(); renderAdminQuizTestsList(); }
         else if (tab === 'submissions') renderAdminSubmissionsTable();
         else if (tab === 'logs') renderAdminLogsTable();
         else if (tab === 'grades') renderAdminGrades();
@@ -5960,6 +6431,7 @@
         renderAdminSubmissionsTable(); renderAdminLogsTable(); renderAdminGrades();
         renderAdminTestsList();
         renderAdminQuizTable();
+        renderAdminQuizTestsList();
         loadSystemPermissionsIntoUi();
         refreshMessagesBadges();
     }
@@ -6909,6 +7381,7 @@ YÊU CẦU TRẢ LỜI BẮT BUỘC:
         renderTeacherSubmissionsTable(); renderTeacherLogsTable();
         renderStudentMessages(); renderTeacherMessages(); renderAdminMessages();
         renderTeacherQuizTable(); renderAdminQuizTable();
+        renderTeacherQuizTestsList(); renderAdminQuizTestsList(); renderStudentQuizTestsList();
         renderQuizStartForm(); renderStudentQuizHistory();
         initPyodide();
         currentUser.isLoggedIn = false;
