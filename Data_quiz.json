@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:53:18.412Z",
+    "updatedAt": "2026-11-10T06:53:42.864Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1160,7 +1160,7 @@
     },
     {
       "id": 73,
-      "question": "Kết quả của chương trình sau là gì? a=[5,8,3,7,2]\\nprint(min(a))",
+      "question": "Kết quả của chương trình sau là gì? \na=[5,8,3,7,2]\nprint(min(a))",
       "options": [
         "8",
         "2",
