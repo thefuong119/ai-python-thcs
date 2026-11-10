@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:46:50.847Z",
+    "updatedAt": "2026-11-10T10:47:05.415Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16626,7 +16626,7 @@
       },
       {
         "id": 57,
-        "question": "Kết quả của chương trình sau là gì? a = (4,8,2,6)\\nprint(min(a))",
+        "question": "Kết quả của chương trình sau là gì? \na = (4,8,2,6)\nprint(min(a))",
         "options": [
           "8",
           "4",
