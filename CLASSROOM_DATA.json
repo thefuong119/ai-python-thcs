@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:48:09.019Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Sửa câu hỏi trắc nghiệm"
+    "updatedAt": "2026-11-10T10:47:26.818Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 66,
+        "loginCount": 65,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14859,13 +14859,6 @@
     ],
     "loginLogs": [
       {
-        "time": "17:35:57 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "17:04:19 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -16258,7 +16251,7 @@
       },
       {
         "id": 34,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Tin hoc'\nprint(len(s))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Tin hoc'\\nprint(len(s))",
         "options": [
           "6",
           "7",
@@ -16274,7 +16267,7 @@
       },
       {
         "id": 35,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s.replace('l','x'))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s.replace('l','x'))",
         "options": [
           "Hexxo",
           "Helxo",
@@ -16322,7 +16315,7 @@
       },
       {
         "id": 38,
-        "question": "Kết quả của chương trình sau là gì? \ns = ' Python '\nprint(s.strip())",
+        "question": "Kết quả của chương trình sau là gì? s = ' Python '\\nprint(s.strip())",
         "options": [
           "' Python '",
           "'Python'",
@@ -16338,7 +16331,7 @@
       },
       {
         "id": 39,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'python'\nprint(s.upper())",
+        "question": "Kết quả của chương trình sau là gì? s = 'python'\\nprint(s.upper())",
         "options": [
           "Python",
           "PYTHON",
@@ -16370,7 +16363,7 @@
       },
       {
         "id": 41,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.lower())",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.lower())",
         "options": [
           "python",
           "PYTHON",
@@ -16386,7 +16379,7 @@
       },
       {
         "id": 42,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'hello world'\nprint(s.title())",
+        "question": "Kết quả của chương trình sau là gì? s = 'hello world'\\nprint(s.title())",
         "options": [
           "Hello World",
           "HELLO WORLD",
@@ -16402,7 +16395,7 @@
       },
       {
         "id": 43,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[1:5])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[1:5])",
         "options": [
           "ytho",
           "yth",
@@ -16418,7 +16411,7 @@
       },
       {
         "id": 44,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[-1])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[-1])",
         "options": [
           "P",
           "n",
@@ -16434,7 +16427,7 @@
       },
       {
         "id": 45,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s*2)",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s*2)",
         "options": [
           "PythonPython",
           "Python 2",
@@ -16450,7 +16443,7 @@
       },
       {
         "id": 46,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint('Py' in s)",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint('Py' in s)",
         "options": [
           "True",
           "False",
@@ -16466,7 +16459,7 @@
       },
       {
         "id": 47,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python Programming'\nprint(s.count('m'))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.count('m'))",
         "options": [
           "1",
           "2",
@@ -16482,7 +16475,7 @@
       },
       {
         "id": 48,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.startswith('Py'))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.startswith('Py'))",
         "options": [
           "True",
           "False",
@@ -16498,7 +16491,7 @@
       },
       {
         "id": 49,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.endswith('on'))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.endswith('on'))",
         "options": [
           "True",
           "False",
@@ -16514,7 +16507,7 @@
       },
       {
         "id": 50,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.replace('Py','My'))",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.replace('Py','My'))",
         "options": [
           "Python",
           "Mython",
@@ -16562,7 +16555,7 @@
       },
       {
         "id": 53,
-        "question": "Kết quả của chương trình sau là gì? \na = (10,20,30,40)\nprint(a[1])",
+        "question": "Kết quả của chương trình sau là gì? a = (10,20,30,40)\\nprint(a[1])",
         "options": [
           "10",
           "20",
@@ -16578,7 +16571,7 @@
       },
       {
         "id": 54,
-        "question": "Kết quả của chương trình sau là gì? \na = (5,7,9)\nprint(len(a))",
+        "question": "Kết quả của chương trình sau là gì? a = (5,7,9)\\nprint(len(a))",
         "options": [
           "2",
           "3",
@@ -16594,7 +16587,7 @@
       },
       {
         "id": 55,
-        "question": "Kết quả của chương trình sau là gì? \na = (1,2,3)\nb = (4,5)\nc = a + b\nprint(c)",
+        "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\nb = (4,5)\\nc = a + b\\nprint(c)",
         "options": [
           "(1,2,3,4,5)",
           "(5,7,3)",
@@ -16610,7 +16603,7 @@
       },
       {
         "id": 56,
-        "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
+        "question": "Kết quả của chương trình sau là gì? a = (3,6,9)\\nprint(max(a))",
         "options": [
           "3",
           "6",
@@ -16626,7 +16619,7 @@
       },
       {
         "id": 57,
-        "question": "Kết quả của chương trình sau là gì? \na = (4,8,2,6)\nprint(min(a))",
+        "question": "Kết quả của chương trình sau là gì? a = (4,8,2,6)\\nprint(min(a))",
         "options": [
           "8",
           "4",
@@ -16642,7 +16635,7 @@
       },
       {
         "id": 58,
-        "question": "Chương trình sau sẽ thực hiện công việc gì? \na = (1,2,3)\nfor x in a:\n    print(x,end=' ')",
+        "question": "Chương trình sau sẽ thực hiện công việc gì? a = (1,2,3)\\nfor x in a:\\n print(x,end=' ')",
         "options": [
           "In các phần tử của tuple",
           "In chỉ số của tuple",
@@ -16674,7 +16667,7 @@
       },
       {
         "id": 60,
-        "question": "Kết quả của chương trình sau là gì? \na = (2,4,6,8)\nprint(sum(a))",
+        "question": "Kết quả của chương trình sau là gì? a = (2,4,6,8)\\nprint(sum(a))",
         "options": [
           "12",
           "16",
@@ -16722,7 +16715,7 @@
       },
       {
         "id": 63,
-        "question": "Kết quả của chương trình sau là gì? \na = {1,2,3,2,1}\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? a = {1,2,3,2,1}\\nprint(a)",
         "options": [
           "{1,2,3,2,1}",
           "{1,2,3}",
@@ -16738,7 +16731,7 @@
       },
       {
         "id": 64,
-        "question": "Chương trình sau có tác dụng gì? \na={1,2,3}\na.add(4)\nprint(a)",
+        "question": "Chương trình sau có tác dụng gì? a={1,2,3}\\na.add(4)\\nprint(a)",
         "options": [
           "Xóa phần tử 4",
           "Thêm phần tử 4 vào set",
@@ -16754,7 +16747,7 @@
       },
       {
         "id": 65,
-        "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? \na={1,2,3,4}\na.remove(3)\nprint(a)",
+        "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? a={1,2,3,4}\\na.remove(3)\\nprint(a)",
         "options": [
           "1",
           "2",
@@ -17487,29 +17480,6 @@
         "explanation": "Dùng with open 'w' và print(..., file=f) để tính tổng mảng a và ghi trực tiếp tổng đó vào file output.txt.",
         "createdAt": "20:04:56 9/11/2026",
         "createdBy": "Nguyễn Thế Phương"
-      }
-    ],
-    "quizTests": [
-      {
-        "id": 1,
-        "title": "Đề trắc nghiệm - 10/11/2026",
-        "grade": "8",
-        "difficulty": "all",
-        "questionIds": [
-          83,
-          82,
-          65,
-          54,
-          3,
-          4,
-          71,
-          77,
-          69,
-          46
-        ],
-        "createdAt": "13:34:15 10/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
       }
     ],
     "quizSubmissions": [
