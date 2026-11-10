@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:52:00.183Z",
+    "updatedAt": "2026-11-10T10:52:12.616Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16786,7 +16786,7 @@
       },
       {
         "id": 67,
-        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+        "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4,5}\nprint(a & b)",
         "options": [
           "{1,2}",
           "{3}",
