@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T14:14:31.791Z",
-    "updatedBy": "Nguyễn Thanh Phong",
-    "action": "Đăng ký GV: Nguyễn Thanh Phong"
+    "updatedAt": "2026-11-10T14:32:01.700Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 67,
+        "loginCount": 66,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -315,23 +315,6 @@
         "loginCount": 4,
         "_hasPassword": true,
         "password": null
-      },
-      {
-        "id": 1794320071634,
-        "name": "Nguyễn Thanh Phong",
-        "username": "thanhphong",
-        "identifier": "thanhphong",
-        "passwordHash": "c49e58afda15d13de083fdf26081ce2fb185182033bebd7e18c6d6b71ca50c6f",
-        "school": "THCS Thành Đông",
-        "className": "Khối 8",
-        "phone": "0123456780",
-        "cccd": "",
-        "email": "",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 1,
-        "password": null,
-        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -15010,20 +14993,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "21:14:31 10/11/2026",
-        "name": "Nguyễn Thanh Phong",
-        "identifier": "thanhphong",
-        "role": "teacher",
-        "result": "Đăng ký thành công"
-      },
-      {
-        "time": "21:00:25 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
       {
         "time": "20:55:12 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
