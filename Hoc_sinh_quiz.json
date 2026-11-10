@@ -1,11 +1,169 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:59:43.760Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "count": 3,
-    "action": "HS Nguyễn Phú Lộc nộp bài trắc nghiệm"
+    "updatedAt": "2026-11-10T13:08:10.274Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "count": 4,
+    "action": "HS Lê Nguyễn Quang Minh nộp bài trắc nghiệm"
   },
   "quizSubmissions": [
+    {
+      "id": 1794316090217,
+      "student": "Lê Nguyễn Quang Minh",
+      "username": "minh",
+      "className": "8A8",
+      "quizTitle": "Đề trắc nghiệm - 10/11/2026",
+      "testId": 1,
+      "testTitle": "Đề trắc nghiệm - 10/11/2026",
+      "totalQuestions": 10,
+      "correctCount": 8,
+      "score": 8,
+      "answers": [
+        {
+          "questionId": 83,
+          "question": "Cho list a = [10,20,30,40], giá trị của a[2] là:",
+          "options": [
+            "10",
+            "20",
+            "30",
+            "40"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Chỉ số mảng bắt đầu từ 0. a[0]=10, a[1]=20, a[2]=30."
+        },
+        {
+          "questionId": 82,
+          "question": "Cách khai báo một list đúng là:",
+          "options": [
+            "a = (1,2,3)",
+            "a = {1,2,3}",
+            "a = [1,2,3]",
+            "a = <1,2,3>"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "B",
+          "isCorrect": false,
+          "explanation": "List được khai báo bằng cặp ngoặc vuông [ ]."
+        },
+        {
+          "questionId": 65,
+          "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? \na={1,2,3,4}\na.remove(3)\nprint(a)",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Phương thức remove() xóa phần tử có giá trị 3 khỏi set."
+        },
+        {
+          "questionId": 54,
+          "question": "Kết quả của chương trình sau là gì? \na = (5,7,9)\nprint(len(a))",
+          "options": [
+            "2",
+            "3",
+            "5",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Tuple a có 3 phần tử, nên len(a) trả về 3."
+        },
+        {
+          "questionId": 3,
+          "question": "Kết quả của chương trình sau là gì? x = 2\nif x > 5:\n    print('Hello')\nprint('Python')",
+          "options": [
+            "Hello",
+            "Python",
+            "Hello Python",
+            "Không in gì"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Biến x = 2. Điều kiện 2 > 5 là False, do đó bỏ qua lệnh in 'Hello'. Lệnh in 'Python' nằm ngoài if nên luôn được thực thi."
+        },
+        {
+          "questionId": 4,
+          "question": "Kết quả của chương trình sau là gì? x = 7\nif x % 2 == 0:\n    print('Chan')\nelse:\n    print('Le')",
+          "options": [
+            "Chan",
+            "Le",
+            "7",
+            "Lỗi"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "7 % 2 == 1 (không bằng 0), điều kiện sai nên chạy vào khối else, in ra 'Le'."
+        },
+        {
+          "questionId": 71,
+          "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
+          "options": [
+            "2",
+            "5",
+            "9",
+            "7"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "max(a) tìm phần tử lớn nhất, là 9."
+        },
+        {
+          "questionId": 77,
+          "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
+          "options": [
+            "3",
+            "2",
+            "4",
+            "1"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Đếm các số lớn hơn 5. Đó là số 8 và 11 (2 số)."
+        },
+        {
+          "questionId": 69,
+          "question": "Kết quả của chương trình sau là gì? \na={5,2,8,1}\nprint(len(a))",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Tập hợp có 4 phần tử (không có phần tử trùng lặp), nên len = 4."
+        },
+        {
+          "questionId": 46,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint('Py' in s)",
+          "options": [
+            "True",
+            "False",
+            "Py",
+            "Lỗi"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "C",
+          "isCorrect": false,
+          "explanation": "Toán tử in kiểm tra chuỗi con có nằm trong chuỗi mẹ không, trả về boolean (True)."
+        }
+      ],
+      "timestamp": "20:08:10 10/11/2026",
+      "date": "2026-11-10",
+      "startedAt": 1794315957521,
+      "duration": 133
+    },
     {
       "id": 1794308383675,
       "student": "Nguyễn Phú Lộc",
