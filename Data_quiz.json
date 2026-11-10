@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T05:53:10.642Z",
+    "updatedAt": "2026-11-10T05:54:08.365Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -424,7 +424,7 @@
     },
     {
       "id": 27,
-      "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n if i == 3:\\n break\\n print(i, end=' ')\\n i += 1",
+      "question": "Kết quả của chương trình sau là gì?\ni = 0\nwhile i < 5:\n    if i == 3:\n         break\n      print(i, end=' ')\n      i += 1",
       "options": [
         "0 1 2",
         "0 1 2 3",
