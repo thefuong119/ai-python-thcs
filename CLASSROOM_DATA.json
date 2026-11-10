@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T07:07:13.888Z",
+    "updatedAt": "2026-11-10T10:04:53.405Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 7,
+        "loginCount": 8,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -14859,6 +14859,13 @@
     ],
     "loginLogs": [
       {
+        "time": "17:04:19 10/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "08:42:07 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -16084,7 +16091,7 @@
       },
       {
         "id": 24,
-        "question": "Kết quả của chương trình sau là gì? i = 1\\ns = 0\\nwhile i <= 4:\\n s += i\\n i += 1\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì?\ni = 1\ns = 0\nwhile i <= 4:\n     s += i\n     i += 1\nprint(s)",
         "options": [
           "10",
           "8",
@@ -16100,7 +16107,7 @@
       },
       {
         "id": 25,
-        "question": "Kết quả của chương trình sau là gì? i = 5\\nwhile i > 0:\\n print(i, end=' ')\\n i -= 2",
+        "question": "Kết quả của chương trình sau là gì? \ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2",
         "options": [
           "5 4 3 2 1",
           "5 3 1",
@@ -16116,7 +16123,7 @@
       },
       {
         "id": 26,
-        "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
+        "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
         "options": [
           "In 3 lần",
           "In 4 lần",
@@ -16132,7 +16139,7 @@
       },
       {
         "id": 27,
-        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n if i == 3:\\n break\\n print(i, end=' ')\\n i += 1",
+        "question": "Kết quả của chương trình sau là gì?\ni = 0\nwhile i < 5:\n    if i == 3:\n         break\n      print(i, end=' ')\n      i += 1",
         "options": [
           "0 1 2",
           "0 1 2 3",
@@ -16164,7 +16171,7 @@
       },
       {
         "id": 29,
-        "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
+        "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
         "options": [
           "1 2 3",
           "3 2 1",
@@ -16180,7 +16187,7 @@
       },
       {
         "id": 30,
-        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 5:\\n if i % 2 == 0:\\n print(i, end=' ')\\n i += 1",
+        "question": "Kết quả của chương trình sau là gì? \ni = 1\nwhile i <= 5:\n    if i % 2 == 0:\n         print(i, end=' ')\n         i += 1",
         "options": [
           "1 3 5",
           "2 4",
@@ -16196,7 +16203,7 @@
       },
       {
         "id": 31,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[0:4])",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[0:4])",
         "options": [
           "Pyth",
           "Pytho",
@@ -16212,7 +16219,7 @@
       },
       {
         "id": 32,
-        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s + 'World')",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s + 'World')",
         "options": [
           "HelloWorld",
           "Hello World",
@@ -16228,7 +16235,7 @@
       },
       {
         "id": 33,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[3])",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[3])",
         "options": [
           "t",
           "h",
@@ -16868,7 +16875,7 @@
       },
       {
         "id": 73,
-        "question": "Kết quả của chương trình sau là gì? a=[5,8,3,7,2]\\nprint(min(a))",
+        "question": "Kết quả của chương trình sau là gì? \na=[5,8,3,7,2]\nprint(min(a))",
         "options": [
           "8",
           "2",
@@ -16884,7 +16891,7 @@
       },
       {
         "id": 74,
-        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4,5]\\nc=0\\nfor x in a:\\n if x%2==0:\\n c+=1\\nprint(c)",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4,5]\nc=0\nfor x in a:\n    if x%2==0:\n          c+=1\n         print(c)",
         "options": [
           "2",
           "3",
@@ -16916,7 +16923,7 @@
       },
       {
         "id": 76,
-        "question": "Chương trình sau sẽ in ra gì? a=[4,1,7,3]\\na.sort()\\nprint(a[0])",
+        "question": "Chương trình sau sẽ in ra gì? \na=[4,1,7,3]\na.sort()\nprint(a[0])",
         "options": [
           "Số lớn nhất",
           "Số nhỏ nhất",
@@ -16932,7 +16939,7 @@
       },
       {
         "id": 77,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,5,8,11]\\nc=0\\nfor x in a:\\n if x>5:\\n c+=1\\nprint(c)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
         "options": [
           "3",
           "2",
@@ -16964,7 +16971,7 @@
       },
       {
         "id": 79,
-        "question": "Kết quả của chương trình sau là gì? a=[1,3,5,7]\\nb=[2,4,6]\\nc=a+b\\nprint(len(c))",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,3,5,7]\nb=[2,4,6]\nc=a+b\nprint(len(c))",
         "options": [
           "4",
           "5",
@@ -16980,7 +16987,7 @@
       },
       {
         "id": 80,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nk=0\\nfor x in a:\\n if x>3:\\n k+=x\\nprint(k)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nk=0\nfor x in a:\n    if x>3:\n         k+=x\n    print(k)",
         "options": [
           "9",
           "12",
@@ -17044,7 +17051,7 @@
       },
       {
         "id": 84,
-        "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? \na = [5,7,9]\na.append(11)\nprint(a)",
         "options": [
           "[5,7,9]",
           "[11,5,7,9]",
@@ -17060,7 +17067,7 @@
       },
       {
         "id": 85,
-        "question": "Kết quả của chương trình sau là gì? a = [3,6,9]\\na.insert(1,4)\\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? \na = [3,6,9]\na.insert(1,4)\nprint(a)",
         "options": [
           "[3,4,6,9]",
           "[4,3,6,9]",
@@ -17076,7 +17083,7 @@
       },
       {
         "id": 86,
-        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\na.remove(3)\\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\na.remove(3)\nprint(a)",
         "options": [
           "[1,2,3]",
           "[1,2,4]",
@@ -17124,7 +17131,7 @@
       },
       {
         "id": 89,
-        "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n print(x,end=' ')",
+        "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n    print(x,end=' ')",
         "options": [
           "10 20 30",
           "0 1 2",
@@ -17476,6 +17483,92 @@
       }
     ],
     "quizSubmissions": [
+      {
+        "id": 1794290318494,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "quizTitle": "Trắc nghiệm 5 câu - 10/11/2026",
+        "totalQuestions": 5,
+        "correctCount": 5,
+        "score": 10,
+        "answers": [
+          {
+            "questionId": 71,
+            "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+            "options": [
+              "2",
+              "5",
+              "9",
+              "7"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "max(a) tìm phần tử lớn nhất, là 9."
+          },
+          {
+            "questionId": 21,
+            "question": "Trong Python, vòng lặp không xác định số lần lặp trước thường dùng lệnh nào?",
+            "options": [
+              "for",
+              "while",
+              "if",
+              "def"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Vòng lặp while tiếp tục thực hiện khối lệnh miễn là điều kiện kiểm tra còn đúng."
+          },
+          {
+            "questionId": 84,
+            "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
+            "options": [
+              "[5,7,9]",
+              "[11,5,7,9]",
+              "[5,7,9,11]",
+              "[5,7,11]"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "append() thêm một phần tử vào cuối list."
+          },
+          {
+            "questionId": 70,
+            "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+            "options": [
+              "In các phần tử của set",
+              "In chỉ số của set",
+              "In số lượng phần tử",
+              "Lỗi chương trình"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự)."
+          },
+          {
+            "questionId": 81,
+            "question": "Trong Python, kiểu dữ liệu nào dùng để lưu một dãy các phần tử có thứ tự và có thể thay đổi?",
+            "options": [
+              "Tuple",
+              "List",
+              "Set",
+              "Dictionary"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "List là cấu trúc dữ liệu cho phép lưu trữ tuần tự, lập chỉ mục và có thể thay đổi (mutable)."
+          }
+        ],
+        "timestamp": "12:58:38 10/11/2026",
+        "date": "2026-11-10",
+        "startedAt": 1794290246628,
+        "duration": 72
+      },
       {
         "id": 1794229958546,
         "student": "Trần Ngọc Hân",
