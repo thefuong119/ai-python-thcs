@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T05:54:08.365Z",
+    "updatedAt": "2026-11-10T05:54:39.529Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -456,7 +456,7 @@
     },
     {
       "id": 29,
-      "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
+      "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
       "options": [
         "1 2 3",
         "3 2 1",
