@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T13:23:23.195Z",
+    "updatedAt": "2026-11-10T13:23:57.551Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 24,
+        "attempts": 25,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:23:23 10/11/2026"
+        "lastSubmit": "20:23:57 10/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12308,6 +12308,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794317037440,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 10. Xếp que diêm thành tháp tam giác",
+        "assignmentId": 10,
+        "score": 10,
+        "timestamp": "20:23:57 10/11/2026",
+        "date": "2026-11-10",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "2",
+            "actual": "2",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "18",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000000",
+            "expected": "25819888",
+            "actual": "25819888",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)"
+      },
       {
         "id": 1794317003058,
         "student": "Lê Nguyễn Quang Minh",
