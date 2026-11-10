@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:52:09.216Z",
+    "updatedAt": "2026-11-10T10:52:20.475Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1080,7 +1080,7 @@
     },
     {
       "id": 68,
-      "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+      "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4}\nprint(a-b)",
       "options": [
         "{1,2}",
         "{3}",
