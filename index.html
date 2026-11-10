@@ -1955,7 +1955,7 @@
     <!-- CONFIRM DELETE MODAL -->
     <div id="confirmDeleteModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10006] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-sm w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+            <div class="w-36 h-36 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
                 <i class="ph-bold ph-trash"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Xóa</h3>
@@ -1976,7 +1976,7 @@
             <div id="robotSpeechBubbleContainer" class="flex flex-col items-center gap-2 w-full"></div>
         </div>
         <div class="pointer-events-auto flex flex-col items-center relative">
-            <button id="robotAvatarBtn" draggable="false" class="group relative w-24 h-24 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
+            <button id="robotAvatarBtn" draggable="false" class="group relative w-36 h-36 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none cursor-grab" title="Nhấp để Bật/Tắt giọng đọc. Kéo thả đến vị trí bất kỳ">
                 <span id="robotAudioRing" class="hidden absolute inset-0 rounded-full border-2 border-emerald-400 animate-ping opacity-75"></span>
                 <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/robo.gif" alt="Robot AI" draggable="false" class="w-full h-full object-contain pointer-events-none">
             </button>
@@ -2174,7 +2174,7 @@
     <!-- CONFIRM EXIT -->
     <div id="confirmExitAppModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[10000] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center">
-            <div class="w-24 h-24 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
+            <div class="w-36 h- rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner">
                 <i class="ph-bold ph-sign-out"></i>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">Xác Nhận Thoát</h3>
@@ -4498,29 +4498,126 @@
     function closeRoleDropdown() { const menu = document.getElementById('roleDropdownMenu'); if (menu) menu.classList.add('hidden'); }
     document.addEventListener('click', (e) => { const wrapper = document.getElementById('roleDropdownWrapper'); if (wrapper && !wrapper.contains(e.target)) closeRoleDropdown(); });
 
+    // =============================================
+    // 🧙‍♂️ FORMAT CODE PYTHON THÔNG MINH (dựa trên cấu trúc thụt lề gốc)
+    // =============================================
     function autoFormatPython(code) {
         if (!code) return '';
-        const lines = code.replace(/\t/g, '    ').split('\n');
-        const out = []; let indent = 0; let inMultilineString = false; let multilineQuote = '';
-        for (let rawLine of lines) {
-            let line = rawLine.replace(/\s+$/, '');
-            const trimmed = line.trim();
-            if (!trimmed) { out.push(''); continue; }
-            if (!inMultilineString) { const m3d = trimmed.match(/^("""|''')/); if (m3d) { inMultilineString = true; multilineQuote = m3d[1]; out.push('    '.repeat(indent) + trimmed); const rest = trimmed.substring(3); if (rest.includes(multilineQuote)) inMultilineString = false; continue; } }
-            else { out.push(line); if (trimmed.includes(multilineQuote)) inMultilineString = false; continue; }
-            const dedentKeywords = /^(else|elif|except|finally|case|default)\b/;
-            if (dedentKeywords.test(trimmed)) indent = Math.max(0, indent - 1);
-            let codePart = trimmed; let commentPart = '';
-            const cIdx = findCommentIndex(trimmed);
-            if (cIdx !== -1) { codePart = trimmed.substring(0, cIdx).trim(); commentPart = ' ' + trimmed.substring(cIdx).trim(); }
-            codePart = normalizeSpaces(codePart);
-            out.push('    '.repeat(indent) + codePart + commentPart);
-            if (codePart.endsWith(':') && !/^#/.test(codePart)) { const openCount = (codePart.match(/[\(\[\{]/g) || []).length; const closeCount = (codePart.match(/[\)\]\}]/g) || []).length; if (openCount === closeCount) indent++; }
+        // Chuẩn hóa: CRLF → LF, tab → 4 spaces
+        const rawLines = String(code).replace(/\r\n?/g, '\n').replace(/\t/g, '    ').split('\n');
+
+        // --- Bước 1: Parse từng dòng, giữ trạng thái triple-quoted string ---
+        const parsed = [];
+        let inTriple = false;
+        let tripleChar = '';
+
+        for (const raw of rawLines) {
+            if (inTriple) {
+                parsed.push({ type: 'raw', raw });
+                if (raw.indexOf(tripleChar) !== -1) inTriple = false;
+                continue;
+            }
+            const trailTrim = raw.replace(/\s+$/, '');
+            const content = trailTrim.replace(/^\s+/, '');
+            if (!content) {
+                parsed.push({ type: 'blank' });
+                continue;
+            }
+            const origIndent = trailTrim.length - content.length;
+            // Phát hiện mở triple-quote
+            const m3 = content.match(/("""|''')/);
+            if (m3) {
+                const after = content.substring(m3.index + 3);
+                if (!after.includes(m3[1])) {
+                    inTriple = true;
+                    tripleChar = m3[1];
+                }
+            }
+            parsed.push({ type: 'line', origIndent, content });
         }
-        return out.join('\n');
+
+        // --- Bước 2: Tái cấu trúc bằng stack thụt lề tương đối ---
+        const indentStack = [];
+        const output = [];
+
+        for (const p of parsed) {
+            if (p.type === 'blank') { output.push(''); continue; }
+            if (p.type === 'raw') { output.push(p.raw); continue; }
+
+            // Pop cho đến khi top <= origIndent
+            while (indentStack.length > 0 && indentStack[indentStack.length - 1] > p.origIndent) {
+                indentStack.pop();
+            }
+            if (indentStack.length === 0 || indentStack[indentStack.length - 1] < p.origIndent) {
+                indentStack.push(p.origIndent);
+            }
+            const level = indentStack.length - 1;
+            output.push('    '.repeat(level) + formatPythonLine(p.content));
+        }
+
+        // Xóa dòng trống cuối
+        while (output.length > 0 && output[output.length - 1] === '') output.pop();
+        return output.join('\n');
     }
-    function findCommentIndex(line) { let inStr = null; for (let i = 0; i < line.length; i++) { const ch = line[i]; if (inStr) { if (ch === '\\') { i++; continue; } if (ch === inStr) inStr = null; } else { if (ch === '"' || ch === "'") inStr = ch; else if (ch === '#') return i; } } return -1; }
-    function normalizeSpaces(s) { s = s.replace(/\s*([\+\-\*\/%])\s*/g, ' $1 '); s = s.replace(/\s*([<>=!]=|:=)\s*/g, ' $1 '); s = s.replace(/([^<>=!:\+\-\*\/%])\s*=\s*([^=])/g, '$1 = $2'); s = s.replace(/\s*,\s*/g, ', '); s = s.replace(/\s+/g, ' ').trim(); return s; }
+
+    /**
+     * Format MỘT dòng code Python (không tính phần indent đầu dòng):
+     * - Giữ comment cuối dòng.
+     * - Bảo vệ string literal trước khi normalize khoảng trắng.
+     * - Chỉ normalize các toán tử an toàn (=, ==, !=, <=, >=, +=, -=, *=, /=, %=) và dấu phẩy.
+     * - KHÔNG đụng tới `-` đơn (tránh phá số âm), KHÔNG đụng `*`/`**` (tránh phá unpacking và lũy thừa).
+     */
+    function formatPythonLine(line) {
+        if (!line) return '';
+        if (line.startsWith('#')) return line; // Comment thuần
+
+        const cIdx = findCommentIndex(line);
+        let codePart = line;
+        let commentPart = '';
+        if (cIdx !== -1) {
+            codePart = line.substring(0, cIdx).replace(/\s+$/, '');
+            commentPart = ' ' + line.substring(cIdx).trim();
+        }
+
+        // Bảo vệ string literal
+        const strings = [];
+        let si = 0;
+        codePart = codePart.replace(/(["'])((?:\\.|(?!\1).)*)\1/g, (m) => {
+            const ph = '\x00S' + (si++) + '\x00';
+            strings.push(m);
+            return ph;
+        });
+
+        // Normalize toán tử gán/so sánh (alternation có thứ tự: 2 ký tự trước, 1 ký tự sau)
+        codePart = codePart.replace(/\s*(==|!=|<=|>=|\+=|-=|\*=|\/=|%=|=)\s*/g, ' $1 ');
+        // Normalize dấu phẩy: bỏ space trước, thêm 1 space sau
+        codePart = codePart.replace(/\s*,\s*/g, ', ');
+        // Gộp nhiều space liên tiếp
+        codePart = codePart.replace(/[ \t]+/g, ' ').trim();
+
+        // Khôi phục string
+        strings.forEach((s, i) => {
+            codePart = codePart.split('\x00S' + i + '\x00').join(s);
+        });
+
+        return codePart + commentPart;
+    }
+
+    function findCommentIndex(line) {
+        let inStr = null;
+        for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (inStr) {
+                if (ch === '\\') { i++; continue; }
+                if (ch === inStr) inStr = null;
+            } else {
+                if (ch === '"' || ch === "'") inStr = ch;
+                else if (ch === '#') return i;
+            }
+        }
+        return -1;
+    }
+
     function autoFormatCode(which) {
         const cm = which === 'student' ? studentCodeEditor : (which === 'teacher' ? teacherSolutionEditor : adminSolutionEditor);
         const getter = which === 'student' ? getStudentCode : (which === 'teacher' ? getTeacherSolution : getAdminSolution);
@@ -4899,7 +4996,7 @@
         const overlay = document.createElement('div');
         overlay.id = 'exitFallbackOverlay';
         overlay.className = 'fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[99999] flex items-center justify-center p-4';
-        overlay.innerHTML = `<div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center"><div class="w-24 h-24 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner"><i class="ph-bold ph-check-circle"></i></div><h3 class="text-lg font-bold text-slate-900 mb-2">Đã Lưu & Đăng Xuất Thành Công</h3><p class="text-sm text-slate-600 mb-4 leading-relaxed">Trình duyệt không cho phép trang web tự đóng tab vì lý do bảo mật. Vui lòng đóng tab thủ công bằng phím tắt sau:</p><div class="grid grid-cols-2 gap-3 mb-4"><div class="p-3 bg-slate-50 rounded-xl border border-slate-200"><div class="text-xs text-slate-500 font-bold mb-1">Windows / Linux</div><div class="font-mono font-bold text-slate-800 text-sm"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Ctrl</kbd> + <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd></div></div><div class="p-3 bg-slate-50 rounded-xl border border-slate-200"><div class="text-xs text-slate-500 font-bold mb-1">macOS</div><div class="font-mono font-bold text-slate-800 text-sm"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Cmd</kbd> + <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd></div></div></div><p class="text-xs text-slate-500 mb-4">Hoặc nhấn nút bên dưới để quay lại ứng dụng.</p><button onclick="document.getElementById('exitFallbackOverlay').remove()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm"><i class="ph-bold ph-arrow-left"></i> Quay Lại Ứng Dụng</button></div>`;
+        overlay.innerHTML = `<div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 text-center"><div class="w-36 h-36 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl shadow-inner"><i class="ph-bold ph-check-circle"></i></div><h3 class="text-lg font-bold text-slate-900 mb-2">Đã Lưu & Đăng Xuất Thành Công</h3><p class="text-sm text-slate-600 mb-4 leading-relaxed">Trình duyệt không cho phép trang web tự đóng tab vì lý do bảo mật. Vui lòng đóng tab thủ công bằng phím tắt sau:</p><div class="grid grid-cols-2 gap-3 mb-4"><div class="p-3 bg-slate-50 rounded-xl border border-slate-200"><div class="text-xs text-slate-500 font-bold mb-1">Windows / Linux</div><div class="font-mono font-bold text-slate-800 text-sm"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Ctrl</kbd> + <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd></div></div><div class="p-3 bg-slate-50 rounded-xl border border-slate-200"><div class="text-xs text-slate-500 font-bold mb-1">macOS</div><div class="font-mono font-bold text-slate-800 text-sm"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">Cmd</kbd> + <kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded">W</kbd></div></div></div><p class="text-xs text-slate-500 mb-4">Hoặc nhấn nút bên dưới để quay lại ứng dụng.</p><button onclick="document.getElementById('exitFallbackOverlay').remove()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm"><i class="ph-bold ph-arrow-left"></i> Quay Lại Ứng Dụng</button></div>`;
         document.body.appendChild(overlay);
     }
 
@@ -6430,11 +6527,113 @@
     function updateBubbleOrientation() { if (!robotWidget) return false; const top = robotWidget.offsetTop || robotWidget.getBoundingClientRect().top; const bw = document.getElementById('robotBubbleWrapper'); const isNearTop = top < 130; if (isNearTop) { robotWidget.classList.remove('flex-col'); robotWidget.classList.add('flex-col-reverse'); bw?.classList.remove('mb-2'); bw?.classList.add('mt-2'); } else { robotWidget.classList.remove('flex-col-reverse'); robotWidget.classList.add('flex-col'); bw?.classList.remove('mt-2'); bw?.classList.add('mb-2'); } return isNearTop; }
     function initRobotDrag(e) { isDraggingRobot = true; hasDraggedRobot = false; const pos = getDragPos(e); dragStartX = pos.x; dragStartY = pos.y; const rect = robotWidget.getBoundingClientRect(); widgetStartX = rect.left; widgetStartY = rect.top; robotWidget.style.transition = 'none'; robotWidget.style.right = 'auto'; robotWidget.style.bottom = 'auto'; robotWidget.style.left = widgetStartX + 'px'; robotWidget.style.top = widgetStartY + 'px'; document.addEventListener('mousemove', onRobotDrag); document.addEventListener('touchmove', onRobotDrag, { passive: false }); document.addEventListener('mouseup', endRobotDrag); document.addEventListener('touchend', endRobotDrag); }
     function onRobotDrag(e) { if (!isDraggingRobot) return; const pos = getDragPos(e); const dx = pos.x - dragStartX, dy = pos.y - dragStartY; if (Math.abs(dx) > 5 || Math.abs(dy) > 5) { hasDraggedRobot = true; if (e.cancelable) e.preventDefault(); } let nx = Math.max(0, Math.min(widgetStartX + dx, window.innerWidth - robotWidget.offsetWidth)); let ny = Math.max(0, Math.min(widgetStartY + dy, window.innerHeight - robotWidget.offsetHeight)); robotWidget.style.left = nx + 'px'; robotWidget.style.top = ny + 'px'; updateBubbleOrientation(); }
-    function endRobotDrag() { isDraggingRobot = false; if (robotWidget) robotWidget.style.transition = ''; document.removeEventListener('mousemove', onRobotDrag); document.removeEventListener('touchmove', onRobotDrag); document.removeEventListener('mouseup', endRobotDrag); document.removeEventListener('touchend', endRobotDrag); updateBubbleOrientation(); }
+
+    // =============================================
+    // 🤖 KÉO THẢ ROBOT & ĐỌC VĂN BẢN TẠI VỊ TRÍ ĐANG ĐỨNG
+    // =============================================
+    let lastDragEndTime = 0;
+
+    function endRobotDrag() {
+        isDraggingRobot = false;
+        if (robotWidget) robotWidget.style.transition = '';
+        document.removeEventListener('mousemove', onRobotDrag);
+        document.removeEventListener('touchmove', onRobotDrag);
+        document.removeEventListener('mouseup', endRobotDrag);
+        document.removeEventListener('touchend', endRobotDrag);
+        updateBubbleOrientation();
+
+        if (hasDraggedRobot) {
+            lastDragEndTime = Date.now();
+            hasDraggedRobot = false;
+            // Đọc văn bản tại vị trí mới sau khi drag kết thúc
+            setTimeout(() => {
+                try { readTextNearRobot(); } catch (err) { console.warn('[ROBOT-READ]', err); }
+            }, 220);
+        }
+    }
+
+    /**
+     * Đọc to văn bản đang nằm ngay dưới vị trí robot (sau khi người dùng kéo thả).
+     * Cách làm: tạm ẩn robot → dùng elementsFromPoint() lấy chồng phần tử tại tâm avatar
+     * → lọc bỏ button/input/icon/script → chọn phần tử có văn bản phù hợp → đọc.
+     */
+    function readTextNearRobot() {
+        if (!robotWidget || !robotBtn) return;
+        const avatarRect = robotBtn.getBoundingClientRect();
+        if (!avatarRect || avatarRect.width === 0 || avatarRect.height === 0) return;
+
+        const cx = avatarRect.left + avatarRect.width / 2;
+        const cy = avatarRect.top + avatarRect.height / 2;
+
+        // Tạm ẩn robot để lấy phần tử nằm dưới
+        const prevVis = robotWidget.style.visibility;
+        robotWidget.style.visibility = 'hidden';
+        let elements = [];
+        try {
+            elements = (document.elementsFromPoint ? document.elementsFromPoint(cx, cy) : []) || [];
+        } catch (e) { elements = []; }
+        robotWidget.style.visibility = prevVis;
+
+        if (!elements.length) {
+            showToast('Không tìm thấy văn bản tại vị trí này!', 'info');
+            return;
+        }
+
+        const skipTags = new Set(['SCRIPT','STYLE','LINK','META','HEAD','BUTTON','INPUT','SELECT','TEXTAREA','IMG','SVG','I','CANVAS','AUDIO','VIDEO','IFRAME','NOSCRIPT','BR','HR']);
+        const candidates = [];
+        for (const el of elements) {
+            if (!el || el.nodeType !== 1) continue;
+            if (el === document.body || el === document.documentElement) continue;
+            if (el === robotWidget || el.contains(robotWidget) || robotWidget.contains(el)) continue;
+            const tag = (el.tagName || '').toUpperCase();
+            if (skipTags.has(tag)) continue;
+            const text = (el.innerText || el.textContent || '').trim();
+            if (text.length < 20) continue;
+            candidates.push({ el, text });
+        }
+
+        if (candidates.length === 0) {
+            showToast('Vị trí này không có văn bản để đọc!', 'info');
+            return;
+        }
+
+        // Ưu tiên phần tử "cụ thể" (nhỏ nhất) nhưng vẫn đủ dài
+        candidates.sort((a, b) => a.text.length - b.text.length);
+        let chosen = candidates.find(c => c.text.length >= 30 && c.text.length <= 3000) || candidates[0];
+
+        // Trích xuất text sạch
+        const clone = chosen.el.cloneNode(true);
+        clone.querySelectorAll('button, script, style, svg, i, input, select, textarea, img, iframe, audio, video, .ph-bold, .ph-fill, .ph, [class*="ph-"]').forEach(e => e.remove());
+        let cleanText = (clone.innerText || clone.textContent || '').replace(/\s+/g, ' ').trim();
+
+        if (!cleanText) {
+            showToast('Không có văn bản tại vị trí này!', 'info');
+            return;
+        }
+
+        if (cleanText.length > 4000) cleanText = cleanText.substring(0, 4000) + '...';
+
+        showToast('🤖 Đang đọc văn bản tại vị trí Robot đang đứng...', 'info');
+        speakRobotText(cleanText);
+    }
+
     if (robotBtn) {
         robotBtn.addEventListener('mousedown', initRobotDrag);
         robotBtn.addEventListener('touchstart', initRobotDrag, { passive: false });
-        robotBtn.addEventListener('click', (e) => { if (hasDraggedRobot) { e.preventDefault(); e.stopPropagation(); hasDraggedRobot = false; return; } if (isRobotSpeaking) { stopRobotVoice(); showToast("Đã dừng đọc", "info"); } else { speakFullPageContent(); } });
+        robotBtn.addEventListener('click', (e) => {
+            // Nếu vừa kéo thả xong → bỏ qua click (tránh đọc trùng với readTextNearRobot)
+            if (hasDraggedRobot) {
+                e.preventDefault(); e.stopPropagation();
+                hasDraggedRobot = false;
+                return;
+            }
+            if (Date.now() - lastDragEndTime < 550) {
+                e.preventDefault(); e.stopPropagation();
+                return;
+            }
+            if (isRobotSpeaking) { stopRobotVoice(); showToast('Đã dừng đọc', 'info'); }
+            else { speakFullPageContent(); }
+        });
     }
     function centerRobotOnScreen() { if (!robotWidget) return; const cx = Math.max(0, (window.innerWidth - 70) / 2), cy = Math.max(0, (window.innerHeight - 70) / 2); robotWidget.style.right = 'auto'; robotWidget.style.bottom = 'auto'; robotWidget.style.left = cx + 'px'; robotWidget.style.top = cy + 'px'; updateBubbleOrientation(); }
 
