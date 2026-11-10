@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:55:49.842Z",
+    "updatedAt": "2026-11-10T10:56:33.827Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1656,7 +1656,7 @@
     },
     {
       "id": 104,
-      "question": "Tệp input.txt chứa: 6, dòng dưới: 3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\na.sort()\\nprint(a[-1]-a[0])",
+      "question": "Tệp input.txt chứa: \n6\n3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\na.sort()\nprint(a[-1]-a[0])",
       "options": [
         "8",
         "7",
