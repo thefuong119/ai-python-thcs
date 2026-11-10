@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:04:58.804Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-10T05:05:44.955Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin lưu bài tập: Tính tiền điện bậc thang sinh hoạt"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 65,
+        "loginCount": 66,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -7607,7 +7607,7 @@
           {
             "id": 2,
             "input": "100 240",
-            "expected": "300240",
+            "expected": "294840",
             "point": 5,
             "is_hidden": false
           }
@@ -14858,6 +14858,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "12:05:11 10/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
       {
         "time": "08:42:07 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
