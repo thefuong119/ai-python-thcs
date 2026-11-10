@@ -1,11 +1,97 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-09T13:12:38.588Z",
-    "updatedBy": "Trần Ngọc Hân",
-    "count": 1,
-    "action": "HS Trần Ngọc Hân nộp bài trắc nghiệm"
+    "updatedAt": "2026-11-10T05:58:38.527Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "count": 2,
+    "action": "HS Nguyễn Phú Lộc nộp bài trắc nghiệm"
   },
   "quizSubmissions": [
+    {
+      "id": 1794290318494,
+      "student": "Nguyễn Phú Lộc",
+      "username": "loc",
+      "className": "8A2",
+      "quizTitle": "Trắc nghiệm 5 câu - 10/11/2026",
+      "totalQuestions": 5,
+      "correctCount": 5,
+      "score": 10,
+      "answers": [
+        {
+          "questionId": 71,
+          "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+          "options": [
+            "2",
+            "5",
+            "9",
+            "7"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "max(a) tìm phần tử lớn nhất, là 9."
+        },
+        {
+          "questionId": 21,
+          "question": "Trong Python, vòng lặp không xác định số lần lặp trước thường dùng lệnh nào?",
+          "options": [
+            "for",
+            "while",
+            "if",
+            "def"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Vòng lặp while tiếp tục thực hiện khối lệnh miễn là điều kiện kiểm tra còn đúng."
+        },
+        {
+          "questionId": 84,
+          "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
+          "options": [
+            "[5,7,9]",
+            "[11,5,7,9]",
+            "[5,7,9,11]",
+            "[5,7,11]"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "append() thêm một phần tử vào cuối list."
+        },
+        {
+          "questionId": 70,
+          "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+          "options": [
+            "In các phần tử của set",
+            "In chỉ số của set",
+            "In số lượng phần tử",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự)."
+        },
+        {
+          "questionId": 81,
+          "question": "Trong Python, kiểu dữ liệu nào dùng để lưu một dãy các phần tử có thứ tự và có thể thay đổi?",
+          "options": [
+            "Tuple",
+            "List",
+            "Set",
+            "Dictionary"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "List là cấu trúc dữ liệu cho phép lưu trữ tuần tự, lập chỉ mục và có thể thay đổi (mutable)."
+        }
+      ],
+      "timestamp": "12:58:38 10/11/2026",
+      "date": "2026-11-10",
+      "startedAt": 1794290246628,
+      "duration": 72
+    },
     {
       "id": 1794229958546,
       "student": "Trần Ngọc Hân",
