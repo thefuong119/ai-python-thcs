@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:52:20.475Z",
+    "updatedAt": "2026-11-10T10:52:48.582Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1192,7 +1192,7 @@
     },
     {
       "id": 75,
-      "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nb=[]\\nfor x in a:\\n if x%2==0:\\n b.append(x)\\nprint(b)",
+      "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nb=[]\nfor x in a:\n    if x%2==0:\n        b.append(x)\n    print(b)",
       "options": [
         "[2,3,4]",
         "[2,4,6]",
