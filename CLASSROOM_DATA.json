@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:56:39.208Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-10T05:56:52.647Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -14888,13 +14888,6 @@
     ],
     "loginLogs": [
       {
-        "time": "12:56:39 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
         "time": "12:48:04 10/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -16191,7 +16184,7 @@
       },
       {
         "id": 25,
-        "question": "Kết quả của chương trình sau là gì? \ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2",
+        "question": "Kết quả của chương trình sau là gì? i = 5\\nwhile i > 0:\\n print(i, end=' ')\\n i -= 2",
         "options": [
           "5 4 3 2 1",
           "5 3 1",
@@ -16207,7 +16200,7 @@
       },
       {
         "id": 26,
-        "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
+        "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
         "options": [
           "In 3 lần",
           "In 4 lần",
@@ -16223,7 +16216,7 @@
       },
       {
         "id": 27,
-        "question": "Kết quả của chương trình sau là gì?\ni = 0\nwhile i < 5:\n    if i == 3:\n         break\n      print(i, end=' ')\n      i += 1",
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n if i == 3:\\n break\\n print(i, end=' ')\\n i += 1",
         "options": [
           "0 1 2",
           "0 1 2 3",
@@ -16255,7 +16248,7 @@
       },
       {
         "id": 29,
-        "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
+        "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
         "options": [
           "1 2 3",
           "3 2 1",
@@ -16271,7 +16264,7 @@
       },
       {
         "id": 30,
-        "question": "Kết quả của chương trình sau là gì? \ni = 1\nwhile i <= 5:\n    if i % 2 == 0:\n         print(i, end=' ')\n         i += 1",
+        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 5:\\n if i % 2 == 0:\\n print(i, end=' ')\\n i += 1",
         "options": [
           "1 3 5",
           "2 4",
@@ -16287,7 +16280,7 @@
       },
       {
         "id": 31,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[0:4])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[0:4])",
         "options": [
           "Pyth",
           "Pytho",
@@ -16303,7 +16296,7 @@
       },
       {
         "id": 32,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s + 'World')",
+        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s + 'World')",
         "options": [
           "HelloWorld",
           "Hello World",
@@ -16319,7 +16312,7 @@
       },
       {
         "id": 33,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[3])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[3])",
         "options": [
           "t",
           "h",
