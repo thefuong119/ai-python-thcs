@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:59:46.662Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "HS Nguyễn Phú Lộc nộp bài trắc nghiệm"
+    "updatedAt": "2026-11-10T11:00:52.861Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 11,
+        "loginCount": 10,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 23,
+        "attempts": 22,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "17:59:43 10/11/2026"
+        "lastSubmit": "22:38:53 9/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -14859,20 +14859,6 @@
     ],
     "loginLogs": [
       {
-        "time": "17:59:43 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Trắc nghiệm 9.0/10"
-      },
-      {
-        "time": "17:48:09 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "17:35:57 10/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -16176,7 +16162,7 @@
       },
       {
         "id": 28,
-        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 1\\n if i == 3:\\n continue\\n print(i, end=' ')",
+        "question": "Kết quả của chương trình sau là gì? \ni = 0\nwhile i < 5:\n    i += 1\n    if i == 3:\n       continue\n    print(i, end=' ')",
         "options": [
           "1 2 3 4 5",
           "1 2 4 5",
@@ -16304,7 +16290,7 @@
       },
       {
         "id": 36,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.split())",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python Programming'\nprint(s.split())",
         "options": [
           "['Python', 'Programming']",
           "['Python Programming']",
@@ -16320,7 +16306,7 @@
       },
       {
         "id": 37,
-        "question": "Kết quả của chương trình sau là gì? a = ['Python','Java','C']\\nprint('-'.join(a))",
+        "question": "Kết quả của chương trình sau là gì? \na = ['Python','Java','C']\nprint('-'.join(a))",
         "options": [
           "Python Java C",
           "Python-Java-C",
@@ -16368,7 +16354,7 @@
       },
       {
         "id": 40,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.find('th'))",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.find('th'))",
         "options": [
           "1",
           "2",
@@ -16672,7 +16658,7 @@
       },
       {
         "id": 59,
-        "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\na[0] = 5",
+        "question": "Kết quả của chương trình sau là gì? \na = (1,2,3)\na[0] = 5",
         "options": [
           "(5,2,3)",
           "(1,2,3)",
@@ -16784,7 +16770,7 @@
       },
       {
         "id": 66,
-        "question": "Phép toán | cho kết quả là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a|b)",
+        "question": "Phép toán | cho kết quả là gì? \na={1,2,3}\nb={3,4,5}\nprint(a|b)",
         "options": [
           "{3}",
           "{1,2,3,4,5}",
@@ -16800,7 +16786,7 @@
       },
       {
         "id": 67,
-        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+        "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4,5}\nprint(a & b)",
         "options": [
           "{1,2}",
           "{3}",
@@ -16816,7 +16802,7 @@
       },
       {
         "id": 68,
-        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+        "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4}\nprint(a-b)",
         "options": [
           "{1,2}",
           "{3}",
@@ -16832,7 +16818,7 @@
       },
       {
         "id": 69,
-        "question": "Kết quả của chương trình sau là gì? a={5,2,8,1}\\nprint(len(a))",
+        "question": "Kết quả của chương trình sau là gì? \na={5,2,8,1}\nprint(len(a))",
         "options": [
           "3",
           "4",
@@ -16848,7 +16834,7 @@
       },
       {
         "id": 70,
-        "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+        "question": "Chương trình sau sẽ làm gì? \na={1,2,3}\nfor x in a:\n    print(x,end=' ')",
         "options": [
           "In các phần tử của set",
           "In chỉ số của set",
@@ -16864,7 +16850,7 @@
       },
       {
         "id": 71,
-        "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+        "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
         "options": [
           "2",
           "5",
@@ -16880,7 +16866,7 @@
       },
       {
         "id": 72,
-        "question": "Kết quả của chương trình sau là gì? a=[3,6,9,12]\\ns=0\\nfor x in a:\\n if x%3==0:\\n s+=x\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? \na=[3,6,9,12]\ns=0\nfor x in a:\n    if x%3==0:\n          s+=x\n    print(s)",
         "options": [
           "12",
           "18",
@@ -16928,7 +16914,7 @@
       },
       {
         "id": 75,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nb=[]\\nfor x in a:\\n if x%2==0:\\n b.append(x)\\nprint(b)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nb=[]\nfor x in a:\n    if x%2==0:\n        b.append(x)\n    print(b)",
         "options": [
           "[2,3,4]",
           "[2,4,6]",
@@ -16976,7 +16962,7 @@
       },
       {
         "id": 78,
-        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\ns=0\\nfor i in range(len(a)-1):\\n s+=a[i]+a[i+1]\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\ns=0\nfor i in range(len(a)-1):\n    s+=a[i]+a[i+1]\n    print(s)",
         "options": [
           "15",
           "18",
@@ -17232,7 +17218,7 @@
       },
       {
         "id": 94,
-        "question": "Kết quả của lệnh sau là gì? f = open('data.txt','r')\\nline = f.readline()",
+        "question": "Kết quả của lệnh sau là gì? \nf = open('data.txt','r')\nline = f.readline()",
         "options": [
           "Đọc toàn bộ tệp",
           "Đọc một dòng trong tệp",
@@ -17328,7 +17314,7 @@
       },
       {
         "id": 100,
-        "question": "Đoạn code sau dùng để làm gì? with open('input.txt','r') as f:\\n data = f.read()",
+        "question": "Đoạn code sau dùng để làm gì? \nwith open('input.txt','r') as f:\n     data = f.read()",
         "options": [
           "Ghi dữ liệu vào tệp",
           "Đọc dữ liệu từ tệp và tự động đóng tệp",
@@ -17344,7 +17330,7 @@
       },
       {
         "id": 101,
-        "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+        "question": "Tệp input.txt có chứa: \n5\n1 3 5 7 9. \nKết quả in ra màn hình của đoạn code là? \nf = open('input.txt','r')\nn = int(f.readline())\na = list(map(int,f.readline().split()))\nprint(sum(a))",
         "options": [
           "5",
           "25",
@@ -17360,7 +17346,7 @@
       },
       {
         "id": 102,
-        "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+        "question": "Tệp input.txt chứa: \n4\n2 4 6 8. Kết quả in ra màn hình là? \nf=open('input.txt','r')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\ns=0\nfor i in a:\n    if i%4==0:\n       s+=i\n    print(s)",
         "options": [
           "4",
           "8",
@@ -17376,7 +17362,7 @@
       },
       {
         "id": 103,
-        "question": "Tệp input.txt chứa: 1 2 3 4 5. Chương trình dùng để làm gì? f=open('input.txt','r')\\na=list(map(int,f.read().split()))\\nprint(max(a))",
+        "question": "Tệp input.txt chứa: \n1 2 3 4 5. Chương trình dùng để làm gì? \nf=open('input.txt','r')\n    a=list(map(int,f.read().split()))\nprint(max(a))",
         "options": [
           "Tìm số nhỏ nhất",
           "Tìm số lớn nhất",
@@ -17392,7 +17378,7 @@
       },
       {
         "id": 104,
-        "question": "Tệp input.txt chứa: 6, dòng dưới: 3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\na.sort()\\nprint(a[-1]-a[0])",
+        "question": "Tệp input.txt chứa: \n6\n3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\na.sort()\nprint(a[-1]-a[0])",
         "options": [
           "8",
           "7",
@@ -17408,7 +17394,7 @@
       },
       {
         "id": 105,
-        "question": "Tệp input.txt chứa: 5, dòng dưới: 2 3 5 8 11. Chương trình in ra số gì? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nc=0\\nfor x in a:\\n if x%2==1:\\n c+=1\\nprint(c)",
+        "question": "Tệp input.txt chứa: \n5\n2 3 5 8 11. Chương trình in ra số gì? \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nc=0\nfor x in a:\n    if x%2==1:\n         c+=1\n    print(c)",
         "options": [
           "2",
           "3",
@@ -17424,7 +17410,7 @@
       },
       {
         "id": 106,
-        "question": "Tệp input.txt chứa: 1 4 6 9 10. Kết quả là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\ns=0\\nfor i in range(len(a)):\\n if a[i]>5:\\n s+=a[i]\\nprint(s)",
+        "question": "Tệp input.txt chứa: 1 4 6 9 10. \nKết quả là: f=open('input.txt')\na=list(map(int,f.read().split()))\ns=0\nfor i in range(len(a)):\n    if a[i]>5:\n        s+=a[i]\n    print(s)",
         "options": [
           "19",
           "25",
@@ -17440,7 +17426,7 @@
       },
       {
         "id": 107,
-        "question": "Tệp input.txt chứa: 4, dòng dưới: 5 2 7 1. Kết quả in ra là: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nfor i in range(n-1):\\n if a[i]>a[i+1]:\\n print(a[i],end=' ')",
+        "question": "Tệp input.txt chứa: \n4 \n5 2 7 1. Kết quả in ra là: \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nfor i in range(n-1):\n    if a[i]>a[i+1]:\n        print(a[i],end=' ')",
         "options": [
           "5 7",
           "5 2",
@@ -17456,7 +17442,7 @@
       },
       {
         "id": 108,
-        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: \nf=open('input.txt')\na=list(map(int,f.read().split()))\na.sort(reverse=True)\nprint(a[0],a[-1])",
         "options": [
           "8 1",
           "1 8",
@@ -17472,7 +17458,7 @@
       },
       {
         "id": 109,
-        "question": "Tệp input.txt chứa: 5, dòng dưới: 1 2 3 4 5. Kết quả: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in range(1,n,2):\\n s+=a[i]\\nprint(s)",
+        "question": "Tệp input.txt chứa: \n5\n1 2 3 4 5. Kết quả: \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\ns=0\nfor i in range(1,n,2):\n     s+=a[i]\nprint(s)",
         "options": [
           "4",
           "6",
@@ -17488,7 +17474,7 @@
       },
       {
         "id": 110,
-        "question": "Chương trình sau sẽ làm gì? with open('input.txt') as f:\\n a=list(map(int,f.read().split()))\\nwith open('output.txt','w') as f:\\n print(sum(a),file=f)",
+        "question": "Chương trình sau sẽ làm gì? \nwith open('input.txt') as f:\n    a=list(map(int,f.read().split()))\nwith open('output.txt','w') as f:\n    print(sum(a),file=f)",
         "options": [
           "In tổng ra màn hình",
           "Ghi tổng vào tệp output.txt",
@@ -17527,444 +17513,6 @@
       }
     ],
     "quizSubmissions": [
-      {
-        "id": 1794308383675,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "quizTitle": "Trắc nghiệm 30 câu - 10/11/2026",
-        "testId": null,
-        "testTitle": null,
-        "totalQuestions": 30,
-        "correctCount": 27,
-        "score": 9,
-        "answers": [
-          {
-            "questionId": 11,
-            "question": "Trong Python, vòng lặp for thường dùng khi:",
-            "options": [
-              "Không biết trước số lần lặp",
-              "Biết trước số lần lặp",
-              "Chỉ dùng cho chuỗi",
-              "Chỉ dùng cho số nguyên"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Vòng lặp for được thiết kế để lặp qua một chuỗi, list, hoặc một khoảng giá trị xác định trước (biết trước số lần lặp)."
-          },
-          {
-            "questionId": 21,
-            "question": "Trong Python, vòng lặp không xác định số lần lặp trước thường dùng lệnh nào?",
-            "options": [
-              "for",
-              "while",
-              "if",
-              "def"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Vòng lặp while tiếp tục thực hiện khối lệnh miễn là điều kiện kiểm tra còn đúng."
-          },
-          {
-            "questionId": 58,
-            "question": "Chương trình sau sẽ thực hiện công việc gì? \na = (1,2,3)\nfor x in a:\n    print(x,end=' ')",
-            "options": [
-              "In các phần tử của tuple",
-              "In chỉ số của tuple",
-              "In tổng các phần tử",
-              "Báo lỗi"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Vòng lặp for duyệt qua từng phần tử của tuple và in chúng ra."
-          },
-          {
-            "questionId": 4,
-            "question": "Kết quả của chương trình sau là gì? x = 7\nif x % 2 == 0:\n    print('Chan')\nelse:\n    print('Le')",
-            "options": [
-              "Chan",
-              "Le",
-              "7",
-              "Lỗi"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "7 % 2 == 1 (không bằng 0), điều kiện sai nên chạy vào khối else, in ra 'Le'."
-          },
-          {
-            "questionId": 62,
-            "question": "Cách khai báo một set đúng là:",
-            "options": [
-              "a = [1,2,3]",
-              "a = (1,2,3)",
-              "a = {1,2,3}",
-              "a = <1,2,3>"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "B",
-            "isCorrect": false,
-            "explanation": "Set được khởi tạo bằng dấu ngoặc nhọn { } có chứa giá trị bên trong."
-          },
-          {
-            "questionId": 71,
-            "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
-            "options": [
-              "2",
-              "5",
-              "9",
-              "7"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "max(a) tìm phần tử lớn nhất, là 9."
-          },
-          {
-            "questionId": 8,
-            "question": "Kết quả của chương trình sau là gì? x = -2\nif x > 0:\n    print('Duong')\nelse:\n    print('Am')",
-            "options": [
-              "Duong",
-              "Am",
-              "-2",
-              "Không in gì"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "-2 > 0 là False, thực thi khối else, in ra 'Am'."
-          },
-          {
-            "questionId": 82,
-            "question": "Cách khai báo một list đúng là:",
-            "options": [
-              "a = (1,2,3)",
-              "a = {1,2,3}",
-              "a = [1,2,3]",
-              "a = <1,2,3>"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "List được khai báo bằng cặp ngoặc vuông [ ]."
-          },
-          {
-            "questionId": 5,
-            "question": "Kết quả của chương trình sau là gì? x = 4\nif x > 5:\n    print('Lon')\nelse:\n   print('Nho')",
-            "options": [
-              "Lon",
-              "Nho",
-              "4",
-              "Không in gì"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "4 > 5 là False, nên chuyển sang khối else, in ra 'Nho'."
-          },
-          {
-            "questionId": 1,
-            "question": "Trong Python, cấu trúc rẽ nhánh dạng thiếu có dạng:",
-            "options": [
-              "if điều_kiện:",
-              "if điều_kiện: ... else ...",
-              "for điều_kiện:",
-              "while điều_kiện:"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Cấu trúc rẽ nhánh dạng thiếu (chỉ xét 1 trường hợp đúng) sử dụng từ khóa 'if' kèm điều kiện và dấu hai chấm ':'."
-          },
-          {
-            "questionId": 13,
-            "question": "Kết quả của chương trình sau là gì? \nfor i in range(2,6):\n    print(i, end=' ')",
-            "options": [
-              "2 3 4 5",
-              "2 3 4 5 6",
-              "3 4 5",
-              "1 2 3 4 5"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "range(2, 6) chạy từ 2 đến 5."
-          },
-          {
-            "questionId": 12,
-            "question": "Kết quả của chương trình sau là gì? \nfor i in range(3):\n    print(i, end=' ')",
-            "options": [
-              "1 2 3",
-              "0 1 2",
-              "0 1 2 3",
-              "1 2"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "C",
-            "isCorrect": false,
-            "explanation": "Hàm range(3) tạo dãy số bắt đầu từ 0 đến 2 (không bao gồm 3)."
-          },
-          {
-            "questionId": 2,
-            "question": "Kết quả của chương trình sau là gì? x = 5\nif x > 3:\n    print('A')",
-            "options": [
-              "A",
-              "5",
-              "Không in gì",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Biến x = 5. Điều kiện 5 > 3 là True, do đó khối lệnh bên trong if được thực thi, in ra chữ 'A'."
-          },
-          {
-            "questionId": 45,
-            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s*2)",
-            "options": [
-              "PythonPython",
-              "Python 2",
-              "Python*2",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Toán tử * dùng để lặp lại chuỗi nhiều lần."
-          },
-          {
-            "questionId": 73,
-            "question": "Kết quả của chương trình sau là gì? \na=[5,8,3,7,2]\nprint(min(a))",
-            "options": [
-              "8",
-              "2",
-              "3",
-              "5"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "min(a) tìm phần tử nhỏ nhất, là 2."
-          },
-          {
-            "questionId": 69,
-            "question": "Kết quả của chương trình sau là gì? a={5,2,8,1}\\nprint(len(a))",
-            "options": [
-              "3",
-              "4",
-              "5",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Tập hợp có 4 phần tử (không có phần tử trùng lặp), nên len = 4."
-          },
-          {
-            "questionId": 39,
-            "question": "Kết quả của chương trình sau là gì? \ns = 'python'\nprint(s.upper())",
-            "options": [
-              "Python",
-              "PYTHON",
-              "python",
-              "PyThOn"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Hàm upper() chuyển đổi tất cả các ký tự thành chữ in hoa."
-          },
-          {
-            "questionId": 16,
-            "question": "Kết quả của chương trình sau là gì? a = [2,4,6]\nfor x in a:\n    print(x,end=' ')",
-            "options": [
-              "0 1 2",
-              "2 4 6",
-              "6 4 2",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "D",
-            "isCorrect": false,
-            "explanation": "Lặp trực tiếp qua các phần tử của list a, in ra 2, 4, 6."
-          },
-          {
-            "questionId": 61,
-            "question": "Trong Python, set là kiểu dữ liệu dùng để:",
-            "options": [
-              "Lưu các phần tử theo thứ tự và cho phép trùng",
-              "Lưu các phần tử không trùng lặp",
-              "Lưu các cặp khóa-giá trị",
-              "Lưu dữ liệu dạng chuỗi"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Set (Tập hợp) dùng để lưu các phần tử không trùng lặp và không quan tâm đến thứ tự."
-          },
-          {
-            "questionId": 43,
-            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[1:5])",
-            "options": [
-              "ytho",
-              "yth",
-              "Pyth",
-              "thon"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Lấy ký tự từ vị trí 1 đến 4: y(1), t(2), h(3), o(4)."
-          },
-          {
-            "questionId": 57,
-            "question": "Kết quả của chương trình sau là gì? \na = (4,8,2,6)\nprint(min(a))",
-            "options": [
-              "8",
-              "4",
-              "2",
-              "6"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "Hàm min() trả về phần tử nhỏ nhất trong tuple."
-          },
-          {
-            "questionId": 79,
-            "question": "Kết quả của chương trình sau là gì? \na=[1,3,5,7]\nb=[2,4,6]\nc=a+b\nprint(len(c))",
-            "options": [
-              "4",
-              "5",
-              "6",
-              "7"
-            ],
-            "correctAnswer": "D",
-            "userAnswer": "D",
-            "isCorrect": true,
-            "explanation": "Toán tử + nối hai mảng, tổng cộng mảng c có 4 + 3 = 7 phần tử."
-          },
-          {
-            "questionId": 6,
-            "question": "Kết quả của chương trình sau là gì? x = 10\nif x >= 10:\n    print('Dat')\nelse:\n    print('Khong dat')",
-            "options": [
-              "Dat",
-              "Khong dat",
-              "10",
-              "Lỗi"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "10 >= 10 là True, nên in ra 'Dat'."
-          },
-          {
-            "questionId": 56,
-            "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
-            "options": [
-              "3",
-              "6",
-              "9",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "Hàm max() trả về phần tử lớn nhất trong tuple."
-          },
-          {
-            "questionId": 81,
-            "question": "Trong Python, kiểu dữ liệu nào dùng để lưu một dãy các phần tử có thứ tự và có thể thay đổi?",
-            "options": [
-              "Tuple",
-              "List",
-              "Set",
-              "Dictionary"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "List là cấu trúc dữ liệu cho phép lưu trữ tuần tự, lập chỉ mục và có thể thay đổi (mutable)."
-          },
-          {
-            "questionId": 46,
-            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint('Py' in s)",
-            "options": [
-              "True",
-              "False",
-              "Py",
-              "Lỗi"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Toán tử in kiểm tra chuỗi con có nằm trong chuỗi mẹ không, trả về boolean (True)."
-          },
-          {
-            "questionId": 70,
-            "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
-            "options": [
-              "In các phần tử của set",
-              "In chỉ số của set",
-              "In số lượng phần tử",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự)."
-          },
-          {
-            "questionId": 87,
-            "question": "Kết quả của chương trình sau là gì? \na=[2,4,6,8]\nprint(len(a))",
-            "options": [
-              "2",
-              "3",
-              "4",
-              "8"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "Hàm len() trả về số phần tử của list, ở đây là 4."
-          },
-          {
-            "questionId": 41,
-            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.lower())",
-            "options": [
-              "python",
-              "PYTHON",
-              "Python",
-              "pyThon"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Hàm lower() chuyển tất cả các ký tự thành chữ in thường."
-          },
-          {
-            "questionId": 22,
-            "question": "Kết quả của chương trình sau là gì?\ni = 1\nwhile i <= 3:\n    print(i, end=' ')\n    i += 1",
-            "options": [
-              "1 2 3",
-              "1 2 3 4",
-              "0 1 2 3",
-              "1 1 1"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "i chạy từ 1, tăng 1 mỗi vòng lặp. Dừng lại khi i lớn hơn 3."
-          }
-        ],
-        "timestamp": "17:59:43 10/11/2026",
-        "date": "2026-11-10",
-        "startedAt": 1794307717691,
-        "duration": 666
-      },
       {
         "id": 1794290318494,
         "student": "Nguyễn Phú Lộc",
