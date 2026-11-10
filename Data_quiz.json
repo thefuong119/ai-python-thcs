@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:52:28.526Z",
+    "updatedAt": "2026-11-10T06:53:18.412Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1176,7 +1176,7 @@
     },
     {
       "id": 74,
-      "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4,5]\\nc=0\\nfor x in a:\\n if x%2==0:\\n c+=1\\nprint(c)",
+      "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4,5]\nc=0\nfor x in a:\n    if x%2==0:\n          c+=1\n         print(c)",
       "options": [
         "2",
         "3",
