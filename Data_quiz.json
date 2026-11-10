@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:34:15.529Z",
+    "updatedAt": "2026-11-10T06:34:38.895Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Lưu đề trắc nghiệm: Đề trắc nghiệm - 10/11/2026"
+    "action": "Phát đề trắc nghiệm"
   },
   "quizData": [
     {
@@ -1787,7 +1787,7 @@
       ],
       "createdAt": "13:34:15 10/11/2026",
       "createdBy": "Nguyễn Thế Phương",
-      "active": false
+      "active": true
     }
   ]
 }
