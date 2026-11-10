@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:46:40.032Z",
+    "updatedAt": "2026-11-10T10:46:50.847Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16610,7 +16610,7 @@
       },
       {
         "id": 56,
-        "question": "Kết quả của chương trình sau là gì? a = (3,6,9)\\nprint(max(a))",
+        "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
         "options": [
           "3",
           "6",
