@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:36:17.884Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-10T06:36:58.959Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 69,
+        "loginCount": 68,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14888,20 +14888,6 @@
     ],
     "loginLogs": [
       {
-        "time": "13:36:17 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "13:33:16 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "13:25:10 10/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -17601,29 +17587,7 @@
         "createdBy": "Nguyễn Thế Phương"
       }
     ],
-    "quizTests": [
-      {
-        "id": 1,
-        "title": "Đề trắc nghiệm - 10/11/2026",
-        "grade": "8",
-        "difficulty": "all",
-        "questionIds": [
-          83,
-          82,
-          65,
-          54,
-          3,
-          4,
-          71,
-          77,
-          69,
-          46
-        ],
-        "createdAt": "13:34:15 10/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      }
-    ],
+    "quizTests": [],
     "quizSubmissions": [
       {
         "id": 1794290318494,
