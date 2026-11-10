@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T12:55:18.563Z",
-    "updatedBy": "Nguyễn Phú Lộc",
+    "updatedAt": "2026-11-10T12:56:26.206Z",
+    "updatedBy": "Giáo viên Demo",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 11,
+        "loginCount": 10,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 8,
+        "loginCount": 9,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 23,
+        "attempts": 22,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "17:59:43 10/11/2026"
+        "lastSubmit": "22:38:53 9/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -14859,18 +14859,25 @@
     ],
     "loginLogs": [
       {
-        "time": "17:59:43 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Trắc nghiệm 9.0/10"
+        "time": "19:51:41 10/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
       },
       {
-        "time": "17:48:09 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
+        "time": "18:53:43 10/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
         "result": "Thành công"
+      },
+      {
+        "time": "18:28:46 10/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Đăng xuất"
       },
       {
         "time": "17:35:57 10/11/2026",
@@ -16176,7 +16183,7 @@
       },
       {
         "id": 28,
-        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n i += 1\\n if i == 3:\\n continue\\n print(i, end=' ')",
+        "question": "Kết quả của chương trình sau là gì? \ni = 0\nwhile i < 5:\n    i += 1\n    if i == 3:\n       continue\n    print(i, end=' ')",
         "options": [
           "1 2 3 4 5",
           "1 2 4 5",
@@ -16304,7 +16311,7 @@
       },
       {
         "id": 36,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.split())",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python Programming'\nprint(s.split())",
         "options": [
           "['Python', 'Programming']",
           "['Python Programming']",
@@ -16320,7 +16327,7 @@
       },
       {
         "id": 37,
-        "question": "Kết quả của chương trình sau là gì? a = ['Python','Java','C']\\nprint('-'.join(a))",
+        "question": "Kết quả của chương trình sau là gì? \na = ['Python','Java','C']\nprint('-'.join(a))",
         "options": [
           "Python Java C",
           "Python-Java-C",
@@ -16368,7 +16375,7 @@
       },
       {
         "id": 40,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s.find('th'))",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.find('th'))",
         "options": [
           "1",
           "2",
@@ -16672,7 +16679,7 @@
       },
       {
         "id": 59,
-        "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\na[0] = 5",
+        "question": "Kết quả của chương trình sau là gì? \na = (1,2,3)\na[0] = 5",
         "options": [
           "(5,2,3)",
           "(1,2,3)",
@@ -16784,7 +16791,7 @@
       },
       {
         "id": 66,
-        "question": "Phép toán | cho kết quả là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a|b)",
+        "question": "Phép toán | cho kết quả là gì? \na={1,2,3}\nb={3,4,5}\nprint(a|b)",
         "options": [
           "{3}",
           "{1,2,3,4,5}",
@@ -16800,7 +16807,7 @@
       },
       {
         "id": 67,
-        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4,5}\\nprint(a & b)",
+        "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4,5}\nprint(a & b)",
         "options": [
           "{1,2}",
           "{3}",
@@ -16816,7 +16823,7 @@
       },
       {
         "id": 68,
-        "question": "Kết quả của chương trình sau là gì? a={1,2,3}\\nb={3,4}\\nprint(a-b)",
+        "question": "Kết quả của chương trình sau là gì? \na={1,2,3}\nb={3,4}\nprint(a-b)",
         "options": [
           "{1,2}",
           "{3}",
@@ -16832,7 +16839,7 @@
       },
       {
         "id": 69,
-        "question": "Kết quả của chương trình sau là gì? a={5,2,8,1}\\nprint(len(a))",
+        "question": "Kết quả của chương trình sau là gì? \na={5,2,8,1}\nprint(len(a))",
         "options": [
           "3",
           "4",
@@ -16848,7 +16855,7 @@
       },
       {
         "id": 70,
-        "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+        "question": "Chương trình sau sẽ làm gì? \na={1,2,3}\nfor x in a:\n    print(x,end=' ')",
         "options": [
           "In các phần tử của set",
           "In chỉ số của set",
@@ -16864,7 +16871,7 @@
       },
       {
         "id": 71,
-        "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+        "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
         "options": [
           "2",
           "5",
@@ -16880,7 +16887,7 @@
       },
       {
         "id": 72,
-        "question": "Kết quả của chương trình sau là gì? a=[3,6,9,12]\\ns=0\\nfor x in a:\\n if x%3==0:\\n s+=x\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? \na=[3,6,9,12]\ns=0\nfor x in a:\n    if x%3==0:\n          s+=x\n    print(s)",
         "options": [
           "12",
           "18",
@@ -16928,7 +16935,7 @@
       },
       {
         "id": 75,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nb=[]\\nfor x in a:\\n if x%2==0:\\n b.append(x)\\nprint(b)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nb=[]\nfor x in a:\n    if x%2==0:\n        b.append(x)\n    print(b)",
         "options": [
           "[2,3,4]",
           "[2,4,6]",
@@ -16976,7 +16983,7 @@
       },
       {
         "id": 78,
-        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\ns=0\\nfor i in range(len(a)-1):\\n s+=a[i]+a[i+1]\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\ns=0\nfor i in range(len(a)-1):\n    s+=a[i]+a[i+1]\n    print(s)",
         "options": [
           "15",
           "18",
@@ -17232,7 +17239,7 @@
       },
       {
         "id": 94,
-        "question": "Kết quả của lệnh sau là gì? f = open('data.txt','r')\\nline = f.readline()",
+        "question": "Kết quả của lệnh sau là gì? \nf = open('data.txt','r')\nline = f.readline()",
         "options": [
           "Đọc toàn bộ tệp",
           "Đọc một dòng trong tệp",
@@ -17328,7 +17335,7 @@
       },
       {
         "id": 100,
-        "question": "Đoạn code sau dùng để làm gì? with open('input.txt','r') as f:\\n data = f.read()",
+        "question": "Đoạn code sau dùng để làm gì? \nwith open('input.txt','r') as f:\n     data = f.read()",
         "options": [
           "Ghi dữ liệu vào tệp",
           "Đọc dữ liệu từ tệp và tự động đóng tệp",
@@ -17344,7 +17351,7 @@
       },
       {
         "id": 101,
-        "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+        "question": "Tệp input.txt có chứa: \n5\n1 3 5 7 9. \nKết quả in ra màn hình của đoạn code là? \nf = open('input.txt','r')\nn = int(f.readline())\na = list(map(int,f.readline().split()))\nprint(sum(a))",
         "options": [
           "5",
           "25",
@@ -17360,7 +17367,7 @@
       },
       {
         "id": 102,
-        "question": "Tệp input.txt chứa: 4\\n2 4 6 8. Kết quả in ra màn hình là? f=open('input.txt','r')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in a:\\n if i%4==0:\\n s+=i\\nprint(s)",
+        "question": "Tệp input.txt chứa: \n4\n2 4 6 8. Kết quả in ra màn hình là? \nf=open('input.txt','r')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\ns=0\nfor i in a:\n    if i%4==0:\n       s+=i\n    print(s)",
         "options": [
           "4",
           "8",
@@ -17376,7 +17383,7 @@
       },
       {
         "id": 103,
-        "question": "Tệp input.txt chứa: 1 2 3 4 5. Chương trình dùng để làm gì? f=open('input.txt','r')\\na=list(map(int,f.read().split()))\\nprint(max(a))",
+        "question": "Tệp input.txt chứa: \n1 2 3 4 5. Chương trình dùng để làm gì? \nf=open('input.txt','r')\n    a=list(map(int,f.read().split()))\nprint(max(a))",
         "options": [
           "Tìm số nhỏ nhất",
           "Tìm số lớn nhất",
@@ -17392,7 +17399,7 @@
       },
       {
         "id": 104,
-        "question": "Tệp input.txt chứa: 6, dòng dưới: 3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\na.sort()\\nprint(a[-1]-a[0])",
+        "question": "Tệp input.txt chứa: \n6\n3 8 2 9 1 5. Kết quả in ra là? f=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\na.sort()\nprint(a[-1]-a[0])",
         "options": [
           "8",
           "7",
@@ -17408,7 +17415,7 @@
       },
       {
         "id": 105,
-        "question": "Tệp input.txt chứa: 5, dòng dưới: 2 3 5 8 11. Chương trình in ra số gì? f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nc=0\\nfor x in a:\\n if x%2==1:\\n c+=1\\nprint(c)",
+        "question": "Tệp input.txt chứa: \n5\n2 3 5 8 11. Chương trình in ra số gì? \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nc=0\nfor x in a:\n    if x%2==1:\n         c+=1\n    print(c)",
         "options": [
           "2",
           "3",
@@ -17424,7 +17431,7 @@
       },
       {
         "id": 106,
-        "question": "Tệp input.txt chứa: 1 4 6 9 10. Kết quả là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\ns=0\\nfor i in range(len(a)):\\n if a[i]>5:\\n s+=a[i]\\nprint(s)",
+        "question": "Tệp input.txt chứa: 1 4 6 9 10. \nKết quả là: f=open('input.txt')\na=list(map(int,f.read().split()))\ns=0\nfor i in range(len(a)):\n    if a[i]>5:\n        s+=a[i]\n    print(s)",
         "options": [
           "19",
           "25",
@@ -17440,7 +17447,7 @@
       },
       {
         "id": 107,
-        "question": "Tệp input.txt chứa: 4, dòng dưới: 5 2 7 1. Kết quả in ra là: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\nfor i in range(n-1):\\n if a[i]>a[i+1]:\\n print(a[i],end=' ')",
+        "question": "Tệp input.txt chứa: \n4 \n5 2 7 1. Kết quả in ra là: \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nfor i in range(n-1):\n    if a[i]>a[i+1]:\n        print(a[i],end=' ')",
         "options": [
           "5 7",
           "5 2",
@@ -17456,7 +17463,7 @@
       },
       {
         "id": 108,
-        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: \nf=open('input.txt')\na=list(map(int,f.read().split()))\na.sort(reverse=True)\nprint(a[0],a[-1])",
         "options": [
           "8 1",
           "1 8",
@@ -17472,7 +17479,7 @@
       },
       {
         "id": 109,
-        "question": "Tệp input.txt chứa: 5, dòng dưới: 1 2 3 4 5. Kết quả: f=open('input.txt')\\nn=int(f.readline())\\na=list(map(int,f.readline().split()))\\ns=0\\nfor i in range(1,n,2):\\n s+=a[i]\\nprint(s)",
+        "question": "Tệp input.txt chứa: \n5\n1 2 3 4 5. Kết quả: \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\ns=0\nfor i in range(1,n,2):\n     s+=a[i]\nprint(s)",
         "options": [
           "4",
           "6",
@@ -17488,7 +17495,7 @@
       },
       {
         "id": 110,
-        "question": "Chương trình sau sẽ làm gì? with open('input.txt') as f:\\n a=list(map(int,f.read().split()))\\nwith open('output.txt','w') as f:\\n print(sum(a),file=f)",
+        "question": "Chương trình sau sẽ làm gì? \nwith open('input.txt') as f:\n    a=list(map(int,f.read().split()))\nwith open('output.txt','w') as f:\n    print(sum(a),file=f)",
         "options": [
           "In tổng ra màn hình",
           "Ghi tổng vào tệp output.txt",
