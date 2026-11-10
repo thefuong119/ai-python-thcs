@@ -34,8 +34,8 @@
 Lưu ý: Trình duyệt bảo mật không cho phép trang web tự đóng tab. Nếu tab không đóng, hãy nhấn Ctrl+W / Cmd+W.
 
 *6. QUÊN MẬT KHẨU
-+ Ở form đăng nhập, nhấn "Quên mật khẩu?". Nhập tên đăng nhập + 1 trong 3 (SĐT / CCCD / Email).
-+ Nếu 1 trong 3 khớp → đổi mật khẩu thành công ngay.
++ Ở form đăng nhập, nhấn "Quên mật khẩu?". Nhập tên đăng nhập đủ thông tin (SĐT / CCCD / Email).
++ Nếu thông tin trùng khớp → đổi mật khẩu thành công ngay.
 + Nếu không có thông tin nào đúng → Admin sẽ cấp lại mật khẩu trong 24 giờ.
 Bản quyền © 2026 - Thầy Nguyễn Thế Phương
 
