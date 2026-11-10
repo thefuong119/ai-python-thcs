@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:51:36.967Z",
+    "updatedAt": "2026-11-10T10:51:45.765Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -936,7 +936,7 @@
     },
     {
       "id": 59,
-      "question": "Kết quả của chương trình sau là gì? a = (1,2,3)\\na[0] = 5",
+      "question": "Kết quả của chương trình sau là gì? \na = (1,2,3)\na[0] = 5",
       "options": [
         "(5,2,3)",
         "(1,2,3)",
