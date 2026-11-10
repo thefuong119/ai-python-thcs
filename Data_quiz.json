@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:53:52.930Z",
+    "updatedAt": "2026-11-10T10:54:30.397Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1608,7 +1608,7 @@
     },
     {
       "id": 101,
-      "question": "Tệp input.txt có chứa: 5\\n1 3 5 7 9. Kết quả in ra màn hình của đoạn code là? f = open('input.txt','r')\\nn = int(f.readline())\\na = list(map(int,f.readline().split()))\\nprint(sum(a))",
+      "question": "Tệp input.txt có chứa: \n5\n1 3 5 7 9. \nKết quả in ra màn hình của đoạn code là? \nf = open('input.txt','r')\nn = int(f.readline())\na = list(map(int,f.readline().split()))\nprint(sum(a))",
       "options": [
         "5",
         "25",
