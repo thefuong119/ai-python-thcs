@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:44:03.551Z",
+    "updatedAt": "2026-11-10T06:44:20.952Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17179,7 +17179,7 @@
       },
       {
         "id": 85,
-        "question": "Kết quả của chương trình sau là gì? a = [3,6,9]\\na.insert(1,4)\\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? \na = [3,6,9]\na.insert(1,4)\nprint(a)",
         "options": [
           "[3,4,6,9]",
           "[4,3,6,9]",
