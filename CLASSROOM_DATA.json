@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:48:40.379Z",
+    "updatedAt": "2026-11-10T10:48:57.566Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16850,7 +16850,7 @@
       },
       {
         "id": 71,
-        "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
+        "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
         "options": [
           "2",
           "5",
