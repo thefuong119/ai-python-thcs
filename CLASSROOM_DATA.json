@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T14:03:11.567Z",
+    "updatedAt": "2026-11-10T14:03:31.596Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Lưu đề trắc nghiệm: Đề trắc nghiệm - 10/11/2026"
+    "action": "Xóa đề trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -17771,38 +17771,6 @@
         "createdAt": "13:34:15 10/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
-      },
-      {
-        "id": 2,
-        "title": "Đề trắc nghiệm - 10/11/2026",
-        "grade": "8",
-        "difficulty": "easy",
-        "questionIds": [
-          41,
-          46,
-          88,
-          16,
-          6,
-          56,
-          31,
-          71,
-          33,
-          82,
-          90,
-          89,
-          87,
-          84,
-          83,
-          81,
-          79,
-          73,
-          70,
-          69,
-          62
-        ],
-        "createdAt": "21:02:46 10/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": false
       }
     ],
     "quizSubmissions": [
