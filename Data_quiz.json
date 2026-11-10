@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:48:51.183Z",
+    "updatedAt": "2026-11-10T06:52:28.526Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1208,7 +1208,7 @@
     },
     {
       "id": 76,
-      "question": "Chương trình sau sẽ in ra gì? a=[4,1,7,3]\\na.sort()\\nprint(a[0])",
+      "question": "Chương trình sau sẽ in ra gì? \na=[4,1,7,3]\na.sort()\nprint(a[0])",
       "options": [
         "Số lớn nhất",
         "Số nhỏ nhất",
