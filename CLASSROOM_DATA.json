@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T12:58:30.065Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-10T12:59:35.518Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Học sinh Giáo viên Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -11793,6 +11793,13 @@
         "attempts": 13,
         "highestScore": 10,
         "lastSubmit": "18:20:31 8/11/2026"
+      },
+      {
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "19:59:35 10/11/2026"
       }
     ],
     "lectures": [
@@ -12308,6 +12315,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794315575362,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 11. Chi phí mua bóng tối ưu",
+        "assignmentId": 11,
+        "score": 10,
+        "timestamp": "19:59:35 10/11/2026",
+        "date": "2026-11-10",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5",
+            "expected": "9",
+            "actual": "9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "11",
+            "expected": "19",
+            "actual": "19",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "28",
+            "expected": "49",
+            "actual": "49",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100000000",
+            "expected": "170000000",
+            "actual": "170000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "n = int(input().strip())\n\ntui_muoi = n // 10\nbest = float('inf')\n\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n    du = n - t * 10\n    tui_nam = du // 5\n    le = du - tui_nam * 5\n\n    gia = t * 17 + tui_nam * 9 + le * 2\n\n    if gia < best:\n        best = gia\n\nprint(best)"
+      },
       {
         "id": 1794275005170,
         "student": "Lê Nguyễn Quang Minh",
@@ -14859,6 +14911,13 @@
     ],
     "loginLogs": [
       {
+        "time": "19:51:41 10/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "18:53:43 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -15074,6 +15133,9 @@
         "24": true,
         "33": true,
         "43": true
+      },
+      "giaovien": {
+        "11": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -15404,6 +15466,45 @@
           }
         ]
       },
+      "11": {
+        "id": 11,
+        "title": "Bài 11. Chi phí mua bóng tối ưu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Ban tổ chức cần mua đúng N quả bóng cho hoạt động tập thể. Cửa hàng bán bóng theo 3 hình thức:\n- Mua lẻ 1 quả bóng: giá 2 đồng.\n- Mua 1 túi đóng sẵn 5 quả bóng: giá 9 đồng.\n- Mua 1 túi đóng sẵn 10 quả bóng: giá 17 đồng.\nHãy tính số tiền ít nhất cần dùng để mua đúng N quả bóng.\n\n- Dữ liệu vào: Nhập vào từ bàn phím duy nhất số tự nhiên N (1 <= N <= 10^8).\n- Dữ liệu ra: Đưa ra màn hình số tiền ít nhất cần thanh toán.",
+        "templateCode": "n = int(input().strip())\n\ntui_muoi = n // 10\nbest = float('inf')\n\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n    du = n - t * 10\n    tui_nam = du // 5\n    le = du - tui_nam * 5\n\n    gia = t * 17 + tui_nam * 9 + le * 2\n\n    if gia < best:\n        best = gia\n\nprint(best)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "11",
+            "expected": "19",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "28",
+            "expected": "49",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100000000",
+            "expected": "170000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "24": {
         "id": 24,
         "title": "Bài 17. Kiểm tra số Kaprekar",
@@ -15688,7 +15789,8 @@
       "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
       "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')",
       "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)",
-      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
+      "giaovien__Bài 11. Chi phí mua bóng tối ưu": "n = int(input().strip())\n\ntui_muoi = n // 10\nbest = float('inf')\n\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n    du = n - t * 10\n    tui_nam = du // 5\n    le = du - tui_nam * 5\n\n    gia = t * 17 + tui_nam * 9 + le * 2\n\n    if gia < best:\n        best = gia\n\nprint(best)"
     },
     "questionFlags": {
       "43": true
