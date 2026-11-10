@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:48:54.432Z",
+    "updatedAt": "2026-11-10T10:49:43.727Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1144,7 +1144,7 @@
     },
     {
       "id": 72,
-      "question": "Kết quả của chương trình sau là gì? a=[3,6,9,12]\\ns=0\\nfor x in a:\\n if x%3==0:\\n s+=x\\nprint(s)",
+      "question": "Kết quả của chương trình sau là gì? \na=[3,6,9,12]\ns=0\nfor x in a:\n    if x%3==0:\n          s+=x\n    print(s)",
       "options": [
         "12",
         "18",
