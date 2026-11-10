@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:46:56.933Z",
+    "updatedAt": "2026-11-10T10:47:12.412Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -920,7 +920,7 @@
     },
     {
       "id": 58,
-      "question": "Chương trình sau sẽ thực hiện công việc gì? a = (1,2,3)\\nfor x in a:\\n print(x,end=' ')",
+      "question": "Chương trình sau sẽ thực hiện công việc gì? \na = (1,2,3)\nfor x in a:\n    print(x,end=' ')",
       "options": [
         "In các phần tử của tuple",
         "In chỉ số của tuple",
