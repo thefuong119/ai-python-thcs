@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:55:19.930Z",
+    "updatedAt": "2026-11-10T10:55:49.842Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1640,7 +1640,7 @@
     },
     {
       "id": 103,
-      "question": "Tệp input.txt chứa: 1 2 3 4 5. Chương trình dùng để làm gì? f=open('input.txt','r')\\na=list(map(int,f.read().split()))\\nprint(max(a))",
+      "question": "Tệp input.txt chứa: \n1 2 3 4 5. Chương trình dùng để làm gì? \nf=open('input.txt','r')\n    a=list(map(int,f.read().split()))\nprint(max(a))",
       "options": [
         "Tìm số nhỏ nhất",
         "Tìm số lớn nhất",
