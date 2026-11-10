@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T05:52:42.701Z",
+    "updatedAt": "2026-11-10T05:53:10.642Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -408,7 +408,7 @@
     },
     {
       "id": 26,
-      "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
+      "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
       "options": [
         "In 3 lần",
         "In 4 lần",
