@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:53:21.296Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Sửa câu hỏi trắc nghiệm"
+    "updatedAt": "2026-11-10T07:07:13.888Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 69,
+        "loginCount": 65,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 12,
+        "loginCount": 10,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -7607,7 +7607,7 @@
           {
             "id": 2,
             "input": "100 240",
-            "expected": "294840",
+            "expected": "300240",
             "point": 5,
             "is_hidden": false
           }
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 24,
+        "attempts": 22,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "12:58:38 10/11/2026"
+        "lastSubmit": "22:38:53 9/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12308,35 +12308,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794287392948,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
-        "assignmentId": 267,
-        "score": 5,
-        "timestamp": "12:09:52 10/11/2026",
-        "date": "2026-11-10",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "120 160",
-            "expected": "77760",
-            "actual": "77760",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "100 240",
-            "expected": "300240",
-            "actual": "294840",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)"
-      },
       {
         "id": 1794275005170,
         "student": "Lê Nguyễn Quang Minh",
@@ -14888,69 +14859,6 @@
     ],
     "loginLogs": [
       {
-        "time": "13:43:18 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "13:25:10 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:59:33 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "12:58:38 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Trắc nghiệm 10.0/10"
-      },
-      {
-        "time": "12:57:16 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:48:04 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:21:08 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:10:16 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "12:09:28 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "08:42:07 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -15105,8 +15013,7 @@
       "loc": {
         "1": true,
         "3": true,
-        "4": true,
-        "267": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -15625,31 +15532,6 @@
           }
         ]
       },
-      "267": {
-        "id": 267,
-        "title": "Tính tiền điện bậc thang sinh hoạt",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$1$new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$1$new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
-        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "120 160",
-            "expected": "77760",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "100 240",
-            "expected": "300240",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -15778,8 +15660,7 @@
       "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
       "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')",
       "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)",
-      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
-      "loc__Tính tiền điện bậc thang sinh hoạt": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)"
+      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
     },
     "questionFlags": {
       "43": true
@@ -16203,7 +16084,7 @@
       },
       {
         "id": 24,
-        "question": "Kết quả của chương trình sau là gì?\ni = 1\ns = 0\nwhile i <= 4:\n     s += i\n     i += 1\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì? i = 1\\ns = 0\\nwhile i <= 4:\\n s += i\\n i += 1\\nprint(s)",
         "options": [
           "10",
           "8",
@@ -16219,7 +16100,7 @@
       },
       {
         "id": 25,
-        "question": "Kết quả của chương trình sau là gì? \ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2",
+        "question": "Kết quả của chương trình sau là gì? i = 5\\nwhile i > 0:\\n print(i, end=' ')\\n i -= 2",
         "options": [
           "5 4 3 2 1",
           "5 3 1",
@@ -16235,7 +16116,7 @@
       },
       {
         "id": 26,
-        "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
+        "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
         "options": [
           "In 3 lần",
           "In 4 lần",
@@ -16251,7 +16132,7 @@
       },
       {
         "id": 27,
-        "question": "Kết quả của chương trình sau là gì?\ni = 0\nwhile i < 5:\n    if i == 3:\n         break\n      print(i, end=' ')\n      i += 1",
+        "question": "Kết quả của chương trình sau là gì? i = 0\\nwhile i < 5:\\n if i == 3:\\n break\\n print(i, end=' ')\\n i += 1",
         "options": [
           "0 1 2",
           "0 1 2 3",
@@ -16283,7 +16164,7 @@
       },
       {
         "id": 29,
-        "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
+        "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
         "options": [
           "1 2 3",
           "3 2 1",
@@ -16299,7 +16180,7 @@
       },
       {
         "id": 30,
-        "question": "Kết quả của chương trình sau là gì? \ni = 1\nwhile i <= 5:\n    if i % 2 == 0:\n         print(i, end=' ')\n         i += 1",
+        "question": "Kết quả của chương trình sau là gì? i = 1\\nwhile i <= 5:\\n if i % 2 == 0:\\n print(i, end=' ')\\n i += 1",
         "options": [
           "1 3 5",
           "2 4",
@@ -16315,7 +16196,7 @@
       },
       {
         "id": 31,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[0:4])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[0:4])",
         "options": [
           "Pyth",
           "Pytho",
@@ -16331,7 +16212,7 @@
       },
       {
         "id": 32,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s + 'World')",
+        "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s + 'World')",
         "options": [
           "HelloWorld",
           "Hello World",
@@ -16347,7 +16228,7 @@
       },
       {
         "id": 33,
-        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[3])",
+        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[3])",
         "options": [
           "t",
           "h",
@@ -17003,7 +16884,7 @@
       },
       {
         "id": 74,
-        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4,5]\nc=0\nfor x in a:\n    if x%2==0:\n          c+=1\n         print(c)",
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4,5]\\nc=0\\nfor x in a:\\n if x%2==0:\\n c+=1\\nprint(c)",
         "options": [
           "2",
           "3",
@@ -17035,7 +16916,7 @@
       },
       {
         "id": 76,
-        "question": "Chương trình sau sẽ in ra gì? \na=[4,1,7,3]\na.sort()\nprint(a[0])",
+        "question": "Chương trình sau sẽ in ra gì? a=[4,1,7,3]\\na.sort()\\nprint(a[0])",
         "options": [
           "Số lớn nhất",
           "Số nhỏ nhất",
@@ -17051,7 +16932,7 @@
       },
       {
         "id": 77,
-        "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
+        "question": "Kết quả của chương trình sau là gì? a=[2,3,5,8,11]\\nc=0\\nfor x in a:\\n if x>5:\\n c+=1\\nprint(c)",
         "options": [
           "3",
           "2",
@@ -17083,7 +16964,7 @@
       },
       {
         "id": 79,
-        "question": "Kết quả của chương trình sau là gì? \na=[1,3,5,7]\nb=[2,4,6]\nc=a+b\nprint(len(c))",
+        "question": "Kết quả của chương trình sau là gì? a=[1,3,5,7]\\nb=[2,4,6]\\nc=a+b\\nprint(len(c))",
         "options": [
           "4",
           "5",
@@ -17099,7 +16980,7 @@
       },
       {
         "id": 80,
-        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nk=0\nfor x in a:\n    if x>3:\n         k+=x\n    print(k)",
+        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nk=0\\nfor x in a:\\n if x>3:\\n k+=x\\nprint(k)",
         "options": [
           "9",
           "12",
@@ -17163,7 +17044,7 @@
       },
       {
         "id": 84,
-        "question": "Kết quả của chương trình sau là gì? \na = [5,7,9]\na.append(11)\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
         "options": [
           "[5,7,9]",
           "[11,5,7,9]",
@@ -17179,7 +17060,7 @@
       },
       {
         "id": 85,
-        "question": "Kết quả của chương trình sau là gì? \na = [3,6,9]\na.insert(1,4)\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? a = [3,6,9]\\na.insert(1,4)\\nprint(a)",
         "options": [
           "[3,4,6,9]",
           "[4,3,6,9]",
@@ -17195,7 +17076,7 @@
       },
       {
         "id": 86,
-        "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\na.remove(3)\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\na.remove(3)\\nprint(a)",
         "options": [
           "[1,2,3]",
           "[1,2,4]",
@@ -17243,7 +17124,7 @@
       },
       {
         "id": 89,
-        "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n    print(x,end=' ')",
+        "question": "Kết quả của chương trình sau là gì?\na=[10,20,30]\nfor x in a:\n print(x,end=' ')",
         "options": [
           "10 20 30",
           "0 1 2",
@@ -17594,116 +17475,7 @@
         "createdBy": "Nguyễn Thế Phương"
       }
     ],
-    "quizTests": [
-      {
-        "id": 1,
-        "title": "Đề trắc nghiệm - 10/11/2026",
-        "grade": "8",
-        "difficulty": "all",
-        "questionIds": [
-          83,
-          82,
-          65,
-          54,
-          3,
-          4,
-          71,
-          77,
-          69,
-          46
-        ],
-        "createdAt": "13:34:15 10/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      }
-    ],
     "quizSubmissions": [
-      {
-        "id": 1794290318494,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "className": "8A2",
-        "quizTitle": "Trắc nghiệm 5 câu - 10/11/2026",
-        "totalQuestions": 5,
-        "correctCount": 5,
-        "score": 10,
-        "answers": [
-          {
-            "questionId": 71,
-            "question": "Kết quả của chương trình sau là gì? a=[4,7,2,9,5]\\nprint(max(a))",
-            "options": [
-              "2",
-              "5",
-              "9",
-              "7"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "max(a) tìm phần tử lớn nhất, là 9."
-          },
-          {
-            "questionId": 21,
-            "question": "Trong Python, vòng lặp không xác định số lần lặp trước thường dùng lệnh nào?",
-            "options": [
-              "for",
-              "while",
-              "if",
-              "def"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "Vòng lặp while tiếp tục thực hiện khối lệnh miễn là điều kiện kiểm tra còn đúng."
-          },
-          {
-            "questionId": 84,
-            "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
-            "options": [
-              "[5,7,9]",
-              "[11,5,7,9]",
-              "[5,7,9,11]",
-              "[5,7,11]"
-            ],
-            "correctAnswer": "C",
-            "userAnswer": "C",
-            "isCorrect": true,
-            "explanation": "append() thêm một phần tử vào cuối list."
-          },
-          {
-            "questionId": 70,
-            "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
-            "options": [
-              "In các phần tử của set",
-              "In chỉ số của set",
-              "In số lượng phần tử",
-              "Lỗi chương trình"
-            ],
-            "correctAnswer": "A",
-            "userAnswer": "A",
-            "isCorrect": true,
-            "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự)."
-          },
-          {
-            "questionId": 81,
-            "question": "Trong Python, kiểu dữ liệu nào dùng để lưu một dãy các phần tử có thứ tự và có thể thay đổi?",
-            "options": [
-              "Tuple",
-              "List",
-              "Set",
-              "Dictionary"
-            ],
-            "correctAnswer": "B",
-            "userAnswer": "B",
-            "isCorrect": true,
-            "explanation": "List là cấu trúc dữ liệu cho phép lưu trữ tuần tự, lập chỉ mục và có thể thay đổi (mutable)."
-          }
-        ],
-        "timestamp": "12:58:38 10/11/2026",
-        "date": "2026-11-10",
-        "startedAt": 1794290246628,
-        "duration": 72
-      },
       {
         "id": 1794229958546,
         "student": "Trần Ngọc Hân",
