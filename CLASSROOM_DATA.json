@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:44:44.302Z",
+    "updatedAt": "2026-11-10T06:45:49.216Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17099,7 +17099,7 @@
       },
       {
         "id": 80,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nk=0\\nfor x in a:\\n if x>3:\\n k+=x\\nprint(k)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nk=0\nfor x in a:\n    if x>3:\n         k+=x\n    print(k)",
         "options": [
           "9",
           "12",
