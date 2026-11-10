@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:54:13.179Z",
+    "updatedAt": "2026-11-10T05:54:42.380Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16248,7 +16248,7 @@
       },
       {
         "id": 29,
-        "question": "Kết quả của chương trình sau là gì? n = 3\\nwhile n > 0:\\n print(n, end=' ')\\n n -= 1",
+        "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
         "options": [
           "1 2 3",
           "3 2 1",
