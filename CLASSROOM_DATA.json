@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:52:19.552Z",
+    "updatedAt": "2026-11-10T05:52:45.761Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16184,7 +16184,7 @@
       },
       {
         "id": 25,
-        "question": "Kết quả của chương trình sau là gì? i = 5\\nwhile i > 0:\\n print(i, end=' ')\\n i -= 2",
+        "question": "Kết quả của chương trình sau là gì? \ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2",
         "options": [
           "5 4 3 2 1",
           "5 3 1",
