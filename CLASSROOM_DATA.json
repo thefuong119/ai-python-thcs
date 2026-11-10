@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:49:14.655Z",
+    "updatedAt": "2026-11-10T05:52:19.552Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -16168,7 +16168,7 @@
       },
       {
         "id": 24,
-        "question": "Kết quả của chương trình sau là gì? i = 1\\ns = 0\\nwhile i <= 4:\\n s += i\\n i += 1\\nprint(s)",
+        "question": "Kết quả của chương trình sau là gì?\ni = 1\ns = 0\nwhile i <= 4:\n     s += i\n     i += 1\nprint(s)",
         "options": [
           "10",
           "8",
