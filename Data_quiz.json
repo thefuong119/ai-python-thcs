@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:53:38.663Z",
+    "updatedAt": "2026-11-10T10:53:52.930Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1592,7 +1592,7 @@
     },
     {
       "id": 100,
-      "question": "Đoạn code sau dùng để làm gì? with open('input.txt','r') as f:\\n data = f.read()",
+      "question": "Đoạn code sau dùng để làm gì? \nwith open('input.txt','r') as f:\n     data = f.read()",
       "options": [
         "Ghi dữ liệu vào tệp",
         "Đọc dữ liệu từ tệp và tự động đóng tệp",
