@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T13:23:57.551Z",
+    "updatedAt": "2026-11-10T13:25:21.741Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 25,
+        "attempts": 22,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:23:57 10/11/2026"
+        "lastSubmit": "20:08:10 10/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12308,141 +12308,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794317037440,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 10. Xếp que diêm thành tháp tam giác",
-        "assignmentId": 10,
-        "score": 10,
-        "timestamp": "20:23:57 10/11/2026",
-        "date": "2026-11-10",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "1",
-            "actual": "1",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "18",
-            "expected": "3",
-            "actual": "3",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000000000",
-            "expected": "25819888",
-            "actual": "25819888",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)"
-      },
-      {
-        "id": 1794317003058,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 11. Chi phí mua bóng tối ưu",
-        "assignmentId": 11,
-        "score": 0,
-        "timestamp": "20:23:23 10/11/2026",
-        "date": "2026-11-10",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "5",
-            "expected": "9",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "11",
-            "expected": "19",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "28",
-            "expected": "49",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "100000000",
-            "expected": "170000000",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...N = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)\n"
-      },
-      {
-        "id": 1794316951417,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 10. Xếp que diêm thành tháp tam giác",
-        "assignmentId": 10,
-        "score": 10,
-        "timestamp": "20:22:31 10/11/2026",
-        "date": "2026-11-10",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "1",
-            "actual": "1",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "18",
-            "expected": "3",
-            "actual": "3",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000000000",
-            "expected": "25819888",
-            "actual": "25819888",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)"
-      },
       {
         "id": 1794275005170,
         "student": "Lê Nguyễn Quang Minh",
@@ -14994,7 +14859,7 @@
     ],
     "loginLogs": [
       {
-        "time": "20:22:00 10/11/2026",
+        "time": "20:25:12 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
         "role": "student",
@@ -15200,9 +15065,7 @@
         "5": true,
         "6": true,
         "7": true,
-        "9": true,
-        "10": true,
-        "11": true
+        "9": true
       },
       "hocsinh": {
         "1": true,
@@ -15555,45 +15418,6 @@
           }
         ]
       },
-      "11": {
-        "id": 11,
-        "title": "Bài 11. Chi phí mua bóng tối ưu",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Ban tổ chức cần mua đúng N quả bóng cho hoạt động tập thể. Cửa hàng bán bóng theo 3 hình thức:\n- Mua lẻ 1 quả bóng: giá 2 đồng.\n- Mua 1 túi đóng sẵn 5 quả bóng: giá 9 đồng.\n- Mua 1 túi đóng sẵn 10 quả bóng: giá 17 đồng.\nHãy tính số tiền ít nhất cần dùng để mua đúng N quả bóng.\n\n- Dữ liệu vào: Nhập vào từ bàn phím duy nhất số tự nhiên N (1 <= N <= 10^8).\n- Dữ liệu ra: Đưa ra màn hình số tiền ít nhất cần thanh toán.",
-        "templateCode": "n = int(input().strip())\n\ntui_muoi = n // 10\nbest = float('inf')\n\nfor t in range(max(0, tui_muoi - 4), tui_muoi + 1):\n    du = n - t * 10\n    tui_nam = du // 5\n    le = du - tui_nam * 5\n\n    gia = t * 17 + tui_nam * 9 + le * 2\n\n    if gia < best:\n        best = gia\n\nprint(best)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "5",
-            "expected": "9",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "11",
-            "expected": "19",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "28",
-            "expected": "49",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "100000000",
-            "expected": "170000000",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
       "24": {
         "id": 24,
         "title": "Bài 17. Kiểm tra số Kaprekar",
@@ -15878,9 +15702,7 @@
       "minh__Bài 3. Đếm số lượng số chẵn trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input()\nDayN = DayN.split(' ')\nSoChan = 0\nfor i in DayN:\n    if int(i) % 2 == 0:\n      SoChan += 1\nprint(SoChan)",
       "minh__Bài 4. Xét số chẵn lẻ": "# Viết mã Python của em ở đây...\na = int(input())\nif a % 2 == 0: print('Yes')\nelse: print('No')",
       "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)",
-      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
-      "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
-      "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...N = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)\n"
+      "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
     },
     "questionFlags": {
       "43": true
