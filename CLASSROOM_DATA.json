@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T06:44:20.952Z",
+    "updatedAt": "2026-11-10T06:44:37.961Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17163,7 +17163,7 @@
       },
       {
         "id": 84,
-        "question": "Kết quả của chương trình sau là gì? a = [5,7,9]\\na.append(11)\\nprint(a)",
+        "question": "Kết quả của chương trình sau là gì? \na = [5,7,9]\na.append(11)\nprint(a)",
         "options": [
           "[5,7,9]",
           "[11,5,7,9]",
