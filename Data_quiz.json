@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:46:37.167Z",
+    "updatedAt": "2026-11-10T10:46:48.315Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -888,7 +888,7 @@
     },
     {
       "id": 56,
-      "question": "Kết quả của chương trình sau là gì? a = (3,6,9)\\nprint(max(a))",
+      "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
       "options": [
         "3",
         "6",
