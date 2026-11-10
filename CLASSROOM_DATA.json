@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:57:40.274Z",
+    "updatedAt": "2026-11-10T10:57:50.730Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17394,7 +17394,7 @@
       },
       {
         "id": 105,
-        "question": "Tệp input.txt chứa: \n5\n2 3 5 8 11. Chương trình in ra số gì? \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nc=0\nfor x in a:\n    if x%2==1:\n         c+=1\n               print(c)",
+        "question": "Tệp input.txt chứa: \n5\n2 3 5 8 11. Chương trình in ra số gì? \nf=open('input.txt')\nn=int(f.readline())\na=list(map(int,f.readline().split()))\nc=0\nfor x in a:\n    if x%2==1:\n         c+=1\n    print(c)",
         "options": [
           "2",
           "3",
