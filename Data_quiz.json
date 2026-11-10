@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T14:03:08.389Z",
+    "updatedAt": "2026-11-10T14:03:28.663Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Lưu đề trắc nghiệm: Đề trắc nghiệm - 10/11/2026"
+    "action": "Xóa đề trắc nghiệm"
   },
   "quizData": [
     {
@@ -1788,38 +1788,6 @@
       "createdAt": "13:34:15 10/11/2026",
       "createdBy": "Nguyễn Thế Phương",
       "active": true
-    },
-    {
-      "id": 2,
-      "title": "Đề trắc nghiệm - 10/11/2026",
-      "grade": "8",
-      "difficulty": "easy",
-      "questionIds": [
-        41,
-        46,
-        88,
-        16,
-        6,
-        56,
-        31,
-        71,
-        33,
-        82,
-        90,
-        89,
-        87,
-        84,
-        83,
-        81,
-        79,
-        73,
-        70,
-        69,
-        62
-      ],
-      "createdAt": "21:02:46 10/11/2026",
-      "createdBy": "Nguyễn Thế Phương",
-      "active": false
     }
   ]
 }
