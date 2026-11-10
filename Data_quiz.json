@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:47:32.655Z",
+    "updatedAt": "2026-11-10T10:47:48.451Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1016,7 +1016,7 @@
     },
     {
       "id": 64,
-      "question": "Chương trình sau có tác dụng gì? a={1,2,3}\\na.add(4)\\nprint(a)",
+      "question": "Chương trình sau có tác dụng gì? \na={1,2,3}\na.add(4)\nprint(a)",
       "options": [
         "Xóa phần tử 4",
         "Thêm phần tử 4 vào set",
