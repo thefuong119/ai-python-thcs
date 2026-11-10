@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:46:11.478Z",
+    "updatedAt": "2026-11-10T06:48:51.183Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1224,7 +1224,7 @@
     },
     {
       "id": 77,
-      "question": "Kết quả của chương trình sau là gì? a=[2,3,5,8,11]\\nc=0\\nfor x in a:\\n if x>5:\\n c+=1\\nprint(c)",
+      "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
       "options": [
         "3",
         "2",
