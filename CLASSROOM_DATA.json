@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T15:49:10.605Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-10T15:51:07.280Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Đăng xuất: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 67,
+        "loginCount": 66,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -257,7 +257,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -14994,24 +14994,17 @@
     ],
     "loginLogs": [
       {
-        "time": "22:49:10 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "22:51:07 10/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
         "result": "Đăng xuất"
       },
       {
-        "time": "22:48:22 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "22:47:52 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "22:49:29 10/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
         "result": "Thành công"
       },
       {
