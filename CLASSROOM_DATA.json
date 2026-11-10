@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T13:53:36.905Z",
+    "updatedAt": "2026-11-10T13:56:49.032Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 10,
+        "loginCount": 11,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -14994,6 +14994,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:55:12 10/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "20:25:12 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -17760,6 +17767,444 @@
       }
     ],
     "quizSubmissions": [
+      {
+        "id": 1794318355444,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "className": "8A2",
+        "quizTitle": "Trắc nghiệm 30 câu - 10/11/2026",
+        "testId": null,
+        "testTitle": null,
+        "totalQuestions": 30,
+        "correctCount": 25,
+        "score": 8.3,
+        "answers": [
+          {
+            "questionId": 80,
+            "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nk=0\nfor x in a:\n    if x>3:\n         k+=x\n    print(k)",
+            "options": [
+              "9",
+              "12",
+              "15",
+              "18"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Tính tổng các phần tử lớn hơn 3. Đó là 4+5+6 = 15."
+          },
+          {
+            "questionId": 49,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.endswith('on'))",
+            "options": [
+              "True",
+              "False",
+              "on",
+              "2"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Hàm endswith() kiểm tra chuỗi có kết thúc bằng chuỗi con cho trước hay không."
+          },
+          {
+            "questionId": 42,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'hello world'\nprint(s.title())",
+            "options": [
+              "Hello World",
+              "HELLO WORLD",
+              "hello world",
+              "Hello world"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "D",
+            "isCorrect": false,
+            "explanation": "Hàm title() viết hoa chữ cái đầu tiên của mỗi từ trong chuỗi."
+          },
+          {
+            "questionId": 10,
+            "question": "Kết quả của chương trình sau là gì? \nx = 6\nif x % 2 == 0:\n    print('Chan')\nprint('Done')",
+            "options": [
+              "Chan",
+              "Done",
+              "Chan và Done (2 dòng)",
+              "Không in gì"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "6 % 2 == 0 là True, in 'Chan'. Sau đó thoát if, in tiếp 'Done'. Kết quả in ra cả 2 dòng."
+          },
+          {
+            "questionId": 47,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'Python Programming'\nprint(s.count('m'))",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Hàm count() đếm số lần xuất hiện của ký tự, chữ 'm' xuất hiện 2 lần."
+          },
+          {
+            "questionId": 26,
+            "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
+            "options": [
+              "In 3 lần",
+              "In 4 lần",
+              "Chạy vô hạn",
+              "Báo lỗi"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Do biến i không được cập nhật (không có i+=1) nên điều kiện 1 < 4 luôn đúng, gây ra lặp vô hạn."
+          },
+          {
+            "questionId": 64,
+            "question": "Chương trình sau có tác dụng gì? \na={1,2,3}\na.add(4)\nprint(a)",
+            "options": [
+              "Xóa phần tử 4",
+              "Thêm phần tử 4 vào set",
+              "Sắp xếp set",
+              "Tạo set mới"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Phương thức add() dùng để thêm một phần tử duy nhất vào tập hợp."
+          },
+          {
+            "questionId": 14,
+            "question": "Kết quả của chương trình sau là gì? \nfor i in range(1,10,3):\n    print(i, end=' ')",
+            "options": [
+              "1 2 3 4",
+              "1 4 7",
+              "1 3 5 7 9",
+              "4 7 10"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "range(1, 10, 3) bắt đầu từ 1, mỗi bước nhảy 3 đơn vị: 1, 4, 7."
+          },
+          {
+            "questionId": 48,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.startswith('Py'))",
+            "options": [
+              "True",
+              "False",
+              "Py",
+              "2"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Hàm startswith() kiểm tra chuỗi có bắt đầu bằng chuỗi con cho trước hay không."
+          },
+          {
+            "questionId": 20,
+            "question": "Kết quả của chương trình sau là gì? \ns = 0\nfor i in range(2,8,2):\n    s += i\nprint(s)",
+            "options": [
+              "12",
+              "20",
+              "10",
+              "6"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "range(2, 8, 2) sinh ra 2, 4, 6. Tổng s = 2 + 4 + 6 = 12."
+          },
+          {
+            "questionId": 19,
+            "question": "Kết quả của chương trình sau là gì? \nfor i in range(3):\n     for j in range(2):\n         print('*',end='')",
+            "options": [
+              "**",
+              "******",
+              "***",
+              "****"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "C",
+            "isCorrect": false,
+            "explanation": "Vòng lặp lồng nhau: vòng ngoài chạy 3 lần, vòng trong chạy 2 lần. Tổng cộng in 3 x 2 = 6 dấu *."
+          },
+          {
+            "questionId": 25,
+            "question": "Kết quả của chương trình sau là gì? \ni = 5\nwhile i > 0:\n    print(i, end=' ')\n    i -= 2",
+            "options": [
+              "5 4 3 2 1",
+              "5 3 1",
+              "5 2",
+              "5 3"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "i bắt đầu từ 5, giảm 2 đơn vị mỗi vòng. Sẽ in ra 5, 3, 1."
+          },
+          {
+            "questionId": 60,
+            "question": "Kết quả của chương trình sau là gì? \na = (2,4,6,8)\nprint(sum(a))",
+            "options": [
+              "12",
+              "16",
+              "20",
+              "24"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Hàm sum() tính tổng tất cả các phần tử: 2+4+6+8 = 20."
+          },
+          {
+            "questionId": 30,
+            "question": "Kết quả của chương trình sau là gì? \ni = 1\nwhile i <= 5:\n    if i % 2 == 0:\n         print(i, end=' ')\n         i += 1",
+            "options": [
+              "1 3 5",
+              "2 4",
+              "1 2 3 4 5",
+              "4"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Chỉ in ra những số chẵn (chia hết cho 2) trong khoảng từ 1 đến 5, đó là 2 và 4."
+          },
+          {
+            "questionId": 27,
+            "question": "Kết quả của chương trình sau là gì?\ni = 0\nwhile i < 5:\n    if i == 3:\n         break\n      print(i, end=' ')\n      i += 1",
+            "options": [
+              "0 1 2",
+              "0 1 2 3",
+              "1 2 3",
+              "0 1"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "B",
+            "isCorrect": false,
+            "explanation": "Khi i đạt giá trị 3, vòng lặp dừng ngay lập tức bởi lệnh break."
+          },
+          {
+            "questionId": 35,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s.replace('l','x'))",
+            "options": [
+              "Hexxo",
+              "Helxo",
+              "Hexlo",
+              "Hello"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Hàm replace('l','x') thay thế tất cả chữ 'l' thành 'x'."
+          },
+          {
+            "questionId": 15,
+            "question": "Kết quả của chương trình sau là gì? \ns = 0\nfor i in range(1,5):\n    s += i\nprint(s)",
+            "options": [
+              "10",
+              "15",
+              "5",
+              "20"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Tính tổng từ 1 đến 4: s = 1 + 2 + 3 + 4 = 10."
+          },
+          {
+            "questionId": 24,
+            "question": "Kết quả của chương trình sau là gì?\ni = 1\ns = 0\nwhile i <= 4:\n     s += i\n     i += 1\nprint(s)",
+            "options": [
+              "10",
+              "8",
+              "6",
+              "4"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Tính tổng i từ 1 đến 4: 1+2+3+4 = 10."
+          },
+          {
+            "questionId": 38,
+            "question": "Kết quả của chương trình sau là gì? \ns = ' Python '\nprint(s.strip())",
+            "options": [
+              "' Python '",
+              "'Python'",
+              "'Python '",
+              "' Python'"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "D",
+            "isCorrect": false,
+            "explanation": "Hàm strip() dùng để xóa khoảng trắng ở cả hai đầu của chuỗi."
+          },
+          {
+            "questionId": 86,
+            "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\na.remove(3)\nprint(a)",
+            "options": [
+              "[1,2,3]",
+              "[1,2,4]",
+              "[3,4]",
+              "[1,3,4]"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "remove(val) sẽ tìm và xóa phần tử có giá trị là val (số 3) đầu tiên trong list."
+          },
+          {
+            "questionId": 55,
+            "question": "Kết quả của chương trình sau là gì? \na = (1,2,3)\nb = (4,5)\nc = a + b\nprint(c)",
+            "options": [
+              "(1,2,3,4,5)",
+              "(5,7,3)",
+              "(4,5,1,2,3)",
+              "[1,2,3,4,5]"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Toán tử + dùng để nối hai tuple lại với nhau thành một tuple mới."
+          },
+          {
+            "questionId": 85,
+            "question": "Kết quả của chương trình sau là gì? \na = [3,6,9]\na.insert(1,4)\nprint(a)",
+            "options": [
+              "[3,4,6,9]",
+              "[4,3,6,9]",
+              "[3,6,4,9]",
+              "[3,6,9,4]"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "insert(index, obj) chèn đối tượng vào vị trí index được chỉ định. Chèn 4 vào vị trí index 1."
+          },
+          {
+            "questionId": 72,
+            "question": "Kết quả của chương trình sau là gì? a=[3,6,9,12]\\ns=0\\nfor x in a:\\n if x%3==0:\\n s+=x\\nprint(s)",
+            "options": [
+              "12",
+              "18",
+              "30",
+              "9"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Tất cả các số trong a đều chia hết cho 3, nên tổng = 3+6+9+12 = 30."
+          },
+          {
+            "questionId": 74,
+            "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4,5]\nc=0\nfor x in a:\n    if x%2==0:\n          c+=1\n         print(c)",
+            "options": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "Đếm các số chẵn (chia hết cho 2). Có số 2 và 4 là chẵn. Vậy đếm được 2."
+          },
+          {
+            "questionId": 63,
+            "question": "Kết quả của chương trình sau là gì? \na = {1,2,3,2,1}\nprint(a)",
+            "options": [
+              "{1,2,3,2,1}",
+              "{1,2,3}",
+              "[1,2,3]",
+              "Lỗi chương trình"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Set tự động loại bỏ các phần tử trùng lặp, nên chỉ giữ lại {1, 2, 3}."
+          },
+          {
+            "questionId": 17,
+            "question": "Kết quả của chương trình sau là gì? for i in range(5):\nif i == 3:\n    break\nprint(i,end=' ')",
+            "options": [
+              "0 1 2",
+              "0 1 2 3",
+              "1 2 3",
+              "0 1"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "B",
+            "isCorrect": false,
+            "explanation": "Khi i = 3, lệnh break sẽ dừng vòng lặp ngay lập tức. Do đó chỉ in 0 1 2."
+          },
+          {
+            "questionId": 23,
+            "question": "Kết quả của chương trình sau là gì? \ni = 0\nwhile i < 5:\n     i += 2\nprint(i)",
+            "options": [
+              "4",
+              "5",
+              "6",
+              "2"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "i tăng dần: 0 -> 2 -> 4 -> 6. Khi i=6 thì điều kiện 6<5 sai, dừng lại và in ra 6."
+          },
+          {
+            "questionId": 77,
+            "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
+            "options": [
+              "3",
+              "2",
+              "4",
+              "1"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Đếm các số lớn hơn 5. Đó là số 8 và 11 (2 số)."
+          },
+          {
+            "questionId": 18,
+            "question": "Kết quả của chương trình sau là gì? for i in range(5):\nif i == 2:\n    continue\nprint(i,end=' ')",
+            "options": [
+              "0 1 2 3 4",
+              "0 1 3 4",
+              "1 3 4",
+              "2 3 4"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Khi i = 2, lệnh continue bỏ qua lần lặp hiện tại, do đó không in số 2."
+          },
+          {
+            "questionId": 76,
+            "question": "Chương trình sau sẽ in ra gì? \na=[4,1,7,3]\na.sort()\nprint(a[0])",
+            "options": [
+              "Số lớn nhất",
+              "Số nhỏ nhất",
+              "Tổng các phần tử",
+              "Số thứ hai"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Hàm sort() sắp xếp mảng tăng dần, vậy phần tử đầu tiên a[0] sẽ là số nhỏ nhất (là 1)."
+          }
+        ],
+        "timestamp": "20:45:55 10/11/2026",
+        "date": "2026-11-10",
+        "startedAt": 1794314142082,
+        "duration": 4213
+      },
       {
         "id": 1794316090217,
         "student": "Lê Nguyễn Quang Minh",
