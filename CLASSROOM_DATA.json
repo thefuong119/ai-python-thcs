@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:52:45.761Z",
+    "updatedAt": "2026-11-10T05:53:12.976Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16200,7 +16200,7 @@
       },
       {
         "id": 26,
-        "question": "Chương trình sau sẽ làm gì? i = 1\\nwhile i < 4:\\n print('Hi')",
+        "question": "Chương trình sau sẽ làm gì? \ni = 1\nwhile i < 4:\n    print('Hi')",
         "options": [
           "In 3 lần",
           "In 4 lần",
