@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:44:16.342Z",
+    "updatedAt": "2026-11-10T10:44:24.616Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16402,7 +16402,7 @@
       },
       {
         "id": 43,
-        "question": "Kết quả của chương trình sau là gì? s = 'Python'\\nprint(s[1:5])",
+        "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[1:5])",
         "options": [
           "ytho",
           "yth",
