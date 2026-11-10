@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:46:05.081Z",
+    "updatedAt": "2026-11-10T10:46:14.802Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -840,7 +840,7 @@
     },
     {
       "id": 53,
-      "question": "Kết quả của chương trình sau là gì? a = (10,20,30,40)\\nprint(a[1])",
+      "question": "Kết quả của chương trình sau là gì? \na = (10,20,30,40)\nprint(a[1])",
       "options": [
         "10",
         "20",
