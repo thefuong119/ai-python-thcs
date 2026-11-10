@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:52:48.582Z",
+    "updatedAt": "2026-11-10T10:53:17.931Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1240,7 +1240,7 @@
     },
     {
       "id": 78,
-      "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\ns=0\\nfor i in range(len(a)-1):\\n s+=a[i]+a[i+1]\\nprint(s)",
+      "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\ns=0\nfor i in range(len(a)-1):\n    s+=a[i]+a[i+1]\n    print(s)",
       "options": [
         "15",
         "18",
