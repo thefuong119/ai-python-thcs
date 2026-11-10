@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:08:44.108Z",
+    "updatedAt": "2026-11-10T05:09:53.042Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Đăng xuất: Nguyễn Phú Lộc"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11732,7 +11732,7 @@
         "attempts": 23,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "12:08:37 10/11/2026"
+        "lastSubmit": "12:09:52 10/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12309,13 +12309,13 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794287317447,
+        "id": 1794287392948,
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
         "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
         "assignmentId": 267,
         "score": 5,
-        "timestamp": "12:08:37 10/11/2026",
+        "timestamp": "12:09:52 10/11/2026",
         "date": "2026-11-10",
         "answers": [
           {
@@ -14888,14 +14888,7 @@
     ],
     "loginLogs": [
       {
-        "time": "12:08:44 10/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "12:08:07 10/11/2026",
+        "time": "12:09:28 10/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
         "role": "student",
