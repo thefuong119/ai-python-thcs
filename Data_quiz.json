@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T05:55:46.410Z",
+    "updatedAt": "2026-11-10T05:55:56.451Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -504,7 +504,7 @@
     },
     {
       "id": 32,
-      "question": "Kết quả của chương trình sau là gì? s = 'Hello'\\nprint(s + 'World')",
+      "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s + 'World')",
       "options": [
         "HelloWorld",
         "Hello World",
