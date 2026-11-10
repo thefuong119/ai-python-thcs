@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:50:48.248Z",
+    "updatedAt": "2026-11-10T10:51:02.193Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -568,7 +568,7 @@
     },
     {
       "id": 36,
-      "question": "Kết quả của chương trình sau là gì? s = 'Python Programming'\\nprint(s.split())",
+      "question": "Kết quả của chương trình sau là gì? \ns = 'Python Programming'\nprint(s.split())",
       "options": [
         "['Python', 'Programming']",
         "['Python Programming']",
