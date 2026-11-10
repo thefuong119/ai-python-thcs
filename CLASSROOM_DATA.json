@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T04:55:58.846Z",
+    "updatedAt": "2026-11-10T04:57:34.236Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -11729,10 +11729,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 24,
+        "attempts": 25,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "11:55:58 10/11/2026"
+        "lastSubmit": "11:57:34 10/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12308,6 +12308,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794286654164,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
+        "assignmentId": 267,
+        "score": 5,
+        "timestamp": "11:57:34 10/11/2026",
+        "date": "2026-11-10",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "actual": "77760",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "actual": "294840",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)"
+      },
       {
         "id": 1794286558778,
         "student": "Nguyễn Phú Lộc",
@@ -15112,7 +15141,8 @@
         "2": true,
         "3": true,
         "4": true,
-        "9": true
+        "9": true,
+        "267": true
       },
       "minh": {
         "1": true,
@@ -15631,6 +15661,31 @@
           }
         ]
       },
+      "267": {
+        "id": 267,
+        "title": "Tính tiền điện bậc thang sinh hoạt",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$1$new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$1$new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
+        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -15761,7 +15816,8 @@
       "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)",
       "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
       "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")",
-      "loc__Bài 9. Số có đúng ba ước nguyên dương": "import math\n\ndef count_three_divisors(n):\n    limit = math.isqrt(n)\n\n    if limit < 2:\n        return 0\n\n    is_prime = bytearray([1]) * (limit + 1)\n    is_prime[0] = is_prime[1] = 0\n\n    for i in range(2, math.isqrt(limit) + 1):\n        if is_prime[i]:\n            is_prime[i * i : limit + 1 : i] = bytearray([0]) * len(\n                range(i * i, limit + 1, i)\n            )\n\n    return sum(is_prime)\n\nn = int(input().strip())\nprint(count_three_divisors(n))"
+      "loc__Bài 9. Số có đúng ba ước nguyên dương": "import math\n\ndef count_three_divisors(n):\n    limit = math.isqrt(n)\n\n    if limit < 2:\n        return 0\n\n    is_prime = bytearray([1]) * (limit + 1)\n    is_prime[0] = is_prime[1] = 0\n\n    for i in range(2, math.isqrt(limit) + 1):\n        if is_prime[i]:\n            is_prime[i * i : limit + 1 : i] = bytearray([0]) * len(\n                range(i * i, limit + 1, i)\n            )\n\n    return sum(is_prime)\n\nn = int(input().strip())\nprint(count_three_divisors(n))",
+      "loc__Tính tiền điện bậc thang sinh hoạt": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)"
     },
     "questionFlags": {
       "43": true
