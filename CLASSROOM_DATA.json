@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-09T16:56:27.019Z",
-    "updatedBy": "Trần Ngọc Hân",
-    "action": "Đăng xuất: Trần Ngọc Hân"
+    "updatedAt": "2026-11-10T01:42:40.987Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 6,
+        "loginCount": 7,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 19,
+        "attempts": 20,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:35:48 9/11/2026"
+        "lastSubmit": "08:42:40 10/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12308,6 +12308,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794274960841,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "08:42:40 10/11/2026",
+        "date": "2026-11-10",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nA = int(NhapVao.split(' ')[0])\nB = int(NhapVao.split(' ')[1])\nprint(A+B)"
+      },
       {
         "id": 1794238733622,
         "student": "Nguyễn Phú Lộc",
@@ -14768,6 +14813,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "08:42:07 10/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "23:56:26 9/11/2026",
         "name": "Trần Ngọc Hân",
