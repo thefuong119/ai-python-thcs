@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T12:01:32.566Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
+    "updatedAt": "2026-11-10T12:02:30.219Z",
+    "updatedBy": "Nguyễn Phú Lộc",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -145,7 +145,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 10,
+        "loginCount": 12,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -186,7 +186,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 9,
+        "loginCount": 8,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -14859,9 +14859,16 @@
     ],
     "loginLogs": [
       {
-        "time": "18:53:43 10/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
+        "time": "18:59:28 10/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "18:52:19 10/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
         "role": "student",
         "result": "Thành công"
       },
