@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T05:20:29.384Z",
+    "updatedAt": "2026-11-10T05:22:08.774Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Admin lưu bài tập: Tính tiền điện bậc thang sinh hoạt"
   },
   "data": {
     "registeredUsers": [
@@ -7607,7 +7607,7 @@
           {
             "id": 2,
             "input": "100 240",
-            "expected": "300240",
+            "expected": "294840",
             "point": 5,
             "is_hidden": false
           }
@@ -14888,7 +14888,7 @@
     ],
     "loginLogs": [
       {
-        "time": "12:19:25 10/11/2026",
+        "time": "12:21:08 10/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
         "role": "admin",
