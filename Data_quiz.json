@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T06:34:38.895Z",
+    "updatedAt": "2026-11-10T06:44:00.709Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Phát đề trắc nghiệm"
+    "action": "Sửa câu hỏi trắc nghiệm"
   },
   "quizData": [
     {
@@ -1368,7 +1368,7 @@
     },
     {
       "id": 86,
-      "question": "Kết quả của chương trình sau là gì? a=[1,2,3,4]\\na.remove(3)\\nprint(a)",
+      "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4]\na.remove(3)\nprint(a)",
       "options": [
         "[1,2,3]",
         "[1,2,4]",
