@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:59:18.507Z",
+    "updatedAt": "2026-11-10T10:59:48.196Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -17442,7 +17442,7 @@
       },
       {
         "id": 108,
-        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: f=open('input.txt')\\na=list(map(int,f.read().split()))\\na.sort(reverse=True)\\nprint(a[0],a[-1])",
+        "question": "Tệp input.txt chứa: 3 6 2 8 1. Kết quả in ra là: \nf=open('input.txt')\na=list(map(int,f.read().split()))\na.sort(reverse=True)\nprint(a[0],a[-1])",
         "options": [
           "8 1",
           "1 8",
