@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:48:18.382Z",
+    "updatedAt": "2026-11-10T10:48:37.313Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1112,7 +1112,7 @@
     },
     {
       "id": 70,
-      "question": "Chương trình sau sẽ làm gì? a={1,2,3}\\nfor x in a:\\n print(x,end=' ')",
+      "question": "Chương trình sau sẽ làm gì? \na={1,2,3}\nfor x in a:\n    print(x,end=' ')",
       "options": [
         "In các phần tử của set",
         "In chỉ số của set",
