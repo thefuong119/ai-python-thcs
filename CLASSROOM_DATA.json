@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T10:52:23.780Z",
+    "updatedAt": "2026-11-10T10:52:51.363Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Sửa câu hỏi trắc nghiệm"
   },
@@ -16914,7 +16914,7 @@
       },
       {
         "id": 75,
-        "question": "Kết quả của chương trình sau là gì? a=[2,3,4,5,6]\\nb=[]\\nfor x in a:\\n if x%2==0:\\n b.append(x)\\nprint(b)",
+        "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nb=[]\nfor x in a:\n    if x%2==0:\n        b.append(x)\n    print(b)",
         "options": [
           "[2,3,4]",
           "[2,4,6]",
