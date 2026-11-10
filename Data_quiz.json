@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:53:24.540Z",
+    "updatedAt": "2026-11-10T10:53:38.663Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -1496,7 +1496,7 @@
     },
     {
       "id": 94,
-      "question": "Kết quả của lệnh sau là gì? f = open('data.txt','r')\\nline = f.readline()",
+      "question": "Kết quả của lệnh sau là gì? \nf = open('data.txt','r')\nline = f.readline()",
       "options": [
         "Đọc toàn bộ tệp",
         "Đọc một dòng trong tệp",
