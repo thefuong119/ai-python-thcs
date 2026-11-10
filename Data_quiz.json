@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T10:51:02.193Z",
+    "updatedAt": "2026-11-10T10:51:16.128Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
     "action": "Sửa câu hỏi trắc nghiệm"
@@ -584,7 +584,7 @@
     },
     {
       "id": 37,
-      "question": "Kết quả của chương trình sau là gì? a = ['Python','Java','C']\\nprint('-'.join(a))",
+      "question": "Kết quả của chương trình sau là gì? \na = ['Python','Java','C']\nprint('-'.join(a))",
       "options": [
         "Python Java C",
         "Python-Java-C",
