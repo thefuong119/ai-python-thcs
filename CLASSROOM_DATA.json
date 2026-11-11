@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-11T11:22:10.565Z",
+    "updatedAt": "2026-11-11T11:23:19.854Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Phát đề cho học sinh: BÀI TẬP THỰC HÀNH LỚP 8 - 11/11/2026"
+    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 8 - 11/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -17706,6 +17706,37 @@
           46
         ],
         "createdAt": "13:34:15 10/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 2,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 11/11/2026",
+        "grade": "8",
+        "difficulty": "all",
+        "questionIds": [
+          15,
+          89,
+          74,
+          1,
+          49,
+          6,
+          45,
+          77,
+          50,
+          22,
+          52,
+          53,
+          55,
+          44,
+          10,
+          9,
+          47,
+          81,
+          58,
+          29
+        ],
+        "createdAt": "18:23:16 11/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
