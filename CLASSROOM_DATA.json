@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-10T15:51:57.920Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-11T00:37:08.626Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 67,
+        "loginCount": 66,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14994,27 +14994,6 @@
     ],
     "loginLogs": [
       {
-        "time": "22:49:10 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "22:48:22 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "22:47:52 10/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "20:55:12 10/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -15955,8 +15934,8 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": false,
-      "teacherCanEdit": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": true,
       "teacherCanDelete": false,
       "teacherCanPushServer": false,
       "teacherCanLoadServer": false
