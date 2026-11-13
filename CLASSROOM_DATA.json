@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T12:01:15.239Z",
+    "updatedAt": "2026-11-13T12:02:06.407Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Tạo bài kiểm tra: BÀI TẬP THỰC HÀNH LỚP 9 - 13/11/2026"
+    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 9 - 13/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -17901,6 +17901,27 @@
           25
         ],
         "createdAt": "20:28:51 12/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 6,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 9 - 13/11/2026",
+        "grade": "9",
+        "difficulty": "medium",
+        "questionIds": [
+          28,
+          105,
+          99,
+          93,
+          108,
+          96,
+          67,
+          110,
+          106,
+          102
+        ],
+        "createdAt": "19:02:02 13/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
