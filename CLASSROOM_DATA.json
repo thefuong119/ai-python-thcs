@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T13:34:49.770Z",
-    "updatedBy": "Thiều Dĩ Phụng",
-    "action": "Phát đề cho học sinh: BÀI TẬP THỰC HÀNH LỚP 8 - 13/11/2026"
+    "updatedAt": "2026-11-13T13:35:17.514Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -313,23 +313,6 @@
         "role": "student",
         "status": "active",
         "loginCount": 4,
-        "_hasPassword": true,
-        "password": null
-      },
-      {
-        "id": 1794576671667,
-        "name": "Thiều Dĩ Phụng",
-        "username": "phung",
-        "identifier": "phung",
-        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
-        "school": "THCS Thành Đông",
-        "className": "Khối 8",
-        "phone": "0989682045",
-        "cccd": "",
-        "email": "thieudiphung85@gmail.com",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 2,
         "_hasPassword": true,
         "password": null
       }
@@ -11762,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 24,
+        "attempts": 26,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:30:21 10/11/2026"
+        "lastSubmit": "20:33:59 13/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12325,6 +12308,96 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794576839736,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
+        "assignmentId": 28,
+        "score": 10,
+        "timestamp": "20:33:59 13/11/2026",
+        "date": "2026-11-13",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "7",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "28",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "496",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
+      },
+      {
+        "id": 1794576501829,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 12. Bội số đặc biệt",
+        "assignmentId": 17,
+        "score": 10,
+        "timestamp": "20:28:21 13/11/2026",
+        "date": "2026-11-13",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7 7",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "9 11",
+            "expected": "11",
+            "actual": "11",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "13 15",
+            "expected": "2",
+            "actual": "2",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "3 6",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)"
+      },
       {
         "id": 1794317421698,
         "student": "Lê Nguyễn Quang Minh",
@@ -14966,20 +15039,6 @@
     ],
     "loginLogs": [
       {
-        "time": "20:33:27 13/11/2026",
-        "name": "Thiều Dĩ Phụng",
-        "identifier": "phung",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:31:11 13/11/2026",
-        "name": "Thiều Dĩ Phụng",
-        "identifier": "phung",
-        "role": "teacher",
-        "result": "Đăng ký thành công (OTP)"
-      },
-      {
         "time": "19:50:12 13/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -15300,7 +15359,9 @@
         "7": true,
         "9": true,
         "10": true,
-        "11": true
+        "11": true,
+        "17": true,
+        "28": true
       },
       "hocsinh": {
         "1": true,
@@ -15692,6 +15753,45 @@
           }
         ]
       },
+      "17": {
+        "id": 17,
+        "title": "Bài 12. Bội số đặc biệt",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho trước một số nguyên dương P không chia hết cho 2 và 5. Số X được gọi là một bội đặc biệt của P nếu X chia hết cho P và chỉ chứa toàn chữ số 9 (ví dụ: 9, 99, 999, ...).\nCho trước hai số nguyên dương P và N. Hãy đếm xem có bao nhiêu số X là bội đặc biệt của P sao cho số chữ số của X không vượt quá N.\n\n- Dữ liệu vào: Một dòng duy nhất chứa hai số nguyên dương P và N cách nhau bởi dấu cách (1 <= P <= 10^5, 1 <= N <= 10^5, P không chia hết cho 2 và 5).\n- Dữ liệu ra: In ra một số nguyên là số lượng số X thỏa mãn yêu cầu.",
+        "templateCode": "P, N = map(int, input().split())\n\ncount = 0\nremainder = 0\n\nfor k in range(1, N + 1):\n    remainder = (remainder * 10 + 9) % P\n\n    if remainder == 0:\n        count += 1\n\nprint(count)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7 7",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "9 11",
+            "expected": "11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "13 15",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "3 6",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "24": {
         "id": 24,
         "title": "Bài 17. Kiểm tra số Kaprekar",
@@ -16036,36 +16136,41 @@
       "minh__Bài 5: Tính giai thừa": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)",
       "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
       "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
-      "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)"
+      "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
+      "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
+      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
     },
     "questionFlags": {
       "43": true
     },
     "systemPermissions": {
+      "teacherCanAdd": true,
+      "teacherCanEdit": true,
+      "teacherCanDelete": false,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": true,
       "lectures": {
         "add": true,
         "edit": true,
-        "delete": false
+        "delete": true
       },
       "assignments": {
         "add": true,
         "edit": true,
-        "delete": false
+        "delete": true
       },
       "quiz": {
         "add": true,
         "edit": true,
-        "delete": false
+        "delete": true
       },
       "messages": {
         "edit": true,
-        "delete": false
+        "delete": true
       },
       "logs": {
         "delete": true
-      },
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false
+      }
     },
     "studentMessages": [
       {
