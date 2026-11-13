@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T11:59:23.419Z",
+    "updatedAt": "2026-11-13T11:59:57.938Z",
     "updatedBy": "Nguyễn Thế Phương",
     "action": "Tạo bài kiểm tra: BÀI TẬP THỰC HÀNH LỚP 8 - 13/11/2026"
   },
@@ -15926,6 +15926,20 @@
           315
         ],
         "createdAt": "18:59:23 13/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794571197908,
+        "title": "BÀI TẬP THỰC HÀNH LỚP 8 - 13/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          37,
+          44,
+          315
+        ],
+        "createdAt": "18:59:57 13/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
