@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-12T13:34:38.913Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-13T11:59:23.419Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Tạo bài kiểm tra: BÀI TẬP THỰC HÀNH LỚP 8 - 13/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 69,
+        "loginCount": 70,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14949,6 +14949,13 @@
     ],
     "loginLogs": [
       {
+        "time": "18:57:32 13/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "20:27:16 12/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -15905,6 +15912,20 @@
           146
         ],
         "createdAt": "18:21:35 11/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794571163388,
+        "title": "BÀI TẬP THỰC HÀNH LỚP 8 - 13/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          37,
+          44,
+          315
+        ],
+        "createdAt": "18:59:23 13/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
