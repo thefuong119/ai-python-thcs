@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T14:28:22.309Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
+    "updatedAt": "2026-11-13T14:27:54.240Z",
+    "updatedBy": "phụng",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -315,6 +315,23 @@
         "loginCount": 4,
         "_hasPassword": true,
         "password": null
+      },
+      {
+        "id": 1794579935495,
+        "name": "phụng",
+        "username": "phung",
+        "identifier": "phung",
+        "passwordHash": "45c5b7f9847f2d4a6e599908f6e11f6d04cd7e64af725775649e3c6ea4391e04",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "---",
+        "cccd": "",
+        "email": "thieudiphung85@gmail.com",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 1,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -15126,6 +15143,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:25:35 13/11/2026",
+        "name": "phụng",
+        "identifier": "phung",
+        "role": "teacher",
+        "result": "Đăng ký thành công (OTP)"
+      },
+      {
         "time": "19:50:12 13/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -16312,11 +16336,6 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": true,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -16338,7 +16357,9 @@
       },
       "logs": {
         "delete": true
-      }
+      },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": true
     },
     "studentMessages": [
       {
