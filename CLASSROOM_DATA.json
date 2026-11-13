@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T16:27:43.374Z",
+    "updatedAt": "2026-11-13T16:28:19.717Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -16182,11 +16182,6 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": false,
-      "teacherCanEdit": true,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -16208,7 +16203,12 @@
       },
       "logs": {
         "delete": true
-      }
+      },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": true,
+      "teacherCanAdd": false,
+      "teacherCanEdit": true,
+      "teacherCanDelete": false
     },
     "studentMessages": [
       {
