@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T17:21:13.335Z",
+    "updatedAt": "2026-11-13T17:21:27.240Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin xóa TK: Thiều Dĩ Phụng"
   },
   "data": {
     "registeredUsers": [
@@ -313,23 +313,6 @@
         "role": "student",
         "status": "active",
         "loginCount": 4,
-        "_hasPassword": true,
-        "password": null
-      },
-      {
-        "id": 1794584586928,
-        "name": "Thiều Dĩ Phụng",
-        "username": "phung",
-        "identifier": "phung",
-        "passwordHash": "45c5b7f9847f2d4a6e599908f6e11f6d04cd7e64af725775649e3c6ea4391e04",
-        "school": "THCS Thành Đông",
-        "className": "Khối 8",
-        "phone": "---",
-        "cccd": "",
-        "email": "thieudiphung85@gmail.com",
-        "role": "teacher",
-        "status": "active",
-        "loginCount": 1,
         "_hasPassword": true,
         "password": null
       }
