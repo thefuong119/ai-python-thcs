@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T13:19:35.499Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-13T13:21:39.609Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 74,
+        "loginCount": 73,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "password": null
@@ -14949,34 +14949,6 @@
     ],
     "loginLogs": [
       {
-        "time": "20:19:35 13/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "20:18:41 13/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền chi tiết"
-      },
-      {
-        "time": "20:17:23 13/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền chi tiết"
-      },
-      {
-        "time": "20:16:39 13/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "19:50:12 13/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -16039,30 +16011,33 @@
       "43": true
     },
     "systemPermissions": {
+      "teacherCanAdd": true,
+      "teacherCanEdit": true,
+      "teacherCanDelete": false,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": true,
       "lectures": {
         "add": true,
-        "edit": false,
-        "delete": false
+        "edit": true,
+        "delete": true
       },
       "assignments": {
-        "add": false,
-        "edit": false,
-        "delete": false
+        "add": true,
+        "edit": true,
+        "delete": true
       },
       "quiz": {
         "add": true,
-        "edit": false,
-        "delete": false
+        "edit": true,
+        "delete": true
       },
       "messages": {
-        "edit": false,
-        "delete": false
+        "edit": true,
+        "delete": true
       },
       "logs": {
-        "delete": false
-      },
-      "teacherCanPushServer": false,
-      "teacherCanLoadServer": false
+        "delete": true
+      }
     },
     "studentMessages": [
       {
