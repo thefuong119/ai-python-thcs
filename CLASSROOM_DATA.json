@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T13:46:52.321Z",
+    "updatedAt": "2026-11-13T13:47:04.456Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 27,
+        "attempts": 28,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:42:02 13/11/2026"
+        "lastSubmit": "20:47:04 13/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12308,6 +12308,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794577624372,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "assignmentId": 268,
+        "score": 0,
+        "timestamp": "20:47:04 13/11/2026",
+        "date": "2026-11-13",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8",
+            "expected": "55200",
+            "actual": "48000",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "25",
+            "expected": "212750",
+            "actual": "86000",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)"
+      },
       {
         "id": 1794577322901,
         "student": "Lê Nguyễn Quang Minh",
@@ -15391,7 +15420,8 @@
         "11": true,
         "17": true,
         "28": true,
-        "267": true
+        "267": true,
+        "268": true
       },
       "hocsinh": {
         "1": true,
@@ -16003,6 +16033,31 @@
           }
         ]
       },
+      "268": {
+        "id": 268,
+        "title": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ của một hộ gia đình là $m$ ($m$1$m^3$ đầu tiên): 6000 đ/$m^3$1$m^3$ thứ 11 đến 20): 7500 đ/$m^3$1$m^3$ thứ 21 trở lên): 10000 đ/$m^3$1$m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả.",
+        "templateCode": "m = int(input().strip())\nif m <= 10:\n    tien = m * 6000\nelif m <= 20:\n    tien = 10 * 6000 + (m - 10) * 7500\nelse:\n    tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8",
+            "expected": "55200",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "25",
+            "expected": "212750",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -16194,7 +16249,8 @@
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
       "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
-      "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New-Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = (50*1800)+((kwh-50)*1900)\nelse: Tien = (50*1800)+(50*1800)+((kwh-100)*2200)\nprint(Tien+(Tien*8//100))"
+      "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New-Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = (50*1800)+((kwh-50)*1900)\nelse: Tien = (50*1800)+(50*1800)+((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
+      "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)"
     },
     "questionFlags": {
       "43": true
