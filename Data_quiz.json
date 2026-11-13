@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-12T13:29:31.795Z",
+    "updatedAt": "2026-11-13T12:02:02.893Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 9 - 12/11/2026"
+    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 9 - 13/11/2026"
   },
   "quizData": [
     {
@@ -1890,6 +1890,27 @@
         25
       ],
       "createdAt": "20:28:51 12/11/2026",
+      "createdBy": "Nguyễn Thế Phương",
+      "active": true
+    },
+    {
+      "id": 6,
+      "title": "KIỂM TRA TRẮC NGHIỆM LỚP 9 - 13/11/2026",
+      "grade": "9",
+      "difficulty": "medium",
+      "questionIds": [
+        28,
+        105,
+        99,
+        93,
+        108,
+        96,
+        67,
+        110,
+        106,
+        102
+      ],
+      "createdAt": "19:02:02 13/11/2026",
       "createdBy": "Nguyễn Thế Phương",
       "active": true
     }
