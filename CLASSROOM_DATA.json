@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T17:34:00.927Z",
-    "updatedBy": "Khách",
-    "action": "Đổi mật khẩu: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-13T17:35:38.724Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin cập nhật TK: Nguyễn Thế Phương"
   },
   "data": {
     "registeredUsers": [
@@ -22,9 +22,10 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 74,
+        "loginCount": 75,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
+        "cccd": "",
         "password": null
       },
       {
@@ -15039,11 +15040,11 @@
     ],
     "loginLogs": [
       {
-        "time": "00:34:00 14/11/2026",
+        "time": "00:34:38 14/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
         "role": "admin",
-        "result": "Đổi mật khẩu thành công"
+        "result": "Thành công"
       },
       {
         "time": "00:21:00 14/11/2026",
