@@ -1,11 +1,449 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-10T13:45:55.707Z",
+    "updatedAt": "2026-11-13T15:08:02.508Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "count": 4,
+    "count": 6,
     "action": "HS Nguyễn Phú Lộc nộp bài trắc nghiệm"
   },
   "quizSubmissions": [
+    {
+      "id": 1794582482403,
+      "student": "Nguyễn Phú Lộc",
+      "username": "loc",
+      "className": "8A2",
+      "quizTitle": "Trắc nghiệm 30 câu - 13/11/2026",
+      "testId": null,
+      "testTitle": null,
+      "totalQuestions": 30,
+      "correctCount": 27,
+      "score": 9,
+      "answers": [
+        {
+          "questionId": 57,
+          "question": "Kết quả của chương trình sau là gì? \na = (4,8,2,6)\nprint(min(a))",
+          "options": [
+            "8",
+            "4",
+            "2",
+            "6"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Hàm min() trả về phần tử nhỏ nhất trong tuple."
+        },
+        {
+          "questionId": 5,
+          "question": "Kết quả của chương trình sau là gì? x = 4\nif x > 5:\n    print('Lon')\nelse:\n   print('Nho')",
+          "options": [
+            "Lon",
+            "Nho",
+            "4",
+            "Không in gì"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "4 > 5 là False, nên chuyển sang khối else, in ra 'Nho'."
+        },
+        {
+          "questionId": 74,
+          "question": "Kết quả của chương trình sau là gì? \na=[1,2,3,4,5]\nc=0\nfor x in a:\n    if x%2==0:\n          c+=1\n         print(c)",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Đếm các số chẵn (chia hết cho 2). Có số 2 và 4 là chẵn. Vậy đếm được 2."
+        },
+        {
+          "questionId": 32,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Hello'\nprint(s + 'World')",
+          "options": [
+            "HelloWorld",
+            "Hello World",
+            "Hello+World",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Phép cộng chuỗi ghép nối trực tiếp không sinh thêm khoảng trắng ở giữa."
+        },
+        {
+          "questionId": 50,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s.replace('Py','My'))",
+          "options": [
+            "Python",
+            "Mython",
+            "MyPython",
+            "PyMy"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Thay thế 'Py' bằng 'My', chuỗi mới là 'Mython'."
+        },
+        {
+          "questionId": 54,
+          "question": "Kết quả của chương trình sau là gì? \na = (5,7,9)\nprint(len(a))",
+          "options": [
+            "2",
+            "3",
+            "5",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Tuple a có 3 phần tử, nên len(a) trả về 3."
+        },
+        {
+          "questionId": 8,
+          "question": "Kết quả của chương trình sau là gì? x = -2\nif x > 0:\n    print('Duong')\nelse:\n    print('Am')",
+          "options": [
+            "Duong",
+            "Am",
+            "-2",
+            "Không in gì"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "-2 > 0 là False, thực thi khối else, in ra 'Am'."
+        },
+        {
+          "questionId": 45,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s*2)",
+          "options": [
+            "PythonPython",
+            "Python 2",
+            "Python*2",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Toán tử * dùng để lặp lại chuỗi nhiều lần."
+        },
+        {
+          "questionId": 62,
+          "question": "Cách khai báo một set đúng là:",
+          "options": [
+            "a = [1,2,3]",
+            "a = (1,2,3)",
+            "a = {1,2,3}",
+            "a = <1,2,3>"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Set được khởi tạo bằng dấu ngoặc nhọn { } có chứa giá trị bên trong."
+        },
+        {
+          "questionId": 46,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint('Py' in s)",
+          "options": [
+            "True",
+            "False",
+            "Py",
+            "Lỗi"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Toán tử in kiểm tra chuỗi con có nằm trong chuỗi mẹ không, trả về boolean (True)."
+        },
+        {
+          "questionId": 34,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Tin hoc'\nprint(len(s))",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "5"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Hàm len() trả về độ dài chuỗi bao gồm cả dấu cách. 'Tin hoc' có 7 ký tự."
+        },
+        {
+          "questionId": 72,
+          "question": "Kết quả của chương trình sau là gì? \na=[3,6,9,12]\ns=0\nfor x in a:\n    if x%3==0:\n          s+=x\n    print(s)",
+          "options": [
+            "12",
+            "18",
+            "30",
+            "9"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Tất cả các số trong a đều chia hết cho 3, nên tổng = 3+6+9+12 = 30."
+        },
+        {
+          "questionId": 58,
+          "question": "Chương trình sau sẽ thực hiện công việc gì? \na = (1,2,3)\nfor x in a:\n    print(x,end=' ')",
+          "options": [
+            "In các phần tử của tuple",
+            "In chỉ số của tuple",
+            "In tổng các phần tử",
+            "Báo lỗi"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Vòng lặp for duyệt qua từng phần tử của tuple và in chúng ra."
+        },
+        {
+          "questionId": 22,
+          "question": "Kết quả của chương trình sau là gì?\ni = 1\nwhile i <= 3:\n    print(i, end=' ')\n    i += 1",
+          "options": [
+            "1 2 3",
+            "1 2 3 4",
+            "0 1 2 3",
+            "1 1 1"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "i chạy từ 1, tăng 1 mỗi vòng lặp. Dừng lại khi i lớn hơn 3."
+        },
+        {
+          "questionId": 63,
+          "question": "Kết quả của chương trình sau là gì? \na = {1,2,3,2,1}\nprint(a)",
+          "options": [
+            "{1,2,3,2,1}",
+            "{1,2,3}",
+            "[1,2,3]",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Set tự động loại bỏ các phần tử trùng lặp, nên chỉ giữ lại {1, 2, 3}."
+        },
+        {
+          "questionId": 10,
+          "question": "Kết quả của chương trình sau là gì? \nx = 6\nif x % 2 == 0:\n    print('Chan')\nprint('Done')",
+          "options": [
+            "Chan",
+            "Done",
+            "Chan và Done (2 dòng)",
+            "Không in gì"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "A",
+          "isCorrect": false,
+          "explanation": "6 % 2 == 0 là True, in 'Chan'. Sau đó thoát if, in tiếp 'Done'. Kết quả in ra cả 2 dòng."
+        },
+        {
+          "questionId": 53,
+          "question": "Kết quả của chương trình sau là gì? \na = (10,20,30,40)\nprint(a[1])",
+          "options": [
+            "10",
+            "20",
+            "30",
+            "40"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Lấy phần tử ở vị trí index 1 (vị trí thứ 2), là 20."
+        },
+        {
+          "questionId": 14,
+          "question": "Kết quả của chương trình sau là gì? \nfor i in range(1,10,3):\n    print(i, end=' ')",
+          "options": [
+            "1 2 3 4",
+            "1 4 7",
+            "1 3 5 7 9",
+            "4 7 10"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "range(1, 10, 3) bắt đầu từ 1, mỗi bước nhảy 3 đơn vị: 1, 4, 7."
+        },
+        {
+          "questionId": 84,
+          "question": "Kết quả của chương trình sau là gì? \na = [5,7,9]\na.append(11)\nprint(a)",
+          "options": [
+            "[5,7,9]",
+            "[11,5,7,9]",
+            "[5,7,9,11]",
+            "[5,7,11]"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "append() thêm một phần tử vào cuối list."
+        },
+        {
+          "questionId": 56,
+          "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
+          "options": [
+            "3",
+            "6",
+            "9",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Hàm max() trả về phần tử lớn nhất trong tuple."
+        },
+        {
+          "questionId": 9,
+          "question": "Kết quả của chương trình sau là gì? x = 5\nif x == 5:\n    print('A')\nelse:\n    print('B')",
+          "options": [
+            "A",
+            "B",
+            "5",
+            "Không in gì"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "5 == 5 là True, in ra 'A'."
+        },
+        {
+          "questionId": 83,
+          "question": "Cho list a = [10,20,30,40], giá trị của a[2] là:",
+          "options": [
+            "10",
+            "20",
+            "30",
+            "40"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Chỉ số mảng bắt đầu từ 0. a[0]=10, a[1]=20, a[2]=30."
+        },
+        {
+          "questionId": 1,
+          "question": "Trong Python, cấu trúc rẽ nhánh dạng thiếu có dạng:",
+          "options": [
+            "if điều_kiện:",
+            "if điều_kiện: ... else ...",
+            "for điều_kiện:",
+            "while điều_kiện:"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Cấu trúc rẽ nhánh dạng thiếu (chỉ xét 1 trường hợp đúng) sử dụng từ khóa 'if' kèm điều kiện và dấu hai chấm ':'."
+        },
+        {
+          "questionId": 70,
+          "question": "Chương trình sau sẽ làm gì? \na={1,2,3}\nfor x in a:\n    print(x,end=' ')",
+          "options": [
+            "In các phần tử của set",
+            "In chỉ số của set",
+            "In số lượng phần tử",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Vòng lặp for sẽ lặp qua để in giá trị của từng phần tử có trong set (không đảm bảo thứ tự)."
+        },
+        {
+          "questionId": 2,
+          "question": "Kết quả của chương trình sau là gì? x = 5\nif x > 3:\n    print('A')",
+          "options": [
+            "A",
+            "5",
+            "Không in gì",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "Biến x = 5. Điều kiện 5 > 3 là True, do đó khối lệnh bên trong if được thực thi, in ra chữ 'A'."
+        },
+        {
+          "questionId": 51,
+          "question": "Trong Python, tuple là kiểu dữ liệu:",
+          "options": [
+            "Có thể thay đổi phần tử",
+            "Không thể thay đổi phần tử",
+            "Chỉ chứa số nguyên",
+            "Chỉ chứa chuỗi"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "A",
+          "isCorrect": false,
+          "explanation": "Tuple tương tự List nhưng mang tính chất immutable (bất biến) - không thể thêm, sửa, hay xóa các phần tử."
+        },
+        {
+          "questionId": 71,
+          "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
+          "options": [
+            "2",
+            "5",
+            "9",
+            "7"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "max(a) tìm phần tử lớn nhất, là 9."
+        },
+        {
+          "questionId": 7,
+          "question": "Chương trình sau sử dụng cấu trúc rẽ nhánh dạng nào? \nx = 3\nif x > 0:\n     print('Duong')",
+          "options": [
+            "Rẽ nhánh đủ",
+            "Rẽ nhánh thiếu",
+            "Vòng lặp",
+            "Hàm"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Chỉ có 'if' mà không có 'else', đây là cấu trúc rẽ nhánh thiếu."
+        },
+        {
+          "questionId": 20,
+          "question": "Kết quả của chương trình sau là gì? \ns = 0\nfor i in range(2,8,2):\n    s += i\nprint(s)",
+          "options": [
+            "12",
+            "20",
+            "10",
+            "6"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "A",
+          "isCorrect": true,
+          "explanation": "range(2, 8, 2) sinh ra 2, 4, 6. Tổng s = 2 + 4 + 6 = 12."
+        },
+        {
+          "questionId": 38,
+          "question": "Kết quả của chương trình sau là gì? \ns = ' Python '\nprint(s.strip())",
+          "options": [
+            "' Python '",
+            "'Python'",
+            "'Python '",
+            "' Python'"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "D",
+          "isCorrect": false,
+          "explanation": "Hàm strip() dùng để xóa khoảng trắng ở cả hai đầu của chuỗi."
+        }
+      ],
+      "timestamp": "22:08:02 13/11/2026",
+      "date": "2026-11-13",
+      "startedAt": 1794577524826,
+      "duration": 4958
+    },
     {
       "id": 1794318355444,
       "student": "Nguyễn Phú Lộc",
@@ -443,6 +881,164 @@
       "date": "2026-11-10",
       "startedAt": 1794314142082,
       "duration": 4213
+    },
+    {
+      "id": 1794316090217,
+      "student": "Lê Nguyễn Quang Minh",
+      "username": "minh",
+      "className": "8A8",
+      "quizTitle": "Đề trắc nghiệm - 10/11/2026",
+      "testId": 1,
+      "testTitle": "Đề trắc nghiệm - 10/11/2026",
+      "totalQuestions": 10,
+      "correctCount": 8,
+      "score": 8,
+      "answers": [
+        {
+          "questionId": 83,
+          "question": "Cho list a = [10,20,30,40], giá trị của a[2] là:",
+          "options": [
+            "10",
+            "20",
+            "30",
+            "40"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Chỉ số mảng bắt đầu từ 0. a[0]=10, a[1]=20, a[2]=30."
+        },
+        {
+          "questionId": 82,
+          "question": "Cách khai báo một list đúng là:",
+          "options": [
+            "a = (1,2,3)",
+            "a = {1,2,3}",
+            "a = [1,2,3]",
+            "a = <1,2,3>"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "B",
+          "isCorrect": false,
+          "explanation": "List được khai báo bằng cặp ngoặc vuông [ ]."
+        },
+        {
+          "questionId": 65,
+          "question": "Sau khi chạy đoạn lệnh sau, tập hợp không còn phần tử nào? \na={1,2,3,4}\na.remove(3)\nprint(a)",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "Phương thức remove() xóa phần tử có giá trị 3 khỏi set."
+        },
+        {
+          "questionId": 54,
+          "question": "Kết quả của chương trình sau là gì? \na = (5,7,9)\nprint(len(a))",
+          "options": [
+            "2",
+            "3",
+            "5",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Tuple a có 3 phần tử, nên len(a) trả về 3."
+        },
+        {
+          "questionId": 3,
+          "question": "Kết quả của chương trình sau là gì? x = 2\nif x > 5:\n    print('Hello')\nprint('Python')",
+          "options": [
+            "Hello",
+            "Python",
+            "Hello Python",
+            "Không in gì"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Biến x = 2. Điều kiện 2 > 5 là False, do đó bỏ qua lệnh in 'Hello'. Lệnh in 'Python' nằm ngoài if nên luôn được thực thi."
+        },
+        {
+          "questionId": 4,
+          "question": "Kết quả của chương trình sau là gì? x = 7\nif x % 2 == 0:\n    print('Chan')\nelse:\n    print('Le')",
+          "options": [
+            "Chan",
+            "Le",
+            "7",
+            "Lỗi"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "7 % 2 == 1 (không bằng 0), điều kiện sai nên chạy vào khối else, in ra 'Le'."
+        },
+        {
+          "questionId": 71,
+          "question": "Kết quả của chương trình sau là gì? \na=[4,7,2,9,5]\nprint(max(a))",
+          "options": [
+            "2",
+            "5",
+            "9",
+            "7"
+          ],
+          "correctAnswer": "C",
+          "userAnswer": "C",
+          "isCorrect": true,
+          "explanation": "max(a) tìm phần tử lớn nhất, là 9."
+        },
+        {
+          "questionId": 77,
+          "question": "Kết quả của chương trình sau là gì? \na=[2,3,5,8,11]\nc=0\nfor x in a:\n     if x>5:\n         c+=1\n     print(c)",
+          "options": [
+            "3",
+            "2",
+            "4",
+            "1"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Đếm các số lớn hơn 5. Đó là số 8 và 11 (2 số)."
+        },
+        {
+          "questionId": 69,
+          "question": "Kết quả của chương trình sau là gì? \na={5,2,8,1}\nprint(len(a))",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "Lỗi chương trình"
+          ],
+          "correctAnswer": "B",
+          "userAnswer": "B",
+          "isCorrect": true,
+          "explanation": "Tập hợp có 4 phần tử (không có phần tử trùng lặp), nên len = 4."
+        },
+        {
+          "questionId": 46,
+          "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint('Py' in s)",
+          "options": [
+            "True",
+            "False",
+            "Py",
+            "Lỗi"
+          ],
+          "correctAnswer": "A",
+          "userAnswer": "C",
+          "isCorrect": false,
+          "explanation": "Toán tử in kiểm tra chuỗi con có nằm trong chuỗi mẹ không, trả về boolean (True)."
+        }
+      ],
+      "timestamp": "20:08:10 10/11/2026",
+      "date": "2026-11-10",
+      "startedAt": 1794315957521,
+      "duration": 133
     },
     {
       "id": 1794308383675,
