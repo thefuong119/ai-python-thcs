@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T15:41:12.445Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-13T15:43:07.019Z",
+    "updatedBy": "Thiều Dĩ Phụng",
+    "action": "Đăng ký GV: Thiều Dĩ Phụng"
   },
   "data": {
     "registeredUsers": [
@@ -315,6 +315,23 @@
         "loginCount": 4,
         "_hasPassword": true,
         "password": null
+      },
+      {
+        "id": 1794584586928,
+        "name": "Thiều Dĩ Phụng",
+        "username": "phung",
+        "identifier": "phung",
+        "passwordHash": "45c5b7f9847f2d4a6e599908f6e11f6d04cd7e64af725775649e3c6ea4391e04",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "---",
+        "cccd": "",
+        "email": "thieudiphung85@gmail.com",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 1,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -15038,6 +15055,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "22:43:06 13/11/2026",
+        "name": "Thiều Dĩ Phụng",
+        "identifier": "phung",
+        "role": "teacher",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "22:08:02 13/11/2026",
         "name": "Nguyễn Phú Lộc",
