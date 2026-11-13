@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T17:37:45.591Z",
-    "updatedBy": "Khách",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-13T17:40:22.452Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Học sinh Giáo viên Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 3,
+        "loginCount": 4,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -11794,6 +11794,13 @@
         "attempts": 13,
         "highestScore": 10,
         "lastSubmit": "18:20:31 8/11/2026"
+      },
+      {
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "attempts": 1,
+        "highestScore": 10,
+        "lastSubmit": "00:40:22 14/11/2026"
       }
     ],
     "lectures": [
@@ -12309,6 +12316,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794591622368,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "00:40:22 14/11/2026",
+        "date": "2026-11-13",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      },
       {
         "id": 1794576839736,
         "student": "Lê Nguyễn Quang Minh",
@@ -15040,11 +15092,11 @@
     ],
     "loginLogs": [
       {
-        "time": "00:37:45 14/11/2026",
-        "name": "Khách",
-        "identifier": "---",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
+        "time": "00:37:56 14/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
       },
       {
         "time": "00:34:38 14/11/2026",
@@ -15427,6 +15479,9 @@
         "24": true,
         "33": true,
         "43": true
+      },
+      "giaovien": {
+        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -16181,7 +16236,8 @@
       "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
-      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
+      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
+      "giaovien__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
     },
     "questionFlags": {
       "43": true
