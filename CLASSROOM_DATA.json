@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T13:33:03.717Z",
+    "updatedAt": "2026-11-13T13:33:59.844Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -11745,10 +11745,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 25,
+        "attempts": 26,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:28:21 13/11/2026"
+        "lastSubmit": "20:33:59 13/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -12308,6 +12308,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794576839736,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
+        "assignmentId": 28,
+        "score": 10,
+        "timestamp": "20:33:59 13/11/2026",
+        "date": "2026-11-13",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "6",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "7",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "28",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "496",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
+      },
       {
         "id": 1794576501829,
         "student": "Lê Nguyễn Quang Minh",
@@ -15315,7 +15360,8 @@
         "9": true,
         "10": true,
         "11": true,
-        "17": true
+        "17": true,
+        "28": true
       },
       "hocsinh": {
         "1": true,
@@ -16091,7 +16137,8 @@
       "minh__Bài 9. Số có đúng ba ước nguyên dương": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)",
       "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
-      "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)"
+      "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
+      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
     },
     "questionFlags": {
       "43": true
