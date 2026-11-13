@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-13T17:41:43.996Z",
-    "updatedBy": "Giáo viên Demo",
-    "action": "Đăng xuất: Giáo viên Demo"
+    "updatedAt": "2026-11-13T17:41:58.296Z",
+    "updatedBy": "Khách",
+    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
   },
   "data": {
     "registeredUsers": [
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 4,
+        "loginCount": 3,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -11794,13 +11794,6 @@
         "attempts": 13,
         "highestScore": 10,
         "lastSubmit": "18:20:31 8/11/2026"
-      },
-      {
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "attempts": 3,
-        "highestScore": 10,
-        "lastSubmit": "00:41:28 14/11/2026"
       }
     ],
     "lectures": [
@@ -12316,141 +12309,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794591688943,
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "assignmentTitle": "Bài 4. Mật mã kép",
-        "assignmentId": 15,
-        "score": 10,
-        "timestamp": "00:41:28 14/11/2026",
-        "date": "2026-11-13",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "A7H2269LE1936K65537Q23R3025",
-            "expected": "35",
-            "actual": "35",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "ABC16XYZ17",
-            "expected": "1",
-            "actual": "1",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "M99N25P13",
-            "expected": "",
-            "actual": "",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "CODE4K9M25T79",
-            "expected": "",
-            "actual": "",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "import math\nimport re\n\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n in (2, 3):\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\n\ndef is_square(n):\n    if n < 0:\n        return False\n    r = math.isqrt(n)\n    return r * r == n\n\n\ns = input().strip()\nnumbers = list(map(int, re.findall(r\"\\d+\", s)))\n\nprimes = [n for n in numbers if is_prime(n)]\nsquares = [n for n in numbers if is_square(n)]\n\nif primes and squares:\n    max_p = max(primes)\n    max_sq = max(squares)\n    common_digits = sorted(set(str(max_p)) & set(str(max_sq)))\n    print(\"\".join(common_digits))\nelse:\n    print(\"\")"
-      },
-      {
-        "id": 1794591655504,
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
-        "assignmentId": 9,
-        "score": 10,
-        "timestamp": "00:40:55 14/11/2026",
-        "date": "2026-11-13",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "6",
-            "expected": "1",
-            "actual": "1",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "30",
-            "expected": "3",
-            "actual": "3",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "100",
-            "expected": "4",
-            "actual": "4",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000000",
-            "expected": "78498",
-            "actual": "78498",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "import math\n\ndef count_three_divisors(n):\n    limit = math.isqrt(n)\n\n    if limit < 2:\n        return 0\n\n    is_prime = bytearray([1]) * (limit + 1)\n    is_prime[0] = is_prime[1] = 0\n\n    for i in range(2, math.isqrt(limit) + 1):\n        if is_prime[i]:\n            is_prime[i * i : limit + 1 : i] = bytearray([0]) * len(\n                range(i * i, limit + 1, i)\n            )\n\n    return sum(is_prime)\n\nn = int(input().strip())\nprint(count_three_divisors(n))"
-      },
-      {
-        "id": 1794591622368,
-        "student": "Giáo viên Demo",
-        "username": "giaovien",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "00:40:22 14/11/2026",
-        "date": "2026-11-13",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
       {
         "id": 1794576839736,
         "student": "Lê Nguyễn Quang Minh",
@@ -15182,20 +15040,6 @@
     ],
     "loginLogs": [
       {
-        "time": "00:41:43 14/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "00:37:56 14/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
         "time": "00:34:38 14/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -15576,11 +15420,6 @@
         "24": true,
         "33": true,
         "43": true
-      },
-      "giaovien": {
-        "1": true,
-        "9": true,
-        "15": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -15945,45 +15784,6 @@
             "id": 4,
             "input": "100000000",
             "expected": "170000000",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "15": {
-        "id": 15,
-        "title": "Bài 4. Mật mã kép",
-        "classLevel": "9",
-        "difficulty": "hard",
-        "timeLimit": 2,
-        "description": "Cho một xâu mật mã gồm các ký tự và các con số. Mật mã kép nằm trong xâu là các chữ số chung được sắp xếp tăng dần của số nguyên tố lớn nhất và số chính phương lớn nhất có trong xâu. Nếu không tồn tại số nguyên tố hoặc số chính phương, hoặc chúng không có chữ số chung thì in ra xâu rỗng.\n\n- Dữ liệu vào: Một chuỗi ký tự S chứa chữ cái và số (|S| <= 1000).\n- Dữ liệu ra: In ra chuỗi mật mã kép tìm được.",
-        "templateCode": "import math\nimport re\n\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n in (2, 3):\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\n\ndef is_square(n):\n    if n < 0:\n        return False\n    r = math.isqrt(n)\n    return r * r == n\n\n\ns = input().strip()\nnumbers = list(map(int, re.findall(r\"\\d+\", s)))\n\nprimes = [n for n in numbers if is_prime(n)]\nsquares = [n for n in numbers if is_square(n)]\n\nif primes and squares:\n    max_p = max(primes)\n    max_sq = max(squares)\n    common_digits = sorted(set(str(max_p)) & set(str(max_sq)))\n    print(\"\".join(common_digits))\nelse:\n    print(\"\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "A7H2269LE1936K65537Q23R3025",
-            "expected": "35",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "ABC16XYZ17",
-            "expected": "1",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "M99N25P13",
-            "expected": "",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "CODE4K9M25T79",
-            "expected": "",
             "point": 2.5,
             "is_hidden": true
           }
@@ -16374,10 +16174,7 @@
       "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
-      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
-      "giaovien__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "giaovien__Bài 9. Số có đúng ba ước nguyên dương": "import math\n\ndef count_three_divisors(n):\n    limit = math.isqrt(n)\n\n    if limit < 2:\n        return 0\n\n    is_prime = bytearray([1]) * (limit + 1)\n    is_prime[0] = is_prime[1] = 0\n\n    for i in range(2, math.isqrt(limit) + 1):\n        if is_prime[i]:\n            is_prime[i * i : limit + 1 : i] = bytearray([0]) * len(\n                range(i * i, limit + 1, i)\n            )\n\n    return sum(is_prime)\n\nn = int(input().strip())\nprint(count_three_divisors(n))",
-      "giaovien__Bài 4. Mật mã kép": "import math\nimport re\n\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n in (2, 3):\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n\n\ndef is_square(n):\n    if n < 0:\n        return False\n    r = math.isqrt(n)\n    return r * r == n\n\n\ns = input().strip()\nnumbers = list(map(int, re.findall(r\"\\d+\", s)))\n\nprimes = [n for n in numbers if is_prime(n)]\nsquares = [n for n in numbers if is_square(n)]\n\nif primes and squares:\n    max_p = max(primes)\n    max_sq = max(squares)\n    common_digits = sorted(set(str(max_p)) & set(str(max_sq)))\n    print(\"\".join(common_digits))\nelse:\n    print(\"\")"
+      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
     },
     "questionFlags": {
       "43": true
