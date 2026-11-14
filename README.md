@@ -1,7 +1,7 @@
 *1. ĐĂNG NHẬP
 + Nhấn nút "Học Sinh" hoặc "Giáo Viên / Admin" ở góc phải trên cùng.
 + Nhập Tên đăng nhập và Mật khẩu. Nếu chưa có tài khoản, chọn tab "Đăng Ký".
-+ Khi đăng ký, hãy nhập ít nhất 1 trong 3 phương thức liên lạc: SĐT, CCCD, Email.
++ Khi đăng ký, hãy nhập ít nhất 1 trong 3 phương thức liên lạc: SĐT, CCCD, Email (bắt buộc) để nhận mã OTP xác thực.
 
 *Tài khoản dùng thử của học sinh: 
    Tên đăng nhâp HS: hocsinh 
@@ -34,7 +34,7 @@
 Lưu ý: Trình duyệt bảo mật không cho phép trang web tự đóng tab. Nếu tab không đóng, hãy nhấn Ctrl+W / Cmd+W.
 
 *6. QUÊN MẬT KHẨU
-+ Ở form đăng nhập, nhấn "Quên mật khẩu?". Nhập tên đăng nhập đủ thông tin (SĐT / CCCD / Email).
++ Ở form đăng nhập, nhấn "Quên mật khẩu?". Nhập tên đăng nhập đủ thông tin (SĐT / CCCD / Email). Email (bắt buộc) để nhận mã OTP xác thực.
 + Nếu thông tin trùng khớp → đổi mật khẩu thành công ngay.
 + Nếu không có thông tin nào đúng → Admin sẽ cấp lại mật khẩu trong 24 giờ.
 Bản quyền © 2026 - Thầy Nguyễn Thế Phương
