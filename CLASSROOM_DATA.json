@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T00:40:18.108Z",
+    "updatedAt": "2026-11-14T00:41:15.622Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Đăng xuất: Nguyễn Phú Lộc"
   },
   "data": {
     "registeredUsers": [
@@ -15039,6 +15039,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "07:41:15 14/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Đăng xuất"
+      },
       {
         "time": "07:40:07 14/11/2026",
         "name": "Nguyễn Phú Lộc",
