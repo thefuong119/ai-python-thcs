@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T22:38:10.874Z",
+    "updatedAt": "2026-11-14T22:38:26.625Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Nạp 15 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -12297,6 +12297,591 @@
             "id": 4,
             "input": "100 75",
             "expected": "25",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 432,
+        "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên không âm $c_1$ và $c_2$ ($c_1 \\le c_2$) lần lượt là chỉ số điện cũ và chỉ số điện mới (kWh). Biết số điện tiêu thụ $k = c_2 - c_1$ được tính tiền theo định mức bậc thang: từ $0$ đến $50$ kWh đầu giá $1678$ đồng/kWh; từ kWh thứ $51$ đến $100$ giá $1734$ đồng/kWh; từ kWh thứ $101$ trở lên giá $2014$ đồng/kWh. Hãy tính và in ra số tiền điện phải trả (đồng).",
+        "templateCode": "c1, c2 = map(int, input().split())\nk = c2 - c1\nif k <= 50:\n tien = k * 1678\nelif k <= 100:\n tien = 50 * 1678 + (k - 50) * 1734\nelse:\n tien = 50 * 1678 + 50 * 1734 + (k - 100) * 2014\nprint(tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 140",
+            "expected": "67120",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "200 280",
+            "expected": "135920",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "500 620",
+            "expected": "210880",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "150 150",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 433,
+        "title": "Bài 17 (Rẽ nhánh): Kiểm tra năm nhuận và số ngày của tháng",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên $m$ và $y$ ($1 \\le m \\le 12$, $y > 0$) lần lượt là tháng và năm. Hãy xác định và in ra số ngày của tháng $m$ trong năm $y$. Biết năm nhuận là năm chia hết cho $400$, hoặc chia hết cho $4$ nhưng không chia hết cho $100$.",
+        "templateCode": "m, y = map(int, input().split())\nif m in (1, 3, 5, 7, 8, 10, 12):\n print(31)\nelif m in (4, 6, 9, 11):\n print(30)\nelse:\n if (y % 400 == 0) or (y % 4 == 0 and y % 100 != 0):\n print(29)\n else:\n print(28)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 2024",
+            "expected": "29",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 1900",
+            "expected": "28",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2 2000",
+            "expected": "29",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4 2026",
+            "expected": "30",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 434,
+        "title": "Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên $a$ và $b$ trên cùng một dòng. Hãy giải phương trình bậc nhất $ax + b = 0$. Nếu phương trình có vô số nghiệm thì in ra Vo so nghiem; nếu vô nghiệm thì in ra Vo nghiem; nếu có nghiệm duy nhất thì in ra nghiệm $x$ làm tròn đến $2$ chữ số thập phân.",
+        "templateCode": "a, b = map(int, input().split())\nif a == 0:\n if b == 0:\n print(\"Vo so nghiem\")\n else:\n print(\"Vo nghiem\")\nelse:\n x = -b / a\n if x == 0:\n x = 0.0\n print(f\"{x:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 -5",
+            "expected": "2.50",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 0",
+            "expected": "Vo so nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 7",
+            "expected": "Vo nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 0",
+            "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 435,
+        "title": "Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một cửa hàng văn phòng phẩm bán vở với đơn giá $p$ (đồng/quyển). Cửa hàng áp dụng chính sách giảm giá trên tổng hóa đơn như sau: mua dưới $10$ quyển không giảm giá; mua từ $10$ đến $19$ quyển giảm $5\\%$; mua từ $20$ quyển trở lên giảm $10\\%$. Nhập số nguyên dương $n$ (số quyển vở) và $p$ (đơn giá), in ra phần nguyên số tiền mà khách hàng phải trả.",
+        "templateCode": "n, p = map(int, input().split())\ntong = n * p\nif n >= 20:\n tong = tong * 90 // 100\nelif n >= 10:\n tong = tong * 95 // 100\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 10000",
+            "expected": "50000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 10000",
+            "expected": "95000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "20 12000",
+            "expected": "216000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "15 8000",
+            "expected": "114000",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 436,
+        "title": "Bài 20 (Rẽ nhánh): Kiểm tra điều kiện tam giác và tính diện tích Heron",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào ba số nguyên dương $a, b, c$ trên cùng một dòng. Kiểm tra xem $a, b, c$ có tạo thành độ dài ba cạnh của một tam giác hay không. Nếu không tạo thành tam giác thì in ra -1; ngược lại tính diện tích tam giác theo công thức Heron $S = \\sqrt{p(p-a)(p-b)(p-c)}$ với $p = \\frac{a+b+c}{2}$ và in kết quả làm tròn đến $2$ chữ số thập phân.",
+        "templateCode": "import math\na, b, c = map(int, input().split())\nif a + b > c and a + c > b and b + c > a:\n p = (a + b + c) / 2\n s = math.sqrt(p * (p - a) * (p - b) * (p - c))\n print(f\"{s:.2f}\")\nelse:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 5",
+            "expected": "6.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 5 6",
+            "expected": "12.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2 3 6",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7 8 9",
+            "expected": "26.83",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 437,
+        "title": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên $n$. Sử dụng vòng lặp for để kiểm tra xem $n$ có phải là số nguyên tố hay không (số nguyên tố là số nguyên lớn hơn $1$ chỉ có hai ước dương là $1$ và chính nó). Nếu phải in ra Co, ngược lại in ra Khong.",
+        "templateCode": "n = int(input())\nif n < 2:\n print(\"Khong\")\nelse:\n la_nt = True\n for i in range(2, int(n ** 0.5) + 1):\n if n % i == 0:\n la_nt = False\n break\n if la_nt:\n print(\"Co\")\n else:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "17",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "25",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 438,
+        "title": "Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào số nguyên dương $n$. Sử dụng vòng lặp for để tính giá trị biểu thức $S = 1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\dots + \\frac{(-1)^{n-1}}{n}$. In ra kết quả làm tròn đến $4$ chữ số thập phân.",
+        "templateCode": "n = int(input())\ns = 0.0\nfor i in range(1, n + 1):\n if i % 2 == 1:\n s += 1 / i\n else:\n s -= 1 / i\nprint(f\"{s:.4f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1",
+            "expected": "1.0000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "0.5000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4",
+            "expected": "0.5833",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "0.6456",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 439,
+        "title": "Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dãy Fibonacci được định nghĩa bắt đầu bởi hai số $F_1 = 0, F_2 = 1$, từ số thứ ba trở đi mỗi số bằng tổng hai số liền trước ($F_i = F_{i-1} + F_{i-2}$). Nhập số nguyên dương $n$ ($n \\ge 1$), sử dụng vòng lặp for để in ra $n$ số đầu tiên của dãy Fibonacci trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "n = int(input())\na, b = 0, 1\nkq = []\nfor _ in range(n):\n kq.append(str(a))\n a, b = b, a + b\nprint(\" \".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "0 1 1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "7",
+            "expected": "0 1 1 2 3 5 8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "0 1 1 2 3 5 8 13 21 34",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 440,
+        "title": "Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trong một trang trại có cả gà và chó với tổng số con là $m$ và tổng số chân là $n$ (biết mỗi con gà có $2$ chân, mỗi con chó có $4$ chân). Nhập hai số nguyên dương $m$ và $n$ trên cùng một dòng. Sử dụng vòng lặp for để tìm số gà và số chó, in ra hai số đó cách nhau bởi dấu cách; nếu không tìm được nghiệm hợp lệ thì in ra -1.",
+        "templateCode": "m, n = map(int, input().split())\ntim_thay = False\nfor ga in range(m + 1):\n cho = m - ga\n if 2 * ga + 4 * cho == n:\n print(ga, cho)\n tim_thay = True\n break\nif not tim_thay:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 28",
+            "expected": "6 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 25",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 20",
+            "expected": "0 5",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 441,
+        "title": "Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số chính phương là số bằng bình phương của một số nguyên không âm (ví dụ $0, 1, 4, 9, 16, \\dots$). Nhập vào hai số nguyên dương $a$ và $b$ ($1 \\le a \\le b \\le 10000$). Sử dụng vòng lặp for để đếm xem trong đoạn $[a, b]$ có bao nhiêu số chính phương.",
+        "templateCode": "import math\na, b = map(int, input().split())\ndem = 0\nfor i in range(a, b + 1):\n can = math.isqrt(i)\n if can * can == i:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 25",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 15",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1 100",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 442,
+        "title": "Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số đối xứng là số nguyên dương mà khi viết các chữ số của nó theo thứ tự ngược lại ta vẫn được chính số đó (ví dụ $121$, $1331$). Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while để đảo ngược các chữ số của $n$ và kiểm tra xem $n$ có phải là số đối xứng hay không. Nếu phải in ra Co, ngược lại in ra Khong.",
+        "templateCode": "n = int(input())\ntam = n\ndao = 0\nwhile tam > 0:\n dao = dao * 10 + tam % 10\n tam //= 10\nif dao == n:\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12321",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1234",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "7",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "100",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 443,
+        "title": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while để tách từng chữ số của $n$, từ đó tìm và in ra chữ số lớn nhất xuất hiện trong $n$.",
+        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n max_cs = cs\n n //= 10\nprint(max_cs)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "38294",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5012",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1111",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 444,
+        "title": "Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một người gửi tiết kiệm ban đầu $P$ đồng vào ngân hàng với lãi suất $r\\%$ mỗi tháng (lãi nhập gốc sau mỗi tháng). Nhập vào hai số nguyên dương $P, M$ ($P < M$) và số thực $r$ ($r > 0$) trên cùng một dòng. Sử dụng vòng lặp while để tính số tháng ít nhất cần gửi để tổng số tiền nhận được lớn hơn hoặc bằng $M$.",
+        "templateCode": "inp = input().split()\np = float(inp[0])\nm = float(inp[1])\nr = float(inp[2])\nthang = 0\nwhile p < m:\n p = p * (1 + r / 100)\n thang += 1\nprint(thang)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1000 1200 5",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5000 5500 10",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2000 3000 8",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10000 20000 10",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 445,
+        "title": "Bài 29 (Vòng lặp while): Chuyển đổi số nguyên dương sang hệ nhị phân",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while (thuật toán chia liên tiếp cho $2$ lấy phần dư) để chuyển đổi số $n$ từ hệ thập phân sang biểu diễn nhị phân và in kết quả ra màn hình.",
+        "templateCode": "n = int(input())\nnhi_phan = \"\"\nwhile n > 0:\n nhi_phan = str(n % 2) + nhi_phan\n n //= 2\nprint(nhi_phan)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "1010",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "25",
+            "expected": "11001",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "64",
+            "expected": "1000000",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 446,
+        "title": "Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập liên tiếp các số nguyên, mỗi số trên một dòng. Quá trình nhập dừng lại ngay khi gặp một số âm ($< 0$). Sử dụng vòng lặp while để tính trung bình cộng của tất cả các số không âm ($\\ge 0$) đã nhập trước đó và in ra kết quả làm tròn đến $2$ chữ số thập phân; nếu chưa có số không âm nào được nhập thì in ra 0.00.",
+        "templateCode": "tong = 0\ndem = 0\nx = int(input())\nwhile x >= 0:\n tong += x\n dem += 1\n x = int(input())\nif dem == 0:\n print(\"0.00\")\nelse:\n print(f\"{tong / dem:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n8\n6\n-1",
+            "expected": "6.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-5",
+            "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10\n0\n5\n-2",
+            "expected": "5.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7\n8\n-1",
+            "expected": "7.50",
             "point": 2.5,
             "is_hidden": false
           }
