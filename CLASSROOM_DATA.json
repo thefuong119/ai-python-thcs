@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T22:41:01.166Z",
+    "updatedAt": "2026-11-14T22:44:23.941Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Nạp 15 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -12882,6 +12882,591 @@
             "id": 4,
             "input": "7\n8\n-1",
             "expected": "7.50",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 447,
+        "title": "Bài 31 (Rẽ nhánh): Giải và biện luận phương trình bậc hai ax^2 + bx + c = 0",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào ba số thực $a, b, c$ trên cùng một dòng, cách nhau bởi dấu cách. Hãy giải và biện luận phương trình $ax^2 + bx + c = 0$ (xét cả trường hợp $a = 0$). Nếu phương trình có vô số nghiệm thì in ra Vo so nghiem; nếu vô nghiệm thì in ra Vo nghiem; nếu có một nghiệm duy nhất (hoặc nghiệm kép) thì in ra nghiệm đó làm tròn đến $2$ chữ số thập phân; nếu có hai nghiệm phân biệt thì in ra hai nghiệm theo thứ tự tăng dần, cách nhau bởi một dấu cách và làm tròn đến $2$ chữ số thập phân.",
+        "templateCode": "import math\na, b, c = map(float, input().split())\nif a == 0:\n if b == 0:\n if c == 0:\n print(\"Vo so nghiem\")\n else:\n print(\"Vo nghiem\")\n else:\n x = -c / b\n if abs(x) < 1e-9:\n x = 0.0\n print(f\"{x:.2f}\")\nelse:\n delta = b * b - 4 * a * c\n if delta < 0:\n print(\"Vo nghiem\")\n elif delta == 0:\n x = -b / (2 * a)\n if abs(x) < 1e-9:\n x = 0.0\n print(f\"{x:.2f}\")\n else:\n x1 = (-b - math.sqrt(delta)) / (2 * a)\n x2 = (-b + math.sqrt(delta)) / (2 * a)\n if x1 > x2:\n x1, x2 = x2, x1\n if abs(x1) < 1e-9:\n x1 = 0.0\n if abs(x2) < 1e-9:\n x2 = 0.0\n print(f\"{x1:.2f} {x2:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 -3 2",
+            "expected": "1.00 2.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 -4 4",
+            "expected": "2.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 2 -6",
+            "expected": "3.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2 1 5",
+            "expected": "Vo nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 448,
+        "title": "Bài 32 (Rẽ nhánh): Kiểm tra tính hợp lệ và tìm ngày kế tiếp",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào ba số nguyên $d, m, y$ trên cùng một dòng lần lượt là ngày, tháng, năm ($y > 0$). Hãy kiểm tra xem bộ ba $(d, m, y)$ có tạo thành một ngày hợp lệ trên dương lịch hay không (có xét năm nhuận). Nếu không hợp lệ thì in ra Khong hop le; nếu hợp lệ thì in ra ngày kế tiếp theo định dạng d m y (ba số nguyên cách nhau bởi dấu cách).",
+        "templateCode": "d, m, y = map(int, input().split())\nnhuan = (y % 400 == 0) or (y % 4 == 0 and y % 100 != 0)\nif m < 1 or m > 12 or d < 1:\n print(\"Khong hop le\")\nelse:\n if m in (1, 3, 5, 7, 8, 10, 12):\n max_d = 31\n elif m in (4, 6, 9, 11):\n max_d = 30\n else:\n max_d = 29 if nhuan else 28\n if d > max_d:\n print(\"Khong hop le\")\n else:\n if d < max_d:\n d += 1\n else:\n d = 1\n if m < 12:\n m += 1\n else:\n m = 1\n y += 1\n print(d, m, y)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "28 2 2024",
+            "expected": "29 2 2024",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "28 2 2023",
+            "expected": "1 3 2023",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "31 12 2025",
+            "expected": "1 1 2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "31 4 2026",
+            "expected": "Khong hop le",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 449,
+        "title": "Bài 33 (Rẽ nhánh): Tính tiền nước sinh hoạt kèm phí môi trường và VAT",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên không âm $c_1$ và $c_2$ ($c_1 \\le c_2$) lần lượt là chỉ số nước cũ và chỉ số nước mới ($\\text{m}^3$). Lượng nước tiêu thụ $w = c_2 - c_1$ được tính tiền thô theo 3 bậc: từ $0$ đến $10\\text{ m}^3$ đầu giá $5000$ đồng/$\\text{m}^3$; từ $\\text{m}^3$ thứ $11$ đến $20$ giá $7000$ đồng/$\\text{m}^3$; trên $20\\text{ m}^3$ giá $10000$ đồng/$\\text{m}^3$. Ngoài tiền nước thô, người dùng phải trả thêm $5\\%$ phí bảo vệ môi trường và $10\\%$ thuế VAT (đều tính trên tiền nước thô). Hãy tính và in ra phần nguyên tổng số tiền phải trả.",
+        "templateCode": "c1, c2 = map(int, input().split())\nw = c2 - c1\nif w <= 10:\n tien_tho = w * 5000\nelif w <= 20:\n tien_tho = 10 * 5000 + (w - 10) * 7000\nelse:\n tien_tho = 10 * 5000 + 10 * 7000 + (w - 20) * 10000\ntong_tien = tien_tho * 115 // 100\nprint(tong_tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 108",
+            "expected": "46000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50 65",
+            "expected": "97750",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "200 225",
+            "expected": "195500",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "120 120",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 450,
+        "title": "Bài 34 (Rẽ nhánh): Xét tuyển sinh và phân loại học bổng",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào điểm ba môn Toán, Văn, Anh ($t, v, a \\in [0, 10]$) trên cùng một dòng. Điểm xét tuyển được tính theo công thức $D = 2t + v + a$. Thí sinh trúng tuyển khi $D \\ge 30.0$ và không có môn nào bị điểm liệt ($\\le 2.0$). Nếu không trúng tuyển in ra Truot. Nếu trúng tuyển, hãy xét học bổng: nếu $D \\ge 36.0$ và cả ba môn đều $\\ge 8.0$ thì in ra Hoc bong toan phan; nếu $D \\ge 33.0$ và cả ba môn đều $\\ge 6.5$ thì in ra Hoc bong ban phan; các trường hợp trúng tuyển còn lại in ra Trung tuyen.",
+        "templateCode": "t, v, a = map(float, input().split())\nd = 2 * t + v + a\nif d < 30.0 or t <= 2.0 or v <= 2.0 or a <= 2.0:\n print(\"Truot\")\nelif d >= 36.0 and t >= 8.0 and v >= 8.0 and a >= 8.0:\n print(\"Hoc bong toan phan\")\nelif d >= 33.0 and t >= 6.5 and v >= 6.5 and a >= 6.5:\n print(\"Hoc bong ban phan\")\nelse:\n print(\"Trung tuyen\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "9.5 8.5 9.0",
+            "expected": "Hoc bong toan phan",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10.0 9.0 7.5",
+            "expected": "Hoc bong ban phan",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10.0 10.0 2.0",
+            "expected": "Truot",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "9.0 6.0 6.5",
+            "expected": "Trung tuyen",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 451,
+        "title": "Bài 35 (Rẽ nhánh): Phân loại tam giác đồng thời theo cạnh và góc",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào ba số nguyên dương $a, b, c$ trên cùng một dòng. Nếu ba số không tạo thành tam giác thì in ra Khong la tam giac. Ngược lại, hãy phân loại chi tiết tam giác theo thứ tự ưu tiên: Tam giac deu (3 cạnh bằng nhau), Tam giac vuong can (vừa vuông vừa cân), Tam giac vuong (có góc vuông), Tam giac tu can (vừa có góc tù vừa cân), Tam giac tu (có góc tù), Tam giac nhon can (ba góc nhọn và cân), hoặc Tam giac nhon (ba góc nhọn và ba cạnh khác nhau).",
+        "templateCode": "a, b, c = map(int, input().split())\nif a + b <= c or a + c <= b or b + c <= a:\n print(\"Khong la tam giac\")\nelse:\n canh = sorted([a, b, c])\n x, y, z = canh[0], canh[1], canh[2]\n can = (a == b) or (b == c) or (a == c)\n if a == b == c:\n print(\"Tam giac deu\")\n elif x * x + y * y == z * z:\n if can:\n print(\"Tam giac vuong can\")\n else:\n print(\"Tam giac vuong\")\n elif x * x + y * y < z * z:\n if can:\n print(\"Tam giac tu can\")\n else:\n print(\"Tam giac tu\")\n else:\n if can:\n print(\"Tam giac nhon can\")\n else:\n print(\"Tam giac nhon\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 5 8",
+            "expected": "Tam giac tu can",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 4 5",
+            "expected": "Tam giac vuong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5 5 6",
+            "expected": "Tam giac nhon can",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2 3 6",
+            "expected": "Khong la tam giac",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 452,
+        "title": "Bài 36 (Vòng lặp for): Giải bài toán cổ Trăm trâu trăm cỏ tổng quát",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $n$ con trâu ăn hết $n$ bó cỏ (mỗi loại trâu đều có ít nhất $1$ con). Biết mỗi trâu đứng ăn $5$ bó cỏ, mỗi trâu nằm ăn $3$ bó cỏ và cứ $3$ trâu già thì ăn chung $1$ bó cỏ. Nhập vào số nguyên dương $n$, sử dụng vòng lặp for để tìm tất cả các bộ nghiệm nguyên dương $(x, y, z)$ lần lượt là số trâu đứng, trâu nằm, trâu già. In mỗi bộ nghiệm trên một dòng theo thứ tự tăng dần của $x$ (cách nhau bởi dấu cách); nếu không có nghiệm nào thì in ra -1.",
+        "templateCode": "n = int(input())\nco_nghiem = False\nfor x in range(1, n // 5 + 1):\n for y in range(1, n // 3 + 1):\n z = n - x - y\n if z >= 1 and 15 * x + 9 * y + z == 3 * n:\n print(x, y, z)\n co_nghiem = True\nif not co_nghiem:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100",
+            "expected": "4 18 78\n8 11 81\n12 4 84",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "50",
+            "expected": "2 9 39\n6 2 42",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "25",
+            "expected": "3 1 21",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 453,
+        "title": "Bài 37 (Vòng lặp for): Đếm số lượng số nguyên tố trong đoạn [a, b]",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên dương $a$ và $b$ ($1 \\le a \\le b \\le 100000$) trên cùng một dòng. Sử dụng vòng lặp for để đếm và in ra số lượng các số nguyên tố nằm trong đoạn từ $a$ đến $b$.",
+        "templateCode": "a, b = map(int, input().split())\ndem = 0\nfor x in range(max(2, a), b + 1):\n la_nt = True\n for i in range(2, int(x ** 0.5) + 1):\n if x % i == 0:\n la_nt = False\n break\n if la_nt:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 20",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 30",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "24 28",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1 100",
+            "expected": "25",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 454,
+        "title": "Bài 38 (Vòng lặp for): Tìm số có tổng các ước nguyên dương lớn nhất trong đoạn [a, b]",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên dương $a$ và $b$ ($1 \\le a \\le b \\le 5000$) trên cùng một dòng. Sử dụng vòng lặp for để tìm số nguyên $x \\in [a, b]$ có tổng tất cả các ước nguyên dương của nó là lớn nhất. Nếu có nhiều số cùng đạt tổng ước lớn nhất thì chọn số $x$ nhỏ nhất. In ra số $x$ và tổng các ước của nó trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "a, b = map(int, input().split())\nbest_x = a\nmax_tong = -1\nfor x in range(a, b + 1):\n tong_uoc = 0\n for i in range(1, int(x ** 0.5) + 1):\n if x % i == 0:\n tong_uoc += i\n if i != x // i:\n tong_uoc += x // i\n if tong_uoc > max_tong:\n max_tong = tong_uoc\n best_x = x\nprint(best_x, max_tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "10 18",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1 12",
+            "expected": "12 28",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "14 15",
+            "expected": "14 24",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "20 30",
+            "expected": "30 72",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 455,
+        "title": "Bài 39 (Vòng lặp for): Đếm số bộ ba số Pytago trong phạm vi n",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$ ($1 \\le n \\le 200$). Sử dụng vòng lặp for để đếm xem có bao nhiêu bộ ba số nguyên dương $(a, b, c)$ thỏa mãn đồng thời $1 \\le a < b < c \\le n$ và $a^2 + b^2 = c^2$.",
+        "templateCode": "import math\nn = int(input())\ndem = 0\nfor a in range(1, n + 1):\n for b in range(a + 1, n + 1):\n c2 = a * a + b * b\n c = math.isqrt(c2)\n if c <= n and c * c == c2:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "20",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 456,
+        "title": "Bài 40 (Vòng lặp for): Tính tổng chuỗi lũy thừa giai thừa xấp xỉ e^x",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào số thực $x$ và số nguyên dương $n$ ($1 \\le n \\le 20$) trên cùng một dòng. Sử dụng một vòng lặp for (không dùng hàm tính giai thừa có sẵn) để tính tổng $S = 1 + \\frac{x}{1!} + \\frac{x^2}{2!} + \\dots + \\frac{x^n}{n!}$. In ra kết quả làm tròn đến $4$ chữ số thập phân.",
+        "templateCode": "inp = input().split()\nx = float(inp[0])\nn = int(inp[1])\ns = 1.0\nso_hang = 1.0\nfor i in range(1, n + 1):\n so_hang = so_hang * x / i\n s += so_hang\nprint(f\"{s:.4f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "2.7183",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 5",
+            "expected": "7.2667",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 8",
+            "expected": "1.0000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "-1 10",
+            "expected": "0.3679",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 457,
+        "title": "Bài 41 (Vòng lặp while): Phân tích số nguyên dương n ra thừa số nguyên tố",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$ ($n \\ge 2$). Sử dụng vòng lặp while để phân tích $n$ thành tích các thừa số nguyên tố theo thứ tự không giảm và in ra biểu thức phân tích (các thừa số nối với nhau bởi dấu *).",
+        "templateCode": "n = int(input())\ni = 2\nthua_so = []\nwhile i * i <= n:\n while n % i == 0:\n thua_so.append(str(i))\n n //= i\n i += 1\nif n > 1:\n thua_so.append(str(n))\nprint(\"*\".join(thua_so))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "60",
+            "expected": "2*2*3*5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "17",
+            "expected": "17",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1024",
+            "expected": "2*2*2*2*2*2*2*2*2*2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "315",
+            "expected": "3*3*5*7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 458,
+        "title": "Bài 42 (Vòng lặp while): Đếm số bước biến đổi Collatz về 1",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Xét quy tắc biến đổi Collatz trên số nguyên dương $n$: nếu $n$ là số chẵn thì thay $n$ bằng $n / 2$; nếu $n$ là số lẻ thì thay $n$ bằng $3n + 1$. Nhập vào số nguyên dương $n$ ($n \\ge 1$), sử dụng vòng lặp while để đếm và in ra số bước biến đổi cần thực hiện để $n$ trở thành $1$.",
+        "templateCode": "n = int(input())\nbuoc = 0\nwhile n != 1:\n if n % 2 == 0:\n n //= 2\n else:\n n = 3 * n + 1\n buoc += 1\nprint(buoc)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "27",
+            "expected": "111",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "16",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 459,
+        "title": "Bài 43 (Vòng lặp while): Kiểm tra các chữ số của n có tăng dần chặt hay không",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$ ($n \\ge 10$). Sử dụng vòng lặp while để tách các chữ số của $n$ và kiểm tra xem các chữ số đọc từ trái sang phải có tạo thành dãy tăng dần chặt hay không (mỗi chữ số đứng sau đều lớn hơn hẳn chữ số đứng ngay trước nó). Nếu đúng in ra Co, ngược lại in ra Khong.",
+        "templateCode": "n = int(input())\ntang_chat = True\ntruoc = 10\nwhile n > 0:\n cs = n % 10\n if cs >= truoc:\n tang_chat = False\n break\n truoc = cs\n n //= 10\nif tang_chat:\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "13589",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1335",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "254",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "49",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 460,
+        "title": "Bài 44 (Vòng lặp while): Tìm bội chung nhỏ nhất của dãy số nhập đến khi gặp 0",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập liên tiếp các số nguyên dương, mỗi số trên một dòng, quá trình nhập kết thúc khi gặp số 0 (đảm bảo có ít nhất một số nguyên dương trước số 0). Sử dụng vòng lặp while để tìm và in ra Bội chung nhỏ nhất (BCNN) của tất cả các số nguyên dương đã nhập.",
+        "templateCode": "bcnn = int(input())\nx = int(input())\nwhile x != 0:\n a, b = bcnn, x\n while b != 0:\n a, b = b, a % b\n bcnn = (bcnn * x) // a\n x = int(input())\nprint(bcnn)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n6\n8\n0",
+            "expected": "24",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n5\n7\n0",
+            "expected": "105",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "12\n0",
+            "expected": "12",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10\n15\n20\n30\n0",
+            "expected": "60",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 461,
+        "title": "Bài 45 (Vòng lặp while): Mô phỏng giao dịch ATM có kiểm tra số dư khả dụng",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một tài khoản ngân hàng có số dư ban đầu là $S$ đồng ($S \\ge 0$). Tiếp theo nhập liên tiếp các giao dịch, mỗi giao dịch là một số nguyên trên một dòng: số dương biểu thị nạp tiền, số âm biểu thị rút tiền, nhập số $0$ để kết thúc phiên giao dịch. Nếu một giao dịch rút tiền có số tiền rút lớn hơn số dư hiện tại thì giao dịch đó bị từ chối (số dư không đổi) và được tính là $1$ giao dịch thất bại. Sử dụng vòng lặp while để xử lý toàn bộ giao dịch, sau đó in ra số dư cuối cùng và số giao dịch bị từ chối trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "so_du = int(input())\ntu_choi = 0\ngd = int(input())\nwhile gd != 0:\n if gd > 0:\n so_du += gd\n else:\n if so_du + gd >= 0:\n so_du += gd\n else:\n tu_choi += 1\n gd = int(input())\nprint(so_du, tu_choi)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1000000\n200000\n-500000\n-900000\n-300000\n0",
+            "expected": "400000 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "500000\n-600000\n-700000\n0",
+            "expected": "500000 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0\n300000\n-300000\n0",
+            "expected": "0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "250000\n0",
+            "expected": "250000 0",
             "point": 2.5,
             "is_hidden": false
           }
