@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T01:12:52.589Z",
+    "updatedAt": "2026-11-14T01:13:24.422Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -11730,10 +11730,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 24,
+        "attempts": 25,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "08:12:52 14/11/2026"
+        "lastSubmit": "08:13:24 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12309,6 +12309,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794618804289,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "assignmentId": 2,
+        "score": 0,
+        "timestamp": "08:13:24 14/11/2026",
+        "date": "2026-11-14",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7",
+            "expected": "YES",
+            "actual": "Yes",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "No",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "NO",
+            "actual": "No",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "997",
+            "expected": "YES",
+            "actual": "Yes",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1 )):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    "
+      },
       {
         "id": 1794618772445,
         "student": "Nguyễn Phú Lộc",
