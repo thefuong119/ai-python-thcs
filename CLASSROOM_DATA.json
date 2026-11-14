@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T23:15:34.627Z",
-    "updatedBy": "Khách",
-    "action": "Thoát ứng dụng - Đồng bộ cuối phiên"
+    "updatedAt": "2026-11-14T23:20:22.741Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 77,
+        "loginCount": 78,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -18190,6 +18190,13 @@
     ],
     "loginLogs": [
       {
+        "time": "06:19:41 15/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "05:56:47 15/11/2026",
         "name": "Nguyễn Thế Phương",
         "identifier": "086081006094",
@@ -19400,7 +19407,39 @@
       },
       "logs": {
         "delete": true
-      }
+      },
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
+      "teacherCanViewLectures": true,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
+      "teacherCanViewAssignments": true,
+      "teacherCanAddTests": true,
+      "teacherCanEditTests": true,
+      "teacherCanDeleteTests": false,
+      "teacherCanViewTests": true,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
+      "teacherCanViewQuiz": true,
+      "teacherCanAddSubmissions": true,
+      "teacherCanEditSubmissions": true,
+      "teacherCanDeleteSubmissions": false,
+      "teacherCanViewSubmissions": true,
+      "teacherCanAddGrades": true,
+      "teacherCanEditGrades": true,
+      "teacherCanDeleteGrades": false,
+      "teacherCanViewGrades": true,
+      "teacherCanAddLogs": true,
+      "teacherCanEditLogs": true,
+      "teacherCanDeleteLogs": false,
+      "teacherCanViewLogs": true,
+      "teacherCanAddMessages": true,
+      "teacherCanEditMessages": true,
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewMessages": true
     },
     "studentMessages": [
       {
