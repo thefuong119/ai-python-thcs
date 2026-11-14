@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T00:53:00.969Z",
+    "updatedAt": "2026-11-14T01:12:52.589Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 12,
+        "loginCount": 13,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -11730,10 +11730,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 23,
+        "attempts": 24,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "22:08:02 13/11/2026"
+        "lastSubmit": "08:12:52 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -12309,6 +12309,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794618772445,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
+        "assignmentId": 2,
+        "score": 0,
+        "timestamp": "08:12:52 14/11/2026",
+        "date": "2026-11-14",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "7",
+            "expected": "YES",
+            "actual": "Yes",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "No",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "NO",
+            "actual": "No",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "997",
+            "expected": "YES",
+            "actual": "Yes",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1 )):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    "
+      },
       {
         "id": 1794576839736,
         "student": "Lê Nguyễn Quang Minh",
@@ -15040,6 +15085,13 @@
     ],
     "loginLogs": [
       {
+        "time": "07:54:52 14/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "07:41:25 14/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -15403,6 +15455,7 @@
       },
       "loc": {
         "1": true,
+        "2": true,
         "3": true,
         "4": true
       },
@@ -16195,7 +16248,8 @@
       "minh__Bài 10. Xếp que diêm thành tháp tam giác": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)",
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
-      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
+      "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
+      "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1 )):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    "
     },
     "questionFlags": {
       "43": true
