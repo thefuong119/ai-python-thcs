@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T23:42:06.582Z",
+    "updatedAt": "2026-11-14T23:42:13.037Z",
     "updatedBy": "Giáo viên Demo",
     "action": "Nạp 30 bài tập"
   },
@@ -15807,6 +15807,1176 @@
             "id": 4,
             "input": "RRUULLDD",
             "expected": "0 0\nCo",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 522,
+        "title": "Bài 106 (Quy hoạch động): Dãy con tăng dài nhất (LIS)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $N$ ($1 \\le N \\le 100000$). Dòng thứ hai nhập $N$ số nguyên $a_1, a_2, \\dots, a_N$. Một dãy con (không nhất thiết gồm các phần tử đứng liền kề) $a_{i_1}, a_{i_2}, \\dots, a_{i_k}$ ($1 \\le i_1 < i_2 < \\dots < i_k \\le N$) được gọi là tăng dần chặt nếu $a_{i_1} < a_{i_2} < \\dots < a_{i_k}$. Hãy tìm và in ra độ dài lớn nhất $k$ của một dãy con tăng dần chặt (yêu cầu độ phức tạp $O(N \\log N)$).",
+        "templateCode": "import bisect\nn = int(input())\na = list(map(int, input().split()))\ntails = []\nfor x in a:\n pos = bisect.bisect_left(tails, x)\n if pos == len(tails):\n tails.append(x)\n else:\n tails[pos] = x\nprint(len(tails))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n10 9 2 5 3 7 101 18",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6\n0 1 0 3 2 3",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n7 7 7 7 7",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n1 2 3 4 5 6",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 523,
+        "title": "Bài 107 (Quy hoạch động): Bài toán cái túi 0/1 (0/1 Knapsack)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $N$ đồ vật, đồ vật thứ $i$ có trọng lượng $w_i$ và giá trị $v_i$. Một chiếc ba lô có sức chứa tối đa là $W$. Dòng đầu tiên nhập hai số nguyên dương $N$ và $W$ ($1 \\le N \\le 200, 1 \\le W \\le 10000$). Trong $N$ dòng tiếp theo, mỗi dòng nhập hai số nguyên dương $w_i$ và $v_i$. Mỗi đồ vật chỉ được chọn tối đa một lần. Hãy tìm và in ra tổng giá trị lớn nhất có thể xếp vào ba lô sao cho tổng trọng lượng không vượt quá $W$.",
+        "templateCode": "n, max_w = map(int, input().split())\ndp = [0] * (max_w + 1)\nfor _ in range(n):\n w, v = map(int, input().split())\n for j in range(max_w, w - 1, -1):\n if dp[j - w] + v > dp[j]:\n dp[j] = dp[j - w] + v\nprint(dp[max_w])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 8\n2 3\n3 4\n4 5\n5 6",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 5\n6 10\n7 20\n8 30",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3 10\n3 30\n4 50\n5 60",
+            "expected": "110",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 15\n12 4\n2 2\n1 1\n1 2\n4 10",
+            "expected": "15",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 524,
+        "title": "Bài 108 (Quy hoạch động): Xâu con chung dài nhất (LCS)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Xâu con của một xâu là xâu thu được bằng cách xóa đi một số (có thể không xóa) ký tự của xâu ban đầu và giữ nguyên thứ tự các ký tự còn lại. Nhập vào hai xâu ký tự $S_1$ và $S_2$ trên hai dòng (độ dài mỗi xâu không quá $1000$). Hãy tìm và in ra độ dài lớn nhất của một xâu con chung của cả $S_1$ và $S_2$.",
+        "templateCode": "s1 = input().strip()\ns2 = input().strip()\nm = len(s2)\ndp = [0] * (m + 1)\nfor c1 in s1:\n new_dp = [0] * (m + 1)\n for j, c2 in enumerate(s2, 1):\n if c1 == c2:\n new_dp[j] = dp[j - 1] + 1\n else:\n new_dp[j] = dp[j] if dp[j] >= new_dp[j - 1] else new_dp[j - 1]\n dp = new_dp\nprint(dp[m])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "abcde\nace",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "AGGTAB\nGXTXAYB",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "abc\ndef",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "banana\nananas",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 525,
+        "title": "Bài 109 (Quy hoạch động): Đổi tiền với số tờ ít nhất cho mệnh giá bất kỳ",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $N$ loại tờ tiền với mệnh giá nguyên dương $c_1, c_2, \\dots, c_N$ (mỗi loại có vô hạn tờ). Dòng đầu tiên nhập hai số nguyên dương $N$ và $S$ ($1 \\le N \\le 100, 1 \\le S \\le 10000$). Dòng thứ hai nhập $N$ số nguyên dương $c_1, c_2, \\dots, c_N$. Hãy tìm số lượng tờ tiền ít nhất cần dùng để tạo thành đúng tổng tiền $S$. Nếu không tồn tại cách đổi nào thì in ra -1.",
+        "templateCode": "n, s = map(int, input().split())\ncoins = list(map(int, input().split()))\nINF = s + 1\ndp = [INF] * (s + 1)\ndp[0] = 0\nfor c in coins:\n for x in range(c, s + 1):\n if dp[x - c] + 1 < dp[x]:\n dp[x] = dp[x - c] + 1\nprint(dp[s] if dp[s] <= s else -1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 11\n1 5 7",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 3\n2 4",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3 6\n1 3 4",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4 27\n2 5 10 1",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 526,
+        "title": "Bài 110 (Quy hoạch động): Đường đi có tổng lớn nhất trên lưới ô vuông",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho bảng chữ nhật kích thước $M \\times N$, mỗi ô $(i, j)$ ghi một số nguyên $a_{i,j}$. Một robot xuất phát tại ô trên cùng bên trái $(1, 1)$ và cần đi đến ô dưới cùng bên phải $(M, N)$. Tại mỗi bước, robot chỉ được phép di chuyển sang phải $(i, j+1)$ hoặc đi xuống dưới $(i+1, j)$. Dòng đầu tiên nhập hai số nguyên dương $M$ và $N$ ($1 \\le M, N \\le 500$). Trong $M$ dòng tiếp theo, mỗi dòng nhập $N$ số nguyên. Hãy tìm và in ra tổng các số lớn nhất trên một đường đi hợp lệ.",
+        "templateCode": "m, n = map(int, input().split())\ngrid = [list(map(int, input().split())) for _ in range(m)]\ndp = [[0] * n for _ in range(m)]\ndp[0][0] = grid[0][0]\nfor j in range(1, n):\n dp[0][j] = dp[0][j - 1] + grid[0][j]\nfor i in range(1, m):\n dp[i][0] = dp[i - 1][0] + grid[i][0]\nfor i in range(1, m):\n for j in range(1, n):\n dp[i][j] = grid[i][j] + (dp[i - 1][j] if dp[i - 1][j] >= dp[i][j - 1] else dp[i][j - 1])\nprint(dp[m - 1][n - 1])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3\n1 3 1\n1 5 1\n4 2 1",
+            "expected": "12",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 3\n-1 -2 -3\n-4 -5 -1",
+            "expected": "-7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1 4\n5 -2 8 3",
+            "expected": "14",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 2\n2 10\n3 4\n8 1",
+            "expected": "17",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 527,
+        "title": "Bài 111 (Tìm kiếm nhị phân đáp án): Chặt gỗ lấy đủ M mét gỗ",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Có $N$ cây gỗ với chiều cao nguyên dương $h_1, h_2, \\dots, h_N$. Khi đặt lưỡi cưa ở độ cao nguyên $H$, mọi cây có chiều cao $h_i > H$ sẽ bị cắt phần ngọn phía trên cho thu được $(h_i - H)$ mét gỗ. Dòng đầu tiên nhập hai số nguyên dương $N$ và $M$ ($1 \\le N \\le 100000, 1 \\le M \\le 10^9$, đảm bảo tổng chiều cao các cây $\\ge M$). Dòng thứ hai nhập $N$ số nguyên dương $h_1, h_2, \\dots, h_N$. Hãy tìm độ cao nguyên $H$ lớn nhất có thể để tổng lượng gỗ thu được ít nhất bằng $M$.",
+        "templateCode": "n, m = map(int, input().split())\nh = list(map(int, input().split()))\nlo, hi = 0, max(h)\nans = 0\nwhile lo <= hi:\n mid = (lo + hi) // 2\n wood = 0\n for x in h:\n if x > mid:\n wood += x - mid\n if wood >= m:\n ans = mid\n lo = mid + 1\n else:\n hi = mid - 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 7\n20 15 10 17",
+            "expected": "15",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 20\n4 42 40 26 46",
+            "expected": "36",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3 15\n5 5 5",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4 1\n10 10 10 10",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 528,
+        "title": "Bài 112 (Tìm kiếm nhị phân đáp án): Chia mảng thành K đoạn có tổng lớn nhất nhỏ nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho dãy gồm $N$ số nguyên dương $a_1, a_2, \\dots, a_N$ và số nguyên dương $K$ ($1 \\le K \\le N \\le 100000$). Hãy chia dãy đã cho thành đúng $K$ đoạn con liên tiếp không rỗng sao cho giá trị lớn nhất trong các tổng của $K$ đoạn đó là nhỏ nhất có thể. Dòng đầu tiên nhập $N$ và $K$; dòng thứ hai nhập $N$ số nguyên dương. In ra giá trị nhỏ nhất tìm được.",
+        "templateCode": "n, k = map(int, input().split())\na = list(map(int, input().split()))\nlo, hi = max(a), sum(a)\nans = hi\nwhile lo <= hi:\n mid = (lo + hi) // 2\n so_doan = 1\n tong = 0\n for x in a:\n if tong + x > mid:\n so_doan += 1\n tong = x\n else:\n tong += x\n if so_doan <= k:\n ans = mid\n hi = mid - 1\n else:\n lo = mid + 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 2\n7 2 5 10 8",
+            "expected": "18",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 5\n1 2 3 4 5",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 1\n10 20 30 40",
+            "expected": "100",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6 3\n4 3 2 5 1 6",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 529,
+        "title": "Bài 113 (Tìm kiếm nhị phân đáp án): Xếp C con bò vào N chuồng với khoảng cách tối thiểu lớn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Trên một trục đường thẳng có $N$ chuồng nằm ở các tọa độ nguyên phân biệt $x_1, x_2, \\dots, x_N$. Cần xếp $C$ con bò vào $C$ chuồng khác nhau sao cho khoảng cách giữa hai con bò gần nhau nhất là lớn nhất có thể. Dòng đầu tiên nhập hai số nguyên dương $N$ và $C$ ($2 \\le C \\le N \\le 100000$). Dòng thứ hai nhập $N$ tọa độ nguyên. In ra khoảng cách tối thiểu lớn nhất tìm được.",
+        "templateCode": "n, c = map(int, input().split())\nx = sorted(map(int, input().split()))\nlo, hi = 1, x[-1] - x[0]\nans = 1\nwhile lo <= hi:\n mid = (lo + hi) // 2\n dem = 1\n last = x[0]\n for pos in x[1:]:\n if pos - last >= mid:\n dem += 1\n last = pos\n if dem >= c:\n ans = mid\n lo = mid + 1\n else:\n hi = mid - 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 8 4 9",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n10 2 6 15",
+            "expected": "13",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 4\n0 5 10 15",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6 3\n1 3 5 7 9 11",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 530,
+        "title": "Bài 114 (Tìm kiếm nhị phân đáp án): Thời gian tối thiểu sản xuất K sản phẩm trên N máy",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một nhà máy có $N$ máy hoạt động độc lập và song song với nhau, máy thứ $i$ cần $t_i$ giây để hoàn thành xong một sản phẩm. Dòng đầu tiên nhập hai số nguyên dương $N$ và $K$ ($1 \\le N \\le 100000, 1 \\le K \\le 10^9$). Dòng thứ hai nhập $N$ số nguyên dương $t_1, t_2, \\dots, t_N$ ($1 \\le t_i \\le 10^9$). Hãy tìm thời gian nguyên (giây) ít nhất để nhà máy sản xuất được tổng cộng ít nhất $K$ sản phẩm.",
+        "templateCode": "n, k = map(int, input().split())\nt = list(map(int, input().split()))\nlo, hi = 1, min(t) * k\nans = hi\nwhile lo <= hi:\n mid = (lo + hi) // 2\n sp = 0\n for ti in t:\n sp += mid // ti\n if sp >= k:\n break\n if sp >= k:\n ans = mid\n hi = mid - 1\n else:\n lo = mid + 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 7\n3 2 5",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 5\n4 6",
+            "expected": "12",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1 10\n7",
+            "expected": "70",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4 100\n1 2 3 4",
+            "expected": "48",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 531,
+        "title": "Bài 115 (Tìm kiếm nhị phân đáp án): Tìm số nhỏ thứ K trong bảng cửu chương M x N",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho bảng số kích thước $M \\times N$, trong đó ô ở hàng $i$, cột $j$ ($1 \\le i \\le M, 1 \\le j \\le N$) chứa giá trị $i \\times j$. Nhập vào ba số nguyên dương $M, N, K$ ($1 \\le M, N \\le 50000, 1 \\le K \\le M \\times N$) trên cùng một dòng. Hãy tìm và in ra phần tử nhỏ thứ $K$ khi sắp xếp toàn bộ $M \\times N$ phần tử của bảng theo thứ tự không giảm.",
+        "templateCode": "m, n, k = map(int, input().split())\nlo, hi = 1, m * n\nans = hi\nwhile lo <= hi:\n mid = (lo + hi) // 2\n dem = 0\n for i in range(1, m + 1):\n add = mid // i\n if add == 0:\n break\n dem += add if add <= n else n\n if dem >= k:\n ans = mid\n hi = mid - 1\n else:\n lo = mid + 1\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 3 5",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2 3 6",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 5 10",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10 10 1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 532,
+        "title": "Bài 116 (Số học nâng cao): Đếm số nguyên tố trong nhiều đoạn [L, R] bằng Sàng Eratosthenes",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $Q$ ($1 \\le Q \\le 100000$) là số lượng truy vấn. Trong $Q$ dòng tiếp theo, mỗi dòng nhập hai số nguyên dương $L$ và $R$ ($1 \\le L \\le R \\le 1000000$). Sử dụng Sàng nguyên tố Eratosthenes kết hợp mảng cộng dồn để trả lời nhanh mỗi truy vấn: in ra số lượng số nguyên tố nằm trong đoạn $[L, R]$ trên từng dòng.",
+        "templateCode": "MAXV = 1000000\nis_prime = bytearray(b'\\x01') * (MAXV + 1)\nis_prime[0] = 0\nis_prime[1] = 0\nfor i in range(2, int(MAXV ** 0.5) + 1):\n if is_prime[i]:\n is_prime[i * i : MAXV + 1 : i] = bytearray((MAXV - i * i) // i + 1)\npref = [0] * (MAXV + 1)\ns = 0\nfor i in range(1, MAXV + 1):\n s += is_prime[i]\n pref[i] = s\n\nq = int(input())\nfor _ in range(q):\n l, r = map(int, input().split())\n print(pref[r] - pref[l - 1])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n1 10\n10 20\n1 100",
+            "expected": "4\n4\n25",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n24 28\n2 2",
+            "expected": "0\n1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2\n1 1000000\n500000 1000000",
+            "expected": "78498\n36960",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1\n14 16",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 533,
+        "title": "Bài 117 (Số học nâng cao): Phân tích thừa số nguyên tố dạng lũy thừa cho nhiều truy vấn",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $Q$ ($1 \\le Q \\le 50000$). Trong $Q$ dòng tiếp theo, mỗi dòng nhập một số nguyên dương $n$ ($2 \\le n \\le 1000000$). Hãy phân tích $n$ ra thừa số nguyên tố dưới dạng chuẩn $p_1^{a_1} \\times p_2^{a_2} \\times \\dots \\times p_k^{a_k}$ với $p_1 < p_2 < \\dots < p_k$, in trên một dòng theo định dạng p1^a1*p2^a2*...*pk^ak.",
+        "templateCode": "MAXV = 1000000\nspf = list(range(MAXV + 1))\nfor i in range(2, int(MAXV ** 0.5) + 1):\n if spf[i] == i:\n for j in range(i * i, MAXV + 1, i):\n if spf[j] == j:\n spf[j] = i\n\nq = int(input())\nfor _ in range(q):\n n = int(input())\n parts = []\n while n > 1:\n p = spf[n]\n cnt = 0\n while n % p == 0:\n n //= p\n cnt += 1\n parts.append(f\"{p}^{cnt}\")\n print(\"*\".join(parts))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3\n60\n17\n360",
+            "expected": "2^2*3^1*5^1\n17^1\n2^3*3^2*5^1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n1024\n999983",
+            "expected": "2^10\n999983^1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2\n2\n1000000",
+            "expected": "2^1\n2^6*5^6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1\n210",
+            "expected": "2^1*3^1*5^1*7^1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 534,
+        "title": "Bài 118 (Số học nâng cao): Lũy thừa nhị phân tính (a^b) mod M",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào ba số nguyên $a, b, M$ ($0 \\le a, b \\le 10^{18}, 1 \\le M \\le 10^9 + 7$) trên cùng một dòng. Hãy cài đặt thuật toán lũy thừa nhị phân (chia để trị trong $O(\\log b)$) để tính và in ra giá trị $a^b \\bmod M$ (quy ước $0^0 = 1$).",
+        "templateCode": "a, b, m = map(int, input().split())\nres = 1 % m\na %= m\nwhile b > 0:\n if b & 1:\n res = (res * a) % m\n a = (a * a) % m\n b >>= 1\nprint(res)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 10 1000",
+            "expected": "24",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 1000000000000000000 1000000007",
+            "expected": "246336683",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 0 7",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "123456789 987654321 1000000007",
+            "expected": "652541198",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 535,
+        "title": "Bài 119 (Số học nâng cao): Đếm số có đúng 3 ước nguyên dương trong đoạn [L, R]",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương có đúng $3$ ước nguyên dương khi và chỉ khi nó là bình phương của một số nguyên tố (ví dụ $4, 9, 25, 49$). Nhập vào hai số nguyên dương $L$ và $R$ ($1 \\le L \\le R \\le 10^{12}$) trên cùng một dòng. Hãy đếm và in ra số lượng các số nằm trong đoạn $[L, R]$ có đúng $3$ ước nguyên dương.",
+        "templateCode": "import math\nl, r = map(int, input().split())\nlo = math.isqrt(l)\nif lo * lo < l:\n lo += 1\nhi = math.isqrt(r)\nif hi < 2:\n print(0)\nelse:\n is_p = bytearray(b'\\x01') * (hi + 1)\n is_p[0] = 0\n is_p[1] = 0\n for i in range(2, int(hi ** 0.5) + 1):\n if is_p[i]:\n is_p[i * i : hi + 1 : i] = bytearray((hi - i * i) // i + 1)\n ans = sum(is_p[max(2, lo) : hi + 1])\n print(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 50",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 20",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 49",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1 1000000000000",
+            "expected": "78498",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 536,
+        "title": "Bài 120 (Số học nâng cao): Tìm cặp số có ƯCLN lớn nhất trong dãy",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $N$ ($2 \\le N \\le 100000$). Dòng thứ hai nhập $N$ số nguyên dương $a_1, a_2, \\dots, a_N$ ($1 \\le a_i \\le 1000000$). Hãy tìm giá trị lớn nhất của Ước chung lớn nhất $\\text{ƯCLN}(a_i, a_j)$ với $1 \\le i < j \\le N$ (yêu cầu độ phức tạp $O(V \\log V)$ với $V = \\max a_i$).",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nmax_v = max(a)\ncnt = [0] * (max_v + 1)\nfor x in a:\n cnt[x] += 1\nans = 1\nfor g in range(max_v, 0, -1):\n dem = 0\n for m in range(g, max_v + 1, g):\n dem += cnt[m]\n if dem >= 2:\n ans = g\n break\n if ans == g:\n break\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n4 6 8 9 12",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n7 7 7 7",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n11 13 17",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n15 25 35 45 60 90",
+            "expected": "45",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 537,
+        "title": "Bài 121 (Ngăn xếp đơn điệu): Diện tích hình chữ nhật lớn nhất trong biểu đồ cột",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một biểu đồ gồm $N$ cột hình chữ nhật đứng sát nhau, mỗi cột có bề rộng bằng $1$ và chiều cao lần lượt là $h_1, h_2, \\dots, h_N$. Dòng đầu tiên nhập số nguyên dương $N$ ($1 \\le N \\le 100000$). Dòng thứ hai nhập $N$ số nguyên không âm $h_1, h_2, \\dots, h_N$. Hãy tìm diện tích hình chữ nhật lớn nhất có thể cắt ra nằm trọn bên trong biểu đồ cột đã cho (sử dụng ngăn xếp đơn điệu $O(N)$).",
+        "templateCode": "n = int(input())\nh = list(map(int, input().split())) + [0]\nst = []\nmax_area = 0\nfor i, cur_h in enumerate(h):\n while st and h[st[-1]] > cur_h:\n height = h[st.pop()]\n width = i if not st else i - st[-1] - 1\n area = height * width\n if area > max_area:\n max_area = area\n st.append(i)\nprint(max_area)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n2 1 5 6 2 3",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2\n2 4",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n5 5 5 5 5",
+            "expected": "25",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7\n6 2 5 4 5 1 6",
+            "expected": "12",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 538,
+        "title": "Bài 122 (Ngăn xếp): Kiểm tra dãy ngoặc đúng nhiều loại và tìm độ sâu lồng nhau tối đa",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho một xâu $S$ chỉ gồm $6$ loại ký tự ngoặc: '(', ')', '[', ']', '{', '}'. Hãy kiểm tra xem $S$ có tạo thành một dãy ngoặc cân bằng hợp lệ hay không. Nếu hợp lệ thì in ra Hop le kèm theo độ sâu lồng nhau lớn nhất của các cặp ngoặc (cách nhau bởi dấu cách); nếu không hợp lệ thì in ra Khong hop le.",
+        "templateCode": "s = input().strip()\ncap = {')': '(', ']': '[', '}': '{'}\nst = []\nmax_depth = 0\nok = True\nfor ch in s:\n if ch in '([{':\n st.append(ch)\n if len(st) > max_depth:\n max_depth = len(st)\n else:\n if not st or st[-1] != cap[ch]:\n ok = False\n break\n st.pop()\nif ok and not st:\n print(\"Hop le\", max_depth)\nelse:\n print(\"Khong hop le\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "{[()]}()",
+            "expected": "Hop le 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "([)]",
+            "expected": "Khong hop le",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "((([])))",
+            "expected": "Hop le 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "((()",
+            "expected": "Khong hop le",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 539,
+        "title": "Bài 123 (Ngăn xếp đơn điệu): Tìm phần tử lớn hơn gần nhất bên phải",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $N$ ($1 \\le N \\le 100000$). Dòng thứ hai nhập $N$ số nguyên $a_1, a_2, \\dots, a_N$. Với mỗi vị trí $i$ ($1 \\le i \\le N$), hãy tìm giá trị của phần tử đầu tiên nằm ở bên phải $i$ ($j > i$) sao cho $a_j > a_i$; nếu không tồn tại phần tử nào như vậy thì ghi $-1$. In ra $N$ kết quả trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nans = [-1] * n\nst = []\nfor i, x in enumerate(a):\n while st and a[st[-1]] < x:\n ans[st.pop()] = x\n st.append(i)\nprint(\" \".join(map(str, ans)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n4 5 2 25 10",
+            "expected": "5 25 25 -1 -1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n10 8 6 4",
+            "expected": "-1 -1 -1 -1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n1 2 3 4 5",
+            "expected": "2 3 4 5 -1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n3 7 1 7 8 2",
+            "expected": "7 8 7 8 -1 -1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 540,
+        "title": "Bài 124 (Mảng hiệu - Difference Array): Cập nhật tăng đoạn [L, R] với nhiều truy vấn",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập hai số nguyên dương $N$ và $Q$ ($1 \\le N, Q \\le 100000$). Dòng thứ hai nhập $N$ số nguyên ban đầu $a_1, a_2, \\dots, a_N$. Trong $Q$ dòng tiếp theo, mỗi dòng gồm ba số nguyên $L, R, V$ ($1 \\le L \\le R \\le N$) yêu cầu cộng thêm giá trị $V$ vào tất cả các phần tử từ vị trí $L$ đến vị trí $R$. Sử dụng kỹ thuật mảng hiệu để in ra dãy số cuối cùng sau $Q$ truy vấn trên một dòng.",
+        "templateCode": "n, q = map(int, input().split())\na = list(map(int, input().split()))\ndiff = [0] * (n + 2)\nfor _ in range(q):\n l, r, v = map(int, input().split())\n diff[l] += v\n diff[r + 1] -= v\ncur = 0\nfor i in range(1, n + 1):\n cur += diff[i]\n a[i - 1] += cur\nprint(\" \".join(map(str, a)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 3\n1 2 3 4 5\n1 3 10\n2 5 -2\n4 4 5",
+            "expected": "11 10 11 7 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2\n0 0 0 0\n1 4 5\n2 3 3",
+            "expected": "5 8 8 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3 1\n10 20 30\n2 2 -15",
+            "expected": "10 5 30",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 2\n5 5 5 5 5\n1 2 1\n4 5 -1",
+            "expected": "6 6 5 4 4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 541,
+        "title": "Bài 125 (Cửa sổ trượt): Đoạn con ngắn nhất có tổng lớn hơn hoặc bằng S",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập hai số nguyên dương $N$ và $S$ ($1 \\le N \\le 100000, 1 \\le S \\le 10^{12}$). Dòng thứ hai nhập $N$ số nguyên dương $a_1, a_2, \\dots, a_N$. Hãy tìm độ dài nhỏ nhất của một đoạn con gồm các phần tử đứng liên tiếp nhau có tổng lớn hơn hoặc bằng $S$. Nếu không có đoạn con nào thỏa mãn thì in ra 0.",
+        "templateCode": "n, s = map(int, input().split())\na = list(map(int, input().split()))\nans = n + 1\ntong = 0\nleft = 0\nfor right, x in enumerate(a):\n tong += x\n while tong >= s:\n if right - left + 1 < ans:\n ans = right - left + 1\n tong -= a[left]\n left += 1\nprint(ans if ans <= n else 0)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 7\n2 3 1 2 4 3",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 15\n1 2 3 4 5",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 100\n10 20 30 10",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 4\n1 4 4 1 1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 542,
+        "title": "Bài 126 (Đồ thị - BFS): Tìm đường đi ngắn nhất trên đồ thị vô hướng",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho đồ thị vô hướng gồm $N$ đỉnh (đánh số từ $1$ đến $N$) và $M$ cạnh. Dòng đầu tiên nhập bốn số nguyên dương $N, M, S, T$ ($1 \\le N \\le 100000, 0 \\le M \\le 200000, 1 \\le S, T \\le N$). Trong $M$ dòng tiếp theo, mỗi dòng nhập hai số nguyên $u$ và $v$ biểu thị một cạnh nối giữa hai đỉnh $u$ và $v$. Hãy tìm số cạnh ít nhất trên đường đi từ đỉnh $S$ đến đỉnh $T$; nếu không có đường đi thì in ra -1.",
+        "templateCode": "from collections import deque\nn, m, s, t = map(int, input().split())\nadj = [[] for _ in range(n + 1)]\nfor _ in range(m):\n u, v = map(int, input().split())\n adj[u].append(v)\n adj[v].append(u)\ndist = [-1] * (n + 1)\ndist[s] = 0\nq = deque([s])\nwhile q:\n u = q.popleft()\n if u == t:\n break\n for v in adj[u]:\n if dist[v] == -1:\n dist[v] = dist[u] + 1\n q.append(v)\nprint(dist[t])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 7 1 6\n1 2\n1 3\n2 4\n3 4\n4 5\n5 6\n3 6",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 2 1 4\n1 2\n3 4",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5 0 3 3",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 4 1 5\n1 2\n2 3\n3 4\n4 5",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 543,
+        "title": "Bài 127 (Đồ thị - BFS): Đếm số thành phần liên thông và kích thước thành phần lớn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho đồ thị vô hướng gồm $N$ đỉnh (từ $1$ đến $N$) và $M$ cạnh. Dòng đầu tiên nhập $N$ và $M$ ($1 \\le N \\le 100000, 0 \\le M \\le 200000$). Trong $M$ dòng tiếp theo, mỗi dòng nhập hai đỉnh $u, v$ của một cạnh. Hãy tìm tổng số thành phần liên thông của đồ thị và số lượng đỉnh của thành phần liên thông lớn nhất. In hai kết quả trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "from collections import deque\nn, m = map(int, input().split())\nadj = [[] for _ in range(n + 1)]\nfor _ in range(m):\n u, v = map(int, input().split())\n adj[u].append(v)\n adj[v].append(u)\nvis = [False] * (n + 1)\nso_tplt = 0\nmax_sz = 0\nfor i in range(1, n + 1):\n if not vis[i]:\n so_tplt += 1\n vis[i] = True\n q = deque([i])\n sz = 0\n while q:\n u = q.popleft()\n sz += 1\n for v in adj[u]:\n if not vis[v]:\n vis[v] = True\n q.append(v)\n if sz > max_sz:\n max_sz = sz\nprint(so_tplt, max_sz)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7 5\n1 2\n2 3\n4 5\n5 6\n6 4",
+            "expected": "3 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 0",
+            "expected": "5 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 4\n1 2\n2 3\n3 4\n4 1",
+            "expected": "1 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6 3\n1 2\n3 4\n5 6",
+            "expected": "3 2",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 544,
+        "title": "Bài 128 (Lưới 2D - Loang / Flood Fill): Đếm số hòn đảo và diện tích đảo lớn nhất",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Bản đồ vùng biển được biểu diễn bởi ma trận kích thước $M \\times N$ gồm các số $0$ (nước biển) và $1$ (đất liền). Hai ô đất liền được coi là thuộc cùng một hòn đảo nếu chúng chung cạnh (trên, dưới, trái, phải). Dòng đầu tiên nhập hai số nguyên dương $M$ và $N$ ($1 \\le M, N \\le 500$). Trong $M$ dòng tiếp theo, mỗi dòng nhập $N$ số (0 hoặc 1). Hãy in ra số lượng hòn đảo và diện tích (số ô đất) của hòn đảo lớn nhất trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "from collections import deque\nm, n = map(int, input().split())\ngrid = [list(map(int, input().split())) for _ in range(m)]\nso_dao = 0\nmax_dt = 0\ndirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]\nfor i in range(m):\n for j in range(n):\n if grid[i][j] == 1:\n so_dao += 1\n grid[i][j] = 0\n q = deque([(i, j)])\n dt = 0\n while q:\n r, c = q.popleft()\n dt += 1\n for dr, dc in dirs:\n nr, nc = r + dr, c + dc\n if 0 <= nr < m and 0 <= nc < n and grid[nr][nc] == 1:\n grid[nr][nc] = 0\n q.append((nr, nc))\n if dt > max_dt:\n max_dt = dt\nprint(so_dao, max_dt)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
+            "expected": "3 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n0 0 0\n0 0 0\n0 0 0",
+            "expected": "0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2 4\n1 1 1 1\n1 1 1 1",
+            "expected": "1 8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 3\n1 0 1\n0 1 0\n1 0 1",
+            "expected": "5 1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 545,
+        "title": "Bài 129 (Lưới 2D - BFS): Tìm đường đi ngắn nhất thoát khỏi mê cung",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Một mê cung kích thước $M \\times N$ gồm các ký tự: '.' (ô trống có thể đi qua), '#' (tường chắn), 'S' (vị trí xuất phát) và 'E' (cửa thoát hiểm). Từ một ô, bạn có thể bước sang $4$ ô kề cạnh (lên, xuống, trái, phải). Dòng đầu tiên nhập $M$ và $N$ ($1 \\le M, N \\le 500$). Trong $M$ dòng tiếp theo, mỗi dòng là một xâu độ dài $N$. Hãy tìm số bước di chuyển ít nhất từ 'S' đến 'E'; nếu không thể đến được 'E' thì in ra -1.",
+        "templateCode": "from collections import deque\nm, n = map(int, input().split())\ngrid = [list(input().strip()) for _ in range(m)]\nsr = sc = er = ec = -1\nfor i in range(m):\n for j in range(n):\n if grid[i][j] == 'S':\n sr, sc = i, j\n elif grid[i][j] == 'E':\n er, ec = i, j\ndist = [[-1] * n for _ in range(m)]\ndist[sr][sc] = 0\nq = deque([(sr, sc)])\ndirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]\nwhile q:\n r, c = q.popleft()\n if r == er and c == ec:\n break\n for dr, dc in dirs:\n nr, nc = r + dr, c + dc\n if 0 <= nr < m and 0 <= nc < n and grid[nr][nc] != '#' and dist[nr][nc] == -1:\n dist[nr][nc] = dist[r][c] + 1\n q.append((nr, nc))\nprint(dist[er][ec])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 5\nS..#.\n.#...\n.#.#E\n...#.",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\nS#.\n##.\n..E",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2 2\nSE\n..",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 4\nS...\n###.\nE...",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 546,
+        "title": "Bài 130 (Đồ thị hai phía - Bipartite): Phân chia hai đội không có cặp xung đột",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Lớp có $N$ học sinh (đánh số từ $1$ đến $N$) và có $M$ cặp học sinh không hòa thuận với nhau. Thầy giáo muốn chia toàn bộ $N$ học sinh vào $2$ đội sao cho hai học sinh bất kỳ trong cùng một đội đều không có xung đột với nhau. Dòng đầu tiên nhập $N$ và $M$ ($1 \\le N \\le 100000, 0 \\le M \\le 200000$). Trong $M$ dòng tiếp theo, mỗi dòng nhập hai số nguyên $u, v$ là một cặp xung đột. Nếu có thể phân chia hợp lệ (đồ thị hai phía) thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "from collections import deque\nn, m = map(int, input().split())\nadj = [[] for _ in range(n + 1)]\nfor _ in range(m):\n u, v = map(int, input().split())\n adj[u].append(v)\n adj[v].append(u)\ncolor = [-1] * (n + 1)\nok = True\nfor i in range(1, n + 1):\n if color[i] == -1:\n color[i] = 0\n q = deque([i])\n while q and ok:\n u = q.popleft()\n for v in adj[u]:\n if color[v] == -1:\n color[v] = 1 - color[u]\n q.append(v)\n elif color[v] == color[u]:\n ok = False\n break\nprint(\"Co\" if ok else \"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4 4\n1 2\n2 3\n3 4\n4 1",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3 3\n1 2\n2 3\n3 1",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5 2\n1 2\n3 4",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6 6\n1 2\n2 3\n3 4\n4 5\n5 1\n1 6",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 547,
+        "title": "Bài 131 (Xâu nâng cao - Cửa sổ trượt): Xâu con dài nhất không chứa ký tự lặp lại",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ không chứa khoảng trắng (độ dài $1 \\le |S| \\le 100000$). Hãy tìm và in ra độ dài lớn nhất của một xâu con gồm các ký tự đứng liên tiếp nhau trong $S$ sao cho tất cả các ký tự trong xâu con đó đều đôi một phân biệt.",
+        "templateCode": "s = input().strip()\nlast_pos = {}\nleft = 0\nmax_len = 0\nfor right, ch in enumerate(s):\n if ch in last_pos and last_pos[ch] >= left:\n left = last_pos[ch] + 1\n last_pos[ch] = right\n if right - left + 1 > max_len:\n max_len = right - left + 1\nprint(max_len)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "abcabcbb",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "bbbbb",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "pwwkew",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "abcdefg",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 548,
+        "title": "Bài 132 (Xâu nâng cao): Xâu con đối xứng dài nhất (Longest Palindromic Substring)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ không chứa khoảng trắng (độ dài $1 \\le |S| \\le 2000$). Hãy tìm và in ra độ dài lớn nhất của một xâu con gồm các ký tự đứng liên tiếp trong $S$ tạo thành một xâu đối xứng.",
+        "templateCode": "s = input().strip()\nn = len(s)\nmax_len = 1\nfor center in range(n):\n for l, r in ((center, center), (center, center + 1)):\n while l >= 0 and r < n and s[l] == s[r]:\n if r - l + 1 > max_len:\n max_len = r - l + 1\n l -= 1\n r += 1\nprint(max_len)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "babad",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "cbbd",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "abacdfgdcaba",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "forgeeksskeegfor",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 549,
+        "title": "Bài 133 (Quay lui - Backtracking): Sinh dãy nhị phân độ dài N không có hai số 1 liền nhau",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào số nguyên dương $N$ ($1 \\le N \\le 15$). Sử dụng thuật toán quay lui để liệt kê tất cả các xâu nhị phân độ dài $N$ (chỉ gồm ký tự '0' và '1') sao cho không có hai ký tự '1' nào đứng cạnh nhau. Dòng đầu tiên in ra tổng số xâu tìm được; các dòng tiếp theo in ra các xâu theo thứ tự từ điển tăng dần.",
+        "templateCode": "n = int(input())\nkq = []\ncur = []\ndef quay_lui(pos, prev):\n if pos == n:\n kq.append(\"\".join(cur))\n return\n cur.append('0')\n quay_lui(pos + 1, '0')\n cur.pop()\n if prev != '1':\n cur.append('1')\n quay_lui(pos + 1, '1')\n cur.pop()\nquay_lui(0, '0')\nprint(len(kq))\nfor s in kq:\n print(s)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "5\n000\n001\n010\n100\n101",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "2\n0\n1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2",
+            "expected": "3\n00\n01\n10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4",
+            "expected": "8\n0000\n0001\n0010\n0100\n0101\n1000\n1001\n1010",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 550,
+        "title": "Bài 134 (Quay lui - Backtracking): Bài toán N quân hậu trên bàn cờ N x N",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $N$ ($1 \\le N \\le 11$). Hãy sử dụng thuật toán quay lui để đếm và in ra số cách đặt $N$ quân hậu lên bàn cờ vua kích thước $N \\times N$ sao cho không có hai quân hậu nào có thể ăn được nhau (không cùng hàng, không cùng cột và không cùng đường chéo).",
+        "templateCode": "n = int(input())\ncot = [False] * n\ncheo1 = [False] * (2 * n)\ncheo2 = [False] * (2 * n)\ndem = 0\ndef dat_hau(r):\n global dem\n if r == n:\n dem += 1\n return\n for c in range(n):\n if not cot[c] and not cheo1[r - c + n] and not cheo2[r + c]:\n cot[c] = cheo1[r - c + n] = cheo2[r + c] = True\n dat_hau(r + 1)\n cot[c] = cheo1[r - c + n] = cheo2[r + c] = False\ndat_hau(0)\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "8",
+            "expected": "92",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 551,
+        "title": "Bài 135 (Chia để trị): Đếm số cặp nghịch thế trong mảng (Inversion Count)",
+        "classLevel": "9",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Cho dãy gồm $N$ số nguyên $a_1, a_2, \\dots, a_N$. Một cặp chỉ số $(i, j)$ được gọi là một cặp nghịch thế nếu $1 \\le i < j \\le N$ và $a_i > a_j$. Dòng đầu tiên nhập số nguyên dương $N$ ($1 \\le N \\le 100000$). Dòng thứ hai nhập $N$ số nguyên $a_1, a_2, \\dots, a_N$. Hãy sử dụng thuật toán sắp xếp trộn (Merge Sort) trong $O(N \\log N)$ để đếm và in ra tổng số cặp nghịch thế của dãy.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndef merge_count(arr):\n if len(arr) <= 1:\n return arr, 0\n mid = len(arr) // 2\n left, inv_l = merge_count(arr[:mid])\n right, inv_r = merge_count(arr[mid:])\n merged = []\n i = j = 0\n inv = inv_l + inv_r\n len_l = len(left)\n while i < len_l and j < len(right):\n if left[i] <= right[j]:\n merged.append(left[i])\n i += 1\n else:\n merged.append(right[j])\n inv += len_l - i\n j += 1\n merged.extend(left[i:])\n merged.extend(right[j:])\n return merged, inv\n_, ans = merge_count(a)\nprint(ans)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n2 4 1 3 5",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n4 3 2 1",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n1 2 3 4 5",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n5 3 5 2 5 1",
+            "expected": "9",
             "point": 2.5,
             "is_hidden": false
           }
