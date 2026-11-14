@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-14T00:30:01.815Z",
-    "updatedBy": "Lê Duy Đàn",
-    "action": "Đăng xuất: Lê Duy Đàn"
+    "updatedAt": "2026-11-14T00:30:41.809Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 75,
+        "loginCount": 76,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 6,
+        "loginCount": 7,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -316,23 +316,6 @@
         "loginCount": 4,
         "_hasPassword": true,
         "password": null
-      },
-      {
-        "id": 1794616181550,
-        "name": "Lê Duy Đàn",
-        "username": "duydan",
-        "identifier": "duydan",
-        "passwordHash": "efe0c2e1d528a912d6356c9520f3a1e41a0ba85f71758c5f799de6c465a6778e",
-        "school": "THCS Thành Đông",
-        "className": "8A6",
-        "phone": "09123456779",
-        "cccd": "",
-        "email": "thefuong119@gmail.com",
-        "role": "student",
-        "status": "active",
-        "loginCount": 1,
-        "password": null,
-        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -15057,18 +15040,25 @@
     ],
     "loginLogs": [
       {
-        "time": "07:30:01 14/11/2026",
-        "name": "Lê Duy Đàn",
-        "identifier": "duydan",
+        "time": "07:30:16 14/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
+        "time": "07:27:33 14/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
         "role": "student",
         "result": "Đăng xuất"
       },
       {
-        "time": "07:29:41 14/11/2026",
-        "name": "Lê Duy Đàn",
-        "identifier": "duydan",
+        "time": "07:24:18 14/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
         "role": "student",
-        "result": "Đăng ký thành công"
+        "result": "Thành công"
       },
       {
         "time": "00:34:38 14/11/2026",
@@ -16234,7 +16224,7 @@
         "delete": true
       },
       "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
+      "teacherCanLoadServer": true,
       "teacherCanAdd": true,
       "teacherCanEdit": false,
       "teacherCanDelete": false
