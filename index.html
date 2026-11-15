@@ -142,6 +142,63 @@
         .quiz-option-text code { word-break: break-word; }
         .quiz-option .quiz-letter { align-self: flex-start; margin-top: 2px; }
     </style>
+
+    <!-- BẮT ĐẦU PATCH TOOL: SỬA LỖI KHUNG CHAT GIA SƯ AI -->
+    <style id="patch-ai-tutor-style">
+        /* 0. Bảo hiểm: Ép các thẻ có class .hidden phải ẩn đi, không cho phép hiển thị */
+        .fixed.inset-0.hidden {
+            display: none !important;
+        }
+
+        /* 1. Khóa chặt khung Modal: Chỉ can thiệp KHI VÀ CHỈ KHI Form đang hiển thị */
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 1rem !important;
+        }
+        
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) > div {
+            max-height: 90vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden !important;
+            border-radius: 1rem !important;
+            pointer-events: auto !important;
+        }
+
+        /* 2. Phần Header (chứa nút X): Đẩy z-index lên cao nhất để không bị che */
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) > div > div:first-child {
+            flex-shrink: 0 !important;
+            position: relative !important;
+            z-index: 100 !important; 
+        }
+
+        /* 3. Phần thân Chat (tin nhắn): Tự động co giãn và cuộn */
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) > div > .overflow-y-auto,
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) > div > div:nth-child(2) {
+            flex: 1 1 0% !important;
+            overflow-y: auto !important;
+            min-height: 0 !important;
+            z-index: 10 !important;
+        }
+
+        /* 4. Phần Footer (chứa ô nhập): Ghim xuống đáy, tăng z-index */
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) > div > div:last-child {
+            flex-shrink: 0 !important;
+            background-color: #ffffff !important;
+            position: relative !important;
+            z-index: 100 !important;
+            border-top: 1px solid #e2e8f0 !important;
+        }
+
+        /* 5. Bảo hiểm riêng cho nút X: Đảm bảo không bị mất con trỏ chuột */
+        .fixed.inset-0:has(input[placeholder*="Đặt câu hỏi về bài tập Python"]):not(.hidden):not([style*="display: none"]) button {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+    </style>
+    <!-- KẾT THÚC PATCH TOOL -->
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
