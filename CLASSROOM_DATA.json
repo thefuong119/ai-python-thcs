@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T09:01:19.219Z",
+    "updatedAt": "2026-11-15T09:02:05.734Z",
     "updatedBy": "Phan Trọng Khương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Phan Trọng Khương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14726,9 +14726,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 14,
+        "attempts": 15,
         "highestScore": 10,
-        "lastSubmit": "15:48:43 15/11/2026"
+        "lastSubmit": "16:02:05 15/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794733325595,
+        "student": "Phan Trọng Khương",
+        "username": "khuong",
+        "assignmentTitle": "Định giá đơn hàng theo biểu thức tính toán rút gọn",
+        "assignmentId": 315,
+        "score": 10,
+        "timestamp": "16:02:05 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "15000+20000-5000",
+            "expected": "30000",
+            "actual": "30000",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "100-20-30+50",
+            "expected": "100",
+            "actual": "100",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n    if ch.isdigit():\n        so_hien_tai = so_hien_tai * 10 + int(ch)\n    elif ch in ['+', '-']:\n        tong += dau * so_hien_tai\n        so_hien_tai = 0\n        dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)"
+      },
       {
         "id": 1794732523730,
         "student": "Phan Trọng Khương",
@@ -19272,7 +19301,8 @@
       },
       "khuong": {
         "1": true,
-        "8": true
+        "8": true,
+        "315": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -20076,6 +20106,31 @@
           }
         ]
       },
+      "315": {
+        "id": 315,
+        "title": "Định giá đơn hàng theo biểu thức tính toán rút gọn",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một phần mềm thu ngân cho phép nhân viên nhập nhanh biểu thức tính tổng tiền gồm các phép toán cộng và trừ giữa các số nguyên không âm (ví dụ: `15000+20000-5000+12000`). Hãy viết chương trình nhận vào một chuỗi biểu thức chỉ chứa các số nguyên và hai dấu toán tử '+' hoặc '-', tính và in ra giá trị cuối cùng của biểu thức.\n\nDữ liệu vào: Một chuỗi ký tự $S$ là biểu thức số học không chứa dấu cách (độ dài không quá 1000 ký tự).\nDữ liệu ra: Một số nguyên duy nhất là kết quả của biểu thức.",
+        "templateCode": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n    if ch.isdigit():\n        so_hien_tai = so_hien_tai * 10 + int(ch)\n    elif ch in ['+', '-']:\n        tong += dau * so_hien_tai\n        so_hien_tai = 0\n        dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "15000+20000-5000",
+            "expected": "30000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100-20-30+50",
+            "expected": "100",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -20277,7 +20332,8 @@
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
       "khuong__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "khuong__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
+      "khuong__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)",
+      "khuong__Định giá đơn hàng theo biểu thức tính toán rút gọn": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n    if ch.isdigit():\n        so_hien_tai = so_hien_tai * 10 + int(ch)\n    elif ch in ['+', '-']:\n        tong += dau * so_hien_tai\n        so_hien_tai = 0\n        dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)"
     },
     "questionFlags": {
       "43": true
