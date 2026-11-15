@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T11:08:52.474Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
+    "updatedAt": "2026-11-15T11:39:43.676Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 15,
+        "loginCount": 14,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -14672,10 +14672,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 29,
+        "attempts": 28,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "18:08:52 15/11/2026"
+        "lastSubmit": "08:16:04 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -15258,51 +15258,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794740932284,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 13. Giải nén xâu ký tự",
-        "assignmentId": 18,
-        "score": 0,
-        "timestamp": "18:08:52 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3a5bc",
-            "expected": "aaabbbbbc",
-            "actual": "131a151b1c",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "4a3b",
-            "expected": "aaaabbb",
-            "actual": "141a131b",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "2a10b1c",
-            "expected": "aabbbbbbbbbbc",
-            "actual": "121a11101b111c",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "xyz",
-            "expected": "xyz",
-            "actual": "1x1y1z",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nfrom itertools import groupby\ns= input()\nn= str(s)\nhopnhat= \"\".join(f\"{len(list(group))}{char}\" for char, group in groupby(n))\nprint(hopnhat)"
-      },
       {
         "id": 1794732759960,
         "student": "Lê Nguyễn Quang Minh",
@@ -18655,13 +18610,6 @@
     ],
     "loginLogs": [
       {
-        "time": "17:13:20 15/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "15:51:16 15/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -19237,8 +19185,7 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true,
-        "18": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -19686,45 +19633,6 @@
             "id": 4,
             "input": "3 6",
             "expected": "6",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "18": {
-        "id": 18,
-        "title": "Bài 13. Giải nén xâu ký tự",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Trong nén văn bản, một phương pháp nén đơn giản thay thế các đoạn ký tự lặp liên tiếp bằng số lần lặp kèm theo ký tự đó. Ví dụ: xâu aaaabbb được nén thành 4a3b; xâu aaab nén thành 3ab; nếu ký tự xuất hiện 1 lần thì có thể không ghi số (ví dụ c thay vì 1c).\nCho một xâu ký tự nén St. Hãy viết chương trình giải nén xâu St để thu lại xâu ký tự ban đầu.\n\n- Dữ liệu vào: Một dòng chứa xâu ký tự St gồm các chữ số và chữ cái tiếng Anh in thường (1 <= |St| <= 255).\n- Dữ liệu ra: In ra xâu ký tự sau khi giải nén.",
-        "templateCode": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3a5bc",
-            "expected": "aaabbbbbc",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "4a3b",
-            "expected": "aaaabbb",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "2a10b1c",
-            "expected": "aabbbbbbbbbbc",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "xyz",
-            "expected": "xyz",
             "point": 2.5,
             "is_hidden": true
           }
@@ -20285,8 +20193,7 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "loc__Bài 13. Giải nén xâu ký tự": "# Viết mã Python của em ở đây...\nfrom itertools import groupby\ns= input()\nn= str(s)\nhopnhat= \"\".join(f\"{len(list(group))}{char}\" for char, group in groupby(n))\nprint(hopnhat)"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
