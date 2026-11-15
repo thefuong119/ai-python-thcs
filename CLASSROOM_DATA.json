@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:04:16.879Z",
+    "updatedAt": "2026-11-15T08:04:47.009Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 33,
+        "attempts": 34,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "14:58:57 15/11/2026"
+        "lastSubmit": "15:04:46 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794729886907,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Chương trình khuyến mãi Mua K tặng 1",
+        "assignmentId": 275,
+        "score": 10,
+        "timestamp": "15:04:46 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10 4 20000",
+            "expected": "160000",
+            "actual": "160000",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "14 3 50000",
+            "expected": "550000",
+            "actual": "550000",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))"
+      },
       {
         "id": 1794729537117,
         "student": "Lê Nguyễn Quang Minh",
@@ -18906,7 +18935,8 @@
         "11": true,
         "17": true,
         "28": true,
-        "267": true
+        "267": true,
+        "275": true
       },
       "hocsinh": {
         "1": true,
@@ -19546,6 +19576,31 @@
           }
         ]
       },
+      "275": {
+        "id": 275,
+        "title": "Chương trình khuyến mãi Mua K tặng 1",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Khách mua $K$1$P$1$N$1$N$1$N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 500000$).\nDữ liệu ra: Một số nguyên là số tiền tối thiểu cần thanh toán.",
+        "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\nso_du = N % (K + 1)\nso_quyen_phai_mua = so_nhom * K + so_du\nprint(so_quyen_phai_mua * P)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 4 20000",
+            "expected": "160000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "14 3 50000",
+            "expected": "550000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "313": {
         "id": 313,
         "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
@@ -19765,7 +19820,8 @@
       "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    ",
       "giaovien__Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New-Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = (50*1800)+((kwh-50)*1900)\nelse: Tien = (50*1800)+(50*1800)+((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
-      "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)"
+      "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)",
+      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))"
     },
     "questionFlags": {
       "43": true
