@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T03:40:24.829Z",
-    "updatedBy": "Mai văn hiệp",
-    "action": "Đăng xuất: Mai văn hiệp"
+    "updatedAt": "2026-11-15T05:05:27.916Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 13,
+        "loginCount": 14,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -331,8 +331,8 @@
         "role": "teacher",
         "status": "active",
         "loginCount": 1,
-        "password": null,
-        "_hasPassword": true
+        "_hasPassword": true,
+        "password": null
       }
     ],
     "assignments": [
@@ -18207,6 +18207,13 @@
     ],
     "loginLogs": [
       {
+        "time": "12:03:35 15/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "10:40:24 15/11/2026",
         "name": "Mai văn hiệp",
         "identifier": "vanhiep",
@@ -19485,9 +19492,30 @@
       "teacherCanAdd": true,
       "teacherCanEdit": false,
       "teacherCanDelete": false,
-      "teacherCanReplyMessages": true,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
+      "lectures": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "assignments": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "quiz": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "messages": {
+        "edit": true,
+        "delete": true
+      },
+      "logs": {
+        "delete": true
+      },
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -19520,28 +19548,7 @@
       "teacherCanEditMessages": true,
       "teacherCanDeleteMessages": false,
       "teacherCanViewMessages": true,
-      "lectures": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "assignments": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "quiz": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "messages": {
-        "edit": true,
-        "delete": true
-      },
-      "logs": {
-        "delete": true
-      }
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
