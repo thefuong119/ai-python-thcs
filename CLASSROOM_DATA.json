@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T01:57:59.772Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-15T00:58:28.774Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Đăng xuất: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 80,
+        "loginCount": 79,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -18190,18 +18190,11 @@
     ],
     "loginLogs": [
       {
-        "time": "08:52:34 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "08:52:21 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
+        "time": "07:58:28 15/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Đăng xuất"
       },
       {
         "time": "17:31:33 14/11/2026",
@@ -19444,33 +19437,12 @@
       "43": true
     },
     "systemPermissions": {
-      "lectures": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "assignments": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "quiz": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "messages": {
-        "edit": true,
-        "delete": true
-      },
-      "logs": {
-        "delete": true
-      },
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "teacherCanAdd": true,
       "teacherCanEdit": false,
       "teacherCanDelete": false,
+      "teacherCanReplyMessages": true,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -19503,7 +19475,28 @@
       "teacherCanEditMessages": true,
       "teacherCanDeleteMessages": false,
       "teacherCanViewMessages": true,
-      "teacherCanReplyMessages": true
+      "lectures": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "assignments": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "quiz": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "messages": {
+        "edit": true,
+        "delete": true
+      },
+      "logs": {
+        "delete": true
+      }
     },
     "studentMessages": [
       {
