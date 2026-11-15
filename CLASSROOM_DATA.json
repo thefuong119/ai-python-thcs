@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T00:04:15.813Z",
+    "updatedAt": "2026-11-15T00:05:19.078Z",
     "updatedBy": "Giáo viên Demo",
     "action": "Sửa bài tập: Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n"
   },
@@ -12738,7 +12738,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while để tách từng chữ số của $n$, từ đó tìm và in ra chữ số lớn nhất xuất hiện trong $n$.",
-        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n    max_cs = cs\n    n //= 10\n    print(max_cs)",
+        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n    max_cs = cs\n    n //= 10\nprint(max_cs)",
         "tests": [
           {
             "id": 1,
