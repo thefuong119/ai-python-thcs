@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T05:41:52.373Z",
-    "updatedBy": "Nguyễn Phú Lộc",
+    "updatedAt": "2026-11-15T05:41:42.980Z",
+    "updatedBy": "Giáo viên Demo",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 4,
+        "loginCount": 5,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -14672,10 +14672,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 29,
+        "attempts": 28,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "12:33:39 15/11/2026"
+        "lastSubmit": "08:16:04 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -14736,6 +14736,13 @@
         "attempts": 13,
         "highestScore": 10,
         "lastSubmit": "18:20:31 8/11/2026"
+      },
+      {
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "attempts": 1,
+        "highestScore": 5,
+        "lastSubmit": "12:35:24 15/11/2026"
       }
     ],
     "lectures": [
@@ -15252,49 +15259,33 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794720819828,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 25. Tổng n số lẻ đầu tiên",
-        "assignmentId": 33,
-        "score": 10,
-        "timestamp": "12:33:39 15/11/2026",
+        "id": 1794720924974,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
+        "assignmentId": 313,
+        "score": 5,
+        "timestamp": "12:35:24 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3",
-            "expected": "9",
-            "actual": "9",
-            "passed": true,
-            "points": 2.5
+            "input": "4\n1 3\n2 5\n4 7\n6 9",
+            "expected": "3",
+            "actual": "2",
+            "passed": false,
+            "points": 0
           },
           {
             "testId": 2,
-            "input": "6",
-            "expected": "36",
-            "actual": "36",
+            "input": "3\n1 5\n2 3\n3 4",
+            "expected": "2",
+            "actual": "2",
             "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "100",
-            "expected": "10000",
-            "actual": "10000",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000",
-            "expected": "1000000000000",
-            "actual": "1000000000000",
-            "passed": true,
-            "points": 2.5
+            "points": 5
           }
         ],
-        "code": "n= int(input().strip())\nprint(n*n)"
+        "code": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)"
       },
       {
         "id": 1794618964463,
@@ -18252,6 +18243,13 @@
     ],
     "loginLogs": [
       {
+        "time": "12:09:57 15/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "12:03:35 15/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -18736,8 +18734,7 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true,
-        "33": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -18774,6 +18771,9 @@
         "24": true,
         "33": true,
         "43": true
+      },
+      "giaovien": {
+        "313": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19338,6 +19338,31 @@
           }
         ]
       },
+      "313": {
+        "id": 313,
+        "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
+        "classLevel": "8",
+        "difficulty": "hard",
+        "timeLimit": 2,
+        "description": "Trung tâm hội nghị có 1 hội trường duy nhất. Có $N$1$i$1$s_i$1$e_i$. Hai cuộc họp được coi là không chồng chéo nếu cuộc họp sau bắt đầu tại thời điểm lớn hơn hoặc bằng thời điểm kết thúc của cuộc họp trước ($s_j \\ge e_i$). Hãy chọn ra số lượng cuộc họp tối đa có thể bố trí vào hội trường này.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 10^5$).\n- $N$1$s_i, e_i$ ($0 \\le s_i < e_i \\le 10^9$).\nDữ liệu ra: Một số nguyên duy nhất là số cuộc họp tối đa được xếp.",
+        "templateCode": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n1 3\n2 5\n4 7\n6 9",
+            "expected": "3",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 5\n2 3\n3 4",
+            "expected": "2",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -19530,17 +19555,12 @@
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
       "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
       "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    ",
-      "loc__Bài 25. Tổng n số lẻ đầu tiên": "n= int(input().strip())\nprint(n*n)"
+      "giaovien__Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)"
     },
     "questionFlags": {
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -19563,6 +19583,11 @@
       "logs": {
         "delete": true
       },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
