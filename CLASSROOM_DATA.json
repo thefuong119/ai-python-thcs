@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T14:22:49.434Z",
+    "updatedAt": "2026-11-15T14:25:27.244Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin áp dụng phân quyền cho Giáo viên"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -18654,6 +18654,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "21:22:53 15/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Áp dụng phân quyền"
+      },
       {
         "time": "21:22:26 15/11/2026",
         "name": "Nguyễn Thế Phương",
