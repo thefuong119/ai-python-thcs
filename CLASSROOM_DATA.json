@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T06:32:34.263Z",
+    "updatedAt": "2026-11-15T06:34:55.310Z",
     "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -14664,10 +14664,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 8,
+        "attempts": 7,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "13:32:34 15/11/2026"
+        "lastSubmit": "18:35:09 6/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -15258,51 +15258,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794724354180,
-        "student": "Học sinh Demo",
-        "username": "hocsinh",
-        "assignmentTitle": "Bài 2. Kiểm tra số nguyên tố",
-        "assignmentId": 2,
-        "score": 10,
-        "timestamp": "13:32:34 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "7",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "1",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "997",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")"
-      },
       {
         "id": 1794720924974,
         "student": "Giáo viên Demo",
@@ -18288,7 +18243,7 @@
     ],
     "loginLogs": [
       {
-        "time": "13:30:05 15/11/2026",
+        "time": "13:34:39 15/11/2026",
         "name": "Học sinh Demo",
         "identifier": "hocsinh",
         "role": "student",
@@ -18825,7 +18780,6 @@
       },
       "hocsinh": {
         "1": true,
-        "2": true,
         "28": true,
         "394": true,
         "395": true
@@ -19629,8 +19583,7 @@
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
       "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
       "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    ",
-      "giaovien__Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
-      "hocsinh__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.isqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nprint(\"YES\" if is_prime(n) else \"NO\")"
+      "giaovien__Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)"
     },
     "questionFlags": {
       "43": true
