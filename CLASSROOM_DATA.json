@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T03:26:43.873Z",
+    "updatedAt": "2026-11-15T03:39:18.250Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -18189,6 +18189,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:36:54 15/11/2026",
+        "name": "Mai van hiep",
+        "identifier": "Mai van hiep",
+        "role": "teacher",
+        "result": "Reset pw"
+      },
       {
         "time": "08:52:34 15/11/2026",
         "name": "Nguyễn Thế Phương",
