@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T03:39:18.250Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-15T03:39:32.136Z",
+    "updatedBy": "Mai văn hiệp",
+    "action": "Đăng ký GV: Mai văn hiệp"
   },
   "data": {
     "registeredUsers": [
@@ -316,6 +316,23 @@
         "loginCount": 4,
         "_hasPassword": true,
         "password": null
+      },
+      {
+        "id": 1794713972077,
+        "name": "Mai văn hiệp",
+        "username": "vanhiep",
+        "identifier": "vanhiep",
+        "passwordHash": "dbff62df18a8910993a293058b07d1944e6c6ecddb26f9ebf7b39d2461cde6a4",
+        "school": "THCS Thành Đông",
+        "className": "Khối 8",
+        "phone": "0765155588",
+        "cccd": "086086000518",
+        "email": "maivhiep@gmail.com",
+        "role": "teacher",
+        "status": "active",
+        "loginCount": 1,
+        "password": null,
+        "_hasPassword": true
       }
     ],
     "assignments": [
@@ -18189,6 +18206,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:39:32 15/11/2026",
+        "name": "Mai văn hiệp",
+        "identifier": "vanhiep",
+        "role": "teacher",
+        "result": "Đăng ký thành công"
+      },
       {
         "time": "10:36:54 15/11/2026",
         "name": "Mai van hiep",
