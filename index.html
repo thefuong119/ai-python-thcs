@@ -7398,5 +7398,745 @@
     else init();
 })();
 </script>
+
+<!-- PATCH TOOL V2 - Injected by patch_tool.html on 2026-11-15T15:31:30.842Z -->
+<script id="patch-tool-script-v2">
+/* ==================== PATCH TOOL V2 (INJECTED) ==================== */
+
+(function () {
+    'use strict';
+    var LOG = function () {
+        try {
+            if (window.console && console.log) console.log.apply(console, ['[PatchToolV2]'].concat([].slice.call(arguments)));
+        } catch (e) {}
+    };
+
+    // ===== Helpers =====
+    function escHtml(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+            return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c];
+        });
+    }
+    function findArray(names) {
+        for (var i = 0; i < names.length; i++) {
+            var v = window[names[i]];
+            if (Array.isArray(v)) return { arr: v, key: names[i] };
+        }
+        // Try nested configs
+        var cfgs = ['SYSTEM_CONFIG', 'systemConfig', 'APP_DATA', 'appData', 'APP_STATE', 'appState'];
+        for (var j = 0; j < cfgs.length; j++) {
+            var cfg = window[cfgs[j]];
+            if (cfg && typeof cfg === 'object') {
+                for (var k = 0; k < names.length; k++) {
+                    if (Array.isArray(cfg[names[k]])) return { arr: cfg[names[k]], key: cfgs[j] + '.' + names[k], parent: cfg, prop: names[k] };
+                }
+            }
+        }
+        return null;
+    }
+    function getLogs() {
+        return findArray(['LOGS','logsData','LOGS_DATA','SYSTEM_LOGS','loginLogs','accessLogs','logs']);
+    }
+    function getQuizTests() {
+        return findArray(['QUIZ_TESTS','quizTests','QUIZ_TESTS_DATA','quizTestList','quizAssignments']);
+    }
+    function getQuizQuestions() {
+        return findArray(['QUIZ_QUESTIONS','quizQuestions','QUIZ_BANK','quizBank','quizBankData','questions']);
+    }
+
+    // ===== FEATURE 1: Extended permission visibility =====
+    var RULES = [
+        { re: /openLectureModalForCreate|openQuizQuestionModal|openQuizTestCreateModal|createAssignment\b|openRandomTestModal|addTestCaseRow|openAddStudentModal|openAddTeacherModal|openQuizTestCreateModal/i, key: 'add' },
+        { re: /editLecture|editAssignment|openLectureModalForEdit|openAssignmentModalForEdit|editQuizQuestion|replyMessage|sendTeacherReply|openReplyModal/i, key: 'edit' },
+        { re: /deleteLecture|deleteAssignment|deleteQuizQuestion|deleteQuizTest|bulkDelete|deleteLog|deleteSelected/i, key: 'del' },
+        { re: /pushCurrentDataToGitHub|pushToServer|pushCurrentData/i, key: 'push' },
+        { re: /openGithubSyncModal|importLectureFileFromTemplate|importAssignmentFileFromTemplate|importQuizFileFromTemplate|importLectureFile|importAdminLectureFile/i, key: 'load' }
+    ];
+
+    function getPerms() {
+        var el = function (id) { return document.getElementById(id); };
+        return {
+            add:  (el('permTeacherCanAdd')        || {}).checked !== false,
+            edit: (el('permTeacherCanEdit')       || {}).checked !== false,
+            del:  (el('permTeacherCanDelete')     || {}).checked !== false,
+            push: (el('permTeacherCanPushServer') || {}).checked !== false,
+            load: (el('permTeacherCanLoadServer') || {}).checked !== false
+        };
+    }
+
+    function applyExtendedPermissions() {
+        var p = getPerms();
+        var tv = document.getElementById('teacherView');
+        if (!tv) return;
+
+        var candidates = tv.querySelectorAll('button, label');
+        Array.prototype.forEach.call(candidates, function (el) {
+            var oc = el.getAttribute && el.getAttribute('onclick');
+            oc = oc || '';
+            var txt = (el.textContent || '').toLowerCase();
+            var isFileLabel = el.tagName === 'LABEL' && el.querySelector('input[type="file"]');
+
+            var matchedKey = null;
+            for (var i = 0; i < RULES.length; i++) {
+                if (RULES[i].re.test(oc)) { matchedKey = RULES[i].key; break; }
+            }
+            // File upload label heuristic
+            if (!matchedKey && isFileLabel && /nạp|tải tệp|import/.test(txt)) matchedKey = 'load';
+
+            // Only toggle items we identified with a rule
+            if (!matchedKey) return;
+
+            var allowed = p[matchedKey] !== false;
+            if (!allowed) {
+                el.style.display = 'none';
+                el.classList.add('perm-disabled');
+                el.setAttribute('data-patch-hidden', '1');
+            } else {
+                if (el.getAttribute('data-patch-hidden') === '1') {
+                    el.style.display = '';
+                    el.classList.remove('perm-disabled');
+                    el.removeAttribute('data-patch-hidden');
+                }
+            }
+        });
+    }
+    window.applyExtendedPermissions = applyExtendedPermissions;
+
+    // Wrap applyPermissionsAndPush
+    (function () {
+        var orig = window.applyPermissionsAndPush;
+        if (typeof orig !== 'function') return;
+        window.applyPermissionsAndPush = function () {
+            var self = this, args = arguments;
+            var ret;
+            try { ret = orig.apply(self, args); }
+            catch (e) { LOG('orig applyPermissions err:', e); }
+            setTimeout(applyExtendedPermissions, 150);
+            setTimeout(applyExtendedPermissions, 800); // safe re-run
+            return ret;
+        };
+        LOG('Wrapped applyPermissionsAndPush');
+    })();
+
+    // Wrap switchRole so permissions re-apply after login
+    (function () {
+        var orig = window.switchRole;
+        if (typeof orig !== 'function') return;
+        window.switchRole = function () {
+            var self = this, args = arguments;
+            var ret = orig.apply(self, args);
+            setTimeout(applyExtendedPermissions, 400);
+            setTimeout(applyExtendedPermissions, 1500);
+            return ret;
+        };
+        LOG('Wrapped switchRole');
+    })();
+
+    // Wrap renderTeacherLecturesTable / renderManageAssignmentsTable etc. so new renders re-apply visibility
+    ['renderTeacherLecturesTable','renderManageAssignmentsTable','renderTeacherQuizTable',
+     'renderTeacherQuizTestsList','renderTeacherMessages','renderTeacherTestsList'].forEach(function (fn) {
+        var orig = window[fn];
+        if (typeof orig !== 'function') return;
+        window[fn] = function () {
+            var ret = orig.apply(this, arguments);
+            setTimeout(applyExtendedPermissions, 40);
+            return ret;
+        };
+    });
+
+    // ===== FEATURE 2: Quiz preview =====
+    function ensurePreviewModal() {
+        var m = document.getElementById('quizPreviewModal');
+        if (m) return m;
+        m = document.createElement('div');
+        m.id = 'quizPreviewModal';
+        m.className = 'fixed inset-0 bg-black/60 hidden items-center justify-center p-4';
+        m.style.zIndex = '1000000';
+        m.innerHTML =
+            '<div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">' +
+                '<div class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white">' +
+                    '<h3 class="font-bold flex items-center gap-2"><i class="ph-bold ph-eye"></i> Xem Trước Đề Trắc Nghiệm</h3>' +
+                    '<button id="quizPreviewCloseBtn" class="w-8 h-8 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center"><i class="ph-bold ph-x"></i></button>' +
+                '</div>' +
+                '<div id="quizPreviewBody" class="p-5 overflow-y-auto flex-1 space-y-4"></div>' +
+            '</div>';
+        document.body.appendChild(m);
+        var close = function () {
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+        };
+        m.querySelector('#quizPreviewCloseBtn').onclick = close;
+        m.addEventListener('click', function (ev) { if (ev.target === m) close(); });
+        return m;
+    }
+
+    function renderQuizPreview(testId) {
+        var modal = ensurePreviewModal();
+        var body = document.getElementById('quizPreviewBody');
+        var testsInfo = getQuizTests();
+        var qInfo = getQuizQuestions();
+        var tests = testsInfo ? testsInfo.arr : [];
+        var qs = qInfo ? qInfo.arr : [];
+
+        var test = null;
+        for (var i = 0; i < tests.length; i++) {
+            if (String(tests[i].id) === String(testId) || String(tests[i].testId) === String(testId)) { test = tests[i]; break; }
+        }
+
+        var open = function (html) {
+            body.innerHTML = html;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        };
+
+        if (!test) {
+            open('<div class="p-6 text-center text-rose-600 font-bold"><i class="ph-bold ph-warning-circle text-3xl mb-2"></i><br>Không tìm thấy dữ liệu đề (id: ' + escHtml(testId) + ').</div>');
+            return;
+        }
+
+        var qids = test.questionIds || test.questions || test.qids || test.questionList || [];
+        if (!Array.isArray(qids)) qids = [];
+        var title = test.title || test.name || ('Đề #' + testId);
+
+        var html = '<div class="mb-4 pb-3 border-b-2 border-emerald-200">' +
+            '<h4 class="font-bold text-lg text-slate-900">' + escHtml(title) + '</h4>' +
+            '<p class="text-sm text-slate-500 mt-1">Số câu: <b>' + qids.length + '</b>' +
+            (test.gradeLevel || test.classLevel ? ' • Khối ' + escHtml(test.gradeLevel || test.classLevel) : '') +
+            (test.duration ? ' • Thời gian: ' + escHtml(test.duration) + ' phút' : '') +
+            '</p></div>';
+
+        if (!qids.length) {
+            html += '<p class="text-slate-500 italic p-4">Đề chưa có câu hỏi nào.</p>';
+        }
+
+        qids.forEach(function (qid, idx) {
+            var q = null;
+            for (var j = 0; j < qs.length; j++) {
+                if (String(qs[j].id) === String(qid) || String(qs[j].questionId) === String(qid)) { q = qs[j]; break; }
+            }
+            if (!q) return;
+            var qText = q.question || q.content || q.text || q.questionText || '';
+            var opts = q.options || q.answers || q.choices || [];
+            var correct = q.correctAnswer != null ? q.correctAnswer : (q.answer != null ? q.answer : (q.correct != null ? q.correct : 0));
+
+            html += '<div class="border border-slate-200 rounded-xl p-4 bg-white shadow-sm">' +
+                '<div class="font-bold mb-3 text-slate-900 flex items-start gap-2">' +
+                '<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold flex-shrink-0">' + (idx + 1) + '</span>' +
+                '<span class="flex-1">' + escHtml(qText) + '</span></div><div class="space-y-1.5 ml-9">';
+
+            opts.forEach(function (opt, oi) {
+                var letter = String.fromCharCode(65 + oi);
+                var isCorrect = false;
+                if (typeof correct === 'number') isCorrect = oi === correct;
+                else if (typeof correct === 'string') {
+                    if (correct === letter) isCorrect = true;
+                    else if (correct === String(oi)) isCorrect = true;
+                    else if (correct === opt) isCorrect = true;
+                }
+                html += '<div class="flex items-start gap-2 p-2 rounded-lg ' +
+                    (isCorrect ? 'bg-emerald-50 border border-emerald-200' : 'bg-slate-50') + '">' +
+                    '<span class="font-bold ' + (isCorrect ? 'text-emerald-700' : 'text-slate-600') + '">' + letter + '.</span>' +
+                    '<span class="flex-1 ' + (isCorrect ? 'text-emerald-900 font-semibold' : 'text-slate-700') + '">' + escHtml(opt) + '</span>' +
+                    (isCorrect ? '<i class="ph-bold ph-check-circle text-emerald-600"></i>' : '') +
+                    '</div>';
+            });
+            html += '</div></div>';
+        });
+
+        open(html);
+    }
+    window.renderQuizPreview = renderQuizPreview;
+    window.previewQuizTest = renderQuizPreview;
+
+    function injectPreviewButtons() {
+        var c = document.getElementById('teacherQuizTestsList');
+        if (!c) return;
+        var btns = c.querySelectorAll('button');
+        Array.prototype.forEach.call(btns, function (btn) {
+            var oc = btn.getAttribute('onclick') || '';
+            var m = oc.match(/^\s*(\w+)\s*\(\s*['"]?([\w-]+)['"]?\s*\)/);
+            if (!m) return;
+            if (/preview|view|show|renderQuizPreview/i.test(m[1])) return;
+            var testId = m[2];
+            // find container
+            var item = btn.parentElement;
+            // walk up a couple levels to avoid sibling buttons on same row
+            for (var k = 0; k < 3 && item && item !== c; k++) {
+                if (item.querySelectorAll('button').length <= 6) break;
+                item = item.parentElement;
+            }
+            if (!item || item === c) return;
+            if (item.querySelector('.btn-preview-quiz')) return;
+
+            var pb = document.createElement('button');
+            pb.className = 'btn-preview-quiz px-2.5 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 text-xs font-bold inline-flex items-center gap-1';
+            pb.innerHTML = '<i class="ph-bold ph-eye"></i> Xem';
+            pb.title = 'Xem trước đề';
+            pb.onclick = function (ev) {
+                if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+                renderQuizPreview(testId);
+            };
+            btn.parentNode.insertBefore(pb, btn);
+        });
+    }
+    window.injectPreviewButtons = injectPreviewButtons;
+
+    // Observe quiz test list
+    (function observeQuizTests() {
+        var c = document.getElementById('teacherQuizTestsList');
+        if (!c) return;
+        var obs = new MutationObserver(function () { setTimeout(injectPreviewButtons, 50); });
+        obs.observe(c, { childList: true, subtree: true });
+        setTimeout(injectPreviewButtons, 400);
+    })();
+
+    // ===== FEATURE 3: Grade filter for admin quiz =====
+    function ensureAdminGradeFilter() {
+        var adminQuiz = document.getElementById('adminTabQuiz');
+        if (!adminQuiz) return;
+        if (adminQuiz.querySelector('#adminQuizGradeFilter')) return;
+
+        // Find a filter bar. Prefer the first flex items-center justify-between or .border-b
+        var bar = adminQuiz.querySelector('.border-b') || adminQuiz.querySelector('.flex.flex-wrap.items-center') || adminQuiz;
+
+        var wrap = document.createElement('div');
+        wrap.className = 'flex items-center gap-2';
+        wrap.innerHTML =
+            '<label class="text-xs font-bold text-slate-700">Khối:</label>' +
+            '<select id="adminQuizGradeFilter" class="bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-sm font-bold text-emerald-700 cursor-pointer">' +
+            '<option value="all">Tất cả khối</option>' +
+            '<option value="6">6</option><option value="7">7</option><option value="8">8</option>' +
+            '<option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>' +
+            '</select>';
+
+        bar.appendChild(wrap);
+
+        wrap.querySelector('select').addEventListener('change', function () {
+            if (typeof window.renderTeacherQuizTable === 'function') window.renderTeacherQuizTable();
+            else if (typeof window.renderAdminQuizTable === 'function') window.renderAdminQuizTable();
+        });
+    }
+
+    // Patch renderTeacherQuizTable to respect admin filter too
+    (function () {
+        var orig = window.renderTeacherQuizTable;
+        if (typeof orig !== 'function') return;
+        window.renderTeacherQuizTable = function () {
+            return orig.apply(this, arguments);
+        };
+    })();
+
+    // ===== FEATURE 4: Logs checkboxes + delete =====
+    function enhanceLogsTable(tbodyId, countId) {
+        var tbody = document.getElementById(tbodyId);
+        if (!tbody) return;
+        var table = tbody.closest('table');
+        if (!table) return;
+
+        // header checkbox
+        var theadRow = table.querySelector('thead tr');
+        if (theadRow && !theadRow.querySelector('.log-select-all')) {
+            var th = document.createElement('th');
+            th.className = 'w-10 text-center';
+            th.innerHTML = '<input type="checkbox" class="log-select-all w-4 h-4 cursor-pointer" title="Chọn tất cả">';
+            theadRow.insertBefore(th, theadRow.firstChild);
+            th.querySelector('input').addEventListener('change', function () {
+                var checked = this.checked;
+                tbody.querySelectorAll('.log-checkbox').forEach(function (cb) { cb.checked = checked; });
+                updateLogCount(tbodyId, countId);
+            });
+        }
+
+        // per-row checkbox
+        var rows = tbody.querySelectorAll('tr');
+        Array.prototype.forEach.call(rows, function (tr, idx) {
+            if (tr.querySelector('.log-checkbox')) return;
+            var td = document.createElement('td');
+            td.className = 'text-center';
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.className = 'log-checkbox w-4 h-4 cursor-pointer';
+            cb.dataset.rowIndex = idx;
+            // capture identifier from data attributes if present
+            cb.dataset.logId = tr.dataset.id || tr.dataset.logId || '';
+            cb.addEventListener('change', function () { updateLogCount(tbodyId, countId); });
+            td.appendChild(cb);
+            tr.insertBefore(td, tr.firstChild);
+        });
+    }
+
+    function updateLogCount(tbodyId, countId) {
+        var tbody = document.getElementById(tbodyId);
+        var countEl = document.getElementById(countId);
+        if (!tbody || !countEl) return;
+        countEl.textContent = tbody.querySelectorAll('.log-checkbox:checked').length;
+    }
+
+    function deleteSelectedLogs(tbodyId, renderFnName, countId) {
+        var tbody = document.getElementById(tbodyId);
+        if (!tbody) return;
+        var checked = tbody.querySelectorAll('.log-checkbox:checked');
+        if (!checked.length) { alert('Bạn đang chọn xóa nhật ký truy cập.'); return; }
+        if (!confirm('Xóa ' + checked.length + ' dòng nhật ký đã chọn?\nHành động này chỉ dành cho Admin và không thể hoàn tác.')) return;
+
+        var info = getLogs();
+        var idxs = Array.prototype.map.call(checked, function (cb) { return parseInt(cb.dataset.rowIndex, 10); })
+            .filter(function (n) { return !isNaN(n); })
+            .sort(function (a, b) { return b - a; });
+
+        var removed = 0;
+        if (info && Array.isArray(info.arr)) {
+            idxs.forEach(function (i) {
+                if (i >= 0 && i < info.arr.length) { info.arr.splice(i, 1); removed++; }
+            });
+            // Persist
+            try {
+                if (typeof window.saveSystemConfig === 'function') window.saveSystemConfig();
+                else if (typeof window.saveToLocalStorage === 'function') window.saveToLocalStorage();
+                else if (typeof window.persistData === 'function') window.persistData();
+                else if (typeof window.persistLogs === 'function') window.persistLogs();
+            } catch (e) { LOG('persist err:', e); }
+        }
+
+        // Re-render
+        if (renderFnName && typeof window[renderFnName] === 'function') {
+            window[renderFnName]();
+        } else {
+            checked.forEach(function (cb) { var tr = cb.closest('tr'); if (tr) tr.remove(); });
+            updateLogCount(tbodyId, countId);
+        }
+        LOG('Deleted ' + (removed || checked.length) + ' log rows');
+    }
+    window.deleteSelectedLogs = deleteSelectedLogs;
+
+    function addLogsDeleteButtons() {
+        // Teacher
+        (function () {
+            var tab = document.getElementById('teacherTabLogs');
+            if (!tab || tab.querySelector('.btn-delete-logs')) return;
+            var header = tab.querySelector('.flex.items-center.justify-between');
+            if (!header) return;
+            var btn = document.createElement('button');
+            btn.className = 'btn-delete-logs px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm';
+            btn.innerHTML = '<i class="ph-bold ph-trash"></i> Xóa đã chọn (<span id="teacherLogsSelectedCount">0</span>)';
+            btn.onclick = function () { deleteSelectedLogs('teacherLogsTableBody', 'renderTeacherLogsTable', 'teacherLogsSelectedCount'); };
+            header.appendChild(btn);
+        })();
+
+        // Admin
+        (function () {
+            var tab = document.getElementById('adminTabLogs');
+            if (!tab || tab.querySelector('.btn-delete-logs')) return;
+            var header = tab.querySelector('.flex.items-center.justify-between');
+            if (!header) return;
+            var btn = document.createElement('button');
+            btn.className = 'btn-delete-logs px-3 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm';
+            btn.innerHTML = '<i class="ph-bold ph-trash"></i> Xóa đã chọn (<span id="adminLogsSelectedCount">0</span>)';
+            btn.onclick = function () { deleteSelectedLogs('adminLogsTableBody', 'renderAdminLogsTable', 'adminLogsSelectedCount'); };
+            header.appendChild(btn);
+        })();
+    }
+
+    // Hook log render funcs to auto-enhance
+    ['renderTeacherLogsTable','renderAdminLogsTable','renderLogsTable'].forEach(function (fn) {
+        var orig = window[fn];
+        if (typeof orig !== 'function') return;
+        window[fn] = function () {
+            var ret = orig.apply(this, arguments);
+            setTimeout(function () {
+                enhanceLogsTable('teacherLogsTableBody', 'teacherLogsSelectedCount');
+                enhanceLogsTable('adminLogsTableBody', 'adminLogsSelectedCount');
+            }, 50);
+            return ret;
+        };
+    });
+
+    // MutationObserver fallback for tbody changes
+    ['teacherLogsTableBody','adminLogsTableBody'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var obs = new MutationObserver(function () {
+            enhanceLogsTable('teacherLogsTableBody', 'teacherLogsSelectedCount');
+            enhanceLogsTable('adminLogsTableBody', 'adminLogsSelectedCount');
+        });
+        obs.observe(el, { childList: true });
+    });
+
+    // ===== Init deferred =====
+    function runInit() {
+        try { applyExtendedPermissions(); } catch (e) { LOG('ext perm err', e); }
+        try { injectPreviewButtons(); } catch (e) { LOG('preview err', e); }
+        try { ensureAdminGradeFilter(); } catch (e) { LOG('admin filter err', e); }
+        try { addLogsDeleteButtons(); } catch (e) { LOG('logs btn err', e); }
+        try { enhanceLogsTable('teacherLogsTableBody', 'teacherLogsSelectedCount'); } catch (e) {}
+        try { enhanceLogsTable('adminLogsTableBody', 'adminLogsSelectedCount'); } catch (e) {}
+    }
+
+    // Run at several time points to catch late-rendered content
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () { setTimeout(runInit, 500); });
+    } else {
+        setTimeout(runInit, 500);
+    }
+    setTimeout(runInit, 1500);
+    setTimeout(runInit, 3000);
+    setTimeout(runInit, 6000);
+
+    LOG('Patch V2 installed.');
+})();
+
+/* ==================== END PATCH TOOL V2 ==================== */
+</script>
+
+
+<!-- PATCH_PERMISSIONS_V2_START -->
+<!-- ============================================================= -->
+<!--  PATCH v2 — Teacher Permission Enforcement (Real-time Apply)    -->
+<!--  Injected by patch_tool.html — Do NOT edit manually            -->
+<!-- ============================================================= -->
+<script id="patchPermissionsV2">
+(function () {
+  'use strict';
+
+  if (window.__PATCH_PERMISSIONS_V2__) {
+    console.log('[PATCH v2] Already loaded, skipping.');
+    return;
+  }
+  window.__PATCH_PERMISSIONS_V2__ = true;
+
+  console.log('%c[PATCH v2] Permission enforcement loaded',
+              'background:#2563eb;color:#fff;padding:2px 8px;border-radius:4px;font-weight:bold;');
+
+  /* ========== 1. ACTION PATTERNS ========== */
+  const ACTION_PATTERNS = {
+    add: [
+      'openLectureModalForCreate', 'openAdminLectureModalForCreate',
+      'createAssignment', 'openQuizQuestionModal', 'openQuizTestCreateModal',
+      'openRandomTestModal', 'addTestCaseRow',
+      'importLectureFileFromTemplate', 'importAssignmentFileFromTemplate',
+      'importQuizFileFromTemplate',
+      'importLectureFile(', 'importAdminLectureFile(',
+      'addStudent', 'addTeacher', 'openAddStudentModal', 'openAddTeacherModal',
+      'replyMessage', 'replyToMessage', 'sendReply', 'sendTeacherReply',
+      'sendMessage', 'respondMessage', 'replyTo(', 'openReply'
+    ],
+    edit: [
+      'editLecture', 'editAssignment', 'editQuiz', 'editQuizQuestion',
+      'openEditLecture', 'openEditAssignment',
+      'updateLecture', 'updateAssignment', 'updateQuiz',
+      'editMessage', 'editStudent', 'editTeacher'
+    ],
+    delete: [
+      'deleteLecture', 'deleteAssignment', 'deleteQuiz', 'deleteQuizQuestion',
+      'deleteSubmission', 'deleteMessage', 'bulkDelete',
+      'removeLecture', 'removeAssignment', 'removeQuiz', 'removeMessage',
+      'clearLog', 'deleteLog', 'clearAllLog', 'clearAllData'
+    ],
+    pushServer: [
+      'pushCurrentDataToGitHubManual', 'pushToGitHub', 'pushToServer',
+      'pushDataToServer'
+    ],
+    loadServer: [
+      'openGithubSyncModal', 'loadFromGitHub', 'syncFromServer', 'loadServerData'
+    ]
+  };
+
+  const ACTION_LABELS = {
+    add: 'thêm', edit: 'sửa', delete: 'xóa',
+    pushServer: 'nộp lên server', loadServer: 'nạp dữ liệu từ server'
+  };
+
+  const PERM_KEY_MAP = {
+    add: 'teacherCanAdd',
+    edit: 'teacherCanEdit',
+    delete: 'teacherCanDelete',
+    pushServer: 'teacherCanPushServer',
+    loadServer: 'teacherCanLoadServer'
+  };
+
+  /* ========== 2. STATE ACCESSORS ========== */
+  function getSystemSettings() {
+    try {
+      if (window.systemSettings && typeof window.systemSettings === 'object') {
+        return window.systemSettings;
+      }
+    } catch (e) {}
+    try {
+      const ls = localStorage.getItem('systemSettings');
+      if (ls) return JSON.parse(ls);
+    } catch (e) {}
+    return {};
+  }
+
+  function getCurrentUser() {
+    try {
+      if (window.currentUser && typeof window.currentUser === 'object') return window.currentUser;
+    } catch (e) {}
+    try {
+      const ls = localStorage.getItem('currentUser') || localStorage.getItem('loggedInUser');
+      if (ls) return JSON.parse(ls);
+    } catch (e) {}
+    return null;
+  }
+
+  function canDo(action) {
+    const user = getCurrentUser();
+    if (!user) return true;
+    if (user.role === 'admin') return true;
+    if (user.role !== 'teacher') return true;
+    const settings = getSystemSettings();
+    const key = PERM_KEY_MAP[action];
+    if (!key) return true;
+    return settings[key] !== false;
+  }
+
+  /* ========== 3. DETECTION ========== */
+  function detectAction(element) {
+    const onclick = element.getAttribute('onclick') || '';
+    const onchange = element.getAttribute('onchange') || '';
+    let fileOnchange = '';
+    if (element.tagName === 'LABEL') {
+      const fi = element.querySelector('input[type="file"]');
+      if (fi) fileOnchange = fi.getAttribute('onchange') || '';
+    }
+    const haystack = (onclick + ' ' + onchange + ' ' + fileOnchange).toLowerCase();
+    if (!haystack.trim()) return null;
+    for (const action in ACTION_PATTERNS) {
+      for (const p of ACTION_PATTERNS[action]) {
+        if (haystack.includes(p.toLowerCase())) return action;
+      }
+    }
+    return null;
+  }
+
+  /* ========== 4. APPLY / CLEANUP ========== */
+  function applyToElement(el) {
+    if (!el || !el.isConnected) return;
+    const action = detectAction(el);
+    if (!action) { cleanupElement(el); return; }
+
+    el.setAttribute('data-perm-v2-action', action);
+    const allowed = canDo(action);
+
+    if (!allowed) {
+      el.setAttribute('data-perm-disabled', 'true');
+      el.style.setProperty('opacity', '0.35', 'important');
+      el.style.setProperty('pointer-events', 'none', 'important');
+      el.style.setProperty('cursor', 'not-allowed', 'important');
+      el.style.setProperty('filter', 'grayscale(0.85)', 'important');
+      if (el.tagName === 'BUTTON') el.disabled = true;
+      const fi = el.querySelector && el.querySelector('input[type="file"]');
+      if (fi) fi.disabled = true;
+      if (!el.hasAttribute('data-perm-v2-original-title')) {
+        el.setAttribute('data-perm-v2-original-title', el.title || '');
+      }
+      el.title = '🔒 Bạn không có quyền ' + (ACTION_LABELS[action] || action);
+    } else {
+      cleanupElement(el);
+    }
+  }
+
+  function cleanupElement(el) {
+    if (!el) return;
+    el.removeAttribute('data-perm-disabled');
+    el.style.opacity = '';
+    el.style.pointerEvents = '';
+    el.style.cursor = '';
+    el.style.filter = '';
+    if (el.tagName === 'BUTTON') el.disabled = false;
+    const fi = el.querySelector && el.querySelector('input[type="file"]');
+    if (fi) fi.disabled = false;
+    if (el.hasAttribute('data-perm-v2-original-title')) {
+      el.title = el.getAttribute('data-perm-v2-original-title');
+      el.removeAttribute('data-perm-v2-original-title');
+    }
+  }
+
+  function findRelevantElements(container) {
+    const set = new Set();
+    container.querySelectorAll('button[onclick], [data-perm-v2-action]').forEach(el => set.add(el));
+    container.querySelectorAll('label').forEach(label => {
+      if (label.querySelector('input[type="file"]')) set.add(label);
+    });
+    return Array.from(set);
+  }
+
+  function applyPermissions() {
+    const teacherView = document.getElementById('teacherView');
+    if (!teacherView) return;
+    const els = findRelevantElements(teacherView);
+    els.forEach(applyToElement);
+  }
+
+  /* ========== 5. DEBOUNCED APPLY ========== */
+  let applyTimer = null;
+  function scheduleApply(delay) {
+    if (applyTimer) clearTimeout(applyTimer);
+    applyTimer = setTimeout(applyPermissions, delay || 120);
+  }
+
+  /* ========== 6. EVENT HOOKS ========== */
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    const onclick = btn.getAttribute('onclick') || '';
+
+    if (onclick.includes('applyPermissionsAndPush')) {
+      // Apply IMMEDIATELY + repeat to catch async settings update
+      scheduleApply(50);
+      setTimeout(applyPermissions, 250);
+      setTimeout(applyPermissions, 700);
+      setTimeout(applyPermissions, 1500);
+      setTimeout(applyPermissions, 2500);
+      console.log('%c[PATCH v2] Apply & Sync clicked → re-applying permissions',
+                  'color:#10b981;font-weight:bold;');
+    }
+    if (onclick.includes('switchRole') ||
+        onclick.includes('switchTeacherTab') ||
+        onclick.includes('switchAdminTab') ||
+        onclick.includes('switchStudentTab')) {
+      scheduleApply(200);
+      setTimeout(applyPermissions, 600);
+    }
+  }, false);
+
+  document.addEventListener('change', function (e) {
+    if (e.target.matches && e.target.matches('input[type="checkbox"][onchange*="toggleSystemPermission"]')) {
+      scheduleApply(30);
+    }
+  }, false);
+
+  /* ========== 7. MUTATION OBSERVER ========== */
+  function startObserver() {
+    const tv = document.getElementById('teacherView');
+    if (!tv || window.__patchObserverV2__) return;
+    const obs = new MutationObserver(function () { scheduleApply(150); });
+    obs.observe(tv, { childList: true, subtree: true });
+    window.__patchObserverV2__ = obs;
+    console.log('[PATCH v2] MutationObserver started');
+  }
+
+  /* ========== 8. PERIODIC FALLBACK ========== */
+  setInterval(applyPermissions, 3000);
+
+  /* ========== 9. INIT ========== */
+  function init() {
+    applyPermissions();
+    setTimeout(applyPermissions, 500);
+    setTimeout(applyPermissions, 1200);
+    setTimeout(applyPermissions, 2500);
+    setTimeout(startObserver, 1200);
+    console.log('[PATCH v2] Initialized ✓');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    setTimeout(init, 80);
+  }
+})();
+<\/script>
+<!-- PATCH_PERMISSIONS_V2_END -->
+
 </body>
 </html>
