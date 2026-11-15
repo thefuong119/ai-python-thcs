@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T02:05:55.007Z",
+    "updatedAt": "2026-11-15T02:06:19.517Z",
     "updatedBy": "Bùi Hoàng Gia Bảo",
     "action": "Học sinh Bùi Hoàng Gia Bảo nộp bài"
   },
@@ -14723,9 +14723,9 @@
       {
         "student": "Bùi Hoàng Gia Bảo",
         "username": "bao",
-        "attempts": 3,
+        "attempts": 4,
         "highestScore": 0,
-        "lastSubmit": "09:05:40 15/11/2026"
+        "lastSubmit": "09:06:19 15/11/2026"
       }
     ],
     "lectures": [
@@ -15241,6 +15241,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794708379440,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21. Tách từ và tìm từ dài nhất",
+        "assignmentId": 29,
+        "score": 0,
+        "timestamp": "09:06:19 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n"
+      },
       {
         "id": 1794708340860,
         "student": "Bùi Hoàng Gia Bảo",
@@ -18834,7 +18879,8 @@
         "43": true
       },
       "bao": {
-        "1": true
+        "1": true,
+        "29": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19321,6 +19367,45 @@
           }
         ]
       },
+      "29": {
+        "id": 29,
+        "title": "Bài 21. Tách từ và tìm từ dài nhất",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một chuỗi ký tự gồm các từ được phân tách bởi dấu khoảng trắng.\nHãy đếm xem chuỗi có bao nhiêu từ và tìm từ có độ dài lớn nhất trong chuỗi. Nếu có nhiều từ có cùng độ dài lớn nhất thì in ra từ đầu tiên xuất hiện.\n\n- Dữ liệu vào: Một dòng chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra:\n + Dòng 1: Số lượng từ trong chuỗi.\n + Dòng 2: Từ dài nhất tìm được.",
+        "templateCode": "s = input().strip()\n\nwords = s.split()\n\nprint(len(words))\n\nif words:\n    max_word = max(words, key=len)\n    print(max_word)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "33": {
         "id": 33,
         "title": "Bài 25. Tổng n số lẻ đầu tiên",
@@ -19591,7 +19676,8 @@
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
       "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
       "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    ",
-      "bao__Bài 1. Tính tổng hai số nguyên A và B": "n = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n   \n    \n"
+      "bao__Bài 1. Tính tổng hai số nguyên A và B": "n = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n   \n    \n",
+      "bao__Bài 21. Tách từ và tìm từ dài nhất": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n"
     },
     "questionFlags": {
       "43": true
