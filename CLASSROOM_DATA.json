@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:13:09.958Z",
+    "updatedAt": "2026-11-15T08:14:14.240Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 34,
+        "attempts": 35,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:04:46 15/11/2026"
+        "lastSubmit": "15:14:14 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794730454138,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Chi phí sơn phòng học hình hộp chữ nhật",
+        "assignmentId": 276,
+        "score": 5,
+        "timestamp": "15:14:14 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
+            "expected": "2700000",
+            "actual": "2700000",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
+            "expected": "2700000",
+            "actual": "1500000",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))"
+      },
       {
         "id": 1794729886907,
         "student": "Lê Nguyễn Quang Minh",
@@ -18936,7 +18965,8 @@
         "17": true,
         "28": true,
         "267": true,
-        "275": true
+        "275": true,
+        "276": true
       },
       "hocsinh": {
         "1": true,
@@ -19846,7 +19876,8 @@
       "giaovien__Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
       "minh__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nOld = int(NhapVao.split(' ')[0])\nNew = int(NhapVao.split(' ')[1])\nkwh = New-Old\nif kwh <= 50: Tien = kwh*1800\nelif kwh <= 100: Tien = (50*1800)+((kwh-50)*1900)\nelse: Tien = (50*1800)+(50*1800)+((kwh-100)*2200)\nprint(Tien+(Tien*8//100))",
       "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)",
-      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))"
+      "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))",
+      "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))"
     },
     "questionFlags": {
       "43": true
