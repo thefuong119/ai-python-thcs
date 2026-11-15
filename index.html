@@ -904,11 +904,6 @@
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
                         <input id="teacherAssignmentSearch" oninput="renderManageAssignmentsTable()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-36">
-                        <select id="teacherManageGradeFilter" onchange="syncGradeFilters(this.value, 'teacher')" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 cursor-pointer">
-                            <option value="all">Tất cả khối</option>
-                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
-                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
-                        </select>
                         <select id="teacherDifficultyFilter" onchange="renderManageAssignmentsTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
                             <option value="all">Mọi độ khó</option>
                             <option value="easy">Dễ</option>
@@ -1236,54 +1231,41 @@
 
             <div id="adminTabUsers" class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 space-y-4">
                 <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl p-4 space-y-3">
-                    <div class="flex items-center justify-between border-b border-amber-200 pb-2 flex-wrap gap-2">
+                    <div class="flex items-center justify-between border-b border-amber-200 pb-2">
                         <h4 class="font-bold text-sm text-amber-900 flex items-center gap-2">
-                            <i class="ph-bold ph-shield-star text-amber-600 text-lg"></i> Phân quyền chi tiết cho Giáo viên
+                            <i class="ph-bold ph-shield-star text-amber-600 text-lg"></i> Phân quyền cho Giáo viên
                         </h4>
-                        <div class="flex items-center gap-2 flex-wrap">
-                            <button type="button" onclick="bulkSetPermissions(true)" class="px-3 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs flex items-center gap-1 transition-colors">
-                                <i class="ph-bold ph-check-square-offset"></i> Bật tất cả
-                            </button>
-                            <button type="button" onclick="bulkSetPermissions(false)" class="px-3 py-1 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-800 font-bold text-xs flex items-center gap-1 transition-colors">
-                                <i class="ph-bold ph-x-square"></i> Tắt tất cả
-                            </button>
-                            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Chỉ Admin</span>
-                        </div>
+                        <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Chỉ Admin thay đổi được</span>
                     </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 border border-amber-200">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanAdd" onchange="toggleSystemPermission('teacherCanAdd', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Thêm</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanEdit" onchange="toggleSystemPermission('teacherCanEdit', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Sửa</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
+                            <input type="checkbox" id="permTeacherCanDelete" onchange="toggleSystemPermission('teacherCanDelete', this.checked)" class="w-4 h-4">
+                            <span class="font-bold text-sm text-slate-700">Cho phép Xóa</span>
+                        </label>
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
                             <input type="checkbox" id="permTeacherCanPushServer" onchange="toggleSystemPermission('teacherCanPushServer', this.checked)" class="w-4 h-4">
                             <span class="font-bold text-sm text-slate-700">Cho phép Nộp Server</span>
                         </label>
-                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 border border-amber-200">
+                        <label class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 cursor-pointer hover:bg-amber-50 transition-colors border border-amber-200">
                             <input type="checkbox" id="permTeacherCanLoadServer" onchange="toggleSystemPermission('teacherCanLoadServer', this.checked)" class="w-4 h-4">
                             <span class="font-bold text-sm text-slate-700">Cho phép Nạp Server</span>
                         </label>
                     </div>
-
-                    <div class="overflow-x-auto border border-amber-200 rounded-xl bg-white shadow-sm">
-                        <table class="w-full text-left text-xs">
-                            <thead class="bg-amber-100 text-amber-900">
-                                <tr>
-                                    <th class="px-3 py-2 font-bold">Chức năng</th>
-                                    <th class="px-2 py-2 text-center font-bold w-20">Thêm</th>
-                                    <th class="px-2 py-2 text-center font-bold w-20">Sửa</th>
-                                    <th class="px-2 py-2 text-center font-bold w-20">Xóa</th>
-                                    <th class="px-2 py-2 text-center font-bold w-20">Xem</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-amber-100" id="permMatrixBody"></tbody>
-                        </table>
-                    </div>
-
                     <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-amber-200">
                         <p class="text-xs text-amber-800 font-semibold flex items-center gap-1">
                             <i class="ph-bold ph-info text-amber-600"></i>
-                            Nhấn <b>Áp dụng &amp; Đồng bộ ngay</b> để lưu và đẩy quyền lên máy chủ tức thì cho Giáo viên.
+                            Nhấn <b>Áp dụng & Đồng bộ ngay</b> để lưu và đẩy quyền lên máy chủ tức thì cho Giáo viên.
                         </p>
                         <button onclick="applyPermissionsAndPush()" id="btnApplyPermissions" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all">
-                            <i class="ph-bold ph-check-circle"></i> Áp dụng &amp; Đồng bộ ngay
+                            <i class="ph-bold ph-check-circle"></i> Áp dụng & Đồng bộ ngay
                         </button>
                     </div>
                     <p class="text-xs text-amber-700 italic">Ghi chú: Khi bỏ tích, các nút thao tác tương ứng sẽ bị ẩn khỏi giao diện Giáo viên trong vòng 30 giây.</p>
@@ -1447,11 +1429,6 @@
                     </div>
                     <div class="flex flex-wrap items-center gap-2">
                         <input id="adminAssignmentSearch" oninput="renderAdminAssignmentsTable()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-36">
-                        <select id="adminAssignmentGradeFilter" onchange="syncGradeFilters(this.value, 'admin')" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 cursor-pointer">
-                            <option value="all">Tất cả khối</option>
-                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
-                            <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
-                        </select>
                         <select id="adminDifficultyFilter" onchange="renderAdminAssignmentsTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
                             <option value="all">Mọi độ khó</option>
                             <option value="easy">Dễ</option>
@@ -2775,9 +2752,7 @@
             const el = document.getElementById(id); if (el) el.value = stored;
         });
         const tg = document.getElementById('teacherGradeFilter'); if (tg) tg.value = stored;
-        const tmg = document.getElementById('teacherManageGradeFilter'); if (tmg) tmg.value = stored;
         const ag = document.getElementById('adminGradeFilter'); if (ag) ag.value = stored;
-        const aag = document.getElementById('adminAssignmentGradeFilter'); if (aag) aag.value = stored;
     }
 
     function syncGradeFilters(grade, source) {
@@ -2786,8 +2761,8 @@
         localStorage.setItem(GRADE_STORAGE_KEY, grade);
         let targetIds = GRADE_SELECT_GROUPS[source] || [];
         if (source.startsWith('student')) targetIds = ['studentGradeFilter', 'studentPracticeGradeFilter', 'studentTestGradeFilter'];
-        if (source === 'teacher') targetIds = ['teacherGradeFilter', 'teacherManageGradeFilter'];
-        if (source === 'admin') { targetIds = ['adminGradeFilter', 'adminAssignmentGradeFilter']; }
+        if (source === 'teacher') targetIds = ['teacherGradeFilter'];
+        if (source === 'admin') { targetIds = ['adminGradeFilter']; }
         targetIds.forEach(id => { const el = document.getElementById(id); if (el && el.value !== grade) el.value = grade; });
         try {
             if (source.startsWith('student')) {
@@ -2895,30 +2870,23 @@
     let questionFlags = JSON.parse(localStorage.getItem('lms_question_flags') || '{}');
 
     let systemPermissions = {
-        // Hệ thống chung (giữ nguyên để tương thích cũ)
         teacherCanAdd: true,
         teacherCanEdit: true,
         teacherCanDelete: true,
-        teacherCanReplyMessages: true,
         teacherCanPushServer: true,
         teacherCanLoadServer: true,
-        // ===== 32 khóa chi tiết (8 chức năng × 4 hành động) =====
-        // Bài giảng
-        teacherCanAddLectures: true, teacherCanEditLectures: true, teacherCanDeleteLectures: true, teacherCanViewLectures: true,
-        // Ngân hàng câu hỏi
-        teacherCanAddAssignments: true, teacherCanEditAssignments: true, teacherCanDeleteAssignments: true, teacherCanViewAssignments: true,
-        // Các đề đã tạo
-        teacherCanAddTests: true, teacherCanEditTests: true, teacherCanDeleteTests: true, teacherCanViewTests: true,
-        // Trắc nghiệm
-        teacherCanAddQuiz: true, teacherCanEditQuiz: true, teacherCanDeleteQuiz: true, teacherCanViewQuiz: true,
-        // Bài làm
-        teacherCanAddSubmissions: true, teacherCanEditSubmissions: true, teacherCanDeleteSubmissions: true, teacherCanViewSubmissions: true,
-        // Điểm số
-        teacherCanAddGrades: true, teacherCanEditGrades: true, teacherCanDeleteGrades: true, teacherCanViewGrades: true,
-        // Nhật ký
-        teacherCanAddLogs: true, teacherCanEditLogs: true, teacherCanDeleteLogs: true, teacherCanViewLogs: true,
-        // Lời nhắn
-        teacherCanAddMessages: true, teacherCanEditMessages: true, teacherCanDeleteMessages: true, teacherCanViewMessages: true
+        teacherCanAddLectures: true,
+        teacherCanEditLectures: true,
+        teacherCanDeleteLectures: true,
+        teacherCanAddAssignments: true,
+        teacherCanEditAssignments: true,
+        teacherCanDeleteAssignments: true,
+        teacherCanAddQuiz: true,
+        teacherCanEditQuiz: true,
+        teacherCanDeleteQuiz: true,
+        teacherCanReplyMessages: true,
+        teacherCanDeleteMessages: true,
+        teacherCanViewLogs: true
     };
     let selectedAdminItems = { lectures: new Set(), assignments: new Set(), tests: new Set() };
     let studentMessages = [];
@@ -4229,90 +4197,45 @@
     function hasPermission(action, category) {
         if (currentUser.role === 'admin') return true;
         if (currentUser.role !== 'teacher') return false;
-        // Alias: "reply" (trả lời tin nhắn) dùng chung quyền "add" của Lời nhắn
-        if (action === 'reply') action = 'add';
         if (category) {
             const capAction = String(action).charAt(0).toUpperCase() + String(action).slice(1);
             const capCat = String(category).charAt(0).toUpperCase() + String(category).slice(1);
             const key = 'teacherCan' + capAction + capCat;
-            if (key in systemPermissions) return systemPermissions[key] !== false;
+            if (key in systemPermissions) return !!systemPermissions[key];
         }
         const map = {
-            add: systemPermissions.teacherCanAdd !== false,
-            edit: systemPermissions.teacherCanEdit !== false,
-            delete: systemPermissions.teacherCanDelete !== false,
-            pushServer: systemPermissions.teacherCanPushServer !== false,
-            loadServer: systemPermissions.teacherCanLoadServer !== false,
-            view: true
+            add: systemPermissions.teacherCanAdd,
+            edit: systemPermissions.teacherCanEdit,
+            delete: systemPermissions.teacherCanDelete,
+            pushServer: systemPermissions.teacherCanPushServer,
+            loadServer: systemPermissions.teacherCanLoadServer,
+            reply: systemPermissions.teacherCanReplyMessages,
+            view: systemPermissions.teacherCanViewLogs
         };
         return !!map[action];
     }
 
     function loadSystemPermissionsIntoUi() {
-        // Tự động điền key mới nếu thiếu (tương thích dữ liệu cũ)
-        if (typeof PERMISSION_MATRIX !== 'undefined') {
-            PERMISSION_MATRIX.forEach(row => {
-                PERMISSION_ACTIONS.forEach(({ act }) => {
-                    const key = getPermKey(act, row.cat);
-                    if (typeof systemPermissions[key] === 'undefined') systemPermissions[key] = true;
-                });
-            });
-        }
-        renderPermissionMatrix();
-        const srvMap = {
+        const map = {
+            permTeacherCanAdd: systemPermissions.teacherCanAdd,
+            permTeacherCanEdit: systemPermissions.teacherCanEdit,
+            permTeacherCanDelete: systemPermissions.teacherCanDelete,
             permTeacherCanPushServer: systemPermissions.teacherCanPushServer,
-            permTeacherCanLoadServer: systemPermissions.teacherCanLoadServer
+            permTeacherCanLoadServer: systemPermissions.teacherCanLoadServer,
+            permTeacherCanAddLectures: systemPermissions.teacherCanAddLectures,
+            permTeacherCanEditLectures: systemPermissions.teacherCanEditLectures,
+            permTeacherCanDeleteLectures: systemPermissions.teacherCanDeleteLectures,
+            permTeacherCanAddAssignments: systemPermissions.teacherCanAddAssignments,
+            permTeacherCanEditAssignments: systemPermissions.teacherCanEditAssignments,
+            permTeacherCanDeleteAssignments: systemPermissions.teacherCanDeleteAssignments,
+            permTeacherCanAddQuiz: systemPermissions.teacherCanAddQuiz,
+            permTeacherCanEditQuiz: systemPermissions.teacherCanEditQuiz,
+            permTeacherCanDeleteQuiz: systemPermissions.teacherCanDeleteQuiz,
+            permTeacherCanReplyMessages: systemPermissions.teacherCanReplyMessages,
+            permTeacherCanDeleteMessages: systemPermissions.teacherCanDeleteMessages,
+            permTeacherCanViewLogs: systemPermissions.teacherCanViewLogs
         };
-        Object.keys(srvMap).forEach(id => { const el = document.getElementById(id); if (el) el.checked = !!srvMap[id]; });
-    }
-    // ===== MA TRẬN QUYỀN =====
-    var PERMISSION_MATRIX = [
-        { cat: 'lectures',    label: 'Bài giảng',           icon: 'ph-book-open-text' },
-        { cat: 'assignments', label: 'Ngân hàng câu hỏi',   icon: 'ph-books' },
-        { cat: 'tests',       label: 'Các đề đã tạo',       icon: 'ph-list-checks' },
-        { cat: 'quiz',        label: 'Trắc nghiệm',         icon: 'ph-check-square-offset' },
-        { cat: 'submissions', label: 'Bài làm',             icon: 'ph-file-text' },
-        { cat: 'grades',      label: 'Điểm số',             icon: 'ph-trophy' },
-        { cat: 'logs',        label: 'Nhật ký',             icon: 'ph-clock-counter-clockwise' },
-        { cat: 'messages',    label: 'Lời nhắn',            icon: 'ph-chat-text' }
-    ];
-    var PERMISSION_ACTIONS = [
-        { act: 'add',    label: 'Thêm', color: '#10b981' },
-        { act: 'edit',   label: 'Sửa',  color: '#3b82f6' },
-        { act: 'delete', label: 'Xóa',  color: '#f43f5e' },
-        { act: 'view',   label: 'Xem',  color: '#6366f1' }
-    ];
-    function getPermKey(act, cat) {
-        return 'teacherCan' + act.charAt(0).toUpperCase() + act.slice(1) + cat.charAt(0).toUpperCase() + cat.slice(1);
-    }
-    function renderPermissionMatrix() {
-        const tbody = document.getElementById('permMatrixBody');
-        if (!tbody) return;
-        if (tbody.children.length === 0) {
-            tbody.innerHTML = PERMISSION_MATRIX.map(row => {
-                const cells = PERMISSION_ACTIONS.map(({ act, color }) => {
-                    const key = getPermKey(act, row.cat);
-                    return '<td class="text-center px-2 py-1.5"><input type="checkbox" id="perm_' + key + '" onchange="toggleSystemPermission(\'' + key + '\', this.checked)" class="w-4 h-4 cursor-pointer" style="accent-color: ' + color + '"></td>';
-                }).join('');
-                return '<tr class="hover:bg-amber-50/40"><td class="px-3 py-2 font-semibold text-slate-800"><div class="flex items-center gap-2"><i class="ph-bold ' + row.icon + ' text-amber-600"></i>' + row.label + '</div></td>' + cells + '</tr>';
-            }).join('');
-        }
-        PERMISSION_MATRIX.forEach(row => {
-            PERMISSION_ACTIONS.forEach(({ act }) => {
-                const key = getPermKey(act, row.cat);
-                const el = document.getElementById('perm_' + key);
-                if (el) el.checked = systemPermissions[key] !== false;
-            });
-        });
-    }
-    function bulkSetPermissions(value) {
-        if (currentUser.role !== 'admin') return showToast('Chỉ Admin mới có quyền!', 'error');
-        PERMISSION_MATRIX.forEach(row => {
-            PERMISSION_ACTIONS.forEach(({ act }) => { systemPermissions[getPermKey(act, row.cat)] = value; });
-        });
-        renderPermissionMatrix();
-        autoSaveLocalSnapshot();
-        showToast(value ? '✅ Đã bật tất cả quyền!' : '🚫 Đã tắt tất cả quyền!', 'info');
+        Object.keys(map).forEach(id => { const el = document.getElementById(id); if (el) el.checked = !!map[id]; });
     }
 
     async function toggleSystemPermission(key, value) {
@@ -4530,69 +4453,24 @@
     function enforceTeacherUiPermissions() {
         if (currentUser.role === 'admin') return;
         if (currentUser.role !== 'teacher') return;
-        const show = (sel, ok) => document.querySelectorAll(sel).forEach(b => { b.style.display = ok ? '' : 'none'; });
-
-        // === BÀI GIẢNG ===
-        show('#teacherView [onclick*="openLectureModalForCreate"]', hasPermission('add', 'lectures'));
-        show('#teacherLecturesTableBody [onclick*="editLecture"]', hasPermission('edit', 'lectures'));
-        show('#teacherLecturesTableBody [onclick*="openViewLectureDetail"]', hasPermission('view', 'lectures'));
-        show('#teacherLecturesTableBody [onclick*="previewTeacherLectureById"]', hasPermission('view', 'lectures'));
-
-        // === NGÂN HÀNG CÂU HỎI ===
-        show('#teacherView [onclick*="createAssignment"]', hasPermission('add', 'assignments'));
-        show('#manageAssignmentsTableBody [onclick*="editAssignment"]', hasPermission('edit', 'assignments'));
-        show('#manageAssignmentsTableBody [onclick*="openViewAssignmentDetail"]', hasPermission('view', 'assignments'));
-
-        // === CÁC ĐỀ ĐÃ TẠO ===
-        show('#teacherView [onclick*="openRandomTestModal"]', hasPermission('add', 'tests'));
-        show('#teacherTestsList [onclick*="openEditTestModal"]', hasPermission('edit', 'tests'));
-        show('#teacherTestsList [onclick*="deleteTestSet"]', hasPermission('delete', 'tests'));
-        show('#teacherTestsList [onclick*="viewTestDetail"]', hasPermission('view', 'tests'));
-        show('#teacherTestsList [onclick*="pushTestToStudents"]', hasPermission('add', 'tests'));
-
-        // === TRẮC NGHIỆM ===
-        const canQuizAdd = hasPermission('add', 'quiz');
-        const canQuizEdit = hasPermission('edit', 'quiz');
-        show('#teacherView [onclick*="openQuizQuestionModal"]', canQuizAdd || canQuizEdit);
-        show('#teacherView [onclick*="openQuizTestCreateModal"]', canQuizAdd || canQuizEdit);
-        show('#teacherQuizTableBody [onclick*="deleteQuizQuestion"]', hasPermission('delete', 'quiz'));
-        show('#teacherQuizTestsList [onclick*="publishQuizTest"]', canQuizEdit);
-        show('#teacherQuizTestsList [onclick*="previewQuizTest"]', hasPermission('view', 'quiz'));
-        show('#teacherQuizTestsList [onclick*="deleteQuizTest"]', hasPermission('delete', 'quiz'));
-
-        // === BÀI LÀM ===
-        show('#teacherTabSubmissions [onclick*="bulkDeleteSubmissions"]', hasPermission('delete', 'submissions'));
-        show('#teacherTabSubmissions [onclick*="exportSubmissionsXlsx"]', hasPermission('view', 'submissions'));
-
-        // === ĐIỂM SỐ ===
-        show('#teacherTabGrades [onclick*="exportTeacherGradebookCsv"]', hasPermission('view', 'grades'));
-        show('#teacherTabGrades [onclick*="exportSubmissionsXlsx"]', hasPermission('view', 'grades'));
-
-        // === LỜI NHẮN ===
-        show('#teacherMessagesList [onclick*="replyToMessage"]', hasPermission('add', 'messages'));
-        show('#teacherMessagesList [onclick*="deleteMessage"]', hasPermission('delete', 'messages'));
-        show('#teacherMessagesList [onclick*="markMessageRead"]', hasPermission('edit', 'messages'));
-
-        // === ẨN TAB THEO QUYỀN VIEW ===
-        const tabViewMap = {
-            'tabTeacherLecturesBtn': 'lectures',
-            'tabTeacherManageBtn': 'assignments',
-            'tabTeacherTestsBtn': 'tests',
-            'tabTeacherQuizBtn': 'quiz',
-            'tabTeacherSubmissionsBtn': 'submissions',
-            'tabTeacherGradesBtn': 'grades',
-            'tabTeacherMessagesBtn': 'messages'
-        };
-        Object.entries(tabViewMap).forEach(([id, cat]) => {
-            const btn = document.getElementById(id);
-            if (btn) btn.style.display = hasPermission('view', cat) ? '' : 'none';
-        });
-
-        // === ẨN NÚT NẠP TỆP nếu không có quyền add ===
-        const canImportAny = hasPermission('add', 'lectures') || hasPermission('add', 'assignments') || hasPermission('add', 'quiz');
-        document.querySelectorAll('#teacherView label:has(input[type="file"])').forEach(b => { b.style.display = canImportAny ? '' : 'none'; });
-
-        // === ẨN TAB NHẬT KÝ ===
+        // Nút thêm bài giảng
+        document.querySelectorAll('#teacherView [onclick*="openLectureModalForCreate"]').forEach(b => { b.style.display = hasPermission('add', 'lectures') ? '' : 'none'; });
+        // Nút thêm bài tập
+        document.querySelectorAll('#teacherView [onclick*="createAssignment"]').forEach(b => { b.style.display = hasPermission('add', 'assignments') ? '' : 'none'; });
+        // Nút thêm câu hỏi / đề trắc nghiệm
+        document.querySelectorAll('#teacherView [onclick*="openQuizQuestionModal"], #teacherView [onclick*="openQuizTestCreateModal"]').forEach(b => { b.style.display = hasPermission('add', 'quiz') ? '' : 'none'; });
+        // Nút tạo đề ngẫu nhiên
+        document.querySelectorAll('#teacherView [onclick*="openRandomTestModal"]').forEach(b => { b.style.display = hasPermission('add', 'assignments') ? '' : 'none'; });
+        // Nút nạp tệp
+        document.querySelectorAll('#teacherView label:has(input[type="file"])').forEach(b => { const canAdd = hasPermission('add', 'lectures') || hasPermission('add', 'assignments') || hasPermission('add', 'quiz'); b.style.display = canAdd ? '' : 'none'; });
+        // Sửa / Xóa bài giảng
+        document.querySelectorAll('#teacherLecturesTableBody [onclick*="editLecture"]').forEach(b => { b.style.display = hasPermission('edit', 'lectures') ? '' : 'none'; });
+        // Sửa bài tập
+        document.querySelectorAll('#manageAssignmentsTableBody [onclick*="editAssignment"]').forEach(b => { b.style.display = hasPermission('edit', 'assignments') ? '' : 'none'; });
+        // Sửa / Xóa trắc nghiệm
+        document.querySelectorAll('#teacherQuizTableBody [onclick*="openQuizQuestionModal"]').forEach(b => { b.style.display = hasPermission('edit', 'quiz') ? '' : 'none'; });
+        document.querySelectorAll('#teacherQuizTableBody [onclick*="deleteQuizQuestion"]').forEach(b => { b.style.display = hasPermission('delete', 'quiz') ? '' : 'none'; });
+        // Ẩn tab nhật ký
         const logsBtn = document.getElementById('tabTeacherLogsBtn');
         if (logsBtn) logsBtn.style.display = hasPermission('view', 'logs') ? '' : 'none';
     }
@@ -7267,7 +7145,7 @@
             try {
                 const ok = await fetchMessagesFromGithub();
                 if (ok) {
-                    if (currentUser.role === 'teacher') { renderTeacherMessages(); setTimeout(enforceTeacherUiPermissions, 30); }
+                    if (currentUser.role === 'teacher') renderTeacherMessages();
                     else if (currentUser.role === 'admin') renderAdminMessages();
                     else if (currentUser.role === 'student') renderStudentMessages();
                 }
@@ -7325,5 +7203,143 @@
         }
     });
     </script>
+<script>
+/* === PATCH: AI_TUTOR_PROMPT_DROPDOWN v1 === */
+(function () {
+    'use strict';
+    const PROMPTS = {
+        check_and_fix: 'Hãy kiểm tra code của em trong khung soạn thảo, chỉ ra chính xác lỗi ở chỗ nào và sửa lại cho đúng. Đưa ra code đã sửa hoàn chỉnh và giải thích ngắn gọn những thay đổi.',
+        explain_lines: 'Hãy giải thích ý nghĩa và cách dùng của từng dòng code trong khung soạn thảo của em. Giải thích chi tiết, dễ hiểu, phù hợp với học sinh THCS.',
+        format_standard: 'Hãy kiểm tra code của em và căn chỉnh lại theo chuẩn Python (PEP 8). Đưa ra code đã được format hoàn chỉnh, giữ nguyên toàn bộ logic.',
+        show_algorithm: 'Hãy cho em biết bài tập này đang sử dụng thuật toán gì, giải thích thuật toán đó và độ phức tạp. So sánh với các cách giải khác nếu có.',
+        similar_exercises: 'Hãy gợi ý cho em 3-5 bài tập tương tự bài này, sắp xếp từ dễ đến khó. Với mỗi bài, đưa ra đề bài, đáp án mẫu và giải thích ngắn gọn.'
+    };
+    const DROPDOWN_HTML = '<div id="aiPromptDropdownWrapper" class="flex flex-col sm:flex-row sm:items-center gap-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-xl my-2">'
+        + '<label class="text-xs font-bold text-indigo-900 whitespace-nowrap flex items-center gap-1.5"><i class="ph-bold ph-list-magnifying-glass"></i> Chọn lệnh nhanh:</label>'
+        + '<select id="aiPromptSelector" onchange="window.__handleAiPromptSelect(this.value)" class="flex-1 min-w-0 bg-white border border-indigo-300 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-700 cursor-pointer focus:ring-2 focus:ring-indigo-400 focus:outline-none">'
+        + '<option value="">-- Chọn một lệnh --</option>'
+        + '<option value="check_and_fix">Kiểm tra code lỗi chỗ nào và sửa lại cho đúng</option>'
+        + '<option value="explain_lines">Giải thích ý nghĩa và cách dùng từng dòng code</option>'
+        + '<option value="format_standard">Kiểm tra code và căn chỉnh code chuẩn Python</option>'
+        + '<option value="show_algorithm">Cho biết thuật toán đang dùng cho bài tập này</option>'
+        + '<option value="similar_exercises">Gợi ý cho em một số bài tập tương tự có đáp án</option>'
+        + '</select></div>';
+    function getCurrentCode() {
+        try {
+            const cm = document.querySelector('.CodeMirror');
+            if (cm && cm.CodeMirror && typeof cm.CodeMirror.getValue === 'function') return cm.CodeMirror.getValue();
+            const ta = document.getElementById('codeEditor');
+            if (ta) return ta.value || '';
+            if (window.codeEditor && typeof window.codeEditor.getValue === 'function') return window.codeEditor.getValue();
+        } catch (e) {}
+        return '';
+    }
+    function getAssignmentTitle() {
+        try { const sel = document.getElementById('selectAssignment'); if (sel && sel.options[sel.selectedIndex]) return (sel.options[sel.selectedIndex].text || '').trim(); } catch (e) {}
+        return '';
+    }
+    function getDescriptionSnippet() {
+        try { const el = document.getElementById('assignmentDescription'); if (el) return (el.innerText || '').trim().slice(0, 600); } catch (e) {}
+        return '';
+    }
+    function buildFullPrompt(key) {
+        const base = PROMPTS[key] || key;
+        const code = getCurrentCode();
+        const title = getAssignmentTitle();
+        const desc = getDescriptionSnippet();
+        const parts = [base];
+        if (title) parts.push('[Bài tập đang làm: ' + title + ']');
+        if (desc)  parts.push('[Tóm tắt đề bài: ' + desc + ']');
+        parts.push('Code hiện tại của em:\n\u0060\u0060\u0060python\n' + (code || '# (chưa có code)') + '\n\u0060\u0060\u0060');
+        return parts.join('\n\n');
+    }
+    function findAiModal() {
+        const ids = ['aiAssistantModal','aiTutorModal','aiChatModal','aiModal'];
+        for (const id of ids) { const el = document.getElementById(id); if (el) return el; }
+        const all = document.querySelectorAll('[id]');
+        for (const el of all) { if (/ai|tutor|assistant/i.test(el.id) && el.querySelector('textarea')) return el; }
+        return null;
+    }
+    function findAiInput() {
+        const ids = ['aiAssistantInput','aiChatInput','aiUserInput','aiInput','aiTutorInput','aiMessageInput'];
+        for (const id of ids) { const el = document.getElementById(id); if (el) return el; }
+        const modal = findAiModal();
+        if (modal) return modal.querySelector('textarea, input[type="text"]');
+        return null;
+    }
+    function findSendButton() {
+        const modal = findAiModal();
+        const scope = modal || document;
+        const buttons = scope.querySelectorAll('button');
+        for (const b of buttons) {
+            const txt = (b.textContent || '').trim().toLowerCase();
+            const onclick = (b.getAttribute('onclick') || '').toLowerCase();
+            if (txt.includes('gửi') || onclick.includes('sendai') || onclick.includes('sendmessage')) return b;
+        }
+        return null;
+    }
+    function triggerSend() {
+        const btn = findSendButton();
+        if (btn) { btn.click(); return; }
+        if (typeof window.sendAiMessage === 'function') { window.sendAiMessage(); return; }
+        if (typeof window.sendMessage === 'function') { window.sendMessage(); return; }
+        const input = findAiInput();
+        if (input) input.dispatchEvent(new KeyboardEvent('keydown', { key:'Enter', code:'Enter', keyCode:13, which:13, bubbles:true }));
+    }
+    window.__handleAiPromptSelect = function (key) {
+        if (!key) return;
+        const full = buildFullPrompt(key);
+        const input = findAiInput();
+        if (!input) { alert('Không tìm thấy ô nhập tin nhắn Gia Sư AI. Vui lòng mở hộp thoại Gia Sư AI trước.'); return; }
+        input.focus();
+        input.value = full;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        setTimeout(function () { const sel = document.getElementById('aiPromptSelector'); if (sel) sel.value = ''; }, 400);
+        setTimeout(triggerSend, 350);
+    };
+    function hideOldButtons() {
+        const targets = ['Soi lỗi code', 'Tại sao sai', 'Thuật toán + Code', 'Thuật toán & Code'];
+        document.querySelectorAll('button').forEach(function (b) {
+            const txt = (b.textContent || '').trim();
+            if (txt === 'Hỏi Gia Sư AI') return;
+            for (const t of targets) { if (txt === t || txt.startsWith(t)) { b.style.display = 'none'; break; } }
+        });
+    }
+    function injectDropdown() {
+        const modal = findAiModal();
+        if (!modal) return;
+        if (modal.querySelector('#aiPromptDropdownWrapper')) return;
+        const input = modal.querySelector('textarea, input[type="text"]');
+        if (!input) return;
+        const holder = document.createElement('div');
+        holder.innerHTML = DROPDOWN_HTML.trim();
+        const dd = holder.firstElementChild;
+        const target = input.closest('form') || input.parentNode;
+        if (target && target.parentNode) target.parentNode.insertBefore(dd, target);
+        else if (input.parentNode) input.parentNode.insertBefore(dd, input);
+    }
+    function tryInject() {
+        const modal = findAiModal();
+        if (modal && modal.offsetParent !== null) { injectDropdown(); hideOldButtons(); }
+    }
+    function init() {
+        new MutationObserver(tryInject).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style','class'] });
+        document.addEventListener('click', function (e) {
+            const t = e.target.closest('button');
+            if (!t) return;
+            const txt = (t.textContent || '').trim();
+            const onclick = (t.getAttribute('onclick') || '');
+            if (txt.includes('Hỏi Gia Sư AI') || onclick.includes('openAiAssistant')) {
+                setTimeout(function () { injectDropdown(); hideOldButtons(); }, 250);
+            }
+        }, true);
+        setInterval(hideOldButtons, 1500);
+        setTimeout(function () { injectDropdown(); hideOldButtons(); }, 800);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+})();
+</script>
 </body>
 </html>
