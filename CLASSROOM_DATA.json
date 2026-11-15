@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:04:47.009Z",
+    "updatedAt": "2026-11-15T08:05:51.899Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -19596,6 +19596,31 @@
             "id": 2,
             "input": "14 3 50000",
             "expected": "550000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "276": {
+        "id": 276,
+        "title": "Chi phí sơn phòng học hình hộp chữ nhật",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cần sơn 4 bức tường xung quanh và trần nhà của một phòng học hình hộp chữ nhật có chiều dài $a$1$b$1$h$1$S_{cua}$ ($m^2$).\n- Mỗi mét vuông cần $d$1$c$1$P_{thung}$1$a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
+        "templateCode": "import math\n\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua = float(line[3])\nd = float(line[4])\nc = float(line[5])\np_thung = int(line[6])\n\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nlit_can = s_son * d\nso_thung = math.ceil(lit_can / c)\n\nprint(so_thung * p_thung)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
+            "expected": "2700000",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
+            "expected": "2700000",
             "point": 5,
             "is_hidden": false
           }
