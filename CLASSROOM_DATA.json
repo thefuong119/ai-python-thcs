@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:49:50.242Z",
+    "updatedAt": "2026-11-15T08:49:54.999Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 46,
+        "attempts": 47,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:49:49 15/11/2026"
+        "lastSubmit": "15:49:54 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794732594912,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 5: Tính giai thừa",
+        "assignmentId": 5,
+        "score": 10,
+        "timestamp": "15:49:54 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "3628800",
+            "actual": "3628800",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nGiaiThua = 1\nfor i in range(2,N+1):\n    GiaiThua *= i\nprint(GiaiThua)"
+      },
       {
         "id": 1794732589030,
         "student": "Lê Nguyễn Quang Minh",
