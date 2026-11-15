@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:48:04.339Z",
-    "updatedBy": "Phan Trọng Khương",
-    "action": "Học sinh Phan Trọng Khương nộp bài"
+    "updatedAt": "2026-11-15T08:47:43.066Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Học sinh Học sinh Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -166,7 +166,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "cccd": "",
@@ -187,7 +187,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 12,
+        "loginCount": 13,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 13,
+        "loginCount": 14,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -14664,10 +14664,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 7,
+        "attempts": 8,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "18:35:09 6/11/2026"
+        "lastSubmit": "15:47:42 15/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 38,
+        "attempts": 40,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:39:44 15/11/2026"
+        "lastSubmit": "15:42:58 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -14726,9 +14726,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 13,
+        "attempts": 10,
         "highestScore": 10,
-        "lastSubmit": "15:48:04 15/11/2026"
+        "lastSubmit": "20:37:52 6/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -15259,139 +15259,139 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794732484194,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 8. Tìm số trong dãy quy luật",
-        "assignmentId": 8,
+        "id": 1794732462958,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 13. Giải nén xâu ký tự",
+        "assignmentId": 18,
         "score": 10,
-        "timestamp": "15:48:04 15/11/2026",
+        "timestamp": "15:47:42 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3",
-            "expected": "8",
-            "actual": "8",
+            "input": "3a5bc",
+            "expected": "aaabbbbbc",
+            "actual": "aaabbbbbc",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
+            "input": "4a3b",
+            "expected": "aaaabbb",
+            "actual": "aaaabbb",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2a10b1c",
+            "expected": "aabbbbbbbbbbc",
+            "actual": "aabbbbbbbbbbc",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "xyz",
+            "expected": "xyz",
+            "actual": "xyz",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))"
+      },
+      {
+        "id": 1794732178667,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:58 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
             "input": "6",
-            "expected": "23",
-            "actual": "23",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "10",
-            "expected": "57",
-            "actual": "57",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "actual": "500000000500000002",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
-      },
-      {
-        "id": 1794732255421,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "15:44:15 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
+            "expected": "1",
+            "actual": "1",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
           }
         ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
       },
       {
-        "id": 1794732248844,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "timestamp": "15:44:08 15/11/2026",
+        "id": 1794732177415,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:57 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "",
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
             "passed": false,
             "points": 0
           }
         ],
-        "code": "# Viết mã Python của em ở đây...\na,b=map(input().split())\nprint(a+b)"
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
       },
       {
         "id": 1794731984058,
@@ -18610,9 +18610,16 @@
     ],
     "loginLogs": [
       {
-        "time": "15:41:45 15/11/2026",
-        "name": "Phan Trọng Khương",
-        "identifier": "khuong",
+        "time": "15:46:14 15/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "15:42:35 15/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
         "result": "Thành công"
       },
@@ -19202,6 +19209,7 @@
       },
       "hocsinh": {
         "1": true,
+        "18": true,
         "28": true,
         "394": true,
         "395": true
@@ -19224,10 +19232,6 @@
       },
       "giaovien": {
         "313": true
-      },
-      "khuong": {
-        "1": true,
-        "8": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19480,45 +19484,6 @@
           }
         ]
       },
-      "8": {
-        "id": 8,
-        "title": "Bài 8. Tìm số trong dãy quy luật",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
-        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3",
-            "expected": "8",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "6",
-            "expected": "23",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "10",
-            "expected": "57",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
       "9": {
         "id": 9,
         "title": "Bài 9. Số có đúng ba ước nguyên dương",
@@ -19670,6 +19635,45 @@
             "id": 4,
             "input": "3 6",
             "expected": "6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "18": {
+        "id": 18,
+        "title": "Bài 13. Giải nén xâu ký tự",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong nén văn bản, một phương pháp nén đơn giản thay thế các đoạn ký tự lặp liên tiếp bằng số lần lặp kèm theo ký tự đó. Ví dụ: xâu aaaabbb được nén thành 4a3b; xâu aaab nén thành 3ab; nếu ký tự xuất hiện 1 lần thì có thể không ghi số (ví dụ c thay vì 1c).\nCho một xâu ký tự nén St. Hãy viết chương trình giải nén xâu St để thu lại xâu ký tự ban đầu.\n\n- Dữ liệu vào: Một dòng chứa xâu ký tự St gồm các chữ số và chữ cái tiếng Anh in thường (1 <= |St| <= 255).\n- Dữ liệu ra: In ra xâu ký tự sau khi giải nén.",
+        "templateCode": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3a5bc",
+            "expected": "aaabbbbbc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4a3b",
+            "expected": "aaaabbb",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2a10b1c",
+            "expected": "aabbbbbbbbbbc",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "xyz",
+            "expected": "xyz",
             "point": 2.5,
             "is_hidden": true
           }
@@ -20231,8 +20235,7 @@
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "khuong__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "khuong__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
+      "hocsinh__Bài 13. Giải nén xâu ký tự": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))"
     },
     "questionFlags": {
       "43": true
