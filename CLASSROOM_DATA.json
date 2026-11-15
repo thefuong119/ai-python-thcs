@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T11:54:29.366Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "updatedAt": "2026-11-15T11:54:40.816Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 13,
+        "loginCount": 14,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 42,
+        "attempts": 40,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:54:29 15/11/2026"
+        "lastSubmit": "15:42:58 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,96 +15258,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794743669245,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 16. Rút gọn tối đa dãy số",
-        "assignmentId": 21,
-        "score": 10,
-        "timestamp": "18:54:29 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "55577",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "12345",
-            "expected": "6",
-            "actual": "6",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "999999",
-            "expected": "9",
-            "actual": "9",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "9876543210",
-            "expected": "9",
-            "actual": "9",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input()\nwhile len(S) > 1:\n    SoRutGon = 0\n    for i in range(len(S)):\n        SoRutGon += int(S[i])\n    S = str(SoRutGon)\nprint(SoRutGon)"
-      },
-      {
-        "id": 1794732759960,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 10. Xếp que diêm thành tháp tam giác",
-        "assignmentId": 10,
-        "score": 10,
-        "timestamp": "15:52:39 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "1",
-            "actual": "1",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "2",
-            "actual": "2",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "18",
-            "expected": "3",
-            "actual": "3",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000000000",
-            "expected": "25819888",
-            "actual": "25819888",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTang = 0\nwhile 3*(Tang*(Tang+1)//2) < N:\n    Tang += 1\nif 3*(Tang*(Tang+1)//2) > N: Tang -= 1\nprint(Tang)"
-      },
       {
         "id": 1794732178667,
         "student": "Lê Nguyễn Quang Minh",
@@ -18655,6 +18565,13 @@
     ],
     "loginLogs": [
       {
+        "time": "15:51:18 15/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "15:51:16 15/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -19224,7 +19141,8 @@
     ],
     "studentFlags": {
       "086081006094": {
-        "1": true
+        "1": true,
+        "443": true
       },
       "loc": {
         "1": true,
@@ -19240,17 +19158,11 @@
         "5": true,
         "6": true,
         "7": true,
+        "9": true,
         "10": true,
         "11": true,
         "17": true,
-        "21": true,
-        "28": true,
-        "267": true,
-        "275": true,
-        "276": true,
-        "279": true,
-        "280": true,
-        "289": true
+        "28": true
       },
       "hocsinh": {
         "1": true,
@@ -19273,9 +19185,6 @@
         "24": true,
         "33": true,
         "43": true
-      },
-      "giaovien": {
-        "313": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19684,45 +19593,6 @@
           }
         ]
       },
-      "21": {
-        "id": 21,
-        "title": "Bài 16. Rút gọn tối đa dãy số",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Phép biến đổi rút gọn một dãy số nguyên là tính tổng tất cả các chữ số của số đó để thu được một số mới. Quá trình này được lặp đi lặp lại liên tục cho đến khi kết quả thu được chỉ còn đúng một chữ số duy nhất (chữ số gốc).\nVí dụ với số 55577:\n- Bước 1: 5 + 5 + 5 + 7 + 7 = 29\n- Bước 2: 2 + 9 = 11\n- Bước 3: 1 + 1 = 2\nKết quả cuối cùng là 2.\nCho một số nguyên dương S có thể có nhiều chữ số. Hãy tìm chữ số rút gọn cuối cùng của S.\n\n- Dữ liệu vào: Một chuỗi ký tự biểu diễn số nguyên dương S (độ dài chuỗi lên tới 1000 chữ số).\n- Dữ liệu ra: In ra một chữ số duy nhất sau khi đã rút gọn tối đa.",
-        "templateCode": "s = input().strip()\n\ndigits = [int(ch) for ch in s]\n\nwhile len(digits) > 1:\n    tong = sum(digits)\n    digits = [int(ch) for ch in str(tong)]\n\nprint(digits[0])",
-        "tests": [
-          {
-            "id": 1,
-            "input": "55577",
-            "expected": "2",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "12345",
-            "expected": "6",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "999999",
-            "expected": "9",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "9876543210",
-            "expected": "9",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
       "24": {
         "id": 24,
         "title": "Bài 17. Kiểm tra số Kaprekar",
@@ -19879,206 +19749,6 @@
           }
         ]
       },
-      "267": {
-        "id": 267,
-        "title": "Tính tiền điện bậc thang sinh hoạt",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$1$new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$1$new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
-        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "120 160",
-            "expected": "77760",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "100 240",
-            "expected": "300240",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "268": {
-        "id": 268,
-        "title": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ của một hộ gia đình là $m$ ($m$1$m^3$ đầu tiên): 6000 đ/$m^3$1$m^3$ thứ 11 đến 20): 7500 đ/$m^3$1$m^3$ thứ 21 trở lên): 10000 đ/$m^3$1$m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả.",
-        "templateCode": "m = int(input().strip())\nif m <= 10:\n    tien = m * 6000\nelif m <= 20:\n    tien = 10 * 6000 + (m - 10) * 7500\nelse:\n    tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "8",
-            "expected": "55200",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "25",
-            "expected": "212750",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "275": {
-        "id": 275,
-        "title": "Chương trình khuyến mãi Mua K tặng 1",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Một cửa hàng sách áp dụng chương trình khuyến mãi: Khách mua $K$1$P$1$N$1$N$1$N, K, P$ ($1 \\le N, K \\le 10^6; 1000 \\le P \\le 500000$).\nDữ liệu ra: Một số nguyên là số tiền tối thiểu cần thanh toán.",
-        "templateCode": "N, K, P = map(int, input().split())\nso_nhom = N // (K + 1)\nso_du = N % (K + 1)\nso_quyen_phai_mua = so_nhom * K + so_du\nprint(so_quyen_phai_mua * P)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "10 4 20000",
-            "expected": "160000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "14 3 50000",
-            "expected": "550000",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "276": {
-        "id": 276,
-        "title": "Chi phí sơn phòng học hình hộp chữ nhật",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Cần sơn 4 bức tường xung quanh và trần nhà của một phòng học hình hộp chữ nhật có chiều dài $a$1$b$1$h$1$S_{cua}$ ($m^2$).\n- Mỗi mét vuông cần $d$1$c$1$P_{thung}$1$a, b, h$; số thực $S_{cua}$; số thực $d$; số thực $c$; và số nguyên $P_{thung}$.\nDữ liệu ra: Một số nguyên là chi phí mua sơn tối thiểu.",
-        "templateCode": "import math\n\nline = input().split()\na, b, h = float(line[0]), float(line[1]), float(line[2])\ns_cua = float(line[3])\nd = float(line[4])\nc = float(line[5])\np_thung = int(line[6])\n\ns_tuong = 2 * (a + b) * h\ns_tran = a * b\ns_son = max(0.0, s_tuong + s_tran - s_cua)\nlit_can = s_son * d\nso_thung = math.ceil(lit_can / c)\n\nprint(so_thung * p_thung)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "8.0 6.0 3.5 12.0 0.2 5.0 450000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
-            "expected": "2700000",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "279": {
-        "id": 279,
-        "title": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Cho một tứ giác $ABCD$1$AB=a, BC=b, CD=c, DA=d$1$AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$1$a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.\n*Giải thích*: eps = 1e-5 được dùng làm sai số cho phép để kiểm tra xem hai cạnh có bằng nhau hay không (abs(a - c) < eps), giúp chương trình tránh được các lỗi sai số làm tròn khi nhập số thực.",
-        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n    if abs(a - b) < eps:\n        print(\"HINH VUONG\")\n    else:\n        print(\"HINH CHU NHAT\")\nelse:\n    print(\"HINH KHAC\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3 4 3 4 5",
-            "expected": "HINH CHU NHAT",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "5 5 5 5 7.071068",
-            "expected": "HINH VUONG",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "280": {
-        "id": 280,
-        "title": "Chu vi và diện tích hình thang cân",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Cho một hình thang cân có đáy lớn $a$, đáy nhỏ $b$ ($a > b$) và cạnh bên $c$. Giả sử $c > \\frac{a - b}{2}$1$P$1$S$1$a, b, c$ ($a > b > 0, c > 0$).\nDữ liệu ra: Hai số $P$1$S$ cách nhau một dấu cách.",
-        "templateCode": "import math\n\na, b, c = map(float, input().split())\np_val = a + b + 2 * c\nx = (a - b) / 2\nh = math.sqrt(c**2 - x**2)\ns_val = ((a + b) * h) / 2\nprint(f\"{p_val:.2f} {s_val:.2f}\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "10 4 5",
-            "expected": "24.00 28.00",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "8 2 5",
-            "expected": "20.00 20.00",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "289": {
-        "id": 289,
-        "title": "Bài toán cổ: Vừa gà vừa chó",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Bài toán cổ Việt Nam:\n\"Vừa gà vừa chó\nBó lại cho tròn\n$m$1$n$1$m$1$n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên hợp lệ (số con không âm), in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$1$n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
-        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n    cho = (n - 2 * m) // 2\n    ga = m - cho\n    if ga >= 0 and cho >= 0:\n        print(f\"{ga} {cho}\")\n    else:\n        print(\"VO NGHIEM\")\nelse:\n    print(\"VO NGHIEM\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "36 100",
-            "expected": "22 14",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "10 25",
-            "expected": "VO NGHIEM",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
-      "313": {
-        "id": 313,
-        "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
-        "classLevel": "8",
-        "difficulty": "hard",
-        "timeLimit": 2,
-        "description": "Trung tâm hội nghị có 1 hội trường duy nhất. Có $N$1$i$1$s_i$1$e_i$. Hai cuộc họp được coi là không chồng chéo nếu cuộc họp sau bắt đầu tại thời điểm lớn hơn hoặc bằng thời điểm kết thúc của cuộc họp trước ($s_j \\ge e_i$). Hãy chọn ra số lượng cuộc họp tối đa có thể bố trí vào hội trường này.\n\nDữ liệu vào:\n- Dòng 1: Số nguyên dương $N$ ($1 \\le N \\le 10^5$).\n- $N$1$s_i, e_i$ ($0 \\le s_i < e_i \\le 10^9$).\nDữ liệu ra: Một số nguyên duy nhất là số cuộc họp tối đa được xếp.",
-        "templateCode": "import sys\n\ninput = sys.stdin.read\ndata = input().split()\nif data:\n    N = int(data[0])\n    cuoc_hop = []\n    idx = 1\n    for _ in range(N):\n        s = int(data[idx])\n        e = int(data[idx + 1])\n        cuoc_hop.append((s, e))\n        idx += 2\n\n    # Tham lam: sap xep tang dan theo thoi diem ket thuc\n    cuoc_hop.sort(key=lambda x: x[1])\n\n    dem = 0\n    moc_cuoi = -1\n    for s, e in cuoc_hop:\n        if s >= moc_cuoi:\n            dem += 1\n            moc_cuoi = e\n\n    print(dem)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "4\n1 3\n2 5\n4 7\n6 9",
-            "expected": "3",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "3\n1 5\n2 3\n3 4",
-            "expected": "2",
-            "point": 5,
-            "is_hidden": false
-          }
-        ]
-      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -20125,6 +19795,45 @@
             "input": "3 3\n1 2 1\n2 3 2\n1 3 3",
             "expected": "3",
             "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "443": {
+        "id": 443,
+        "title": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while để tách từng chữ số của $n$, từ đó tìm và in ra chữ số lớn nhất xuất hiện trong $n$.",
+        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n max_cs = cs\n n //= 10\nprint(max_cs)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "38294",
+            "expected": "9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5012",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1111",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7",
+            "expected": "7",
+            "point": 2.5,
             "is_hidden": false
           }
         ]
@@ -20278,18 +19987,12 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "minh__Bài 16. Rút gọn tối đa dãy số": "# Viết mã Python của em ở đây...\nS = input()\nwhile len(S) > 1:\n    SoRutGon = 0\n    for i in range(len(S)):\n        SoRutGon += int(S[i])\n    S = str(SoRutGon)\nprint(SoRutGon)"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -20312,6 +20015,11 @@
       "logs": {
         "delete": true
       },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
