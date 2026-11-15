@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:50:53.710Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Đăng xuất: Nguyễn Thế Phương"
+    "updatedAt": "2026-11-15T08:51:26.379Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 81,
+        "loginCount": 80,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -187,7 +187,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 13,
+        "loginCount": 14,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -18565,17 +18565,10 @@
     ],
     "loginLogs": [
       {
-        "time": "15:50:53 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "15:50:17 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
+        "time": "15:51:16 15/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
         "result": "Thành công"
       },
       {
@@ -20162,6 +20155,11 @@
       "43": true
     },
     "systemPermissions": {
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -20184,11 +20182,6 @@
       "logs": {
         "delete": true
       },
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
