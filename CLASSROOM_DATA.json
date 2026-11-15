@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T14:46:43.785Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-15T14:49:07.588Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 84,
+        "loginCount": 80,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -14672,10 +14672,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 30,
+        "attempts": 31,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "21:07:13 15/11/2026"
+        "lastSubmit": "21:49:07 15/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794754147435,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
+        "assignmentId": 267,
+        "score": 0,
+        "timestamp": "21:49:07 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn, k = list(map(int(input().split())))\nif n<=50:\n    print(\"số tiên phải trả là\",n*1800)\nelif n<=100:\n    print(\"số tiền phải trả là\",n*1800+(n-50)*1900)\nelse:\n    print(\"sô tiền phải trả là\",n*1800+(n-50)*1900+(n-100)*2200)"
+      },
       {
         "id": 1794751633613,
         "student": "Nguyễn Phú Lộc",
@@ -18655,41 +18684,6 @@
     ],
     "loginLogs": [
       {
-        "time": "21:44:35 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:36:47 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:33:26 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "21:22:53 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Áp dụng phân quyền"
-      },
-      {
-        "time": "21:22:26 15/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
         "time": "21:06:02 15/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -19294,7 +19288,8 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true
+        "4": true,
+        "267": true
       },
       "minh": {
         "1": true,
@@ -19895,6 +19890,31 @@
           }
         ]
       },
+      "267": {
+        "id": 267,
+        "title": "Tính tiền điện bậc thang sinh hoạt",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hộ gia đình có chỉ số công tơ điện cũ là $old$1$new$ ($new \\ge old$). Hãy tính tổng số tiền điện phải trả trong tháng (bao gồm 8% thuế VAT), biết đơn giá tính theo bậc thang như sau:\n- Bậc 1 (0 - 50 kWh): 1800 đ/kWh\n- Bậc 2 (51 - 100 kWh): 1900 đ/kWh\n- Bậc 3 (trên 100 kWh): 2200 đ/kWh\nSố tiền sau thuế được làm tròn đến hàng đơn vị (làm tròn số thực thông thường).\n\nDữ liệu vào: Một dòng gồm hai số nguyên không âm $old$1$new$ ($0 \\le old \\le new \\le 10^6$).\nDữ liệu ra: Một số nguyên duy nhất là số tiền điện phải trả.",
+        "templateCode": "old, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\ntong_tien = round(tien * 1.08)\nprint(tong_tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -20133,7 +20153,8 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
+      "loc__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nn, k = list(map(int(input().split())))\nif n<=50:\n    print(\"số tiên phải trả là\",n*1800)\nelif n<=100:\n    print(\"số tiền phải trả là\",n*1800+(n-50)*1900)\nelse:\n    print(\"sô tiền phải trả là\",n*1800+(n-50)*1900+(n-100)*2200)"
     },
     "questionFlags": {
       "43": true
@@ -20144,18 +20165,6 @@
       "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
-      "teacherCanReplyMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -20178,12 +20187,21 @@
       "logs": {
         "delete": true
       },
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -20196,9 +20214,12 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
+      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanViewMessages": true
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewMessages": true,
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
