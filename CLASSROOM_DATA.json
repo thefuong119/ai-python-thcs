@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T05:12:29.405Z",
-    "updatedBy": "Giáo viên Demo",
+    "updatedAt": "2026-11-15T05:12:29.415Z",
+    "updatedBy": "Nguyễn Thế Phương",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 80,
+        "loginCount": 81,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 14,
+        "loginCount": 13,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 5,
+        "loginCount": 4,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -18207,17 +18207,24 @@
     ],
     "loginLogs": [
       {
-        "time": "12:09:57 15/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Thành công"
+        "time": "12:08:06 15/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Áp dụng phân quyền"
       },
       {
-        "time": "12:03:35 15/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
+        "time": "12:07:24 15/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Áp dụng phân quyền"
+      },
+      {
+        "time": "12:06:39 15/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
         "result": "Thành công"
       },
       {
