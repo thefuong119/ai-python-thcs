@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:27:34.566Z",
+    "updatedAt": "2026-11-15T08:27:53.843Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 36,
+        "attempts": 37,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:18:41 15/11/2026"
+        "lastSubmit": "15:27:53 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794731273723,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Chu vi và diện tích hình thang cân",
+        "assignmentId": 280,
+        "score": 10,
+        "timestamp": "15:27:53 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10 4 5",
+            "expected": "24.00 28.00",
+            "actual": "24.00 28.00",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "8 2 5",
+            "expected": "20.00 20.00",
+            "actual": "20.00 20.00",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')"
+      },
       {
         "id": 1794730721725,
         "student": "Lê Nguyễn Quang Minh",
@@ -18996,7 +19025,8 @@
         "267": true,
         "275": true,
         "276": true,
-        "279": true
+        "279": true,
+        "280": true
       },
       "hocsinh": {
         "1": true,
@@ -19711,6 +19741,31 @@
           }
         ]
       },
+      "280": {
+        "id": 280,
+        "title": "Chu vi và diện tích hình thang cân",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho một hình thang cân có đáy lớn $a$, đáy nhỏ $b$ ($a > b$) và cạnh bên $c$. Giả sử $c > \\frac{a - b}{2}$1$P$1$S$1$a, b, c$ ($a > b > 0, c > 0$).\nDữ liệu ra: Hai số $P$1$S$ cách nhau một dấu cách.",
+        "templateCode": "import math\n\na, b, c = map(float, input().split())\np_val = a + b + 2 * c\nx = (a - b) / 2\nh = math.sqrt(c**2 - x**2)\ns_val = ((a + b) * h) / 2\nprint(f\"{p_val:.2f} {s_val:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10 4 5",
+            "expected": "24.00 28.00",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8 2 5",
+            "expected": "20.00 20.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "313": {
         "id": 313,
         "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
@@ -19933,7 +19988,8 @@
       "minh__Tính tiền nước sinh hoạt và phí bảo vệ môi trường": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)",
       "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))",
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
-      "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')"
+      "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
+      "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')"
     },
     "questionFlags": {
       "43": true
