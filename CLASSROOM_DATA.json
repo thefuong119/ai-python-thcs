@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:44:16.737Z",
-    "updatedBy": "Phan Trọng Khương",
-    "action": "Học sinh Phan Trọng Khương nộp bài"
+    "updatedAt": "2026-11-15T08:45:27.513Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -166,7 +166,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "cccd": "",
@@ -187,7 +187,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 12,
+        "loginCount": 13,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 38,
+        "attempts": 40,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:39:44 15/11/2026"
+        "lastSubmit": "15:42:58 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -14726,9 +14726,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 12,
+        "attempts": 10,
         "highestScore": 10,
-        "lastSubmit": "15:44:15 15/11/2026"
+        "lastSubmit": "20:37:52 6/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -15259,94 +15259,94 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794732255421,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "15:44:15 15/11/2026",
+        "id": 1794732178667,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:58 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
           }
         ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
       },
       {
-        "id": 1794732248844,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "timestamp": "15:44:08 15/11/2026",
+        "id": 1794732177415,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:57 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "6",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "",
-            "passed": false,
-            "points": 0
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
           },
           {
             "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "",
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
             "passed": false,
             "points": 0
           }
         ],
-        "code": "# Viết mã Python của em ở đây...\na,b=map(input().split())\nprint(a+b)"
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
       },
       {
         "id": 1794731984058,
@@ -18565,9 +18565,9 @@
     ],
     "loginLogs": [
       {
-        "time": "15:41:45 15/11/2026",
-        "name": "Phan Trọng Khương",
-        "identifier": "khuong",
+        "time": "15:42:35 15/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
         "result": "Thành công"
       },
@@ -19179,9 +19179,6 @@
       },
       "giaovien": {
         "313": true
-      },
-      "khuong": {
-        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -20145,8 +20142,7 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "khuong__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
