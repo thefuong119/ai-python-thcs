@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T05:49:05.558Z",
+    "updatedAt": "2026-11-15T05:49:15.722Z",
     "updatedBy": "Học sinh Demo",
     "action": "Học sinh Học sinh Demo nộp bài"
   },
@@ -14664,10 +14664,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 8,
+        "attempts": 9,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "12:49:05 15/11/2026"
+        "lastSubmit": "12:49:15 15/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794721755647,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 5: Tính giai thừa",
+        "assignmentId": 5,
+        "score": 10,
+        "timestamp": "12:49:15 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "3628800",
+            "actual": "3628800",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "import math\n\n# Nhập số nguyên N từ bàn phím\nn = int(input())\n\n# Tính N! và in kết quả ra màn hình\nket_qua = math.factorial(n)\nprint(ket_qua)"
+      },
       {
         "id": 1794721745469,
         "student": "Học sinh Demo",
