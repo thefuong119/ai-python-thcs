@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T05:47:19.253Z",
-    "updatedBy": "Giáo viên Demo",
+    "updatedAt": "2026-11-15T05:47:36.618Z",
+    "updatedBy": "Học sinh Demo",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 8,
+        "loginCount": 9,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -18243,6 +18243,13 @@
     ],
     "loginLogs": [
       {
+        "time": "12:45:27 15/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "12:09:57 15/11/2026",
         "name": "Giáo viên Demo",
         "identifier": "giaovien",
@@ -19561,6 +19568,11 @@
       "43": true
     },
     "systemPermissions": {
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -19583,11 +19595,6 @@
       "logs": {
         "delete": true
       },
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
