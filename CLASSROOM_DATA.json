@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T00:58:28.774Z",
-    "updatedBy": "Giáo viên Demo",
-    "action": "Đăng xuất: Giáo viên Demo"
+    "updatedAt": "2026-11-15T02:04:50.179Z",
+    "updatedBy": "Bùi Hoàng Gia Bảo",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -275,7 +275,7 @@
         "phone": "Zalo cá nhân",
         "role": "student",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
         "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
@@ -18189,6 +18189,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "09:04:29 15/11/2026",
+        "name": "Bùi Hoàng Gia Bảo",
+        "identifier": "bao",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
+        "time": "09:04:18 15/11/2026",
+        "name": "Bùi Hoàng Gia Bảo",
+        "identifier": "bao",
+        "role": "student",
+        "result": "Reset pw"
+      },
       {
         "time": "07:58:28 15/11/2026",
         "name": "Giáo viên Demo",
