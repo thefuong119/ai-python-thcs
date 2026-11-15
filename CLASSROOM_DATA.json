@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:39:02.475Z",
+    "updatedAt": "2026-11-15T08:39:44.161Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 37,
+        "attempts": 38,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:27:53 15/11/2026"
+        "lastSubmit": "15:39:44 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794731984058,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài toán cổ: Vừa gà vừa chó",
+        "assignmentId": 289,
+        "score": 10,
+        "timestamp": "15:39:44 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "actual": "22 14",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "actual": "VO NGHIEM",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
+      },
       {
         "id": 1794731273723,
         "student": "Lê Nguyễn Quang Minh",
@@ -19026,7 +19055,8 @@
         "275": true,
         "276": true,
         "279": true,
-        "280": true
+        "280": true,
+        "289": true
       },
       "hocsinh": {
         "1": true,
@@ -19766,6 +19796,31 @@
           }
         ]
       },
+      "289": {
+        "id": 289,
+        "title": "Bài toán cổ: Vừa gà vừa chó",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bài toán cổ Việt Nam:\n\"Vừa gà vừa chó\nBó lại cho tròn\n$m$1$n$1$m$1$n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên hợp lệ (số con không âm), in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$1$n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
+        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n    cho = (n - 2 * m) // 2\n    ga = m - cho\n    if ga >= 0 and cho >= 0:\n        print(f\"{ga} {cho}\")\n    else:\n        print(\"VO NGHIEM\")\nelse:\n    print(\"VO NGHIEM\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
       "313": {
         "id": 313,
         "title": "Lập lịch họp phòng hội nghị không chồng chéo (Thuật toán tham lam)",
@@ -19989,7 +20044,8 @@
       "minh__Chương trình khuyến mãi Mua K tặng 1": "# Viết mã Python của em ở đây...\nNhapVao = input()\nN = int(NhapVao.split(' ')[0])\nK = int(NhapVao.split(' ')[1])\nP = int(NhapVao.split(' ')[2])\nprint(N//(K+1)*K*P+(N%(K+1)*P))",
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
-      "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')"
+      "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
