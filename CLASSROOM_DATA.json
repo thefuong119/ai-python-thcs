@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T08:48:43.882Z",
-    "updatedBy": "Phan Trọng Khương",
-    "action": "Học sinh Phan Trọng Khương nộp bài"
+    "updatedAt": "2026-11-15T08:49:20.581Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -166,7 +166,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "cccd": "",
@@ -187,7 +187,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 12,
+        "loginCount": 13,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -14688,10 +14688,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 38,
+        "attempts": 42,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:39:44 15/11/2026"
+        "lastSubmit": "15:49:20 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -14726,9 +14726,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 14,
+        "attempts": 10,
         "highestScore": 10,
-        "lastSubmit": "15:48:43 15/11/2026"
+        "lastSubmit": "20:37:52 6/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -15259,184 +15259,184 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794732523730,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 8. Tìm số trong dãy quy luật",
-        "assignmentId": 8,
+        "id": 1794732560466,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
+        "assignmentId": 7,
         "score": 10,
-        "timestamp": "15:48:43 15/11/2026",
+        "timestamp": "15:49:20 15/11/2026",
         "date": "2026-11-15",
         "answers": [
           {
             "testId": 1,
-            "input": "3",
-            "expected": "8",
-            "actual": "8",
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "actual": "ABCD",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "actual": "BCD",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "actual": "F",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "actual": "ACEGIK",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nDonDieu = S[0]\ny = S[0]\nfor i in S[1:]:\n    if i > y:\n      DonDieu += i\n      y = i\nprint(DonDieu)"
+      },
+      {
+        "id": 1794732469908,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
+        "assignmentId": 7,
+        "score": 7.5,
+        "timestamp": "15:47:49 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "actual": "ABCD",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "actual": "BCD",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "actual": "F",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "actual": "ACEGI",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nChuoiSo = ''\nDonDieu = ''\nfor i in range(0,len(S)):\n    if S[i] == 'A': ChuoiSo += '1 '\n    elif S[i] == 'B': ChuoiSo += '2 '\n    elif S[i] == 'C': ChuoiSo += '3 '\n    elif S[i] == 'D': ChuoiSo += '4 '\n    elif S[i] == 'E': ChuoiSo += '5 '\n    elif S[i] == 'F': ChuoiSo += '6 '\n    elif S[i] == 'G': ChuoiSo += '7 '\n    elif S[i] == 'H': ChuoiSo += '8 '\n    elif S[i] == 'I': ChuoiSo += '9 '\n    elif S[i] == 'J': ChuoiSo += '10 '\n    elif S[i] == 'K': ChuoiSo += '11 '\n    elif S[i] == 'L': ChuoiSo += '12 '\n    elif S[i] == 'M': ChuoiSo += '13 '\n    elif S[i] == 'N': ChuoiSo += '14 '\n    elif S[i] == 'O': ChuoiSo += '15 '\n    elif S[i] == 'P': ChuoiSo += '16 '\n    elif S[i] == 'Q': ChuoiSo += '17 '\n    elif S[i] == 'R': ChuoiSo += '18 '\n    elif S[i] == 'S': ChuoiSo += '19 '\n    elif S[i] == 'T': ChuoiSo += '20 '\n    elif S[i] == 'U': ChuoiSo += '21 '\n    elif S[i] == 'V': ChuoiSo += '22 '\n    elif S[i] == 'W': ChuoiSo += '23 '\n    elif S[i] == 'X': ChuoiSo += '24 '\n    elif S[i] == 'Y': ChuoiSo += '25 '\n    else: ChuoiSo += '26 '\nChuoiSo = ChuoiSo[:-1]\nChuoiSo = ChuoiSo.split(' ')\nx = 0\nn = ''\nfor y in ChuoiSo:\n    if int(y) > x:\n      n = n + y\n    x = int(y)\nfor i in range(0,len(n)):\n    if n[i] == '1': DonDieu += 'A'\n    elif n[i] == '2': DonDieu += 'B'\n    elif n[i] == '3': DonDieu += 'C'\n    elif n[i] == '4': DonDieu += 'D'\n    elif n[i] == '5': DonDieu += 'E'\n    elif n[i] == '6': DonDieu += 'F'\n    elif n[i] == '7': DonDieu += 'G'\n    elif n[i] == '8': DonDieu += 'H'\n    elif n[i] == '9': DonDieu += 'I'\n    elif n[i] == '10': DonDieu += 'J'\n    elif n[i] == '11': DonDieu += 'K'\n    elif n[i] == '12': DonDieu += 'L'\n    elif n[i] == '13': DonDieu += 'M'\n    elif n[i] == '14': DonDieu += 'N'\n    elif n[i] == '15': DonDieu += 'O'\n    elif n[i] == '16': DonDieu += 'P'\n    elif n[i] == '17': DonDieu += 'Q'\n    elif n[i] == '18': DonDieu += 'R'\n    elif n[i] == '19': DonDieu += 'S'\n    elif n[i] == '20': DonDieu += 'T'\n    elif n[i] == '21': DonDieu += 'U'\n    elif n[i] == '22': DonDieu += 'V'\n    elif n[i] == '23': DonDieu += 'W'\n    elif n[i] == '24': DonDieu += 'X'\n    elif n[i] == '25': DonDieu += 'Y'\n    else: DonDieu += 'Z'\nprint(\"\".join(dict.fromkeys(DonDieu)))"
+      },
+      {
+        "id": 1794732178667,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:58 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
             "input": "6",
-            "expected": "23",
-            "actual": "23",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "10",
-            "expected": "57",
-            "actual": "57",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "actual": "500000000500000002",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
-      },
-      {
-        "id": 1794732484194,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 8. Tìm số trong dãy quy luật",
-        "assignmentId": 8,
-        "score": 10,
-        "timestamp": "15:48:04 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "8",
-            "actual": "8",
+            "expected": "1",
+            "actual": "1",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
+      },
+      {
+        "id": 1794732177415,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 9. Số có đúng ba ước nguyên dương",
+        "assignmentId": 9,
+        "score": 7.5,
+        "timestamp": "15:42:57 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
             "input": "6",
-            "expected": "23",
-            "actual": "23",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "10",
-            "expected": "57",
-            "actual": "57",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "actual": "500000000500000002",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
-      },
-      {
-        "id": 1794732255421,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 10,
-        "timestamp": "15:44:15 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "8",
+            "expected": "1",
+            "actual": "1",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "15",
+            "input": "30",
+            "expected": "3",
+            "actual": "3",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "2000000000",
+            "input": "100",
+            "expected": "4",
+            "actual": "4",
             "passed": true,
             "points": 2.5
           },
           {
             "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "-1000000000",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
-      },
-      {
-        "id": 1794732248844,
-        "student": "Phan Trọng Khương",
-        "username": "khuong",
-        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
-        "assignmentId": 1,
-        "score": 0,
-        "timestamp": "15:44:08 15/11/2026",
-        "date": "2026-11-15",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3 5",
-            "expected": "8",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "-10 25",
-            "expected": "15",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "1000000000 1000000000",
-            "expected": "2000000000",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "-500000000 -500000000",
-            "expected": "-1000000000",
-            "actual": "",
+            "input": "1000000000000",
+            "expected": "78498",
+            "actual": "228574",
             "passed": false,
             "points": 0
           }
         ],
-        "code": "# Viết mã Python của em ở đây...\na,b=map(input().split())\nprint(a+b)"
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDem = 0\nfor i in range(2,N+1):\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n      if i*i <= N: Dem += 1\n      else: break\n    else:\n      if (i % 2 == 0)or(i % 3 == 0)or(i % 5 == 0)or(i % 7 == 0):\n        continue\n      else:\n        if i*i <= N: Dem += 1\n        else: break\nprint(Dem)"
       },
       {
         "id": 1794731984058,
@@ -18655,9 +18655,9 @@
     ],
     "loginLogs": [
       {
-        "time": "15:41:45 15/11/2026",
-        "name": "Phan Trọng Khương",
-        "identifier": "khuong",
+        "time": "15:42:35 15/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
         "role": "student",
         "result": "Thành công"
       },
@@ -19269,10 +19269,6 @@
       },
       "giaovien": {
         "313": true
-      },
-      "khuong": {
-        "1": true,
-        "8": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19520,45 +19516,6 @@
             "id": 4,
             "input": "ACEGIK",
             "expected": "ACEGIK",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "8": {
-        "id": 8,
-        "title": "Bài 8. Tìm số trong dãy quy luật",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
-        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3",
-            "expected": "8",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "6",
-            "expected": "23",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "10",
-            "expected": "57",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
             "point": 2.5,
             "is_hidden": true
           }
@@ -20248,7 +20205,7 @@
     "studentCodeCache": {
       "loc__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "minh__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split(' ')[0])\nb = int(NhapVao.split(' ')[1])\nprint(2*(a+b))\nprint(a*b)",
-      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\nS = input()\nChuoiSo = ''\nDonDieu = ''\nfor i in range(0,len(S)):\n    if S[i] == 'A': ChuoiSo += '1 '\n    elif S[i] == 'B': ChuoiSo += '2 '\n    elif S[i] == 'C': ChuoiSo += '3 '\n    elif S[i] == 'D': ChuoiSo += '4 '\n    elif S[i] == 'E': ChuoiSo += '5 '\n    elif S[i] == 'F': ChuoiSo += '6 '\n    elif S[i] == 'G': ChuoiSo += '7 '\n    elif S[i] == 'H': ChuoiSo += '8 '\n    elif S[i] == 'I': ChuoiSo += '9 '\n    elif S[i] == 'J': ChuoiSo += '10 '\n    elif S[i] == 'K': ChuoiSo += '11 '\n    elif S[i] == 'L': ChuoiSo += '12 '\n    elif S[i] == 'M': ChuoiSo += '13 '\n    elif S[i] == 'N': ChuoiSo += '14 '\n    elif S[i] == 'O': ChuoiSo += '15 '\n    elif S[i] == 'P': ChuoiSo += '16 '\n    elif S[i] == 'Q': ChuoiSo += '17 '\n    elif S[i] == 'R': ChuoiSo += '18 '\n    elif S[i] == 'S': ChuoiSo += '19 '\n    elif S[i] == 'T': ChuoiSo += '20 '\n    elif S[i] == 'U': ChuoiSo += '21 '\n    elif S[i] == 'V': ChuoiSo += '22 '\n    elif S[i] == 'W': ChuoiSo += '23 '\n    elif S[i] == 'X': ChuoiSo += '24 '\n    elif S[i] == 'Y': ChuoiSo += '25 '\n    else: ChuoiSo += '26 '\nChuoiSo = ChuoiSo[:-1]\nChuoiSo = ChuoiSo.split(' ')\nx = 0\nn = ''\nfor y in ChuoiSo:\n    if int(y) > x:\n      n = n + y\n    x = int(y)\nfor i in range(0,len(n)):\n    if n[i] == '1': DonDieu += 'A'\n    elif n[i] == '2': DonDieu += 'B'\n    elif n[i] == '3': DonDieu += 'C'\n    elif n[i] == '4': DonDieu += 'D'\n    elif n[i] == '5': DonDieu += 'E'\n    elif n[i] == '6': DonDieu += 'F'\n    elif n[i] == '7': DonDieu += 'G'\n    elif n[i] == '8': DonDieu += 'H'\n    elif n[i] == '9': DonDieu += 'I'\n    elif n[i] == '10': DonDieu += 'J'\n    elif n[i] == '11': DonDieu += 'K'\n    elif n[i] == '12': DonDieu += 'L'\n    elif n[i] == '13': DonDieu += 'M'\n    elif n[i] == '14': DonDieu += 'N'\n    elif n[i] == '15': DonDieu += 'O'\n    elif n[i] == '16': DonDieu += 'P'\n    elif n[i] == '17': DonDieu += 'Q'\n    elif n[i] == '18': DonDieu += 'R'\n    elif n[i] == '19': DonDieu += 'S'\n    elif n[i] == '20': DonDieu += 'T'\n    elif n[i] == '21': DonDieu += 'U'\n    elif n[i] == '22': DonDieu += 'V'\n    elif n[i] == '23': DonDieu += 'W'\n    elif n[i] == '24': DonDieu += 'X'\n    elif n[i] == '25': DonDieu += 'Y'\n    else: DonDieu += 'Z'\nprint(\"\".join(dict.fromkeys(DonDieu)))",
+      "minh__Bài 7. Chuỗi đơn điệu": "# Viết mã Python của em ở đây...\nS = input()\nDonDieu = S[0]\ny = S[0]\nfor i in S[1:]:\n    if i > y:\n      DonDieu += i\n      y = i\nprint(DonDieu)",
       "hocsinh__Bài 39. Mạng cáp quang biển nối các trạm đảo (Cây khung nhỏ nhất)": "import sys\ndata = sys.stdin.read().split()\nif data:\n    N, M = int(data[0]), int(data[1])\n    edges = []\n    idx = 2\n    for _ in range(M):\n        edges.append((int(data[idx + 2]), int(data[idx]), int(data[idx + 1]))); idx + = 3\n        edges.sort()\n        parent = list(range(N + 1))\n        def find(i):\n            path = []\n            while parent[i] != i: path.append(i); i = parent[i]\n            for node in path: parent[node] = i\n            return i\n            cost, cnt = 0, 0\n            for w, u, v in edges:\n                ru, rv = find(u), find(v)\n                if ru != rv:\n                    parent[ru] = rv; cost + = w; cnt + = 1\n                    if cnt == N - 1: break\nprint(cost)",
       "hocsinh__Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)": "import sys\ndata = sys.stdin.read().split()\nif data:\n N = int(data[0])\n events = []\n idx = 1\n for _ in range(N):\n events.append((int(data[idx]), 1))\n events.append((int(data[idx+1]), -1))\n idx += 2\n events.sort(key=lambda x: (x[0], x[1]))\n cur, ans = 0, 0\n for t, val in events:\n cur += val\n if cur > ans: ans = cur\n print(ans)",
       "trongkhuong8a4__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na,b=map(int,input().split())\nprint(a + b)",
@@ -20275,9 +20232,7 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "khuong__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
-      "khuong__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
