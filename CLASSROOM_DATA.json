@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T09:03:26.928Z",
+    "updatedAt": "2026-11-15T09:03:52.255Z",
     "updatedBy": "Phan Trọng Khương",
     "action": "Học sinh Phan Trọng Khương nộp bài"
   },
@@ -14726,9 +14726,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 16,
+        "attempts": 17,
         "highestScore": 10,
-        "lastSubmit": "16:03:26 15/11/2026"
+        "lastSubmit": "16:03:52 15/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794733432093,
+        "student": "Phan Trọng Khương",
+        "username": "khuong",
+        "assignmentTitle": "Định giá đơn hàng theo biểu thức tính toán rút gọn",
+        "assignmentId": 315,
+        "score": 0,
+        "timestamp": "16:03:52 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "15000+20000-5000",
+            "expected": "30000",
+            "actual": "nhập số:",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "100-20-30+50",
+            "expected": "100",
+            "actual": "nhập số:",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "s=input(\"nhập số:\").strip()\ntong=0\nso_hien_tai=0\ndau=1\nfor ch in s:\n    if ch.isdigit:\n        so_hien_tai=so_hien_tai*10 + int(ch)\n    elif ch in ['+','-']:\n        tong+=dau*so_hien_tai\n        so_hien_tai=0\n        dau=1 if ch=='+' else -1\ntong+=dau*so_hien_tai\nprint(tong)"
+      },
       {
         "id": 1794733406816,
         "student": "Phan Trọng Khương",
@@ -20362,7 +20391,7 @@
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
       "khuong__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "khuong__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm=3+(m-1)*(m+2)//2\nprint(tm)",
-      "khuong__Định giá đơn hàng theo biểu thức tính toán rút gọn": "s=input(\"nhập số:\").strip()\ntong=0\nso_hien_tai=0\ndau=1\nfor ch in s:\n    if ch.isdigit:\n        so_hien_tai=so_hien_tai*10+int(ch)\n    elif ch in ['+','-']:\n        tong+=dau*so_hien_tai\n        so_hien_tai=0\n        dau=1 if ch=='+' else -1\ntong+=dau*so_hien_tai\nprint(tong)"
+      "khuong__Định giá đơn hàng theo biểu thức tính toán rút gọn": "s=input(\"nhập số:\").strip()\ntong=0\nso_hien_tai=0\ndau=1\nfor ch in s:\n    if ch.isdigit:\n        so_hien_tai=so_hien_tai*10 + int(ch)\n    elif ch in ['+','-']:\n        tong+=dau*so_hien_tai\n        so_hien_tai=0\n        dau=1 if ch=='+' else -1\ntong+=dau*so_hien_tai\nprint(tong)"
     },
     "questionFlags": {
       "43": true
