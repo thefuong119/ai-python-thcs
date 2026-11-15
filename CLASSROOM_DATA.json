@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T02:07:43.897Z",
+    "updatedAt": "2026-11-15T02:07:47.766Z",
     "updatedBy": "Bùi Hoàng Gia Bảo",
     "action": "Học sinh Bùi Hoàng Gia Bảo nộp bài"
   },
@@ -14723,9 +14723,9 @@
       {
         "student": "Bùi Hoàng Gia Bảo",
         "username": "bao",
-        "attempts": 6,
+        "attempts": 12,
         "highestScore": 7.5,
-        "lastSubmit": "09:07:43 15/11/2026"
+        "lastSubmit": "09:07:47 15/11/2026"
       }
     ],
     "lectures": [
@@ -15241,6 +15241,276 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794708467714,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:47 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
+      {
+        "id": 1794708467569,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:47 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
+      {
+        "id": 1794708467401,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:47 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
+      {
+        "id": 1794708467232,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:47 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
+      {
+        "id": 1794708467034,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:47 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
+      {
+        "id": 1794708466570,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 7.5,
+        "timestamp": "09:07:46 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Khong",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"Co\")\n    else:print(\"Khong\")\n"
+      },
       {
         "id": 1794708463826,
         "student": "Bùi Hoàng Gia Bảo",
