@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T07:58:57.223Z",
+    "updatedAt": "2026-11-15T08:00:12.327Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -18906,8 +18906,7 @@
         "11": true,
         "17": true,
         "28": true,
-        "267": true,
-        "268": true
+        "267": true
       },
       "hocsinh": {
         "1": true,
