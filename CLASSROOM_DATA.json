@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T02:04:50.179Z",
+    "updatedAt": "2026-11-15T02:05:39.873Z",
     "updatedBy": "Bùi Hoàng Gia Bảo",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Bùi Hoàng Gia Bảo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -14719,6 +14719,13 @@
         "attempts": 13,
         "highestScore": 10,
         "lastSubmit": "18:20:31 8/11/2026"
+      },
+      {
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "attempts": 1,
+        "highestScore": 0,
+        "lastSubmit": "09:05:39 15/11/2026"
       }
     ],
     "lectures": [
@@ -15234,6 +15241,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794708339786,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 0,
+        "timestamp": "09:05:39 15/11/2026",
+        "date": "2026-11-15",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "n = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n   \n    \n"
+      },
       {
         "id": 1794618964463,
         "student": "Nguyễn Phú Lộc",
@@ -18690,6 +18742,9 @@
         "24": true,
         "33": true,
         "43": true
+      },
+      "bao": {
+        "1": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -19445,7 +19500,8 @@
       "minh__Bài 11. Chi phí mua bóng tối ưu": "# Viết mã Python của em ở đây...\nN = int(input())\nTien = N//10*17\nN = N%10\nTien += N//5*9\nN = N%5\nTien += N*2\nprint(Tien)",
       "minh__Bài 12. Bội số đặc biệt": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split(' ')[0])\nN = int(NhapVao.split(' ')[1])\ni = 1\nXet = '9'\nDem = 0\nwhile i <= N:\n    if int(Xet) % P == 0:\n      Dem += 1\n    Xet += '9'\n    i += 1\nprint(Dem)",
       "minh__Bài 20. Kiểm tra số hoàn hảo": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')",
-      "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    "
+      "loc__Bài 2. Kiểm tra số nguyên tố": "# Mã nguồn cho bài Kiểm tra số nguyên tố\nimport math\n\ndef hans(n):\n    if n<2:\n        return False\n    for i in range(2, int(math.sqrt(n)+1)):\n        if n%i == 0:\n            return False\n    return True\n\nn= int(input())\nprint(\"Yes\"if hans(n) else \"No\" )\n    ",
+      "bao__Bài 1. Tính tổng hai số nguyên A và B": "n = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2:\n    print(\"khong\")\nelse:\n    x = True\n    for i in range(2,int(n**0.5)+1):\n        x = False\n        break\n    if x == True: print(\"co\")\n    else:print(\"khong\")\n   \n    \n"
     },
     "questionFlags": {
       "43": true
