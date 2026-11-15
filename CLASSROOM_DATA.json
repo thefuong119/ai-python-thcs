@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-15T03:39:32.136Z",
+    "updatedAt": "2026-11-15T03:40:24.829Z",
     "updatedBy": "Mai văn hiệp",
-    "action": "Đăng ký GV: Mai văn hiệp"
+    "action": "Đăng xuất: Mai văn hiệp"
   },
   "data": {
     "registeredUsers": [
@@ -18206,6 +18206,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "10:40:24 15/11/2026",
+        "name": "Mai văn hiệp",
+        "identifier": "vanhiep",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
       {
         "time": "10:39:32 15/11/2026",
         "name": "Mai văn hiệp",
