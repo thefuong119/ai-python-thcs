@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:52:52.322Z",
+    "updatedAt": "2026-11-16T12:52:57.102Z",
     "updatedBy": "Giáo viên Demo",
     "action": "Học sinh Giáo viên Demo nộp bài"
   },
@@ -20005,7 +20005,7 @@
       {
         "student": "Giáo viên Demo",
         "username": "giaovien",
-        "attempts": 5,
+        "attempts": 6,
         "highestScore": 10,
         "lastSubmit": "19:52:52 16/11/2026"
       }
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794833572618,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "assignmentId": 471,
+        "score": 10,
+        "timestamp": "19:52:52 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")"
+      },
       {
         "id": 1794833572236,
         "student": "Giáo viên Demo",
