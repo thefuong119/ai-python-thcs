@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updatedAt": "2026-11-15T14:15:02.069Z",
+    "updatedAt": "2026-11-13T12:02:35.110Z",
     "updatedBy": "Nguyễn Thế Phương",
     "count": 110,
-    "action": "Xóa đề trắc nghiệm"
+    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 8 - 13/11/2026"
   },
   "quizData": [
     {
@@ -1768,6 +1768,27 @@
     }
   ],
   "quizTests": [
+    {
+      "id": 1,
+      "title": "Đề trắc nghiệm - 10/11/2026",
+      "grade": "8",
+      "difficulty": "all",
+      "questionIds": [
+        83,
+        82,
+        65,
+        54,
+        3,
+        4,
+        71,
+        77,
+        69,
+        46
+      ],
+      "createdAt": "13:34:15 10/11/2026",
+      "createdBy": "Nguyễn Thế Phương",
+      "active": true
+    },
     {
       "id": 2,
       "title": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 11/11/2026",
