@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:12:24.238Z",
+    "updatedAt": "2026-11-16T12:16:44.810Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 28,
+        "attempts": 29,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "08:16:04 14/11/2026"
+        "lastSubmit": "19:16:44 16/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20523,6 +20523,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794831404548,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 5: Tính giai thừa",
+        "assignmentId": 5,
+        "score": 10,
+        "timestamp": "19:16:44 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "3628800",
+            "actual": "3628800",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)"
+      },
       {
         "id": 1794732759960,
         "student": "Lê Nguyễn Quang Minh",
@@ -24479,7 +24508,8 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true
+        "4": true,
+        "5": true
       },
       "minh": {
         "1": true,
@@ -25318,7 +25348,8 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
+      "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)"
     },
     "questionFlags": {
       "43": true
