@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T11:45:00.264Z",
+    "updatedAt": "2026-11-16T11:45:09.950Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
