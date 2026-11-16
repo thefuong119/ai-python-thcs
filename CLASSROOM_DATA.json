@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:55:00.707Z",
+    "updatedAt": "2026-11-16T12:56:05.322Z",
     "updatedBy": "Giáo viên Demo",
     "action": "Học sinh Giáo viên Demo nộp bài"
   },
@@ -20005,9 +20005,9 @@
       {
         "student": "Giáo viên Demo",
         "username": "giaovien",
-        "attempts": 7,
+        "attempts": 8,
         "highestScore": 10,
-        "lastSubmit": "19:55:00 16/11/2026"
+        "lastSubmit": "19:56:05 16/11/2026"
       }
     ],
     "lectures": [
@@ -20523,6 +20523,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794833765242,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 120. Tam giác",
+        "assignmentId": 155,
+        "score": 5,
+        "timestamp": "19:56:05 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5 4",
+            "expected": "6.00\nvuong",
+            "actual": "6.00\nvuong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "3 5 8",
+            "expected": "KHONG LA TAM GIAC",
+            "actual": "KHONG LA TAM GIAC",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "import math\na = sorted(map(int, input().split())); x, y, z = a\nif x+y <= z: print('KHONG LA TAM GIAC')\nelse:\n    p = sum(a)/2; print(f'{math.sqrt(p*(p-x)*(p-y)*(p-z)):.2f}')\n    t = x*x+y*y-z*z\n    print('vuong' if t == 0 else ('nhon' if t>0 else 'tu'))"
+      },
       {
         "id": 1794833700624,
         "student": "Giáo viên Demo",
@@ -25743,7 +25772,7 @@
       "giaovien__Bài 85. Xử lý xâu chữ và chữ số": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key = lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
       "giaovien__Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện": "s = input()\nkq = \"\"\nfor ch in s:\n    if ch not in kq:\n        kq += ch\nprint(kq)",
       "giaovien__Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")",
-      "giaovien__Bài 120. Tam giác": "import math\na = sorted(map(int, input().split())); x, y, z = a\nif x+y <= z: print('KHONG LA TAM GIAC')\nelse:\n    p = sum(a)/2; print(f'{math.sqrt(p*(p-x)*(p-y)*(p-z)):.2f}')\n    t = x*x+y*y-z*z\nprint('vuong' if t == 0 else ('nhon' if t>0 else 'tu'))"
+      "giaovien__Bài 120. Tam giác": "import math\na = sorted(map(int, input().split())); x, y, z = a\nif x+y <= z: print('KHONG LA TAM GIAC')\nelse:\n    p = sum(a)/2; print(f'{math.sqrt(p*(p-x)*(p-y)*(p-z)):.2f}')\n    t = x*x+y*y-z*z\n    print('vuong' if t == 0 else ('nhon' if t>0 else 'tu'))"
     },
     "questionFlags": {
       "43": true
