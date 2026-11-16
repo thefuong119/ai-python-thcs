@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:44:01.882Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-16T12:44:42.893Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Học sinh Giáo viên Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 80,
+        "loginCount": 81,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 6,
+        "loginCount": 7,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 29,
+        "attempts": 28,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "19:16:44 16/11/2026"
+        "lastSubmit": "08:16:04 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20005,9 +20005,9 @@
       {
         "student": "Giáo viên Demo",
         "username": "giaovien",
-        "attempts": 1,
-        "highestScore": 5,
-        "lastSubmit": "12:35:24 15/11/2026"
+        "attempts": 4,
+        "highestScore": 10,
+        "lastSubmit": "19:44:42 16/11/2026"
       }
     ],
     "lectures": [
@@ -20524,33 +20524,123 @@
     ],
     "studentSubmissions": [
       {
-        "id": 1794831404548,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 5: Tính giai thừa",
-        "assignmentId": 5,
+        "id": 1794833082796,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "assignmentId": 471,
         "score": 10,
-        "timestamp": "19:16:44 16/11/2026",
+        "timestamp": "19:44:42 16/11/2026",
         "date": "2026-11-16",
         "answers": [
           {
             "testId": 1,
-            "input": "3",
-            "expected": "6",
-            "actual": "6",
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "actual": "Co",
             "passed": true,
-            "points": 5
+            "points": 2.5
           },
           {
             "testId": 2,
-            "input": "10",
-            "expected": "3628800",
-            "actual": "3628800",
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "actual": "Co",
             "passed": true,
-            "points": 5
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
           }
         ],
-        "code": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)"
+        "code": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")"
+      },
+      {
+        "id": 1794832823833,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện",
+        "assignmentId": 467,
+        "score": 10,
+        "timestamp": "19:40:23 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "banana",
+            "expected": "ban",
+            "actual": "ban",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "programming",
+            "expected": "progamin",
+            "actual": "progamin",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "aaaa",
+            "expected": "a",
+            "actual": "a",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "abcd",
+            "expected": "abcd",
+            "actual": "abcd",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s = input()\nkq = \"\"\nfor ch in s:\n    if ch not in kq:\n        kq += ch\nprint(kq)"
+      },
+      {
+        "id": 1794832684201,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 85. Xử lý xâu chữ và chữ số",
+        "assignmentId": 121,
+        "score": 2.5,
+        "timestamp": "19:38:04 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "hsg8ngay21thang4nam2023",
+            "expected": "a = 82142023\nb = 821420\nT = 2056",
+            "actual": "a = 82142023\nb = KHONG\nT = 2056",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "abc123x",
+            "expected": "a = 123\nb = KHONG\nT = 123",
+            "actual": "a = 123\nb = KHONG\nT = 123",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key = lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)"
       },
       {
         "id": 1794732759960,
@@ -23904,6 +23994,27 @@
     ],
     "loginLogs": [
       {
+        "time": "19:27:19 16/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
+        "time": "19:25:55 16/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Áp dụng phân quyền"
+      },
+      {
+        "time": "19:19:24 16/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "19:08:08 16/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -24508,8 +24619,7 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true,
-        "5": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -24546,6 +24656,11 @@
         "24": true,
         "33": true,
         "43": true
+      },
+      "giaovien": {
+        "121": true,
+        "467": true,
+        "471": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -25110,6 +25225,31 @@
           }
         ]
       },
+      "121": {
+        "id": 121,
+        "title": "Bài 85. Xử lý xâu chữ và chữ số",
+        "classLevel": "9",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Xâu S gồm chữ thường và chữ số. In số a tạo bởi các chữ số trong S; xóa một số chữ số của a để được số lớn nhất chia hết cho 5 (nếu không có in KHONG); tính tổng các số xuất hiện trong S.\nInput: S. Output: a, b, T.",
+        "templateCode": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key=lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "hsg8ngay21thang4nam2023",
+            "expected": "a = 82142023\nb = 821420\nT = 2056",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "abc123x",
+            "expected": "a = 123\nb = KHONG\nT = 123",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -25194,6 +25334,84 @@
             "id": 4,
             "input": "7",
             "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "467": {
+        "id": 467,
+        "title": "Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$. Hãy xóa bỏ các ký tự xuất hiện lặp lại trong $S$, chỉ giữ lại lần xuất hiện đầu tiên của mỗi ký tự theo đúng thứ tự từ trái sang phải. In ra xâu kết quả.",
+        "templateCode": "s = input()\nkq = \"\"\nfor ch in s:\n if ch not in kq:\n kq += ch\nprint(kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "banana",
+            "expected": "ban",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "programming",
+            "expected": "progamin",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "aaaa",
+            "expected": "a",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "abcd",
+            "expected": "abcd",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "471": {
+        "id": 471,
+        "title": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hai xâu được gọi là đảo chữ (Anagram) của nhau nếu sau khi loại bỏ dấu cách và không phân biệt chữ hoa hay chữ thường, xâu này có thể thu được bằng cách hoán đổi vị trí các ký tự của xâu kia (ví dụ \"Listen\" và \"Silent\"). Nhập hai xâu $S_1$ và $S_2$ trên hai dòng. Nếu hai xâu là đảo chữ của nhau thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
             "point": 2.5,
             "is_hidden": false
           }
@@ -25316,6 +25534,34 @@
         "createdAt": "19:01:15 13/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
+      },
+      {
+        "id": 1794831664106,
+        "title": "BÀI TẬP THỰC HÀNH LỚP 8 - 16/11/2026",
+        "grade": "8",
+        "allowSampleCode": true,
+        "questionIds": [
+          540,
+          484,
+          593
+        ],
+        "createdAt": "19:21:04 16/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794831716869,
+        "title": "BÀI TẬP THỰC HÀNH LỚP 9 - 16/11/2026",
+        "grade": "9",
+        "allowSampleCode": true,
+        "questionIds": [
+          155,
+          59,
+          12
+        ],
+        "createdAt": "19:21:56 16/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
       }
     ],
     "studentCodeCache": {
@@ -25349,17 +25595,14 @@
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)"
+      "giaovien__Bài 85. Xử lý xâu chữ và chữ số": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key = lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
+      "giaovien__Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện": "s = input()\nkq = \"\"\nfor ch in s:\n    if ch not in kq:\n        kq += ch\nprint(kq)",
+      "giaovien__Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")"
     },
     "questionFlags": {
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -25382,6 +25625,11 @@
       "logs": {
         "delete": true
       },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -27384,6 +27632,48 @@
           88
         ],
         "createdAt": "19:02:35 13/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 8,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 16/11/2026",
+        "grade": "8",
+        "difficulty": "easy",
+        "questionIds": [
+          83,
+          22,
+          5,
+          53,
+          84,
+          7,
+          4,
+          56,
+          29,
+          87
+        ],
+        "createdAt": "19:24:05 16/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 9,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 9 - 16/11/2026",
+        "grade": "9",
+        "difficulty": "medium",
+        "questionIds": [
+          37,
+          67,
+          96,
+          108,
+          106,
+          93,
+          100,
+          101,
+          75,
+          99
+        ],
+        "createdAt": "19:24:28 16/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
