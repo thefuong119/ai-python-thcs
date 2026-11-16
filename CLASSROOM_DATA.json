@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T13:31:07.988Z",
+    "updatedAt": "2026-11-16T13:33:10.681Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 42,
+        "attempts": 43,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:18:54 16/11/2026"
+        "lastSubmit": "20:33:10 16/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794835990557,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 18. Kiểm tra số hạnh phúc",
+        "assignmentId": 25,
+        "score": 10,
+        "timestamp": "20:33:10 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "19",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "4",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "13",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')"
+      },
       {
         "id": 1794835134293,
         "student": "Lê Nguyễn Quang Minh",
@@ -24622,6 +24667,7 @@
         "11": true,
         "17": true,
         "24": true,
+        "25": true,
         "28": true
       },
       "hocsinh": {
@@ -25131,6 +25177,45 @@
           }
         ]
       },
+      "25": {
+        "id": 25,
+        "title": "Bài 18. Kiểm tra số hạnh phúc",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương được gọi là số hạnh phúc (Happy Number) nếu ta thay thế số đó bằng tổng bình phương các chữ số của nó, và lặp lại quá trình này cho đến khi kết quả bằng 1. Nếu quá trình rơi vào vòng lặp vô hạn không bao giờ đạt tới 1 thì số đó không phải là số hạnh phúc.\nVí dụ:\n- Số 19: 1^2 + 9^2 = 82 -> 8^2 + 2^2 = 68 -> 6^2 + 8^2 = 100 -> 1^2 + 0^2 + 0^2 = 1 -> 19 là số hạnh phúc.\n- Số 4: Rơi vào chu trình lặp vô hạn và không bao giờ đạt tới 1 -> 4 không phải số hạnh phúc.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hạnh phúc hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hạnh phúc, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\n\nseen = set()\ncurr = n\n\nwhile curr != 1 and curr not in seen:\n    seen.add(curr)\n    curr = sum(int(d) ** 2 for d in str(curr))\n\nif curr == 1:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "19",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "13",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "28": {
         "id": 28,
         "title": "Bài 20. Kiểm tra số hoàn hảo",
@@ -25489,7 +25574,8 @@
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
       "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)",
       "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nh= 3+(m-1)*(m+2)//2\nprint(h)",
-      "minh__Bài 17. Kiểm tra số Kaprekar": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')"
+      "minh__Bài 17. Kiểm tra số Kaprekar": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')",
+      "minh__Bài 18. Kiểm tra số hạnh phúc": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')"
     },
     "questionFlags": {
       "43": true
