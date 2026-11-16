@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T14:20:11.184Z",
+    "updatedAt": "2026-11-16T14:20:16.170Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 54,
+        "attempts": 55,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:20:11 16/11/2026"
+        "lastSubmit": "21:20:12 16/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794838812460,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
+        "assignmentId": 27,
+        "score": 0,
+        "timestamp": "21:20:12 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Ngay thang nam",
+            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "Python",
+            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "THCS Thanh Dong 2026",
+            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "Tin hoc tre",
+            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\n\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\n\nprint(KetQua[:-1]"
+      },
       {
         "id": 1794838811069,
         "student": "Lê Nguyễn Quang Minh",
