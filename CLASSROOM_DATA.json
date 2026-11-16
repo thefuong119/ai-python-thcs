@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T03:11:02.756Z",
+    "updatedAt": "2026-11-16T03:16:31.604Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 17,
+        "loginCount": 18,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -14672,10 +14672,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 34,
+        "attempts": 35,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "09:14:52 16/11/2026"
+        "lastSubmit": "10:16:31 16/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794798991350,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
+        "assignmentId": 6,
+        "score": 10,
+        "timestamp": "10:16:31 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "16\n15",
+            "actual": "16\n15",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 20",
+            "expected": "60\n200",
+            "actual": "60\n200",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nP= 2*(a+b)\nprint(P)\nS= a*b\nprint(S)"
+      },
       {
         "id": 1794795292048,
         "student": "Nguyễn Phú Lộc",
@@ -18771,6 +18800,13 @@
     ],
     "loginLogs": [
       {
+        "time": "10:13:13 16/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "10:01:23 16/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -19425,6 +19461,7 @@
         "2": true,
         "3": true,
         "4": true,
+        "6": true,
         "267": true
       },
       "minh": {
@@ -20290,7 +20327,8 @@
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "loc__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nold, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\n    \nprint(tien*108)"
+      "loc__Tính tiền điện bậc thang sinh hoạt": "# Viết mã Python của em ở đây...\nold, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\n    \nprint(tien*108)",
+      "loc__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Đọc dữ liệu từ bàn phím\na, b = map(int, input().split())\nP= 2*(a+b)\nprint(P)\nS= a*b\nprint(S)"
     },
     "questionFlags": {
       "43": true
