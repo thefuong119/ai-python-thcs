@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T11:34:03.411Z",
+    "updatedAt": "2026-11-16T11:34:20.505Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nộp dữ liệu thủ công"
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
@@ -310,10 +310,10 @@
         "delete": true
       },
       "teacherCanPushServer": true,
-      "teacherCanLoadServer": true,
+      "teacherCanLoadServer": false,
       "teacherCanAdd": true,
-      "teacherCanEdit": true,
-      "teacherCanDelete": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
