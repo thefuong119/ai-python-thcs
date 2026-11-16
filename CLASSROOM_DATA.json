@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:24:31.865Z",
+    "updatedAt": "2026-11-16T12:25:50.709Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Lưu đề trắc nghiệm: KIỂM TRA TRẮC NGHIỆM LỚP 9 - 16/11/2026"
+    "action": "Admin áp dụng phân quyền cho Giáo viên"
   },
   "data": {
     "registeredUsers": [
