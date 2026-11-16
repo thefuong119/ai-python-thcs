@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T02:09:42.477Z",
+    "updatedAt": "2026-11-16T02:09:51.517Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -14672,10 +14672,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 32,
+        "attempts": 33,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "09:09:42 16/11/2026"
+        "lastSubmit": "09:09:49 16/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -15258,6 +15258,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794794989319,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Tính tiền điện bậc thang sinh hoạt",
+        "assignmentId": 267,
+        "score": 0,
+        "timestamp": "09:09:49 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "120 160",
+            "expected": "77760",
+            "actual": "7776000",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "100 240",
+            "expected": "300240",
+            "actual": "29484000",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nold, new = map(int, input().split())\nkwh = new - old\ntien = 0\nif kwh <= 50:\n    tien = kwh * 1800\nelif kwh <= 100:\n    tien = 50 * 1800 + (kwh - 50) * 1900\nelse:\n    tien = 50 * 1800 + 50 * 1900 + (kwh - 100) * 2200\n    \nprint(tien*108)"
+      },
       {
         "id": 1794794982165,
         "student": "Nguyễn Phú Lộc",
