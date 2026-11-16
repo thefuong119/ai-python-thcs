@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T11:43:44.102Z",
+    "updatedAt": "2026-11-16T11:43:50.073Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Nạp 15 bài tập"
+    "action": "Nạp 30 bài tập"
   },
   "data": {
     "registeredUsers": [
@@ -16409,6 +16409,1176 @@
             "id": 4,
             "input": "250000\n0",
             "expected": "250000 0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 537,
+        "title": "Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ (không chứa dấu xuống dòng). Hãy đếm xem trong xâu $S$ có bao nhiêu ký tự là chữ cái tiếng Anh và bao nhiêu ký tự là chữ số. In ra hai số nguyên tìm được trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "s = input()\nchu_cai = 0\nchu_so = 0\nfor ch in s:\n if ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):\n chu_cai += 1\n elif '0' <= ch <= '9':\n chu_so += 1\nprint(chu_cai, chu_so)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Python3.11@2026",
+            "expected": "6 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "HSG Tin Hoc 8",
+            "expected": "9 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "123456",
+            "expected": "0 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "!@#$%^&*()",
+            "expected": "0 0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 538,
+        "title": "Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ chỉ gồm các chữ cái tiếng Anh và dấu cách. Hãy đếm và in ra số lượng chữ cái nguyên âm có trong xâu $S$ (các nguyên âm tiếng Anh gồm: a, e, i, o, u, không phân biệt chữ hoa hay chữ thường).",
+        "templateCode": "s = input()\nnguyen_am = \"aeiouAEIOU\"\ndem = 0\nfor ch in s:\n if ch in nguyen_am:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Lap trinh Python",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "AEIOU aeiou",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "BCDFG",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Hoc sinh gioi Tin hoc",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 539,
+        "title": "Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một xâu được gọi là đối xứng nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: \"madam\", \"abba\"). Nhập vào một xâu ký tự $S$ không chứa dấu cách. Nếu $S$ là xâu đối xứng thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "s = input().strip()\nif s == s[::-1]:\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "radar",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "python",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "abba",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 540,
+        "title": "Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm nhiều từ cách nhau bởi một hoặc nhiều dấu cách (có thể có dấu cách thừa ở đầu và cuối xâu). Hãy xóa hết các dấu cách thừa (giữa các từ chỉ giữ lại đúng $1$ dấu cách). Dòng đầu tiên in ra số lượng từ trong câu; dòng thứ hai in ra xâu sau khi đã chuẩn hóa.",
+        "templateCode": "s = input()\ntu = s.split()\nprint(len(tu))\nprint(\" \".join(tu))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Chao mung cac ban",
+            "expected": "4\nChao mung cac ban",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Python",
+            "expected": "1\nPython",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Thi HSG Tin hoc",
+            "expected": "4\nThi HSG Tin hoc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a b c",
+            "expected": "3\na b c",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 541,
+        "title": "Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm chữ cái tiếng Anh, chữ số và ký tự đặc biệt. Hãy tạo ra hai xâu mới theo đúng thứ tự xuất hiện ban đầu: xâu $S_1$ chỉ gồm các chữ cái tiếng Anh, xâu $S_2$ chỉ gồm các chữ số. Dòng thứ nhất in ra $S_1$ (nếu rỗng in ra NONE), dòng thứ hai in ra $S_2$ (nếu rỗng in ra NONE).",
+        "templateCode": "s = input()\ns1 = \"\"\ns2 = \"\"\nfor ch in s:\n if ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):\n s1 += ch\n elif '0' <= ch <= '9':\n s2 += ch\nprint(s1 if s1 else \"NONE\")\nprint(s2 if s2 else \"NONE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Tin8Hoc9Pro2026!",
+            "expected": "TinHocPro\n892026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2026",
+            "expected": "NONE\n2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Python",
+            "expected": "Python\nNONE",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a1b2c3",
+            "expected": "abc\n123",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 542,
+        "title": "Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$. Hãy xóa bỏ các ký tự xuất hiện lặp lại trong $S$, chỉ giữ lại lần xuất hiện đầu tiên của mỗi ký tự theo đúng thứ tự từ trái sang phải. In ra xâu kết quả.",
+        "templateCode": "s = input()\nkq = \"\"\nfor ch in s:\n if ch not in kq:\n kq += ch\nprint(kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "banana",
+            "expected": "ban",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "programming",
+            "expected": "progamin",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "aaaa",
+            "expected": "a",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "abcd",
+            "expected": "abcd",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 543,
+        "title": "Bài 52 (Xử lý xâu): Tìm từ dài nhất và từ ngắn nhất trong câu",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một câu gồm các từ tiếng Anh không dấu cách nhau bởi dấu cách. Hãy tìm từ có độ dài lớn nhất và từ có độ dài nhỏ nhất trong câu. Nếu có nhiều từ cùng độ dài lớn nhất (hoặc nhỏ nhất) thì chọn từ xuất hiện đầu tiên. Dòng thứ nhất in ra từ dài nhất, dòng thứ hai in ra từ ngắn nhất.",
+        "templateCode": "words = input().split()\ndai_nhat = words[0]\nngan_nhat = words[0]\nfor w in words[1:]:\n if len(w) > len(dai_nhat):\n dai_nhat = w\n if len(w) < len(ngan_nhat):\n ngan_nhat = w\nprint(dai_nhat)\nprint(ngan_nhat)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Hoc sinh gioi mon Tin hoc",
+            "expected": "sinh\nHoc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Python is a great language",
+            "expected": "language\na",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "mot hai sau",
+            "expected": "mot\nmot",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Toi yeu lap trinh",
+            "expected": "trinh\nToi",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 544,
+        "title": "Bài 53 (Xử lý xâu): Tính tổng các số nguyên xuất hiện trong xâu",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm các chữ cái tiếng Anh và các chữ số. Các chữ số đứng liền nhau tạo thành một số nguyên không âm (ví dụ xâu \"ab12cd30e5\" chứa ba số là $12, 30, 5$). Hãy tính và in ra tổng của tất cả các số nguyên có trong xâu $S$.",
+        "templateCode": "s = input()\ntong = 0\nso_hien_tai = 0\nfor ch in s:\n if '0' <= ch <= '9':\n so_hien_tai = so_hien_tai * 10 + int(ch)\n else:\n tong += so_hien_tai\n so_hien_tai = 0\ntong += so_hien_tai\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "ab12cd30e5",
+            "expected": "47",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "python2026hsg8",
+            "expected": "2034",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "khongcosonao",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "100a200b300",
+            "expected": "600",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 545,
+        "title": "Bài 54 (Xử lý xâu): Nén xâu theo độ dài loạt ký tự liên tiếp (RLE)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho một xâu $S$ chỉ gồm các chữ cái tiếng Anh in hoa. Hãy nén xâu $S$ bằng cách thay thế mỗi dãy các ký tự giống nhau đứng liên tiếp bởi chính ký tự đó kèm theo số lần lặp lại liên tiếp của nó (ví dụ \"AAABBC\" được nén thành \"A3B2C1\"). In ra xâu sau khi nén.",
+        "templateCode": "s = input().strip()\nif not s:\n print(\"\")\nelse:\n kq = []\n dem = 1\n for i in range(1, len(s)):\n if s[i] == s[i - 1]:\n dem += 1\n else:\n kq.append(f\"{s[i - 1]}{dem}\")\n dem = 1\n kq.append(f\"{s[-1]}{dem}\")\n print(\"\".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "AAABBC",
+            "expected": "A3B2C1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "WWWWAAADEXXXXXX",
+            "expected": "W4A3D1E1X6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "ABCD",
+            "expected": "A1B1C1D1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "ZZZZZ",
+            "expected": "Z5",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 546,
+        "title": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hai xâu được gọi là đảo chữ (Anagram) của nhau nếu sau khi loại bỏ dấu cách và không phân biệt chữ hoa hay chữ thường, xâu này có thể thu được bằng cách hoán đổi vị trí các ký tự của xâu kia (ví dụ \"Listen\" và \"Silent\"). Nhập hai xâu $S_1$ và $S_2$ trên hai dòng. Nếu hai xâu là đảo chữ của nhau thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 547,
+        "title": "Bài 56 (Xử lý mảng): Tính tổng và trung bình cộng các phần tử của mảng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$ cách nhau bởi dấu cách. Hãy tính tổng các phần tử và trung bình cộng của mảng (làm tròn đến $2$ chữ số thập phân). In hai kết quả trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ntong = sum(a)\ntb = tong / n\nprint(f\"{tong} {tb:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n2 4 6 8 10",
+            "expected": "30 6.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 3 5",
+            "expected": "11 2.75",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1\n-7",
+            "expected": "-7 -7.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3\n0 0 0",
+            "expected": "0 0.00",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 548,
+        "title": "Bài 57 (Xử lý mảng): Đếm số phần tử chẵn và số phần tử lẻ trong mảng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên cách nhau bởi dấu cách. Hãy đếm xem trong mảng có bao nhiêu số chẵn và bao nhiêu số lẻ. In ra hai số tìm được trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nchan = 0\nfor x in a:\n if x % 2 == 0:\n chan += 1\nle = n - chan\nprint(chan, le)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n1 2 3 4 5 6",
+            "expected": "3 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n2 8 10 0",
+            "expected": "4 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n-3 -1 5 7 9",
+            "expected": "0 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3\n11 22 33",
+            "expected": "1 2",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 549,
+        "title": "Bài 58 (Xử lý mảng): Tìm giá trị lớn nhất, nhỏ nhất và các vị trí đạt giá trị lớn nhất",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$ (chỉ số đánh từ $1$ đến $n$). Dòng thứ nhất in ra giá trị lớn nhất và giá trị nhỏ nhất của mảng, cách nhau bởi dấu cách; dòng thứ hai in ra tất cả các vị trí (theo thứ tự tăng dần) mà phần tử đạt giá trị lớn nhất.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nmax_val = max(a)\nmin_val = min(a)\nvi_tri = [str(i + 1) for i in range(n) if a[i] == max_val]\nprint(max_val, min_val)\nprint(\" \".join(vi_tri))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n4 9 2 9 1 9",
+            "expected": "9 1\n2 4 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n-5 -2 -9 -2",
+            "expected": "-2 -9\n2 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n7 7 7",
+            "expected": "7 7\n1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1\n15",
+            "expected": "15 15\n1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 550,
+        "title": "Bài 59 (Xử lý mảng): Tính trung bình cộng các số lẻ ở vị trí chẵn",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$ (đánh chỉ số từ $1$ đến $n$). Hãy tính trung bình cộng của các số lẻ nằm ở vị trí chẵn (tức là chỉ số $i$ chia hết cho $2$ và $a_i$ là số lẻ). In kết quả làm tròn đến $2$ chữ số thập phân; nếu không có phần tử nào thỏa mãn thì in ra 0.00.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ntong = 0\ndem = 0\nfor i in range(1, n, 2):\n if a[i] % 2 != 0:\n tong += a[i]\n dem += 1\nif dem == 0:\n print(\"0.00\")\nelse:\n print(f\"{tong / dem:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n10 3 8 5 6 7",
+            "expected": "5.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 2 3 4",
+            "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n2 9 4 4 6",
+            "expected": "9.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4\n0 3 0 6",
+            "expected": "3.00",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 551,
+        "title": "Bài 60 (Xử lý mảng): Thay thế các phần tử âm bằng 0 và in mảng kết quả",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy đếm xem trong mảng có bao nhiêu số âm, sau đó thay thế tất cả các số âm đó bằng giá trị $0$. Dòng thứ nhất in ra số lượng phần tử âm đã thay thế; dòng thứ hai in ra mảng sau khi biến đổi, các phần tử cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ndem = 0\nfor i in range(n):\n if a[i] < 0:\n a[i] = 0\n dem += 1\nprint(dem)\nprint(\" \".join(map(str, a)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n3 -4 0 -1 7",
+            "expected": "2\n3 0 0 0 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\n1 2 3",
+            "expected": "0\n1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4\n-5 -6 -7 -8",
+            "expected": "4\n0 0 0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2\n0 -1",
+            "expected": "1\n0 0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 552,
+        "title": "Bài 61 (Xử lý mảng): Lọc các số nguyên tố trong mảng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên dương. Hãy liệt kê tất cả các số nguyên tố có trong mảng theo đúng thứ tự xuất hiện ban đầu, các số cách nhau bởi dấu cách. Nếu trong mảng không có số nguyên tố nào thì in ra -1.",
+        "templateCode": "def la_nt(x):\n if x < 2:\n return False\n for i in range(2, int(x ** 0.5) + 1):\n if x % i == 0:\n return False\n return True\n\nn = int(input())\na = list(map(int, input().split()))\nnt = [str(x) for x in a if la_nt(x)]\nif nt:\n print(\" \".join(nt))\nelse:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n4 7 1 11 9 2",
+            "expected": "7 11 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n1 4 6 8",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n2 3 5 7 13",
+            "expected": "2 3 5 7 13",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3\n15 21 29",
+            "expected": "29",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 553,
+        "title": "Bài 62 (Xử lý mảng): Đếm số chính phương và số hoàn hảo trong mảng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên dương ($\\le 10000$). Hãy đếm xem trong mảng có bao nhiêu số chính phương và bao nhiêu số hoàn hảo (số hoàn hảo là số bằng tổng các ước dương nhỏ hơn nó, ví dụ $6, 28$). In ra hai số đếm tìm được trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "import math\n\ndef la_cp(x):\n c = math.isqrt(x)\n return c * c == x\n\ndef la_hh(x):\n if x < 2:\n return False\n tong = 1\n for i in range(2, int(x ** 0.5) + 1):\n if x % i == 0:\n tong += i\n if i != x // i:\n tong += x // i\n return tong == x\n\nn = int(input())\na = list(map(int, input().split()))\ndem_cp = sum(1 for x in a if la_cp(x))\ndem_hh = sum(1 for x in a if la_hh(x))\nprint(dem_cp, dem_hh)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n4 6 9 28 10 16",
+            "expected": "3 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n2 3 5 7",
+            "expected": "0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n1 25 496",
+            "expected": "2 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4\n6 6 28 28",
+            "expected": "0 4",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 554,
+        "title": "Bài 63 (Xử lý mảng): Xóa các phần tử trùng nhau trong mảng giữ nguyên thứ tự",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy loại bỏ các phần tử xuất hiện lặp lại trong mảng, chỉ giữ lại lần xuất hiện đầu tiên của mỗi giá trị theo đúng thứ tự ban đầu. Dòng đầu tiên in ra số lượng phần tử còn lại; dòng thứ hai in ra các phần tử đó cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nkq = []\nda_co = set()\nfor x in a:\n if x not in da_co:\n da_co.add(x)\n kq.append(x)\nprint(len(kq))\nprint(\" \".join(map(str, kq)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n4 2 4 5 2 7 4",
+            "expected": "4\n4 2 5 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n9 9 9 9 9",
+            "expected": "1\n9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4\n1 2 3 4",
+            "expected": "4\n1 2 3 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n-1 0 -1 2 0 3",
+            "expected": "4\n-1 0 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 555,
+        "title": "Bài 64 (Xử lý mảng): Độ dài dãy con tăng liên tiếp dài nhất",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$. Một đoạn con gồm các phần tử đứng liền kề nhau $a_i, a_{i+1}, \\dots, a_j$ được gọi là tăng dần chặt nếu $a_i < a_{i+1} < \\dots < a_j$. Hãy tìm và in ra độ dài lớn nhất của một đoạn con tăng dần chặt như vậy.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nmax_len = 1\ncur_len = 1\nfor i in range(1, n):\n if a[i] > a[i - 1]:\n cur_len += 1\n if cur_len > max_len:\n max_len = cur_len\n else:\n cur_len = 1\nprint(max_len)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8\n1 3 5 2 4 6 8 1",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n9 7 5 3 1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5\n3 3 4 4 5",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 556,
+        "title": "Bài 65 (Xử lý mảng): Đếm số cặp phần tử có tổng bằng K",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập hai số nguyên $n$ và $K$ ($2 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$. Hãy đếm xem có bao nhiêu cặp chỉ số $(i, j)$ với $1 \\le i < j \\le n$ thỏa mãn điều kiện $a_i + a_j = K$.",
+        "templateCode": "n, k = map(int, input().split())\na = list(map(int, input().split()))\ndem = 0\nfor i in range(n - 1):\n for j in range(i + 1, n):\n if a[i] + a[j] == k:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 6\n1 5 7 -1 5",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 10\n5 5 5 5",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 20\n1 2 3 4",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6 0\n-3 3 -2 2 0 0",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 557,
+        "title": "Bài 66 (Tìm kiếm, sắp xếp): Tìm kiếm tuần tự tất cả vị trí của X trong dãy",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập hai số nguyên $n$ và $X$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$ (đánh chỉ số từ $1$ đến $n$). Sử dụng thuật toán tìm kiếm tuần tự để liệt kê tất cả các vị trí mà phần tử có giá trị bằng $X$ theo thứ tự tăng dần, cách nhau bởi dấu cách. Nếu không tìm thấy $X$ thì in ra -1.",
+        "templateCode": "n, x = map(int, input().split())\na = list(map(int, input().split()))\nvi_tri = []\nfor i in range(n):\n if a[i] == x:\n vi_tri.append(str(i + 1))\nif vi_tri:\n print(\" \".join(vi_tri))\nelse:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7 5\n3 5 8 5 2 9 5",
+            "expected": "2 4 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 10\n1 2 3 4 5",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4 7\n7 7 7 7",
+            "expected": "1 2 3 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 -2\n4 -2 0 1 8",
+            "expected": "2",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 558,
+        "title": "Bài 67 (Tìm kiếm, sắp xếp): Sắp xếp dãy số nguyên tăng dần và giảm dần",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy sắp xếp dãy số đó theo thứ tự tăng dần và giảm dần. Dòng thứ nhất in ra dãy đã sắp xếp tăng dần; dòng thứ hai in ra dãy đã sắp xếp giảm dần (các số cách nhau bởi dấu cách).",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\ntang = sorted(a)\ngiam = sorted(a, reverse=True)\nprint(\" \".join(map(str, tang)))\nprint(\" \".join(map(str, giam)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n15 3 9 20 7",
+            "expected": "3 7 9 15 20\n20 15 9 7 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n-4 10 -1 0",
+            "expected": "-4 -1 0 10\n10 0 -1 -4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n5 5 5",
+            "expected": "5 5 5\n5 5 5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1\n42",
+            "expected": "42\n42",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 559,
+        "title": "Bài 68 (Tìm kiếm, sắp xếp): Tìm giá trị lớn thứ hai (phân biệt) trong dãy",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($2 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy tìm và in ra giá trị lớn thứ hai phân biệt trong dãy (tức là số lớn nhất nhưng nhỏ hơn giá trị lớn nhất của dãy). Nếu tất cả các phần tử trong dãy đều bằng nhau thì in ra -1.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nphan_biet = sorted(set(a), reverse=True)\nif len(phan_biet) < 2:\n print(-1)\nelse:\n print(phan_biet[1])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6\n5 9 2 9 7 4",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n8 8 8 8",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n-10 -3 -7 -3 -1",
+            "expected": "-3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2\n12 20",
+            "expected": "12",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 560,
+        "title": "Bài 69 (Tìm kiếm, sắp xếp): Tìm kiếm nhị phân trên dãy đã sắp xếp tăng dần",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập hai số nguyên $n$ và $X$ ($1 \\le n \\le 100000$). Dòng thứ hai nhập $n$ số nguyên phân biệt đã được sắp xếp theo thứ tự tăng dần (đánh chỉ số từ $1$ đến $n$). Hãy cài đặt thuật toán tìm kiếm nhị phân để tìm vị trí của $X$ trong dãy; nếu không có $X$ thì in ra -1.",
+        "templateCode": "n, x = map(int, input().split())\na = list(map(int, input().split()))\nleft, right = 0, n - 1\nkq = -1\nwhile left <= right:\n mid = (left + right) // 2\n if a[mid] == x:\n kq = mid + 1\n break\n elif a[mid] < x:\n left = mid + 1\n else:\n right = mid - 1\nprint(kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "6 15\n2 5 9 15 22 30",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 7\n1 3 5 8 10",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5 1\n1 4 9 16 25",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 25\n1 4 9 16 25",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 561,
+        "title": "Bài 70 (Tìm kiếm, sắp xếp): Liệt kê và sắp xếp riêng các phần tử chẵn và lẻ",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy tách các phần tử chẵn sắp xếp theo thứ tự tăng dần và tách các phần tử lẻ sắp xếp theo thứ tự giảm dần. Dòng thứ nhất in ra các số chẵn tăng dần (nếu không có in ra NONE); dòng thứ hai in ra các số lẻ giảm dần (nếu không có in ra NONE).",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nchan = sorted([x for x in a if x % 2 == 0])\nle = sorted([x for x in a if x % 2 != 0], reverse=True)\nprint(\" \".join(map(str, chan)) if chan else \"NONE\")\nprint(\" \".join(map(str, le)) if le else \"NONE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n8 3 2 9 4 1 6",
+            "expected": "2 4 6 8\n9 3 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n2 6 4 8",
+            "expected": "2 4 6 8\nNONE",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "3\n7 1 5",
+            "expected": "NONE\n7 5 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "4\n0 -3 4 -1",
+            "expected": "0 4\n-1 -3",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 562,
+        "title": "Bài 71 (Tìm kiếm, sắp xếp): Thống kê tần suất xuất hiện của các phần tử",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy thống kê số lần xuất hiện của mỗi giá trị khác nhau trong dãy và in ra theo thứ tự tăng dần của giá trị. Mỗi dòng in ra hai số: giá trị và số lần xuất hiện, cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nfreq = {}\nfor x in a:\n freq[x] = freq.get(x, 0) + 1\nfor k in sorted(freq):\n print(k, freq[k])",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n5 2 5 8 2 5 1",
+            "expected": "1 1\n2 2\n5 3\n8 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n9 9 9 9",
+            "expected": "9 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "5\n-2 0 -2 3 0",
+            "expected": "-2 2\n0 2\n3 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3\n10 20 30",
+            "expected": "10 1\n20 1\n30 1",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 563,
+        "title": "Bài 72 (Tìm kiếm, sắp xếp): Sắp xếp danh sách học sinh giảm dần theo điểm",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 100$). Trong $n$ dòng tiếp theo, mỗi dòng gồm tên học sinh (không chứa dấu cách) và điểm số (số thực), cách nhau bởi dấu cách. Hãy sắp xếp danh sách học sinh theo thứ tự điểm số giảm dần; nếu hai học sinh có cùng điểm số thì giữ nguyên thứ tự nhập ban đầu. In ra danh sách sau khi sắp xếp, mỗi học sinh trên một dòng gồm tên và điểm (giữ $1$ chữ số thập phân).",
+        "templateCode": "n = int(input())\nds = []\nfor _ in range(n):\n ten, diem = input().split()\n ds.append((ten, float(diem)))\nds.sort(key=lambda x: x[1], reverse=True)\nfor ten, diem in ds:\n print(f\"{ten} {diem:.1f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\nAn 7.5\nBinh 9.0\nChi 8.5\nDung 9.0",
+            "expected": "Binh 9.0\nDung 9.0\nChi 8.5\nAn 7.5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3\nLan 8.0\nMai 6.5\nNam 9.5",
+            "expected": "Nam 9.5\nLan 8.0\nMai 6.5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2\nHoa 10.0\nHung 10.0",
+            "expected": "Hoa 10.0\nHung 10.0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1\nMinh 7.8",
+            "expected": "Minh 7.8",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 564,
+        "title": "Bài 73 (Tìm kiếm, sắp xếp): Tìm phần tử xuất hiện nhiều nhất trong mảng",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên. Hãy tìm phần tử có số lần xuất hiện nhiều nhất trong mảng. Nếu có nhiều phần tử cùng có số lần xuất hiện lớn nhất thì chọn phần tử có giá trị nhỏ nhất. In ra giá trị phần tử đó và số lần xuất hiện của nó trên cùng một dòng, cách nhau bởi dấu cách.",
+        "templateCode": "n = int(input())\na = list(map(int, input().split()))\nfreq = {}\nfor x in a:\n freq[x] = freq.get(x, 0) + 1\nbest_val = None\nmax_cnt = -1\nfor k in sorted(freq):\n if freq[k] > max_cnt:\n max_cnt = freq[k]\n best_val = k\nprint(best_val, max_cnt)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "7\n4 2 4 2 5 4 2",
+            "expected": "2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n1 3 5 7 9",
+            "expected": "1 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "6\n8 8 8 8 8 8",
+            "expected": "8 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "6\n-1 -1 2 2 2 0",
+            "expected": "2 3",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 565,
+        "title": "Bài 74 (Tìm kiếm, sắp xếp): Tìm độ chênh lệch nhỏ nhất giữa hai phần tử bất kỳ",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($2 \\le n \\le 10000$). Dòng thứ hai nhập $n$ số nguyên $a_1, a_2, \\dots, a_n$. Hãy tìm giá trị nhỏ nhất của hiệu $|a_i - a_j|$ với $i \\ne j$ (gợi ý: sắp xếp mảng trước rồi xét các cặp phần tử đứng kề nhau). In ra kết quả tìm được.",
+        "templateCode": "n = int(input())\na = sorted(map(int, input().split()))\nmin_diff = a[1] - a[0]\nfor i in range(2, n):\n diff = a[i] - a[i - 1]\n if diff < min_diff:\n min_diff = diff\nprint(min_diff)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n10 3 25 14 7",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n8 2 8 15",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4\n-10 -3 4 20",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "2\n100 45",
+            "expected": "55",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      {
+        "id": 566,
+        "title": "Bài 75 (Tìm kiếm, sắp xếp): Sắp xếp các số theo tổng chữ số tăng dần",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dòng đầu tiên nhập số nguyên dương $n$ ($1 \\le n \\le 1000$). Dòng thứ hai nhập $n$ số nguyên dương. Hãy sắp xếp dãy số đó theo thứ tự tổng các chữ số tăng dần; nếu hai số có cùng tổng các chữ số thì số nào có giá trị nhỏ hơn sẽ đứng trước. In ra dãy số sau khi sắp xếp, các số cách nhau bởi một dấu cách.",
+        "templateCode": "def tong_cs(x):\n s = 0\n while x > 0:\n s += x % 10\n x //= 10\n return s\n\nn = int(input())\na = list(map(int, input().split()))\na.sort(key=lambda x: (tong_cs(x), x))\nprint(\" \".join(map(str, a)))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5\n29 14 103 45 23",
+            "expected": "103 14 23 45 29",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4\n19 28 37 46",
+            "expected": "19 28 37 46",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4\n99 100 11 2",
+            "expected": "100 2 11 99",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3\n5 50 500",
+            "expected": "5 50 500",
             "point": 2.5,
             "is_hidden": false
           }
