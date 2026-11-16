@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T11:46:20.016Z",
+    "updatedAt": "2026-11-16T11:46:43.590Z",
     "updatedBy": "Nguyễn Thế Phương",
-    "action": "Tạo bài kiểm tra: BÀI TẬP ÔN THI LỚP 8 - 16/11/2026"
+    "action": "Tạo bài kiểm tra: BÀI TẬP ÔN THI LỚP 9 - 16/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -25298,6 +25298,20 @@
           443
         ],
         "createdAt": "18:46:19 16/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 1794829603545,
+        "title": "BÀI TẬP ÔN THI LỚP 9 - 16/11/2026",
+        "grade": "9",
+        "allowSampleCode": true,
+        "questionIds": [
+          120,
+          365,
+          214
+        ],
+        "createdAt": "18:46:43 16/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
