@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-16T12:38:04.298Z",
+    "updatedAt": "2026-11-16T12:40:23.916Z",
     "updatedBy": "Giáo viên Demo",
     "action": "Học sinh Giáo viên Demo nộp bài"
   },
@@ -20005,9 +20005,9 @@
       {
         "student": "Giáo viên Demo",
         "username": "giaovien",
-        "attempts": 2,
-        "highestScore": 5,
-        "lastSubmit": "19:38:04 16/11/2026"
+        "attempts": 3,
+        "highestScore": 10,
+        "lastSubmit": "19:40:23 16/11/2026"
       }
     ],
     "lectures": [
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794832823833,
+        "student": "Giáo viên Demo",
+        "username": "giaovien",
+        "assignmentTitle": "Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện",
+        "assignmentId": 467,
+        "score": 10,
+        "timestamp": "19:40:23 16/11/2026",
+        "date": "2026-11-16",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "banana",
+            "expected": "ban",
+            "actual": "ban",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "programming",
+            "expected": "progamin",
+            "actual": "progamin",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "aaaa",
+            "expected": "a",
+            "actual": "a",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "abcd",
+            "expected": "abcd",
+            "actual": "abcd",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s = input()\nkq = \"\"\nfor ch in s:\n    if ch not in kq:\n        kq += ch\nprint(kq)"
+      },
       {
         "id": 1794832684201,
         "student": "Giáo viên Demo",
@@ -24568,7 +24613,8 @@
         "43": true
       },
       "giaovien": {
-        "121": true
+        "121": true,
+        "467": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -25246,6 +25292,45 @@
             "is_hidden": false
           }
         ]
+      },
+      "467": {
+        "id": 467,
+        "title": "Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$. Hãy xóa bỏ các ký tự xuất hiện lặp lại trong $S$, chỉ giữ lại lần xuất hiện đầu tiên của mỗi ký tự theo đúng thứ tự từ trái sang phải. In ra xâu kết quả.",
+        "templateCode": "s = input()\nkq = \"\"\nfor ch in s:\n if ch not in kq:\n kq += ch\nprint(kq)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "banana",
+            "expected": "ban",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "programming",
+            "expected": "progamin",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "aaaa",
+            "expected": "a",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "abcd",
+            "expected": "abcd",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
       }
     },
     "testSets": [
@@ -25425,7 +25510,8 @@
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "giaovien__Bài 85. Xử lý xâu chữ và chữ số": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key = lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)"
+      "giaovien__Bài 85. Xử lý xâu chữ và chữ số": "import re\n\ns = input().strip()\n\n# Trích xuất toàn bộ chữ số tạo thành a\ndigits = ''.join(c for c in s if c.isdigit())\na = digits or '0'\n\n# Tạo các số b bằng cách xóa lần lượt 1 chữ số khỏi a\ncandidates = [a[:i] + a[i+1:] for i in range(len(a))]\ncandidates = [x for x in candidates if x and int(x) > 0 and int(x) % 5 == 0]\n\nb = max(candidates, key = lambda x: int(x)) if candidates else 'KHONG'\n\n# Tính tổng các cụm số nguyên liên tiếp trong chuỗi s ban đầu\nT = sum(map(int, re.findall(r'\\d+', s)))\n\nprint('a =', a)\nprint('b =', b)\nprint('T =', T)",
+      "giaovien__Bài 51 (Xử lý xâu): Xóa các ký tự trùng nhau nhưng giữ nguyên thứ tự xuất hiện": "s = input()\nkq = \"\"\nfor ch in s:\n    if ch not in kq:\n        kq += ch\nprint(kq)"
     },
     "questionFlags": {
       "43": true
