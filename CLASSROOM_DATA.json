@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T14:07:44.677Z",
+    "updatedAt": "2026-11-17T14:07:53.296Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 60,
+        "attempts": 61,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:07:44 17/11/2026"
+        "lastSubmit": "21:07:45 17/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794924465877,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21. Tách từ và tìm từ dài nhất",
+        "assignmentId": 29,
+        "score": 7.5,
+        "timestamp": "21:07:45 17/11/2026",
+        "date": "2026-11-17",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "actual": "8\ncong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "actual": "6\nthanh",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "actual": "6\nPython",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "actual": "6\nbuom",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().split()\nMax = 0\nfor i in range(len(S)):\n    Dem = 0\n    for y in S[i]:\n        Dem += 1\n    if Dem > Max:\n        Max = Dem\n        SoDai = S[i]\nprint(len(S))\nprint(SoDai)"
+      },
       {
         "id": 1794924464560,
         "student": "Lê Nguyễn Quang Minh",
@@ -25328,7 +25373,8 @@
         "25": true,
         "27": true,
         "28": true,
-        "29": true
+        "29": true,
+        "30": true
       },
       "hocsinh": {
         "1": true,
@@ -25949,6 +25995,45 @@
             "id": 4,
             "input": "Mot con buom vang bay qua",
             "expected": "6\nvang",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "30": {
+        "id": 30,
+        "title": "Bài 22. Số cạnh tạo thành tam giác",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho trước 2 số nguyên dương a và b.\nYêu cầu: Xác định có bao nhiêu số nguyên dương c sao cho 3 số a, b, c có thể là độ dài 3 cạnh của một tam giác không suy biến.\n\n- Dữ liệu vào: Hai số nguyên dương a và b trên cùng một dòng, cách nhau bởi một dấu cách (1 <= a, b <= 10^9).\n- Dữ liệu ra: Một số nguyên duy nhất là số lượng số c thỏa mãn yêu cầu.",
+        "templateCode": "a, b = map(int, input().split())\n\n# Điều kiện tam giác: |a - b| < c < a + b\n# Số lượng số nguyên c là:\n# (a + b - 1) - (|a - b| + 1) + 1\n# = 2 * min(a, b) - 1\n\nprint(2 * min(a, b) - 1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4",
+            "expected": "5",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6 8",
+            "expected": "11",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 10",
+            "expected": "19",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000 500000",
+            "expected": "999999",
             "point": 2.5,
             "is_hidden": true
           }
