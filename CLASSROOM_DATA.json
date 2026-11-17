@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T05:07:38.975Z",
-    "updatedBy": "Nguyễn Tấn Thanh",
-    "action": "Đăng xuất: Nguyễn Tấn Thanh"
+    "updatedAt": "2026-11-17T12:45:43.865Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -25334,9 +25334,30 @@
       "teacherCanAdd": true,
       "teacherCanEdit": false,
       "teacherCanDelete": false,
-      "teacherCanReplyMessages": true,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
+      "lectures": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "assignments": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "quiz": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "messages": {
+        "edit": true,
+        "delete": true
+      },
+      "logs": {
+        "delete": true
+      },
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -25369,28 +25390,7 @@
       "teacherCanEditMessages": true,
       "teacherCanDeleteMessages": false,
       "teacherCanViewMessages": true,
-      "lectures": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "assignments": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "quiz": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "messages": {
-        "edit": true,
-        "delete": true
-      },
-      "logs": {
-        "delete": true
-      }
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
