@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T12:54:11.267Z",
+    "updatedAt": "2026-11-17T12:54:22.801Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 47,
+        "attempts": 48,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "19:54:11 17/11/2026"
+        "lastSubmit": "19:54:22 17/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794920062692,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
+        "assignmentId": 27,
+        "score": 0,
+        "timestamp": "19:54:22 17/11/2026",
+        "date": "2026-11-17",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Ngay thang nam",
+            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
+            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "Python",
+            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
+            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "THCS Thanh Dong 2026",
+            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
+            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "Tin hoc tre",
+            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
+            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
+      },
       {
         "id": 1794920051145,
         "student": "Lê Nguyễn Quang Minh",
@@ -25648,7 +25693,7 @@
       "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
       "minh__Bài 17. Kiểm tra số Kaprekar": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')",
       "minh__Bài 18. Kiểm tra số hạnh phúc": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')",
-      "minh__Bài 19. Tần suất xuất hiện ký tự": "# Viết mã Python của em ở đây...\nS = input().upper()6767676767676767676736363636363636336\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
+      "minh__Bài 19. Tần suất xuất hiện ký tự": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
     },
     "questionFlags": {
       "43": true
