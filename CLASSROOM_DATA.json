@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T13:58:16.908Z",
+    "updatedAt": "2026-11-17T13:58:25.785Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 55,
+        "attempts": 56,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:58:16 17/11/2026"
+        "lastSubmit": "20:58:24 17/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794923904506,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21. Tách từ và tìm từ dài nhất",
+        "assignmentId": 29,
+        "score": 7.5,
+        "timestamp": "20:58:24 17/11/2026",
+        "date": "2026-11-17",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "actual": "8\ncong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "actual": "6\nthanh",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "actual": "6\nPython",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "actual": "6\nbuom",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().split()\nMax = 0\nKetQua = 0\nfor i in range(1,len(S)+1):\n    Dem = 0\n    for y in S[-i]:\n        Dem += 1\n    if Dem >= Max:\n        Max = Dem\n        SoDai = S[-i]\n    KetQua += 1\nprint(KetQua)\nprint(SoDai)"
+      },
       {
         "id": 1794923896778,
         "student": "Lê Nguyễn Quang Minh",
@@ -26049,7 +26094,7 @@
       "minh__Bài 17. Kiểm tra số Kaprekar": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')",
       "minh__Bài 18. Kiểm tra số hạnh phúc": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')",
       "minh__Bài 19. Tần suất xuất hiện ký tự": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])",
-      "minh__Bài 21. Tách từ và tìm từ dài nhất": "# Viết mã Python của em ở đây...\nS = (input().lower()).split()\nMax = 0\nKetQua = 0\nfor i in range(1,len(S)+1):\n    Dem = 0\n    for y in S[-i]:\n        Dem += 1\n    if Dem >= Max:\n        Max = Dem\n        SoDai = S[-i]\n    KetQua += 1\nprint(KetQua)\nprint(SoDai)"
+      "minh__Bài 21. Tách từ và tìm từ dài nhất": "# Viết mã Python của em ở đây...\nS = input().split()\nMax = 0\nKetQua = 0\nfor i in range(1,len(S)+1):\n    Dem = 0\n    for y in S[-i]:\n        Dem += 1\n    if Dem >= Max:\n        Max = Dem\n        SoDai = S[-i]\n    KetQua += 1\nprint(KetQua)\nprint(SoDai)"
     },
     "questionFlags": {
       "43": true
