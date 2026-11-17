@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T13:57:24.609Z",
+    "updatedAt": "2026-11-17T13:57:30.723Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 53,
+        "attempts": 54,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:24 17/11/2026"
+        "lastSubmit": "20:57:30 17/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1794923850593,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21. Tách từ và tìm từ dài nhất",
+        "assignmentId": 29,
+        "score": 7.5,
+        "timestamp": "20:57:30 17/11/2026",
+        "date": "2026-11-17",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "actual": "8\ncong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "actual": "6\nthanh",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "actual": "6\nPython",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "actual": "6\nbuom",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().split()\nMax = 0\nKetQua = 0\nfor i in range(1,len(S)+1):\n    Dem = 0\n    for y in S[-i]:\n        Dem += 1\n    if Dem >= Max:\n        Max = Dem\n        SoDai = S[-i]\n    KetQua += 1\nprint(KetQua)\nprint(SoDai)"
+      },
       {
         "id": 1794923844471,
         "student": "Lê Nguyễn Quang Minh",
