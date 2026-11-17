@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T13:15:15.803Z",
-    "updatedBy": "Phan Trọng Khương",
+    "updatedAt": "2026-11-17T13:38:12.923Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -166,7 +166,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 0,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "cccd": "",
@@ -24235,13 +24235,6 @@
     ],
     "loginLogs": [
       {
-        "time": "19:57:10 17/11/2026",
-        "name": "Phan Trọng Khương",
-        "identifier": "khuong",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "19:48:05 17/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -24907,11 +24900,6 @@
         "24": true,
         "33": true,
         "43": true
-      },
-      "khuong": {
-        "1": true,
-        "8": true,
-        "315": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -25159,45 +25147,6 @@
             "id": 4,
             "input": "ACEGIK",
             "expected": "ACEGIK",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "8": {
-        "id": 8,
-        "title": "Bài 8. Tìm số trong dãy quy luật",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
-        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3",
-            "expected": "8",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "6",
-            "expected": "23",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "10",
-            "expected": "57",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
             "point": 2.5,
             "is_hidden": true
           }
@@ -25590,31 +25539,6 @@
             "expected": "YES",
             "point": 2.5,
             "is_hidden": true
-          }
-        ]
-      },
-      "315": {
-        "id": 315,
-        "title": "Định giá đơn hàng theo biểu thức tính toán rút gọn",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Một phần mềm thu ngân cho phép nhân viên nhập nhanh biểu thức tính tổng tiền gồm các phép toán cộng và trừ giữa các số nguyên không âm (ví dụ: `15000+20000-5000+12000`). Hãy viết chương trình nhận vào một chuỗi biểu thức chỉ chứa các số nguyên và hai dấu toán tử '+' hoặc '-', tính và in ra giá trị cuối cùng của biểu thức.\n\nDữ liệu vào: Một chuỗi ký tự $S$ là biểu thức số học không chứa dấu cách (độ dài không quá 1000 ký tự).\nDữ liệu ra: Một số nguyên duy nhất là kết quả của biểu thức.",
-        "templateCode": "s = input().strip()\ntong = 0\nso_hien_tai = 0\ndau = 1\n\nfor ch in s:\n    if ch.isdigit():\n        so_hien_tai = so_hien_tai * 10 + int(ch)\n    elif ch in ['+', '-']:\n        tong += dau * so_hien_tai\n        so_hien_tai = 0\n        dau = 1 if ch == '+' else -1\n\ntong += dau * so_hien_tai\nprint(tong)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "15000+20000-5000",
-            "expected": "30000",
-            "point": 5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "100-20-30+50",
-            "expected": "100",
-            "point": 5,
-            "is_hidden": false
           }
         ]
       },
