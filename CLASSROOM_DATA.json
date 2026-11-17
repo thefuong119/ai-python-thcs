@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T12:47:27.152Z",
+    "updatedAt": "2026-11-17T12:48:05.263Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "HS Lê Nguyễn Quang Minh nộp bài trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 41,
+        "attempts": 42,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:52:39 15/11/2026"
+        "lastSubmit": "19:48:05 17/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -23875,6 +23875,13 @@
     ],
     "loginLogs": [
       {
+        "time": "19:48:05 17/11/2026",
+        "name": "Lê Nguyễn Quang Minh",
+        "identifier": "minh",
+        "role": "student",
+        "result": "Trắc nghiệm 10.0/10"
+      },
+      {
         "time": "19:46:04 17/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -27414,6 +27421,164 @@
       }
     ],
     "quizSubmissions": [
+      {
+        "id": 1794919685150,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "className": "8A8",
+        "quizTitle": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 16/11/2026",
+        "testId": 8,
+        "testTitle": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 16/11/2026",
+        "totalQuestions": 10,
+        "correctCount": 10,
+        "score": 10,
+        "answers": [
+          {
+            "questionId": 83,
+            "question": "Cho list a = [10,20,30,40], giá trị của a[2] là:",
+            "options": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Chỉ số mảng bắt đầu từ 0. a[0]=10, a[1]=20, a[2]=30."
+          },
+          {
+            "questionId": 22,
+            "question": "Kết quả của chương trình sau là gì?\ni = 1\nwhile i <= 3:\n    print(i, end=' ')\n    i += 1",
+            "options": [
+              "1 2 3",
+              "1 2 3 4",
+              "0 1 2 3",
+              "1 1 1"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "A",
+            "isCorrect": true,
+            "explanation": "i chạy từ 1, tăng 1 mỗi vòng lặp. Dừng lại khi i lớn hơn 3."
+          },
+          {
+            "questionId": 5,
+            "question": "Kết quả của chương trình sau là gì? x = 4\nif x > 5:\n    print('Lon')\nelse:\n   print('Nho')",
+            "options": [
+              "Lon",
+              "Nho",
+              "4",
+              "Không in gì"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "4 > 5 là False, nên chuyển sang khối else, in ra 'Nho'."
+          },
+          {
+            "questionId": 53,
+            "question": "Kết quả của chương trình sau là gì? \na = (10,20,30,40)\nprint(a[1])",
+            "options": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Lấy phần tử ở vị trí index 1 (vị trí thứ 2), là 20."
+          },
+          {
+            "questionId": 84,
+            "question": "Kết quả của chương trình sau là gì? \na = [5,7,9]\na.append(11)\nprint(a)",
+            "options": [
+              "[5,7,9]",
+              "[11,5,7,9]",
+              "[5,7,9,11]",
+              "[5,7,11]"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "append() thêm một phần tử vào cuối list."
+          },
+          {
+            "questionId": 7,
+            "question": "Chương trình sau sử dụng cấu trúc rẽ nhánh dạng nào? \nx = 3\nif x > 0:\n     print('Duong')",
+            "options": [
+              "Rẽ nhánh đủ",
+              "Rẽ nhánh thiếu",
+              "Vòng lặp",
+              "Hàm"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Chỉ có 'if' mà không có 'else', đây là cấu trúc rẽ nhánh thiếu."
+          },
+          {
+            "questionId": 4,
+            "question": "Kết quả của chương trình sau là gì? x = 7\nif x % 2 == 0:\n    print('Chan')\nelse:\n    print('Le')",
+            "options": [
+              "Chan",
+              "Le",
+              "7",
+              "Lỗi"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "7 % 2 == 1 (không bằng 0), điều kiện sai nên chạy vào khối else, in ra 'Le'."
+          },
+          {
+            "questionId": 56,
+            "question": "Kết quả của chương trình sau là gì? \na = (3,6,9)\nprint(max(a))",
+            "options": [
+              "3",
+              "6",
+              "9",
+              "Lỗi chương trình"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Hàm max() trả về phần tử lớn nhất trong tuple."
+          },
+          {
+            "questionId": 29,
+            "question": "Kết quả của chương trình sau là gì? \nn = 3\nwhile n > 0:\n     print(n, end=' ')\n     n -= 1",
+            "options": [
+              "1 2 3",
+              "3 2 1",
+              "3 3 3",
+              "2 1"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "n bắt đầu bằng 3, giảm 1 mỗi vòng lặp."
+          },
+          {
+            "questionId": 87,
+            "question": "Kết quả của chương trình sau là gì? \na=[2,4,6,8]\nprint(len(a))",
+            "options": [
+              "2",
+              "3",
+              "4",
+              "8"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Hàm len() trả về số phần tử của list, ở đây là 4."
+          }
+        ],
+        "timestamp": "19:48:05 17/11/2026",
+        "date": "2026-11-17",
+        "startedAt": 1794919577671,
+        "duration": 107
+      },
       {
         "id": 1794729314039,
         "student": "Lê Nguyễn Quang Minh",
