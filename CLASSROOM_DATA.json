@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T06:21:41.748Z",
-    "updatedBy": "Nguyễn Thế Phương",
-    "action": "Admin áp dụng phân quyền cho Giáo viên"
+    "updatedAt": "2026-11-17T06:30:49.906Z",
+    "updatedBy": "Khách",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 82,
+        "loginCount": 80,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 17,
+        "loginCount": 15,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -187,7 +187,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 15,
+        "loginCount": 14,
         "_hasPassword": true,
         "contact": "0987654321",
         "passwordHash": "0d6f033917533d32f84a3cc81c4b0f38d015f54f02ba12665def9828123a0de0",
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 7,
+        "loginCount": 6,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 30,
+        "attempts": 28,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "19:46:12 16/11/2026"
+        "lastSubmit": "08:16:04 14/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 57,
+        "attempts": 41,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:21:18 16/11/2026"
+        "lastSubmit": "15:52:39 15/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,800 +20523,6 @@
       }
     ],
     "studentSubmissions": [
-      {
-        "id": 1794838878104,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:21:18 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838823800,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:20:23 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1]"
-      },
-      {
-        "id": 1794838812460,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:20:12 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\n\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\n\nprint(KetQua[:-1]"
-      },
-      {
-        "id": 1794838811069,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:20:11 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\n\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\n\nprint(KetQua[:-1]"
-      },
-      {
-        "id": 1794838695024,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:18:15 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838631974,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:17:11 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838502144,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:15:02 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838498526,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:14:58 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838430979,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:13:50 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838424094,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:13:44 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838342705,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:12:22 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838283234,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:11:23 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
-      },
-      {
-        "id": 1794838203644,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
-        "assignmentId": 27,
-        "score": 0,
-        "timestamp": "21:10:03 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "actual": "A: 3 G: 2 H: 1 M: 1 N: 3 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "actual": "H: 1 N: 1 O: 1 P: 1 T: 1 Y: 1",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "actual": "A: 1 C: 1 D: 1 G: 1 H: 3 N: 2 O: 1 S: 1 T: 2",
-            "passed": false,
-            "points": 0
-          },
-          {
-            "testId": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
-            "actual": "C: 1 E: 1 H: 1 I: 1 N: 1 O: 1 R: 1 T: 2",
-            "passed": false,
-            "points": 0
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nS = (input().upper())\nKetQua = ''\nfor y in range(65,91):\n    Dem = 0\n    for i in S:\n        if i == ' ': continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua)"
-      },
-      {
-        "id": 1794836650068,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 20. Kiểm tra số hoàn hảo",
-        "assignmentId": 28,
-        "score": 10,
-        "timestamp": "20:44:10 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "6",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "7",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "28",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "496",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nTongUoc = 0\nfor i in range(1,N):\n    if N % i == 0:\n      TongUoc += i\n    if TongUoc >= N: break\nif TongUoc == N: print('YES')\nelse: print('NO')"
-      },
-      {
-        "id": 1794835990557,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 18. Kiểm tra số hạnh phúc",
-        "assignmentId": 25,
-        "score": 10,
-        "timestamp": "20:33:10 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "19",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "4",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "13",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')"
-      },
-      {
-        "id": 1794835134293,
-        "student": "Lê Nguyễn Quang Minh",
-        "username": "minh",
-        "assignmentTitle": "Bài 17. Kiểm tra số Kaprekar",
-        "assignmentId": 24,
-        "score": 10,
-        "timestamp": "20:18:54 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "45",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "297",
-            "expected": "YES",
-            "actual": "YES",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "100",
-            "expected": "NO",
-            "actual": "NO",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')"
-      },
-      {
-        "id": 1794833172839,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 8. Tìm số trong dãy quy luật",
-        "assignmentId": 8,
-        "score": 10,
-        "timestamp": "19:46:12 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "8",
-            "actual": "8",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 2,
-            "input": "6",
-            "expected": "23",
-            "actual": "23",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 3,
-            "input": "10",
-            "expected": "57",
-            "actual": "57",
-            "passed": true,
-            "points": 2.5
-          },
-          {
-            "testId": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "actual": "500000000500000002",
-            "passed": true,
-            "points": 2.5
-          }
-        ],
-        "code": "m= int(input().strip())\nh= 3+(m-1)*(m+2)//2\nprint(h)"
-      },
-      {
-        "id": 1794831404548,
-        "student": "Nguyễn Phú Lộc",
-        "username": "loc",
-        "assignmentTitle": "Bài 5: Tính giai thừa",
-        "assignmentId": 5,
-        "score": 10,
-        "timestamp": "19:16:44 16/11/2026",
-        "date": "2026-11-16",
-        "answers": [
-          {
-            "testId": 1,
-            "input": "3",
-            "expected": "6",
-            "actual": "6",
-            "passed": true,
-            "points": 5
-          },
-          {
-            "testId": 2,
-            "input": "10",
-            "expected": "3628800",
-            "actual": "3628800",
-            "passed": true,
-            "points": 5
-          }
-        ],
-        "code": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)"
-      },
       {
         "id": 1794732759960,
         "student": "Lê Nguyễn Quang Minh",
@@ -24669,48 +23875,6 @@
     ],
     "loginLogs": [
       {
-        "time": "13:21:27 17/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:12:18 17/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
-        "time": "12:06:00 17/11/2026",
-        "name": "Nguyễn Thế Phương",
-        "identifier": "086081006094",
-        "role": "admin",
-        "result": "Thành công"
-      },
-      {
-        "time": "08:53:58 17/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "20:16:05 16/11/2026",
-        "name": "Lê Nguyễn Quang Minh",
-        "identifier": "minh",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "19:08:08 16/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "20:07:00 15/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -25308,9 +24472,7 @@
         "1": true,
         "2": true,
         "3": true,
-        "4": true,
-        "5": true,
-        "8": true
+        "4": true
       },
       "minh": {
         "1": true,
@@ -25324,9 +24486,6 @@
         "10": true,
         "11": true,
         "17": true,
-        "24": true,
-        "25": true,
-        "27": true,
         "28": true
       },
       "hocsinh": {
@@ -25602,45 +24761,6 @@
           }
         ]
       },
-      "8": {
-        "id": 8,
-        "title": "Bài 8. Tìm số trong dãy quy luật",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
-        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
-        "tests": [
-          {
-            "id": 1,
-            "input": "3",
-            "expected": "8",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "6",
-            "expected": "23",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "10",
-            "expected": "57",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "1000000000",
-            "expected": "500000000500000002",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
       "9": {
         "id": 9,
         "title": "Bài 9. Số có đúng ba ước nguyên dương",
@@ -25831,84 +24951,6 @@
             "id": 4,
             "input": "100",
             "expected": "NO",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "25": {
-        "id": 25,
-        "title": "Bài 18. Kiểm tra số hạnh phúc",
-        "classLevel": "8",
-        "difficulty": "medium",
-        "timeLimit": 2,
-        "description": "Một số nguyên dương được gọi là số hạnh phúc (Happy Number) nếu ta thay thế số đó bằng tổng bình phương các chữ số của nó, và lặp lại quá trình này cho đến khi kết quả bằng 1. Nếu quá trình rơi vào vòng lặp vô hạn không bao giờ đạt tới 1 thì số đó không phải là số hạnh phúc.\nVí dụ:\n- Số 19: 1^2 + 9^2 = 82 -> 8^2 + 2^2 = 68 -> 6^2 + 8^2 = 100 -> 1^2 + 0^2 + 0^2 = 1 -> 19 là số hạnh phúc.\n- Số 4: Rơi vào chu trình lặp vô hạn và không bao giờ đạt tới 1 -> 4 không phải số hạnh phúc.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số hạnh phúc hay không.\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số hạnh phúc, ngược lại in ra NO.",
-        "templateCode": "n = int(input().strip())\n\nseen = set()\ncurr = n\n\nwhile curr != 1 and curr not in seen:\n    seen.add(curr)\n    curr = sum(int(d) ** 2 for d in str(curr))\n\nif curr == 1:\n    print(\"YES\")\nelse:\n    print(\"NO\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "19",
-            "expected": "YES",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "4",
-            "expected": "NO",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "13",
-            "expected": "YES",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "1000000",
-            "expected": "YES",
-            "point": 2.5,
-            "is_hidden": true
-          }
-        ]
-      },
-      "27": {
-        "id": 27,
-        "title": "Bài 19. Tần suất xuất hiện ký tự",
-        "classLevel": "8",
-        "difficulty": "easy",
-        "timeLimit": 2,
-        "description": "Nhập vào một chuỗi ký tự. Hãy đếm số lần xuất hiện của từng chữ cái tiếng Anh trong chuỗi (không phân biệt chữ hoa hay chữ thường).\nIn kết quả ra màn hình theo thứ tự bảng chữ cái tăng dần, mỗi dòng gồm chữ cái in hoa và số lần xuất hiện tương ứng theo định dạng: <Chữ cái>: <Số lần>.\n\n- Dữ liệu vào: Một chuỗi ký tự S gồm các từ cách nhau bởi dấu cách (1 <= |S| <= 1000).\n- Dữ liệu ra: Danh sách các chữ cái xuất hiện trong chuỗi và tần suất của chúng.",
-        "templateCode": "s = input().strip().upper()\n\ntan_suat = {}\n\nfor ch in s:\n    if ch.isalpha():\n        tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n    print(f\"{ch}: {tan_suat[ch]}\")",
-        "tests": [
-          {
-            "id": 1,
-            "input": "Ngay thang nam",
-            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 2,
-            "input": "Python",
-            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
-            "point": 2.5,
-            "is_hidden": false
-          },
-          {
-            "id": 3,
-            "input": "THCS Thanh Dong 2026",
-            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
-            "point": 2.5,
-            "is_hidden": true
-          },
-          {
-            "id": 4,
-            "input": "Tin hoc tre",
-            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
             "point": 2.5,
             "is_hidden": true
           }
@@ -26269,22 +25311,12 @@
       "minh__Chi phí sơn phòng học hình hộp chữ nhật": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nh = float(NhapVao.split(' ')[2])\nScua = float(NhapVao.split(' ')[3])\nd = float(NhapVao.split(' ')[4])\nc = float(NhapVao.split(' ')[5])\nP = int(NhapVao.split(' ')[6])\nThung = ((a+b)*2*h+a*b-Scua)*d//c\nif (((a+b)*2*h+a*b-Scua)*d%c) != 0: Thung += 1\nprint(int(Thung*P))",
       "minh__Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')",
       "minh__Chu vi và diện tích hình thang cân": "# Viết mã Python của em ở đây...\nimport math\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = ((a-b)/2)\nh = math.sqrt(c*c-d*d)\nprint(f'{a+b+c*2:.2f}',f'{(a+b)*h/2:.2f}')",
-      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')",
-      "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\nkq= math.factorial(n)\nprint(kq)",
-      "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nh= 3+(m-1)*(m+2)//2\nprint(h)",
-      "minh__Bài 17. Kiểm tra số Kaprekar": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')",
-      "minh__Bài 18. Kiểm tra số hạnh phúc": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')",
-      "minh__Bài 19. Tần suất xuất hiện ký tự": "# Viết mã Python của em ở đây...\nS = input().upper()\nKetQua = ''\nfor y in range(65, 91):\n    Dem = 0\n    for i in S:\n        if i == ' ':\n            continue\n        else:\n            if str(chr(y)) == i:\n                Dem += 1\n                Chu = i\n    if Dem > 0:\n        KetQua = KetQua + Chu + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
+      "minh__Bài toán cổ: Vừa gà vừa chó": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
     },
     "questionFlags": {
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "lectures": {
         "add": true,
         "edit": true,
@@ -26307,6 +25339,11 @@
       "logs": {
         "delete": true
       },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -28309,48 +27346,6 @@
           88
         ],
         "createdAt": "19:02:35 13/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      },
-      {
-        "id": 8,
-        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 16/11/2026",
-        "grade": "8",
-        "difficulty": "easy",
-        "questionIds": [
-          83,
-          22,
-          5,
-          53,
-          84,
-          7,
-          4,
-          56,
-          29,
-          87
-        ],
-        "createdAt": "19:24:05 16/11/2026",
-        "createdBy": "Nguyễn Thế Phương",
-        "active": true
-      },
-      {
-        "id": 9,
-        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 9 - 16/11/2026",
-        "grade": "9",
-        "difficulty": "medium",
-        "questionIds": [
-          37,
-          67,
-          96,
-          108,
-          106,
-          93,
-          100,
-          101,
-          75,
-          99
-        ],
-        "createdAt": "19:24:28 16/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
