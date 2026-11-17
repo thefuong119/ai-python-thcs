@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-17T06:30:49.906Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-17T05:07:38.975Z",
+    "updatedBy": "Nguyễn Tấn Thanh",
+    "action": "Đăng xuất: Nguyễn Tấn Thanh"
   },
   "data": {
     "registeredUsers": [
@@ -121,7 +121,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 2,
         "phone": "Zalo cá nhân",
         "school": "THCS Thành Đông",
         "className": "9",
@@ -23875,6 +23875,20 @@
     ],
     "loginLogs": [
       {
+        "time": "12:07:38 17/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "12:02:23 17/11/2026",
+        "name": "Nguyễn Tấn Thanh",
+        "identifier": "tanthanh",
+        "role": "teacher",
+        "result": "Thành công"
+      },
+      {
         "time": "20:07:00 15/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -25317,33 +25331,12 @@
       "43": true
     },
     "systemPermissions": {
-      "lectures": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "assignments": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "quiz": {
-        "add": true,
-        "edit": true,
-        "delete": true
-      },
-      "messages": {
-        "edit": true,
-        "delete": true
-      },
-      "logs": {
-        "delete": true
-      },
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
       "teacherCanAdd": true,
       "teacherCanEdit": false,
       "teacherCanDelete": false,
+      "teacherCanReplyMessages": true,
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
       "teacherCanAddLectures": true,
       "teacherCanEditLectures": true,
       "teacherCanDeleteLectures": false,
@@ -25376,7 +25369,28 @@
       "teacherCanEditMessages": true,
       "teacherCanDeleteMessages": false,
       "teacherCanViewMessages": true,
-      "teacherCanReplyMessages": true
+      "lectures": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "assignments": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "quiz": {
+        "add": true,
+        "edit": true,
+        "delete": true
+      },
+      "messages": {
+        "edit": true,
+        "delete": true
+      },
+      "logs": {
+        "delete": true
+      }
     },
     "studentMessages": [
       {
@@ -27346,6 +27360,48 @@
           88
         ],
         "createdAt": "19:02:35 13/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 8,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 8 - 16/11/2026",
+        "grade": "8",
+        "difficulty": "easy",
+        "questionIds": [
+          83,
+          22,
+          5,
+          53,
+          84,
+          7,
+          4,
+          56,
+          29,
+          87
+        ],
+        "createdAt": "19:24:05 16/11/2026",
+        "createdBy": "Nguyễn Thế Phương",
+        "active": true
+      },
+      {
+        "id": 9,
+        "title": "KIỂM TRA TRẮC NGHIỆM LỚP 9 - 16/11/2026",
+        "grade": "9",
+        "difficulty": "medium",
+        "questionIds": [
+          37,
+          67,
+          96,
+          108,
+          106,
+          93,
+          100,
+          101,
+          75,
+          99
+        ],
+        "createdAt": "19:24:28 16/11/2026",
         "createdBy": "Nguyễn Thế Phương",
         "active": true
       }
