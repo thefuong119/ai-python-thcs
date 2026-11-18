@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T13:48:34.332Z",
+    "updatedAt": "2026-11-18T13:49:00.111Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 63,
+        "attempts": 64,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:37:40 17/11/2026"
+        "lastSubmit": "20:49:00 18/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795009740040,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 24. Phân loại ký tự trong chuỗi",
+        "assignmentId": 32,
+        "score": 0,
+        "timestamp": "20:49:00 18/11/2026",
+        "date": "2026-11-18",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Mvc2@26pro$%911",
+            "expected": "So chu cai: 6\nSo chu so: 6\nSo ky tu dac biet: 3",
+            "actual": "So chu cai: 6\nSo chu so: 6\nSo ki tu dac biet: 3",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "Doi5hs#%tuyendeu18$",
+            "expected": "So chu cai: 13\nSo chu so: 3\nSo ky tu dac biet: 3",
+            "actual": "So chu cai: 13\nSo chu so: 3\nSo ki tu dac biet: 3",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "Hello World 2026!",
+            "expected": "So chu cai: 10\nSo chu so: 4\nSo ky tu dac biet: 3",
+            "actual": "So chu cai: 10\nSo chu so: 4\nSo ki tu dac biet: 3",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "123456",
+            "expected": "So chu cai: 0\nSo chu so: 6\nSo ky tu dac biet: 0",
+            "actual": "So chu cai: 0\nSo chu so: 6\nSo ki tu dac biet: 0",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nKiTu = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\n    else:\n        KiTu += 1\nprint('So chu cai:',Chu)\nprint('So chu so:',So)\nprint('So ki tu dac biet:',KiTu)"
+      },
       {
         "id": 1795006284690,
         "student": "Phan Trọng Khương",
@@ -25708,7 +25753,8 @@
         "28": true,
         "29": true,
         "30": true,
-        "31": true
+        "31": true,
+        "32": true
       },
       "hocsinh": {
         "1": true,
@@ -26458,6 +26504,45 @@
           }
         ]
       },
+      "32": {
+        "id": 32,
+        "title": "Bài 24. Phân loại ký tự trong chuỗi",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một chuỗi ký tự bất kỳ. Hãy đếm số ký tự chữ cái tiếng Anh, số ký tự chữ số và số ký tự đặc biệt (các ký tự không phải chữ cái và không phải chữ số) có trong chuỗi.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (1 <= |S| <= 1000).\n- Dữ liệu ra: Gồm 3 dòng:\n + Dòng 1: So chu cai: <số lượng>\n + Dòng 2: So chu so: <số lượng>\n + Dòng 3: So ky tu dac biet: <số lượng>",
+        "templateCode": "s = input()\nchu_cai = sum(1 for ch in s if ch.isalpha())\nchu_so = sum(1 for ch in s if ch.isdigit())\ndac_biet = len(s) - chu_cai - chu_so\n\nprint(\"So chu cai:\", chu_cai)\nprint(\"So chu so:\", chu_so)\nprint(\"So ky tu dac biet:\", dac_biet)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Mvc2@26pro$%911",
+            "expected": "So chu cai: 6\nSo chu so: 6\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Doi5hs#%tuyendeu18$",
+            "expected": "So chu cai: 13\nSo chu so: 3\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Hello World 2026!",
+            "expected": "So chu cai: 10\nSo chu so: 4\nSo ky tu dac biet: 3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "123456",
+            "expected": "So chu cai: 0\nSo chu so: 6\nSo ky tu dac biet: 0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "33": {
         "id": 33,
         "title": "Bài 25. Tổng n số lẻ đầu tiên",
@@ -26862,7 +26947,8 @@
       "086081006094__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "giaovien__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "khuong__Bài 28. Tính cước taxi": "# Tính tiền điện\nkm = int(input().strip())\nif km <= 0:\n    tien = 0\nelif km == 1:\n    tien = 5000\nelif km <= 5:\n    tien = 5000 + (km - 1) * 4500\nelse:\n    tien = 5000 + 4 * 4500 + (km - 5) * 3500\n\nif km > 120:\n    tien *= 0.9\n\ntien = round(float(tien), 2)\nif tien % 1 == 0:\n    print(int(tien))\nelse:\n    print(tien)",
-      "khuong__Bài 35. Kiểm tra số tăng dần": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")"
+      "khuong__Bài 35. Kiểm tra số tăng dần": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")",
+      "minh__Bài 24. Phân loại ký tự trong chuỗi": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nKiTu = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\n    else:\n        KiTu += 1\nprint('So chu cai:',Chu)\nprint('So chu so:',So)\nprint('So ki tu dac biet:',KiTu)"
     },
     "questionFlags": {
       "43": true
