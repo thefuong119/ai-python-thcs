@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T14:49:39.219Z",
-    "updatedBy": "Học sinh Demo",
-    "action": "Đăng xuất: Học sinh Demo"
+    "updatedAt": "2026-11-18T14:52:44.306Z",
+    "updatedBy": "Nguyễn Phú Lộc",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 17,
+        "loginCount": 18,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 14,
+        "loginCount": 13,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -25180,16 +25180,9 @@
     ],
     "loginLogs": [
       {
-        "time": "21:49:39 18/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "21:49:37 18/11/2026",
-        "name": "Học sinh Demo",
-        "identifier": "hocsinh",
+        "time": "21:48:33 18/11/2026",
+        "name": "Nguyễn Phú Lộc",
+        "identifier": "loc",
         "role": "student",
         "result": "Thành công"
       },
