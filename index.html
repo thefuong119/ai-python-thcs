@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<html lang="vi"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
@@ -11,8 +10,8 @@
         tailwind.config = { darkMode: 'class', theme: { extend: { colors: { brand: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',900:'#1e3a8a' } }, fontFamily: { sans:['Inter','system-ui','-apple-system','sans-serif'], mono:['JetBrains Mono','Fira Code','Courier New','monospace'] } } } }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
@@ -21,8 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="if(window.renderKaTeXFormulas) window.renderKaTeXFormulas(document.body);"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/monokai.min.css">
@@ -225,86 +224,72 @@
 </style>
 
     <!-- SITE_VISITOR_COUNTER_STYLES_START -->
-    <style id="siteVisitorCounterStyles">
-        .site-visitor-footer {
-            position: relative;
+    
+    <!-- SITE_VISITOR_COUNTER_STYLES_END -->
+
+<style id="unified-footer-style">
+        .unified-footer {
             background: linear-gradient(135deg, #0b1220 0%, #1e293b 55%, #1e3a8a 100%);
             color: #e2e8f0;
             border-top: 1px solid rgba(59, 130, 246, 0.35);
-            overflow: hidden;
-            padding: 6px 0;
+            padding: 8px 0;
+            font-family: 'Inter', system-ui, sans-serif;
+            position: relative;
+            z-index: 10;
         }
-        .site-visitor-footer::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image:
-                radial-gradient(circle at 15% 30%, rgba(59, 130, 246, 0.20), transparent 45%),
-                radial-gradient(circle at 85% 70%, rgba(139, 92, 246, 0.20), transparent 45%);
-            pointer-events: none;
-        }
-        .svf-wrap {
-            position: relative; z-index: 1;
-            max-width: 80rem; margin: 0 auto;
+        .unified-wrap {
+            max-width: 80rem;
+            margin: 0 auto;
             padding: 0 16px;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 16px; flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
         }
-        .svf-brand {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 13px; font-weight: 600; color: #cbd5e1;
+        .unified-copyright {
+            font-size: 13px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
         }
-        .svf-brand i {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 26px; height: 26px; border-radius: 10px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: #fff; font-size: 16px; font-style: normal;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        .unified-copyright i { font-size: 16px; color: #3b82f6; }
+        .unified-stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-        .svf-brand strong { color: #93c5fd; font-weight: 800; }
-        .svf-stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .svf-stat {
-            display: flex; align-items: center; gap: 10px;
-            padding: 6px 12px;
+        .u-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            border-radius: 12px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: all 0.25s ease;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s;
         }
-        .svf-stat:hover {
+        .u-stat:hover {
             background: rgba(59, 130, 246, 0.15);
             border-color: rgba(59, 130, 246, 0.45);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
         }
-        .svf-stat > i { font-size: 16px; font-style: normal; }
-        .svf-icon-eye  { color: #f59e0b; }
-        .svf-icon-cal  { color: #10b981; }
-        .svf-icon-user { color: #8b5cf6; }
-        .svf-stat > div { display: flex; flex-direction: column; line-height: 1.15; }
-        .svf-label {
-            font-size: 10px; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.06em;
-            color: #94a3b8;
+        .u-stat > i { font-style: normal; font-size: 14px; }
+        .u-stat > span { color: #94a3b8; font-weight: 600; }
+        .u-val {
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #fff;
         }
-        .svf-value {
-            font-size: 15px; font-weight: 800; color: #ffffff;
-            font-variant-numeric: tabular-nums;
-            font-feature-settings: "tnum" 1;
+        @media (max-width: 768px) {
+            .unified-wrap { flex-direction: column; text-align: center; gap: 8px; }
+            .unified-stats { justify-content: center; width: 100%; }
+            .u-stat { flex: 1; justify-content: center; min-width: 90px; padding: 4px 8px; }
         }
-        @media (max-width: 640px) {
-            .svf-wrap { flex-direction: column; text-align: center; }
-            .svf-stats { justify-content: center; width: 100%; }
-            .svf-stat { flex: 1; min-width: 100px; padding: 8px 10px; }
-            .svf-stat > i { font-size: 16px; }
-            .svf-value { font-size: 14px; }
-            .svf-label { font-size: 9px; }
-        }
-    </style>
-    <!-- SITE_VISITOR_COUNTER_STYLES_END -->
-
-</head>
+  </style></head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
 
@@ -317,7 +302,7 @@
                         TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON
                         <span class="text-[11px] bg-blue-500/20 text-blue-300 font-medium px-2 py-0.5 rounded-full border border-blue-400/30 uppercase tracking-wider">LMS</span>
                     </h1>
-                    <p class="text-xs text-slate-400">Nền tảng thực hành lập trình & Chấm điểm tự động</p>
+                    <p class="text-xs text-slate-400">Nền tảng thực hành lập trình &amp; Chấm điểm tự động</p>
                 </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -545,7 +530,7 @@
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
                         <div>
                             <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                                <i class="ph-bold ph-book-open-text text-blue-600"></i> Thư Viện Bài Giảng & Lý Thuyết Python Chuẩn
+                                <i class="ph-bold ph-book-open-text text-blue-600"></i> Thư Viện Bài Giảng &amp; Lý Thuyết Python Chuẩn
                             </h3>
                             <p class="text-sm text-slate-500">Đọc lý thuyết chi tiết theo chương trình chuẩn và nghe Robot AI thuyết minh trực tiếp.</p>
                         </div>
@@ -553,7 +538,7 @@
                             <input id="studentLectureSearch" oninput="populateStudentLectures()" placeholder="🔍 Tìm bài giảng..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-44">
                             <select id="studentGradeFilter" onchange="syncGradeFilters(this.value, 'student')" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
                                 <option value="all">Tất cả khối</option>
-                                <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                                <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                                 <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                             </select>
                             <select id="selectStudentLecture" onchange="renderStudentLectureDetail(this.value)" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none max-w-[240px] cursor-pointer truncate"></select>
@@ -594,7 +579,7 @@
                                 </select>
                                 <select id="studentPracticeGradeFilter" onchange="syncGradeFilters(this.value, 'studentPractice')" class="bg-blue-50 border border-blue-200 rounded-xl px-2.5 py-2 text-sm font-bold text-blue-700 cursor-pointer">
                                     <option value="all">Tất cả khối</option>
-                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                                     <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                                 </select>
                                 <select id="studentAssignmentSort" onchange="populateAssignmentSelect()" class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2 text-sm font-bold text-slate-700 cursor-pointer">
@@ -656,12 +641,12 @@
                             </div>
                             <div class="bg-slate-950 p-3 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
                                 <div class="flex items-center gap-2">
-                                    <button id="btnRunSingleTest" onclick="runSingleTest()" disabled class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center gap-2 transition-all">
+                                    <button id="btnRunSingleTest" onclick="runSingleTest()" disabled="" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center gap-2 transition-all">
                                         <i class="ph-bold ph-play text-emerald-400"></i> Chạy Thử
                                     </button>
                                     <span id="executionBadge" class="text-xs text-slate-400"></span>
                                 </div>
-                                <button id="btnSubmitAndGrade" onclick="submitAndGrade()" disabled class="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
+                                <button id="btnSubmitAndGrade" onclick="submitAndGrade()" disabled="" class="px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all">
                                     <i class="ph-bold ph-paper-plane-tilt"></i> NỘP BÀI
                                 </button>
                             </div>
@@ -719,7 +704,7 @@
                             <input id="studentTestSearch" oninput="renderStudentTestList()" placeholder="🔍 Tìm đề..." class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none w-36">
                             <select id="studentTestGradeFilter" onchange="syncGradeFilters(this.value, 'studentTest')" class="bg-blue-50 border border-blue-200 rounded-xl px-2.5 py-2 text-sm font-bold text-blue-700 cursor-pointer">
                                 <option value="all">Tất cả khối</option>
-                                <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                                <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                                 <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                             </select>
                             <button onclick="renderStudentTestList()" class="px-3 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 text-xs font-bold flex items-center gap-1.5">
@@ -764,7 +749,7 @@
                                 <label class="block font-bold text-xs text-slate-700 mb-1">Khối lớp:</label>
                                 <select id="quizGradeSelect" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
                                     <option value="all">Tất cả khối</option>
-                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                                    <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                                     <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                                 </select>
                             </div>
@@ -817,9 +802,7 @@
                     </div>
                     <div class="space-y-2 bg-blue-50/50 border border-blue-200 rounded-2xl p-4">
                         <label class="block font-bold text-sm text-slate-800">Nội dung tin nhắn:</label>
-                        <textarea id="studentMessageInput" rows="4" placeholder="Nhập tin nhắn gửi giáo viên...🪟 + V để chèn Icon (Enter để gửi, Shift+Enter để xuống dòng)"
-                          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendStudentMessage();}"
-                          class="w-full bg-white border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                        <textarea id="studentMessageInput" rows="4" placeholder="Nhập tin nhắn gửi giáo viên...🪟 + V để chèn Icon (Enter để gửi, Shift+Enter để xuống dòng)" onkeydown="if(event.key==='Enter'&amp;&amp;!event.shiftKey){event.preventDefault();sendStudentMessage();}" class="w-full bg-white border border-slate-300 rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                         <div class="flex justify-end">
                             <button onclick="sendStudentMessage()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm flex items-center gap-2 shadow-md">
                                 <i class="ph-bold ph-paper-plane-tilt"></i> Gửi Tin Nhắn
@@ -883,7 +866,7 @@
                 <div class="ml-auto flex items-center gap-2 flex-wrap pl-2">
                     <select id="teacherGradeFilter" onchange="syncGradeFilters(this.value, 'teacher')" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer">
                         <option value="all">Tất cả khối</option>
-                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                         <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                     </select>
                     <button onclick="openRandomTestModal()" class="px-3 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
@@ -936,7 +919,7 @@
                             <div class="w-1/3">
                                 <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                                 <select id="lectureInputClassLevel" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
-                                    <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                    <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                                 </select>
                             </div>
                             <div class="w-2/3">
@@ -950,7 +933,7 @@
                         <input type="url" id="lectureInputMedia" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm" placeholder="VD: https://www.youtube.com/watch?v=... hoặc link Google Drive...">
                     </div>
                     <div class="space-y-1.5">
-                        <label class="block font-bold text-sm text-slate-700">Nội dung (Markdown & KaTeX):</label>
+                        <label class="block font-bold text-sm text-slate-700">Nội dung (Markdown &amp; KaTeX):</label>
                         <div class="flex flex-wrap items-center gap-1.5 p-2 bg-white border border-slate-300 rounded-t-xl text-xs border-b-0">
                             <button type="button" onclick="insertFormatting('**', '**')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 font-bold">B</button>
                             <button type="button" onclick="insertFormatting('*', '*')" class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 italic">I</button>
@@ -962,7 +945,7 @@
                     </div>
                     <div class="flex items-center justify-between pt-2">
                         <button type="button" onclick="previewCurrentTeacherLecture()" class="px-4 py-2 rounded-xl bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 font-bold text-xs flex items-center gap-1.5 border border-amber-300">
-                            <i class="ph-bold ph-eye"></i> Xem Trước & Nghe AI
+                            <i class="ph-bold ph-eye"></i> Xem Trước &amp; Nghe AI
                         </button>
                         <div class="flex gap-2">
                             <button onclick="document.getElementById('lectureFormContainer').classList.add('hidden')" class="px-4 py-2 rounded-xl bg-slate-200 text-slate-700 font-bold text-xs">Hủy</button>
@@ -1007,7 +990,7 @@
                     <div>
                         <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                         <select id="newAssignmentClassLevel" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                     </div>
                     <div>
@@ -1020,7 +1003,7 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block font-bold text-sm text-slate-700 mb-1">Đề bài (Markdown & LaTeX):</label>
+                    <label class="block font-bold text-sm text-slate-700 mb-1">Đề bài (Markdown &amp; LaTeX):</label>
                     <textarea id="newDescription" rows="6" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-sm font-mono focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                 </div>
                 <div>
@@ -1127,7 +1110,7 @@
                         <input id="teacherQuizSearch" oninput="renderTeacherQuizTable()" placeholder="🔍 Tìm câu hỏi..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
                         <select id="teacherQuizGradeFilter" onchange="renderTeacherQuizTable()" class="bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-sm font-bold text-emerald-700 cursor-pointer">
                             <option value="all">Tất cả khối</option>
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                         <select id="teacherQuizDifficultyFilter" onchange="renderTeacherQuizTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
                             <option value="all">Mọi độ khó</option>
@@ -1225,7 +1208,7 @@
                     <input id="teacherSubmissionSearch" oninput="renderTeacherSubmissionsTable()" placeholder="🔍 Tìm học sinh / bài tập..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-48">
                     <select id="teacherSubmissionGradeFilter" onchange="renderTeacherSubmissionsTable()" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 cursor-pointer">
                         <option value="all">Tất cả khối</option>
-                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                         <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                     </select>
                 </div>
@@ -1295,7 +1278,7 @@
                                 <th class="text-center w-14">Hạng</th>
                                 <th>Học sinh</th>
                                 <th>Tài khoản</th>
-                                <th>Trường & Lớp</th>
+                                <th>Trường &amp; Lớp</th>
                                 <th class="text-center">Số bài</th>
                                 <th class="text-center">Tổng điểm</th>
                                 <th class="text-center">Điểm TB</th>
@@ -1331,7 +1314,7 @@
                 </div>
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
-                        <div class="text-sm text-slate-500 font-semibold uppercase">Giáo viên & Admin</div>
+                        <div class="text-sm text-slate-500 font-semibold uppercase">Giáo viên &amp; Admin</div>
                         <h3 id="adminStatTeachers" class="text-2xl font-bold text-amber-600 mt-1">0</h3>
                     </div>
                     <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl font-bold"><i class="ph-bold ph-chalkboard-teacher"></i></div>
@@ -1452,10 +1435,10 @@
                     <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-amber-200">
                         <p class="text-xs text-amber-800 font-semibold flex items-center gap-1">
                             <i class="ph-bold ph-info text-amber-600"></i>
-                            Nhấn <b>Áp dụng & Đồng bộ ngay</b> để lưu và đẩy quyền lên máy chủ tức thì cho Giáo viên.
+                            Nhấn <b>Áp dụng &amp; Đồng bộ ngay</b> để lưu và đẩy quyền lên máy chủ tức thì cho Giáo viên.
                         </p>
                         <button onclick="applyPermissionsAndPush()" id="btnApplyPermissions" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-md transition-all">
-                            <i class="ph-bold ph-check-circle"></i> Áp dụng & Đồng bộ ngay
+                            <i class="ph-bold ph-check-circle"></i> Áp dụng &amp; Đồng bộ ngay
                         </button>
                     </div>
                     <p class="text-xs text-amber-700 italic">Ghi chú: Khi bỏ tích, các nút thao tác tương ứng sẽ bị ẩn khỏi giao diện Giáo viên trong vòng 30 giây.</p>
@@ -1466,14 +1449,14 @@
                             <i class="ph-bold ph-student"></i> Học Sinh (<span id="adminBadgeStudentCount">0</span>)
                         </button>
                         <button id="adminSubTabTeachersBtn" onclick="switchAdminUserGroup('teacher')" class="px-4 py-2 rounded-xl font-semibold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-1.5">
-                            <i class="ph-bold ph-chalkboard-teacher"></i> GV & Admin (<span id="adminBadgeTeacherCount">0</span>)
+                            <i class="ph-bold ph-chalkboard-teacher"></i> GV &amp; Admin (<span id="adminBadgeTeacherCount">0</span>)
                         </button>
                     </div>
                     <div class="flex items-center gap-2 flex-wrap">
                         <input id="adminUserSearch" oninput="renderAdminUsersTable()" placeholder="🔍 Tìm tài khoản..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
                         <select id="adminUserGradeFilter" onchange="renderAdminUsersTable()" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 cursor-pointer">
                             <option value="all">Tất cả khối/lớp</option>
-                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
                         <button onclick="pushCurrentDataToGitHubManual()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm">
@@ -1495,7 +1478,7 @@
                         <thead class="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                             <tr>
                                 <th>Họ và tên</th>
-                                <th>Trường & Lớp</th>
+                                <th>Trường &amp; Lớp</th>
                                 <th>Liên lạc</th>
                                 <th>Tên đăng nhập</th>
                                 <th class="text-center">Vai trò</th>
@@ -1519,7 +1502,7 @@
                         <input id="adminLectureSearch" oninput="renderTeacherLecturesTable()" placeholder="🔍 Tìm..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-44">
                         <select id="adminGradeFilter" onchange="syncGradeFilters(this.value, 'admin')" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
                             <option value="all">Tất cả khối</option>
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option>
                             <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                         <button onclick="exportLectureTemplateDocx()" class="px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 font-bold text-xs flex items-center gap-1.5">
@@ -1559,7 +1542,7 @@
                             <div class="w-1/3">
                                 <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                                 <select id="adminLectureInputClassLevel" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
-                                    <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                    <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                                 </select>
                             </div>
                             <div class="w-2/3">
@@ -1666,7 +1649,7 @@
                         <div>
                             <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                             <select id="adminNewAssignmentClassLevel" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
-                                <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                             </select>
                         </div>
                         <div>
@@ -1754,7 +1737,7 @@
                         <input id="adminQuizSearch" oninput="renderAdminQuizTable()" placeholder="🔍 Tìm câu hỏi..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-40">
                         <select id="adminQuizGradeFilter" onchange="renderAdminQuizTable()" class="bg-emerald-50 border border-emerald-200 rounded-xl px-3 py-2 text-sm font-bold text-emerald-700 cursor-pointer">
                             <option value="all">Tất cả khối</option>
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                         <select id="adminQuizDifficultyFilter" onchange="renderAdminQuizTable()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold text-slate-700 cursor-pointer">
                             <option value="all">Mọi độ khó</option>
@@ -1867,7 +1850,7 @@
                     <input id="adminSubmissionSearch" oninput="renderAdminSubmissionsTable()" placeholder="🔍 Tìm học sinh / bài tập..." class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm w-48">
                     <select id="adminSubmissionGradeFilter" onchange="renderAdminSubmissionsTable()" class="bg-blue-50 border border-blue-200 rounded-xl px-3 py-2 text-sm font-bold text-blue-700 cursor-pointer">
                         <option value="all">Tất cả khối</option>
-                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                        <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                         <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                     </select>
                 </div>
@@ -1943,7 +1926,7 @@
                                 <th class="text-center w-14">Hạng</th>
                                 <th>Học sinh</th>
                                 <th>Tài khoản</th>
-                                <th>Trường & Lớp</th>
+                                <th>Trường &amp; Lớp</th>
                                 <th class="text-center">Số bài</th>
                                 <th class="text-center">Tổng điểm</th>
                                 <th class="text-center">Điểm TB</th>
@@ -2013,7 +1996,7 @@
                     <div>
                         <label class="block font-bold text-sm text-slate-700 mb-1">Khối lớp:</label>
                         <select id="quizClassLevel" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                     </div>
                     <div>
@@ -2063,7 +2046,7 @@
                         <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                         <select id="quizTestGrade" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
                             <option value="all">Tất cả khối</option>
-                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected>Khối 8</option>
+                            <option value="6">Khối 6</option><option value="7">Khối 7</option><option value="8" selected="">Khối 8</option>
                             <option value="9">Khối 9</option><option value="10">Khối 10</option><option value="11">Khối 11</option><option value="12">Khối 12</option>
                         </select>
                     </div>
@@ -2103,7 +2086,7 @@
                     <i class="ph-bold ph-floppy-disk"></i> Lưu Nháp
                 </button>
                 <button onclick="saveQuizTest(true)" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
-                    <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Phát Cho HS
+                    <i class="ph-bold ph-paper-plane-tilt"></i> Lưu &amp; Phát Cho HS
                 </button>
             </div>
         </div>
@@ -2484,7 +2467,7 @@
                         <li>Vào tab <b>"Trắc Nghiệm"</b> → nhấn <b>"Tạo Đề Từ Ngân Hàng"</b>.</li>
                         <li>Chọn <b>Khối</b>, <b>Độ khó</b>, <b>Số câu</b> → nhấn <b>"Trộn Câu Hỏi"</b> để chọn ngẫu nhiên.</li>
                         <li>Có thể tích/bỏ tích từng câu trong danh sách preview.</li>
-                        <li>Nhấn <b>"Lưu Nháp"</b> (chưa phát) hoặc <b>"Lưu & Phát Cho HS"</b> (phát ngay).</li>
+                        <li>Nhấn <b>"Lưu Nháp"</b> (chưa phát) hoặc <b>"Lưu &amp; Phát Cho HS"</b> (phát ngay).</li>
                         <li>Đề đã phát sẽ hiển thị cho học sinh ở mục <b>"Bài Kiểm Tra Trắc Nghiệm Được Giao"</b>.</li>
                     </ul>
                 </div>
@@ -2503,7 +2486,7 @@
                     <ul class="list-disc list-inside space-y-1.5 text-purple-800">
                         <li>Admin vào tab <b>"Tài Khoản"</b> → khu vực <b>"Phân quyền cho Giáo viên"</b>.</li>
                         <li>Tích/bỏ tích 5 quyền: <b>Thêm - Sửa - Xóa - Nộp Server - Nạp Server</b>.</li>
-                        <li>Nhấn nút <b>"Áp dụng & Đồng bộ ngay"</b> → quyền được lưu và đẩy lên máy chủ tức thì.</li>
+                        <li>Nhấn nút <b>"Áp dụng &amp; Đồng bộ ngay"</b> → quyền được lưu và đẩy lên máy chủ tức thì.</li>
                     </ul>
                 </div>
 
@@ -2571,7 +2554,7 @@
                     </button>
                 </div>
                 <div class="p-3.5 bg-blue-50 border border-blue-200 rounded-2xl space-y-2">
-                    <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-cloud-arrow-down text-blue-600"></i> Tải & Nạp dữ liệu:</label>
+                    <label class="block font-bold text-slate-800 flex items-center gap-1.5"><i class="ph-bold ph-cloud-arrow-down text-blue-600"></i> Tải &amp; Nạp dữ liệu:</label>
                     <button onclick="autoFetchDataFromGitHub(true)" class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow transition flex items-center justify-center gap-1.5">
                         <i class="ph-bold ph-arrows-clockwise"></i> Nạp Dữ Liệu Mới Nhất
                     </button>
@@ -2612,7 +2595,7 @@
                     <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-amber-300"><i class="ph-bold ph-sparkle text-lg"></i></div>
                     <div>
                         <h3 class="text-sm font-bold">Gia Sư AI</h3>
-                        <p class="text-xs text-slate-400">Chẩn đoán lỗi & Hướng dẫn lập trình</p>
+                        <p class="text-xs text-slate-400">Chẩn đoán lỗi &amp; Hướng dẫn lập trình</p>
                     </div>
                 </div>
                 <button onclick="closeAiModal()" class="text-slate-400 hover:text-white"><i class="ph-bold ph-x text-lg"></i></button>
@@ -2764,14 +2747,14 @@
                         <label class="block font-bold text-sm text-slate-700 mb-1">Khối:</label>
                         <select id="randomTestGrade" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm font-bold">
                             <option value="all">Tất cả</option>
-                            <option value="6">6</option><option value="7">7</option><option value="8" selected>8</option>
+                            <option value="6">6</option><option value="7">7</option><option value="8" selected="">8</option>
                             <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
                         </select>
                     </div>
                     <div>
                         <label class="block font-bold text-sm text-slate-700 mb-1">Cho phép xem code mẫu:</label>
                         <label class="flex items-center gap-2 bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-sm cursor-pointer">
-                            <input type="checkbox" id="randomAllowSampleCode" checked class="w-4 h-4">
+                            <input type="checkbox" id="randomAllowSampleCode" checked="" class="w-4 h-4">
                             <span class="font-semibold text-slate-700">Học sinh được xem</span>
                         </label>
                     </div>
@@ -2796,7 +2779,7 @@
                         <i class="ph-bold ph-file-doc"></i> Xuất Word
                     </button>
                     <button id="btnPublishRandomTest" onclick="saveAndPublishRandomTest()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center gap-1.5 shadow">
-                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu & Phát Cho HS
+                        <i class="ph-bold ph-paper-plane-tilt"></i> Lưu &amp; Phát Cho HS
                     </button>
                 </div>
                 <div id="randomTestResult" class="border border-slate-200 rounded-2xl p-4 bg-slate-50 min-h-[100px] text-sm space-y-2">
@@ -8529,37 +8512,7 @@
 </script>
 
     <!-- SITE_VISITOR_COUNTER_FOOTER_START -->
-    <footer id="siteVisitorFooter" class="site-visitor-footer">
-        <div class="svf-wrap">
-            <div class="svf-brand">
-                <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/python.ico" alt="Logo Python" style="width:26px;height:26px;border-radius:8px;box-shadow:0 4px 14px rgba(59,130,246,0.4);object-fit:contain;flex-shrink:0;vertical-align:middle;">
-                <span>Bản quyền <strong>© 2026 Nguyễn Thế Phương, Trường THCS Thành Đông, Tân Quới, Vĩnh Long</strong></span>
-            </div>
-            <div class="svf-stats">
-                <div class="svf-stat" title="Tổng lượt truy cập">
-                    <i class="svf-icon-eye">👁️</i>
-                    <div>
-                        <span class="svf-label">Tổng truy cập</span>
-                        <span id="svfTotalVisits" class="svf-value">0</span>
-                    </div>
-                </div>
-                <div class="svf-stat" title="Lượt truy cập hôm nay">
-                    <i class="svf-icon-cal">📅</i>
-                    <div>
-                        <span class="svf-label">Hôm nay</span>
-                        <span id="svfTodayVisits" class="svf-value">0</span>
-                    </div>
-                </div>
-                <div class="svf-stat" title="Số lượt đăng nhập">
-                    <i class="svf-icon-user">👥</i>
-                    <div>
-                        <span class="svf-label">Đăng nhập</span>
-                        <span id="svfLoginCount" class="svf-value">0</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
     <script id="siteVisitorCounterScript">
     (function () {
         'use strict';
@@ -8681,114 +8634,91 @@
 
 
 
-<script id="auto-counter-script">
-/* ============================================================
-   AUTO COUNTER SCRIPT (via Cloudflare Worker)
-   ============================================================ */
-(function() {
-    var WORKER_API = 'https://ai-thcs-python.thefuong119.workers.dev?path=counter.json';
-    var TODAY_STR = new Date().toISOString().slice(0, 10);
-    var SESSION_KEY = 'has_counted_visit_' + TODAY_STR;
+<footer class="unified-footer">
+        <div class="unified-wrap">
+            <div class="unified-copyright">
+                <i>📘</i> Bản quyền © 2026 Nguyễn Thế Phương, Trường THCS Thành Đông
+            </div>
+            <div class="unified-stats">
+                <div class="u-stat">
+                    <i>👁️</i> <span>Tổng:</span> <span class="u-val" id="svfTotal">—</span>
+                </div>
+                <div class="u-stat">
+                    <i>📅</i> <span>Hôm nay:</span> <span class="u-val" id="svfToday">—</span>
+                </div>
+                <div class="u-stat">
+                    <i>👤</i> <span>Đăng nhập:</span> <span class="u-val" id="svfLogins">—</span>
+                </div>
+            </div>
+        </div>
+  </footer><script id="auto-counter-script">
+    (function() {
+        var WORKER_API = 'https://ai-thcs-python.thefuong119.workers.dev?path=counter.json';
+        var TODAY_STR = new Date().toISOString().slice(0, 10);
+        var SESSION_KEY = 'has_counted_visit_' + TODAY_STR;
 
-    function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
+        function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
 
-    // Xóa Footer dư thừa (nếu có)
-    function cleanDuplicates() {
-        var wraps = document.querySelectorAll('.svf-wrap');
-        for (var i = 1; i < wraps.length; i++) {
-            wraps[i].remove();
-        }
-    }
-
-    // Cập nhật số liệu lên UI
-    function updateUI(data) {
-        cleanDuplicates();
-        
-        // Nếu chưa có khung, tự động tạo mới
-        if (document.querySelectorAll('.svf-wrap').length === 0) {
-            var host = document.querySelector('.site-visitor-footer') || document.querySelector('footer');
-            if (host) {
-                var w = document.createElement('div');
-                w.className = 'svf-wrap';
-                w.innerHTML = '<div class="svf-brand"><i>👁️</i><span>Lượt truy cập website</span></div>' +
-                    '<div class="svf-stats">' +
-                        '<div class="svf-stat"><i class="svf-icon-eye">👁️</i><div><div class="svf-label">Tổng truy cập</div><div class="svf-value" id="svfTotal">—</div></div></div>' +
-                        '<div class="svf-stat"><i class="svf-icon-cal">📅</i><div><div class="svf-label">Hôm nay</div><div class="svf-value" id="svfToday">—</div></div></div>' +
-                        '<div class="svf-stat"><i class="svf-icon-user">👤</i><div><div class="svf-label">Đăng nhập</div><div class="svf-value" id="svfLogins">—</div></div></div>' +
-                    '</div>';
-                host.appendChild(w);
-            }
+        function updateUI(data) {
+            var t = document.getElementById('svfTotal');
+            var d = document.getElementById('svfToday');
+            var l = document.getElementById('svfLogins');
+            if (t) t.textContent = fmt(data.totalVisits);
+            if (d) d.textContent = fmt(data.todayVisits);
+            if (l) l.textContent = fmt(data.totalLogins);
         }
 
-        // Gán số liệu
-        var t = document.getElementById('svfTotal');
-        var d = document.getElementById('svfToday');
-        var l = document.getElementById('svfLogins');
-        if (t) t.textContent = fmt(data.totalVisits);
-        if (d) d.textContent = fmt(data.todayVisits);
-        if (l) l.textContent = fmt(data.totalLogins);
-    }
-
-    async function syncCounter() {
-        try {
-            // 1. GET dữ liệu hiện tại
-            var res = await fetch(WORKER_API + '&t=' + Date.now());
-            var data = { totalVisits: 0, todayVisits: 0, totalLogins: 0, lastDate: TODAY_STR };
-            
-            if (res.ok) {
-                data = await res.json();
-            }
-
-            // Đảm bảo dữ liệu hợp lệ
-            if (!data || typeof data !== 'object') data = { totalVisits: 0, todayVisits: 0, totalLogins: 0 };
-            if (!data.totalVisits) data.totalVisits = 0;
-            if (!data.todayVisits) data.todayVisits = 0;
-            if (!data.totalLogins) data.totalLogins = 0;
-
-            // 2. Logic đếm (chỉ đếm 1 lần / phiên)
-            if (!sessionStorage.getItem(SESSION_KEY)) {
-                if (data.lastDate !== TODAY_STR) {
-                    data.todayVisits = 0; // Reset ngày mới
-                    data.lastDate = TODAY_STR;
+        async function syncCounter() {
+            try {
+                var res = await fetch(WORKER_API + '&t=' + Date.now());
+                var data = { totalVisits: 0, todayVisits: 0, totalLogins: 0, lastDate: TODAY_STR };
+                
+                if (res.ok) {
+                    data = await res.json();
                 }
-                
-                data.totalVisits++;
-                data.todayVisits++;
-                data.updatedAt = new Date().toISOString();
-                
-                // Hiển thị ngay lập tức
-                updateUI(data);
-                
-                // 3. PUT đẩy lại lên GitHub
-                var payload = {
-                    message: 'Auto increment visit',
-                    content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
-                    branch: 'main'
-                };
-                
-                await fetch(WORKER_API, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                sessionStorage.setItem(SESSION_KEY, 'true');
-            } else {
-                // Đã đếm rồi thì chỉ hiển thị
-                updateUI(data);
+
+                if (!data || typeof data !== 'object') data = { totalVisits: 0, todayVisits: 0, totalLogins: 0 };
+                if (!data.totalVisits) data.totalVisits = 0;
+                if (!data.todayVisits) data.todayVisits = 0;
+                if (!data.totalLogins) data.totalLogins = 0;
+
+                if (!sessionStorage.getItem(SESSION_KEY)) {
+                    if (data.lastDate !== TODAY_STR) {
+                        data.todayVisits = 0;
+                        data.lastDate = TODAY_STR;
+                    }
+                    
+                    data.totalVisits++;
+                    data.todayVisits++;
+                    data.updatedAt = new Date().toISOString();
+                    
+                    updateUI(data);
+                    
+                    var payload = {
+                        message: 'Auto increment visit',
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
+                        branch: 'main'
+                    };
+                    
+                    await fetch(WORKER_API, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    sessionStorage.setItem(SESSION_KEY, 'true');
+                } else {
+                    updateUI(data);
+                }
+            } catch (e) {
+                console.warn('Counter API Error:', e);
             }
-        } catch (e) {
-            console.warn('Counter API Error:', e);
         }
-    }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', syncCounter);
-    } else {
-        syncCounter();
-    }
-})();
-</script>
-
-</body>
-</html>
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', syncCounter);
+        } else {
+            syncCounter();
+        }
+    })();
+  </script></body></html>
