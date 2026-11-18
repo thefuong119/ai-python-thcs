@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T14:11:07.440Z",
+    "updatedAt": "2026-11-18T14:11:23.362Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 66,
+        "attempts": 67,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:02:59 18/11/2026"
+        "lastSubmit": "21:11:23 18/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795011083298,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 27. Đồng hồ điện tử sau 1 giây",
+        "assignmentId": 36,
+        "score": 10,
+        "timestamp": "21:11:23 18/11/2026",
+        "date": "2026-11-18",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8 30 0",
+            "expected": "8 30 1",
+            "actual": "8 30 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "12 59 59",
+            "expected": "13 0 0",
+            "actual": "13 0 0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "23 59 59",
+            "expected": "0 0 0",
+            "actual": "0 0 0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "15 45 30",
+            "expected": "15 45 31",
+            "actual": "15 45 31",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nh = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\ns = int(NhapVao.split()[2])\ns += 1\nif s == 60:\n    s = 0\n    p += 1\n    if p == 60:\n        p = 0\n        h += 1\n        if h == 24:\n            h = 0\nprint(h,p,s)"
+      },
       {
         "id": 1795010579957,
         "student": "Lê Nguyễn Quang Minh",
@@ -25846,7 +25891,8 @@
         "31": true,
         "32": true,
         "33": true,
-        "34": true
+        "34": true,
+        "36": true
       },
       "hocsinh": {
         "1": true,
@@ -26713,6 +26759,45 @@
           }
         ]
       },
+      "36": {
+        "id": 36,
+        "title": "Bài 27. Đồng hồ điện tử sau 1 giây",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Đồng hồ điện tử hiển thị ba số nguyên h, p, s thể hiện tương ứng giờ, phút và giây tại thời điểm hiện tại (0 <= h <= 23, 0 <= p <= 59, 0 <= s <= 59).\nHãy xác định thời điểm mới sau đúng 1 giây (h1, p1, s1).\n\n- Dữ liệu vào: Một dòng chứa ba số nguyên h, p, s cách nhau bởi dấu cách.\n- Dữ liệu ra: Ba số nguyên h1, p1, s1 cách nhau bởi dấu cách.",
+        "templateCode": "h, p, s = map(int, input().split())\ns += 1\nif s == 60:\n    s = 0\n    p += 1\n    if p == 60:\n        p = 0\n        h = (h + 1) % 24\nprint(h, p, s)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8 30 0",
+            "expected": "8 30 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "12 59 59",
+            "expected": "13 0 0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "23 59 59",
+            "expected": "0 0 0",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "15 45 30",
+            "expected": "15 45 31",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "37": {
         "id": 37,
         "title": "Bài 28. Tính cước taxi",
@@ -27081,7 +27166,8 @@
       "khuong__Bài 35. Kiểm tra số tăng dần": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")",
       "minh__Bài 24. Phân loại ký tự trong chuỗi": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nKiTu = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\n    else:\n        KiTu += 1\nprint('So chu cai:',Chu)\nprint('So chu so:',So)\nprint('So ki tu dac biet:',KiTu)",
       "minh__Bài 25. Tổng n số lẻ đầu tiên": "# Viết mã Python của em ở đây...\nn = int(input())\nprint(n**2)",
-      "minh__Bài 26. Lọc ký tự chữ và số của thí sinh": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)"
+      "minh__Bài 26. Lọc ký tự chữ và số của thí sinh": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)",
+      "minh__Bài 27. Đồng hồ điện tử sau 1 giây": "# Viết mã Python của em ở đây...\nNhapVao = input()\nh = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\ns = int(NhapVao.split()[2])\ns += 1\nif s == 60:\n    s = 0\n    p += 1\n    if p == 60:\n        p = 0\n        h += 1\n        if h == 24:\n            h = 0\nprint(h,p,s)"
     },
     "questionFlags": {
       "43": true
