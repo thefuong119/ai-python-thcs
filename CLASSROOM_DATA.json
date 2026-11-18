@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T14:08:32.318Z",
-    "updatedBy": "Nguyễn Phú Lộc",
+    "updatedAt": "2026-11-18T14:08:43.275Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 18,
+        "loginCount": 17,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 64,
+        "attempts": 66,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:49:00 18/11/2026"
+        "lastSubmit": "21:02:59 18/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,96 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795010579957,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 26. Lọc ký tự chữ và số của thí sinh",
+        "assignmentId": 34,
+        "score": 10,
+        "timestamp": "21:02:59 18/11/2026",
+        "date": "2026-11-18",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "123abcABC",
+            "expected": "9\n123abcABC",
+            "actual": "9\n123abcABC",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Tin @! Hoc:; Pro #&%2026",
+            "expected": "13\nTinHocPro2026",
+            "actual": "13\nTinHocPro2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "THCS, Thanh Dong - 2026!",
+            "expected": "17\nTHCSThanhDong2026",
+            "actual": "17\nTHCSThanhDong2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "@#$$%^&*",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)"
+      },
+      {
+        "id": 1795010356358,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 25. Tổng n số lẻ đầu tiên",
+        "assignmentId": 33,
+        "score": 10,
+        "timestamp": "20:59:16 18/11/2026",
+        "date": "2026-11-18",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "9",
+            "actual": "9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "6",
+            "expected": "36",
+            "actual": "36",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "10000",
+            "actual": "10000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000",
+            "expected": "1000000000000",
+            "actual": "1000000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nprint(n**2)"
+      },
       {
         "id": 1795009740040,
         "student": "Lê Nguyễn Quang Minh",
@@ -25045,13 +25135,6 @@
     ],
     "loginLogs": [
       {
-        "time": "21:05:34 18/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
         "time": "20:35:24 18/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -25761,7 +25844,9 @@
         "29": true,
         "30": true,
         "31": true,
-        "32": true
+        "32": true,
+        "33": true,
+        "34": true
       },
       "hocsinh": {
         "1": true,
@@ -26589,6 +26674,45 @@
           }
         ]
       },
+      "34": {
+        "id": 34,
+        "title": "Bài 26. Lọc ký tự chữ và số của thí sinh",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong danh sách dự thi, mỗi thí sinh được gán một mã chuỗi ký tự ngẫu nhiên S.\nBan tổ chức cần tách riêng các ký tự chỉ gồm chữ cái và chữ số (gọi là chuỗi X) để sắp xếp phòng thi và đếm số lượng ký tự của chuỗi X.\n\n- Dữ liệu vào: Một dòng duy nhất chứa chuỗi ký tự S (độ dài chuỗi lên tới 1000 ký tự).\n- Dữ liệu ra:\n + Dòng 1: Số lượng n là độ dài của chuỗi X.\n + Dòng 2: Chuỗi X gồm các ký tự chữ và số đã lọc theo thứ tự xuất hiện ban đầu.",
+        "templateCode": "s = input()\nx = \"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "123abcABC",
+            "expected": "9\n123abcABC",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Tin @! Hoc:; Pro #&%2026",
+            "expected": "13\nTinHocPro2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "THCS, Thanh Dong - 2026!",
+            "expected": "17\nTHCSThanhDong2026",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "@#$$%^&*",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "37": {
         "id": 37,
         "title": "Bài 28. Tính cước taxi",
@@ -26955,7 +27079,9 @@
       "giaovien__Bài 1. Tính tổng hai số nguyên A và B": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)",
       "khuong__Bài 28. Tính cước taxi": "# Tính tiền điện\nkm = int(input().strip())\nif km <= 0:\n    tien = 0\nelif km == 1:\n    tien = 5000\nelif km <= 5:\n    tien = 5000 + (km - 1) * 4500\nelse:\n    tien = 5000 + 4 * 4500 + (km - 5) * 3500\n\nif km > 120:\n    tien *= 0.9\n\ntien = round(float(tien), 2)\nif tien % 1 == 0:\n    print(int(tien))\nelse:\n    print(tien)",
       "khuong__Bài 35. Kiểm tra số tăng dần": "s = input().strip()\nis_increasing = all(s[i] < s[i+1] for i in range(len(s) - 1))\nif is_increasing:\n print(\"YES\")\nelse:\n print(\"NO\")",
-      "minh__Bài 24. Phân loại ký tự trong chuỗi": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nKiTu = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\n    else:\n        KiTu += 1\nprint('So chu cai:',Chu)\nprint('So chu so:',So)\nprint('So ki tu dac biet:',KiTu)"
+      "minh__Bài 24. Phân loại ký tự trong chuỗi": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nKiTu = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\n    else:\n        KiTu += 1\nprint('So chu cai:',Chu)\nprint('So chu so:',So)\nprint('So ki tu dac biet:',KiTu)",
+      "minh__Bài 25. Tổng n số lẻ đầu tiên": "# Viết mã Python của em ở đây...\nn = int(input())\nprint(n**2)",
+      "minh__Bài 26. Lọc ký tự chữ và số của thí sinh": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)"
     },
     "questionFlags": {
       "43": true
@@ -26966,6 +27092,18 @@
       "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
+      "teacherCanReplyMessages": true,
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -26988,21 +27126,12 @@
       "logs": {
         "delete": true
       },
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -27015,12 +27144,9 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
-      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewMessages": true,
-      "teacherCanReplyMessages": true
+      "teacherCanViewMessages": true
     },
     "studentMessages": [
       {
