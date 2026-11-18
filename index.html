@@ -8655,7 +8655,8 @@
     (function() {
         var WORKER_API = 'https://ai-thcs-python.thefuong119.workers.dev?path=counter.json';
         var TODAY_STR = new Date().toISOString().slice(0, 10);
-        var SESSION_KEY = 'has_counted_visit_' + TODAY_STR;
+        var VISIT_KEY = 'counter_last_visit_time';
+        var FIVE_MINUTES = 5 * 60 * 1000; // 5 phút tính bằng mili-giây (Chỉ áp dụng cho Visit)
 
         function fmt(n) { return Number(n || 0).toLocaleString('vi-VN'); }
 
@@ -8668,8 +8669,10 @@
             if (l) l.textContent = fmt(data.totalLogins);
         }
 
-        async function syncCounter() {
+        // actionType: 'visit' hoặc 'login'
+        async function syncCounter(actionType) {
             try {
+                // 1. Lấy dữ liệu hiện tại
                 var res = await fetch(WORKER_API + '&t=' + Date.now());
                 var data = { totalVisits: 0, todayVisits: 0, totalLogins: 0, lastDate: TODAY_STR };
                 
@@ -8677,25 +8680,48 @@
                     data = await res.json();
                 }
 
-                if (!data || typeof data !== 'object') data = { totalVisits: 0, todayVisits: 0, totalLogins: 0 };
-                if (!data.totalVisits) data.totalVisits = 0;
-                if (!data.todayVisits) data.todayVisits = 0;
-                if (!data.totalLogins) data.totalLogins = 0;
+                data.totalVisits = data.totalVisits || 0;
+                data.todayVisits = data.todayVisits || 0;
+                data.totalLogins = data.totalLogins || 0;
 
-                if (!sessionStorage.getItem(SESSION_KEY)) {
-                    if (data.lastDate !== TODAY_STR) {
-                        data.todayVisits = 0;
-                        data.lastDate = TODAY_STR;
+                // 2. Kiểm tra reset ngày mới
+                if (data.lastDate !== TODAY_STR) {
+                    data.todayVisits = 0;
+                    data.lastDate = TODAY_STR;
+                }
+
+                // 3. Xử lý tăng lượt
+                var now = Date.now();
+                var lastVisit = parseInt(localStorage.getItem(VISIT_KEY) || '0', 10);
+                var shouldUpdate = false;
+
+                if (actionType === 'visit') {
+                    // Chỉ đếm lượt truy cập nếu đã qua 5 phút
+                    if (now - lastVisit > FIVE_MINUTES) {
+                        data.totalVisits++;
+                        data.todayVisits++;
+                        localStorage.setItem(VISIT_KEY, now.toString());
+                        shouldUpdate = true;
+                        console.log('[Counter] Ghi nhận lượt truy cập mới.');
+                    } else {
+                        console.log('[Counter] Bỏ qua lượt truy cập (Chưa đủ 5 phút).');
                     }
-                    
-                    data.totalVisits++;
-                    data.todayVisits++;
+                } 
+                else if (actionType === 'login') {
+                    // Đăng nhập: LUÔN LUÔN +1, không giới hạn thời gian
+                    data.totalLogins++;
+                    shouldUpdate = true;
+                    console.log('[Counter] Ghi nhận lượt đăng nhập mới.');
+                }
+
+                // Cập nhật UI ngay lập tức
+                updateUI(data);
+
+                // 4. Gửi PUT lên GitHub nếu có thay đổi
+                if (shouldUpdate) {
                     data.updatedAt = new Date().toISOString();
-                    
-                    updateUI(data);
-                    
                     var payload = {
-                        message: 'Auto increment visit',
+                        message: 'Auto update counter: ' + actionType,
                         content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
                         branch: 'main'
                     };
@@ -8705,20 +8731,51 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    
-                    sessionStorage.setItem(SESSION_KEY, 'true');
-                } else {
-                    updateUI(data);
+                    console.log('[Counter] Đã đồng bộ lên GitHub.');
                 }
+
             } catch (e) {
                 console.warn('Counter API Error:', e);
             }
         }
 
+        // --- KHỞI TẠO VÀ THEO DÕI ĐĂNG NHẬP ---
+        function initCounter() {
+            // 1. Đếm lượt truy cập (nếu đủ 5 phút)
+            syncCounter('visit');
+
+            // 2. Theo dõi sự thay đổi trạng thái đăng nhập
+            var targetNode = document.getElementById('userNameDisplay');
+            if (targetNode) {
+                // Lưu lại tên user trước đó (để so sánh)
+                var previousUser = targetNode.textContent.trim();
+
+                var observer = new MutationObserver(function(mutations) {
+                    var currentUser = targetNode.textContent.trim();
+                    var isLoggedIn = currentUser !== 'Chưa đăng nhập' && currentUser !== '';
+                    var wasLoggedIn = previousUser !== 'Chưa đăng nhập' && previousUser !== '';
+
+                    // Nếu chuyển từ "Chưa đăng nhập" -> "Đã đăng nhập" 
+                    // HOẶC đổi sang một user khác (VD: Logout user A, login user B)
+                    if (isLoggedIn && (!wasLoggedIn || currentUser !== previousUser)) {
+                        syncCounter('login');
+                    }
+                    
+                    // Cập nhật lại trạng thái trước đó
+                    previousUser = currentUser;
+                });
+                
+                // Bắt đầu theo dõi
+                observer.observe(targetNode, { characterData: true, childList: true, subtree: true });
+            } else {
+                console.log('[Counter] Không tìm thấy #userNameDisplay để theo dõi đăng nhập.');
+            }
+        }
+
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', syncCounter);
+            document.addEventListener('DOMContentLoaded', initCounter);
         } else {
-            syncCounter();
+            initCounter();
         }
     })();
   </script></body></html>
