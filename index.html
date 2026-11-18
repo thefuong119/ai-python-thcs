@@ -232,7 +232,7 @@
             color: #e2e8f0;
             border-top: 1px solid rgba(59, 130, 246, 0.35);
             overflow: hidden;
-            padding: 22px 0;
+            padding: 6px 0;
         }
         .site-visitor-footer::before {
             content: '';
@@ -255,7 +255,7 @@
         }
         .svf-brand i {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 32px; height: 32px; border-radius: 10px;
+            width: 26px; height: 26px; border-radius: 10px;
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: #fff; font-size: 16px; font-style: normal;
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
@@ -264,7 +264,7 @@
         .svf-stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         .svf-stat {
             display: flex; align-items: center; gap: 10px;
-            padding: 8px 14px;
+            padding: 6px 12px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.10);
             border-radius: 12px;
@@ -278,7 +278,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
         }
-        .svf-stat > i { font-size: 20px; font-style: normal; }
+        .svf-stat > i { font-size: 16px; font-style: normal; }
         .svf-icon-eye  { color: #f59e0b; }
         .svf-icon-cal  { color: #10b981; }
         .svf-icon-user { color: #8b5cf6; }
@@ -289,7 +289,7 @@
             color: #94a3b8;
         }
         .svf-value {
-            font-size: 17px; font-weight: 800; color: #ffffff;
+            font-size: 15px; font-weight: 800; color: #ffffff;
             font-variant-numeric: tabular-nums;
             font-feature-settings: "tnum" 1;
         }
@@ -2879,14 +2879,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-5 px-4 mt-auto">
-        <div class="max-w-7xl mx-auto flex items-center justify-center text-xs text-center">
-            <p class="text-slate-300 font-medium flex items-center justify-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
-                <span>Bản quyền © 2026 Giáo viên: Nguyễn Thế Phương, Trường THCS Thành Đông, xã Tân Quới, tỉnh Vĩnh Long.</span>
-            </p>
-        </div>
-    </footer>
+    <!-- [PATCH] Copyright footer removed -->
 
     <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
@@ -8539,7 +8532,7 @@
     <footer id="siteVisitorFooter" class="site-visitor-footer">
         <div class="svf-wrap">
             <div class="svf-brand">
-                <i>🐍</i>
+                <img src="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/python.ico" alt="Logo Python" style="width:26px;height:26px;border-radius:8px;box-shadow:0 4px 14px rgba(59,130,246,0.4);object-fit:contain;flex-shrink:0;vertical-align:middle;">
                 <span>TRỢ LÝ DẠY HỌC PYTHON <strong>© 2026</strong></span>
             </div>
             <div class="svf-stats">
