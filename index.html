@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON - Nền tảng học trực tuyến cùng AI</title>
+    <title>TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON - Nền tảng học trực tuyến cùng AI</title>
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/thefuong119/ai-python-thcs/main/python.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -223,14 +223,90 @@
 .perm-badge-count.all-off { background: #fee2e2; color: #991b1b; }
 /* ========== END PATCH CSS ========== */
 </style>
+
+    <!-- SITE_VISITOR_COUNTER_STYLES_START -->
+    <style id="siteVisitorCounterStyles">
+        .site-visitor-footer {
+            position: relative;
+            background: linear-gradient(135deg, #0b1220 0%, #1e293b 55%, #1e3a8a 100%);
+            color: #e2e8f0;
+            border-top: 1px solid rgba(59, 130, 246, 0.35);
+            overflow: hidden;
+            padding: 22px 0;
+        }
+        .site-visitor-footer::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                radial-gradient(circle at 15% 30%, rgba(59, 130, 246, 0.20), transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(139, 92, 246, 0.20), transparent 45%);
+            pointer-events: none;
+        }
+        .svf-wrap {
+            position: relative; z-index: 1;
+            max-width: 80rem; margin: 0 auto;
+            padding: 0 16px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap;
+        }
+        .svf-brand {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 13px; font-weight: 600; color: #cbd5e1;
+        }
+        .svf-brand i {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border-radius: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #fff; font-size: 16px; font-style: normal;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+        .svf-brand strong { color: #93c5fd; font-weight: 800; }
+        .svf-stats { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .svf-stat {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+        }
+        .svf-stat:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.45);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(59, 130, 246, 0.2);
+        }
+        .svf-stat > i { font-size: 20px; font-style: normal; }
+        .svf-icon-eye  { color: #f59e0b; }
+        .svf-icon-cal  { color: #10b981; }
+        .svf-icon-user { color: #8b5cf6; }
+        .svf-stat > div { display: flex; flex-direction: column; line-height: 1.15; }
+        .svf-label {
+            font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: #94a3b8;
+        }
+        .svf-value {
+            font-size: 17px; font-weight: 800; color: #ffffff;
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum" 1;
+        }
+        @media (max-width: 640px) {
+            .svf-wrap { flex-direction: column; text-align: center; }
+            .svf-stats { justify-content: center; width: 100%; }
+            .svf-stat { flex: 1; min-width: 100px; padding: 8px 10px; }
+            .svf-stat > i { font-size: 16px; }
+            .svf-value { font-size: 14px; }
+            .svf-label { font-size: 9px; }
+        }
+    </style>
+    <!-- SITE_VISITOR_COUNTER_STYLES_END -->
+
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <div class="bg-slate-900 text-amber-400 font-bold py-2 px-4 text-center flex items-center justify-center gap-2 text-[15px]">
-        <i class="ph-bold ph-medal text-amber-400 text-base animate-bounce"></i>
-        <span>Giáo viên Sáng tạo Ứng Dụng AI Trong Giáo Dục Việt Nam 2026</span>
-        <i class="ph-bold ph-sparkle text-amber-400 text-base"></i>
-    </div>
 
     <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -238,20 +314,20 @@
                 <img src="https://placehold.co/40x40/3b82f6/white?text=AI" alt="Logo" class="w-10 h-10 rounded-xl shadow-lg shadow-blue-500/30 object-cover">
                 <div>
                     <h1 class="text-base font-bold tracking-tight text-white leading-tight flex items-center gap-2">
-                        WEB TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON
+                        TRỢ LÝ DẠY HỌC LẬP TRÌNH PYTHON
                         <span class="text-[11px] bg-blue-500/20 text-blue-300 font-medium px-2 py-0.5 rounded-full border border-blue-400/30 uppercase tracking-wider">LMS</span>
                     </h1>
                     <p class="text-xs text-slate-400">Nền tảng thực hành lập trình & Chấm điểm tự động</p>
                 </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-                <div id="engineStatusBadge" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30">
+                <div id="engineStatusBadge" class="hidden sm:flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30 cursor-help" title="Python WASM Engine">
                     <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                    <span id="engineStatusText">Đang tải Python WASM...</span>
+                    <span id="engineStatusText" class="sr-only">Đang tải Python WASM...</span>
                 </div>
-                <div id="proxyStatusBadge" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
-                    <i class="ph-bold ph-shield-check text-sm"></i>
-                    <span id="proxyStatusText">Proxy: Bảo mật</span>
+                <div id="proxyStatusBadge" class="hidden sm:flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 cursor-help" title="Proxy: Bảo mật">
+                    <i class="ph-bold ph-shield-check text-base"></i>
+                    <span id="proxyStatusText" class="sr-only">Proxy: Bảo mật</span>
                 </div>
                 <div id="roleDropdownWrapper" class="relative hidden">
                     <button id="roleDropdownBtn" onclick="toggleRoleDropdown()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all">
@@ -312,7 +388,7 @@
             </div>
             
             <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-3 welcome-heading-gradient">
-                Chào mừng bạn đến với Web trợ lý Dạy Học Lập Trình Python
+                Chào mừng bạn đến với Trợ lý Dạy Học Lập Trình Python
             </h2>
             <div class="mb-4">
                 <span class="inline-flex items-center gap-2 auth-badge-highlight px-5 py-2 rounded-2xl text-base sm:text-lg font-extrabold tracking-wide uppercase">
@@ -8458,5 +8534,155 @@
   window.__initFeaturePermissionSystem = init;
 })();
 </script>
+
+    <!-- SITE_VISITOR_COUNTER_FOOTER_START -->
+    <footer id="siteVisitorFooter" class="site-visitor-footer">
+        <div class="svf-wrap">
+            <div class="svf-brand">
+                <i>🐍</i>
+                <span>TRỢ LÝ DẠY HỌC PYTHON <strong>© 2026</strong></span>
+            </div>
+            <div class="svf-stats">
+                <div class="svf-stat" title="Tổng lượt truy cập">
+                    <i class="svf-icon-eye">👁️</i>
+                    <div>
+                        <span class="svf-label">Tổng truy cập</span>
+                        <span id="svfTotalVisits" class="svf-value">0</span>
+                    </div>
+                </div>
+                <div class="svf-stat" title="Lượt truy cập hôm nay">
+                    <i class="svf-icon-cal">📅</i>
+                    <div>
+                        <span class="svf-label">Hôm nay</span>
+                        <span id="svfTodayVisits" class="svf-value">0</span>
+                    </div>
+                </div>
+                <div class="svf-stat" title="Số lượt đăng nhập">
+                    <i class="svf-icon-user">👥</i>
+                    <div>
+                        <span class="svf-label">Đăng nhập</span>
+                        <span id="svfLoginCount" class="svf-value">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script id="siteVisitorCounterScript">
+    (function () {
+        'use strict';
+        var STORAGE_KEY = 'python_lms_visitor_counter_v1';
+        var MAX_DAYS = 30;
+
+        function pad(n) { return String(n).padStart(2, '0'); }
+        function getToday() {
+            var d = new Date();
+            return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+        }
+        function formatNum(n) {
+            try { return Number(n).toLocaleString('vi-VN'); } catch (e) { return String(n); }
+        }
+        function loadStats() {
+            try {
+                var raw = localStorage.getItem(STORAGE_KEY);
+                if (raw) return JSON.parse(raw);
+            } catch (e) {}
+            return { total: 0, logins: 0, daily: {} };
+        }
+        function saveStats(s) {
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch (e) {}
+        }
+        function animate(el, from, to, dur) {
+            if (!el) return;
+            dur = dur || 800;
+            if (from === to) { el.textContent = formatNum(to); return; }
+            var start = performance.now();
+            function tick(now) {
+                var t = Math.min(1, (now - start) / dur);
+                var e = 1 - Math.pow(1 - t, 3);
+                el.textContent = formatNum(Math.round(from + (to - from) * e));
+                if (t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+        function cleanupDaily(daily) {
+            var keys = Object.keys(daily).sort();
+            if (keys.length > MAX_DAYS) {
+                keys.slice(0, keys.length - MAX_DAYS).forEach(function (k) { delete daily[k]; });
+            }
+        }
+        function init() {
+            if (!document.getElementById('siteVisitorFooter')) return;
+            var stats = loadStats();
+            var today = getToday();
+            if (!stats.daily) stats.daily = {};
+
+            // Chống F5 inflate: chỉ tăng 1 lần / session / ngày
+            var sessionKey = 'plms_session_' + today;
+            var isNewSession = false;
+            try {
+                if (!sessionStorage.getItem(sessionKey)) {
+                    sessionStorage.setItem(sessionKey, '1');
+                    isNewSession = true;
+                }
+            } catch (e) { isNewSession = true; }
+
+            if (isNewSession) {
+                stats.total = (stats.total || 0) + 1;
+                stats.daily[today] = (stats.daily[today] || 0) + 1;
+                cleanupDaily(stats.daily);
+                saveStats(stats);
+            }
+
+            var elTotal = document.getElementById('svfTotalVisits');
+            var elToday = document.getElementById('svfTodayVisits');
+            var elLogin = document.getElementById('svfLoginCount');
+
+            var todayCount = stats.daily[today] || 0;
+            var loginCount = stats.logins || 0;
+
+            animate(elTotal, 0, stats.total, 1100);
+            animate(elToday, 0, todayCount, 800);
+            animate(elLogin, 0, loginCount, 950);
+
+            // Theo dõi đăng nhập: userNameDisplay đổi từ "Chưa đăng nhập" -> tên thật
+            var userEl = document.getElementById('userNameDisplay');
+            if (userEl) {
+                var wasLoggedIn = (function () {
+                    var t = (userEl.textContent || '').trim();
+                    return t !== '' && t !== 'Chưa đăng nhập';
+                })();
+
+                function onUserChange() {
+                    var cur = (userEl.textContent || '').trim();
+                    var isLoggedIn = cur !== '' && cur !== 'Chưa đăng nhập';
+                    if (isLoggedIn && !wasLoggedIn) {
+                        var s = loadStats();
+                        s.logins = (s.logins || 0) + 1;
+                        saveStats(s);
+                        var prev = parseInt(String(elLogin ? elLogin.textContent : '0').replace(/[^0-9]/g, ''), 10) || 0;
+                        animate(elLogin, prev, s.logins, 550);
+                    }
+                    wasLoggedIn = isLoggedIn;
+                }
+
+                if (window.MutationObserver) {
+                    try {
+                        var obs = new MutationObserver(onUserChange);
+                        obs.observe(userEl, { childList: true, characterData: true, subtree: true });
+                    } catch (e) {}
+                }
+                // Fallback poll (đề phòng)
+                setInterval(onUserChange, 2000);
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () { setTimeout(init, 300); });
+        } else {
+            setTimeout(init, 300);
+        }
+    })();
+    </script>
+    <!-- SITE_VISITOR_COUNTER_FOOTER_END -->
+
 </body>
 </html>
