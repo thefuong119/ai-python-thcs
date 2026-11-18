@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T14:11:23.362Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
+    "updatedAt": "2026-11-18T14:22:58.482Z",
+    "updatedBy": "Nguyễn Thế Phương",
+    "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
     "registeredUsers": [
@@ -22,7 +22,7 @@
         "status": "active",
         "firstLogin": "2026-10-20 07:30",
         "lastLogin": "02:54:55 31/10/2026",
-        "loginCount": 81,
+        "loginCount": 82,
         "_hasPassword": true,
         "passwordHash": "311cfa09f124f9bd3409f6f7f839590ae49d237dfdcc2b0a39c218ba085b4ba1",
         "cccd": "",
@@ -25180,6 +25180,13 @@
     ],
     "loginLogs": [
       {
+        "time": "21:22:42 18/11/2026",
+        "name": "Nguyễn Thế Phương",
+        "identifier": "086081006094",
+        "role": "admin",
+        "result": "Thành công"
+      },
+      {
         "time": "20:35:24 18/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -27178,18 +27185,6 @@
       "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
-      "teacherCanReplyMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -27212,12 +27207,21 @@
       "logs": {
         "delete": true
       },
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -27230,9 +27234,12 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
+      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanViewMessages": true
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewMessages": true,
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
