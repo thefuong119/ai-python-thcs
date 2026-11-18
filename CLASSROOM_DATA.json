@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-18T14:53:04.505Z",
+    "updatedAt": "2026-11-18T14:53:42.984Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -27187,23 +27187,6 @@
       "43": true
     },
     "systemPermissions": {
-      "teacherCanAdd": true,
-      "teacherCanEdit": false,
-      "teacherCanDelete": false,
-      "teacherCanPushServer": true,
-      "teacherCanLoadServer": false,
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
-      "teacherCanReplyMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -27226,12 +27209,26 @@
       "logs": {
         "delete": true
       },
+      "teacherCanPushServer": true,
+      "teacherCanLoadServer": false,
+      "teacherCanAdd": true,
+      "teacherCanEdit": false,
+      "teacherCanDelete": false,
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -27244,9 +27241,12 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
+      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanViewMessages": true
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewMessages": true,
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
