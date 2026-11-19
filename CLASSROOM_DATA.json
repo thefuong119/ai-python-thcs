@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-19T14:46:10.101Z",
+    "updatedAt": "2026-11-19T14:46:24.472Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 69,
+        "attempts": 70,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:46:09 19/11/2026"
+        "lastSubmit": "21:46:24 19/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795099584342,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 29. Số âm lớn nhất trong dãy",
+        "assignmentId": 38,
+        "score": 5,
+        "timestamp": "21:46:24 19/11/2026",
+        "date": "2026-11-19",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5\n-4\n3\n2\n-5\n7",
+            "expected": "-4",
+            "actual": "-4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "6\n-10\n-3\n-25\n0\n7\n-8",
+            "expected": "-3",
+            "actual": "-10",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "3\n1\n2\n3",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "4\n-100\n-200\n-50\n-75",
+            "expected": "-50",
+            "actual": "-100",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input().split()\nMin = 1000000\nDem = 0\nfor i in DayN:\n    if int(i) < 0:\n        Dem += 1\n        if abs(int(i)) < Min:\n            Min = abs(int(i))\n            KetQua = i\nif Dem == 0: print(0)\nelse: print(KetQua)"
+      },
       {
         "id": 1795099569946,
         "student": "Lê Nguyễn Quang Minh",
