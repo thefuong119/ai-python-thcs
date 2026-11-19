@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-19T14:29:40.274Z",
+    "updatedAt": "2026-11-19T14:29:48.635Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 67,
+        "attempts": 68,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:11:23 18/11/2026"
+        "lastSubmit": "21:29:48 19/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795098588483,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 28. Tính cước taxi",
+        "assignmentId": 37,
+        "score": 10,
+        "timestamp": "21:29:48 19/11/2026",
+        "date": "2026-11-19",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "130",
+            "expected": "414450",
+            "actual": "414450",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "121",
+            "expected": "386100",
+            "actual": "386100",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "4",
+            "expected": "18500",
+            "actual": "18500",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "10",
+            "expected": "40500",
+            "actual": "40500",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nkm = int(input())\nTien = 0\nif km == 1: Tien += 5000\nelif km <= 5: Tien += 5000 + (km-1)*4500\nelse: Tien += 5000 + 4*4500 + (km-5)*3500\nif km >= 120:\n    Tien -= Tien//10\nprint(Tien)"
+      },
       {
         "id": 1795014930763,
         "student": "Nguyễn Phú Lộc",
@@ -25995,7 +26040,8 @@
         "32": true,
         "33": true,
         "34": true,
-        "36": true
+        "36": true,
+        "37": true
       },
       "hocsinh": {
         "1": true,
@@ -27272,7 +27318,8 @@
       "minh__Bài 26. Lọc ký tự chữ và số của thí sinh": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)",
       "minh__Bài 27. Đồng hồ điện tử sau 1 giây": "# Viết mã Python của em ở đây...\nNhapVao = input()\nh = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\ns = int(NhapVao.split()[2])\ns += 1\nif s == 60:\n    s = 0\n    p += 1\n    if p == 60:\n        p = 0\n        h += 1\n        if h == 24:\n            h = 0\nprint(h,p,s)",
       "loc__Bài 4. Xét số chẵn lẻ": "n = int(input())\nif n%2==0:\n    print(\"Yes\")\nelse:\n    print(\"No\")",
-      "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\ns= math.factorial(n)\nprint(s)"
+      "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\ns= math.factorial(n)\nprint(s)",
+      "minh__Bài 28. Tính cước taxi": "# Viết mã Python của em ở đây...\nkm = int(input())\nTien = 0\nif km == 1: Tien += 5000\nelif km <= 5: Tien += 5000 + (km-1)*4500\nelse: Tien += 5000 + 4*4500 + (km-5)*3500\nif km >= 120:\n    Tien -= Tien//10\nprint(Tien)"
     },
     "questionFlags": {
       "43": true
