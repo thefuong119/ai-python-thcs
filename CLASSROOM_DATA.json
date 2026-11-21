@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T13:57:12.854Z",
+    "updatedAt": "2026-11-21T13:57:17.848Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 85,
+        "attempts": 86,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:10 21/11/2026"
+        "lastSubmit": "20:57:14 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795269434866,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 18. Kiểm tra số hạnh phúc",
+        "assignmentId": 25,
+        "score": 10,
+        "timestamp": "20:57:14 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "19",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "4",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "13",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = input()\nTong = 0\nXet = int(N)\nwhile Tong != 1:\n    Tong = 0\n    for i in N:\n        Tong += int(i)*int(i)\n    if Tong == Xet:\n        print('NO')\n        break\n    else:\n        N = str(Tong)\nif Tong == 1: print('YES')"
+      },
       {
         "id": 1795269430579,
         "student": "Lê Nguyễn Quang Minh",
