@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T15:23:48.735Z",
+    "updatedAt": "2026-11-21T15:29:46.976Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 103,
+        "attempts": 104,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "22:21:47 21/11/2026"
+        "lastSubmit": "22:29:46 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795274986843,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 35. Kiểm tra số tăng dần",
+        "assignmentId": 44,
+        "score": 10,
+        "timestamp": "22:29:46 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "1234",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "91",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "459",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "112",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')"
+      },
       {
         "id": 1795274507721,
         "student": "Lê Nguyễn Quang Minh",
@@ -27604,7 +27649,8 @@
         "40": true,
         "41": true,
         "42": true,
-        "43": true
+        "43": true,
+        "44": true
       },
       "hocsinh": {
         "1": true,
@@ -29083,7 +29129,8 @@
       "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        print(str(i) + ': ' + str(Dem))",
       "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)",
       "minh__Bài 33. Tích lớn nhất từ ba số": "# Viết mã Python của em ở đây...\nA = int(input())\nB = int(input())\nC = int(input())\nif A*B*C == 0:\n    if A == 0: Tich = B*C\n    elif B == 0: Tich = A*C\n    else: Tich = A*B\nelse: Tich = A*B*C\nprint(Tich)",
-      "minh__Bài 34. Kiểm tra số Armstrong": "# Viết mã Python của em ở đây...\nn = input()\nTong = 0\nfor i in n:\n    Tong += int(i)**len(n)\nif Tong == int(n): print('YES')\nelse: print('NO')"
+      "minh__Bài 34. Kiểm tra số Armstrong": "# Viết mã Python của em ở đây...\nn = input()\nTong = 0\nfor i in n:\n    Tong += int(i)**len(n)\nif Tong == int(n): print('YES')\nelse: print('NO')",
+      "minh__Bài 35. Kiểm tra số tăng dần": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')"
     },
     "questionFlags": {
       "43": true
