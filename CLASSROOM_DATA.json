@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T13:57:49.880Z",
+    "updatedAt": "2026-11-21T13:58:13.613Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 90,
+        "attempts": 91,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:48 21/11/2026"
+        "lastSubmit": "20:58:13 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795269493473,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 23. Tìm số cộng thêm để được số nguyên tố",
+        "assignmentId": 31,
+        "score": 10,
+        "timestamp": "20:58:13 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5",
+            "expected": "2",
+            "actual": "2",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "8",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "14",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "99",
+            "expected": "2",
+            "actual": "2",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na = int(input())\nfor i in range(1,a):\n    b = i\n    if (a+b) < 2: continue\n    else:\n        if ((a+b)==2)or((a+b)==3)or((a+b)==5)or((a+b)==7):\n            print(b)\n            break\n        else:\n            if ((a+b)%2==0)or((a+b)%3==0)or((a+b)%5==0)or((a+b)%7==0):\n                continue\n            else:\n                print(b)\n                break"
+      },
       {
         "id": 1795269468516,
         "student": "Lê Nguyễn Quang Minh",
