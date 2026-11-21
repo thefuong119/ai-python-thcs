@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T13:57:08.143Z",
+    "updatedAt": "2026-11-21T13:57:12.854Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 84,
+        "attempts": 85,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:04 21/11/2026"
+        "lastSubmit": "20:57:10 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795269430579,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 17. Kiểm tra số Kaprekar",
+        "assignmentId": 24,
+        "score": 10,
+        "timestamp": "20:57:10 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "45",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "297",
+            "expected": "YES",
+            "actual": "YES",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "NO",
+            "actual": "NO",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\na = len(str(N))\nif len(str(N*N)) % 2 == 0:\n    Trai = (N*N)//(10**(a//2+1))\n    Phai = (N*N)%(10**(a))\nelse:\n    Trai = (N*N)//(10**(a))\n    Phai = (N*N)%(10**(a))\nif (Trai+Phai) == N: print('YES')\nelse: print('NO')"
+      },
       {
         "id": 1795269424831,
         "student": "Lê Nguyễn Quang Minh",
