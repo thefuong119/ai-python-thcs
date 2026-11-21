@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T14:44:01.605Z",
+    "updatedAt": "2026-11-21T14:44:26.165Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 98,
+        "attempts": 99,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:40:00 21/11/2026"
+        "lastSubmit": "21:44:07 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795272247918,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 32. Quyển sách có bao nhiêu tờ",
+        "assignmentId": 41,
+        "score": 10,
+        "timestamp": "21:44:07 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "3 5 9",
+            "actual": "3 5 9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "3",
+            "expected": "1 2 3",
+            "actual": "1 2 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "1 1 1",
+            "actual": "1 1 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "25 50 99",
+            "actual": "25 50 99",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)"
+      },
       {
         "id": 1795272000548,
         "student": "Lê Nguyễn Quang Minh",
@@ -28815,7 +28860,7 @@
       "minh__Bài 29. Số âm lớn nhất trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input().split()\nMin = 1000000\nDem = 0\nfor i in DayN:\n    if int(i) < 0:\n        Dem += 1\n        if abs(int(i)) < Min:\n            Min = abs(int(i))\n            KetQua = i\nif Dem == 0: print(0)\nelse: print(KetQua)",
       "minh__Bài 30. Số nguyên tố có tổng chữ số cho trước": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\nm = int(NhapVao.split()[1])\nDaySo = ''\nDem = 0\nfor i in range(2,n+1):\n    Tong = 0\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n        i = str(i)\n        for y in i:\n            Tong += int(y)\n        if Tong == m:\n            DaySo += str(i) + ' '\n            Dem += 1\n    else:\n        if (i%2 == 0)or(i%3 == 0)or(i%5 == 0)or(i%7 == 0): continue\n        else:\n            i = str(i)\n            for y in i:\n                Tong += int(y)\n            if Tong == m:\n                DaySo += str(i) + ' '\n                Dem += 1\nif DaySo == '':\n    print(0)\nelse:\n    print(Dem)\n    print(DaySo[:-1])",
       "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        print(str(i) + ': ' + str(Dem))",
-      "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\nprint(T,K,M)"
+      "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)"
     },
     "questionFlags": {
       "43": true
