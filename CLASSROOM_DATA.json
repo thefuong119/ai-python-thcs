@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T13:58:26.722Z",
+    "updatedAt": "2026-11-21T13:58:41.781Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 92,
+        "attempts": 93,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:58:17 21/11/2026"
+        "lastSubmit": "20:58:41 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795269521609,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 26. Lọc ký tự chữ và số của thí sinh",
+        "assignmentId": 34,
+        "score": 10,
+        "timestamp": "20:58:41 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "123abcABC",
+            "expected": "9\n123abcABC",
+            "actual": "9\n123abcABC",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Tin @! Hoc:; Pro #&%2026",
+            "expected": "13\nTinHocPro2026",
+            "actual": "13\nTinHocPro2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "THCS, Thanh Dong - 2026!",
+            "expected": "17\nTHCSThanhDong2026",
+            "actual": "17\nTHCSThanhDong2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "@#$$%^&*",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nX = ''\nTongChu = 0\nfor i in S:\n    if i.isalpha():\n        X += i\n        TongChu += 1\n    elif i.isdigit():\n        X += i\n        TongChu += 1\nprint(TongChu)\nprint(X)"
+      },
       {
         "id": 1795269497381,
         "student": "Lê Nguyễn Quang Minh",
