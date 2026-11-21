@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T14:39:25.878Z",
+    "updatedAt": "2026-11-21T14:40:00.670Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 97,
+        "attempts": 98,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:14:38 21/11/2026"
+        "lastSubmit": "21:40:00 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795272000548,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 32. Quyển sách có bao nhiêu tờ",
+        "assignmentId": 41,
+        "score": 7.5,
+        "timestamp": "21:40:00 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "3 5 9",
+            "actual": "3 5 9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "3",
+            "expected": "1 2 3",
+            "actual": "1 2 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "1 1 1",
+            "actual": "0 1 1",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "25 50 99",
+            "actual": "25 50 99",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\nprint(T,K,M)"
+      },
       {
         "id": 1795270478903,
         "student": "Lê Nguyễn Quang Minh",
@@ -27331,7 +27376,8 @@
         "37": true,
         "38": true,
         "39": true,
-        "40": true
+        "40": true,
+        "41": true
       },
       "hocsinh": {
         "1": true,
@@ -28393,6 +28439,45 @@
           }
         ]
       },
+      "41": {
+        "id": 41,
+        "title": "Bài 32. Quyển sách có bao nhiêu tờ",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một quyển sách được đánh số trang chỉ ở các trang lẻ lần lượt là 1, 3, 5, 7, 9, 11, ... Trang cuối cùng của quyển sách được đánh số trang tối đa M gần với một giá trị N cho trước (M <= N và M là số lẻ).\nBiết rằng mỗi tờ giấy có hai trang. Hỏi quyển sách có bao nhiêu tờ giấy (T), bao nhiêu trang được đánh số (K) và số trang được đánh ở trang cuối cùng (M)?\n\n- Dữ liệu vào: Một số nguyên dương N (1 <= N <= 10^18).\n- Dữ liệu ra: Ghi ba số T, K, M cách nhau bởi đúng một dấu cách.",
+        "templateCode": "n = int(input().strip())\nm = n if n % 2 == 1 else n - 1\nk = (m + 1) // 2\nt = (k + 1) // 2\nprint(t, k, m)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "3 5 9",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "3",
+            "expected": "1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "1",
+            "expected": "1 1 1",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "100",
+            "expected": "25 50 99",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "43": {
         "id": 43,
         "title": "Bài 34. Kiểm tra số Armstrong",
@@ -28729,7 +28814,8 @@
       "minh__Bài 28. Tính cước taxi": "# Viết mã Python của em ở đây...\nkm = int(input())\nTien = 0\nif km == 1: Tien += 5000\nelif km <= 5: Tien += 5000 + (km-1)*4500\nelse: Tien += 5000 + 4*4500 + (km-5)*3500\nif km >= 120:\n    Tien -= Tien//10\nprint(Tien)",
       "minh__Bài 29. Số âm lớn nhất trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input().split()\nMin = 1000000\nDem = 0\nfor i in DayN:\n    if int(i) < 0:\n        Dem += 1\n        if abs(int(i)) < Min:\n            Min = abs(int(i))\n            KetQua = i\nif Dem == 0: print(0)\nelse: print(KetQua)",
       "minh__Bài 30. Số nguyên tố có tổng chữ số cho trước": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\nm = int(NhapVao.split()[1])\nDaySo = ''\nDem = 0\nfor i in range(2,n+1):\n    Tong = 0\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n        i = str(i)\n        for y in i:\n            Tong += int(y)\n        if Tong == m:\n            DaySo += str(i) + ' '\n            Dem += 1\n    else:\n        if (i%2 == 0)or(i%3 == 0)or(i%5 == 0)or(i%7 == 0): continue\n        else:\n            i = str(i)\n            for y in i:\n                Tong += int(y)\n            if Tong == m:\n                DaySo += str(i) + ' '\n                Dem += 1\nif DaySo == '':\n    print(0)\nelse:\n    print(Dem)\n    print(DaySo[:-1])",
-      "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        print(str(i) + ': ' + str(Dem))"
+      "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        print(str(i) + ': ' + str(Dem))",
+      "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\nprint(T,K,M)"
     },
     "questionFlags": {
       "43": true
