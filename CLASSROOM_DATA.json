@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T15:53:13.837Z",
+    "updatedAt": "2026-11-21T15:53:54.300Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 104,
+        "attempts": 105,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "22:29:46 21/11/2026"
+        "lastSubmit": "22:53:54 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795276434170,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 36. Tìm số cộng thêm để tạo số đối xứng",
+        "assignmentId": 45,
+        "score": 5,
+        "timestamp": "22:53:54 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "12",
+            "expected": "10",
+            "actual": "10",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "98",
+            "expected": "3",
+            "actual": "1",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "100",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1234",
+            "expected": "97",
+            "actual": "7",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nx = int(input())\nflag = 0\nfor y in range(1,10000001):\n    So = str(x+y)\n    for i in range(len(So)-1):\n        if So[i] == So[len(So)-1-i]:\n            flag = 1\n        else: break\n    if flag == 1:\n        print(y)\n        break"
+      },
       {
         "id": 1795274986843,
         "student": "Lê Nguyễn Quang Minh",
@@ -27650,7 +27695,8 @@
         "41": true,
         "42": true,
         "43": true,
-        "44": true
+        "44": true,
+        "45": true
       },
       "hocsinh": {
         "1": true,
@@ -28868,6 +28914,45 @@
           }
         ]
       },
+      "45": {
+        "id": 45,
+        "title": "Bài 36. Tìm số cộng thêm để tạo số đối xứng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một số nguyên dương được gọi là số đối xứng (palindrome) nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: 22, 101, 121, 1331).\nCho trước một số nguyên dương x. Hãy tìm số nguyên dương y nhỏ nhất $(y >= 1)$1$(1 <= x <= 10^7)$.\n- Dữ liệu ra: In ra số nguyên dương y nhỏ nhất tìm được.",
+        "templateCode": "x = int(input().strip())\nn = x + 1\nwhile True:\n    s = str(n)\n    if s == s[::-1]:\n        print(n - x)\n        break\n    n += 1",
+        "tests": [
+          {
+            "id": 1,
+            "input": "12",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "98",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "100",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1234",
+            "expected": "97",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "394": {
         "id": 394,
         "title": "Bài 38. Xếp lịch bay phi hành đoàn tránh xung đột (Quét đường thẳng)",
@@ -29130,7 +29215,8 @@
       "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)",
       "minh__Bài 33. Tích lớn nhất từ ba số": "# Viết mã Python của em ở đây...\nA = int(input())\nB = int(input())\nC = int(input())\nif A*B*C == 0:\n    if A == 0: Tich = B*C\n    elif B == 0: Tich = A*C\n    else: Tich = A*B\nelse: Tich = A*B*C\nprint(Tich)",
       "minh__Bài 34. Kiểm tra số Armstrong": "# Viết mã Python của em ở đây...\nn = input()\nTong = 0\nfor i in n:\n    Tong += int(i)**len(n)\nif Tong == int(n): print('YES')\nelse: print('NO')",
-      "minh__Bài 35. Kiểm tra số tăng dần": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')"
+      "minh__Bài 35. Kiểm tra số tăng dần": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')",
+      "minh__Bài 36. Tìm số cộng thêm để tạo số đối xứng": "# Viết mã Python của em ở đây...\nx = int(input())\nflag = 0\nfor y in range(1,10000001):\n    So = str(x+y)\n    for i in range(len(So)-1):\n        if So[i] == So[len(So)-1-i]:\n            flag = 1\n        else: break\n    if flag == 1:\n        print(y)\n        break"
     },
     "questionFlags": {
       "43": true
