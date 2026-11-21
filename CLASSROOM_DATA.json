@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T15:10:29.812Z",
+    "updatedAt": "2026-11-21T15:11:46.676Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 99,
+        "attempts": 100,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:44:07 21/11/2026"
+        "lastSubmit": "22:11:46 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795273906521,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 32. Quyển sách có bao nhiêu tờ",
+        "assignmentId": 41,
+        "score": 10,
+        "timestamp": "22:11:46 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "3 5 9",
+            "actual": "3 5 9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "3",
+            "expected": "1 2 3",
+            "actual": "1 2 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1",
+            "expected": "1 1 1",
+            "actual": "1 1 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "25 50 99",
+            "actual": "25 50 99",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)"
+      },
       {
         "id": 1795272247918,
         "student": "Lê Nguyễn Quang Minh",
