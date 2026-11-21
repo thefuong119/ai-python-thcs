@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T14:10:18.861Z",
+    "updatedAt": "2026-11-21T14:11:01.594Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 93,
+        "attempts": 94,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:58:41 21/11/2026"
+        "lastSubmit": "21:11:01 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795270261471,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 31. Đếm tần suất chữ số của tổng",
+        "assignmentId": 40,
+        "score": 5,
+        "timestamp": "21:11:01 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "309 21",
+            "expected": "0: 1\n3: 2",
+            "actual": "0: 1 3: 2",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "0 -112",
+            "expected": "1: 2\n2: 1",
+            "actual": "1: 2 2: 1",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "555 444",
+            "expected": "9: 3",
+            "actual": "9: 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1234 4321",
+            "expected": "5: 4",
+            "actual": "5: 4",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        KetQua += str(i) + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
+      },
       {
         "id": 1795269521609,
         "student": "Lê Nguyễn Quang Minh",
@@ -27150,7 +27195,8 @@
         "36": true,
         "37": true,
         "38": true,
-        "39": true
+        "39": true,
+        "40": true
       },
       "hocsinh": {
         "1": true,
@@ -28173,6 +28219,45 @@
           }
         ]
       },
+      "40": {
+        "id": 40,
+        "title": "Bài 31. Đếm tần suất chữ số của tổng",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho hai số nguyên M và N. Gọi S = M + N.\nHãy đếm số lần xuất hiện của các chữ số trong giá trị tuyệt đối của tổng S và in ra theo thứ tự tăng dần của các chữ số.\n\n- Dữ liệu vào: Một dòng ghi hai số nguyên M và N (-10^9 <= M, N <= 10^9).\n- Dữ liệu ra: Mỗi dòng ghi một chữ số và số lần xuất hiện của nó theo định dạng: <Chữ số>: <Số lần>.",
+        "templateCode": "m, n = map(int, input().split())\ns = str(abs(m + n))\ndem = {}\nfor ch in s:\n    dem[ch] = dem.get(ch, 0) + 1\n\nfor d in sorted(dem.keys(), key=int):\n    print(f\"{d}: {dem[d]}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "309 21",
+            "expected": "0: 1\n3: 2",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 -112",
+            "expected": "1: 2\n2: 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "555 444",
+            "expected": "9: 3",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1234 4321",
+            "expected": "5: 4",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "43": {
         "id": 43,
         "title": "Bài 34. Kiểm tra số Armstrong",
@@ -28508,7 +28593,8 @@
       "loc__Bài 5: Tính giai thừa": "import math\nn= int(input())\ns= math.factorial(n)\nprint(s)",
       "minh__Bài 28. Tính cước taxi": "# Viết mã Python của em ở đây...\nkm = int(input())\nTien = 0\nif km == 1: Tien += 5000\nelif km <= 5: Tien += 5000 + (km-1)*4500\nelse: Tien += 5000 + 4*4500 + (km-5)*3500\nif km >= 120:\n    Tien -= Tien//10\nprint(Tien)",
       "minh__Bài 29. Số âm lớn nhất trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input().split()\nMin = 1000000\nDem = 0\nfor i in DayN:\n    if int(i) < 0:\n        Dem += 1\n        if abs(int(i)) < Min:\n            Min = abs(int(i))\n            KetQua = i\nif Dem == 0: print(0)\nelse: print(KetQua)",
-      "minh__Bài 30. Số nguyên tố có tổng chữ số cho trước": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\nm = int(NhapVao.split()[1])\nDaySo = ''\nDem = 0\nfor i in range(2,n+1):\n    Tong = 0\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n        i = str(i)\n        for y in i:\n            Tong += int(y)\n        if Tong == m:\n            DaySo += str(i) + ' '\n            Dem += 1\n    else:\n        if (i%2 == 0)or(i%3 == 0)or(i%5 == 0)or(i%7 == 0): continue\n        else:\n            i = str(i)\n            for y in i:\n                Tong += int(y)\n            if Tong == m:\n                DaySo += str(i) + ' '\n                Dem += 1\nif DaySo == '':\n    print(0)\nelse:\n    print(Dem)\n    print(DaySo[:-1])"
+      "minh__Bài 30. Số nguyên tố có tổng chữ số cho trước": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\nm = int(NhapVao.split()[1])\nDaySo = ''\nDem = 0\nfor i in range(2,n+1):\n    Tong = 0\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n        i = str(i)\n        for y in i:\n            Tong += int(y)\n        if Tong == m:\n            DaySo += str(i) + ' '\n            Dem += 1\n    else:\n        if (i%2 == 0)or(i%3 == 0)or(i%5 == 0)or(i%7 == 0): continue\n        else:\n            i = str(i)\n            for y in i:\n                Tong += int(y)\n            if Tong == m:\n                DaySo += str(i) + ' '\n                Dem += 1\nif DaySo == '':\n    print(0)\nelse:\n    print(Dem)\n    print(DaySo[:-1])",
+      "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        KetQua += str(i) + ': ' + str(Dem) + ' '\nprint(KetQua[:-1])"
     },
     "questionFlags": {
       "43": true
