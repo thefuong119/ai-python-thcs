@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T15:16:43.350Z",
+    "updatedAt": "2026-11-21T15:17:03.322Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 101,
+        "attempts": 102,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "22:11:55 21/11/2026"
+        "lastSubmit": "22:17:03 21/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20523,6 +20523,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795274223186,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 33. Tích lớn nhất từ ba số",
+        "assignmentId": 42,
+        "score": 10,
+        "timestamp": "22:17:03 21/11/2026",
+        "date": "2026-11-21",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "4\n0\n1",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "5\n2\n6",
+            "expected": "60",
+            "actual": "60",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10\n10\n10",
+            "expected": "1000",
+            "actual": "1000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "0\n0\n5",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nA = int(input())\nB = int(input())\nC = int(input())\nif A*B*C == 0:\n    if A == 0: Tich = B*C\n    elif B == 0: Tich = A*C\n    else: Tich = A*B\nelse: Tich = A*B*C\nprint(Tich)"
+      },
       {
         "id": 1795273915457,
         "student": "Lê Nguyễn Quang Minh",
@@ -27512,7 +27557,8 @@
         "38": true,
         "39": true,
         "40": true,
-        "41": true
+        "41": true,
+        "42": true
       },
       "hocsinh": {
         "1": true,
@@ -28613,6 +28659,45 @@
           }
         ]
       },
+      "42": {
+        "id": 42,
+        "title": "Bài 33. Tích lớn nhất từ ba số",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Cho ba số tự nhiên A, B, C. Gọi T là tích lớn nhất tạo bởi 2 hoặc 3 số đã cho.\nYêu cầu: Hãy tính giá trị lớn nhất T có thể tạo thành.\n\n- Dữ liệu vào: Ba dòng, mỗi dòng chứa một số tự nhiên lần lượt là A, B, C (0 <= A, B, C <= 1000).\n- Dữ liệu ra: Một số nguyên duy nhất là tích lớn nhất T.",
+        "templateCode": "a = int(input().strip())\nb = int(input().strip())\nc = int(input().strip())\n\nt = max(a * b, a * c, b * c, a * b * c)\nprint(t)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n0\n1",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5\n2\n6",
+            "expected": "60",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10\n10\n10",
+            "expected": "1000",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "0\n0\n5",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
       "43": {
         "id": 43,
         "title": "Bài 34. Kiểm tra số Armstrong",
@@ -28950,7 +29035,8 @@
       "minh__Bài 29. Số âm lớn nhất trong dãy": "# Viết mã Python của em ở đây...\nN = int(input())\nDayN = input().split()\nMin = 1000000\nDem = 0\nfor i in DayN:\n    if int(i) < 0:\n        Dem += 1\n        if abs(int(i)) < Min:\n            Min = abs(int(i))\n            KetQua = i\nif Dem == 0: print(0)\nelse: print(KetQua)",
       "minh__Bài 30. Số nguyên tố có tổng chữ số cho trước": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\nm = int(NhapVao.split()[1])\nDaySo = ''\nDem = 0\nfor i in range(2,n+1):\n    Tong = 0\n    if (i == 2)or(i == 3)or(i == 5)or(i == 7):\n        i = str(i)\n        for y in i:\n            Tong += int(y)\n        if Tong == m:\n            DaySo += str(i) + ' '\n            Dem += 1\n    else:\n        if (i%2 == 0)or(i%3 == 0)or(i%5 == 0)or(i%7 == 0): continue\n        else:\n            i = str(i)\n            for y in i:\n                Tong += int(y)\n            if Tong == m:\n                DaySo += str(i) + ' '\n                Dem += 1\nif DaySo == '':\n    print(0)\nelse:\n    print(Dem)\n    print(DaySo[:-1])",
       "minh__Bài 31. Đếm tần suất chữ số của tổng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nM = int(NhapVao.split()[0])\nN = int(NhapVao.split()[1])\nS = str(abs(M + N))\nKetQua = ''\nfor i in range(10):\n    Dem = 0\n    for y in S:\n        if int(y) == i: Dem += 1\n    if Dem > 0:\n        print(str(i) + ': ' + str(Dem))",
-      "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)"
+      "minh__Bài 32. Quyển sách có bao nhiêu tờ": "# Viết mã Python của em ở đây...\nN = int(input())\nT = 0\nK = 0\nDem = 0\nif N % 2 == 0:\n    M = N - 1\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nelse:\n    M = N\n    for i in range(1,M+1,2):\n        Dem += 1\n        K += 1\n        if Dem == 2:\n            T += 1\n            Dem = 0\n    if Dem == 1: T += 1\nprint(T,K,M)",
+      "minh__Bài 33. Tích lớn nhất từ ba số": "# Viết mã Python của em ở đây...\nA = int(input())\nB = int(input())\nC = int(input())\nif A*B*C == 0:\n    if A == 0: Tich = B*C\n    elif B == 0: Tich = A*C\n    else: Tich = A*B\nelse: Tich = A*B*C\nprint(Tich)"
     },
     "questionFlags": {
       "43": true
