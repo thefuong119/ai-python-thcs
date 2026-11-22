@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-22T01:11:46.527Z",
-    "updatedBy": "Bùi Hoàng Gia Bảo",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-22T01:48:59.699Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Học sinh Học sinh Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 13,
+        "loginCount": 14,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -19929,10 +19929,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 7,
+        "attempts": 8,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "18:35:09 6/11/2026"
+        "lastSubmit": "08:48:59 22/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795312139509,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 19. Tần suất xuất hiện ký tự",
+        "assignmentId": 27,
+        "score": 10,
+        "timestamp": "08:48:59 22/11/2026",
+        "date": "2026-11-22",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Ngay thang nam",
+            "expected": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
+            "actual": "A: 3\nG: 2\nH: 1\nM: 1\nN: 3\nT: 1\nY: 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Python",
+            "expected": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
+            "actual": "H: 1\nN: 1\nO: 1\nP: 1\nT: 1\nY: 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "THCS Thanh Dong 2026",
+            "expected": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
+            "actual": "A: 1\nC: 1\nD: 1\nG: 1\nH: 3\nN: 2\nO: 1\nS: 1\nT: 2",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "Tin hoc tre",
+            "expected": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
+            "actual": "C: 1\nE: 1\nH: 1\nI: 1\nN: 1\nO: 1\nR: 1\nT: 2",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s = input().strip().upper()\n\ntan_suat = {}\n\nfor ch in s:\n    if ch.isalpha():\n        tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n    print(f\"{ch}: {tan_suat[ch]}\")"
+      },
       {
         "id": 1795309900852,
         "student": "Bùi Hoàng Gia Bảo",
@@ -26984,6 +27029,13 @@
     ],
     "loginLogs": [
       {
+        "time": "08:48:21 22/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "08:11:02 22/11/2026",
         "name": "Bùi Hoàng Gia Bảo",
         "identifier": "bao",
@@ -27759,6 +27811,7 @@
       },
       "hocsinh": {
         "1": true,
+        "27": true,
         "28": true,
         "394": true,
         "395": true
@@ -29318,7 +29371,8 @@
       "minh__Bài 34. Kiểm tra số Armstrong": "# Viết mã Python của em ở đây...\nn = input()\nTong = 0\nfor i in n:\n    Tong += int(i)**len(n)\nif Tong == int(n): print('YES')\nelse: print('NO')",
       "minh__Bài 35. Kiểm tra số tăng dần": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')",
       "minh__Bài 36. Tìm số cộng thêm để tạo số đối xứng": "# Viết mã Python của em ở đây...\nx = int(input())\nflag = 0\nfor y in range(1,10000001):\n    So = str(x+y)\n    for i in range(len(So)-1):\n        if So[i] == So[len(So)-1-i]:\n            flag = 1\n        else: break\n    if flag == 1:\n        print(y)\n        break",
-      "bao__Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nif a == 0:\nif b == 0:\nprint(\"VO SO NGHIEM\")\nelse:\nprint(\"VO NGHIEM\")\nelse:\nx = -b / a\nif x == 0:\nx = 0.0\nprint(f\"{x:.2f}\")"
+      "bao__Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nif a == 0:\nif b == 0:\nprint(\"VO SO NGHIEM\")\nelse:\nprint(\"VO NGHIEM\")\nelse:\nx = -b / a\nif x == 0:\nx = 0.0\nprint(f\"{x:.2f}\")",
+      "hocsinh__Bài 19. Tần suất xuất hiện ký tự": "s = input().strip().upper()\n\ntan_suat = {}\n\nfor ch in s:\n    if ch.isalpha():\n        tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n    print(f\"{ch}: {tan_suat[ch]}\")"
     },
     "questionFlags": {
       "43": true
