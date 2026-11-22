@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-21T15:54:01.774Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-22T01:11:40.903Z",
+    "updatedBy": "Bùi Hoàng Gia Bảo",
+    "action": "Học sinh Bùi Hoàng Gia Bảo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -275,7 +275,7 @@
         "phone": "Zalo cá nhân",
         "role": "student",
         "status": "active",
-        "loginCount": 0,
+        "loginCount": 1,
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
         "passwordHash": "c434cdd0781e76d8b094d8fd12286d1ffbfac48021e312a78fbc2da2e15eb651",
@@ -20008,6 +20008,13 @@
         "attempts": 2,
         "highestScore": 10,
         "lastSubmit": "13:04:29 18/11/2026"
+      },
+      {
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "attempts": 1,
+        "highestScore": 0,
+        "lastSubmit": "08:11:40 22/11/2026"
       }
     ],
     "lectures": [
@@ -20523,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795309900852,
+        "student": "Bùi Hoàng Gia Bảo",
+        "username": "bao",
+        "assignmentTitle": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
+        "assignmentId": 12,
+        "score": 0,
+        "timestamp": "08:11:40 22/11/2026",
+        "date": "2026-11-22",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "4",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "8",
+            "expected": "NO",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "21",
+            "expected": "YES",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "999999937",
+            "expected": "NO",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nif a == 0:\nif b == 0:\nprint(\"VO SO NGHIEM\")\nelse:\nprint(\"VO NGHIEM\")\nelse:\nx = -b / a\nif x == 0:\nx = 0.0\nprint(f\"{x:.2f}\")"
+      },
       {
         "id": 1795276434170,
         "student": "Lê Nguyễn Quang Minh",
@@ -26932,6 +26984,13 @@
     ],
     "loginLogs": [
       {
+        "time": "08:11:02 22/11/2026",
+        "name": "Bùi Hoàng Gia Bảo",
+        "identifier": "bao",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "20:37:56 21/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -27726,6 +27785,9 @@
       "khuong": {
         "37": true,
         "44": true
+      },
+      "bao": {
+        "12": true
       }
     },
     "flaggedAssignmentsCache": {
@@ -28090,6 +28152,45 @@
             "id": 4,
             "input": "100000000",
             "expected": "170000000",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "12": {
+        "id": 12,
+        "title": "Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số bán nguyên tố là số tự nhiên có thể phân tích thành tích của đúng hai số nguyên tố (hai số nguyên tố này có thể giống hoặc khác nhau).\nVí dụ: 4 = 2 * 2; 6 = 2 * 3; 9 = 3 * 3; 21 = 3 * 7 là các số bán nguyên tố. Các số 8 (= 2^3), 12 (= 2^2 * 3), 7 (số nguyên tố) không phải là số bán nguyên tố.\nCho số nguyên dương N. Hãy kiểm tra xem N có phải là số bán nguyên tố hay không.\n\n- Dữ liệu vào: Số nguyên dương N (1 <= N <= 10^9).\n- Dữ liệu ra: In ra YES nếu N là số bán nguyên tố, ngược lại in ra NO.",
+        "templateCode": "n = int(input().strip())\nif n < 4:\n    print(\"NO\")\nelse:\n    count = 0\n    temp = n\n    i = 2\n    while i * i <= temp:\n        while temp % i == 0:\n            count += 1\n            temp //= i\n            if count > 2:\n                break\n        if count > 2:\n            break\n        i += 1\n    if temp > 1:\n        count += 1\n    print(\"YES\" if count == 2 else \"NO\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "8",
+            "expected": "NO",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "21",
+            "expected": "YES",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "999999937",
+            "expected": "NO",
             "point": 2.5,
             "is_hidden": true
           }
@@ -29216,7 +29317,8 @@
       "minh__Bài 33. Tích lớn nhất từ ba số": "# Viết mã Python của em ở đây...\nA = int(input())\nB = int(input())\nC = int(input())\nif A*B*C == 0:\n    if A == 0: Tich = B*C\n    elif B == 0: Tich = A*C\n    else: Tich = A*B\nelse: Tich = A*B*C\nprint(Tich)",
       "minh__Bài 34. Kiểm tra số Armstrong": "# Viết mã Python của em ở đây...\nn = input()\nTong = 0\nfor i in n:\n    Tong += int(i)**len(n)\nif Tong == int(n): print('YES')\nelse: print('NO')",
       "minh__Bài 35. Kiểm tra số tăng dần": "# Viết mã Python của em ở đây...\nN = input()\nMax = 0\nfor i in N:\n    if int(i) > Max: Max = int(i)\n    else: break\nif Max == int(N[len(N)-1]): print('YES')\nelse: print('NO')",
-      "minh__Bài 36. Tìm số cộng thêm để tạo số đối xứng": "# Viết mã Python của em ở đây...\nx = int(input())\nflag = 0\nfor y in range(1,10000001):\n    So = str(x+y)\n    for i in range(len(So)-1):\n        if So[i] == So[len(So)-1-i]:\n            flag = 1\n        else: break\n    if flag == 1:\n        print(y)\n        break"
+      "minh__Bài 36. Tìm số cộng thêm để tạo số đối xứng": "# Viết mã Python của em ở đây...\nx = int(input())\nflag = 0\nfor y in range(1,10000001):\n    So = str(x+y)\n    for i in range(len(So)-1):\n        if So[i] == So[len(So)-1-i]:\n            flag = 1\n        else: break\n    if flag == 1:\n        print(y)\n        break",
+      "bao__Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nif a == 0:\nif b == 0:\nprint(\"VO SO NGHIEM\")\nelse:\nprint(\"VO NGHIEM\")\nelse:\nx = -b / a\nif x == 0:\nx = 0.0\nprint(f\"{x:.2f}\")"
     },
     "questionFlags": {
       "43": true
@@ -29227,6 +29329,18 @@
       "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
+      "teacherCanReplyMessages": true,
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -29249,21 +29363,12 @@
       "logs": {
         "delete": true
       },
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -29276,12 +29381,9 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
-      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewMessages": true,
-      "teacherCanReplyMessages": true
+      "teacherCanViewMessages": true
     },
     "studentMessages": [
       {
