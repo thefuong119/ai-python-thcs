@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T14:10:58.473Z",
+    "updatedAt": "2026-11-23T14:11:11.207Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 124,
+        "attempts": 125,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:10:58 23/11/2026"
+        "lastSubmit": "21:11:11 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795443071048,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc",
+        "assignmentId": 495,
+        "score": 10,
+        "timestamp": "21:11:11 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5 10000",
+            "expected": "50000",
+            "actual": "50000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10 10000",
+            "expected": "95000",
+            "actual": "95000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "20 12000",
+            "expected": "216000",
+            "actual": "216000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "15 8000",
+            "expected": "114000",
+            "actual": "114000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\nTien = n*p\nif n < 10: Tien += 0\nelif n < 20: Tien -= Tien*5//100\nelse: Tien -= Tien*10//100\nprint(Tien)"
+      },
       {
         "id": 1795443058299,
         "student": "Lê Nguyễn Quang Minh",
@@ -28490,7 +28535,8 @@
         "435": true,
         "492": true,
         "493": true,
-        "494": true
+        "494": true,
+        "495": true
       },
       "hocsinh": {
         "1": true,
@@ -30347,6 +30393,45 @@
             "id": 4,
             "input": "3 0",
             "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "495": {
+        "id": 495,
+        "title": "Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một cửa hàng văn phòng phẩm bán vở với đơn giá $p$ (đồng/quyển). Cửa hàng áp dụng chính sách giảm giá trên tổng hóa đơn như sau: mua dưới $10$ quyển không giảm giá; mua từ $10$ đến $19$ quyển giảm $5\\%$; mua từ $20$ quyển trở lên giảm $10\\%$. Nhập số nguyên dương $n$ (số quyển vở) và $p$ (đơn giá), in ra phần nguyên số tiền mà khách hàng phải trả.",
+        "templateCode": "n, p = map(int, input().split())\ntong = n * p\nif n >= 20:\n tong = tong * 90 // 100\nelif n >= 10:\n tong = tong * 95 // 100\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5 10000",
+            "expected": "50000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 10000",
+            "expected": "95000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "20 12000",
+            "expected": "216000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "15 8000",
+            "expected": "114000",
             "point": 2.5,
             "is_hidden": false
           }
