@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T14:06:51.103Z",
+    "updatedAt": "2026-11-23T14:07:21.028Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 121,
+        "attempts": 122,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:59:03 23/11/2026"
+        "lastSubmit": "21:07:20 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795442840874,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0",
+        "assignmentId": 434,
+        "score": 10,
+        "timestamp": "21:07:20 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "2 -5",
+            "expected": "2.50",
+            "actual": "2.50",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "0 0",
+            "expected": "Vo so nghiem",
+            "actual": "Vo so nghiem",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "0 7",
+            "expected": "Vo nghiem",
+            "actual": "Vo nghiem",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "3 0",
+            "expected": "0.00",
+            "actual": "0.00",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')"
+      },
       {
         "id": 1795442343965,
         "student": "Lê Nguyễn Quang Minh",
@@ -28351,6 +28396,7 @@
         "289": true,
         "432": true,
         "433": true,
+        "434": true,
         "492": true,
         "493": true
       },
@@ -29980,6 +30026,45 @@
           }
         ]
       },
+      "434": {
+        "id": 434,
+        "title": "Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên $a$ và $b$ trên cùng một dòng. Hãy giải phương trình bậc nhất $ax + b = 0$. Nếu phương trình có vô số nghiệm thì in ra Vo so nghiem; nếu vô nghiệm thì in ra Vo nghiem; nếu có nghiệm duy nhất thì in ra nghiệm $x$ làm tròn đến $2$ chữ số thập phân.",
+        "templateCode": "a, b = map(int, input().split())\nif a == 0:\n if b == 0:\n print(\"Vo so nghiem\")\n else:\n print(\"Vo nghiem\")\nelse:\n x = -b / a\n if x == 0:\n x = 0.0\n print(f\"{x:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 -5",
+            "expected": "2.50",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 0",
+            "expected": "Vo so nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 7",
+            "expected": "Vo nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 0",
+            "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "443": {
         "id": 443,
         "title": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
@@ -30275,7 +30360,8 @@
       "bao__Bài 1. Kiểm tra số bán nguyên tố (Semi-prime)": "# Viết mã Python của em ở đây...\na, b = map(int, input().split())\nif a == 0:\nif b == 0:\nprint(\"VO SO NGHIEM\")\nelse:\nprint(\"VO NGHIEM\")\nelse:\nx = -b / a\nif x == 0:\nx = 0.0\nprint(f\"{x:.2f}\")",
       "hocsinh__Bài 19. Tần suất xuất hiện ký tự": "s = input().strip().upper()\n\ntan_suat = {}\n\nfor ch in s:\n    if ch.isalpha():\n        tan_suat[ch] = tan_suat.get(ch, 0) + 1\n\nfor ch in sorted(tan_suat.keys()):\n    print(f\"{ch}: {tan_suat[ch]}\")",
       "minh__Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang": "# Viết mã Python của em ở đây...\nNhapVao = input()\nc1 = int(NhapVao.split()[0])\nc2 = int(NhapVao.split()[1])\nk = c2 - c1\nif k <= 50: Tien = k*1678\nelif k <= 100: Tien = (50*1678)+((k-50)*1734)\nelse: Tien = (50*1678)+(50*1734)+((k-100)*2014)\nprint(Tien)",
-      "minh__Bài 17 (Rẽ nhánh): Kiểm tra năm nhuận và số ngày của tháng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nThang = int(NhapVao.split()[0])\nNam = int(NhapVao.split()[1])\nif (Thang == 1)or(Thang == 3)or(Thang == 5)or(Thang == 7)or(Thang == 8)or(Thang == 10)or(Thang == 12): Ngay = 31\nelse: Ngay = 30\nif (Nam % 400 == 0)or(Nam % 4 == 0 and Nam % 100 != 0):\n    if Thang == 2: Ngay = 29\nelse:\n    if Thang == 2: Ngay = 28\nprint(Ngay)"
+      "minh__Bài 17 (Rẽ nhánh): Kiểm tra năm nhuận và số ngày của tháng": "# Viết mã Python của em ở đây...\nNhapVao = input()\nThang = int(NhapVao.split()[0])\nNam = int(NhapVao.split()[1])\nif (Thang == 1)or(Thang == 3)or(Thang == 5)or(Thang == 7)or(Thang == 8)or(Thang == 10)or(Thang == 12): Ngay = 31\nelse: Ngay = 30\nif (Nam % 400 == 0)or(Nam % 4 == 0 and Nam % 100 != 0):\n    if Thang == 2: Ngay = 29\nelse:\n    if Thang == 2: Ngay = 28\nprint(Ngay)",
+      "minh__Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')"
     },
     "questionFlags": {
       "43": true
