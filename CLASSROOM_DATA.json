@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T13:50:55.578Z",
+    "updatedAt": "2026-11-23T13:51:21.334Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 118,
+        "attempts": 119,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:50:55 23/11/2026"
+        "lastSubmit": "20:51:21 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795441881179,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
+        "assignmentId": 492,
+        "score": 10,
+        "timestamp": "20:51:21 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "100 140",
+            "expected": "67120",
+            "actual": "67120",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "200 280",
+            "expected": "135920",
+            "actual": "135920",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "500 620",
+            "expected": "210880",
+            "actual": "210880",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "150 150",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nc1 = int(NhapVao.split()[0])\nc2 = int(NhapVao.split()[1])\nk = c2 - c1\nif k <= 50: Tien = k*1678\nelif k <= 100: Tien = (50*1678)+((k-50)*1734)\nelse: Tien = (50*1678)+(50*1734)+((k-100)*2014)\nprint(Tien)"
+      },
       {
         "id": 1795441855430,
         "student": "Lê Nguyễn Quang Minh",
@@ -28214,7 +28259,8 @@
         "279": true,
         "280": true,
         "289": true,
-        "432": true
+        "432": true,
+        "492": true
       },
       "hocsinh": {
         "1": true,
@@ -29837,6 +29883,45 @@
             "id": 4,
             "input": "7",
             "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "492": {
+        "id": 492,
+        "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên không âm $c_1$ và $c_2$ ($c_1 \\le c_2$) lần lượt là chỉ số điện cũ và chỉ số điện mới (kWh). Biết số điện tiêu thụ $k = c_2 - c_1$ được tính tiền theo định mức bậc thang: từ $0$ đến $50$ kWh đầu giá $1678$ đồng/kWh; từ kWh thứ $51$ đến $100$ giá $1734$ đồng/kWh; từ kWh thứ $101$ trở lên giá $2014$ đồng/kWh. Hãy tính và in ra số tiền điện phải trả (đồng).",
+        "templateCode": "c1, c2 = map(int, input().split())\nk = c2 - c1\nif k <= 50:\n tien = k * 1678\nelif k <= 100:\n tien = 50 * 1678 + (k - 50) * 1734\nelse:\n tien = 50 * 1678 + 50 * 1734 + (k - 100) * 2014\nprint(tien)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "100 140",
+            "expected": "67120",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "200 280",
+            "expected": "135920",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "500 620",
+            "expected": "210880",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "150 150",
+            "expected": "0",
             "point": 2.5,
             "is_hidden": false
           }
