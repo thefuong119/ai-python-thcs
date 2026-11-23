@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T13:43:03.904Z",
+    "updatedAt": "2026-11-23T13:43:09.491Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 110,
+        "attempts": 112,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:43:03 23/11/2026"
+        "lastSubmit": "20:43:05 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,64 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795441385712,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "assignmentId": 268,
+        "score": 0,
+        "timestamp": "20:43:05 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8",
+            "expected": "55200",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "25",
+            "expected": "212750",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(round(tien * 1.15))"
+      },
+      {
+        "id": 1795441384966,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "assignmentId": 268,
+        "score": 0,
+        "timestamp": "20:43:04 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8",
+            "expected": "55200",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "25",
+            "expected": "212750",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(round(tien * 1.15))"
+      },
       {
         "id": 1795441383762,
         "student": "Lê Nguyễn Quang Minh",
