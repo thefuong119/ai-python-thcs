@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T14:07:21.028Z",
+    "updatedAt": "2026-11-23T14:07:29.103Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 122,
+        "attempts": 123,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "21:07:20 23/11/2026"
+        "lastSubmit": "21:07:27 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795442847276,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0",
+        "assignmentId": 494,
+        "score": 10,
+        "timestamp": "21:07:27 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "2 -5",
+            "expected": "2.50",
+            "actual": "2.50",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "0 0",
+            "expected": "Vo so nghiem",
+            "actual": "Vo so nghiem",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "0 7",
+            "expected": "Vo nghiem",
+            "actual": "Vo nghiem",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "3 0",
+            "expected": "0.00",
+            "actual": "0.00",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')"
+      },
       {
         "id": 1795442840874,
         "student": "Lê Nguyễn Quang Minh",
@@ -28398,7 +28443,8 @@
         "433": true,
         "434": true,
         "492": true,
-        "493": true
+        "493": true,
+        "494": true
       },
       "hocsinh": {
         "1": true,
@@ -30177,6 +30223,45 @@
             "id": 4,
             "input": "4 2026",
             "expected": "30",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "494": {
+        "id": 494,
+        "title": "Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào hai số nguyên $a$ và $b$ trên cùng một dòng. Hãy giải phương trình bậc nhất $ax + b = 0$. Nếu phương trình có vô số nghiệm thì in ra Vo so nghiem; nếu vô nghiệm thì in ra Vo nghiem; nếu có nghiệm duy nhất thì in ra nghiệm $x$ làm tròn đến $2$ chữ số thập phân.",
+        "templateCode": "a, b = map(int, input().split())\nif a == 0:\n if b == 0:\n print(\"Vo so nghiem\")\n else:\n print(\"Vo nghiem\")\nelse:\n x = -b / a\n if x == 0:\n x = 0.0\n print(f\"{x:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "2 -5",
+            "expected": "2.50",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "0 0",
+            "expected": "Vo so nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "0 7",
+            "expected": "Vo nghiem",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "3 0",
+            "expected": "0.00",
             "point": 2.5,
             "is_hidden": false
           }
