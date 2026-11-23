@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T13:44:15.116Z",
+    "updatedAt": "2026-11-23T13:44:22.939Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 116,
+        "attempts": 117,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:44:14 23/11/2026"
+        "lastSubmit": "20:44:22 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795441462812,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài toán cổ: Vừa gà vừa chó",
+        "assignmentId": 289,
+        "score": 10,
+        "timestamp": "20:44:22 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "actual": "22 14",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "actual": "VO NGHIEM",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
+      },
       {
         "id": 1795441454975,
         "student": "Lê Nguyễn Quang Minh",
@@ -28138,7 +28167,8 @@
         "275": true,
         "276": true,
         "279": true,
-        "280": true
+        "280": true,
+        "289": true
       },
       "hocsinh": {
         "1": true,
@@ -29583,6 +29613,31 @@
             "id": 2,
             "input": "8 2 5",
             "expected": "20.00 20.00",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "289": {
+        "id": 289,
+        "title": "Bài toán cổ: Vừa gà vừa chó",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Bài toán cổ Việt Nam:\n\"Vừa gà vừa chó\nBó lại cho tròn\n$m$1$n$1$m$1$n$. Hãy tìm số lượng gà và chó tương ứng. Nếu không tồn tại nghiệm nguyên hợp lệ (số con không âm), in ra \"VO NGHIEM\".\n\nDữ liệu vào: Một dòng gồm hai số nguyên dương $m$1$n$ ($1 \\le m, n \\le 10^6$).\nDữ liệu ra: Hai số nguyên là số gà và số chó cách nhau một dấu cách, hoặc \"VO NGHIEM\".",
+        "templateCode": "m, n = map(int, input().split())\n# ga + cho = m => 2*ga + 2*cho = 2*m\n# 2*ga + 4*cho = n => 2*cho = n - 2*m\nif (n - 2 * m) % 2 == 0:\n    cho = (n - 2 * m) // 2\n    ga = m - cho\n    if ga >= 0 and cho >= 0:\n        print(f\"{ga} {cho}\")\n    else:\n        print(\"VO NGHIEM\")\nelse:\n    print(\"VO NGHIEM\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
             "point": 5,
             "is_hidden": false
           }
