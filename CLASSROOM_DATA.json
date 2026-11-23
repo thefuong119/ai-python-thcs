@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T13:42:08.484Z",
+    "updatedAt": "2026-11-23T13:42:17.457Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 106,
+        "attempts": 107,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:42:08 23/11/2026"
+        "lastSubmit": "20:42:17 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795441337297,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "assignmentId": 268,
+        "score": 0,
+        "timestamp": "20:42:17 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "8",
+            "expected": "55200",
+            "actual": "48000",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "25",
+            "expected": "212750",
+            "actual": "86000",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nm3 = int(input())\nif m3 <= 10: Tien = m3*6000\nelif m3 <= 20: Tien = (10*6000)+((m3-10)*7500)\nelse: Tien = (10*1800)+(10*1800)+((m3-20)*10000)\nprint(Tien)"
+      },
       {
         "id": 1795441328284,
         "student": "Lê Nguyễn Quang Minh",
@@ -27844,7 +27873,8 @@
         "43": true,
         "44": true,
         "45": true,
-        "267": true
+        "267": true,
+        "268": true
       },
       "hocsinh": {
         "1": true,
@@ -29164,6 +29194,31 @@
             "id": 2,
             "input": "100 240",
             "expected": "300240",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "268": {
+        "id": 268,
+        "title": "Tính tiền nước sinh hoạt và phí bảo vệ môi trường",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào số mét khối ($m^3$) nước tiêu thụ của một hộ gia đình là $m$ ($m$1$m^3$ đầu tiên): 6000 đ/$m^3$1$m^3$ thứ 11 đến 20): 7500 đ/$m^3$1$m^3$ thứ 21 trở lên): 10000 đ/$m^3$1$m$ ($1 \\le m \\le 10^5$).\nDữ liệu ra: Một số nguyên là tổng số tiền phải trả.",
+        "templateCode": "m = int(input().strip())\nif m <= 10:\n    tien = m * 6000\nelif m <= 20:\n    tien = 10 * 6000 + (m - 10) * 7500\nelse:\n    tien = 10 * 6000 + 10 * 7500 + (m - 20) * 10000\ntong = round(tien * 1.15)\nprint(tong)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "8",
+            "expected": "55200",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "25",
+            "expected": "212750",
             "point": 5,
             "is_hidden": false
           }
