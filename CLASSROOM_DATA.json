@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-23T13:44:00.281Z",
+    "updatedAt": "2026-11-23T13:44:09.697Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 114,
+        "attempts": 115,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:44:00 23/11/2026"
+        "lastSubmit": "20:44:09 23/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795441449561,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
+        "assignmentId": 279,
+        "score": 10,
+        "timestamp": "20:44:09 23/11/2026",
+        "date": "2026-11-23",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 4 3 4 5",
+            "expected": "HINH CHU NHAT",
+            "actual": "HINH CHU NHAT",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "5 5 5 5 7.071068",
+            "expected": "HINH VUONG",
+            "actual": "HINH VUONG",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = float(NhapVao.split(' ')[0])\nb = float(NhapVao.split(' ')[1])\nc = float(NhapVao.split(' ')[2])\nd = float(NhapVao.split(' ')[3])\ne = float(NhapVao.split(' ')[4])\nif a == b == c == d: print('HINH VUONG')\nelif (a==c)or(b==d)and((a*a+b*b) == e*e):\n    print('HINH CHU NHAT')\nelse: print('HINH KHAC')"
+      },
       {
         "id": 1795441440143,
         "student": "Lê Nguyễn Quang Minh",
@@ -28078,7 +28107,8 @@
         "45": true,
         "267": true,
         "275": true,
-        "276": true
+        "276": true,
+        "279": true
       },
       "hocsinh": {
         "1": true,
@@ -29473,6 +29503,31 @@
             "id": 2,
             "input": "5.0 4.0 3.0 5.0 0.25 4.0 300000",
             "expected": "2700000",
+            "point": 5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "279": {
+        "id": 279,
+        "title": "Kiểm tra hình chữ nhật hoặc hình vuông từ 4 cạnh và 1 đường chéo",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Cho một tứ giác $ABCD$1$AB=a, BC=b, CD=c, DA=d$1$AC=e$. Hãy xác định tứ giác này:\n- In ra \"HINH VUONG\" nếu tứ giác là hình vuông.\n- In ra \"HINH CHU NHAT\" nếu tứ giác là hình chữ nhật nhưng không phải hình vuông.\n- In ra \"HINH KHAC\" nếu không phải hai hình trên.\n(Lưu ý: Tứ giác là hình chữ nhật khi $a = c, b = d$1$a^2 + b^2 = e^2$).\n\nDữ liệu vào: Một dòng gồm 5 số thực $a, b, c, d, e$ ($a, b, c, d, e > 0$).\nDữ liệu ra: Thông báo phân loại hình tương ứng.\n*Giải thích*: eps = 1e-5 được dùng làm sai số cho phép để kiểm tra xem hai cạnh có bằng nhau hay không (abs(a - c) < eps), giúp chương trình tránh được các lỗi sai số làm tròn khi nhập số thực.",
+        "templateCode": "a, b, c, d, e = map(float, input().split())\neps = 1e-5\nla_hcn = (abs(a - c) < eps) and (abs(b - d) < eps) and (abs(a**2 + b**2 - e**2) < 1e-3)\nif la_hcn:\n    if abs(a - b) < eps:\n        print(\"HINH VUONG\")\n    else:\n        print(\"HINH CHU NHAT\")\nelse:\n    print(\"HINH KHAC\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3 4 3 4 5",
+            "expected": "HINH CHU NHAT",
+            "point": 5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5 5 5 5 7.071068",
+            "expected": "HINH VUONG",
             "point": 5,
             "is_hidden": false
           }
