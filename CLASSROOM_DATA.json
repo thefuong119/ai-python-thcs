@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T09:33:46.899Z",
+    "updatedAt": "2026-11-24T09:33:57.672Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 145,
+        "attempts": 146,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "16:33:46 24/11/2026"
+        "lastSubmit": "16:33:57 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795512837529,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát",
+        "assignmentId": 500,
+        "score": 10,
+        "timestamp": "16:33:57 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "actual": "22 14",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "10 28",
+            "expected": "6 4",
+            "actual": "6 4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10 25",
+            "expected": "-1",
+            "actual": "-1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "5 20",
+            "expected": "0 5",
+            "actual": "0 5",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nm = int(NhapVao.split()[0])\nn = int(NhapVao.split()[1])\nif n % 2 == 1: print(-1)\nelse:\n    Ga = 0\n    for i in range(2,n+1,2):\n        if Ga == ((m*2)-(n//2)):\n            Cho = m-Ga\n            print(Ga,Cho)\n            break\n        Ga += 1"
+      },
       {
         "id": 1795512826727,
         "student": "Lê Nguyễn Quang Minh",
@@ -29436,7 +29481,8 @@
         "496": true,
         "497": true,
         "498": true,
-        "499": true
+        "499": true,
+        "500": true
       },
       "hocsinh": {
         "1": true,
@@ -31683,6 +31729,45 @@
             "id": 4,
             "input": "10",
             "expected": "0 1 1 2 3 5 8 13 21 34",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "500": {
+        "id": 500,
+        "title": "Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Trong một trang trại có cả gà và chó với tổng số con là $m$ và tổng số chân là $n$ (biết mỗi con gà có $2$ chân, mỗi con chó có $4$ chân). Nhập hai số nguyên dương $m$ và $n$ trên cùng một dòng. Sử dụng vòng lặp for để tìm số gà và số chó, in ra hai số đó cách nhau bởi dấu cách; nếu không tìm được nghiệm hợp lệ thì in ra -1.",
+        "templateCode": "m, n = map(int, input().split())\ntim_thay = False\nfor ga in range(m + 1):\n cho = m - ga\n if 2 * ga + 4 * cho == n:\n print(ga, cho)\n tim_thay = True\n break\nif not tim_thay:\n print(-1)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "10 28",
+            "expected": "6 4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 25",
+            "expected": "-1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "5 20",
+            "expected": "0 5",
             "point": 2.5,
             "is_hidden": false
           }
