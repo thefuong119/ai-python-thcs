@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T08:25:52.321Z",
+    "updatedAt": "2026-11-24T08:26:37.226Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 134,
+        "attempts": 135,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:25:39 24/11/2026"
+        "lastSubmit": "15:26:37 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795508797047,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 10,
+        "timestamp": "15:26:37 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('Khong')\nelse:\n    if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('Co')\n    else:\n        if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('Khong')\n        else: print('Co')"
+      },
       {
         "id": 1795508739329,
         "student": "Lê Nguyễn Quang Minh",
@@ -28946,6 +28991,7 @@
         "434": true,
         "435": true,
         "436": true,
+        "437": true,
         "492": true,
         "493": true,
         "494": true,
@@ -31150,7 +31196,7 @@
       "minh__Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')",
       "minh__Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\nTien = n*p\nif n < 10: Tien += 0\nelif n < 20: Tien -= Tien*5//100\nelse: Tien -= Tien*10//100\nprint(Tien)",
       "minh__Bài 20 (Rẽ nhánh): Kiểm tra điều kiện tam giác và tính diện tích Heron": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nc = int(NhapVao.split()[2])\nif ((a+b) > c)and((a+c) > b)and((b+c) > a):\n    p = (a+b+c)/2\n    S = (p*(p-a)*(p-b)*(p-c))**0.5\n    print(f'{S:.2f}')\nelse: print(-1)",
-      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": ""
+      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nN = int(input())\nif N == 1: print('Khong')\nelse:\n    if (N == 2)or(N == 3)or(N == 5)or(N == 7): print('Co')\n    else:\n        if (N % 2 == 0)or(N % 3 == 0)or(N % 5 == 0)or(N % 7 == 0): print('Khong')\n        else: print('Co')"
     },
     "questionFlags": {
       "43": true
