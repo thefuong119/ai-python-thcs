@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T09:11:26.747Z",
+    "updatedAt": "2026-11-24T09:11:35.049Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 142,
+        "attempts": 143,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "16:11:26 24/11/2026"
+        "lastSubmit": "16:11:34 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795511494905,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci",
+        "assignmentId": 499,
+        "score": 10,
+        "timestamp": "16:11:34 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5",
+            "expected": "0 1 1 2 3",
+            "actual": "0 1 1 2 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "7",
+            "expected": "0 1 1 2 3 5 8",
+            "actual": "0 1 1 2 3 5 8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "10",
+            "expected": "0 1 1 2 3 5 8 13 21 34",
+            "actual": "0 1 1 2 3 5 8 13 21 34",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n == 1: print('0')\nelse:\n    DaySo = '0 1 '\n    Nhay1 = 0\n    Nhay2 = 1\n    Nhay3 = Nhay1+Nhay2\n    for i in range(n-2):\n        DaySo += str(Nhay3) + ' '\n        Nhay1 = Nhay2\n        Nhay2 = Nhay3\n        Nhay3 = Nhay1+Nhay2\n    print(DaySo[:-1])"
+      },
       {
         "id": 1795511486588,
         "student": "Lê Nguyễn Quang Minh",
@@ -29315,7 +29360,8 @@
         "495": true,
         "496": true,
         "497": true,
-        "498": true
+        "498": true,
+        "499": true
       },
       "hocsinh": {
         "1": true,
@@ -31484,6 +31530,45 @@
             "id": 4,
             "input": "10",
             "expected": "0.6456",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "499": {
+        "id": 499,
+        "title": "Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dãy Fibonacci được định nghĩa bắt đầu bởi hai số $F_1 = 0, F_2 = 1$, từ số thứ ba trở đi mỗi số bằng tổng hai số liền trước ($F_i = F_{i-1} + F_{i-2}$). Nhập số nguyên dương $n$ ($n \\ge 1$), sử dụng vòng lặp for để in ra $n$ số đầu tiên của dãy Fibonacci trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "n = int(input())\na, b = 0, 1\nkq = []\nfor _ in range(n):\n kq.append(str(a))\n a, b = b, a + b\nprint(\" \".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "0 1 1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "7",
+            "expected": "0 1 1 2 3 5 8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "0 1 1 2 3 5 8 13 21 34",
             "point": 2.5,
             "is_hidden": false
           }
