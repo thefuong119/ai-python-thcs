@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T12:24:31.094Z",
+    "updatedAt": "2026-11-24T12:27:23.521Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 32,
+        "attempts": 33,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "19:24:30 24/11/2026"
+        "lastSubmit": "19:27:23 24/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795523243192,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 6. Tính chu vi và diện tích hình chữ nhật",
+        "assignmentId": 6,
+        "score": 10,
+        "timestamp": "19:27:23 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "16\n15",
+            "actual": "16\n15",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 20",
+            "expected": "60\n200",
+            "actual": "60\n200",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Đọc dữ liệu từ bàn phím\nn, s= map(int, input().split())\nP= 2*(n+s)\nS= n*s\nprint(P)\nprint(S)"
+      },
       {
         "id": 1795523070777,
         "student": "Nguyễn Phú Lộc",
@@ -29911,7 +29940,8 @@
         "2": true,
         "3": true,
         "4": true,
-        "5": true
+        "5": true,
+        "6": true
       },
       "minh": {
         "1": true,
@@ -32648,7 +32678,8 @@
       "minh__Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát": "# Viết mã Python của em ở đây...\nNhapVao = input()\nm = int(NhapVao.split()[0])\nn = int(NhapVao.split()[1])\nif n % 2 == 1: print(-1)\nelse:\n    Ga = 0\n    for i in range(2,n+1,2):\n        if Ga == ((m*2)-(n//2)):\n            Cho = m-Ga\n            print(Ga,Cho)\n            break\n        Ga += 1",
       "minh__Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nChinhPhuong = 0\nfor i in range(a,b+1):\n    CanBac2 = str(i**0.5)\n    if (CanBac2.split('.'))[1] == '0':\n        ChinhPhuong += 1\nprint(ChinhPhuong)",
       "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')",
-      "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)"
+      "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)",
+      "loc__Bài 6. Tính chu vi và diện tích hình chữ nhật": "# Đọc dữ liệu từ bàn phím\nn, s= map(int, input().split())\nP= 2*(n+s)\nS= n*s\nprint(P)\nprint(S)"
     },
     "questionFlags": {
       "43": true
