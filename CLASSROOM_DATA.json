@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T12:49:26.489Z",
+    "updatedAt": "2026-11-24T12:51:00.083Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 155,
+        "attempts": 156,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:27:27 24/11/2026"
+        "lastSubmit": "19:50:59 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795524659903,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 29 (Vòng lặp while): Chuyển đổi số nguyên dương sang hệ nhị phân",
+        "assignmentId": 445,
+        "score": 10,
+        "timestamp": "19:50:59 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "10",
+            "expected": "1010",
+            "actual": "1010",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "25",
+            "expected": "11001",
+            "actual": "11001",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "64",
+            "expected": "1000000",
+            "actual": "1000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nNhiPhan = ''\nwhile n > 0:\n    NhiPhan = str(n%2) + NhiPhan\n    n //= 2\nprint(NhiPhan)"
+      },
       {
         "id": 1795519647837,
         "student": "Lê Nguyễn Quang Minh",
@@ -29882,6 +29927,7 @@
         "441": true,
         "442": true,
         "443": true,
+        "445": true,
         "492": true,
         "493": true,
         "494": true,
@@ -31911,6 +31957,45 @@
           }
         ]
       },
+      "445": {
+        "id": 445,
+        "title": "Bài 29 (Vòng lặp while): Chuyển đổi số nguyên dương sang hệ nhị phân",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while (thuật toán chia liên tiếp cho $2$ lấy phần dư) để chuyển đổi số $n$ từ hệ thập phân sang biểu diễn nhị phân và in kết quả ra màn hình.",
+        "templateCode": "n = int(input())\nnhi_phan = \"\"\nwhile n > 0:\n nhi_phan = str(n % 2) + nhi_phan\n n //= 2\nprint(nhi_phan)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "10",
+            "expected": "1010",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "25",
+            "expected": "11001",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "64",
+            "expected": "1000000",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "492": {
         "id": 492,
         "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
@@ -32567,7 +32652,8 @@
       "minh__Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát": "# Viết mã Python của em ở đây...\nNhapVao = input()\nm = int(NhapVao.split()[0])\nn = int(NhapVao.split()[1])\nif n % 2 == 1: print(-1)\nelse:\n    Ga = 0\n    for i in range(2,n+1,2):\n        if Ga == ((m*2)-(n//2)):\n            Cho = m-Ga\n            print(Ga,Cho)\n            break\n        Ga += 1",
       "minh__Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nChinhPhuong = 0\nfor i in range(a,b+1):\n    CanBac2 = str(i**0.5)\n    if (CanBac2.split('.'))[1] == '0':\n        ChinhPhuong += 1\nprint(ChinhPhuong)",
       "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')",
-      "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)"
+      "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)",
+      "minh__Bài 29 (Vòng lặp while): Chuyển đổi số nguyên dương sang hệ nhị phân": "# Viết mã Python của em ở đây...\nn = int(input())\nNhiPhan = ''\nwhile n > 0:\n    NhiPhan = str(n%2) + NhiPhan\n    n //= 2\nprint(NhiPhan)"
     },
     "questionFlags": {
       "43": true
