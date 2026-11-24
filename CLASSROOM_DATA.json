@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T11:23:19.957Z",
+    "updatedAt": "2026-11-24T11:23:24.810Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 150,
+        "attempts": 151,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:23:19 24/11/2026"
+        "lastSubmit": "18:23:22 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795519402248,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)",
+        "assignmentId": 442,
+        "score": 10,
+        "timestamp": "18:23:22 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "12321",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1234",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "7",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
+      },
       {
         "id": 1795519399802,
         "student": "Lê Nguyễn Quang Minh",
