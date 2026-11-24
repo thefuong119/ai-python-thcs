@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T11:23:11.991Z",
+    "updatedAt": "2026-11-24T11:23:19.957Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 149,
+        "attempts": 150,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:22:31 24/11/2026"
+        "lastSubmit": "18:23:19 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795519399802,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)",
+        "assignmentId": 442,
+        "score": 10,
+        "timestamp": "18:23:19 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "12321",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1234",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "7",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "100",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
+      },
       {
         "id": 1795519351866,
         "student": "Lê Nguyễn Quang Minh",
@@ -32215,7 +32260,7 @@
       "minh__Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci": "# Viết mã Python của em ở đây...\nn = int(input())\nif n == 1: print('0')\nelse:\n    DaySo = '0 1 '\n    Nhay1 = 0\n    Nhay2 = 1\n    Nhay3 = Nhay1+Nhay2\n    for i in range(n-2):\n        DaySo += str(Nhay3) + ' '\n        Nhay1 = Nhay2\n        Nhay2 = Nhay3\n        Nhay3 = Nhay1+Nhay2\n    print(DaySo[:-1])",
       "minh__Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát": "# Viết mã Python của em ở đây...\nNhapVao = input()\nm = int(NhapVao.split()[0])\nn = int(NhapVao.split()[1])\nif n % 2 == 1: print(-1)\nelse:\n    Ga = 0\n    for i in range(2,n+1,2):\n        if Ga == ((m*2)-(n//2)):\n            Cho = m-Ga\n            print(Ga,Cho)\n            break\n        Ga += 1",
       "minh__Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nChinhPhuong = 0\nfor i in range(a,b+1):\n    CanBac2 = str(i**0.5)\n    if (CanBac2.split('.'))[1] == '0':\n        ChinhPhuong += 1\nprint(ChinhPhuong)",
-      "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('NO')\nelse: print('YES')"
+      "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
     },
     "questionFlags": {
       "43": true
