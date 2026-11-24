@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T08:25:17.867Z",
+    "updatedAt": "2026-11-24T08:25:26.020Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 130,
+        "attempts": 133,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:25:17 24/11/2026"
+        "lastSubmit": "15:25:25 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,141 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795508725879,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 0,
+        "timestamp": "15:25:25 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "n = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    la_nt = True\n    for i in range(2, int(n ** 0.5) + 1):\n    if n % i == 0:\n    la_nt = False\n    break\n    if la_nt:\n    print(\"Co\")\n    else:\n    print(\"Khong\")"
+      },
+      {
+        "id": 1795508725015,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 0,
+        "timestamp": "15:25:25 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "n = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    la_nt = True\n    for i in range(2, int(n ** 0.5) + 1):\n    if n % i == 0:\n    la_nt = False\n    break\n    if la_nt:\n    print(\"Co\")\n    else:\n    print(\"Khong\")"
+      },
+      {
+        "id": 1795508723687,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 437,
+        "score": 0,
+        "timestamp": "15:25:23 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "n = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    la_nt = True\n    for i in range(2, int(n ** 0.5) + 1):\n    if n % i == 0:\n    la_nt = False\n    break\n    if la_nt:\n    print(\"Co\")\n    else:\n    print(\"Khong\")"
+      },
       {
         "id": 1795508717696,
         "student": "Lê Nguyễn Quang Minh",
@@ -30971,7 +31106,7 @@
       "minh__Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')",
       "minh__Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\nTien = n*p\nif n < 10: Tien += 0\nelif n < 20: Tien -= Tien*5//100\nelse: Tien -= Tien*10//100\nprint(Tien)",
       "minh__Bài 20 (Rẽ nhánh): Kiểm tra điều kiện tam giác và tính diện tích Heron": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nc = int(NhapVao.split()[2])\nif ((a+b) > c)and((a+c) > b)and((b+c) > a):\n    p = (a+b+c)/2\n    S = (p*(p-a)*(p-b)*(p-c))**0.5\n    print(f'{S:.2f}')\nelse: print(-1)",
-      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "n = int(input())\nif n < 2:\n print(\"Khong\")\nelse:\n la_nt = True\n for i in range(2, int(n ** 0.5) + 1):\n if n % i == 0:\n la_nt = False\n break\n if la_nt:\n print(\"Co\")\n else:\n print(\"Khong\")"
+      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "n = int(input())\nif n < 2:\n    print(\"Khong\")\nelse:\n    la_nt = True\n    for i in range(2, int(n ** 0.5) + 1):\n    if n % i == 0:\n    la_nt = False\n    break\n    if la_nt:\n    print(\"Co\")\n    else:\n    print(\"Khong\")"
     },
     "questionFlags": {
       "43": true
