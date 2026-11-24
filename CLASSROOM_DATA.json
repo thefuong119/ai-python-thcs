@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T08:29:27.666Z",
+    "updatedAt": "2026-11-24T08:29:38.064Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 137,
+        "attempts": 138,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:29:27 24/11/2026"
+        "lastSubmit": "15:29:34 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795508974766,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "assignmentId": 497,
+        "score": 10,
+        "timestamp": "15:29:34 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "17",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "25",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2: print('Khong')\nelse:\n    Xet = '2357'\n    flag = 1\n    for i in Xet:\n        if n == int(i):\n            break\n        if n % int(i) == 0:\n            flag = 0\n            break\n    if flag == 1: print('Co')\n    else: print('Khong')"
+      },
       {
         "id": 1795508967497,
         "student": "Lê Nguyễn Quang Minh",
@@ -29086,7 +29131,8 @@
         "493": true,
         "494": true,
         "495": true,
-        "496": true
+        "496": true,
+        "497": true
       },
       "hocsinh": {
         "1": true,
@@ -31099,6 +31145,45 @@
             "id": 4,
             "input": "7 8 9",
             "expected": "26.83",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "497": {
+        "id": 497,
+        "title": "Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào một số nguyên $n$. Sử dụng vòng lặp for để kiểm tra xem $n$ có phải là số nguyên tố hay không (số nguyên tố là số nguyên lớn hơn $1$ chỉ có hai ước dương là $1$ và chính nó). Nếu phải in ra Co, ngược lại in ra Khong.",
+        "templateCode": "n = int(input())\nif n < 2:\n print(\"Khong\")\nelse:\n la_nt = True\n for i in range(2, int(n ** 0.5) + 1):\n if n % i == 0:\n la_nt = False\n break\n if la_nt:\n print(\"Co\")\n else:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "17",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "25",
+            "expected": "Khong",
             "point": 2.5,
             "is_hidden": false
           }
