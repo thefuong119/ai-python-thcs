@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T13:49:05.360Z",
+    "updatedAt": "2026-11-24T13:49:13.908Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 158,
+        "attempts": 159,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:49:05 24/11/2026"
+        "lastSubmit": "20:49:11 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795528151784,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu",
+        "assignmentId": 504,
+        "score": 10,
+        "timestamp": "20:49:11 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "1000 1200 5",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "5000 5500 10",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2000 3000 8",
+            "expected": "6",
+            "actual": "6",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "10000 20000 10",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split()[0])\nM = int(NhapVao.split()[1])\nr = float(NhapVao.split()[2])\nNgay = 0\nwhile P < M:\n    P += P*r/100\n    Ngay += 1\nprint(Ngay)"
+      },
       {
         "id": 1795528145201,
         "student": "Lê Nguyễn Quang Minh",
@@ -30031,6 +30076,7 @@
         "501": true,
         "502": true,
         "503": true,
+        "504": true,
         "505": true
       },
       "hocsinh": {
@@ -32590,6 +32636,45 @@
             "id": 4,
             "input": "7",
             "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "504": {
+        "id": 504,
+        "title": "Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Một người gửi tiết kiệm ban đầu $P$ đồng vào ngân hàng với lãi suất $r\\%$ mỗi tháng (lãi nhập gốc sau mỗi tháng). Nhập vào hai số nguyên dương $P, M$ ($P < M$) và số thực $r$ ($r > 0$) trên cùng một dòng. Sử dụng vòng lặp while để tính số tháng ít nhất cần gửi để tổng số tiền nhận được lớn hơn hoặc bằng $M$.",
+        "templateCode": "inp = input().split()\np = float(inp[0])\nm = float(inp[1])\nr = float(inp[2])\nthang = 0\nwhile p < m:\n p = p * (1 + r / 100)\n thang += 1\nprint(thang)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1000 1200 5",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "5000 5500 10",
+            "expected": "1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2000 3000 8",
+            "expected": "6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10000 20000 10",
+            "expected": "8",
             "point": 2.5,
             "is_hidden": false
           }
