@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T08:42:49.230Z",
+    "updatedAt": "2026-11-24T08:44:13.776Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 138,
+        "attempts": 139,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:29:34 24/11/2026"
+        "lastSubmit": "15:44:13 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795509853615,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu",
+        "assignmentId": 498,
+        "score": 10,
+        "timestamp": "15:44:13 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "1",
+            "expected": "1.0000",
+            "actual": "1.0000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "2",
+            "expected": "0.5000",
+            "actual": "0.5000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "4",
+            "expected": "0.5833",
+            "actual": "0.5833",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "10",
+            "expected": "0.6456",
+            "actual": "0.6456",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nS = 0\nfor i in range(1,n+1):\n    if (i-1) % 2 == 0:\n        S -= (-1**(i-1))/i\n    else:\n        S += (-1**(i-1))/i\nprint(f'{S:.4f}')"
+      },
       {
         "id": 1795508974766,
         "student": "Lê Nguyễn Quang Minh",
@@ -29132,7 +29177,8 @@
         "494": true,
         "495": true,
         "496": true,
-        "497": true
+        "497": true,
+        "498": true
       },
       "hocsinh": {
         "1": true,
@@ -31188,6 +31234,45 @@
             "is_hidden": false
           }
         ]
+      },
+      "498": {
+        "id": 498,
+        "title": "Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập vào số nguyên dương $n$. Sử dụng vòng lặp for để tính giá trị biểu thức $S = 1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\dots + \\frac{(-1)^{n-1}}{n}$. In ra kết quả làm tròn đến $4$ chữ số thập phân.",
+        "templateCode": "n = int(input())\ns = 0.0\nfor i in range(1, n + 1):\n if i % 2 == 1:\n s += 1 / i\n else:\n s -= 1 / i\nprint(f\"{s:.4f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1",
+            "expected": "1.0000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2",
+            "expected": "0.5000",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "4",
+            "expected": "0.5833",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "0.6456",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
       }
     },
     "testSets": [
@@ -31371,7 +31456,8 @@
       "minh__Bài 18 (Rẽ nhánh): Giải phương trình bậc nhất ax + b = 0": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nif a == b == 0: print('Vo so nghiem')\nelif a == 0 and b != 0: print('Vo nghiem')\nelse: print(f'{-b/a:.2f}')",
       "minh__Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\nTien = n*p\nif n < 10: Tien += 0\nelif n < 20: Tien -= Tien*5//100\nelse: Tien -= Tien*10//100\nprint(Tien)",
       "minh__Bài 20 (Rẽ nhánh): Kiểm tra điều kiện tam giác và tính diện tích Heron": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nc = int(NhapVao.split()[2])\nif ((a+b) > c)and((a+c) > b)and((b+c) > a):\n    p = (a+b+c)/2\n    S = (p*(p-a)*(p-b)*(p-c))**0.5\n    print(f'{S:.2f}')\nelse: print(-1)",
-      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2: print('Khong')\nelse:\n    Xet = '2357'\n    flag = 1\n    for i in Xet:\n        if n == int(i):\n            break\n        if n % int(i) == 0:\n            flag = 0\n            break\n    if flag == 1: print('Co')\n    else: print('Khong')"
+      "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2: print('Khong')\nelse:\n    Xet = '2357'\n    flag = 1\n    for i in Xet:\n        if n == int(i):\n            break\n        if n % int(i) == 0:\n            flag = 0\n            break\n    if flag == 1: print('Co')\n    else: print('Khong')",
+      "minh__Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu": "# Viết mã Python của em ở đây...\nn = int(input())\nS = 0\nfor i in range(1,n+1):\n    if (i-1) % 2 == 0:\n        S -= (-1**(i-1))/i\n    else:\n        S += (-1**(i-1))/i\nprint(f'{S:.4f}')"
     },
     "questionFlags": {
       "43": true
