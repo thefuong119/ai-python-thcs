@@ -1,8 +1,8 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T10:39:49.122Z",
-    "updatedBy": "Giáo viên Demo",
+    "updatedAt": "2026-11-24T11:00:42.657Z",
+    "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
   "data": {
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 10,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -28755,13 +28755,6 @@
       }
     ],
     "loginLogs": [
-      {
-        "time": "17:39:12 24/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Thành công"
-      },
       {
         "time": "15:07:08 24/11/2026",
         "name": "Lê Nguyễn Quang Minh",
