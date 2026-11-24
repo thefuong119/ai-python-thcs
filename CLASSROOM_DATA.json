@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T09:43:53.656Z",
+    "updatedAt": "2026-11-24T09:44:02.649Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 147,
+        "attempts": 148,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "16:43:53 24/11/2026"
+        "lastSubmit": "16:43:59 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795513439263,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]",
+        "assignmentId": 501,
+        "score": 10,
+        "timestamp": "16:43:59 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "1 10",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "4 25",
+            "expected": "4",
+            "actual": "4",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10 15",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1 100",
+            "expected": "10",
+            "actual": "10",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nChinhPhuong = 0\nfor i in range(a,b+1):\n    CanBac2 = str(i**0.5)\n    if (CanBac2.split('.'))[1] == '0':\n        ChinhPhuong += 1\nprint(ChinhPhuong)"
+      },
       {
         "id": 1795513433475,
         "student": "Lê Nguyễn Quang Minh",
@@ -29528,7 +29573,8 @@
         "497": true,
         "498": true,
         "499": true,
-        "500": true
+        "500": true,
+        "501": true
       },
       "hocsinh": {
         "1": true,
@@ -31853,6 +31899,45 @@
             "id": 4,
             "input": "5 20",
             "expected": "0 5",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "501": {
+        "id": 501,
+        "title": "Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Số chính phương là số bằng bình phương của một số nguyên không âm (ví dụ $0, 1, 4, 9, 16, \\dots$). Nhập vào hai số nguyên dương $a$ và $b$ ($1 \\le a \\le b \\le 10000$). Sử dụng vòng lặp for để đếm xem trong đoạn $[a, b]$ có bao nhiêu số chính phương.",
+        "templateCode": "import math\na, b = map(int, input().split())\ndem = 0\nfor i in range(a, b + 1):\n can = math.isqrt(i)\n if can * can == i:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "1 10",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4 25",
+            "expected": "4",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10 15",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "1 100",
+            "expected": "10",
             "point": 2.5,
             "is_hidden": false
           }
