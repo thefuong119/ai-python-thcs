@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T11:27:26.679Z",
+    "updatedAt": "2026-11-24T11:27:35.035Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 154,
+        "attempts": 155,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:27:26 24/11/2026"
+        "lastSubmit": "18:27:27 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795519647837,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
+        "assignmentId": 503,
+        "score": 10,
+        "timestamp": "18:27:27 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "38294",
+            "expected": "9",
+            "actual": "9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "5012",
+            "expected": "5",
+            "actual": "5",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1111",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "7",
+            "expected": "7",
+            "actual": "7",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)"
+      },
       {
         "id": 1795519646542,
         "student": "Lê Nguyễn Quang Minh",
