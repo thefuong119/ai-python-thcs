@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T13:57:08.966Z",
+    "updatedAt": "2026-11-24T13:57:16.193Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 161,
+        "attempts": 162,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:08 24/11/2026"
+        "lastSubmit": "20:57:16 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795528636026,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm",
+        "assignmentId": 506,
+        "score": 10,
+        "timestamp": "20:57:16 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "4\n8\n6\n-1",
+            "expected": "6.00",
+            "actual": "6.00",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-5",
+            "expected": "0.00",
+            "actual": "0.00",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10\n0\n5\n-2",
+            "expected": "5.00",
+            "actual": "5.00",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "7\n8\n-1",
+            "expected": "7.50",
+            "actual": "7.50",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 0: print('0.00')\nelse:\n    Dem = 0\n    Tong = 0\n    while n >= 0:\n        Dem += 1\n        Tong += n\n        n = int(input())\n    print(f'{Tong/Dem:.2f}')"
+      },
       {
         "id": 1795528628807,
         "student": "Lê Nguyễn Quang Minh",
@@ -30168,7 +30213,8 @@
         "502": true,
         "503": true,
         "504": true,
-        "505": true
+        "505": true,
+        "506": true
       },
       "hocsinh": {
         "1": true,
@@ -32844,6 +32890,45 @@
             "id": 4,
             "input": "64",
             "expected": "1000000",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "506": {
+        "id": 506,
+        "title": "Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Nhập liên tiếp các số nguyên, mỗi số trên một dòng. Quá trình nhập dừng lại ngay khi gặp một số âm ($< 0$). Sử dụng vòng lặp while để tính trung bình cộng của tất cả các số không âm ($\\ge 0$) đã nhập trước đó và in ra kết quả làm tròn đến $2$ chữ số thập phân; nếu chưa có số không âm nào được nhập thì in ra 0.00.",
+        "templateCode": "tong = 0\ndem = 0\nx = int(input())\nwhile x >= 0:\n tong += x\n dem += 1\n x = int(input())\nif dem == 0:\n print(\"0.00\")\nelse:\n print(f\"{tong / dem:.2f}\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "4\n8\n6\n-1",
+            "expected": "6.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "-5",
+            "expected": "0.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10\n0\n5\n-2",
+            "expected": "5.00",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "7\n8\n-1",
+            "expected": "7.50",
             "point": 2.5,
             "is_hidden": false
           }
