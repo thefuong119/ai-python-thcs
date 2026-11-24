@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T09:11:35.049Z",
+    "updatedAt": "2026-11-24T09:12:57.739Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 143,
+        "attempts": 144,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "16:11:34 24/11/2026"
+        "lastSubmit": "16:12:57 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,35 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795511577542,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài toán cổ: Vừa gà vừa chó",
+        "assignmentId": 289,
+        "score": 10,
+        "timestamp": "16:12:57 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "36 100",
+            "expected": "22 14",
+            "actual": "22 14",
+            "passed": true,
+            "points": 5
+          },
+          {
+            "testId": 2,
+            "input": "10 25",
+            "expected": "VO NGHIEM",
+            "actual": "VO NGHIEM",
+            "passed": true,
+            "points": 5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split(' ')[0])\nm = int(NhapVao.split(' ')[1])\nif m % 2 == 0:\n    print(n*2-m//2,n-(n*2-m//2))\nelse: print('VO NGHIEM')"
+      },
       {
         "id": 1795511494905,
         "student": "Lê Nguyễn Quang Minh",
