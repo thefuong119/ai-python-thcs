@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T11:24:43.914Z",
+    "updatedAt": "2026-11-24T11:27:13.750Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 152,
+        "attempts": 153,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "18:23:30 24/11/2026"
+        "lastSubmit": "18:27:13 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795519633576,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
+        "assignmentId": 443,
+        "score": 10,
+        "timestamp": "18:27:13 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "38294",
+            "expected": "9",
+            "actual": "9",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "5012",
+            "expected": "5",
+            "actual": "5",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1111",
+            "expected": "1",
+            "actual": "1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "7",
+            "expected": "7",
+            "actual": "7",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)"
+      },
       {
         "id": 1795519410000,
         "student": "Lê Nguyễn Quang Minh",
@@ -29746,6 +29791,7 @@
         "440": true,
         "441": true,
         "442": true,
+        "443": true,
         "492": true,
         "493": true,
         "494": true,
@@ -31742,7 +31788,7 @@
         "difficulty": "medium",
         "timeLimit": 2,
         "description": "Nhập vào một số nguyên dương $n$. Sử dụng vòng lặp while để tách từng chữ số của $n$, từ đó tìm và in ra chữ số lớn nhất xuất hiện trong $n$.",
-        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n max_cs = cs\n n //= 10\nprint(max_cs)",
+        "templateCode": "n = int(input())\nmax_cs = 0\nwhile n > 0:\n cs = n % 10\n if cs > max_cs:\n    max_cs = cs\n n //= 10\nprint(max_cs)",
         "tests": [
           {
             "id": 1,
@@ -32390,7 +32436,8 @@
       "minh__Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci": "# Viết mã Python của em ở đây...\nn = int(input())\nif n == 1: print('0')\nelse:\n    DaySo = '0 1 '\n    Nhay1 = 0\n    Nhay2 = 1\n    Nhay3 = Nhay1+Nhay2\n    for i in range(n-2):\n        DaySo += str(Nhay3) + ' '\n        Nhay1 = Nhay2\n        Nhay2 = Nhay3\n        Nhay3 = Nhay1+Nhay2\n    print(DaySo[:-1])",
       "minh__Bài 24 (Vòng lặp for): Bài toán cổ Vừa gà vừa chó tổng quát": "# Viết mã Python của em ở đây...\nNhapVao = input()\nm = int(NhapVao.split()[0])\nn = int(NhapVao.split()[1])\nif n % 2 == 1: print(-1)\nelse:\n    Ga = 0\n    for i in range(2,n+1,2):\n        if Ga == ((m*2)-(n//2)):\n            Cho = m-Ga\n            print(Ga,Cho)\n            break\n        Ga += 1",
       "minh__Bài 25 (Vòng lặp for): Đếm số lượng số chính phương trong đoạn [a, b]": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nChinhPhuong = 0\nfor i in range(a,b+1):\n    CanBac2 = str(i**0.5)\n    if (CanBac2.split('.'))[1] == '0':\n        ChinhPhuong += 1\nprint(ChinhPhuong)",
-      "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
+      "minh__Bài 26 (Vòng lặp while): Kiểm tra số đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nn = input()\ni = 0\nflag = 1\nwhile i < len(n)//2:\n    if n[i] != n[len(n)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')",
+      "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)"
     },
     "questionFlags": {
       "43": true
