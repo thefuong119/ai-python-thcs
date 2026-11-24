@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-24T09:07:49.638Z",
+    "updatedAt": "2026-11-24T09:11:26.747Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 141,
+        "attempts": 142,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "15:45:00 24/11/2026"
+        "lastSubmit": "16:11:26 24/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795511486588,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci",
+        "assignmentId": 439,
+        "score": 10,
+        "timestamp": "16:11:26 24/11/2026",
+        "date": "2026-11-24",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5",
+            "expected": "0 1 1 2 3",
+            "actual": "0 1 1 2 3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "1",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "7",
+            "expected": "0 1 1 2 3 5 8",
+            "actual": "0 1 1 2 3 5 8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "10",
+            "expected": "0 1 1 2 3 5 8 13 21 34",
+            "actual": "0 1 1 2 3 5 8 13 21 34",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nn = int(input())\nif n == 1: print('0')\nelse:\n    DaySo = '0 1 '\n    Nhay1 = 0\n    Nhay2 = 1\n    Nhay3 = Nhay1+Nhay2\n    for i in range(n-2):\n        DaySo += str(Nhay3) + ' '\n        Nhay1 = Nhay2\n        Nhay2 = Nhay3\n        Nhay3 = Nhay1+Nhay2\n    print(DaySo[:-1])"
+      },
       {
         "id": 1795509900155,
         "student": "Lê Nguyễn Quang Minh",
@@ -29263,6 +29308,7 @@
         "436": true,
         "437": true,
         "438": true,
+        "439": true,
         "492": true,
         "493": true,
         "494": true,
@@ -31092,6 +31138,45 @@
           }
         ]
       },
+      "439": {
+        "id": 439,
+        "title": "Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci",
+        "classLevel": "8",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Dãy Fibonacci được định nghĩa bắt đầu bởi hai số $F_1 = 0, F_2 = 1$, từ số thứ ba trở đi mỗi số bằng tổng hai số liền trước ($F_i = F_{i-1} + F_{i-2}$). Nhập số nguyên dương $n$ ($n \\ge 1$), sử dụng vòng lặp for để in ra $n$ số đầu tiên của dãy Fibonacci trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "n = int(input())\na, b = 0, 1\nkq = []\nfor _ in range(n):\n kq.append(str(a))\n a, b = b, a + b\nprint(\" \".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "5",
+            "expected": "0 1 1 2 3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "1",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "7",
+            "expected": "0 1 1 2 3 5 8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "10",
+            "expected": "0 1 1 2 3 5 8 13 21 34",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "443": {
         "id": 443,
         "title": "Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n",
@@ -31587,7 +31672,8 @@
       "minh__Bài 19 (Rẽ nhánh): Tính tiền mua hàng có khuyến mãi theo bậc": "# Viết mã Python của em ở đây...\nNhapVao = input()\nn = int(NhapVao.split()[0])\np = int(NhapVao.split()[1])\nTien = n*p\nif n < 10: Tien += 0\nelif n < 20: Tien -= Tien*5//100\nelse: Tien -= Tien*10//100\nprint(Tien)",
       "minh__Bài 20 (Rẽ nhánh): Kiểm tra điều kiện tam giác và tính diện tích Heron": "# Viết mã Python của em ở đây...\nNhapVao = input()\na = int(NhapVao.split()[0])\nb = int(NhapVao.split()[1])\nc = int(NhapVao.split()[2])\nif ((a+b) > c)and((a+c) > b)and((b+c) > a):\n    p = (a+b+c)/2\n    S = (p*(p-a)*(p-b)*(p-c))**0.5\n    print(f'{S:.2f}')\nelse: print(-1)",
       "minh__Bài 21 (Vòng lặp for): Kiểm tra số nguyên tố": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 2: print('Khong')\nelse:\n    Xet = '2357'\n    flag = 1\n    for i in Xet:\n        if n == int(i):\n            break\n        if n % int(i) == 0:\n            flag = 0\n            break\n    if flag == 1: print('Co')\n    else: print('Khong')",
-      "minh__Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu": "# Viết mã Python của em ở đây...\nn = int(input())\nS = 0\nfor i in range(1,n+1):\n    if (i-1) % 2 == 0:\n        S -= (-1**(i-1))/i\n    else:\n        S += (-1**(i-1))/i\nprint(f'{S:.4f}')"
+      "minh__Bài 22 (Vòng lặp for): Tính tổng dãy phân số đan dấu": "# Viết mã Python của em ở đây...\nn = int(input())\nS = 0\nfor i in range(1,n+1):\n    if (i-1) % 2 == 0:\n        S -= (-1**(i-1))/i\n    else:\n        S += (-1**(i-1))/i\nprint(f'{S:.4f}')",
+      "minh__Bài 23 (Vòng lặp for): In ra n số đầu tiên của dãy Fibonacci": "# Viết mã Python của em ở đây...\nn = int(input())\nif n == 1: print('0')\nelse:\n    DaySo = '0 1 '\n    Nhay1 = 0\n    Nhay2 = 1\n    Nhay3 = Nhay1+Nhay2\n    for i in range(n-2):\n        DaySo += str(Nhay3) + ' '\n        Nhay1 = Nhay2\n        Nhay2 = Nhay3\n        Nhay3 = Nhay1+Nhay2\n    print(DaySo[:-1])"
     },
     "questionFlags": {
       "43": true
