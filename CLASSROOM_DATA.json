@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-25T01:35:09.039Z",
+    "updatedAt": "2026-11-25T01:35:49.078Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 162,
+        "attempts": 163,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "20:57:16 24/11/2026"
+        "lastSubmit": "08:35:48 25/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795570548920,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu",
+        "assignmentId": 462,
+        "score": 10,
+        "timestamp": "08:35:48 25/11/2026",
+        "date": "2026-11-25",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Python3.11@2026",
+            "expected": "6 7",
+            "actual": "6 7",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "HSG Tin Hoc 8",
+            "expected": "9 1",
+            "actual": "9 1",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "123456",
+            "expected": "0 6",
+            "actual": "0 6",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "!@#$%^&*()",
+            "expected": "0 0",
+            "actual": "0 0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)"
+      },
       {
         "id": 1795528636026,
         "student": "Lê Nguyễn Quang Minh",
@@ -30207,6 +30252,7 @@
         "444": true,
         "445": true,
         "446": true,
+        "462": true,
         "492": true,
         "493": true,
         "494": true,
@@ -32356,6 +32402,45 @@
           }
         ]
       },
+      "462": {
+        "id": 462,
+        "title": "Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ (không chứa dấu xuống dòng). Hãy đếm xem trong xâu $S$ có bao nhiêu ký tự là chữ cái tiếng Anh và bao nhiêu ký tự là chữ số. In ra hai số nguyên tìm được trên cùng một dòng, cách nhau bởi một dấu cách.",
+        "templateCode": "s = input()\nchu_cai = 0\nchu_so = 0\nfor ch in s:\n if ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):\n chu_cai += 1\n elif '0' <= ch <= '9':\n chu_so += 1\nprint(chu_cai, chu_so)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Python3.11@2026",
+            "expected": "6 7",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "HSG Tin Hoc 8",
+            "expected": "9 1",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "123456",
+            "expected": "0 6",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "!@#$%^&*()",
+            "expected": "0 0",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "492": {
         "id": 492,
         "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
@@ -33132,7 +33217,8 @@
       "minh__Bài 27 (Vòng lặp while): Tìm chữ số lớn nhất của số nguyên dương n": "# Viết mã Python của em ở đây...\nn = int(input())\nMax = 0\nwhile n > 0:\n    if n % 10 > Max:\n        Max = n % 10\n    n //= 10\nprint(Max)",
       "minh__Bài 29 (Vòng lặp while): Chuyển đổi số nguyên dương sang hệ nhị phân": "# Viết mã Python của em ở đây...\nn = int(input())\nNhiPhan = ''\nwhile n > 0:\n    NhiPhan = str(n%2) + NhiPhan\n    n //= 2\nprint(NhiPhan)",
       "minh__Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split()[0])\nM = int(NhapVao.split()[1])\nr = float(NhapVao.split()[2])\nNgay = 0\nwhile P < M:\n    P += P*r/100\n    Ngay += 1\nprint(Ngay)",
-      "minh__Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 0: print('0.00')\nelse:\n    Dem = 0\n    Tong = 0\n    while n >= 0:\n        Dem += 1\n        Tong += n\n        n = int(input())\n    print(f'{Tong/Dem:.2f}')"
+      "minh__Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 0: print('0.00')\nelse:\n    Dem = 0\n    Tong = 0\n    while n >= 0:\n        Dem += 1\n        Tong += n\n        n = int(input())\n    print(f'{Tong/Dem:.2f}')",
+      "minh__Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)"
     },
     "questionFlags": {
       "43": true
