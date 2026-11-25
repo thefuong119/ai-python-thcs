@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-25T16:39:11.549Z",
+    "updatedAt": "2026-11-25T16:40:06.301Z",
     "updatedBy": "Giáo viên Demo",
-    "action": "Phát đề cho học sinh: ĐỀ KIỂM TRA LẦN 1 - 03/11/2026"
+    "action": "Đăng xuất: Giáo viên Demo"
   },
   "data": {
     "registeredUsers": [
@@ -29565,6 +29565,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:40:06 25/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Đăng xuất"
+      },
       {
         "time": "23:36:48 25/11/2026",
         "name": "Giáo viên Demo",
