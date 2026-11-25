@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-25T16:24:06.945Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
+    "updatedAt": "2026-11-25T16:39:11.549Z",
+    "updatedBy": "Giáo viên Demo",
+    "action": "Phát đề cho học sinh: ĐỀ KIỂM TRA LẦN 1 - 03/11/2026"
   },
   "data": {
     "registeredUsers": [
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 9,
+        "loginCount": 10,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -29565,6 +29565,13 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "23:36:48 25/11/2026",
+        "name": "Giáo viên Demo",
+        "identifier": "giaovien",
+        "role": "teacher",
+        "result": "Thành công"
+      },
       {
         "time": "22:26:47 25/11/2026",
         "name": "Nguyễn Phú Lộc",
