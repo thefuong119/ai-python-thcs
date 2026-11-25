@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-25T16:15:31.583Z",
+    "updatedAt": "2026-11-25T16:24:06.945Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 31,
+        "attempts": 32,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "23:00:46 25/11/2026"
+        "lastSubmit": "23:24:06 25/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795623846619,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 7. Chuỗi đơn điệu",
+        "assignmentId": 7,
+        "score": 10,
+        "timestamp": "23:24:06 25/11/2026",
+        "date": "2026-11-25",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "ABACBD",
+            "expected": "ABCD",
+            "actual": "ABCD",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "BACBCD",
+            "expected": "BCD",
+            "actual": "BCD",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "FEDCBA",
+            "expected": "F",
+            "actual": "F",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "ACEGIK",
+            "expected": "ACEGIK",
+            "actual": "ACEGIK",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n"
+      },
       {
         "id": 1795622446813,
         "student": "Nguyễn Phú Lộc",
@@ -33357,7 +33402,7 @@
       "minh__Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split()[0])\nM = int(NhapVao.split()[1])\nr = float(NhapVao.split()[2])\nNgay = 0\nwhile P < M:\n    P += P*r/100\n    Ngay += 1\nprint(Ngay)",
       "minh__Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 0: print('0.00')\nelse:\n    Dem = 0\n    Tong = 0\n    while n >= 0:\n        Dem += 1\n        Tong += n\n        n = int(input())\n    print(f'{Tong/Dem:.2f}')",
       "minh__Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)",
-      "loc__Bài 7. Chuỗi đơn điệu": "s= input().strip()\nif s:\n    r= s[0]\n    for i in s[:1]:\n        if i>r[-1]:\n            i+= r\n    print(r)"
+      "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n"
     },
     "questionFlags": {
       "43": true
