@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T04:48:26.950Z",
-    "updatedBy": "Khách",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-26T13:54:58.092Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Đăng xuất: Học sinh Demo"
   },
   "data": {
     "registeredUsers": [
@@ -239,7 +239,7 @@
         "className": "8A1",
         "role": "student",
         "status": "active",
-        "loginCount": 14,
+        "loginCount": 15,
         "phone": "Zalo cá nhân",
         "_hasPassword": true,
         "contact": "Zalo cá nhân",
@@ -29565,6 +29565,20 @@
       }
     ],
     "loginLogs": [
+      {
+        "time": "20:54:58 26/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Đăng xuất"
+      },
+      {
+        "time": "20:53:42 26/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Thành công"
+      },
       {
         "time": "11:03:01 26/11/2026",
         "name": "Bùi Lê Uyên Nhi",
