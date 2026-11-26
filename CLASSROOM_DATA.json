@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T14:22:57.491Z",
+    "updatedAt": "2026-11-26T14:23:29.810Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 34,
+        "attempts": 35,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "21:22:57 26/11/2026"
+        "lastSubmit": "21:23:29 26/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795703009639,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 1. Tính tổng hai số nguyên A và B",
+        "assignmentId": 1,
+        "score": 10,
+        "timestamp": "21:23:29 26/11/2026",
+        "date": "2026-11-26",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 5",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "-10 25",
+            "expected": "15",
+            "actual": "15",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "1000000000 1000000000",
+            "expected": "2000000000",
+            "actual": "2000000000",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "-500000000 -500000000",
+            "expected": "-1000000000",
+            "actual": "-1000000000",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Mã nguồn cho bài Tính tổng hai số nguyên A và B\n# Đọc dữ liệu từ bàn phím hoặc input.txt\na, b = map(int, input().split())\nprint(a + b)"
+      },
       {
         "id": 1795702977341,
         "student": "Nguyễn Phú Lộc",
