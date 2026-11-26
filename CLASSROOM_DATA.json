@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T14:23:29.810Z",
+    "updatedAt": "2026-11-26T14:24:07.582Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 35,
+        "attempts": 36,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "21:23:29 26/11/2026"
+        "lastSubmit": "21:24:07 26/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795703047430,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 13. Giải nén xâu ký tự",
+        "assignmentId": 18,
+        "score": 10,
+        "timestamp": "21:24:07 26/11/2026",
+        "date": "2026-11-26",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3a5bc",
+            "expected": "aaabbbbbc",
+            "actual": "aaabbbbbc",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "4a3b",
+            "expected": "aaaabbb",
+            "actual": "aaaabbb",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "2a10b1c",
+            "expected": "aabbbbbbbbbbc",
+            "actual": "aabbbbbbbbbbc",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "xyz",
+            "expected": "xyz",
+            "actual": "xyz",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))"
+      },
       {
         "id": 1795703009639,
         "student": "Nguyễn Phú Lộc",
@@ -30504,6 +30549,7 @@
         "6": true,
         "7": true,
         "8": true,
+        "18": true,
         "310": true
       },
       "minh": {
@@ -31090,6 +31136,45 @@
             "id": 4,
             "input": "3 6",
             "expected": "6",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "18": {
+        "id": 18,
+        "title": "Bài 13. Giải nén xâu ký tự",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong nén văn bản, một phương pháp nén đơn giản thay thế các đoạn ký tự lặp liên tiếp bằng số lần lặp kèm theo ký tự đó. Ví dụ: xâu aaaabbb được nén thành 4a3b; xâu aaab nén thành 3ab; nếu ký tự xuất hiện 1 lần thì có thể không ghi số (ví dụ c thay vì 1c).\nCho một xâu ký tự nén St. Hãy viết chương trình giải nén xâu St để thu lại xâu ký tự ban đầu.\n\n- Dữ liệu vào: Một dòng chứa xâu ký tự St gồm các chữ số và chữ cái tiếng Anh in thường (1 <= |St| <= 255).\n- Dữ liệu ra: In ra xâu ký tự sau khi giải nén.",
+        "templateCode": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3a5bc",
+            "expected": "aaabbbbbc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "4a3b",
+            "expected": "aaaabbb",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "2a10b1c",
+            "expected": "aabbbbbbbbbbc",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "xyz",
+            "expected": "xyz",
             "point": 2.5,
             "is_hidden": true
           }
@@ -33632,7 +33717,8 @@
       "minh__Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)",
       "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n",
       "loc__Quản lý xuất nhập kho hàng theo nguyên tắc FIFO": "from collections import deque\n\nM = int(input().strip())\nkho = deque()\ntong_von = 0\n\nfor _ in range(M):\n    lenh = input().split()\n    if lenh[0] == \"NHAP\":\n        sl, gia = int(lenh[1]), int(lenh[2])\n        kho.append([sl, gia])\n    else:\n        xuat = int(lenh[1])\n        while xuat > 0 and kho:\n            if kho[0][0] <= xuat:\n                tong_von += kho[0][0] * kho[0][1]\n                xuat -= kho[0][0]\n                kho.popleft()\n            else:\n                tong_von += xuat * kho[0][1]\n                kho[0][0] -= xuat\n                xuat = 0\n\nprint(tong_von)",
-      "loc__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)"
+      "loc__Bài 8. Tìm số trong dãy quy luật": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
+      "loc__Bài 13. Giải nén xâu ký tự": "St = input().strip()\n\nkq = []\ni = 0\nn = len(St)\n\nwhile i < n:\n    num = 0\n    has_num = False\n\n    while i < n and St[i].isdigit():\n        num = num * 10 + int(St[i])\n        i += 1\n        has_num = True\n\n    if not has_num:\n        num = 1\n\n    if i < n:\n        ch = St[i]\n        kq.append(ch * num)\n        i += 1\n\nprint(\"\".join(kq))"
     },
     "questionFlags": {
       "43": true
