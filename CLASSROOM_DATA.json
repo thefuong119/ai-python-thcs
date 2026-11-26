@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T01:54:52.043Z",
+    "updatedAt": "2026-11-26T02:00:34.138Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -30361,6 +30361,7 @@
         "3": true,
         "4": true,
         "5": true,
+        "6": true,
         "7": true
       },
       "minh": {
