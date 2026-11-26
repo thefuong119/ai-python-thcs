@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T14:28:51.100Z",
+    "updatedAt": "2026-11-26T14:29:04.624Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 39,
+        "attempts": 40,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "21:28:50 26/11/2026"
+        "lastSubmit": "21:29:04 26/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795703344518,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 3. Đếm số lượng số chẵn trong dãy",
+        "assignmentId": 3,
+        "score": 0,
+        "timestamp": "21:29:04 26/11/2026",
+        "date": "2026-11-26",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "5\n1 2 3 4 5",
+            "expected": "2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "4\n1 3 5 7",
+            "expected": "0",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "6\n2 4 6 8 10 12",
+            "expected": "6",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "3\n0 -2 5",
+            "expected": "2",
+            "actual": "",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Mã nguồn cho bài Đếm số lượng số chẵn trong dãy\nn= int(input())\na= list(map(int, input().split()))\ncount= sum( for i in a if i % 2==0 )\nprint(count)"
+      },
       {
         "id": 1795703330932,
         "student": "Nguyễn Phú Lộc",
