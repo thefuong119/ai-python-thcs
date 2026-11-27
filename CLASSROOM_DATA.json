@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-27T03:40:40.341Z",
-    "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-27T13:36:03.523Z",
+    "updatedBy": "Phan Trọng Khương",
+    "action": "Học sinh Phan Trọng Khương nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -166,7 +166,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 1,
+        "loginCount": 2,
         "_hasPassword": true,
         "passwordHash": "47a19a442d65afb4ca931fc9c8337258346df053b536e75cd69af07719c60b94",
         "cccd": "",
@@ -19991,9 +19991,9 @@
       {
         "student": "Phan Trọng Khương",
         "username": "trongkhuong8a4",
-        "attempts": 12,
+        "attempts": 13,
         "highestScore": 10,
-        "lastSubmit": "19:51:24 18/11/2026"
+        "lastSubmit": "20:36:03 27/11/2026"
       },
       {
         "student": "Phan TRọng Khương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795786563297,
+        "student": "Phan Trọng Khương",
+        "username": "khuong",
+        "assignmentTitle": "Bài 26. Lọc ký tự chữ và số của thí sinh",
+        "assignmentId": 34,
+        "score": 10,
+        "timestamp": "20:36:03 27/11/2026",
+        "date": "2026-11-27",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "123abcABC",
+            "expected": "9\n123abcABC",
+            "actual": "9\n123abcABC",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Tin @! Hoc:; Pro #&%2026",
+            "expected": "13\nTinHocPro2026",
+            "actual": "13\nTinHocPro2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "THCS, Thanh Dong - 2026!",
+            "expected": "17\nTHCSThanhDong2026",
+            "actual": "17\nTHCSThanhDong2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "@#$$%^&*",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)"
+      },
       {
         "id": 1795750829792,
         "student": "Nguyễn Phú Lộc",
@@ -29656,6 +29701,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:27:17 27/11/2026",
+        "name": "Phan Trọng Khương",
+        "identifier": "khuong",
+        "role": "student",
+        "result": "Thành công"
+      },
+      {
         "time": "11:03:01 26/11/2026",
         "name": "Bùi Lê Uyên Nhi",
         "identifier": "nhi",
@@ -30567,6 +30619,7 @@
         "1": true
       },
       "khuong": {
+        "34": true,
         "37": true,
         "44": true
       },
@@ -33609,7 +33662,8 @@
       "minh__Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)",
       "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n",
       "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nmt= 3+(m-1)*(m+2)//2\nprint(mt)",
-      "loc__Bài 15. Phân số nhỏ nhất": "import math\na= int(input().strip())\nb= int(input().strip())\nc= int(input().strip())\ntu= min(a, b, c)\nmau= max(a, b, c)\nuoc= math.gcd(tu, mau)\nprint((tu//uoc)+(mau//uoc))"
+      "loc__Bài 15. Phân số nhỏ nhất": "import math\na= int(input().strip())\nb= int(input().strip())\nc= int(input().strip())\ntu= min(a, b, c)\nmau= max(a, b, c)\nuoc= math.gcd(tu, mau)\nprint((tu//uoc)+(mau//uoc))",
+      "khuong__Bài 26. Lọc ký tự chữ và số của thí sinh": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)"
     },
     "questionFlags": {
       "43": true
@@ -33620,18 +33674,6 @@
       "teacherCanDelete": false,
       "teacherCanPushServer": true,
       "teacherCanLoadServer": false,
-      "teacherCanAddLectures": true,
-      "teacherCanEditLectures": true,
-      "teacherCanDeleteLectures": false,
-      "teacherCanAddAssignments": true,
-      "teacherCanEditAssignments": true,
-      "teacherCanDeleteAssignments": false,
-      "teacherCanAddQuiz": true,
-      "teacherCanEditQuiz": true,
-      "teacherCanDeleteQuiz": false,
-      "teacherCanReplyMessages": true,
-      "teacherCanDeleteMessages": false,
-      "teacherCanViewLogs": true,
       "lectures": {
         "add": true,
         "edit": true,
@@ -33654,12 +33696,21 @@
       "logs": {
         "delete": true
       },
+      "teacherCanAddLectures": true,
+      "teacherCanEditLectures": true,
+      "teacherCanDeleteLectures": false,
       "teacherCanViewLectures": true,
+      "teacherCanAddAssignments": true,
+      "teacherCanEditAssignments": true,
+      "teacherCanDeleteAssignments": false,
       "teacherCanViewAssignments": true,
       "teacherCanAddTests": true,
       "teacherCanEditTests": true,
       "teacherCanDeleteTests": false,
       "teacherCanViewTests": true,
+      "teacherCanAddQuiz": true,
+      "teacherCanEditQuiz": true,
+      "teacherCanDeleteQuiz": false,
       "teacherCanViewQuiz": true,
       "teacherCanAddSubmissions": true,
       "teacherCanEditSubmissions": true,
@@ -33672,9 +33723,12 @@
       "teacherCanAddLogs": true,
       "teacherCanEditLogs": true,
       "teacherCanDeleteLogs": false,
+      "teacherCanViewLogs": true,
       "teacherCanAddMessages": true,
       "teacherCanEditMessages": true,
-      "teacherCanViewMessages": true
+      "teacherCanDeleteMessages": false,
+      "teacherCanViewMessages": true,
+      "teacherCanReplyMessages": true
     },
     "studentMessages": [
       {
