@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-27T03:29:38.889Z",
+    "updatedAt": "2026-11-27T03:34:00.935Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 32,
+        "attempts": 33,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "23:24:06 25/11/2026"
+        "lastSubmit": "10:34:00 27/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795750440671,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 8. Tìm số trong dãy quy luật",
+        "assignmentId": 8,
+        "score": 10,
+        "timestamp": "10:34:00 27/11/2026",
+        "date": "2026-11-27",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3",
+            "expected": "8",
+            "actual": "8",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "6",
+            "expected": "23",
+            "actual": "23",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10",
+            "expected": "57",
+            "actual": "57",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000000",
+            "expected": "500000000500000002",
+            "actual": "500000000500000002",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "m= int(input().strip())\nmt= 3+(m-1)*(m+2)//2\nprint(mt)"
+      },
       {
         "id": 1795623846619,
         "student": "Nguyễn Phú Lộc",
@@ -30376,7 +30421,8 @@
         "4": true,
         "5": true,
         "6": true,
-        "7": true
+        "7": true,
+        "8": true
       },
       "minh": {
         "1": true,
@@ -30728,6 +30774,45 @@
             "id": 4,
             "input": "ACEGIK",
             "expected": "ACEGIK",
+            "point": 2.5,
+            "is_hidden": true
+          }
+        ]
+      },
+      "8": {
+        "id": 8,
+        "title": "Bài 8. Tìm số trong dãy quy luật",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Trong Hội thi Tin học trẻ, các thí sinh được xếp thành một hàng và đánh số báo danh $T_i$1$T_1$1$T_2$1$T_3$1$T_4$1$T_5$1$T_6$1$T_m$.\nCho số nguyên dương m. Hãy tìm số báo danh T_m của thí sinh đứng tại vị trí thứ m.\n- Dữ liệu vào: Nhập từ bàn phím một số nguyên dương m (1 <= m <= $10^9$).\n- Dữ liệu ra: In ra giá trị của số báo danh $T_m$.",
+        "templateCode": "m = int(input().strip())\ntm = 3 + (m - 1) * (m + 2) // 2\nprint(tm)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "3",
+            "expected": "8",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "6",
+            "expected": "23",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "10",
+            "expected": "57",
+            "point": 2.5,
+            "is_hidden": true
+          },
+          {
+            "id": 4,
+            "input": "1000000000",
+            "expected": "500000000500000002",
             "point": 2.5,
             "is_hidden": true
           }
@@ -33438,7 +33523,8 @@
       "minh__Bài 28 (Vòng lặp while): Tính số tháng gửi tiết kiệm đạt mục tiêu": "# Viết mã Python của em ở đây...\nNhapVao = input()\nP = int(NhapVao.split()[0])\nM = int(NhapVao.split()[1])\nr = float(NhapVao.split()[2])\nNgay = 0\nwhile P < M:\n    P += P*r/100\n    Ngay += 1\nprint(Ngay)",
       "minh__Bài 30 (Vòng lặp while): Tính trung bình cộng các số không âm đến khi gặp số âm": "# Viết mã Python của em ở đây...\nn = int(input())\nif n < 0: print('0.00')\nelse:\n    Dem = 0\n    Tong = 0\n    while n >= 0:\n        Dem += 1\n        Tong += n\n        n = int(input())\n    print(f'{Tong/Dem:.2f}')",
       "minh__Bài 46 (Xử lý xâu): Đếm số lượng chữ cái và chữ số trong xâu": "# Viết mã Python của em ở đây...\nS = input()\nChu = 0\nSo = 0\nfor i in S:\n    if i.isalpha():\n        Chu += 1\n    elif i.isdigit():\n        So += 1\nprint(Chu,So)",
-      "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n"
+      "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n",
+      "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nmt= 3+(m-1)*(m+2)//2\nprint(mt)"
     },
     "questionFlags": {
       "43": true
