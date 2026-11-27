@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-26T14:36:01.272Z",
+    "updatedAt": "2026-11-27T03:01:44.619Z",
     "updatedBy": "Khách",
     "action": "Ẩn trang - Đồng bộ tự động"
   },
@@ -106,7 +106,7 @@
         "status": "active",
         "firstLogin": "2026-10-23 10:00",
         "lastLogin": "2026-10-25 08:50",
-        "loginCount": 6,
+        "loginCount": 5,
         "_hasPassword": true,
         "passwordHash": "fbdc9a142a86c7b7024c40df0fdfd2d2288f0b93ce3d28e343d3bf6b70a75aa3",
         "cccd": "",
@@ -146,7 +146,7 @@
         "status": "active",
         "firstLogin": "Từ Admin",
         "lastLogin": "Chưa ĐN",
-        "loginCount": 21,
+        "loginCount": 20,
         "_hasPassword": true,
         "passwordHash": "c0b2d4bafa0165dad3d29c61687eae696cb29c040ae316dffa5d57d8a07900d2",
         "password": null
@@ -258,7 +258,7 @@
         "phone": "0123456789",
         "role": "teacher",
         "status": "active",
-        "loginCount": 10,
+        "loginCount": 9,
         "_hasPassword": true,
         "passwordHash": "712b653288300149d5315e64dfe4b50755b209086d0808ac44e63f51de96bf33",
         "cccd": "",
@@ -29566,41 +29566,6 @@
     ],
     "loginLogs": [
       {
-        "time": "11:03:01 26/11/2026",
-        "name": "Bùi Lê Uyên Nhi",
-        "identifier": "nhi",
-        "role": "student",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "10:51:45 26/11/2026",
-        "name": "Bùi Lê Uyên Nhi",
-        "identifier": "nhi",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "08:54:39 26/11/2026",
-        "name": "Nguyễn Phú Lộc",
-        "identifier": "loc",
-        "role": "student",
-        "result": "Thành công"
-      },
-      {
-        "time": "23:48:49 25/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Đăng xuất"
-      },
-      {
-        "time": "23:48:33 25/11/2026",
-        "name": "Giáo viên Demo",
-        "identifier": "giaovien",
-        "role": "teacher",
-        "result": "Thành công"
-      },
-      {
         "time": "22:26:47 25/11/2026",
         "name": "Nguyễn Phú Lộc",
         "identifier": "loc",
@@ -30375,7 +30340,6 @@
         "3": true,
         "4": true,
         "5": true,
-        "6": true,
         "7": true
       },
       "minh": {
