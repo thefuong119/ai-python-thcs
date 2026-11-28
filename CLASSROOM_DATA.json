@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T13:03:30.389Z",
-    "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "updatedAt": "2026-11-28T13:22:53.560Z",
+    "updatedBy": "Học sinh Demo",
+    "action": "Học sinh Học sinh Demo nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19929,10 +19929,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 8,
+        "attempts": 9,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "08:48:59 22/11/2026"
+        "lastSubmit": "20:22:53 28/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795872173434,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "assignmentTitle": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "assignmentId": 471,
+        "score": 10,
+        "timestamp": "20:22:53 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")"
+      },
       {
         "id": 1795870618050,
         "student": "Lê Nguyễn Quang Minh",
@@ -31024,7 +31069,8 @@
         "27": true,
         "28": true,
         "394": true,
-        "395": true
+        "395": true,
+        "471": true
       },
       "han": {
         "43": true
@@ -33426,6 +33472,45 @@
           }
         ]
       },
+      "471": {
+        "id": 471,
+        "title": "Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)",
+        "classLevel": "9",
+        "difficulty": "medium",
+        "timeLimit": 2,
+        "description": "Hai xâu được gọi là đảo chữ (Anagram) của nhau nếu sau khi loại bỏ dấu cách và không phân biệt chữ hoa hay chữ thường, xâu này có thể thu được bằng cách hoán đổi vị trí các ký tự của xâu kia (ví dụ \"Listen\" và \"Silent\"). Nhập hai xâu $S_1$ và $S_2$ trên hai dòng. Nếu hai xâu là đảo chữ của nhau thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Listen\nSilent",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Dormitory\nDirty room",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Hello\nWorld",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "aab\nabb",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "492": {
         "id": 492,
         "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
@@ -34406,7 +34491,8 @@
       "minh__Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)",
       "minh__Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nS = input()\ni = 0\nflag = 1\nwhile i < len(S)//2:\n    if S[i] != S[len(S)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')",
       "minh__Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu": "# Viết mã Python của em ở đây...\nS = input().split()\nKetQua = ''\nfor i in S:\n    KetQua += i + ' '\nprint(len(S))\nprint(KetQua[:-1])",
-      "minh__Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '':\n    print('NONE')\n    print(So)\nelif So == '':\n    print(Chu)\n    print('NONE')\nelse:\n    print(Chu)\n    print(So)"
+      "minh__Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '':\n    print('NONE')\n    print(So)\nelif So == '':\n    print(Chu)\n    print('NONE')\nelse:\n    print(Chu)\n    print(So)",
+      "hocsinh__Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")"
     },
     "questionFlags": {
       "43": true
