@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T15:57:05.134Z",
+    "updatedAt": "2026-11-28T15:59:10.005Z",
     "updatedBy": "Nguyễn Phú Lộc",
     "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 40,
+        "attempts": 41,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "22:57:04 28/11/2026"
+        "lastSubmit": "22:59:09 28/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795881549683,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 22. Số cạnh tạo thành tam giác",
+        "assignmentId": 30,
+        "score": 10,
+        "timestamp": "22:59:09 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "3 4",
+            "expected": "5",
+            "actual": "5",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "6 8",
+            "expected": "11",
+            "actual": "11",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "10 10",
+            "expected": "19",
+            "actual": "19",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "1000000 500000",
+            "expected": "999999",
+            "actual": "999999",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s, n= map(int, input().split())\nprint(2*min(s, n)-1)"
+      },
       {
         "id": 1795881424874,
         "student": "Nguyễn Phú Lộc",
@@ -34783,7 +34828,7 @@
       "hocsinh__Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")",
       "loc__Bài 16. Rút gọn tối đa dãy số": "s= input().strip()\ndigits= [int(ch) for ch in s ]\nwhile len(digits)> 1:\n    tong= sum(digits)\n    digits= [int(ch) for ch in str(tong) ]\nprint(digits[0])\n    ",
       "loc__Bài 21. Tách từ và tìm từ dài nhất": "s= input().strip()\nword= s.split()\nprint(len(word))\nif word:\n    max_word = max(word, key=len )\nprint(max_word)",
-      "loc__Bài 22. Số cạnh tạo thành tam giác": "# Viết mã Python của em ở đây...\ns, n = map(int, input().split())\nx= 0\nwhile x<=s and x<=n:\n    x+=1\nif x:\n    x>n\n    x>s\n    print(x)\n    "
+      "loc__Bài 22. Số cạnh tạo thành tam giác": "s, n= map(int, input().split())\nprint(2*min(s, n)-1)"
     },
     "questionFlags": {
       "43": true
