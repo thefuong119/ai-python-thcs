@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T15:35:14.743Z",
+    "updatedAt": "2026-11-28T15:40:56.651Z",
     "updatedBy": "Nguyễn Phú Lộc",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Nguyễn Phú Lộc nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19937,10 +19937,10 @@
       {
         "student": "Nguyễn Phú Lộc",
         "username": "loc",
-        "attempts": 35,
+        "attempts": 36,
         "totalScore": 125,
         "highestScore": 10,
-        "lastSubmit": "22:31:45 28/11/2026"
+        "lastSubmit": "22:40:56 28/11/2026"
       },
       {
         "student": "Thầy Nguyễn Thế Phương",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795880456463,
+        "student": "Nguyễn Phú Lộc",
+        "username": "loc",
+        "assignmentTitle": "Bài 21. Tách từ và tìm từ dài nhất",
+        "assignmentId": 29,
+        "score": 2.5,
+        "timestamp": "22:40:56 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Co cong mai sat co ngay nen kim",
+            "expected": "8\ncong",
+            "actual": "8\nsat",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "Hoc tin hoc de thanh cong",
+            "expected": "6\nthanh",
+            "actual": "6\ntin",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "Lap trinh Python that tuyet voi",
+            "expected": "6\nPython",
+            "actual": "6\nvoi",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "Mot con buom vang bay qua",
+            "expected": "6\nvang",
+            "actual": "6\nvang",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "s= input().strip()\nword= s.split()\nprint(len(word))\nmax_word= max(word)\nprint(max_word)"
+      },
       {
         "id": 1795879905056,
         "student": "Nguyễn Phú Lộc",
@@ -31044,7 +31089,8 @@
         "7": true,
         "8": true,
         "20": true,
-        "21": true
+        "21": true,
+        "29": true
       },
       "minh": {
         "1": true,
@@ -34554,7 +34600,8 @@
       "minh__Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu": "# Viết mã Python của em ở đây...\nS = input().split()\nKetQua = ''\nfor i in S:\n    KetQua += i + ' '\nprint(len(S))\nprint(KetQua[:-1])",
       "minh__Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '':\n    print('NONE')\n    print(So)\nelif So == '':\n    print(Chu)\n    print('NONE')\nelse:\n    print(Chu)\n    print(So)",
       "hocsinh__Bài 55 (Xử lý xâu): Kiểm tra hai xâu đảo chữ (Anagram)": "s1 = input().replace(\" \", \"\").lower()\ns2 = input().replace(\" \", \"\").lower()\nif sorted(s1) == sorted(s2):\n    print(\"Co\")\nelse:\n    print(\"Khong\")",
-      "loc__Bài 16. Rút gọn tối đa dãy số": "s= input().strip()\ndigits= [int(ch) for ch in s ]\nwhile len(digits)> 1:\n    tong= sum(digits)\n    digits= [int(ch) for ch in str(tong) ]\nprint(digits[0])\n    "
+      "loc__Bài 16. Rút gọn tối đa dãy số": "s= input().strip()\ndigits= [int(ch) for ch in s ]\nwhile len(digits)> 1:\n    tong= sum(digits)\n    digits= [int(ch) for ch in str(tong) ]\nprint(digits[0])\n    ",
+      "loc__Bài 21. Tách từ và tìm từ dài nhất": "s= input().strip()\nword= s.split()\nprint(len(word))\nmax_word= max(word)\nprint(max_word)"
     },
     "questionFlags": {
       "43": true
