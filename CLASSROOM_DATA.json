@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T12:56:45.643Z",
+    "updatedAt": "2026-11-28T12:56:58.125Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 172,
+        "attempts": 173,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "19:56:45 28/11/2026"
+        "lastSubmit": "19:56:58 28/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795870618050,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp",
+        "assignmentId": 466,
+        "score": 10,
+        "timestamp": "19:56:58 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Tin8Hoc9Pro2026!",
+            "expected": "TinHocPro\n892026",
+            "actual": "TinHocPro\n892026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "2026",
+            "expected": "NONE\n2026",
+            "actual": "NONE\n2026",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Python",
+            "expected": "Python\nNONE",
+            "actual": "Python\nNONE",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "a1b2c3",
+            "expected": "abc\n123",
+            "actual": "abc\n123",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '':\n    print('NONE')\n    print(So)\nelif So == '':\n    print(Chu)\n    print('NONE')\nelse:\n    print(Chu)\n    print(So)"
+      },
       {
         "id": 1795870605573,
         "student": "Lê Nguyễn Quang Minh",
@@ -30952,6 +30997,7 @@
         "463": true,
         "464": true,
         "465": true,
+        "466": true,
         "492": true,
         "493": true,
         "494": true,
@@ -33336,6 +33382,45 @@
             "id": 4,
             "input": "a b c",
             "expected": "3\na b c",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "466": {
+        "id": 466,
+        "title": "Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm chữ cái tiếng Anh, chữ số và ký tự đặc biệt. Hãy tạo ra hai xâu mới theo đúng thứ tự xuất hiện ban đầu: xâu $S_1$ chỉ gồm các chữ cái tiếng Anh, xâu $S_2$ chỉ gồm các chữ số. Dòng thứ nhất in ra $S_1$ (nếu rỗng in ra NONE), dòng thứ hai in ra $S_2$ (nếu rỗng in ra NONE).",
+        "templateCode": "s = input()\ns1 = \"\"\ns2 = \"\"\nfor ch in s:\n if ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):\n s1 += ch\n elif '0' <= ch <= '9':\n s2 += ch\nprint(s1 if s1 else \"NONE\")\nprint(s2 if s2 else \"NONE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Tin8Hoc9Pro2026!",
+            "expected": "TinHocPro\n892026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2026",
+            "expected": "NONE\n2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Python",
+            "expected": "Python\nNONE",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a1b2c3",
+            "expected": "abc\n123",
             "point": 2.5,
             "is_hidden": false
           }
