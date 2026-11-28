@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T13:22:53.560Z",
+    "updatedAt": "2026-11-28T13:26:50.710Z",
     "updatedBy": "Học sinh Demo",
-    "action": "Học sinh Học sinh Demo nộp bài"
+    "action": "HS Học sinh Demo nộp bài trắc nghiệm"
   },
   "data": {
     "registeredUsers": [
@@ -19929,10 +19929,10 @@
       {
         "student": "Học sinh Demo",
         "username": "hocsinh",
-        "attempts": 9,
+        "attempts": 10,
         "totalScore": 10,
         "highestScore": 10,
-        "lastSubmit": "20:22:53 28/11/2026"
+        "lastSubmit": "20:26:50 28/11/2026"
       },
       {
         "student": "Nguyễn Phú Lộc",
@@ -30151,6 +30151,13 @@
     ],
     "loginLogs": [
       {
+        "time": "20:26:50 28/11/2026",
+        "name": "Học sinh Demo",
+        "identifier": "hocsinh",
+        "role": "student",
+        "result": "Trắc nghiệm 6.0/10"
+      },
+      {
         "time": "19:19:44 28/11/2026",
         "name": "Lê Nguyễn Quang Minh",
         "identifier": "minh",
@@ -36574,6 +36581,94 @@
       }
     ],
     "quizSubmissions": [
+      {
+        "id": 1795872410613,
+        "student": "Học sinh Demo",
+        "username": "hocsinh",
+        "className": "8A1",
+        "quizTitle": "Trắc nghiệm 5 câu - 28/11/2026",
+        "testId": null,
+        "testTitle": null,
+        "totalQuestions": 5,
+        "correctCount": 3,
+        "score": 6,
+        "answers": [
+          {
+            "questionId": 8,
+            "question": "Kết quả của chương trình sau là gì? x = -2\nif x > 0:\n    print('Duong')\nelse:\n    print('Am')",
+            "options": [
+              "Duong",
+              "Am",
+              "-2",
+              "Không in gì"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "-2 > 0 là False, thực thi khối else, in ra 'Am'."
+          },
+          {
+            "questionId": 53,
+            "question": "Kết quả của chương trình sau là gì? \na = (10,20,30,40)\nprint(a[1])",
+            "options": [
+              "10",
+              "20",
+              "30",
+              "40"
+            ],
+            "correctAnswer": "B",
+            "userAnswer": "B",
+            "isCorrect": true,
+            "explanation": "Lấy phần tử ở vị trí index 1 (vị trí thứ 2), là 20."
+          },
+          {
+            "questionId": 80,
+            "question": "Kết quả của chương trình sau là gì? \na=[2,3,4,5,6]\nk=0\nfor x in a:\n    if x>3:\n         k+=x\n    print(k)",
+            "options": [
+              "9",
+              "12",
+              "15",
+              "18"
+            ],
+            "correctAnswer": "C",
+            "userAnswer": "C",
+            "isCorrect": true,
+            "explanation": "Tính tổng các phần tử lớn hơn 3. Đó là 4+5+6 = 15."
+          },
+          {
+            "questionId": 31,
+            "question": "Kết quả của chương trình sau là gì? \ns = 'Python'\nprint(s[0:4])",
+            "options": [
+              "Pyth",
+              "Pytho",
+              "Python",
+              "ytho"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "B",
+            "isCorrect": false,
+            "explanation": "Cắt chuỗi s[0:4] sẽ lấy các ký tự từ vị trí 0 đến 3: P, y, t, h."
+          },
+          {
+            "questionId": 17,
+            "question": "Kết quả của chương trình sau là gì? for i in range(5):\nif i == 3:\n    break\nprint(i,end=' ')",
+            "options": [
+              "0 1 2",
+              "0 1 2 3",
+              "1 2 3",
+              "0 1"
+            ],
+            "correctAnswer": "A",
+            "userAnswer": "B",
+            "isCorrect": false,
+            "explanation": "Khi i = 3, lệnh break sẽ dừng vòng lặp ngay lập tức. Do đó chỉ in 0 1 2."
+          }
+        ],
+        "timestamp": "20:26:50 28/11/2026",
+        "date": "2026-11-28",
+        "startedAt": 1795872213341,
+        "duration": 197
+      },
       {
         "id": 1794919685150,
         "student": "Lê Nguyễn Quang Minh",
