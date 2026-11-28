@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T12:33:21.251Z",
+    "updatedAt": "2026-11-28T12:33:46.315Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 164,
+        "attempts": 165,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "08:35:55 25/11/2026"
+        "lastSubmit": "19:33:46 28/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795869226210,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu",
+        "assignmentId": 463,
+        "score": 10,
+        "timestamp": "19:33:46 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Lap trinh Python",
+            "expected": "3",
+            "actual": "3",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "AEIOU aeiou",
+            "expected": "10",
+            "actual": "10",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "BCDFG",
+            "expected": "0",
+            "actual": "0",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "Hoc sinh gioi Tin hoc",
+            "expected": "7",
+            "actual": "7",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)"
+      },
       {
         "id": 1795786563297,
         "student": "Phan Trọng Khương",
@@ -30589,6 +30634,7 @@
         "445": true,
         "446": true,
         "462": true,
+        "463": true,
         "492": true,
         "493": true,
         "494": true,
@@ -32857,6 +32903,45 @@
           }
         ]
       },
+      "463": {
+        "id": 463,
+        "title": "Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ chỉ gồm các chữ cái tiếng Anh và dấu cách. Hãy đếm và in ra số lượng chữ cái nguyên âm có trong xâu $S$ (các nguyên âm tiếng Anh gồm: a, e, i, o, u, không phân biệt chữ hoa hay chữ thường).",
+        "templateCode": "s = input()\nnguyen_am = \"aeiouAEIOU\"\ndem = 0\nfor ch in s:\n if ch in nguyen_am:\n dem += 1\nprint(dem)",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Lap trinh Python",
+            "expected": "3",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "AEIOU aeiou",
+            "expected": "10",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "BCDFG",
+            "expected": "0",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "Hoc sinh gioi Tin hoc",
+            "expected": "7",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "492": {
         "id": 492,
         "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
@@ -33677,7 +33762,8 @@
       "loc__Bài 7. Chuỗi đơn điệu": "s = input().strip()\n\nif s:\n    r = s[0]\n\n    for i in s[1:]:\n        if i > r[-1]:\n            r += i\n\n    print(r)\n",
       "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nmt= 3+(m-1)*(m+2)//2\nprint(mt)",
       "loc__Bài 15. Phân số nhỏ nhất": "import math\na= int(input().strip())\nb= int(input().strip())\nc= int(input().strip())\ntu= min(a, b, c)\nmau= max(a, b, c)\nuoc= math.gcd(tu, mau)\nprint((tu//uoc)+(mau//uoc))",
-      "khuong__Bài 26. Lọc ký tự chữ và số của thí sinh": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)"
+      "khuong__Bài 26. Lọc ký tự chữ và số của thí sinh": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)",
+      "minh__Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)"
     },
     "questionFlags": {
       "43": true
