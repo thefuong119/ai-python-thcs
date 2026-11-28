@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T12:38:28.270Z",
+    "updatedAt": "2026-11-28T12:40:38.851Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 166,
+        "attempts": 167,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "19:33:58 28/11/2026"
+        "lastSubmit": "19:40:38 28/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795869638765,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)",
+        "assignmentId": 464,
+        "score": 10,
+        "timestamp": "19:40:38 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "radar",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "python",
+            "expected": "Khong",
+            "actual": "Khong",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "abba",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "a",
+            "expected": "Co",
+            "actual": "Co",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\ni = 0\nflag = 1\nwhile i < len(S)//2:\n    if S[i] != S[len(S)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
+      },
       {
         "id": 1795869238792,
         "student": "Lê Nguyễn Quang Minh",
@@ -30680,6 +30725,7 @@
         "446": true,
         "462": true,
         "463": true,
+        "464": true,
         "492": true,
         "493": true,
         "494": true,
@@ -32988,6 +33034,45 @@
           }
         ]
       },
+      "464": {
+        "id": 464,
+        "title": "Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Một xâu được gọi là đối xứng nếu đọc từ trái sang phải cũng giống như đọc từ phải sang trái (ví dụ: \"madam\", \"abba\"). Nhập vào một xâu ký tự $S$ không chứa dấu cách. Nếu $S$ là xâu đối xứng thì in ra Co, ngược lại in ra Khong.",
+        "templateCode": "s = input().strip()\nif s == s[::-1]:\n print(\"Co\")\nelse:\n print(\"Khong\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "radar",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "python",
+            "expected": "Khong",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "abba",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a",
+            "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
       "492": {
         "id": 492,
         "title": "Bài 16 (Rẽ nhánh): Tính tiền điện sinh hoạt theo bậc thang",
@@ -33848,7 +33933,8 @@
       "loc__Bài 8. Tìm số trong dãy quy luật": "m= int(input().strip())\nmt= 3+(m-1)*(m+2)//2\nprint(mt)",
       "loc__Bài 15. Phân số nhỏ nhất": "import math\na= int(input().strip())\nb= int(input().strip())\nc= int(input().strip())\ntu= min(a, b, c)\nmau= max(a, b, c)\nuoc= math.gcd(tu, mau)\nprint((tu//uoc)+(mau//uoc))",
       "khuong__Bài 26. Lọc ký tự chữ và số của thí sinh": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)",
-      "minh__Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)"
+      "minh__Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)",
+      "minh__Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nS = input()\ni = 0\nflag = 1\nwhile i < len(S)//2:\n    if S[i] != S[len(S)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')"
     },
     "questionFlags": {
       "43": true
