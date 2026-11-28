@@ -1,7 +1,7 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T12:46:38.058Z",
+    "updatedAt": "2026-11-28T12:47:00.984Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
     "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 169,
+        "attempts": 170,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "19:46:37 28/11/2026"
+        "lastSubmit": "19:47:00 28/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795870020909,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu",
+        "assignmentId": 465,
+        "score": 10,
+        "timestamp": "19:47:00 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Chao mung cac ban",
+            "expected": "4\nChao mung cac ban",
+            "actual": "4\nChao mung cac ban",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 2,
+            "input": "Python",
+            "expected": "1\nPython",
+            "actual": "1\nPython",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 3,
+            "input": "Thi HSG Tin hoc",
+            "expected": "4\nThi HSG Tin hoc",
+            "actual": "4\nThi HSG Tin hoc",
+            "passed": true,
+            "points": 2.5
+          },
+          {
+            "testId": 4,
+            "input": "a b c",
+            "expected": "3\na b c",
+            "actual": "3\na b c",
+            "passed": true,
+            "points": 2.5
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input().split()\nKetQua = ''\nfor i in S:\n    KetQua += i + ' '\nprint(len(S))\nprint(KetQua[:-1])"
+      },
       {
         "id": 1795869997968,
         "student": "Lê Nguyễn Quang Minh",
@@ -30816,6 +30861,7 @@
         "462": true,
         "463": true,
         "464": true,
+        "465": true,
         "492": true,
         "493": true,
         "494": true,
@@ -33160,6 +33206,45 @@
             "id": 4,
             "input": "a",
             "expected": "Co",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
+      },
+      "465": {
+        "id": 465,
+        "title": "Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm nhiều từ cách nhau bởi một hoặc nhiều dấu cách (có thể có dấu cách thừa ở đầu và cuối xâu). Hãy xóa hết các dấu cách thừa (giữa các từ chỉ giữ lại đúng $1$ dấu cách). Dòng đầu tiên in ra số lượng từ trong câu; dòng thứ hai in ra xâu sau khi đã chuẩn hóa.",
+        "templateCode": "s = input()\ntu = s.split()\nprint(len(tu))\nprint(\" \".join(tu))",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Chao mung cac ban",
+            "expected": "4\nChao mung cac ban",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "Python",
+            "expected": "1\nPython",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Thi HSG Tin hoc",
+            "expected": "4\nThi HSG Tin hoc",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a b c",
+            "expected": "3\na b c",
             "point": 2.5,
             "is_hidden": false
           }
