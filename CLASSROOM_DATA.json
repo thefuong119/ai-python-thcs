@@ -1,9 +1,9 @@
 {
   "metadata": {
     "repo": "https://github.com/thefuong119/ai-python-thcs",
-    "updatedAt": "2026-11-28T12:51:38.198Z",
+    "updatedAt": "2026-11-28T12:54:37.712Z",
     "updatedBy": "Lê Nguyễn Quang Minh",
-    "action": "Ẩn trang - Đồng bộ tự động"
+    "action": "Học sinh Lê Nguyễn Quang Minh nộp bài"
   },
   "data": {
     "registeredUsers": [
@@ -19953,10 +19953,10 @@
       {
         "student": "Lê Nguyễn Quang Minh",
         "username": "minh",
-        "attempts": 170,
+        "attempts": 171,
         "totalScore": 60,
         "highestScore": 10,
-        "lastSubmit": "19:47:00 28/11/2026"
+        "lastSubmit": "19:54:37 28/11/2026"
       },
       {
         "student": "Trần Thị Trúc Mai",
@@ -20530,6 +20530,51 @@
       }
     ],
     "studentSubmissions": [
+      {
+        "id": 1795870477636,
+        "student": "Lê Nguyễn Quang Minh",
+        "username": "minh",
+        "assignmentTitle": "Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp",
+        "assignmentId": 541,
+        "score": 0,
+        "timestamp": "19:54:37 28/11/2026",
+        "date": "2026-11-28",
+        "answers": [
+          {
+            "testId": 1,
+            "input": "Tin8Hoc9Pro2026!",
+            "expected": "TinHocPro\n892026",
+            "actual": "TinHocPro 892026",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 2,
+            "input": "2026",
+            "expected": "NONE\n2026",
+            "actual": "NONE 2026",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 3,
+            "input": "Python",
+            "expected": "Python\nNONE",
+            "actual": "Python NONE",
+            "passed": false,
+            "points": 0
+          },
+          {
+            "testId": 4,
+            "input": "a1b2c3",
+            "expected": "abc\n123",
+            "actual": "abc 123",
+            "passed": false,
+            "points": 0
+          }
+        ],
+        "code": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '': print('NONE',So)\nelif So == '': print(Chu,'NONE')\nelse: print(Chu,So)"
+      },
       {
         "id": 1795870020909,
         "student": "Lê Nguyễn Quang Minh",
@@ -30880,7 +30925,8 @@
         "537": true,
         "538": true,
         "539": true,
-        "540": true
+        "540": true,
+        "541": true
       },
       "hocsinh": {
         "1": true,
@@ -33990,6 +34036,45 @@
             "is_hidden": false
           }
         ]
+      },
+      "541": {
+        "id": 541,
+        "title": "Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp",
+        "classLevel": "8",
+        "difficulty": "easy",
+        "timeLimit": 2,
+        "description": "Nhập vào một xâu ký tự $S$ gồm chữ cái tiếng Anh, chữ số và ký tự đặc biệt. Hãy tạo ra hai xâu mới theo đúng thứ tự xuất hiện ban đầu: xâu $S_1$ chỉ gồm các chữ cái tiếng Anh, xâu $S_2$ chỉ gồm các chữ số. Dòng thứ nhất in ra $S_1$ (nếu rỗng in ra NONE), dòng thứ hai in ra $S_2$ (nếu rỗng in ra NONE).",
+        "templateCode": "s = input()\ns1 = \"\"\ns2 = \"\"\nfor ch in s:\n if ('a' <= ch <= 'z') or ('A' <= ch <= 'Z'):\n s1 += ch\n elif '0' <= ch <= '9':\n s2 += ch\nprint(s1 if s1 else \"NONE\")\nprint(s2 if s2 else \"NONE\")",
+        "tests": [
+          {
+            "id": 1,
+            "input": "Tin8Hoc9Pro2026!",
+            "expected": "TinHocPro\n892026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 2,
+            "input": "2026",
+            "expected": "NONE\n2026",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 3,
+            "input": "Python",
+            "expected": "Python\nNONE",
+            "point": 2.5,
+            "is_hidden": false
+          },
+          {
+            "id": 4,
+            "input": "a1b2c3",
+            "expected": "abc\n123",
+            "point": 2.5,
+            "is_hidden": false
+          }
+        ]
       }
     },
     "testSets": [
@@ -34190,7 +34275,8 @@
       "khuong__Bài 26. Lọc ký tự chữ và số của thí sinh": "s = input()\nx =\"\".join(ch for ch in s if ch.isalnum())\nprint(len(x))\nprint(x)",
       "minh__Bài 47 (Xử lý xâu): Đếm số nguyên âm tiếng Anh trong xâu": "# Viết mã Python của em ở đây...\nS = input().lower()\nKetQua = 0\nfor i in S:\n    if (i == 'a')or(i == 'e')or(i == 'i')or(i == 'o')or(i == 'u'):\n        KetQua += 1\nprint(KetQua)",
       "minh__Bài 48 (Xử lý xâu): Kiểm tra xâu đối xứng (Palindrome)": "# Viết mã Python của em ở đây...\nS = input()\ni = 0\nflag = 1\nwhile i < len(S)//2:\n    if S[i] != S[len(S)-1-i]:\n        flag = 0\n        break\n    i += 1\nif flag == 0: print('Khong')\nelse: print('Co')",
-      "minh__Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu": "# Viết mã Python của em ở đây...\nS = input().split()\nKetQua = ''\nfor i in S:\n    KetQua += i + ' '\nprint(len(S))\nprint(KetQua[:-1])"
+      "minh__Bài 49 (Xử lý xâu): Chuẩn hóa khoảng trắng và đếm số từ trong câu": "# Viết mã Python của em ở đây...\nS = input().split()\nKetQua = ''\nfor i in S:\n    KetQua += i + ' '\nprint(len(S))\nprint(KetQua[:-1])",
+      "minh__Bài 50 (Xử lý xâu): Tách riêng phần chữ cái và phần chữ số từ xâu hỗn hợp": "# Viết mã Python của em ở đây...\nS = input()\nChu = ''\nSo = ''\nfor i in S:\n    if i.isalpha():\n        Chu += i\n    elif i.isdigit():\n        So += i\nif Chu == '': print('NONE',So)\nelif So == '': print(Chu,'NONE')\nelse: print(Chu,So)"
     },
     "questionFlags": {
       "43": true
